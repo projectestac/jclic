@@ -1,0 +1,15 @@
+Instruccions per a la instal·lació del JClic:
+
+- Descomprimir el contingut del zip en una carpeta
+- Crear un accés directe o una llençadora per a cada aplicació, amb les línies d'ordre:
+
+JClic:
+java -jar jclic.jar
+
+JClic author:
+java -Xmx256m -jar jclicauthor.jar
+
+JClic reports:
+java -jar jclicreports.jar
+
+A la carpeta "icons" hi ha alguns fitxers PNG que poden resultar útils per a crear les dreceres

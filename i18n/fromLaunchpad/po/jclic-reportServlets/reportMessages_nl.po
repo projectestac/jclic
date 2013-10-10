@@ -1,0 +1,599 @@
+# Dutch translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2008-08-10 21:18+0000\n"
+"Last-Translator: mente <cementof@gmail.com>\n"
+"Language-Team: Dutch <nl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: login_pwd
+msgid "Password:"
+msgstr "Wachtwoord:"
+
+#: login_desc
+msgid ""
+"You need to provide a valid password in order to access the reports database."
+msgstr ""
+"Je dient een geldig wachtwoord in te voeren om toegang te krijgen tot de "
+"rapporten database."
+
+#: login_title
+msgid "Login"
+msgstr "Aanmelden"
+
+#: submit
+msgid "Submit..."
+msgstr "Verzenden..."
+
+#: login_incorrect
+msgid "Incorrect password!"
+msgstr "Verkeer paswoord!"
+
+#: main_title
+msgid "Main menu"
+msgstr "Hoofdmenu"
+
+#: users_admin_title
+msgid "Users and groups admin"
+msgstr "Gebruikers en groepen admin"
+
+#: group_report_title
+msgid "Group reports"
+msgstr "Groep rapporten"
+
+#: user_report_title
+msgid "User reports"
+msgstr "Gebruikers rapport"
+
+#: act_report_title
+msgid "Activity reports"
+msgstr "Activiteiten rapporten"
+
+#: db_admin_title
+msgid "Database admin"
+msgstr "Database admin"
+
+#: db_admin_settings_error
+msgid "Unable to set the new database values!"
+msgstr "Nieuwe database waarden kunnen niet ingevoerd worden!"
+
+#: db_admin_param_agc
+msgid "Allow users to create new groups"
+msgstr "Laat gebruikers nieuwe groepen maken"
+
+#: db_admin_param_auc
+msgid "Allow users to create new users"
+msgstr "Laat gebruikers nieuwe gebruikers maken"
+
+#: db_admin_param_shgl
+msgid "Select group in a list"
+msgstr "Kies groep in een lijst"
+
+#: db_admin_param_shul
+msgid "Select user name in a list"
+msgstr "Kies gebruikersnaam in een lijst"
+
+#: db_admin_param_ut
+msgid "Database has tables of users and groups"
+msgstr "Database heeft tabellen met gebruikers en groepen"
+
+#: db_admin_edit_btn
+msgid "Edit settings..."
+msgstr "Bewerk instellingen..."
+
+#: db_admin_pw_edit_btn
+msgid "Set password..."
+msgstr "Wachtwoord instellen..."
+
+#: title
+msgid "Title"
+msgstr "Titel"
+
+#: db_admin_edit_title
+msgid "Edit database settings"
+msgstr "Database instellingen bewerken"
+
+#: db_admin_pw_edit_title
+msgid "Change system password"
+msgstr "Verander systeem wachtwoord"
+
+#: db_admin_pw_newPwd
+msgid "New password"
+msgstr "Nieuw wachtwoord"
+
+#: db_admin_pw_verifyPwd
+msgid "Retype password"
+msgstr "Wachtwoord opnieuw invoeren"
+
+#: db_admin_pw_noFit
+msgid "Password fields don't fit!"
+msgstr "Wachtwoorden komen niet overeen!"
+
+#: report_group
+msgid "Group:"
+msgstr "Groep:"
+
+#: report_user
+msgid "User:"
+msgstr "Gebruiker:"
+
+#: report_project
+msgid "Project:"
+msgstr "Project:"
+
+#: report_all_projects
+msgid "All projects"
+msgstr "Alle projecten"
+
+#: report_key
+msgid "Key:"
+msgstr "Sleutel:"
+
+#: report_code
+msgid "Code:"
+msgstr "Code:"
+
+#: report_context
+msgid "Context:"
+msgstr "Inhoud:"
+
+#: report_from
+msgid "From:"
+msgstr "Van:"
+
+#: month_1
+msgid "january"
+msgstr "januari"
+
+#: month_2
+msgid "february"
+msgstr "februari"
+
+#: month_3
+msgid "march"
+msgstr "maart"
+
+#: month_4
+msgid "april"
+msgstr "april"
+
+#: month_5
+msgid "may"
+msgstr "mei"
+
+#: month_6
+msgid "june"
+msgstr "juni"
+
+#: month_7
+msgid "july"
+msgstr "juli"
+
+#: month_8
+msgid "august"
+msgstr "augustus"
+
+#: month_9
+msgid "september"
+msgstr "september"
+
+#: month_10
+msgid "october"
+msgstr "oktober"
+
+#: month_11
+msgid "november"
+msgstr "november"
+
+#: month_12
+msgid "december"
+msgstr "december"
+
+#: report_to
+msgid "To:"
+msgstr "Tot:"
+
+#: report_global_precision
+msgid "Global precision"
+msgstr "Totale nauwkeurigheid"
+
+#: report_solved_activities
+msgid "Solved activities"
+msgstr "Opgeloste activiteiten"
+
+#: report_user_evolution
+msgid "User evolution"
+msgstr "Vooruitgang gebruiker"
+
+#: report_group_evolution
+msgid "Group evolution"
+msgstr "Vooruitgang groep"
+
+#: report_project_evolution
+msgid "Project evolution"
+msgstr "Vooruitgang project"
+
+#: report_result_distribution
+msgid "Result distribution"
+msgstr "Resultaat verdeling"
+
+#: report_no_data
+msgid "NO DATA"
+msgstr "GEEN GEGEVENS"
+
+#: report_users
+msgid "Users:"
+msgstr "Gebruikers:"
+
+#: report_sessions
+msgctxt "report_sessions"
+msgid "Sessions:"
+msgstr "Reeksen:"
+
+#: report_projects
+msgid "Projects:"
+msgstr "Projecten:"
+
+#: report_actDone
+msgid "Activities done:"
+msgstr "Activiteiten klaar:"
+
+#: report_actSolved
+msgid "Activities solved:"
+msgstr "Activiteiten opgelost:"
+
+#: report_totalTime
+msgid "Total time:"
+msgstr "Totale tijd:"
+
+#: report_globalPrec
+msgid "Global score:"
+msgstr "Puntentotaal:"
+
+#: report_globalSummary
+msgid "Global summary"
+msgstr "Samenvatting overzicht"
+
+#: report_header_date
+msgid "date"
+msgstr "datum"
+
+#: report_session_list
+msgctxt "report_session_list"
+msgid "Sessions:"
+msgstr "Reeksen:"
+
+#: report_header_user
+msgid "user"
+msgstr "gebruiker"
+
+#: report_header_project
+msgid "project"
+msgstr "project"
+
+#: report_header_numActs
+msgid "activities"
+msgstr "activiteiten"
+
+#: report_header_actsSolved
+msgid "acts. solved"
+msgstr "opgeloste activiteiten"
+
+#: report_header_time
+msgid "time"
+msgstr "tijd"
+
+#: report_header_prec
+msgid "score"
+msgstr "punten"
+
+#: report_session_detail_show
+msgid "show session details"
+msgstr "toon details reeks"
+
+#: report_session_detail_title
+msgid "Activities done in session"
+msgstr "activiteiten gedaan in reeks"
+
+#: report_header_activity
+msgid "activity"
+msgstr "activiteit"
+
+#: report_header_actions
+msgid "actions"
+msgstr "acties"
+
+#: report_header_score
+msgid "corrects"
+msgstr "juist"
+
+#: report_header_solved
+msgid "ok"
+msgstr "ok"
+
+#: Y
+msgctxt "Y"
+msgid "Y"
+msgstr "J"
+
+#: N
+msgctxt "N"
+msgid "N"
+msgstr "N"
+
+#: report_session_detail_hide
+msgid "hide session details"
+msgstr "verberg details"
+
+#: report_header_sessions
+msgid "sessions"
+msgstr "reeksen"
+
+#: report_all_activities
+msgid "All activities"
+msgstr "Alle activiteiten"
+
+#: report_activity
+msgid "Activity:"
+msgstr "Activiteit:"
+
+#: report_many
+msgid "several"
+msgstr "verschillende"
+
+#: report_n_users
+msgid "users"
+msgstr "gebruikers"
+
+#: group_admin_title
+msgid "Groups administration"
+msgstr "Groepen administratie"
+
+#: group_admin_new_button
+msgid "New group..."
+msgstr "Nieuwe groep..."
+
+#: group_admin_groups
+msgid "Groups"
+msgstr "Groepen"
+
+#: report_actions
+msgid "Actions"
+msgstr "Acties"
+
+#: group_admin_edit_button
+msgctxt "group_admin_edit_button"
+msgid "Edit..."
+msgstr "Bewerken..."
+
+#: user_admin_title
+msgid "User admin"
+msgstr "Gebruikers administratie"
+
+#: group_admin_delete_button
+msgctxt "group_admin_delete_button"
+msgid "Delete..."
+msgstr "Verwijder..."
+
+#: group_admin_clear_button
+msgctxt "group_admin_clear_button"
+msgid "Clear reports..."
+msgstr "Rapporten wissen..."
+
+#: group_admin_properties
+msgid "Group properties"
+msgstr "Groepseigenschappen"
+
+#: group_admin_name
+msgctxt "group_admin_name"
+msgid "Name:"
+msgstr "Naam:"
+
+#: group_admin_id
+msgctxt "group_admin_id"
+msgid "Identifier:"
+msgstr "Identificatie:"
+
+#: group_admin_icon
+msgctxt "group_admin_icon"
+msgid "Icon:"
+msgstr "Pictogram:"
+
+#: error
+msgid "ERROR"
+msgstr "FOUT"
+
+#: return
+msgid "return..."
+msgstr "verder..."
+
+#: group_admin_users
+msgid "Users"
+msgstr "Gebruikers"
+
+#: group_admin_no_users
+msgid "This group has no users."
+msgstr "Deze groep heeft geen gebruikers"
+
+#: group_admin_create_user_button
+msgid "Create a new user..."
+msgstr "Maak nieuwe gebruiker..."
+
+#: cancel
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: group_admin_invalid_name
+msgid "Incorrect group name!"
+msgstr "Verkeerde groepsnaam!"
+
+#: group_admin_invalid_id
+msgid "Incorrect group identifier!"
+msgstr "Verkeerde groepsidentificatie!"
+
+#: group_admin_id_already_exists
+msgid "There is another group with the same identifier in the database!"
+msgstr "Er is een andere groep met dezelfde identificatie in de database!"
+
+#: group_admin_delete_group
+msgid "Delete group"
+msgstr "Groep verwijderen"
+
+#: report_areyousure
+msgid "Are you sure?"
+msgstr "Weet u het zeker?"
+
+#: YES
+msgid "Yes"
+msgstr "Ja"
+
+#: NOT
+msgid "Not"
+msgstr "Nee"
+
+#: group_admin_delete_group_explain
+msgid ""
+"This operation will also delete on the database all users of this group. All "
+"data of these users will be lost."
+msgstr ""
+"Deze bewerking zal ook alle gebruikers van deze groep verwijderen. Alle "
+"gegevens zullen verloren gaan."
+
+#: db_error
+msgid "Unable to complete the task."
+msgstr "Kan de opdracht niet afwerken."
+
+#: group_admin_clear_group
+msgid "Clear report data of group"
+msgstr "Rapport gegevens van de groep leeg maken"
+
+#: group_admin_clear_group_explain
+msgid ""
+"This operation will clear all the reports of the activities done by the "
+"members of this group between the specified dates."
+msgstr ""
+"Deze operatie zal alle rapporten van de activiteiten van leden tussen de "
+"twee opgegeven datums van deze groep verwijderen"
+
+#: db_clear_reports_date
+msgid "Clear report data"
+msgstr "Rapport gegevens verwijderen"
+
+#: user_admin_invalid_name
+msgid "Invalid user name."
+msgstr "Ongeldige gebruikers naam."
+
+#: user_admin_invalid_id
+msgid "Invalid user identifier"
+msgstr "Ongeldige gebruiker identificatie"
+
+#: user_admin_id_already_exists
+msgid "There is another user with the same identifier in the database!"
+msgstr ""
+"Er is een andere gebruiker met dezelfde identificatie in de database!"
+
+#: user_admin_user_deleted
+msgid "The user was successfully deleted from the database."
+msgstr "De gebruiker is verwijderd uit de database."
+
+#: user_admin_id
+msgctxt "user_admin_id"
+msgid "Identifier:"
+msgstr "Identificatie:"
+
+#: user_admin_name
+msgctxt "user_admin_name"
+msgid "Name:"
+msgstr "Naam:"
+
+#: user_admin_icon
+msgctxt "user_admin_icon"
+msgid "Icon:"
+msgstr "Pictogram:"
+
+#: user_admin_edit_button
+msgctxt "user_admin_edit_button"
+msgid "Edit..."
+msgstr "Bewerken..."
+
+#: user_admin_delete_button
+msgctxt "user_admin_delete_button"
+msgid "Delete..."
+msgstr "Verwijder..."
+
+#: user_admin_clear_button
+msgctxt "user_admin_clear_button"
+msgid "Clear reports..."
+msgstr "Rapporten wissen..."
+
+#: user_admin_delete_user
+msgid "Delete user"
+msgstr "Gebruiker verwijderen"
+
+#: user_admin_delete_user_explain
+msgid ""
+"This operation will delete this user and his reports from the database."
+msgstr ""
+"Deze bewerking zal de gebruiker en zijn rapporten verwijderen uit deze "
+"database."
+
+#: user_admin_clear_user
+msgid "Clear report data of user"
+msgstr "Verwijder rapport gegevens van gebruiker"
+
+#: user_admin_clear_user_explain
+msgid ""
+"This operation will clear all the reports of the activities done by this "
+"user between the specified dates."
+msgstr ""
+"Deze bewerking zal alle rapporten van de activiteiten van deze gebruiker "
+"tussen de opgegeven datums verwijderen."
+
+#: success
+msgid "Operation successful"
+msgstr "Geslaagde bewerking"
+
+#: bad_data
+msgid "Bad data!"
+msgstr "Verkeerde gegevens!"
+
+#: db_admin_param_lap
+msgid "Time between connections (seconds)\\:"
+msgstr "Tijd tussen verbindingen (in seconden)\\:"
+
+#: jclic_reports
+msgid "JClic reports"
+msgstr "JClic rapporten"
+
+#: YES_SHORT
+msgctxt "YES_SHORT"
+msgid "Y"
+msgstr "J"
+
+#: NOT_SHORT
+msgctxt "NOT_SHORT"
+msgid "N"
+msgstr "N"
+
+#: user_admin_pw_prompt
+msgid "Password\\:"
+msgstr "Wachtwoord\\:"
+
+#: user_admin_pw_prompt_confirm
+msgid "Confirm password\\:"
+msgstr "Bevestig wachtwoord\\:"
+
+#: user_admin_err_bad_pw
+msgid "Passwords don't match\\!"
+msgstr "Wachtwoorden komen niet overeen\\!"

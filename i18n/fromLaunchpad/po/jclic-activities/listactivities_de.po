@@ -1,0 +1,165 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JClic 0.2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2008-03-04 17:19+0000\n"
+"Last-Translator: Francesc Busquets <francesc@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: @associations.ComplexAssociation
+msgid ""
+"Complex association|In this activity there are also two sets of information, "
+"but these may have a different number of parts and there may be different "
+"types of relation between them e.g.: one-to-one, various to one, parts "
+"without a relation, etc."
+msgstr ""
+"Mehrfache Zuordnung|Zwei Informationstafeln mit einer unterschiedlichen "
+"Anzahl von Elementen zwischen denen verschiedene Arten von Beziehungen "
+"bestehen. z.B: eins-zu-eins; mehrere zu eins; Elemente ohne Bezug usw."
+
+#: @associations.SimpleAssociation
+msgid ""
+"Simple association|There are two sets of information that have the same "
+"number of parts. Each part from the original set corresponds to one, and "
+"only one, part of the image set."
+msgstr ""
+"Einfache Zuordnung|Zwei Informationstafeln die aus gleich vielen Elementen "
+"bestehen. Jedes Element auf Tafel 1 entspricht einem Bild auf Tafel 2"
+
+#: @memory.MemoryGame
+msgid ""
+"Finding pairs|Each of the pieces appear twice, but face down. In each go two "
+"pieces are turned over and are turned back over if they are not the same. "
+"The objective is to find all the pairs."
+msgstr ""
+"Paare finden|Jedes Element kommt 2 Mal vor. Bei jedem Spielgang müssen zwei "
+"verdeckte Spielkarten umgedreht und wieder zurückgelegt werden, wenn sie "
+"nicht zusammenpassen. Ziel ist, alle zusammengehörigen Paare zu finden."
+
+#: @panels.Explore
+msgid ""
+"Explore activity|An initial piece of information is shown and, upon clicking "
+"on it, a given piece of information is shown for each element."
+msgstr ""
+"Forschendes Lernen|Ein kleiner Teil der Information ist zu sehen, beim "
+"Anklicken jedes Elements wird ein weiteres Element angezeigt"
+
+#: @panels.Identify
+msgid ""
+"Identify cells|There is just one set of information and you have to click on "
+"those parts that meet a certain condition."
+msgstr ""
+"Suchübung|Eine einzige Informationstafel. Die Übenden müssen die Teile davon "
+"anklicken, die eine bestimmte Bedingung erfüllen."
+
+#: @panels.InformationScreen
+msgid ""
+"Information screen|One set of information is shown and there is the option "
+"of activating the multimedia content for each piece of information."
+msgstr ""
+"Darstellung von Information|Eine Informationstafel wird angezeigt. Zu jedem "
+"einzelnen Element können Multimediaelemente aktiviert werden."
+
+#: @puzzles.DoublePuzzle
+msgid ""
+"Double puzzle|Two grids are shown. One contains the disordered information "
+"and the other is empty. The object has to be rearranged in the empty grid by "
+"dragging the pieces one by one."
+msgstr ""
+"Puzzle: Ordnen|Zwei Spielfelder werden angezeigt. Eines enthält vermischte "
+"Puzzlesteine, die andere ist leer. Das Bild soll auf dem leeren Spielfeld "
+"durch Ziehen der Steine mit der Maus richtig rekonstruiert werden."
+
+#: @puzzles.ExchangePuzzle
+msgid ""
+"Exchange puzzle|The information is swapped within the same panel. In each go "
+"two pieces swap position until the object is reordered."
+msgstr ""
+"Puzzle: Austauschen| Die Puzzlesteine innerhalb selben Spielfelds sind "
+"ertauscht. Man muss so lange jeweils zwei Steine gegenander austauschen, bis "
+"das Bild richtig erscheint."
+
+#: @puzzles.HolePuzzle
+msgid ""
+"Hole puzzle|In the same panel one piece is missing and the others are "
+"shuffled. In each go one of the pieces next to the empty space is moved "
+"until they are back in the original order."
+msgstr ""
+"Puzzle: Verschieben|Auf dem Spielfeld fehlt ein Stein, die anderen Steine "
+"sind vermischt. In jedem Spielgang muss einer der Steine neben dem Leerfeld "
+"verschoben werden, bis sich alle Steine wieder an der richtigen Stelle "
+"befinden."
+
+#: @text.WrittenAnswer
+msgid ""
+"Written answer|A set of information is shown and the corresponding text for "
+"each of its parts must be written."
+msgstr ""
+"Begriff eingeben|Ein Informationsblock wird angezeigt. Fehlende Textteile "
+"müssen schriftlich ergänzt werden."
+
+#: @text.FillInBlanks
+msgid ""
+"Text: Fill-in blanks|The user has to complete certain words, letters and "
+"phrases that have been hidden or camouflaged in a text. The solution of each "
+"of the elements may be set up in different ways: writing in a blank space; "
+"correcting a phrase that contains errors; or selecting from a list of "
+"various possible answers."
+msgstr ""
+"Text: Lückentext|Der Spieler/die Spielerin muss in einem Text fehlende oder "
+"verborgene Wörter, Buchstaben und Sätze ergänzen. Es gibt verschiedene "
+"Lösungsmöglichkeiten: Fehlende Elemente eintragen, Fehler korrigieren oder "
+"Auswahl aus mehreren möglichen Antworten auf einer Liste."
+
+#: @text.Identify
+msgid ""
+"Text: Identify elements|The user has to point out some words, letters, "
+"numbers, symbols or punctuation marks with a click of the mouse."
+msgstr ""
+"Text: Wörter finden| Der Spieler/die Spielerin muss Wörter, Buchstaben, "
+"Zahlen, Symbole oder Satztzeichen mit der Maus anklicken."
+
+#: @text.Order
+msgid ""
+"Text: Order elements|When designing this activity some of the words or "
+"paragraphs of a text are selected to be shuffled around. The user has to put "
+"them back in order."
+msgstr ""
+"Text: Wörter ordnen| Beim Erstellen dieser Übung werden Wörter oder Absätze "
+"vertauscht. Die Spieler/in muss sie wieder in die richtige Reihenfolge "
+"bringen."
+
+#: @text.Complete
+msgid ""
+"Text: Complete text|Various parts of a text (letters, words, punctuation "
+"signs, or phrases) are taken out and the user has to complete it."
+msgstr ""
+"Text\\: Text ergänzen|Verschiedene Elemente eines Textes (Buchstaben, "
+"Wörter, Satzzeichen oder Sätze) fehlen. Der/die Übende muss sie ergänzen."
+
+#: @textGrid.CrossWord
+msgid ""
+"Crosswords|The word table has to be completed according to its definitions. "
+"The definitions may be text, graphics or sound. The programme automatically "
+"shows the definitions of the two words which cross in the cursor position."
+msgstr ""
+"Kreuzworträtsel|Das Rätsel muss anhand von Definitionen gelöst werden. Diese "
+"können aus Text, Grafiken oder Sounddateien bestehen. Die Definition der "
+"beiden Begriffe, die sich an der Stelle, wo sich der Cursor befindet "
+"kreuzen, wird vom Programm automatisch angezeigt."
+
+#: @textGrid.WordSearch
+msgid ""
+"Word search|The hidden words have to be found in a grid of letters. The "
+"neutral cells in the grid (those with no word) are completed with characters "
+"chosen at random."
+msgstr ""
+"Wortsuchübung|In einer Tabelle müssen versteckte Begriffe gesucht werden. "
+"Leerzellen (ohne Worter) in der Tabelle werden mit durch Zufallsprinzip "
+"ausgewählten Buchstaben gefüllt."

@@ -1,0 +1,753 @@
+<?xml version="1.0"?>
+
+<project name="JClic" basedir="." default="all">
+
+  <!-- =================================================================== -->
+  <!-- INIT                                                                -->
+  <!-- =================================================================== -->
+  <target name="init" 
+          description="Initialize variables and define patterns and filters.">  
+
+    <!-- Variables -->
+    <property name="name"           value="JClic" />    
+    <property name="year"           value="2004-13" />
+    
+    <!-- Set the appropiate values for your certificate keys here, -->
+    <!-- or write it into a text file called .ant-global.properties, placed -->
+    <!-- in your home directory, using the form "variable=value", one var per line. -->
+    <property file="${user.home}/.ant-global.properties" />
+    <property name="author" value="Test" />
+    <!-- Check the Java system to determine the appropiate keystore format: Sun JKS (default) or GNU GKR -->
+    <condition property="keystore.format" value="-gkr" else="">
+      <contains string="${java.vm.name}" substring="gcj" casesensitive="false" />
+    </condition>
+    <property name="keystore.dir" location="keystore" />    
+    <property name="keystore.file" value="testcert${keystore.format}.keystore" />
+    <property name="keystore.alias" value="testcert" />
+    <property name="keystore.storepass" value="passwd" />
+    <property name="keystore.keypass" value="passwd" />
+
+    <property name="src.dir"        location="src" />
+    <property name="ext.dir"        location="extensions" />
+    <property name="lib.dir"        location="lib" />
+    <property name="build.dir"      location="build" />
+    <property name="dist.dir"       location="dist" />
+    <property name="deploy.dir"     location="deploy" />
+    <property name="signed.dir"     location="${dist.dir}/jclic" />
+    <property name="jnlp.dir"       location="${dist.dir}/jnlp" />
+    <property name="reports.dir"    location="${dist.dir}/reports" />
+    <property name="apidoc.dir"     location="apidoc" />
+    <property name="resource.path"  value="edu/xtec/resources" />
+    
+    <!-- JClic is currently targeted to JVM 1.5 -->
+    <property name="javac.source" value="1.5"/>
+    <property name="javac.target" value="1.5"/>
+    
+    <!-- Other compiler options -->
+    <property name="debug"          value="on" />    
+    <property name="deprecation"    value="off" />    
+    <property name="optimize"       value="on" />
+
+    <!-- Custom javac definition -->
+    <presetdef name="ext.javac">
+        <javac debug="${debug}"
+               deprecation="${deprecation}" 
+               optimize="${optimize}"
+               source="${javac.source}"
+               target="${javac.target}"
+               bootclasspath="${bootclasspath}"
+               includeAntRuntime="false" >
+               <compilerarg value="-Xlint:unchecked"/>
+               <compilerarg value="-Xbootclasspath:${lib.dir}/bootstrap/${javac.target}/rt.jar" />
+        </javac>
+    </presetdef>
+    
+    <!-- Custom javac definition - without warnings about generics -->
+    <presetdef name="ext.javac.nogenerics">
+        <javac debug="${debug}"
+               deprecation="${deprecation}" 
+               optimize="${optimize}"
+               source="${javac.source}"
+               target="${javac.target}"
+               bootclasspath="${bootclasspath}"
+               includeAntRuntime="false" >
+               <compilerarg value="-Xbootclasspath:${lib.dir}/bootstrap/${javac.target}/rt.jar" />
+        </javac>
+    </presetdef>
+
+    <!-- Patterns -->
+    <patternset id="images" >
+        <include name="**/*.gif"/>
+        <include name="**/*.jpg"/>
+        <include name="**/*.png"/>
+        <include name="**/*.ttf"/>
+    </patternset>
+    <patternset id="sounds" >
+        <include name="**/*.wav"/>
+        <include name="**/*.mp3"/>
+        <include name="**/*.au"/>
+        <include name="**/*.aif"/>
+        <include name="**/*.ogg"/>
+    </patternset>    
+    <patternset id="docs" >
+        <include name="**/*.html"/>
+        <include name="**/*.xml"/>
+        <include name="**/*.css"/>
+    </patternset>    
+    <patternset id="xmls" >
+        <include name="**/*.xml"/>
+    </patternset>    
+    <patternset id="props" >
+        <include name="**/*.properties"/>
+    </patternset>
+    <patternset id="serialized" >
+        <include name="**/*.ser"/>
+    </patternset>
+    <patternset id="spi.services" >
+        <include name="META-INF/services/javax.sound.sampled.spi.*"/>
+        <include name="META-INF/services/javax.sound.midi.spi.*"/>
+    </patternset>    
+
+    <!-- Filters -->
+    <filterset id="versionFilterSet">
+        <filtersfile file="project.properties"/>
+    </filterset>
+
+    <!-- Display info -->
+    <echo message="---------------------"/>
+    <echo message="JClic build"/>
+    <echo message="---------------------"/>        
+    <echo message="Using ${ant.version}, in ${ant.home}"/>
+    <echo message="Using Java ${java.version} by ${java.vendor} in ${java.home}"/>
+    <echo message="Generating code for Java ${javac.target}"/>
+    <echo message="Signing with key &quot;${keystore.alias}&quot; in ${keystore.dir}/${keystore.file}"/>
+        
+    <!-- Create dirs -->
+    <mkdir dir="${apidoc.dir}"/>
+    <mkdir dir="${dist.dir}"/>
+    <mkdir dir="${jnlp.dir}"/>
+    <mkdir dir="${reports.dir}"/>
+    <mkdir dir="${signed.dir}"/>
+    <mkdir dir="${build.dir}"/>
+
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- MAIN                                                                -->
+  <!-- =================================================================== -->
+  <target name="all" 
+          depends="jclicplayer,jclicauthor,jclicreports,jclicreports.webapp,sign" 
+          description="Builds everything.">
+    <echo message="*** JClic successfully compiled!"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- SIGN                                                               -->
+  <!-- =================================================================== -->
+  <target name="sign" 
+          depends="init" 
+          description="Digitally signs the JAR files">
+  
+    <!-- Workaround to avoid "Modified in the future" warinings -->
+    <sleep seconds="2" />
+    <copy todir="${signed.dir}">
+        <fileset dir="${build.dir}" includes="*.jar" />
+    </copy>        
+
+    <!-- Signing the .jar files with ${keystore.dir}/${keystore.file}"  -->
+    <!-- See keystore/readme.txt -->
+    <signjar keystore="${keystore.dir}/${keystore.file}"
+             alias="${keystore.alias}" 
+             storepass="${keystore.storepass}"
+             keypass="${keystore.keypass}"
+             lazy="true">
+        <fileset dir="${signed.dir}" includes="*.jar" />
+    </signjar>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- JNLP                                                               -->
+  <!-- =================================================================== -->
+  <target name="jnlp" 
+          depends="all" 
+          description="Copy the JAR files to the JNLP directory and rename it according to its version">
+    <taskdef name="updatejnlpjar" 
+             classname="edu.xtec.ant.UpdateJnlpJar"/>  
+    <updatejnlpjar destDir="${jnlp.dir}" >
+        <fileset dir="${signed.dir}" 
+                 includes="*.jar" 
+                 excludes="jclicapplet.jar" />
+    </updatejnlpjar>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- CLEAN                                                               -->
+  <!-- =================================================================== -->
+  <target name="clean" 
+          depends="init" 
+          description="Clean build dir">
+    <delete dir="${build.dir}" />
+    <echo message="*** Build dir cleared!"/>
+  </target>
+  
+  <!-- =================================================================== -->
+  <!-- LAUNCH PLAYER                                                       -->
+  <!-- =================================================================== -->
+  <target name="launchPlayer" 
+          depends="jclicplayer,sign" 
+          description="Launch JClic player">
+    <echo message="Launching JClicPlayer..."/>
+    <java jar="${signed.dir}/jclic.jar" fork="true" />
+    <echo message="JClicPlayer finished"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- LAUNCH AUTHOR                                                       -->
+  <!-- =================================================================== -->
+  <target name="launchAuthor" 
+          depends="jclicauthor,sign" 
+          description="Launch JClic author">
+    <echo message="Launching JClicAuthor..."/>
+    <java jar="${signed.dir}/jclicauthor.jar" fork="true" />
+    <echo message="JClicAuthor finished"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- LAUNCH REPORTS SERVER                                               -->
+  <!-- =================================================================== -->
+  <target name="launchReports" 
+          depends="jclicreports,sign" 
+          description="Launch JClic reports server">
+    <echo message="Launching JClic reports server..."/>
+    <java jar="${signed.dir}/jclicreports.jar" fork="true" />
+    <echo message="JClic reports server finished"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- JAVADOC                                                             -->
+  <!-- =================================================================== -->
+  <target name="javadoc" 
+          depends="all" 
+          description="Generate JClic JavaDoc">
+    <delete dir="${apidoc.dir}" />
+    <mkdir dir="${apidoc.dir}"/>
+    <javadoc packagenames="edu.xtec.*" 
+             destdir="${apidoc.dir}" 
+             author="true" 
+             version="true" 
+             use="true" 
+             splitindex="true" 
+             noindex="false" 
+             windowtitle="${name} API" 
+             doctitle="${name}">
+             <bottom><![CDATA[<p class="NavBarCell3"><font size="-1">Copyright &#169; ${year} Francesc Busquets (<a href="mailto:fbusquets@xtec.cat">fbusquets@xtec.cat</a>) & Departament d'Educaci&oacute; de la Generalitat de Catalunya (<a href="mailto:info@xtec.cat">info@xtec.cat</a>)<br>Licensed under the terms of the <a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></font></p>]]></bottom>             
+             <sourcepath>
+               <pathelement location="${src.dir}/activities"/>
+               <pathelement location="${src.dir}/author"/>
+               <pathelement location="${src.dir}/core"/>
+               <pathelement location="${src.dir}/interface"/>
+               <pathelement location="${src.dir}/jclicApplet"/>
+               <pathelement location="${src.dir}/jclicPlayer"/>
+               <pathelement location="${src.dir}/player"/>
+               <pathelement location="${src.dir}/utilities"/>
+               <pathelement location="${src.dir}/shapers"/>
+               <pathelement location="${src.dir}/qt61"/>
+             </sourcepath>
+             <classpath>
+               <pathelement location="${build.dir}/jdom"/>
+               <pathelement location="${build.dir}/jdom2"/>
+               <pathelement location="${build.dir}/json"/>
+               <pathelement location="${build.dir}/dbconn"/>
+               <pathelement location="${build.dir}/soundspi"/>
+               <pathelement location="${build.dir}/image4j"/>
+               <pathelement location="${build.dir}/lib/jmf-api"/>
+               <pathelement location="${build.dir}/lib/qtjava-api"/>                
+             </classpath>
+             <excludepackage name="edu.xtec.resources.messages" />
+             <group title="Activities"
+                    packages="edu.xtec.jclic.activities*" />
+             <group title="Automation"
+                    packages="edu.xtec.jclic.automation*" />
+             <group title="Report system" >
+                    <package name="edu.xtec.jclic.report*"/>
+             </group>
+             <group title="Utilities" >
+                    <package name="edu.xtec.util*"/>
+                    <package name="edu.xtec.jclic.misc*"/>
+                    <package name="edu.xtec.jclic.beans*" />
+             </group>
+             <group title="Core" >
+                    <package name="edu.xtec.jclic*"/>
+             </group>
+             
+             <link href="http://docs.oracle.com/javase/1.5.0/docs/api/" />
+             <link href="http://docs.oracle.com/cd/E17802_01/j2se/javase/technologies/desktop/media/jmf/2.1.1/apidocs/" />
+             <link href="http://www.jdom.org/docs/apidocs.1.1/" />
+             <link href="http://image4j.sourceforge.net/javadoc/" />
+    </javadoc>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- JDOM (was JCLICXML)                                                 -->
+  <!-- =================================================================== -->
+  <target name="jdom" 
+          depends="init"
+          description="Builds the JDOM library">
+    <mkdir dir="${build.dir}/jdom"/>
+
+    <!-- Compilation of JDOM 1.0 without XPATH-->
+    <ext.javac.nogenerics destdir="${build.dir}/jdom" >
+           <src path="${ext.dir}/xml/jdom-1.0/src" />
+           <src path="${ext.dir}/xml/customJdom-1.0/src" />
+           <exclude name="org/jdom/xpath/**/*"/>
+    </ext.javac.nogenerics>
+  </target>
+    
+  <!-- =================================================================== -->
+  <!-- JSON                                                              -->
+  <!-- =================================================================== -->
+  <target name="json" 
+          depends="init"
+          description="Builds the JSON-Java library">
+    <mkdir dir="${build.dir}/json"/>
+    <ext.javac.nogenerics srcdir="${ext.dir}/json/src" 
+               destdir="${build.dir}/json" />
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- DBCONN                                                              -->
+  <!-- =================================================================== -->
+  <target name="dbconn" 
+          depends="init"
+          description="Builds a database connection pool interface">
+    <mkdir dir="${build.dir}/dbconn"/>
+    <ext.javac srcdir="${ext.dir}/dbconn/src" 
+               destdir="${build.dir}/dbconn" />
+  </target>
+  
+  <!-- =================================================================== -->
+  <!-- SOUNDSPI                                                            -->
+  <!-- =================================================================== -->
+  <target name="soundspi" 
+          depends="init"
+          description="Builds the sound library">
+    <mkdir dir="${build.dir}/soundspi"/>
+    <ext.javac.nogenerics destdir="${build.dir}/soundspi" >
+        <src path="${ext.dir}/soundspi/tritonus/src" />
+        <src path="${ext.dir}/soundspi/javalayer/src" />
+        <src path="${ext.dir}/soundspi/MpegAudioSPI/src" />
+        <src path="${ext.dir}/soundspi/jorbis/src" />      
+    </ext.javac.nogenerics>
+    <copy todir="${build.dir}/soundspi">
+        <fileset dir="${ext.dir}/soundspi/javalayer/src">
+            <patternset refid="serialized" />
+        </fileset>            
+        <fileset dir="${ext.dir}/soundspi/catalog">
+            <patternset refid="spi.services" />
+        </fileset>            
+    </copy>
+  </target>  
+  
+  <!-- =================================================================== -->
+  <!-- IMAGE4J                                                           -->
+  <!-- =================================================================== -->
+  <target name="image4j" 
+          depends="init"
+          description="Builds the image4j library">
+    <mkdir dir="${build.dir}/image4j"/>
+    <ext.javac srcdir="${ext.dir}/img/image4j/src" 
+               destdir="${build.dir}/image4j" />
+  </target>
+  
+  <!-- =================================================================== -->
+  <!-- EXTRA                                                               -->
+  <!-- =================================================================== -->
+  <target name="extra" 
+          depends="init"
+          description="Builds a package with skins and other extra content, not used by the applet">
+    <mkdir dir="${build.dir}/extra"/>
+    <mkdir dir="${build.dir}/extra/${resource.path}"/>
+    <copy todir="${build.dir}/extra/${resource.path}">
+        <fileset dir="${src.dir}/extra/${resource.path}">
+            <patternset refid="images" />
+            <patternset refid="sounds" />
+            <patternset refid="docs" />
+            <patternset refid="props" />
+        </fileset>            
+    </copy>        
+  </target>
+  
+  <!-- =================================================================== -->
+  <!-- UTILITIES                                                           -->
+  <!-- =================================================================== -->
+  <target name="utilities" 
+          depends="jdom"
+          description="Builds the utilities">
+    <mkdir dir="${build.dir}/utilities"/>
+    <mkdir dir="${build.dir}/utilities/${resource.path}"/>
+    <copy todir="${build.dir}/utilities/${resource.path}">
+        <fileset dir="${src.dir}/utilities/${resource.path}">
+            <patternset refid="images" />
+            <patternset refid="sounds" />
+            <patternset refid="docs" />
+            <patternset refid="props" />
+        </fileset>            
+    </copy>        
+    <ext.javac srcdir="${src.dir}/utilities" 
+               destdir="${build.dir}/utilities" >
+        <classpath>
+            <pathelement location="${build.dir}/jdom" />
+            <pathelement location="${src.dir}/core" />
+        </classpath>
+    </ext.javac>
+  </target>
+  
+  <!-- =================================================================== -->
+  <!-- JMF-API                                                             -->
+  <!-- =================================================================== -->
+  <target name="jmf-api"
+          depends="init"
+          description="Builds an empty interface for Java Media Framework">
+    <mkdir dir="${build.dir}/lib/jmf-api"/>
+    <ext.javac srcdir="${lib.dir}/jmf-api/src" 
+               destdir="${build.dir}/lib/jmf-api" />
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- CORE                                                                -->
+  <!-- =================================================================== -->
+  <target name="core-old" 
+          depends="utilities,image4j,soundspi,jmf-api,qtjava-api"
+          description="Builds the main component of JClic">
+    <mkdir dir="${build.dir}/jclic"/>
+    <mkdir dir="${build.dir}/jclic/${resource.path}"/>    
+    <copy todir="${build.dir}/jclic/${resource.path}">
+        <fileset dir="${src.dir}/core/${resource.path}">
+            <patternset refid="images" />
+            <patternset refid="sounds" />
+            <patternset refid="docs" />
+        </fileset>            
+    </copy>
+    <copy todir="${build.dir}/jclic/${resource.path}">
+        <filterset refid="versionFilterSet"/>
+        <fileset dir="${src.dir}/core/${resource.path}">
+            <patternset refid="props" />
+        </fileset>            
+    </copy>    
+    <ext.javac destdir="${build.dir}/jclic" >
+        <src path="${src.dir}/core" />
+        <src path="${src.dir}/interface" />
+        <src path="${src.dir}/qt61"/>
+        <classpath>
+            <pathelement location="${build.dir}/jdom"/>
+            <pathelement location="${build.dir}/utilities"/>
+            <pathelement location="${build.dir}/image4j"/>
+            <pathelement location="${build.dir}/lib/jmf-api"/>
+            <pathelement location="${build.dir}/lib/qtjava-api"/>
+            <pathelement location="${build.dir}/soundspi"/>
+        </classpath>
+    </ext.javac>
+  </target>
+  
+  <!-- =================================================================== -->
+  <!-- CORE                                                                -->
+  <!-- =================================================================== -->
+  <target name="core" 
+          depends="utilities,image4j,soundspi,jmf-api,qtjava-api,dbconn,json"
+          description="Builds the main component of JClic">
+    <mkdir dir="${build.dir}/jclic"/>
+
+    <mkdir dir="${build.dir}/jclic/${resource.path}"/>    
+    <copy todir="${build.dir}/jclic/${resource.path}">
+        <fileset dir="${src.dir}/core/${resource.path}">
+            <patternset refid="images" />
+            <patternset refid="sounds" />
+            <patternset refid="docs" />
+        </fileset>            
+        <fileset dir="${src.dir}/activities/${resource.path}">
+            <patternset refid="images" />
+            <patternset refid="sounds" />
+            <patternset refid="docs" />
+            <patternset refid="props" />
+        </fileset>            
+        <fileset dir="${src.dir}/player/${resource.path}">
+            <patternset refid="images" />
+            <patternset refid="sounds" />
+            <patternset refid="docs" />
+            <patternset refid="props" />
+        </fileset>            
+    </copy>
+
+    <copy todir="${build.dir}/jclic/${resource.path}">
+        <filterset refid="versionFilterSet"/>
+        <fileset dir="${src.dir}/core/${resource.path}">
+            <patternset refid="props" />
+        </fileset>            
+    </copy>    
+
+    <ext.javac destdir="${build.dir}/jclic" >
+        <src path="${src.dir}/core" />
+        <src path="${src.dir}/interface" />
+        <src path="${src.dir}/qt61"/>
+        <src path="${src.dir}/activities"/>
+        <src path="${src.dir}/player"/>
+        <classpath>
+            <pathelement location="${build.dir}/jdom"/>
+            <pathelement location="${build.dir}/json"/>
+            <pathelement location="${build.dir}/dbconn"/>
+            <pathelement location="${build.dir}/utilities"/>
+            <pathelement location="${build.dir}/image4j"/>
+            <pathelement location="${build.dir}/lib/jmf-api"/>
+            <pathelement location="${build.dir}/lib/qtjava-api"/>
+            <pathelement location="${build.dir}/soundspi"/>
+        </classpath>
+    </ext.javac>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- QTJAVA-API                                                          -->
+  <!-- =================================================================== -->
+  <target name="qtjava-api"
+          depends="init"
+          description="Builds an empty interface for QuickTime forJava 6.1">
+    <mkdir dir="${build.dir}/lib/qtjava-api"/>
+    <ext.javac srcdir="${lib.dir}/qtjava-api/src" 
+               destdir="${build.dir}/lib/qtjava-api" />
+  </target>
+        
+  <!-- =================================================================== -->
+  <!-- JCLIC PLAYER                                                        -->
+  <!-- =================================================================== -->
+  <target name="jclicplayer" 
+          depends="core,extra,jclicapplet"
+          description="Builds the jclic.jar component">
+    <mkdir dir="${build.dir}/jclicPlayer"/>
+    <mkdir dir="${build.dir}/jclicPlayer/${resource.path}"/>
+    <copy todir="${build.dir}/jclicPlayer/${resource.path}">
+        <fileset dir="${src.dir}/jclicPlayer/${resource.path}">
+            <patternset refid="images" />
+            <patternset refid="sounds" />
+            <patternset refid="docs" />
+            <patternset refid="props" />
+        </fileset>            
+    </copy>        
+    <ext.javac srcdir="${src.dir}/jclicPlayer" 
+               destdir="${build.dir}/jclicPlayer" >
+        <classpath>
+            <pathelement location="${build.dir}/jclic" />
+            <pathelement location="${build.dir}/utilities" />
+        </classpath>
+    </ext.javac>
+    <jar jarfile="${build.dir}/jclic.jar">
+        <manifest>
+            <attribute name="Built-By" 
+                       value="${user.name}"/>
+            <attribute name="Main-Class" 
+                       value="JClicPlayer"/>
+            <attribute name="Class-Path" 
+                       value="."/>
+            <attribute name="Permissions" 
+                       value="all-permissions"/>
+            <attribute name="Codebase" 
+                       value="*"/>
+        </manifest>
+         <fileset dir="${build.dir}/jclicPlayer" />
+         <fileset dir="${build.dir}/jclicApplet" />         
+         <fileset dir="${build.dir}/jclic" />
+         <fileset dir="${build.dir}/jdom" />
+         <fileset dir="${build.dir}/json" />
+         <fileset dir="${build.dir}/utilities" />
+         <fileset dir="${build.dir}/extra" />
+         <fileset dir="${build.dir}/dbconn" />         
+         <fileset dir="${build.dir}/soundspi" />
+         <fileset dir="${build.dir}/image4j" />
+    </jar>
+  </target>  
+  
+  <!-- =================================================================== -->
+  <!-- JCLICAPPLET                                                         -->
+  <!-- =================================================================== -->
+  <target name="jclicapplet" 
+          depends="core,soundspi"
+          description="Builds the JClic applet">
+    <mkdir dir="${build.dir}/jclicApplet"/>
+    <mkdir dir="${build.dir}/jclicApplet/${resource.path}"/>
+    <copy todir="${build.dir}/jclicApplet/${resource.path}">
+        <fileset dir="${src.dir}/jclicApplet/${resource.path}">
+            <patternset refid="images" />
+            <patternset refid="sounds" />
+            <patternset refid="docs" />
+            <patternset refid="props" />
+        </fileset>            
+    </copy>        
+    <ext.javac srcdir="${src.dir}/jclicApplet" 
+               destdir="${build.dir}/jclicApplet" >
+        <classpath>
+            <pathelement location="${build.dir}/jclic" />
+            <pathelement location="${build.dir}/utilities" />
+        </classpath>
+    </ext.javac>
+  </target>
+  
+  <!-- =================================================================== -->
+  <!-- JCLICAUTHOR                                                         -->
+  <!-- =================================================================== -->
+  <target name="jclicauthor" 
+          depends="jclicplayer"
+          description="Builds the jclicauthor.jar component">
+    <mkdir dir="${build.dir}/author"/>
+    <mkdir dir="${build.dir}/author/${resource.path}"/>
+    <copy todir="${build.dir}/author/${resource.path}">
+        <fileset dir="${src.dir}/author/${resource.path}">
+            <patternset refid="images" />
+            <patternset refid="sounds" />
+            <patternset refid="docs" />
+        </fileset>            
+        <fileset dir="${src.dir}/shapers/${resource.path}">
+            <patternset refid="images" />
+            <patternset refid="props" />
+        </fileset>            
+    </copy>        
+    <copy todir="${build.dir}/author/${resource.path}">
+        <filterset refid="versionFilterSet"/>
+        <fileset dir="${src.dir}/author/${resource.path}">
+            <patternset refid="props" />
+        </fileset>            
+    </copy>    
+    <ext.javac destdir="${build.dir}/author" >
+        <src path="${src.dir}/author"/>
+        <src path="${src.dir}/shapers"/>
+        <classpath>
+            <pathelement location="${build.dir}/jclic.jar"/>
+        </classpath>
+    </ext.javac>
+    <jar jarfile="${build.dir}/jclicauthor.jar">
+        <manifest>
+            <attribute name="Built-By" 
+                       value="${user.name}"/>
+            <attribute name="Main-Class" 
+                       value="JClicAuthor"/>
+            <attribute name="Class-Path" 
+                       value=". jclic.jar"/>
+            <attribute name="Permissions" 
+                       value="all-permissions"/>
+            <attribute name="Codebase" 
+                       value="*"/>
+        </manifest>
+         <fileset dir="${build.dir}/author" />
+    </jar>
+  </target>
+    
+  <!-- =================================================================== -->
+  <!-- SERVLET API                                                         -->
+  <!-- =================================================================== -->
+  <target name="servlet-api"
+          depends="init"
+          description="Builds the servlet API">
+    <mkdir dir="${build.dir}/lib/servlet-api"/>
+    <ext.javac srcdir="${lib.dir}/servlet-api/src" 
+               destdir="${build.dir}/lib/servlet-api" />
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- JCLIC REPORTS                                                        -->
+  <!-- =================================================================== -->
+  <target name="jclicreports" 
+          depends="core,servlet-api"
+          description="Builds the autonomous JClic reports server">
+    <mkdir dir="${build.dir}/jclicreports"/>
+    <copy todir="${build.dir}/jclicreports">
+        <fileset dir="${src.dir}/report/reportServer">
+            <patternset refid="images" />
+            <patternset refid="docs" />
+        </fileset>            
+        <fileset dir="${src.dir}/report/reportServlets">
+            <patternset refid="images" />
+            <patternset refid="docs" />
+            <patternset refid="props" />
+        </fileset>            
+    </copy>        
+    <copy todir="${build.dir}/jclicreports">
+        <filterset refid="versionFilterSet"/>
+        <fileset dir="${src.dir}/report/reportServer">
+            <patternset refid="props" />
+        </fileset>            
+    </copy>        
+
+    <ext.javac destdir="${build.dir}/jclicreports" >
+        <src path="${src.dir}/report/reportServer"/>
+        <src path="${src.dir}/report/reportServlets"/>
+        <classpath>
+            <pathelement location="${build.dir}/utilities"/>
+            <pathelement location="${build.dir}/jclic"/>
+            <pathelement location="${build.dir}/lib/servlet-api"/>
+            <pathelement location="${build.dir}/jdom"/>
+            <pathelement location="${build.dir}/dbconn"/>
+        </classpath>
+    </ext.javac>
+    <jar jarfile="${build.dir}/jclicreports.jar">
+        <manifest>
+            <attribute name="Built-By" 
+                       value="${user.name}"/>
+            <attribute name="Main-Class" 
+                       value="ReportServer"/>
+            <attribute name="Class-Path" 
+                       value=". jclic.jar"/>
+            <attribute name="Permissions" 
+                       value="all-permissions"/>
+            <attribute name="Codebase" 
+                       value="*"/>
+        </manifest>
+        <fileset dir="${build.dir}/jclicreports" />
+    </jar>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- JCLIC REPORTS WEB APP                                                        -->
+  <!-- =================================================================== -->
+  <target name="jclicreports.webapp" 
+          depends="jclicreports"
+          description="Builds the WAR and EAR versions of the JClic reports server, suitable for Tomcat or other J2EE application server">
+    <mkdir dir="${build.dir}/jclicreports.webapp/WEB-INF/classes"/>
+    <copy todir="${build.dir}/jclicreports.webapp">
+        <fileset dir="${src.dir}/report/reportServlets/edu/xtec/resources/html">
+            <patternset refid="images" />
+            <patternset refid="docs" />
+        </fileset>
+    </copy> 
+    <copy file="${src.dir}/report/webApp/index.html" todir="${build.dir}/jclicreports.webapp"/>    
+    <ext.javac destdir="${build.dir}/jclicreports.webapp/WEB-INF/classes" >
+        <src path="${src.dir}/report/webApp/WEB-INF/classes"/>
+        <classpath>
+            <pathelement location="${build.dir}/jclicreports.jar"/>
+            <pathelement location="${build.dir}/jclic.jar"/>
+            <pathelement location="${build.dir}/lib/servlet-api"/>
+        </classpath>
+    </ext.javac>
+
+    <!-- workaround to avoid the 2-seconds granularity value set by the "war" ant task (see ant's manual)-->
+    <sleep seconds="3" />    
+    <war destfile="${reports.dir}/jclicreports.war" 
+         basedir="${build.dir}/jclicreports.webapp"
+         webxml="${src.dir}/report/webApp/WEB-INF/web.xml" >
+        <manifest>
+            <attribute name="Built-By" 
+                       value="${user.name}"/>
+        </manifest>
+        <lib dir="${build.dir}">
+            <include name="jclicreports.jar" />
+            <include name="jclic.jar" />
+        </lib>
+    </war>
+    <sleep seconds="3" />    
+    <ear destfile="${reports.dir}/jclicreports.ear" 
+         appxml="${deploy.dir}/reports/xml/application.xml">
+        <manifest>
+            <attribute name="Built-By" 
+                       value="${user.name}"/>
+        </manifest>
+        <fileset dir="${reports.dir}" includes="*.war"/>
+    </ear>
+  </target>
+
+</project>

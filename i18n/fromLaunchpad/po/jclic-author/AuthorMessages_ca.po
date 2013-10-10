@@ -1,0 +1,3489 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JClic 0.2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-13 23:10+0200\n"
+"PO-Revision-Date: 2010-01-22 17:57+0000\n"
+"Last-Translator: Francesc Busquets <francesc@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. #JClic Author messages
+#: edit_act_description_block
+msgctxt "edit_act_description_block"
+msgid "Description"
+msgstr "Descripció"
+
+#: edit_act_name_tooltip
+msgid "Name of the activity"
+msgstr "Nom de l'activitat"
+
+#: edit_act_name
+msgctxt "edit_act_name"
+msgid "Name:"
+msgstr "Nom:"
+
+#: edit_act_description_tooltip
+msgid "Description of the activity"
+msgstr "Descripció de l'activitat"
+
+#: edit_act_reports_block
+msgctxt "edit_act_reports_block"
+msgid "Reports"
+msgstr "Informes"
+
+#: edit_act_includeInReports
+msgid "Include this activity in reports"
+msgstr "Inclou aquesta activitat als informes"
+
+#: edit_act_includeInReports_tooltip
+msgid "Include the results of this activity in users' reports"
+msgstr "Inclou els resultats d'aquesta activitat en els informes d'usuari"
+
+#: edit_act_code
+msgid "Code:"
+msgstr "Codi:"
+
+#: edit_act_code_tooltip
+msgid "Optional code used to group and search in the reports database."
+msgstr ""
+"Codi opcional utilitzat per agrupar i filtrar en la base de dades d'informes."
+
+#: edit_act_reportActions
+msgid "Report user actions"
+msgstr "Enregistra també les accions"
+
+#: edit_act_reportActions_tooltip
+msgid "Register the details of all the actions performed by users"
+msgstr "Enregistra els detalls de totes les accions efectuades pels usuaris."
+
+#: edit_act_counters_block
+msgctxt "edit_act_counters_block"
+msgid "Counters"
+msgstr "Comptadors"
+
+#: edit_act_timeCounter
+msgctxt "edit_act_timeCounter"
+msgid "Time counter"
+msgstr "Comptador de temps"
+
+#: edit_act_timeCounter_tooltip
+msgid "Show/hide the time conter"
+msgstr "Mostra o amaga el comptador de temps"
+
+#: edit_act_actionsCounter
+msgctxt "edit_act_actionsCounter"
+msgid "Tries counter"
+msgstr "Comptador d'intents"
+
+#: edit_act_actionsCounter_tooltip
+msgid "Show/hide the tries counter"
+msgstr "Mostra o amaga el comptador d'intents."
+
+#: edit_act_scoreCounter
+msgctxt "edit_act_scoreCounter"
+msgid "Score counter"
+msgstr "Comptador d'encerts"
+
+#: edit_act_scoreCounter_tooltip
+msgid "Show/hide the score counter."
+msgstr "Mostra o amaga el comptador d'encerts."
+
+#: edit_act_maxTime
+msgid "Max time:"
+msgstr "Temps màxim:"
+
+#: edit_act_maxTime_tooltip
+msgid ""
+"Maximum time to to solve the activity, in seconds, or 0 for unlimited time."
+msgstr ""
+"Temps màxim per a resoldre l'activitat, en segons. El zero significa temps "
+"il·limitat."
+
+#: edit_act_countdown
+msgid "Countdown"
+msgstr "Compte enrere"
+
+#: edit_act_countdown_tooltip
+msgid "The counter starts at máximum value, decreasing to 0."
+msgstr "El comptador comença al valor màxim, decreixent fins a zero."
+
+#: edit_act_maxActions
+msgid "Max tries:"
+msgstr "Intents màx.:"
+
+#: edit_act_maxActions_tooltip
+msgid "Maximum number of tries allowed, or 0 for unlimited tries."
+msgstr "Nombre màxim d'intents permesos, o zero per a il·limitat."
+
+#: edit_act_buttons_block
+msgctxt "edit_act_buttons_block"
+msgid "Buttons"
+msgstr "Botons"
+
+#: edit_act_helpBtn
+msgid "Help"
+msgstr "Ajuda"
+
+#: edit_act_helpBtn_tooltip
+msgid "Show/hide help button"
+msgstr "Mostra o amaga el botó d'ajuda"
+
+#: edit_act_helpBtn_solution
+msgid "Show solution"
+msgstr "Mostra la solució"
+
+#: edit_act_helpBtn_msg
+msgid "Show this message:"
+msgstr "Mostra aquest missatge:"
+
+#: edit_act_infoBtn
+msgid "Information"
+msgstr "Informació"
+
+#: edit_act_infoBtn_tooltip
+msgid "Show/Hide the button of information"
+msgstr "Mostrar o amagar el botó d'informació"
+
+#: edit_act_infoBtn_url
+msgid "Show this URL:"
+msgstr "Mostrar aquesta URL:"
+
+#: edit_act_infoBtn_cmd
+msgid "Execute this command:"
+msgstr "Executa el comandament:"
+
+#: edit_act_infoBtn_url_tooltip
+msgid "Web site address to show when click on the info button"
+msgstr ""
+"Adreça de la pàgina web que es mostrarà en fer clic al botó d'informació."
+
+#: edit_act_infoBtn_cmd_tooltip
+msgid "Command line to be executed on click to the info button."
+msgstr "Línia d'ordres que s'executarà en fer clic al botó d'informació."
+
+#: edit_act_mainWindow
+msgid "Main window:"
+msgstr "Finestra principal:"
+
+#: edit_act_gameWindow
+msgid "Game window:"
+msgstr "Finestra de joc:"
+
+#: edit_act_margin
+msgid "Margin:"
+msgstr "Marge:"
+
+#: edit_act_margin_tooltip
+msgid "Horizontal and vertical spacing between visual objects."
+msgstr "Espai horitzontal i vertical entre objectes visuals."
+
+#: edit_act_bgColor
+msgctxt "edit_act_bgColor"
+msgid "Background color:"
+msgstr "Color de fons:"
+
+#: edit_act_bgColor_tooltip
+msgid "Change the background color."
+msgstr "Canvia el color de fons."
+
+#: edit_gradient_startColor
+msgid "Start color:"
+msgstr "Color inicial:"
+
+#: edit_gradient_endColor
+msgid "End color:"
+msgstr "Color final:"
+
+#: edit_gradient_startColor_tooltip
+msgid "Selection of the start color"
+msgstr "Selecció del color inicial"
+
+#: edit_gradient_endColor_tooltip
+msgid "Selection of the end color"
+msgstr "Selecció del color final"
+
+#: edit_gradient_cycles
+msgid "Cycles:"
+msgstr "Cicles:"
+
+#: edit_gradient_cycles_tooltip
+msgid "Number of repetitions of the gradient over the paint surface"
+msgstr "Nombre de repeticions del gradient sobre la superfície a pintar"
+
+#: edit_gradient_orientation
+msgid "Orientation:"
+msgstr "Orientació:"
+
+#: edit_gradient_orientation_tooltip
+msgid "Gradient's orientation, measured in degrees over the horizontal"
+msgstr "Orientació del gradient, mesurada en graus sobre la horitzontal"
+
+#: edit_act_gradient
+msgid "Gradient:"
+msgstr "Gradient:"
+
+#: edit_act_gradient_tooltip
+msgid "Use gradient of colours"
+msgstr "Utilitza un gradient de colors"
+
+#: edit_color_opacity
+msgid "Opacity"
+msgstr "Opacitat"
+
+#: edit_color_opacity_tooltip
+msgid "Set the color's alpha channel (opacity) value."
+msgstr "Ajusta el valor del canal alfa (opacitat) del color."
+
+#: edit_gradient_title
+msgctxt "edit_gradient_title"
+msgid "Gradient"
+msgstr "Gradient"
+
+#: edit_gradient_default
+msgid "Use default values (null gradient)"
+msgstr "Utilitza els valors per defecte (gradient nul)"
+
+#: edit_act_image
+msgid "Image:"
+msgstr "Imatge:"
+
+#: edit_act_descriptionTab
+msgctxt "edit_act_descriptionTab"
+msgid "Description"
+msgstr "Descripció"
+
+#: edit_act_descriptionTab_tooltip
+msgid "Name and description"
+msgstr "Nom i descripció"
+
+#: edit_act_tiledBgImg
+msgid "Tiled"
+msgstr "En mosaic"
+
+#: edit_act_tiledBgImg_tooltip
+msgid ""
+"Paint all the surface with the image, repeating it along the X and Y axis as "
+"needed."
+msgstr ""
+"Pinta tota la superfície amb la imatge, repetint-la al llarg dels eixos X i "
+"Y tantes vegades com calgui."
+
+#: edit_act_preview
+msgctxt "edit_act_preview"
+msgid "Preview:"
+msgstr "Vista preliminar:"
+
+#: edit_act_border
+msgctxt "edit_act_border"
+msgid "Border"
+msgstr "Vora"
+
+#: edit_act_border_tooltip
+msgid "Draw a line border arround the window"
+msgstr "Dibuixar una línia de vora al voltant de la finestra"
+
+#: edit_act_transparent
+msgid "Transparent"
+msgstr "Transparent"
+
+#: edit_act_transparent_tooltip
+msgid "Window has transparent background"
+msgstr "La finestra té el fons transparent"
+
+#: edit_act_width
+msgctxt "edit_act_width"
+msgid "Width:"
+msgstr "Amplada:"
+
+#: edit_act_height
+msgctxt "edit_act_height"
+msgid "Height:"
+msgstr "Alçada:"
+
+#: edit_act_width_tooltip
+msgid "Width of the object, measured in pixels"
+msgstr "Amplada de l'objecte, mesurada en pícsels"
+
+#: edit_act_height_tooltip
+msgid "Height of the object, measured in pixels"
+msgstr "Alçada de l'objecte, mesurada en pícsels"
+
+#: edit_act_centered
+msgctxt "edit_act_centered"
+msgid "Centered"
+msgstr "Centrada"
+
+#: edit_act_centered_tooltip
+msgid "The object will be centered over the main window"
+msgstr "L'objecte se situa centrat respecte a la finestra principal"
+
+#: edit_act_x
+msgctxt "edit_act_x"
+msgid "X:"
+msgstr "X:"
+
+#: edit_act_x_tooltip
+msgid "Absolute horizontal location"
+msgstr "Posició horizontal absoluta"
+
+#: edit_act_y
+msgctxt "edit_act_y"
+msgid "Y:"
+msgstr "Y:"
+
+#: edit_act_y_tooltip
+msgid "Absolute vertical location"
+msgstr "Posició vertical absoluta"
+
+#: edit_act_ui_block
+msgctxt "edit_act_ui_block"
+msgid "User interface"
+msgstr "Interfície d'usuari"
+
+#: edit_act_image_tooltip
+msgid "Select an image"
+msgstr "Selecciona una imatge"
+
+#: edit_act_text
+msgid "Text:"
+msgstr "Text:"
+
+#: edit_act_text_tooltip
+msgid "Text to be shown inside this object"
+msgstr "Text que es mostrarà en aquest objecte"
+
+#: edit_font_face
+msgid "Typeface:"
+msgstr "Tipus:"
+
+#: edit_font_size
+msgid "Size:"
+msgstr "Mida:"
+
+#: edit_font_bold
+msgid "Bold"
+msgstr "Negreta"
+
+#: edit_font_italic
+msgid "Italic"
+msgstr "Cursiva"
+
+#: edit_font_underline
+msgid "Underline"
+msgstr "Subrratllat"
+
+#: edit_font_style
+msgctxt "edit_font_style"
+msgid "Style:"
+msgstr "Estil:"
+
+#: edit_cell_title
+msgid "Cell contents"
+msgstr "Contingut de la casella"
+
+#: edit_act_messages
+msgctxt "edit_act_messages"
+msgid "Messages"
+msgstr "Missatges"
+
+#: edit_act_msg_initial
+msgid "Initial message:"
+msgstr "Missatge inicial:"
+
+#: edit_act_msg_final
+msgid "Final message:"
+msgstr "Missatge final:"
+
+#: edit_act_msg_prev
+msgid "Previous message:"
+msgstr "Missatge previ:"
+
+#: edit_act_msg_error
+msgid "Error message:"
+msgstr "Missatge d'error:"
+
+#: edit_act_msg_initial_tooltip
+msgid "Message to be shown when the activity starts"
+msgstr "Missatge que es mostra en iniciar-se l'activitat"
+
+#: edit_act_msg_final_tooltip
+msgid "Message to be shown when the activity is finished"
+msgstr "Missatge que es mostra en acabar l'activitat"
+
+#: edit_act_msg_error_tooltip
+msgid "Message to be shown when the activity ends with errors"
+msgstr "Missatge que es mostra quan l'activitat acaba amb errors"
+
+#: edit_act_msg_prev_tooltip
+msgid ""
+"Message to be shown prior to the start of the activity (only in certain "
+"types of activities)"
+msgstr ""
+"Missatge que es mostra abans de començar (només en alguns tipus d'activitats)"
+
+#: edit_align
+msgid "Align:"
+msgstr "Orientació:"
+
+#: edit_act_textColor
+msgid "Text color:"
+msgstr "Color del text:"
+
+#: edit_act_textColor_tooltip
+msgid "Color used to draw text"
+msgstr "Color emprat per dibuixar el text"
+
+#: edit_act_shadowColor
+msgid "Shadow color:"
+msgstr "Color de l'ombra:"
+
+#: edit_act_shadowColor_tooltip
+msgid "Color used for drawing the text's shadow, when appliable"
+msgstr "Color emprat en l'ombra del text, si n'hi ha."
+
+#: edit_act_shadow
+msgid "Shadow"
+msgstr "Ombra"
+
+#: edit_act_shadow_tooltip
+msgid "Draw text with shadow"
+msgstr "Dibuixa el text amb ombra"
+
+#: edit_act_borderColor
+msgid "Border color:"
+msgstr "Color de la vora:"
+
+#: edit_act_borderColor_tooltip
+msgid "Color used to draw the cell's border"
+msgstr "Color utilitzat per a dibuixar la vora de la casella"
+
+#: edit_act_inactiveColor
+msgid "Inactive state color:"
+msgstr "Color d'estat inactiu:"
+
+#: edit_act_inactiveColor_tooltip
+msgid "Color used when the cell is disabled"
+msgstr "Color emprat quan la casella es troba desactivada"
+
+#: edit_act_altColor
+msgid "Alternative color:"
+msgstr "Color alternatiu:"
+
+#: edit_act_altColor_tooltip
+msgid "Color used to draw the alternative content in solved cells."
+msgstr ""
+"Color amb què es mostra el contingut alternatiu de les caselles un cop "
+"solucionades."
+
+#: edit_cell_marked
+msgid "Marked"
+msgstr "Marcada"
+
+#: edit_cell_disabled
+msgid "Disabled"
+msgstr "Desactivada"
+
+#: edit_cell_alt
+msgid "Alternative"
+msgstr "Alternativa"
+
+#: edit_cell_textMargin
+msgid "Internal margin:"
+msgstr "Marge intern:"
+
+#: edit_cell_textMargin_tooltip
+msgid "Amount of space between cell's border and text."
+msgstr "Espai entre les vores de la cel·la i el text."
+
+#: edit_cell_borderWidth
+msgid "Border width:"
+msgstr "Gruix de la vora:"
+
+#: edit_cell_borderWidth_tooltip
+msgid "Width of the stroke used to draw the standard border"
+msgstr "Gruix del traç utilitzat per a dibuixar la vora."
+
+#: edit_cell_markerWidth
+msgid "Marker width:"
+msgstr "Gruix del marcador:"
+
+#: edit_cell_markerWidth_tooltip
+msgid ""
+"Width of the stroke used to draw the border when the cell is marked or "
+"selected"
+msgstr ""
+"Gruix del traç utilitzat per dibuixar la vora quan la casella es troba "
+"marcada o seleccionada"
+
+#: edit_cell_alt_tooltip
+msgid "Preview in \"alternative\" state"
+msgstr "Vista preliminar de la casella en estat \"alternatiu\""
+
+#: edit_cell_disabled_tooltip
+msgid "Preview in \"disabled\" state"
+msgstr "Vista preliminar en estat \"desactivat\""
+
+#: edit_cell_marked_tooltip
+msgid "Preview in \"marked\" state"
+msgstr "Vista preliminar en estat \"marcat\""
+
+#: edit_act_testAction
+msgid "Preview activity"
+msgstr "Mostra l'activitat"
+
+#: edit_act_testAction_tooltip
+msgid "Preview and test the activity"
+msgstr "Prova el funcionament de l'activitat"
+
+#: edit_act_panels_description
+msgctxt "edit_act_panels_description"
+msgid "Description"
+msgstr "Descripció"
+
+#: edit_act_panels_description_tooltip
+msgid "Title and description of the activity"
+msgstr "Títol i descripció de l'activitat"
+
+#: edit_act_panels_options
+msgid "Options"
+msgstr "Opcions"
+
+#: edit_act_panels_options_tooltip
+msgid "Options of the activity"
+msgstr "Opcions de l'activitat"
+
+#: edit_act_panels_frame
+msgctxt "edit_act_panels_frame"
+msgid "Window"
+msgstr "Finestra"
+
+#: edit_act_panels_frame_tooltip
+msgid "Aspect, size and position of the activity window"
+msgstr "Aspecte, mida i posició de la finestra on corre l'activitat."
+
+#: edit_act_panels_messages
+msgctxt "edit_act_panels_messages"
+msgid "Messages"
+msgstr "Missatges"
+
+#: edit_act_panels_messages_tooltip
+msgid "Content of the activity messages"
+msgstr "Contingut dels missatges de l'activitat"
+
+#: edit_act_panels_panel
+msgid "Panel"
+msgstr "Plafó"
+
+#: edit_act_panels_panel_tooltip
+msgid "Contents of the panel"
+msgstr "Contingut del plafó"
+
+#: edit_style_title
+msgctxt "edit_style_title"
+msgid "Style"
+msgstr "Estil"
+
+#: edit_style_tooltip
+msgid "Set the cells color, font and size"
+msgstr "Ajusta els colors, tipus i mida de lletra de les caselles"
+
+#: edit_act_style
+msgctxt "edit_act_style"
+msgid "Style:"
+msgstr "Estil:"
+
+#: edit_act_overlap
+msgid "Avoid text overlap image"
+msgstr "Evita la sobreposició imatge/text"
+
+#: edit_act_overlap_tooltip
+msgid "Try to avoid text overlapping over image"
+msgstr "Intenta evitar que el text trepitgi la imatge."
+
+#: edit_media_exists_1
+msgid "The file"
+msgstr "El fitxer"
+
+#: edit_media_exists_2
+msgid "already exists in the media library!"
+msgstr "ja es troba a la mediateca!"
+
+#: edit_act_shaper
+msgid "Shaper:"
+msgstr "Retallador:"
+
+#: edit_act_shaper_err
+msgid "Shaper error:"
+msgstr "Error del retallador:"
+
+#: edit_act_num_cols
+msgid "Columns:"
+msgstr "Columnes:"
+
+#: edit_act_num_rows
+msgid "Rows:"
+msgstr "Files:"
+
+#: edit_act_toothHeightFactor
+msgid "Tooth height:"
+msgstr "Alçada de les dents:"
+
+#: edit_act_toothWidthFactor
+msgid "Tooth width:"
+msgstr "Amplada de les dents:"
+
+#: edit_act_toothRandom
+msgid "Random distribution"
+msgstr "Distribució aleatòria"
+
+#: edit_act_shaper_properties
+msgid "Shaper properties"
+msgstr "Propietats del generador de formes"
+
+#: edit_act_panels_text
+msgid "Text"
+msgstr "Text"
+
+#: edit_act_panels_text_tooltip
+msgid "Text of the activity"
+msgstr "Text de l'activitat"
+
+#: action_saveFile_caption
+msgid "Save..."
+msgstr "Desa..."
+
+#: action_saveFile_keys
+msgctxt "action_saveFile_keys"
+msgid "SS"
+msgstr "DD"
+
+#: action_saveFile_tooltip
+msgid "Save the current project"
+msgstr "Desa el projecte"
+
+#: action_docTree_caption
+msgid "Document tree..."
+msgstr "Arbre del document..."
+
+#: action_docTree_keys
+msgid "T*"
+msgstr "A*"
+
+#: action_docTree_tooltip
+msgid "Show the project's document as a tree"
+msgstr "Mostra el document del projecte en forma d'abre"
+
+#: edit_docTree_title
+msgid "Document tree"
+msgstr "Arbre del document"
+
+#: edit_media_referencedBy
+msgid "Referenced by:"
+msgstr "Referenciat per:"
+
+#: msg_prompt_loadReferences
+msgid ""
+"<html><font face=\"dialog\" size=\"2\"><B>Warning:</B><P>This project "
+"connects with other projects.<BR>Do you want to explore the links and to "
+"load all the related files?<P>(It's advisable to answer <B>YES</B> when "
+"importing Clic 3.0 activities)</font></html>"
+msgstr ""
+"<html><font face=\"dialog\" size=\"2\"><B>Atenció:</B><P>Aquest projecte "
+"enllaça amb altres projectes.<BR>Voleu que el JClic explori els enllaços i "
+"carregui tots els materials relacionats?<P>(Es recomana respondre <B>SI</B> "
+"si esteu important un paquet d'activitats Clic 3.0)</font></html>"
+
+#: edit_mc_type
+msgctxt "edit_mc_type"
+msgid "Type:"
+msgstr "Tipus:"
+
+#: edit_mc_type_unknown
+msgid "Unknown"
+msgstr "Desconegut"
+
+#: edit_mc_type_sound
+msgid "Play sound"
+msgstr "Interpreta so"
+
+#: edit_mc_type_video
+msgid "Play video"
+msgstr "Interpreta vídeo"
+
+#: edit_mc_type_midi
+msgid "Play MIDI"
+msgstr "Interpreta MIDI"
+
+#: edit_mc_type_cdaudio
+msgid "Play CD audio"
+msgstr "Interpreta CD àudio"
+
+#: edit_mc_type_record
+msgid "Record sound"
+msgstr "Enregistra so"
+
+#: edit_mc_type_play_recorded
+msgid "Play recorded sound"
+msgstr "Interpreta un enregistrament"
+
+#: edit_mc_type_run_activity
+msgid "Go to activity"
+msgstr "Ves a l'activitat"
+
+#: edit_mc_type_run_sequence
+msgid "Go to sequence"
+msgstr "Ves a la seqüència"
+
+#: edit_mc_type_run_external
+msgid "Run program"
+msgstr "Executa un programa"
+
+#: edit_mc_type_url
+msgid "Show URL"
+msgstr "Mostra la URL"
+
+#: edit_mc_type_exit
+msgid "End"
+msgstr "Acaba"
+
+#: edit_mc_type_return
+msgctxt "edit_mc_type_return"
+msgid "Return"
+msgstr "Torna"
+
+#: edit_mc_level
+msgid "Priority level:"
+msgstr "Nivell de prioritat:"
+
+#: edit_mc_file
+msgid "File:"
+msgstr "Fitxer:"
+
+#: edit_mc_externalParam
+msgid "Parameters:"
+msgstr "Paràmetres:"
+
+#: edit_mc_from
+msgctxt "edit_mc_from"
+msgid "From:"
+msgstr "Des de:"
+
+#: edit_mc_to
+msgctxt "edit_mc_to"
+msgid "To:"
+msgstr "Fins a:"
+
+#: edit_mc_length
+msgctxt "edit_mc_length"
+msgid "Max. length:"
+msgstr "Durada màx.:"
+
+#: edit_mc_recBuffer
+msgid "Record tape:"
+msgstr "Cinta d'enregistrament:"
+
+#: edit_mc_stretch
+msgid "Stretch size"
+msgstr "Comprimeix-lo si no hi cap"
+
+#: edit_mc_location
+msgctxt "edit_mc_location"
+msgid "Location:"
+msgstr "Posició:"
+
+#: edit_mc_location_x
+msgctxt "edit_mc_location_x"
+msgid "X:"
+msgstr "X:"
+
+#: edit_mc_location_y
+msgctxt "edit_mc_location_y"
+msgid "Y:"
+msgstr "Y:"
+
+#: edit_mc_location_from
+msgctxt "edit_mc_location_from"
+msgid "From:"
+msgstr "Des de:"
+
+#: edit_mc_location_from_box
+msgid "Cell"
+msgstr "Cel·la"
+
+#: edit_mc_location_from_window
+msgctxt "edit_mc_location_from_window"
+msgid "Window"
+msgstr "Finestra"
+
+#: edit_mc_location_from_frame
+msgid "Frame"
+msgstr "Marc"
+
+#: edit_mc_loop
+msgid "Loop playback"
+msgstr "Repeteix indefinidament"
+
+#: edit_mc_autostart
+msgid "Auto start"
+msgstr "Engega automàticament"
+
+#: edit_mc_catchmouse
+msgid "Catch mouse"
+msgstr "Captura ratolí"
+
+#: edit_mc_title
+msgid "Multimedia and active content"
+msgstr "Contingut actiu i multimèdia"
+
+#: edit_mc_label
+msgid "Active content:"
+msgstr "Contingut actiu:"
+
+#: edit_media_dlg_title
+msgid "Multimedia object selection"
+msgstr "Selecció de l'objecte multimèdia"
+
+#: edit_media_title
+msgctxt "edit_media_title"
+msgid "Media library"
+msgstr "Biblioteca de recursos"
+
+#: edit_mc_pos_cell
+msgid "Centered over cell"
+msgstr "Centrat a la cel·la"
+
+#: edit_mc_pos_window
+msgid "Centered over window"
+msgstr "Centrat a la finestra"
+
+#: edit_mc_pos_absolute
+msgid "Specify position:"
+msgstr "Posició absoluta:"
+
+#: edit_tree_badFormat
+msgid "Incorrect tree structure or data!"
+msgstr "L'estructura o les dades de l'arbre són incorrectes!"
+
+#: edit_act_panels_controls
+msgid "Controls"
+msgstr "Controls"
+
+#: edit_act_panels_controls_tooltip
+msgid "Options for buttons and counters"
+msgstr "Opcions de botons i comptadors"
+
+#: edit_act_class
+msgctxt "edit_act_class"
+msgid "Type:"
+msgstr "Tipus:"
+
+#: edit_act_gridLayout
+msgid "Grid layout:"
+msgstr "Distribució dels plafons:"
+
+#: edit_act_gridLayout_tooltip
+msgid "Relative postion of the panels A and B."
+msgstr "Posició relativa dels plafons A i B."
+
+#: edit_act_inverseResolution
+msgid "Inverse resolution"
+msgstr "Resolució inversa"
+
+#: edit_act_inverseResolution_tooltip
+msgid ""
+"The activity is solved when all assigned elements of \"B\" are matched."
+msgstr ""
+"L'activitat es considerarà resolta quan tots els elements de \"B\" hagin "
+"estat aparellats."
+
+#: edit_act_showAllArrows
+msgid "Show all arrows"
+msgstr "Mostra totes les fletxes"
+
+#: edit_act_alt
+msgid "Alternative content:"
+msgstr "Contingut alternatiu:"
+
+#: edit_act_alt_tooltip
+msgid "Content shown in solved cells and non-assigned cells."
+msgstr "Contingut que es mostra en les caselles ja resoltes o no assignades."
+
+#: edit_act_alt_toggle
+msgid "ALT"
+msgstr "ALT"
+
+#: edit_act_alt_toggle_tooltip
+msgid "Edit the alternative content"
+msgstr "Edita el contingut alternatiu"
+
+#: edit_act_grid
+msgid "Grid"
+msgstr "Plafó"
+
+#: edit_act_grid_A
+msgid "Grid A"
+msgstr "Plafó A"
+
+#: edit_act_grid_B
+msgid "Grid B"
+msgstr "Plafó B"
+
+#: edit_act_grid_layout
+msgid "Layout"
+msgstr "Distribució"
+
+#: edit_act_grid_relationship
+msgid "Relationship"
+msgstr "Relacions"
+
+#: edit_seq_activity_header
+msgid "activity"
+msgstr "activitat"
+
+#: edit_seq_tag_header
+msgid "tag"
+msgstr "etiqueta"
+
+#: edit_seq_jump_header
+msgid "jump to"
+msgstr "saltar a"
+
+#: edit_seq_activity
+msgctxt "edit_seq_activity"
+msgid "Activity:"
+msgstr "Activitat:"
+
+#: edit_seq_tag
+msgctxt "edit_seq_tag"
+msgid "Label:"
+msgstr "Etiqueta:"
+
+#: edit_seq_description
+msgctxt "edit_seq_description"
+msgid "Description:"
+msgstr "Descripció:"
+
+#: edit_seq_auto
+msgid "Move on automatically"
+msgstr "Avanç automàtic"
+
+#: edit_seq_delay
+msgid "Delay:"
+msgstr "Retard:"
+
+#: edit_seq_action_fwd
+msgid "Go forward"
+msgstr "Avançar"
+
+#: edit_seq_action_back
+msgid "Go bak"
+msgstr "Retrocedir"
+
+#: edit_seq_action_jump
+msgid "Jump to..."
+msgstr "Saltar a..."
+
+#: edit_seq_action_stop
+msgid "Stop"
+msgstr "Aturar-se"
+
+#: edit_seq_action_return
+msgctxt "edit_seq_action_return"
+msgid "Return"
+msgstr "Tornar"
+
+#: edit_seq_action_exit
+msgid "Exit JClic"
+msgstr "Sortir del JClic"
+
+#: edit_seq_arrow_fwd
+msgid "Forward arrow:"
+msgstr "Fletxa endavant:"
+
+#: edit_seq_arrow_back
+msgid "Back arrow:"
+msgstr "Fletxa enrera:"
+
+#: edit_seq_action
+msgid "Action:"
+msgstr "Acció:"
+
+#: edit_seq_button_enabled
+msgid "Show button"
+msgstr "Mostra botó"
+
+#: edit_seq_project
+msgid "JClic Project:"
+msgstr "Projecte JClic:"
+
+#: edit_act_absolute
+msgid "Absolute position"
+msgstr "Posició absoluta"
+
+#: edit_act_absolute_tooltip
+msgid "The object will be placed at the specified X and Y co-ordinates"
+msgstr "L'objecte es situarà a les coordenades X i Y que especifiqueu"
+
+#: edit_act_location
+msgctxt "edit_act_location"
+msgid "Location:"
+msgstr "Posició:"
+
+#: edit_seq_newElement
+msgid "New sequence element..."
+msgstr "Nou element de seqüència..."
+
+#: edit_seq_newElement_tooltip
+msgid "Insert a new element into the activity sequence"
+msgstr "Insereix un nou element a la sequencia d'activitats"
+
+#: edit_seq_newElement_msg
+msgid "Please select an activity for the new sequence element."
+msgstr "Selecciona una activitat per al nou element de seqüència."
+
+#: edit_seq_newElement_error_noAct
+msgid "Cannot create a new sequence element without activity!"
+msgstr ""
+"No es pot crear un nou element de seqüència sense indicar l'activitat."
+
+#: edit_seq_newElement_error_emptyList
+msgid ""
+"This project has no activities! Unable to create sequence elements in an "
+"empty project."
+msgstr ""
+"En aquest projecte no hi ha cap activitat! No es poden crear elements de "
+"seqüència en un projecte buit."
+
+#: edit_seq_jump_msg
+msgid "Jump target:"
+msgstr "Destí del salt:"
+
+#: edit_seq_jump_title
+msgid "Jump target"
+msgstr "Destí del salt"
+
+#: edit_act_newActivity_tooltip
+msgid "Add a new activity to project"
+msgstr "Afegeix una nova activitat al projecte"
+
+#: edit_act_prompt_class
+msgid "Type of activity:"
+msgstr "Tipus d'activitat:"
+
+#: edit_act_prompt_name
+msgctxt "edit_act_prompt_name"
+msgid "Name:"
+msgstr "Nom:"
+
+#: edit_act_newActivity_msg
+msgid "Please select the type of activity to create and give it a name:"
+msgstr "Seleccioneu el tipus d'activitat que voleu crear i doneu-li un nom:"
+
+#: edit_act_newActivity_error_noAct
+msgid "You must select an activity type!"
+msgstr "Cal seleccionar un tipus d'activitat!"
+
+#: edit_act_newActivity_error_noName
+msgid "You must especify a name for the activity!"
+msgstr "Heu d'indicar un nom per l'activitat!"
+
+#: edit_act_newActivity_error_creating
+msgid "Unable to create activity!"
+msgstr "No s'ha pogut crear l'activitat!"
+
+#: edit_act_newActivity_class
+msgid "Java class name:"
+msgstr "Classe Java:"
+
+#: edit_text_act_format
+msgid "Format"
+msgstr "Format"
+
+#: edit_text_act_answer
+msgid "Answer"
+msgstr "Resposta"
+
+#: edit_text_act_popup
+msgid "Pop up"
+msgstr "Finestra emergent"
+
+#: edit_text_act_answer_label
+msgid "Valid answers:"
+msgstr "Respostes vàlides:"
+
+#: edit_list_newElement_tooltip
+msgid "Add a new list element"
+msgstr "Afegeix un nou element a la llista"
+
+#: edit_list_editElement_tooltip
+msgid "Edit the selected list element"
+msgstr "Modifica l'element seleccionat"
+
+#: edit_list_deleteElement_tooltip
+msgid "Delete the selected list element"
+msgstr "Elimina l'element seleccionat de la llista"
+
+#: edit_list_upBtn_tooltip
+msgid "Move up"
+msgstr "Mou amunt"
+
+#: edit_list_downBtn_tooltip
+msgid "Move down"
+msgstr "Mou avall"
+
+#: edit_list_newValue
+msgid "New text:"
+msgstr "Nou text:"
+
+#: edit_list_addElement
+msgid "Add new list element"
+msgstr "Afegeix un nou element de text"
+
+#: edit_list_modifyValue
+msgid "Modify selected text"
+msgstr "Modifica el text seleccionat"
+
+#: edit_text_act_target
+msgid "Target"
+msgstr "Incògnita"
+
+#: edit_text_act_maxLen
+msgctxt "edit_text_act_maxLen"
+msgid "Max. length:"
+msgstr "Longitud màxima:"
+
+#: edit_text_act_maxLen_tooltip
+msgid "Maximum amount of characters in the answer."
+msgstr "Nombre màxim de caràcters de la resposta"
+
+#: edit_text_act_fillingChar
+msgid "Filling character"
+msgstr "Caràcter de farciment"
+
+#: edit_text_act_fillingChar_tooltip
+msgid "Character used to indicate the blank"
+msgstr "Caràcter emprat per a indicar la incògnita"
+
+#: edit_text_act_iniLen
+msgid "Initial length:"
+msgstr "Longitud inicial:"
+
+#: edit_text_act_iniLen_tooltip
+msgid ""
+"Number of filling chars that will be displayed at the beginning of the "
+"activity."
+msgstr ""
+"Nombre de caràcters de farciment que es mostraran en iniciar-se l'activitat."
+
+#: edit_text_act_iniText
+msgid "Initial text:"
+msgstr "Text inicial:"
+
+#: edit_text_act_iniText_tooltip
+msgid "Text displayed in the blank at the beggining of the activity."
+msgstr "Tetx que es mostrarà a la incògnita en iniciar l'activitat."
+
+#: edit_text_act_list
+msgid "Show a list of options:"
+msgstr "Mostra una llista d'opcions:"
+
+#: edit_text_act_list_tooltip
+msgid "Display a list of options from which the user must select one."
+msgstr "L'usuari haurà de seleccionar una opció en una llista."
+
+#: edit_text_act_check_title
+msgid "Correction options"
+msgstr "Opcions d'avaluació"
+
+#: edit_text_act_popup_no
+msgid "No pop up"
+msgstr "Sense finestra emergent"
+
+#: edit_text_act_popup_always
+msgid "Pop up automatically"
+msgstr "Aparició automàtica"
+
+#: edit_text_act_popup_onError
+msgid "Pop up in errors"
+msgstr "Aparició en errors"
+
+#: edit_text_act_popup_onDemand
+msgid "Pop up with F1"
+msgstr "Aparició amb F1"
+
+#: edit_text_act_popup_type
+msgctxt "edit_text_act_popup_type"
+msgid "Type:"
+msgstr "Tipus:"
+
+#: edit_text_act_popup_delay
+msgid "Pop up delay:"
+msgstr "Retard d'aparició:"
+
+#: edit_text_act_popup_maxTime
+msgctxt "edit_text_act_popup_maxTime"
+msgid "Max. time:"
+msgstr "Temps màxim:"
+
+#: edit_text_act_popup_onlyPlay
+msgid "Sound only"
+msgstr "Només interpreta so"
+
+#: edit_text_act_err_noSelection
+msgid ""
+"You must select a fragment of text in order to create a new text target!"
+msgstr ""
+"¡Per crear una nova incògnita cal que seleccioneu un fragment de text!"
+
+#: edit_text_act_err_badCharInSelection
+msgid "Target text cannot include paragraph returns nor tabs."
+msgstr ""
+"El text de les incògnites no pot incloure retorns de paràgraf ni tabuladors."
+
+#: edit_text_act_err_nestedTargets
+msgid "Targets cannot nest!"
+msgstr "Les incògnites no es poden solapar!"
+
+#: edit_text_act_err_cellInTarget
+msgid "Targets cannot contain cells!"
+msgstr "Les incògnites no poden contenir cel·les!"
+
+#: edit_text_act_pageBgColor
+msgid "Paper colour:"
+msgstr "Color del paper:"
+
+#: edit_text_act_editStylesBtn
+msgid "Edit document styles..."
+msgstr "Edita els estils del document..."
+
+#: edit_text_act_mainStyle
+msgid "Main style:"
+msgstr "Estil principal:"
+
+#: edit_text_act_tabSpc
+msgid "Tab space:"
+msgstr "Tab space:"
+
+#: edit_text_act_tabSize
+msgid "Spaces between tab marks:"
+msgstr "Espais entre marques de tabulador:"
+
+#: edit_text_act_colors
+msgid "Colors:"
+msgstr "Colors:"
+
+#: edit_text_act_targetStyle
+msgid "Target colors:"
+msgstr "Colors de les incògnites:"
+
+#: edit_text_act_errorStyle
+msgid "Error colors:"
+msgstr "Colors d'error:"
+
+#: edit_text_act_preview
+msgctxt "edit_text_act_preview"
+msgid "Preview:"
+msgstr "Visualització prèvia:"
+
+#: edit_text_act_styleSample_default_start
+msgid "Standard text"
+msgstr "Text normal"
+
+#: edit_text_act_styleSample_target
+msgid "target"
+msgstr "incògnita"
+
+#: edit_text_act_styleSample_error
+msgid "error"
+msgstr "error"
+
+#: edit_text_act_styleSample_default_fill
+msgid "standard text"
+msgstr "text normal"
+
+#: edit_text_act_styleSample_default_end
+msgid "standard text."
+msgstr "text normal."
+
+#: edit_text_act_warnDeleteTarget
+msgid ""
+"Warning: This action will supress the currently selected target. Do you want "
+"to proceed?"
+msgstr ""
+"Atenció: aquesta acció suprimirà la incògnita actualment seleccionada. Segur "
+"que vols fer-ho?"
+
+#: edit_text_act_prevScreen_title
+msgid "Previous screen..."
+msgstr "Finestra prèvia..."
+
+#: edit_text_act_prevScreen_no
+msgid "Don't display any text before starting the activity"
+msgstr "No mostris cap text abans d'iniciar l'activitat"
+
+#: edit_text_act_prevScreen_original
+msgid "Display the complete text of the exercise"
+msgstr "Mostra el text complet de l'exercici"
+
+#: edit_text_act_prevScreen_special
+msgid "Display this text:"
+msgstr "Mostra aquest text:"
+
+#: edit_text_act_prevScreen_time
+msgctxt "edit_text_act_prevScreen_time"
+msgid "Max. time:"
+msgstr "Temps màxim:"
+
+#: edit_text_act_edit_target
+msgid "Target..."
+msgstr "Incògnita..."
+
+#: edit_text_act_checkButton_show
+msgid "Show correction button"
+msgstr "Mostra el botó d'avaluació"
+
+#: edit_text_act_checkButtonText
+msgid "Button text:"
+msgstr "Text del botó:"
+
+#: edit_text_act_checkCase
+msgid "Match case"
+msgstr "Comprova majúscules / minúscules"
+
+#: edit_text_act_checkAccents
+msgid "Consider accents and special characters"
+msgstr "Considera accents i caràcters especials"
+
+#: edit_text_act_checkPunct
+msgid "Consider punctuation marks"
+msgstr "Considera els símbols de puntuació"
+
+#: edit_text_act_checkDoubleSpc
+msgid "Allow repeated spaces"
+msgstr "Permet espais repetits"
+
+#: edit_text_act_checkOptions
+msgid "Criteria"
+msgstr "Criteris"
+
+#: edit_text_act_checkAutoJump
+msgid "Move on to next target when filled in"
+msgstr "Salta automàticament a la següent incògnita"
+
+#: edit_text_act_checkForceOk
+msgid "Move only after correct guess"
+msgstr "Avança només si es respon correctament"
+
+#: edit_text_act_checkDetail
+msgid "Indicate mistakes letter by letter"
+msgstr "Indica la posició dels errors"
+
+#: edit_text_act_checkDetail_params
+msgid "Analysis algorithm parameters:"
+msgstr "Paràmetres de l'algorisme d'anàlisi:"
+
+#: edit_text_act_checkDetail_steps
+msgid "Steps:"
+msgstr "Passos:"
+
+#: edit_text_act_checkDetail_field
+msgid "Exploration field:"
+msgstr "Camp d'exploració:"
+
+#: edit_text_act_defaultCheckButtonText
+msgid "Check"
+msgstr "Avaluació"
+
+#: edit_text_act_advancedCorrectionOptions
+msgid "Answer analysis"
+msgstr "Anàlisi de les respostes"
+
+#: edit_text_act_check_bt
+msgid "Correction..."
+msgstr "Avaluació..."
+
+#: edit_text_act_checkButton
+msgid "Correction button"
+msgstr "Botó d'avaluació"
+
+#: edit_text_act_checkProgress
+msgid "Progress"
+msgstr "Progrés"
+
+#: edit_text_act_typeBtn
+msgid "Type..."
+msgstr "Tipus..."
+
+#: edit_text_act_orderParagraphs
+msgid "Order paragraphs"
+msgstr "Ordenar paràgrafs"
+
+#: edit_text_act_orderWords
+msgid "Order words"
+msgstr "Ordenar paraules"
+
+#: edit_text_act_order_amongstPar
+msgid "Shuffle words amongst paragraphs"
+msgstr "Barreja paraules entre paràgrafs"
+
+#: edit_text_act_type_title
+msgid "Activity type"
+msgstr "Tipus d'activitat"
+
+#: edit_text_act_warnChangeType
+msgid ""
+"This action will clear all the existing targets. Do you want to proceed?"
+msgstr ""
+"Aquesta acció suprimirà totes les incògnites actualment definides. Segur que "
+"vols fer-ho?"
+
+#: edit_text_act_identWords
+msgid "Identify words"
+msgstr "Identificar paraules"
+
+#: edit_text_act_identChars
+msgid "Identify characters"
+msgstr "Identificar caràcters"
+
+#: edit_media_change_name
+msgid "Change name..."
+msgstr "Canvia el nom..."
+
+#: edit_media_change_file
+msgid "Change file..."
+msgstr "Canvia el fitxer..."
+
+#: edit_media_includeInZip
+msgid "Save into ZIP file"
+msgstr "Desar-lo en el fitxer ZIP"
+
+#: edit_media_type
+msgid "Media type:"
+msgstr "Tipus de recurs:"
+
+#: edit_media_size
+msgid "File size:"
+msgstr "Mida del fitxer:"
+
+#: edit_media_show_type
+msgid "Files of type:"
+msgstr "Tipus de fitxers :"
+
+#: edit_media_preview
+msgid "Preview media"
+msgstr "Mostra l'objecte"
+
+#: edit_media_preview_tooltip
+msgid "Preview media resource"
+msgstr "Visualització del recurs"
+
+#: edit_media_rename
+msgid "Change resource name"
+msgstr "Canvi del nom del recurs"
+
+#: edit_media_rename_title
+msgid "Rename"
+msgstr "Canvi de nom"
+
+#: edit_media_rename_prompt
+msgid "New name:"
+msgstr "Nou nom:"
+
+#: edit_media_rename_invalid
+msgid "Invalid resource name!"
+msgstr "Nom de recurs no vàlid!"
+
+#: edit_media_rename_exists
+msgid ""
+"There is another resource with this name! Each resource must have a unique "
+"name."
+msgstr ""
+"Ja hi ha un altre recurs amb aquest nom! Cada recurs ha de tenir un nom únic "
+"en el projecte."
+
+#: edit_media_chfile_invalid
+msgid "Invalid file!"
+msgstr "Fitxer incorrecte!"
+
+#: err_media_chfile_different
+msgid "File must be of same type"
+msgstr "El fitxer ha de ser del mateix tipus"
+
+#: edit_media_font_error
+msgid "Unable to load font!"
+msgstr "No ha estat possible carregar el tipus de lletra!"
+
+#: edit_media_save_file
+msgid "Save file (extract from ZIP)"
+msgstr "Desa el fitxer (extreu-lo del ZIP)"
+
+#: edit_media_refresh_file
+msgid "Update media content from file"
+msgstr "Actualitza el contingut del recurs des del fitxer"
+
+#: edit_media_warn_zipFileNotExternal
+msgid ""
+"This is not a \"real\" file, but a object located into a ZIP container. In "
+"order to use this feature, a file with the same name must be present in the "
+"folder where the ZIP file is located."
+msgstr ""
+"Aquest no és un fitxer \"real\", sinó un objecte situat dins d'un contenidor "
+"ZIP. Per fer servir aquesta funció cal que hi hagi un fitxer amb el mateix "
+"nom a la carpeta on es troba el fitxer ZIP."
+
+#: edit_activities
+msgctxt "edit_activities"
+msgid "Activities"
+msgstr "Activitats"
+
+#: edit_sequences
+msgctxt "edit_sequences"
+msgid "Sequences"
+msgstr "Seqüències"
+
+#: edit_media
+msgctxt "edit_media"
+msgid "Media library"
+msgstr "Mediateca"
+
+#: edit_media_tooltip
+msgid "Manage images and other media files used in the project"
+msgstr "Gestió de les Imatges i altres recursos emprats en el projecte."
+
+#: edit_activities_tooltip
+msgid "Create and edit project activities"
+msgstr "Creació i modificació de les activitats del projecte"
+
+#: edit_sequences_tooltip
+msgid "Edit and create sequences of activities"
+msgstr "Creació i modificació de seqüències d'activitats"
+
+#: edit_project_title
+msgctxt "edit_project_title"
+msgid "Title:"
+msgstr "Títol:"
+
+#: edit_project_title_tooltip
+msgid "Project's title"
+msgstr "Títol del projecte"
+
+#: edit_project
+msgctxt "edit_project"
+msgid "Project"
+msgstr "Projecte"
+
+#: edit_project_tooltip
+msgid "Edit project properties"
+msgstr "Edició de les propietats del projecte"
+
+#: edit_project_description
+msgctxt "edit_project_description"
+msgid "Description:"
+msgstr "Descripció:"
+
+#: edit_project_description_tooltip
+msgid "General description of the project"
+msgstr "Descripció general del projecte"
+
+#: edit_project_area
+msgid "Areas:"
+msgstr "Àrees:"
+
+#: edit_project_area_tooltip
+msgid "Curricular areas of the project"
+msgstr "Àrees curriculars a les que s'orienta el projecte"
+
+#: edit_project_level
+msgid "Levels:"
+msgstr "Nivells:"
+
+#: edit_project_level_tooltip
+msgid "Educational levels of the project"
+msgstr "Nivells i cicles educatius als que s'adreça el projecte"
+
+#: edit_project_descriptors
+msgid "Descriptors:"
+msgstr "Descriptors:"
+
+#: edit_project_descriptors_tooltip
+msgid "Descriptors of the project (separed with comma)"
+msgstr "Descriptors del projecte (separats per comes)"
+
+#: edit_project_languages
+msgid "Languages:"
+msgstr "Idiomes:"
+
+#: edit_project_languages_tooltip
+msgid "Languages used in the project"
+msgstr "Idiomes emprats en el projecte"
+
+#: edit_project_languages_modify
+msgid "Change the selected language"
+msgstr "Canvia l'idioma seleccionat"
+
+#: edit_project_languages_add
+msgid "Add language"
+msgstr "Afegeix un idioma"
+
+#: edit_project_languages_select
+msgid "ISO-639 language codes:"
+msgstr "Codis d'idioma ISO-639:"
+
+#: edit_project_authors
+msgctxt "edit_project_authors"
+msgid "Authors:"
+msgstr "Autors/es:"
+
+#: edit_project_authors_tooltip
+msgid "People involved in the creation of the project"
+msgstr "Persones que han contribuit a la creació del projecte"
+
+#: edit_project_author_name
+msgctxt "edit_project_author_name"
+msgid "Name:"
+msgstr "Nom:"
+
+#: edit_project_author_mail
+msgctxt "edit_project_author_mail"
+msgid "e-mail:"
+msgstr "Correu electrònic:"
+
+#: edit_project_author_rol
+msgid "Rol:"
+msgstr "Rol:"
+
+#: edit_project_author_organization
+msgid "Organization:"
+msgstr "Organització:"
+
+#: edit_project_author_comments
+msgctxt "edit_project_author_comments"
+msgid "Comments:"
+msgstr "Comentaris:"
+
+#: edit_project_author_url
+msgctxt "edit_project_author_url"
+msgid "URL:"
+msgstr "URL:"
+
+#: edit_project_author_name_tooltip
+msgid "Author's name (required)"
+msgstr "Nom de l'autor/a (camp obligatori)"
+
+#: edit_project_author_mail_tooltip
+msgid "Author's e-mail (optional)"
+msgstr "Adreça de correu electrònic de l'autor/a (opcional)"
+
+#: edit_project_author_rol_tooltip
+msgid ""
+"Person's rol in the project: author, collaborator, drawings, sounds... "
+"(optional)"
+msgstr ""
+"Rol de la persona en el projecte: autor/a, col·laborador/a, dibuixos, "
+"sons... (camp opcional)"
+
+#: edit_project_author_organization_tooltip
+msgid "School, university, association... (optional)"
+msgstr "Escola, universitat, associació... (camp opcional)"
+
+#: edit_project_author_url_tooltip
+msgid "Personal web page (optional)"
+msgstr "Pàgina web personal (camp opcional)"
+
+#: edit_project_author_comments_tooltip
+msgid "Field for other information (optional)"
+msgstr "Altres característiques (camp opcional)"
+
+#: edit_project_author_info
+msgid "Author info:"
+msgstr "Dades de l'autor/a:"
+
+#: edit_project_author_add
+msgid "Add author to list"
+msgstr "Afegeix un autor a la llista"
+
+#: edit_project_author_edit
+msgid "Edit author info"
+msgstr "Modifica les dades de l'autor/a"
+
+#: edit_project_org_name
+msgctxt "edit_project_org_name"
+msgid "Name:"
+msgstr "Nom:"
+
+#: edit_project_org_name_tooltip
+msgid "School name"
+msgstr "Nom de l'escola"
+
+#: edit_project_org_mail
+msgctxt "edit_project_org_mail"
+msgid "e-mail:"
+msgstr "Correu electrònic:"
+
+#: edit_project_org_mail_tooltip
+msgid "e-mail address of the school"
+msgstr "Adreça de correu electrònic de l'escola"
+
+#: edit_project_org_url
+msgctxt "edit_project_org_url"
+msgid "URL:"
+msgstr "URL:"
+
+#: edit_project_org_url_tooltip
+msgid "School website"
+msgstr "Adreça web de l'escola"
+
+#: edit_project_org_address
+msgid "Address:"
+msgstr "Adreça:"
+
+#: edit_project_org_address_tooltip
+msgid "Snail-mail address"
+msgstr "Adreça postal de l'escola"
+
+#: edit_project_org_pc
+msgid "PC:"
+msgstr "CP:"
+
+#: edit_project_org_pc_tooltip
+msgid "Postal code"
+msgstr "Codi postal"
+
+#: edit_project_org_city
+msgid "City:"
+msgstr "Localitat:"
+
+#: edit_project_org_city_tooltip
+msgid "School city"
+msgstr "Localitat de l'escola"
+
+#: edit_project_org_country
+msgid "Country:"
+msgstr "País:"
+
+#: edit_project_org_state
+msgid "State:"
+msgstr "Estat:"
+
+#: edit_project_org_comments
+msgctxt "edit_project_org_comments"
+msgid "Comments:"
+msgstr "Comentaris:"
+
+#: edit_project_org
+msgid "School/s:"
+msgstr "Centre/s:"
+
+#: edit_project_org_tooltip
+msgid "School or other institution involved in the project"
+msgstr "Escoles i altres institucions que han participat en el projecte"
+
+#: edit_project_org_info
+msgid "Organization info:"
+msgstr "Dades de l'organització:"
+
+#: edit_project_org_add
+msgid "Add organization"
+msgstr "Afegir una nova organització"
+
+#: edit_project_org_edit
+msgid "Edit organization data"
+msgstr "Modificar les dades de l'organització"
+
+#: edit_project_org_country_tooltip
+msgid "Country, federation, union..."
+msgstr "Estat, país, federació..."
+
+#: edit_project_org_state_tooltip
+msgid "Federal state, community, region..."
+msgstr "Estat federal, nacionalitat, comunitat, regió..."
+
+#: edit_project_org_comments_tooltip
+msgid "Other info..."
+msgstr "Altres dades..."
+
+#: edit_project_rev_date
+msgid "Date:"
+msgstr "Data:"
+
+#: edit_project_rev_date_tooltip
+msgid "Date of the revision"
+msgstr "Data de la revisió"
+
+#: edit_project_rev_authors
+msgctxt "edit_project_rev_authors"
+msgid "Authors:"
+msgstr "Autors/es:"
+
+#: edit_project_rev_authors_tooltip
+msgid "Authors of the revision"
+msgstr "Autors/es de la revisió"
+
+#: edit_project_rev_description
+msgctxt "edit_project_rev_description"
+msgid "Description:"
+msgstr "Descripció:"
+
+#: edit_project_rev_description_tooltip
+msgid "Brief description of the changes made"
+msgstr "Breu descripció dels canvis realitzats"
+
+#: edit_project_rev_comments
+msgctxt "edit_project_rev_comments"
+msgid "Comments:"
+msgstr "Comentaris:"
+
+#: edit_project_rev_comments_tooltip
+msgid "Other relevant info"
+msgstr "Informació addicional"
+
+#: edit_project_rev
+msgid "Revisions:"
+msgstr "Revisions:"
+
+#: edit_project_rev_tooltip
+msgid "History of main modifications made to the project"
+msgstr "Historial de les principals modificacions realitzades al projecte"
+
+#: edit_project_rev_add
+msgid "Add revision record"
+msgstr "Afegir un registre de revisió"
+
+#: edit_project_rev_edit
+msgid "Edit revision record"
+msgstr "Modificació de les dades de la revisió"
+
+#: edit_project_rev_info
+msgid "Revision data"
+msgstr "Dades de la revisió"
+
+#: edit_media_objects
+msgid "objects"
+msgstr "objectes"
+
+#: edit_media_object
+msgid "object"
+msgstr "objecte"
+
+#: edit_evsounds_start
+msgid "Start of activity:"
+msgstr "Inici d'activitat:"
+
+#: edit_evsounds_click
+msgid "Click on object:"
+msgstr "Fer clic a un objecte:"
+
+#: edit_evsounds_actionError
+msgid "Erroneous action:"
+msgstr "Acció errònia:"
+
+#: edit_evsounds_actionOk
+msgid "Correct action:"
+msgstr "Acció correcta:"
+
+#: edit_evsounds_finishedError
+msgid "Activity finished with errors:"
+msgstr "Activitat acabada amb errors:"
+
+#: edit_evsounds_finishedOk
+msgid "Activity finished OK:"
+msgstr "Activitat acabada correctament:"
+
+#: edit_project_rev_err_nodesc
+msgid "Error: The description field cannot be leaved blank!"
+msgstr "Error: La descripció no es pot deixar en blanc"
+
+#: edit_evsounds_dlg_title
+msgid "Edit event sounds"
+msgstr "Edita els sons d'events"
+
+#: edit_project_evsounds
+msgctxt "edit_project_evsounds"
+msgid "Event sounds:"
+msgstr "Sons d'event:"
+
+#: edit_project_evsounds_tooltip
+msgctxt "edit_project_evsounds_tooltip"
+msgid "Set specific sounds for each JClic event"
+msgstr "Assigna sons específics per a cada event del JClic"
+
+#: edit_act_evsounds
+msgctxt "edit_act_evsounds"
+msgid "Event sounds:"
+msgstr "Sons d'event:"
+
+#: edit_act_evsounds_tooltip
+msgctxt "edit_act_evsounds_tooltip"
+msgid "Set specific sounds for each JClic event"
+msgstr "Assigna sons específics per a cada event del JClic"
+
+#: edit_evsounds_default
+msgid "default sound"
+msgstr "so per defecte"
+
+#: edit_evsounds_disabled
+msgid "disabled"
+msgstr "desactivat"
+
+#: edit_evsounds_chk_tooltip
+msgid "Enable or disable the sound for this event"
+msgstr "Activa o desactiva el so per aquest event"
+
+#: edit_evsounds_select_tooltip
+msgid ""
+"Click to select a sound for this event, or uncheck to use the default sound"
+msgstr ""
+"Cliqueu per a seleccionar un so per aquest event, o desmarqueu per emprar el "
+"so per defecte"
+
+#: action_newProject_caption
+msgid "New project..."
+msgstr "Nou projecte..."
+
+#: action_newProject_keys
+msgid "NN"
+msgstr "NN"
+
+#: action_newProject_tooltip
+msgid "Create a new JClic project"
+msgstr "Crea un nou projecte JClic"
+
+#: edit_arith_op_from
+msgctxt "edit_arith_op_from"
+msgid "From:"
+msgstr "Des de:"
+
+#: edit_arith_op_from_tooltip
+msgid "Minimum value of the operator"
+msgstr "Valor mínim de l'operand"
+
+#: edit_arith_op_to
+msgctxt "edit_arith_op_to"
+msgid "To:"
+msgstr "Fins a:"
+
+#: edit_arith_op_to_tooltip
+msgid "Maximum value of the operator"
+msgstr "Valor màxim de l'operand"
+
+#: edit_arith_op_with
+msgid "With:"
+msgstr "Amb:"
+
+#: edit_arith_op_with_tooltip
+msgid "If checked, the operator can also have this value"
+msgstr "Si es marca, l'operand port tenir també aquest valor"
+
+#: edit_arith_op_fromList
+msgid "One from the list:"
+msgstr "Un de la llista:"
+
+#: edit_arith_op_fromList_tooltip
+msgid "List of possible values for the operator"
+msgstr "Llista de possibles valors de l'operand"
+
+#: edit_arith_op_decimals
+msgid "Decimals:"
+msgstr "Decimals:"
+
+#: edit_arith_op_decimals_tooltip
+msgid "Number of decimals of the operand"
+msgstr "Nombre de decimals de l'operand"
+
+#: edit_arith_op_dec0
+msgid "# (integer)"
+msgstr "# (enter)"
+
+#: edit_arith_op_dec1
+msgid "#.#"
+msgstr "#,#"
+
+#: edit_arith_op_dec2
+msgid "#.##"
+msgstr "#,##"
+
+#: edit_arith_firstOp
+msgid "First operand"
+msgstr "Primer operand"
+
+#: edit_arith_secondOp
+msgid "Second operand"
+msgstr "Segon operand"
+
+#: edit_arith_title
+msgid "Arith2 for JClic"
+msgstr "Arith2 pel JClic"
+
+#: edit_arith_operations
+msgid "Operations:"
+msgstr "Operacions:"
+
+#: edit_arith_operations_tooltip
+msgid "Select the kind of operations to be performed"
+msgstr "Seleccioneu el tipus d'operacions a efectuar"
+
+#: edit_arith_operations_plus
+msgid "Plus"
+msgstr "Sumes"
+
+#: edit_arith_operations_minus
+msgid "Minus"
+msgstr "Restes"
+
+#: edit_arith_operations_multiply
+msgid "Multiply"
+msgstr "Multiplicacions"
+
+#: edit_arith_operations_divide
+msgid "Divide"
+msgstr "Divisions"
+
+#: edit_arith_unknown
+msgid "Unknown:"
+msgstr "Incògnita:"
+
+#: edit_arith_unknown_tooltip
+msgid "Select the item that will act as a unknown"
+msgstr "Seleccioneu l'element que farà d'incògnita"
+
+#: edit_arith_unknown_aobx
+msgid "The result is the unknown"
+msgstr "La incògnita és el resultat"
+
+#: edit_arith_unknown_aoxr
+msgid "The second operator is the unknown"
+msgstr "La incògnita és el segon operand"
+
+#: edit_arith_unknown_xobr
+msgid "The first operator is the unknown"
+msgstr "El primer operand és la incògnita"
+
+#: edit_arith_unknown_axbr
+msgid "The operation is the unknown"
+msgstr "La operació és la incògnita"
+
+#: edit_arith_unknown_invert
+msgid "Write the result at the beggining of the expression"
+msgstr "Escriu l'expressió començant pel resultat"
+
+#: edit_arith_result
+msgid "Result:"
+msgstr "Resultat:"
+
+#: edit_arith_result_notCarry
+msgid "Do not carry"
+msgstr "Sense \"portar-ne\""
+
+#: edit_arith_result_random
+msgid "Random"
+msgstr "Aleatori"
+
+#: edit_arith_result_asc
+msgid "Ascending"
+msgstr "Ascendent"
+
+#: edit_arith_result_order
+msgid "Order by result:"
+msgstr "Ordena per resultat:"
+
+#: edit_arith_result_desc
+msgid "Descending"
+msgstr "Descendent"
+
+#: edit_arith_result_avoidDup
+msgid "Avoid duplicates"
+msgstr "Evitar duplicats"
+
+#: edit_arith_cond
+msgid "Conditions:"
+msgstr "Condicions:"
+
+#: edit_arith_cond_ind
+msgid "Indifferent"
+msgstr "Indiferent"
+
+#: edit_arith_cond_agb
+msgid "The first operator must be greather than the second one"
+msgstr "El primer operand ha de ser més gran que el segon"
+
+#: edit_arith_cond_alb
+msgid "The first operator must be lesser than the second one"
+msgstr "El primer operand ha de ser menor que el segon"
+
+#: edit_arith_cond_tooltip
+msgid "Other conditions"
+msgstr "Altres condicions"
+
+#: edit_autocp
+msgid "Automatic content generator:"
+msgstr "Generador automàtic de contingut:"
+
+#: edit_autocp_tooltip
+msgid "Select the type of automatic content generator for this activity."
+msgstr ""
+"Seleccio del tipus de generador automàtic de contingut per aquesta activitat."
+
+#: edit_autocp_block
+msgid "Content generator"
+msgstr "Generador de contingut"
+
+#: edit_autocp_btn
+msgid "Settings..."
+msgstr "Configuració..."
+
+#: edit_autocp_btn_tooltip
+msgid "Configure the content provider settings"
+msgstr "Configura els paràmetres del generador de contingut"
+
+#: edit_data
+msgid "Edit data"
+msgstr "Edició de dades"
+
+#: edit_act
+msgid "Activity edit"
+msgstr "Edició de l'activitat"
+
+#: edit_acp
+msgid "Content provider edit"
+msgstr "Edició del generador de contingut"
+
+#: edit_acp_err_creating
+msgid "Error creating the content provider!"
+msgstr "Error en crear el generador automàtic de contingut!"
+
+#: edit_project_author_group
+msgid "Creation"
+msgstr "Creació"
+
+#: edit_project_description_block
+msgctxt "edit_project_description_block"
+msgid "Description"
+msgstr "Descripció"
+
+#: edit_project_ui_block
+msgctxt "edit_project_ui_block"
+msgid "User interface"
+msgstr "Interfície d'usuari"
+
+#: edit_act_description
+msgctxt "edit_act_description"
+msgid "Description:"
+msgstr "Descripció:"
+
+#: m_Edit
+msgid "Edit"
+msgstr "Edita"
+
+#: m_Edit_Mnemonic
+msgid "E"
+msgstr "E"
+
+#: edit_media_preview_keys
+msgid "P*"
+msgstr "V*"
+
+#: edit_act_newActivity
+msgid "New activity..."
+msgstr "Nova activitat..."
+
+#: edit_act_newActivity_keys
+msgid "A*"
+msgstr "A*"
+
+#: edit_act_testAction_keys
+msgid "P#10"
+msgstr "M#10"
+
+#: edit_seq_newElement_keys
+msgid "S*"
+msgstr "S*"
+
+#: m_Insert
+msgid "Insert"
+msgstr "Insereix"
+
+#: m_Insert_Mnemonic
+msgid "I"
+msgstr "I"
+
+#: m_View
+msgid "View"
+msgstr "Visualitza"
+
+#: m_View_Mnemonic
+msgid "V"
+msgstr "V"
+
+#: action_editProject_caption
+msgctxt "action_editProject_caption"
+msgid "Project"
+msgstr "Projecte"
+
+#: action_editProject_keys
+msgid "PP"
+msgstr "PP"
+
+#: action_editProject_tooltip
+msgid "Edit project settings"
+msgstr "Edita les propietats del projecte"
+
+#: action_editMedia_caption
+msgid "Media"
+msgstr "Mediateca"
+
+#: action_editMedia_keys
+msgid "MM"
+msgstr "MM"
+
+#: action_editMedia_tooltip
+msgid "Edit the project's multimedia library"
+msgstr "Edita la biblioteca de recursos multimèdia del projecte"
+
+#: action_editActivities_caption
+msgctxt "action_editActivities_caption"
+msgid "Activities"
+msgstr "Activitats"
+
+#: action_editActivities_keys
+msgctxt "action_editActivities_keys"
+msgid "AA"
+msgstr "AA"
+
+#: action_editActivities_tooltip
+msgid "Edit the activities"
+msgstr "Edita les activitats"
+
+#: action_editSeq_caption
+msgctxt "action_editSeq_caption"
+msgid "Sequences"
+msgstr "Seqüències"
+
+#: action_editSeq_keys
+msgctxt "action_editSeq_keys"
+msgid "SS"
+msgstr "SS"
+
+#: action_editSeq_tooltip
+msgid "Edit the sequences of activities"
+msgstr "Edita les sequencies d'activitats"
+
+#: warn_project_modified
+msgid "Current project has been modified. Do you want to save the changes?"
+msgstr "El projecte actual ha estat modificat. Voleu desar els canvis?"
+
+#: edit_project_descriptors_block
+msgid "Descriptors"
+msgstr "Descriptors"
+
+#: edit_media_new
+msgid "New media object..."
+msgstr "Nou objecte multimèdia..."
+
+#: edit_media_new_tooltip
+msgid "Add a new image or multimedia object to the library"
+msgstr "Afegeix una imatge o un objecte multimedia a la mediateca"
+
+#: edit_media_new_keys
+msgid "M*"
+msgstr "M*"
+
+#: edit_seq_threshold
+msgid "Score threshold:"
+msgstr "Llindar de puntuació:"
+
+#: edit_seq_threshold_tooltip_up
+msgid "Take this way when the global score is equal to or higher than..."
+msgstr ""
+"Ves per aquest camí quan la puntuació global sigui igual o superior a..."
+
+#: edit_seq_time
+msgid "Time threshold:"
+msgstr "Llindar de temps:"
+
+#: edit_seq_time_tooltip_up
+msgid ""
+"In order to take this way, the time spent on the activities must be less "
+"than..."
+msgstr ""
+"Per seguir aquest camí cal haver realitzat les activitats en un temps "
+"inferior a..."
+
+#: edit_seq_threshold_tooltip_down
+msgid "Take this way when the global score is lower than..."
+msgstr ""
+"Segueix aquest camí sempre que la puntuació global sigui inferior a..."
+
+#: edit_seq_time_tooltip_down
+msgid "Take this way when the time spent on the activities is more than..."
+msgstr ""
+"Segueix aquest camí sempre que el temps emprat en les activitats sigui "
+"superior a..."
+
+#: edit_seq_condJump
+msgid "Conditional jumps"
+msgstr "Salts condicionals"
+
+#: edit_seq_condJump_tooltip
+msgid "Set special jumps to be executed only under specific condicions"
+msgstr ""
+"Especifica salts que seran executats només si es donen determinades "
+"condicions"
+
+#: edit_seq_condJump_upper_tooltip
+msgid "Set conditions to jump to an upper level"
+msgstr "Indica les condicions per saltar a un nivell superior"
+
+#: edit_seq_condJump_lower
+msgid "Lower jump:"
+msgstr "Salt inferior:"
+
+#: edit_seq_condJump_upper
+msgid "Upper jump:"
+msgstr "Salt superior:"
+
+#: edit_seq_condJump_lower_tooltip
+msgid "Set conditions to jump to an lower level"
+msgstr "Indica les condicions per saltar a un nivell inferior"
+
+#: edit_seq_action_tooltip_fw
+msgid "Action assigned to the \"next\" button"
+msgstr "Acció assignada al botó d'avançar"
+
+#: edit_seq_action_tooltip_bk
+msgid "Action assigned to the \"previous\" button"
+msgstr "Acció assignada al botó de retrocedir"
+
+#: edit_seq_jump_tooltip
+msgid "Set the jump target"
+msgstr "Indica el destí del salt"
+
+#: edit_seq_action_tooltip
+msgid "Action to be done"
+msgstr "Acció a realitzar"
+
+#: edit_seq_activity_tooltip
+msgid "Activity assigned to this sequence element"
+msgstr "Activitat associada a aquest element de seqüència"
+
+#: edit_seq_tag_tooltip
+msgid "Tag used to reference this sequence element (optional field)"
+msgstr ""
+"Etiqueta emprada per referir-se a aquest element de seqüència (camp opcional)"
+
+#: edit_seq_description_tooltip
+msgid "Description of the sequence element (optional field)"
+msgstr "Descripció de l'element de seqüència (camp opcional)"
+
+#: edit_seq_button_enabled_tooltip
+msgid "Enable or disable the arrow button"
+msgstr "Activa o desactiva el botó de pas d'activitat"
+
+#: edit_seq_auto_tooltip
+msgid "Move on automatically when the activity finishes"
+msgstr "Avançar automàticament en acabar l'activitat"
+
+#: edit_seq_delay_tooltip
+msgid "Seconds to wait before to do the automatic move"
+msgstr "Nombre de segons a esperar abans de realitzar el pas automátic"
+
+#: edit_color_dlgTitle
+msgid "Select color"
+msgstr "Selecció del color"
+
+#: edit_media_renaming
+msgid "Please wait while the resource is being renamed..."
+msgstr "Si us plau, espereu mentre es canvia el nom del recurs..."
+
+#: edit_act_cell_width
+msgctxt "edit_act_cell_width"
+msgid "Width:"
+msgstr "Amplada:"
+
+#: edit_act_cell_width_tooltip
+msgid "Cell width (in pixels)"
+msgstr "Amplada de les cel·les (en píxels)"
+
+#: edit_act_cell_height
+msgctxt "edit_act_cell_height"
+msgid "Height:"
+msgstr "Alçada:"
+
+#: edit_act_cell_height_tooltip
+msgid "Cell height (in pixels)"
+msgstr "Alçada de les cel·les (en píxels)"
+
+#: edit_act_hiddenWords
+msgid "Hidden words:"
+msgstr "Paraules amagades:"
+
+#: edit_act_hiddenWords_tooltip
+msgid "List of the hidden words placed in the panel"
+msgstr "Llista de les paraules que s'han amagat al plafó"
+
+#: edit_act_wordSearch_panelB
+msgid "Use panel B"
+msgstr "Emprar el plafó B"
+
+#: edit_act_wordSearch_panelB_tooltip
+msgid "The contents of a second panel will be displayed as words are found"
+msgstr ""
+"Fes servir un segon plafó, que es mostrarà a mesura que es trobin les "
+"paraules"
+
+#: edit_act_shaper_tooltip
+msgid "Select the shaper type to be used in the panel"
+msgstr "Selecció del tipus de generador de formes del plafó"
+
+#: edit_act_num_cols_tooltip
+msgid "Number of columns of  the panel"
+msgstr "Nombre de columnes del plafó"
+
+#: edit_act_num_rows_tooltip
+msgid "Number of rows of  the panel"
+msgstr "Nombre de files del plafó"
+
+#: edit_act_wildTransparent
+msgid "Transparent delimiters"
+msgstr "Separadors transparents"
+
+#: edit_act_wildTransparent_tooltip
+msgid "Treat the delimiters (black boxes) as transparent holes"
+msgstr "Mostra els separadors (cel·les negres) com a forats transparents"
+
+#: edit_act_behavior_scramble_times
+msgid "Mixes\\:"
+msgstr "Barreges:"
+
+#: edit_act_behavior_scramble_times_tooltip
+msgid "Number of times to shuffle"
+msgstr "Nombre de vegades que es barrejaran les peces"
+
+#: edit_act_copy_title
+msgid "Copy attributtes to..."
+msgstr "Copia atributs a..."
+
+#: edit_act_copy_attributes
+msgid "Attributes"
+msgstr "Atributs"
+
+#: edit_act_copy_dest
+msgid "Apply to:"
+msgstr "Aplica a:"
+
+#: edit_act_copy_style_main
+msgid "Main window"
+msgstr "Finestra principal"
+
+#: edit_act_copy_style_play
+msgid "Play window"
+msgstr "Finestra de joc"
+
+#: edit_act_copy_activities
+msgid "Activities to be modified:"
+msgstr "Activitats a modificar:"
+
+#: edit_act_copyAttributes
+msgid "Copy attributes"
+msgstr "Copia atributs"
+
+#: edit_act_copyAttributes_keys
+msgid "T"
+msgstr "T"
+
+#: edit_act_copyAttributes_tooltip
+msgid "Copy current activity attributes to other activities"
+msgstr "Copia a altres activitats alguns dels atributs de l'activitat actual"
+
+#: edit_new_project_name
+msgid "Project name:"
+msgstr "Nom del projecte:"
+
+#: edit_new_project_name_tooltip
+msgid "Short, descriptive name of the project"
+msgstr "Nom curt i descriptiu del projecte"
+
+#: edit_new_project_filename
+msgctxt "edit_new_project_filename"
+msgid "File name:"
+msgstr "Nom del fitxer:"
+
+#: edit_new_project_filename_tooltip
+msgid "Name of the project file, without extension"
+msgstr "Nom del fitxer del projecte, sense extensió"
+
+#: edit_new_project_folder
+msgctxt "edit_new_project_folder"
+msgid "Folder:"
+msgstr "Carpeta:"
+
+#: edit_new_project_folder_tooltip
+msgid "Name of the folder where the project will be stored"
+msgstr "Nom de la carpeta on es guardarà el projecte"
+
+#: edit_new_project_folder_browse
+msgctxt "edit_new_project_folder_browse"
+msgid "Browse..."
+msgstr "Navega..."
+
+#: edit_new_project_title
+msgid "Create new JClic project"
+msgstr "Creació d'un nou projecte JClic"
+
+#: edit_new_project_err_empty
+msgid "Error: Project, file and folder must have valid, non-empty names."
+msgstr ""
+"Error: Tant el projecte com el fitxer i la carpeta han de tenir noms vàlids."
+
+#: edit_new_project_warning_noEmptyFolder
+msgid ""
+"This folder already contains another Clic 3.0 or JClic project. In order to "
+"avoid confusions, is preferable to maintain each project in a separate "
+"folder, but that isn't a strict rule. Do you really want to create the new "
+"project in this folder?"
+msgstr ""
+"En aquesta carpeta ja hi ha un altre projecte Clic3.0 o JClic. Per evitar "
+"confusions es recomana mantenir cada projecte en una carpeta independent, "
+"tot i que això no és un requisit imprescindible. Realment voleu crear el nou "
+"projecte en aquesta carpeta?"
+
+#: edit_new_project_err_folderCreation
+msgid "Error: Unable to create the specified folder!"
+msgstr "Error: Ha estat impossible crear la carpeta que heu indicat!"
+
+#: edit_act_copy_err_noSelection
+msgid ""
+"Error: No activity selected! In order to use this function you must select "
+"in the list the activity or activities to wich the indicated attributes will "
+"be applied."
+msgstr ""
+"No heu seleccionat cap activitat! Per fer servir aquesta funció cal "
+"seleccionar a la llista l'activitat o activitats a les que s'aplicaran els "
+"atributs indicats."
+
+#: edit_act_copy_action_prefix
+msgid "Copying attributes to:"
+msgstr "Copiant atributs a:"
+
+#: edit_act_copy_margin
+msgid "Margin"
+msgstr "Marge"
+
+#: edit_act_copy_bgColor
+msgid "Background color"
+msgstr "Color de fons"
+
+#: edit_act_copy_gradient
+msgctxt "edit_act_copy_gradient"
+msgid "Gradient"
+msgstr "Gradient"
+
+#: edit_act_copy_bgImage
+msgid "Background image"
+msgstr "Imatge de fons"
+
+#: edit_act_copy_border
+msgctxt "edit_act_copy_border"
+msgid "Border"
+msgstr "Vora"
+
+#: edit_act_copy_transparentBg
+msgid "Transparent background"
+msgstr "Fons transparent"
+
+#: edit_act_copy_position
+msgid "Position"
+msgstr "Posició"
+
+#: edit_act_copy_messages
+msgctxt "edit_act_copy_messages"
+msgid "Messages"
+msgstr "Missatges"
+
+#: edit_act_copy_messages_ini
+msgid "Style of initial message"
+msgstr "Estil del missatge inicial"
+
+#: edit_act_copy_messages_end
+msgid "Style of end message"
+msgstr "Estil del missatge final"
+
+#: edit_act_copy_messages_err
+msgid "Style of error message"
+msgstr "Estil del missatge d'error"
+
+#: edit_act_copy_reports
+msgctxt "edit_act_copy_reports"
+msgid "Reports"
+msgstr "Informes"
+
+#: edit_act_copy_rep_include
+msgid "Include activity in reports"
+msgstr "Incloure l'activitat als informes"
+
+#: edit_act_copy_rep_actions
+msgid "Record actions"
+msgstr "Enregistrar accions"
+
+#: edit_act_copy_interface
+msgctxt "edit_act_copy_interface"
+msgid "User interface"
+msgstr "Interfície d'usuari"
+
+#: edit_act_copy_skin
+msgid "Skin"
+msgstr "Entorn visual"
+
+#: edit_act_copy_evSounds
+msgid "Event sounds"
+msgstr "Sons d'esdeveniment"
+
+#: edit_act_copy_counters
+msgctxt "edit_act_copy_counters"
+msgid "Counters"
+msgstr "Comptadors"
+
+#: edit_act_copy_cTime
+msgctxt "edit_act_copy_cTime"
+msgid "Time counter"
+msgstr "Comptador de temps"
+
+#: edit_act_copy_maxTime
+msgid "Max. time"
+msgstr "Temps màxim"
+
+#: edit_act_copy_cTries
+msgctxt "edit_act_copy_cTries"
+msgid "Tries counter"
+msgstr "Comptador d'intents"
+
+#: edit_act_copy_maxTries
+msgid "Max. tries"
+msgstr "Nombre màxim d'intents"
+
+#: edit_act_copy_cScore
+msgctxt "edit_act_copy_cScore"
+msgid "Score counter"
+msgstr "Comptador d'encerts"
+
+#: edit_act_copy_scramble
+msgid "Times to scramble"
+msgstr "Nombre de vegades que cal barrejar"
+
+#: edit_act_copy_buttons
+msgctxt "edit_act_copy_buttons"
+msgid "Buttons"
+msgstr "Botons"
+
+#: edit_act_copy_btnHelp
+msgid "Help button"
+msgstr "Botó d'ajuda"
+
+#: edit_act_copy_btnInfo
+msgid "Information button"
+msgstr "Botó d'informació"
+
+#: edit_act_copy_grids
+msgid "Grids"
+msgstr "Plafons"
+
+#: edit_act_copy_gridA
+msgid "Style of grid A"
+msgstr "Estil del plafó A"
+
+#: edit_act_copy_gridB
+msgid "Style of grid B"
+msgstr "Estil del plafó B"
+
+#: edit_act_copy_textGrid
+msgid "Style of text grids"
+msgstr "Estil dels plafons de text"
+
+#: edit_act_copy_text
+msgid "Text activities"
+msgstr "Activitats de text"
+
+#: edit_act_copy_fontFace
+msgid "Font face"
+msgstr "Tipus de lletra"
+
+#: edit_act_copy_fontSize
+msgid "Font size"
+msgstr "Mida de lletra"
+
+#: edit_act_copy_fontStyle
+msgid "Font style"
+msgstr "Estil de lletra"
+
+#: edit_act_copy_textColour
+msgid "Main text colour"
+msgstr "Color del text principal"
+
+#: edit_act_copy_textTargetColour
+msgctxt "edit_act_copy_textTargetColour"
+msgid "Select the JClic project of which the activities will be imported"
+msgstr "Color de les incògnites"
+
+#: edit_act_copy_textErrorColour
+msgid "Errors colour"
+msgstr "Color dels errors"
+
+#: edit_act_copy_tabSpace
+msgid "Tab space"
+msgstr "Espai entre tabuladors"
+
+#: edit_act_copy_messages_prev
+msgid "Style of previous message"
+msgstr "Estil del missatge previ"
+
+#: edit_act_changeType
+msgid "Change activity type"
+msgstr "Canvia el tipus d'activitat"
+
+#: edit_act_newActivity_class_tooltip
+msgid ""
+"Full name of the class to be used to build the activity (advanced users "
+"only!)"
+msgstr ""
+"Nom complet de la classe que es farà servir per construir l'activitat "
+"(usuaris avançats!)"
+
+#: edit_act_newActivity_other
+msgid "Other..."
+msgstr "Altres..."
+
+#: edit_act_newActivity_info
+msgid ""
+"Advanced users can also create unregistered types of JClic activities. Just "
+"write below the full class name, prefixed by the package (like "
+"\"com.acme.activities.FooActivity\"). Activity classes must extend "
+"<b>edu.xtec.jclic.Activity</b>, and must be accessibles to the JVM "
+"classloader."
+msgstr ""
+"Els usuaris/es avançats/es poden crear també altres tipus d'activitats JClic "
+"no registrades. Escriviu a sota el nom complet de la classe, precedida pel "
+"del paquet (per exemple: \"com.acme.activities.FooActivity\"). Les noves "
+"activitats han d'extendre edu.xtec.jclic.Activity, i han de ser accessibles "
+"al carregador de classes de la màquina virtual de Java."
+
+#: edit_act_newActivity_name
+msgid "Name of the activity:"
+msgstr "Nom de l'activitat:"
+
+#: edit_act_newActivity_name_tooltip
+msgid "Each activity must have a name unique in the project"
+msgstr "Cada activitat ha de tenir un nom únic en el projecte"
+
+#: edit_act_changeType_warning
+msgid ""
+"<html><p style=\"font-family:Helvetica; font-size:10px;\"><b>Warning:</b> "
+"Changing the type of activity can cause lost of some of the current activity "
+"attributes and objects. Use it with care!</p><p>&nbsp;</p></html>"
+msgstr ""
+"<html><p style=\"font-family:Helvetica; font-size:10px;\"><b>Atenció:</b> El "
+"canvi de tipus pot comportar la pèrdua d'alguns objectes i atributs de "
+"l'activitat que s'està editant. Feu servir aquesta funció amb "
+"cura!</p><p>&nbsp;</p></html>"
+
+#: applet_codebase
+msgid "Location of JClic code:"
+msgstr "Ubicació del codi JClic:"
+
+#: applet_codebase_tooltip
+msgid "URL pointing to a folder with the JClic program files and scripts"
+msgstr ""
+"URL que apunta a una carpeta on estiguin ubicats els fitxers de programa i "
+"els scripts del JClic"
+
+#: applet_prev_text
+msgid "HTML code before:"
+msgstr "Codi HTML previ:"
+
+#. #Text to be displayed below the applet. HTM code allowed.
+#: applet_prev_text_tooltip
+msgid "Text or HTML code to be placed before the applet"
+msgstr "Text o codi HTML que apareixerà abans de l'applet"
+
+#: applet_post_text
+msgid "HTML code after:"
+msgstr "Codi HTML posterior:"
+
+#: applet_post_text_tooltip
+msgid "Text or HTML code to be placed after the applet"
+msgstr "Text o codi HTML que apareixerà després de l'applet"
+
+#: applet_size
+msgid "Applet size:"
+msgstr "Mida de l'applet:"
+
+#: applet_size_tooltip
+msgid "Width and height of the applet, in absolute or percentage values."
+msgstr "Amplada i alçada de l'applet, en valor absolut o percentual."
+
+#: applet_page_title
+msgid "Page title:"
+msgstr "Títol de la pàgina:"
+
+#: applet_page_title_tooltip
+msgid "Text to be shown at the top of the browser window"
+msgstr "Text que es mostrarà a dalt de la finestra del navegador"
+
+#: applet_created_info
+msgid "The web page \"%s\" has been created successfully."
+msgstr "La pàgina web \"%s\" ha estat creada amb èxit."
+
+#: applet_created_prompt
+msgid "Do you want to open it now with the browser?"
+msgstr "Voleu obrir-la ara amb el navegador?"
+
+#: action_createHTML_caption
+msgid "Create web page..."
+msgstr "Crea una pàgina web..."
+
+#: applet_create_title
+msgid "Creation of an HTML page with a JClic applet"
+msgstr "Creació d'una pàgina HTML amb un applet JClic"
+
+#: action_createHTML_tooltip
+msgid "Create a HTML page with an applet containing the current project"
+msgstr "Crea una pàgina HTML amb un applet que contingui el projecte actual"
+
+#: applet_filename
+msgctxt "applet_filename"
+msgid "File name:"
+msgstr "Nom del fitxer:"
+
+#: applet_filename_tooltip
+msgid "Name of the HTML file to be created"
+msgstr "Nom del fitxer HTML que es crearà"
+
+#: action_createHTML_keys
+msgid "H*"
+msgstr "H*"
+
+#: settings_applet
+msgid "Applet"
+msgstr "Applet"
+
+#: settings_applet_tooltip
+msgid "Default values used in web page creation"
+msgstr "Valors per defecte emprats en la creació de pàgines web"
+
+#: applet_bgcolor
+msgctxt "applet_bgcolor"
+msgid "Background color:"
+msgstr "Color de fons:"
+
+#: applet_bgcolor_tooltip
+msgid "HTML page background color"
+msgstr "Color de fons de la pàgina web"
+
+#: applet_centered
+msgctxt "applet_centered"
+msgid "Centered"
+msgstr "Centrat"
+
+#: applet_centered_tooltip
+msgid "Place the applet horizontally centered"
+msgstr "Situa l'applet centrat horitzontalment"
+
+#: applet_width_tooltip
+msgid "Applet width (absolute or percentage)"
+msgstr "Amplada de l'applet (en valor absolut o percentual)"
+
+#: applet_height_tooltip
+msgid "Applet height (absolute or percentage)"
+msgstr "Alçada de l'applet (en valor absolut o percentual)"
+
+#: applet_exitUrl
+msgid "On exit, go to:"
+msgstr "En sortir, anar a:"
+
+#: applet_exitUrl_tooltip
+msgid "URL where to redirect the navigation on JClic exit"
+msgstr "URL cap on es redirigirà la navegació en sortir del JClic"
+
+#: applet_infoFrame
+msgid "Info frame name:"
+msgstr "Marc d'informació:"
+
+#: applet_infoFrame_tooltip
+msgid ""
+"Name of the frame used to show the content related to the \"info\" button"
+msgstr "Nom del marc emprat per mostrar el contingut lligat al botó \"info\""
+
+#: action_createInstaller_caption
+msgid "Create project installer..."
+msgstr "Crea un instal·lador del projecte..."
+
+#: action_createInstaller_keys
+msgctxt "action_createInstaller_keys"
+msgid "I*"
+msgstr "I*"
+
+#: action_createInstaller_tooltip
+msgid "Create a project installer script for JClic player"
+msgstr "Crea un fitxer d'instal·lació del projecte per al JClic player"
+
+#: installer_caption
+msgid "Edit project installer script"
+msgstr "Edició del fitxer d'instal·lació del projecte"
+
+#: installer_title
+msgctxt "installer_title"
+msgid "Title:"
+msgstr "Títol:"
+
+#: installer_title_tooltip
+msgid "Project title, to be shown on the installer wizard"
+msgstr "Títol del projecte que es mostrarà a l'assistent d'instal·lació"
+
+#: installer_authors
+msgid "Autors:"
+msgstr "Autors/es:"
+
+#: installer_authors_tooltip
+msgid "Author/s of the project (short text)"
+msgstr "Autors/es del projecte (text curt)"
+
+#: installer_folder
+msgctxt "installer_folder"
+msgid "Folder:"
+msgstr "Carpeta:"
+
+#: installer_folder_tooltip
+msgid "Folder name to be suggested by the installer wizard"
+msgstr "Nom de carpeta que suggerirà l'assistent d'instal·lació"
+
+#: installer_files
+msgid "Files to be copied:"
+msgstr "Fitxers a copiar:"
+
+#: installer_files_tooltip
+msgid "Files to be copied by the installer"
+msgstr "Fitxers que es copiaran durant la instal·lació"
+
+#: installer_files_available
+msgid "Available files"
+msgstr "Fitxers disponibles"
+
+#: installer_files_selected
+msgid "Selected files"
+msgstr "Fitxers seleccionats"
+
+#: installer_files_add
+msgid ">> add >>"
+msgstr ">> afegeix >>"
+
+#: installer_files_add_tooltip
+msgid "Add selected file to the list"
+msgstr "Afegeix el fitxer seleccionat a la llista"
+
+#: installer_files_remove
+msgid "<< remove <<"
+msgstr "<< treu <<"
+
+#: installer_files_remove_tooltip
+msgid "Remove selected file from the list"
+msgstr "Treu el fitxer seleccionat de la llista"
+
+#: installer_button
+msgid "Launch button"
+msgstr "Botó d'activació"
+
+#: installer_button_tooltip
+msgid "Properties of the button to be shown in the project library"
+msgstr "Propietats del botó que es mostrarà a la biblioteca de projectes"
+
+#: installer_button_project
+msgid "Main project:"
+msgstr "Projecte principal:"
+
+#: installer_button_project_tooltip
+msgid "JClic project to be launched by the button"
+msgstr "Projecte JClic associat al botó"
+
+#: installer_button_text
+msgctxt "installer_button_text"
+msgid "Label:"
+msgstr "Etiqueta:"
+
+#: installer_button_text_tooltip
+msgid "Short text label, to be shown inside the button"
+msgstr "Breu etiqueta de text, que apareixerà dins del botó"
+
+#: installer_button_icon
+msgid "Icon:"
+msgstr "Icona:"
+
+#: installer_button_icon_tooltip
+msgid ""
+"Picture to be used as button icon. Leave blank to use the default JClic icon."
+msgstr ""
+"Imatge que mostrará el botó. Deixeu-ho en blanc per mostrar la icona per "
+"defecte del JClic."
+
+#: installer_button_description
+msgctxt "installer_button_description"
+msgid "Description"
+msgstr "Descripció"
+
+#: installer_button_description_tooltip
+msgid "Tooltip to be shown by the button"
+msgstr "Text d'ajuda emergent que mostrarà el botó"
+
+#: installer_error_noTitle
+msgid "Error: Missing project title"
+msgstr "Error: Cal indicar el títol del projecte"
+
+#: installer_error_noBaseFolder
+msgid "Error: Missing folder name"
+msgstr "Error: Cal indicar el nom de la carpeta on s'instal·larà el projecte"
+
+#: installer_error_noFilesSelected
+msgid "Error: No files selected"
+msgstr "Error: No heu seleccionat cap fitxer"
+
+#: installer_error_noButtonText
+msgid "Error: Missing launch button text label"
+msgstr "Error: Cal indicar el text del botó d'activació"
+
+#: installer_error_projectNotInFiles
+msgid ""
+"Error: The project assigned to the launch button is not in the list of files "
+"to be copied"
+msgstr ""
+"Error: El projecte assignat al botó d'activació no es troba a la llista de "
+"fitxers a copiar"
+
+#: applet_page_full
+msgid "Full-page applet"
+msgstr "L'applet ocupa tota la pàgina"
+
+#: applet_page_mixed
+msgid "Applet with specific dimensions"
+msgstr "L'applet té unes dimensions específiques"
+
+#: edit_text_align_left
+msgid "Align text left"
+msgstr "Aliniar el text a l'esquerra"
+
+#: edit_text_align_center
+msgid "Center text"
+msgstr "Text centrat"
+
+#: edit_text_align_right
+msgid "Align text right"
+msgstr "Aliniar el text a la dreta"
+
+#: edit_text_act_target_toggle
+msgid "Create or remove target"
+msgstr "Crea una incògnita o suprimeix-la"
+
+#: edit_text_act_insertCell
+msgid "Insert a cell"
+msgstr "Insereix una cel·la"
+
+#: edit_text_act_content
+msgid "Content"
+msgstr "Contingut"
+
+#: edit_text_act_style
+msgctxt "edit_text_act_style"
+msgid "Style"
+msgstr "Estil"
+
+#: edit_cell_size
+msgid "Cell size:"
+msgstr "Dimensions:"
+
+#: edit_project_orphanActivities
+msgid ""
+"The following activities never appear in any of the project's activity "
+"sequences, so they never will be displayed:"
+msgstr ""
+"Les següents activitats mai no arribaran a executarse, degut a que no "
+"apareixen a cap seqüència d'activitats del projecte:"
+
+#: edit_project_orphanMedia
+msgid "The following media objects are not used directly in any activity:"
+msgstr ""
+"Els següents objectes de la mediateca no es fan servir directament en cap "
+"activitat:"
+
+#: edit_project_orphanActivities_prompt
+msgid "Do you want to add them at the end of the last activity sequence?"
+msgstr "Voleu afegir-les al final de la darrera sequència d'activitats?"
+
+#: edit_project_orphanMedia_prompt
+msgid "Do you want to remove them?"
+msgstr "Voleu eliminar-los?"
+
+#: edit_project_orphanMedia_title
+msgid "Removal of unused media objects"
+msgstr "Retirada d'objectes multimèdia no utilitzats"
+
+#: edit_project_orphanActivities_title
+msgid "Orphan activities"
+msgstr "Activitats òrfenes"
+
+#: edit_media_refreshAll
+msgid "Update all media content"
+msgstr "Actualitza el contingut de tots els recursos"
+
+#: edit_media_refreshAll_tooltip
+msgid "Update all media objects reloading its files"
+msgstr "Actualitza tots els recursos tornant a carregar els seus fitxers"
+
+#: edit_media_refreshAll_keys
+msgid "R*"
+msgstr "R*"
+
+#: edit_media_refreshAll_working
+msgid "Updating media..."
+msgstr "Actualitzant recursos..."
+
+#: edit_media_exportAll
+msgid "Export all media"
+msgstr "Exporta tots els recursos"
+
+#: edit_media_exportAll_tooltip
+msgid "Save to files the content of all media elements"
+msgstr "Enregistra en fitxers el contingut de tots els recursos"
+
+#: edit_media_exportAll_keys
+msgid "X*"
+msgstr "X*"
+
+#: edit_shape_select
+msgid "Select"
+msgstr "Seleciona"
+
+#: edit_shape_addPoint
+msgid "Add point"
+msgstr "Afegeix un punt"
+
+#: edit_shape_deletePoint
+msgid "Delete"
+msgstr "Elimina"
+
+#: edit_shape_drawRect
+msgid "Draw rectangle"
+msgstr "Dibuixa un rectangle"
+
+#: edit_shape_drawEllipse
+msgid "Draw ellipse"
+msgstr "Dibuixa una el·lipse"
+
+#: edit_shape_drawPoly
+msgid "Draw polygon"
+msgstr "Dibuixa un polígon"
+
+#: edit_shape_toLine
+msgid "Convert to line"
+msgstr "Converteix en línia"
+
+#: edit_shape_toBezier
+msgid "Convert to Bézier curve"
+msgstr "Converteix en corba de Bézier"
+
+#: edit_shape_toQuad
+msgid "Convert to quadratic curve"
+msgstr "Converteix en quàdrica"
+
+#: edit_shape_rLeft
+msgid "Rotate left"
+msgstr "Gira a l'esquerra"
+
+#: edit_shape_rRight
+msgid "Rotate right"
+msgstr "Gira a la dreta"
+
+#: edit_shape_expand
+msgid "Expand"
+msgstr "Expandeix"
+
+#: edit_shape_contract
+msgid "Contract"
+msgstr "Contreu"
+
+#: edit_shape_zoomIn
+msgid "Zoom in"
+msgstr "Apropa"
+
+#: edit_shape_zoomOut
+msgid "Zoom out"
+msgstr "Allunya"
+
+#: edit_shape_aproxPoints
+msgid "Join nearest points"
+msgstr "Ajunta punts propers"
+
+#: edit_shape_showPoints
+msgid "Show points"
+msgstr "Mostra punts"
+
+#: edit_shape_showPoints_tooltip
+msgid "Show/Hide the points"
+msgstr "Mostra/Amaga els punts"
+
+#: edit_shape_gridSize
+msgid "Grid size:"
+msgstr "Reixeta:"
+
+#: edit_shape_hideGrid
+msgid "Show / Hide grid"
+msgstr "Mostra o amaga la reixeta"
+
+#: edit_shape_magnetRadius
+msgid "Magnet radius:"
+msgstr "Radi de l'imant:"
+
+#: edit_shape_elements
+msgid "Defined elements"
+msgstr "Elements definits"
+
+#: edit_shape_elemName
+msgid "Name of the selected element"
+msgstr "Nom de l'element seleccionat"
+
+#: edit_shape_magnetRadius_tooltip
+msgid "Action radius of the magnet, when enabled"
+msgstr "Radi d'acció de l'imant quan es troba activat"
+
+#: edit_shape_gridSize_tooltip
+msgid "Size of the grid"
+msgstr "Mida de la reixeta"
+
+#: edit_mc_activity
+msgctxt "edit_mc_activity"
+msgid "Activity:"
+msgstr "Activitat:"
+
+#: edit_mc_sequence
+msgid "Sequence:"
+msgstr "Seqüència:"
+
+#: edit_mc_url
+msgctxt "edit_mc_url"
+msgid "URL:"
+msgstr "URL:"
+
+#: edit_mc_project
+msgid "Project:"
+msgstr "Projecte:"
+
+#: edit_mc_activity_selection
+msgid "Choose activity"
+msgstr "Selecció de l'activitat"
+
+#: edit_mc_sequence_selection
+msgid "Choose sequence"
+msgstr "Selecció de la seqüència"
+
+#: edit_mc_err_nullContent
+msgid "Insufficient data!"
+msgstr "Dades insuficients!"
+
+#: edit_act_arrowColor
+msgid "Arrow color:"
+msgstr "Color de les fletxes:"
+
+#: edit_act_arrowColor_tooltip
+msgid ""
+"Color used by the editor to draw the arrows (not exactly, because an XOR bit "
+"mask is used)"
+msgstr ""
+"Color emprat per l'editor per dibuixar les fletxes (no és exacte, ja que es "
+"fa servir una màscara XOR de bits)"
+
+#: edit_act_editActivity
+msgid "Edit..."
+msgstr "Edita..."
+
+#: edit_act_editActivity_tooltip
+msgid "Edit the selected activity"
+msgstr "Edita l'activitat seleccionada"
+
+#: action_saveFileAs_caption
+msgid "Save as..."
+msgstr "Anomena i desa..."
+
+#: action_saveFileAs_keys
+msgctxt "action_saveFileAs_keys"
+msgid "AA"
+msgstr "AA"
+
+#: action_saveFileAs_tooltip
+msgid "Save the current project with a different name"
+msgstr "Desa el projecte amb un nom diferent"
+
+#: edit_act_behavior_block
+msgctxt "edit_act_behavior_block"
+msgid "Behavior"
+msgstr "Comportament"
+
+#: edit_act_behavior
+msgctxt "edit_act_behavior"
+msgid "Behavior"
+msgstr "Comportament"
+
+#: edit_act_behavior_drag
+msgid "Drag objects"
+msgstr "Arrossega"
+
+#: edit_act_behavior_drag_tooltip
+msgid "Drag objects instead of use a connection line"
+msgstr "Arrossega els objectes en comptes d'unir-los amb una línia"
+
+#: edit_act_behavior_order
+msgid "Check solving order"
+msgstr "Comprova l'ordre de resolució"
+
+#: edit_act_behavior_order_tooltip
+msgid "Cells must be solved in order"
+msgstr "Les caselles s'han de resoldre ordenadament"
+
+#: edit_act_scramble
+msgid "Scramble"
+msgstr "Barreja"
+
+#: action_importActivities_caption
+msgid "Import activities..."
+msgstr "Importa activitats..."
+
+#: action_importActivities_keys
+msgctxt "action_importActivities_keys"
+msgid "I*"
+msgstr "I*"
+
+#: action_importActivities_tooltip
+msgid "Import activities from another project"
+msgstr "Importa activitats d'un altre projecte"
+
+#: import_warn_samefile
+msgid ""
+"The selected file corresponds to the current project. Activities can be "
+"imported only between different projects. Please select another project file."
+msgstr ""
+"El fitxer que heu seleccionat correspon al projecte actual. La importació "
+"d'activitats només es pot fer entre projectes diferents. Si us plau, "
+"seleccioneu un altre fitxer de projecte."
+
+#: import_selectActivities
+msgid "Select one or more activities to import into the current project\\:"
+msgstr ""
+"Seleccioneu una o més activitats per a importar-les al projecte actual:"
+
+#: import_importing
+msgid "Importing..."
+msgstr "S'està important..."
+
+#: import_checkdep
+msgid "Checking dependencies..."
+msgstr "S'estan comprovant les dependències..."
+
+#: import_impmedia
+msgid "Importing media\\:"
+msgstr "S'estan important recursos:"
+
+#: import_impact
+msgid "Importing activity\\:"
+msgstr "S'està important l'activitat:"
+
+#: import_selectProject
+msgctxt "import_selectProject"
+msgid "Select the JClic project of which the activities will be imported"
+msgstr "Seleccioneu el projecte JClic del qual desitgeu importar activitats"
+
+#: edit_tagRep_tags
+msgid "Tag marks"
+msgstr "Marques d'etiqueta"
+
+#: edit_tagRep_tagStart
+msgid "Start mark\\:"
+msgstr "Marca d'inici:"
+
+#: edit_tagRep_tagStart_tooltip
+msgid "Mark used at the beginning of tags"
+msgstr "Marca que indica inici d'etiqueta"
+
+#: edit_tagRep_tagEnd
+msgid "End mark\\:"
+msgstr "Marca d'acabament:"
+
+#: edit_tagRep_tagEnd_tooltip
+msgid "Mark used at the end of tags"
+msgstr "Marca que indica acabament d'etiqueta"
+
+#: edit_tagRep_file
+msgid "File"
+msgstr "Fitxer"
+
+#: edit_tagRep_fileName
+msgid "File or URL\\:"
+msgstr "Fitxer o URL:"
+
+#: edit_tagRep_fileName_tooltip
+msgid "Name or URL of the file containing the values that will replace tags"
+msgstr ""
+"Nom o URL del fitxer que conté els valors que substituiran les etiquetes"
+
+#: edit_tagRep_charset
+msgid "Charset\\:"
+msgstr "Codificació:"
+
+#: edit_tagRep_charset_tooltip
+msgid "Character encoding used in the file"
+msgstr "Tipus de codificació emprada en el fitxer"
+
+#: edit_tagRep_browseFile
+msgctxt "edit_tagRep_browseFile"
+msgid "Browse..."
+msgstr "Navega..."
+
+#: edit_tagRep_browseFile_tooltip
+msgid "Browse the filesystem"
+msgstr "Navega pel sistema de fitxers"
+
+#: edit_tagRep_title
+msgid "Tag replacing"
+msgstr "Substitució d'etiquetes"
+
+#: edit_text_act_clearStylesBtn
+msgid "Clear text styles..."
+msgstr "Neteja estils de text..."
+
+#: edit_text_act_clearStylesPrompt
+msgid ""
+"Warning\\: This action will clear the specific character attributes applied "
+"to the document, setting it back to its main style. This action cannot be "
+"undone. Do you want to do it?"
+msgstr ""
+"Atenció: Aquesta acció netejarà els atributs especials de caràcter aplicats "
+"al document, retornant-lo al seu estil principal. L'operació no es pot "
+"desfer. Voleu fer-ho?"
+
+#: img_max_size
+msgid "Maximum size of images:"
+msgstr "Mida màxima de les imatges:"
+
+#: img_max_width_tooltip
+msgid "Maximum width of images imported into the media library."
+msgstr "Amplada màxima de les imatges que s'importen a la mediateca."
+
+#: img_max_height_tooltip
+msgid "Maximum height of images imported into the media library."
+msgstr "Alçada màxima de les imatges que s'importen a la mediateca."
+
+#: img_resize_prompt
+msgid ""
+"The image \"%s\" has a size of %s pixels. This exceeds the maximum allowed "
+"by JClic Author (%s). Do you want to resize it?"
+msgstr ""
+"La imatge \"%s\" té unes dimensions de %s píxels, que excedeixen el màxim "
+"permès pel JClic Author (%s). Voleu redimensionar-la?"

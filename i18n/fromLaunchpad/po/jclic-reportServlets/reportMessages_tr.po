@@ -1,0 +1,595 @@
+# Turkish translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2010-10-24 20:25+0000\n"
+"Last-Translator: Engin BAHADIR <Unknown>\n"
+"Language-Team: Turkish <tr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: login_pwd
+msgid "Password:"
+msgstr "Şifre"
+
+#: login_desc
+msgid ""
+"You need to provide a valid password in order to access the reports database."
+msgstr ""
+"Veritabanı raporlarına erişim için geçerli bir şifreye ihtiyacınız var."
+
+#: login_title
+msgid "Login"
+msgstr "Kullanıcı adı"
+
+#: submit
+msgid "Submit..."
+msgstr "Gönder"
+
+#: login_incorrect
+msgid "Incorrect password!"
+msgstr "Hatalı şifre!"
+
+#: main_title
+msgid "Main menu"
+msgstr "Ana menü"
+
+#: users_admin_title
+msgid "Users and groups admin"
+msgstr "Kullanıcılar ve yöneticiler"
+
+#: group_report_title
+msgid "Group reports"
+msgstr "Grup raporları"
+
+#: user_report_title
+msgid "User reports"
+msgstr "Kullanıcı raporları"
+
+#: act_report_title
+msgid "Activity reports"
+msgstr "Aktivite raporları"
+
+#: db_admin_title
+msgid "Database admin"
+msgstr "Veritabanı yöneticisi"
+
+#: db_admin_settings_error
+msgid "Unable to set the new database values!"
+msgstr "Yeni veritabanı değerleri yapılandırılamıyor!"
+
+#: db_admin_param_agc
+msgid "Allow users to create new groups"
+msgstr "Kullanıcılara yeni grup eklemelerine izin ver"
+
+#: db_admin_param_auc
+msgid "Allow users to create new users"
+msgstr "Kullanıcılara yeni kullanıcı oluşturma izni ver"
+
+#: db_admin_param_shgl
+msgid "Select group in a list"
+msgstr "Listedeki grupları seç"
+
+#: db_admin_param_shul
+msgid "Select user name in a list"
+msgstr "Listeden bir kullanıcı adı seç"
+
+#: db_admin_param_ut
+msgid "Database has tables of users and groups"
+msgstr "Veritabanında kullanıcılar ve gruplar tablosu oluşturuldu"
+
+#: db_admin_edit_btn
+msgid "Edit settings..."
+msgstr "Ayarları düzenle"
+
+#: db_admin_pw_edit_btn
+msgid "Set password..."
+msgstr "Şifre belirle..."
+
+#: title
+msgid "Title"
+msgstr "Başlık"
+
+#: db_admin_edit_title
+msgid "Edit database settings"
+msgstr "Veritabanı ayarlarını düzenle"
+
+#: db_admin_pw_edit_title
+msgid "Change system password"
+msgstr "Sistem şifresini değiştir"
+
+#: db_admin_pw_newPwd
+msgid "New password"
+msgstr "Yeni parola"
+
+#: db_admin_pw_verifyPwd
+msgid "Retype password"
+msgstr "Şifrenizi tekrar giriniz"
+
+#: db_admin_pw_noFit
+msgid "Password fields don't fit!"
+msgstr "Şifre alanları uyuşmuyor!"
+
+#: report_group
+msgid "Group:"
+msgstr "Grup:"
+
+#: report_user
+msgid "User:"
+msgstr "Kullanıcı:"
+
+#: report_project
+msgid "Project:"
+msgstr "Proje:"
+
+#: report_all_projects
+msgid "All projects"
+msgstr "Tüm projeler"
+
+#: report_key
+msgid "Key:"
+msgstr "Anahtar:"
+
+#: report_code
+msgid "Code:"
+msgstr "Kod:"
+
+#: report_context
+msgid "Context:"
+msgstr "İçerik:"
+
+#: report_from
+msgid "From:"
+msgstr "Gönderen:"
+
+#: month_1
+msgid "january"
+msgstr "Ocak"
+
+#: month_2
+msgid "february"
+msgstr "Şubat"
+
+#: month_3
+msgid "march"
+msgstr "Mart"
+
+#: month_4
+msgid "april"
+msgstr "Nisan"
+
+#: month_5
+msgid "may"
+msgstr "Mayıs"
+
+#: month_6
+msgid "june"
+msgstr "Haziran"
+
+#: month_7
+msgid "july"
+msgstr "Temmuz"
+
+#: month_8
+msgid "august"
+msgstr "Ağustos"
+
+#: month_9
+msgid "september"
+msgstr "Eylül"
+
+#: month_10
+msgid "october"
+msgstr "Ekim"
+
+#: month_11
+msgid "november"
+msgstr "Kasım"
+
+#: month_12
+msgid "december"
+msgstr "Aralık"
+
+#: report_to
+msgid "To:"
+msgstr "Kime:"
+
+#: report_global_precision
+msgid "Global precision"
+msgstr "Genel hassasiyet"
+
+#: report_solved_activities
+msgid "Solved activities"
+msgstr "Çözülmüş aktiviteler"
+
+#: report_user_evolution
+msgid "User evolution"
+msgstr "Kullanıcı gelişimi"
+
+#: report_group_evolution
+msgid "Group evolution"
+msgstr "Grup gelişimi"
+
+#: report_project_evolution
+msgid "Project evolution"
+msgstr "Proje gelişimi"
+
+#: report_result_distribution
+msgid "Result distribution"
+msgstr "Sonuç dağılımı"
+
+#: report_no_data
+msgid "NO DATA"
+msgstr "VERİ YOK"
+
+#: report_users
+msgid "Users:"
+msgstr "Kullanıcılar:"
+
+#: report_sessions
+msgctxt "report_sessions"
+msgid "Sessions:"
+msgstr "Oturumlar:"
+
+#: report_projects
+msgid "Projects:"
+msgstr "Projeler:"
+
+#: report_actDone
+msgid "Activities done:"
+msgstr "Tamamlanan etkinlikler:"
+
+#: report_actSolved
+msgid "Activities solved:"
+msgstr "Çözülmüş aktiviteler"
+
+#: report_totalTime
+msgid "Total time:"
+msgstr "Toplam süre:"
+
+#: report_globalPrec
+msgid "Global score:"
+msgstr "Genel sonuç:"
+
+#: report_globalSummary
+msgid "Global summary"
+msgstr "Genel özet:"
+
+#: report_header_date
+msgid "date"
+msgstr "tarih"
+
+#: report_session_list
+msgctxt "report_session_list"
+msgid "Sessions:"
+msgstr "Oturumlar:"
+
+#: report_header_user
+msgid "user"
+msgstr "kullanıcı"
+
+#: report_header_project
+msgid "project"
+msgstr "proje"
+
+#: report_header_numActs
+msgid "activities"
+msgstr "aktiviteler"
+
+#: report_header_actsSolved
+msgid "acts. solved"
+msgstr "çözülmüş aktiviteler"
+
+#: report_header_time
+msgid "time"
+msgstr "zaman"
+
+#: report_header_prec
+msgid "score"
+msgstr "sonuç"
+
+#: report_session_detail_show
+msgid "show session details"
+msgstr "oturum detaylarını göster"
+
+#: report_session_detail_title
+msgid "Activities done in session"
+msgstr "Bu oturumda tamamlanan etkinlikler"
+
+#: report_header_activity
+msgid "activity"
+msgstr "aktivite"
+
+#: report_header_actions
+msgid "actions"
+msgstr "eylemler"
+
+#: report_header_score
+msgid "corrects"
+msgstr "doğrular"
+
+#: report_header_solved
+msgid "ok"
+msgstr "tamam"
+
+#: Y
+msgctxt "Y"
+msgid "Y"
+msgstr "E"
+
+#: N
+msgctxt "N"
+msgid "N"
+msgstr "H"
+
+#: report_session_detail_hide
+msgid "hide session details"
+msgstr "oturum detaylarını sakla"
+
+#: report_header_sessions
+msgid "sessions"
+msgstr "oturumlar"
+
+#: report_all_activities
+msgid "All activities"
+msgstr "tüm aktiviteler"
+
+#: report_activity
+msgid "Activity:"
+msgstr "Aktivite:"
+
+#: report_many
+msgid "several"
+msgstr "birkaç defa"
+
+#: report_n_users
+msgid "users"
+msgstr "kullanıcılar"
+
+#: group_admin_title
+msgid "Groups administration"
+msgstr "Grup yöneticisi"
+
+#: group_admin_new_button
+msgid "New group..."
+msgstr "Yeni grup..."
+
+#: group_admin_groups
+msgid "Groups"
+msgstr "Gruplar"
+
+#: report_actions
+msgid "Actions"
+msgstr "Eylemler"
+
+#: group_admin_edit_button
+msgctxt "group_admin_edit_button"
+msgid "Edit..."
+msgstr "Düzenle..."
+
+#: user_admin_title
+msgid "User admin"
+msgstr "Kullanıcı yöneticisi"
+
+#: group_admin_delete_button
+msgctxt "group_admin_delete_button"
+msgid "Delete..."
+msgstr "Sil..."
+
+#: group_admin_clear_button
+msgctxt "group_admin_clear_button"
+msgid "Clear reports..."
+msgstr "Raporları sil..."
+
+#: group_admin_properties
+msgid "Group properties"
+msgstr "Grup özellikleri"
+
+#: group_admin_name
+msgctxt "group_admin_name"
+msgid "Name:"
+msgstr "İsim:"
+
+#: group_admin_id
+msgctxt "group_admin_id"
+msgid "Identifier:"
+msgstr "Tanımlayıcı:"
+
+#: group_admin_icon
+msgctxt "group_admin_icon"
+msgid "Icon:"
+msgstr "Simge:"
+
+#: error
+msgid "ERROR"
+msgstr "HATA"
+
+#: return
+msgid "return..."
+msgstr "geri dön..."
+
+#: group_admin_users
+msgid "Users"
+msgstr "Kullanıcılar"
+
+#: group_admin_no_users
+msgid "This group has no users."
+msgstr "Bu grupta kullanıcı yok."
+
+#: group_admin_create_user_button
+msgid "Create a new user..."
+msgstr "Yeni kullanıcı oluştur..."
+
+#: cancel
+msgid "Cancel"
+msgstr "İptal"
+
+#: group_admin_invalid_name
+msgid "Incorrect group name!"
+msgstr "Grup adı hatalı!"
+
+#: group_admin_invalid_id
+msgid "Incorrect group identifier!"
+msgstr "Grup kimliği hatalı!"
+
+#: group_admin_id_already_exists
+msgid "There is another group with the same identifier in the database!"
+msgstr "Veritabanında aynı isme sahip başka bir grup var!"
+
+#: group_admin_delete_group
+msgid "Delete group"
+msgstr "Grup Sil"
+
+#: report_areyousure
+msgid "Are you sure?"
+msgstr "Emin misiniz?"
+
+#: YES
+msgid "Yes"
+msgstr "Evet"
+
+#: NOT
+msgid "Not"
+msgstr "Değil"
+
+#: group_admin_delete_group_explain
+msgid ""
+"This operation will also delete on the database all users of this group. All "
+"data of these users will be lost."
+msgstr ""
+"Bu işlem bu gruptaki tüm kullanıcıları veritabanından silecek. Kullanıcılara "
+"ait tüm veriler kaybolacak."
+
+#: db_error
+msgid "Unable to complete the task."
+msgstr "Görev tamamlanamadı"
+
+#: group_admin_clear_group
+msgid "Clear report data of group"
+msgstr "Grup veri raporunu sil"
+
+#: group_admin_clear_group_explain
+msgid ""
+"This operation will clear all the reports of the activities done by the "
+"members of this group between the specified dates."
+msgstr ""
+"Bu işlem grup üyeleri tarafından belirtilen tarihler arasında yapılmış "
+"aktivitelerle ilgili tüm raporları silecektir."
+
+#: db_clear_reports_date
+msgid "Clear report data"
+msgstr "Veri raporunu sil"
+
+#: user_admin_invalid_name
+msgid "Invalid user name."
+msgstr "Geçersiz kullanıcı adı"
+
+#: user_admin_invalid_id
+msgid "Invalid user identifier"
+msgstr "Geçersiz kullanıcı kimliği"
+
+#: user_admin_id_already_exists
+msgid "There is another user with the same identifier in the database!"
+msgstr "Veritabanında aynı kimliğe sahip başka bir kullanıcı var!"
+
+#: user_admin_user_deleted
+msgid "The user was successfully deleted from the database."
+msgstr "Kullanıcı başarıyla veritabanından silindi."
+
+#: user_admin_id
+msgctxt "user_admin_id"
+msgid "Identifier:"
+msgstr "Tanımlayıcı:"
+
+#: user_admin_name
+msgctxt "user_admin_name"
+msgid "Name:"
+msgstr "İsim:"
+
+#: user_admin_icon
+msgctxt "user_admin_icon"
+msgid "Icon:"
+msgstr "Simge:"
+
+#: user_admin_edit_button
+msgctxt "user_admin_edit_button"
+msgid "Edit..."
+msgstr "Düzenle..."
+
+#: user_admin_delete_button
+msgctxt "user_admin_delete_button"
+msgid "Delete..."
+msgstr "Sil..."
+
+#: user_admin_clear_button
+msgctxt "user_admin_clear_button"
+msgid "Clear reports..."
+msgstr "Raporları sil..."
+
+#: user_admin_delete_user
+msgid "Delete user"
+msgstr "Kullanıcı sil"
+
+#: user_admin_delete_user_explain
+msgid ""
+"This operation will delete this user and his reports from the database."
+msgstr "Bu işlem kullanıcıyı ve raporlarını veritabanından silecek."
+
+#: user_admin_clear_user
+msgid "Clear report data of user"
+msgstr "Kullanıcı veri raporunu sil"
+
+#: user_admin_clear_user_explain
+msgid ""
+"This operation will clear all the reports of the activities done by this "
+"user between the specified dates."
+msgstr ""
+"Bu işlem belirlenmiş tarihler arasında kullanıcı tarafından yapılmış "
+"etkinliklere ait raporların tamamını silecek."
+
+#: success
+msgid "Operation successful"
+msgstr "İşlem başarıyla gerçekleştirildi"
+
+#: bad_data
+msgid "Bad data!"
+msgstr "Hatalı veri!"
+
+#: db_admin_param_lap
+msgid "Time between connections (seconds)\\:"
+msgstr "İki bağlantı arasındaki zaman (saniye):"
+
+#: jclic_reports
+msgid "JClic reports"
+msgstr "JClic raporları"
+
+#: YES_SHORT
+msgctxt "YES_SHORT"
+msgid "Y"
+msgstr "E"
+
+#: NOT_SHORT
+msgctxt "NOT_SHORT"
+msgid "N"
+msgstr "H"
+
+#: user_admin_pw_prompt
+msgid "Password\\:"
+msgstr "Şifre:"
+
+#: user_admin_pw_prompt_confirm
+msgid "Confirm password\\:"
+msgstr "Şifreyi onaylayın\\:"
+
+#: user_admin_err_bad_pw
+msgid "Passwords don't match\\!"
+msgstr "Şifreler uyuşmuyor."

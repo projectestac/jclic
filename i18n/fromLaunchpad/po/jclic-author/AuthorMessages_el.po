@@ -1,0 +1,3531 @@
+# Greek translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-01-13 23:10+0200\n"
+"PO-Revision-Date: 2010-01-16 11:44+0000\n"
+"Last-Translator: Yannis Kaskamanidis <ttnfy17@yahoo.gr>\n"
+"Language-Team: Greek <el@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. #JClic Author messages
+#: edit_act_description_block
+msgctxt "edit_act_description_block"
+msgid "Description"
+msgstr "Περιγραφή"
+
+#: edit_act_name_tooltip
+msgid "Name of the activity"
+msgstr "Ονομασία δραστηριότητας"
+
+#: edit_act_name
+msgctxt "edit_act_name"
+msgid "Name:"
+msgstr "Όνομα :"
+
+#: edit_act_description_tooltip
+msgid "Description of the activity"
+msgstr "Περιγραφή δραστηριότητας"
+
+#: edit_act_reports_block
+msgctxt "edit_act_reports_block"
+msgid "Reports"
+msgstr "Αναφορές"
+
+#: edit_act_includeInReports
+msgid "Include this activity in reports"
+msgstr "Συμπερίληψη αυτής της δραστηριότητας στις αναφορές"
+
+#: edit_act_includeInReports_tooltip
+msgid "Include the results of this activity in users' reports"
+msgstr ""
+"Συμπερίληψη των αποτελεσμάτων αυτής της δραστηριότητας στις αναφορές των "
+"χρηστών"
+
+#: edit_act_code
+msgid "Code:"
+msgstr "Κωδικός:"
+
+#: edit_act_code_tooltip
+msgid "Optional code used to group and search in the reports database."
+msgstr ""
+"Προαιρετική χρήση κωδικού για ταξινόμηση και αναζήτηση στις αναφορές της "
+"βάσης δεδομένων."
+
+#: edit_act_reportActions
+msgid "Report user actions"
+msgstr "Αναφορά ενεργειών χρήστη"
+
+#: edit_act_reportActions_tooltip
+msgid "Register the details of all the actions performed by users"
+msgstr ""
+"Εγγραφή των λεπτομερειών όλων των ενεργειών που έγιναν από τους χρήστες"
+
+#: edit_act_counters_block
+msgctxt "edit_act_counters_block"
+msgid "Counters"
+msgstr "Μετρητές"
+
+#: edit_act_timeCounter
+msgctxt "edit_act_timeCounter"
+msgid "Time counter"
+msgstr "Χρονόμετρο"
+
+#: edit_act_timeCounter_tooltip
+msgid "Show/hide the time conter"
+msgstr "Εμφάνιση/απόκρυψη χρονόμετρου"
+
+#: edit_act_actionsCounter
+msgctxt "edit_act_actionsCounter"
+msgid "Tries counter"
+msgstr "Μετρητής προσπαθειών"
+
+#: edit_act_actionsCounter_tooltip
+msgid "Show/hide the tries counter"
+msgstr "Εμφάνιση/απόκρυψη μετρητή προσπαθειών"
+
+#: edit_act_scoreCounter
+msgctxt "edit_act_scoreCounter"
+msgid "Score counter"
+msgstr "Μετρητής βαθμολογίας"
+
+#: edit_act_scoreCounter_tooltip
+msgid "Show/hide the score counter."
+msgstr "Εμφάνιση/απόκρυψη μετρητή βαθμολογίας"
+
+#: edit_act_maxTime
+msgid "Max time:"
+msgstr "Μέγιστος χρόνος:"
+
+#: edit_act_maxTime_tooltip
+msgid ""
+"Maximum time to to solve the activity, in seconds, or 0 for unlimited time."
+msgstr ""
+"Μέγιστος χρόνος για τη διεκπεραίωση της δραστηριότητας σε δευτερόλεπτα, ή 0 "
+"για απεριόριστο χρόνο."
+
+#: edit_act_countdown
+msgid "Countdown"
+msgstr "Αντίστροφη μέτρηση"
+
+#: edit_act_countdown_tooltip
+msgid "The counter starts at máximum value, decreasing to 0."
+msgstr "Ο μετρητής ξεκινά από τη μέγιστη τιμή και μειώνεται ως το 0."
+
+#: edit_act_maxActions
+msgid "Max tries:"
+msgstr "Μέγιστος αριθμός προσπαθειών:"
+
+#: edit_act_maxActions_tooltip
+msgid "Maximum number of tries allowed, or 0 for unlimited tries."
+msgstr ""
+"Μέγιστος αριθμός επιτρεπόμενων προσπαθειών, ή 0 για απεριόριστες προσπάθειες."
+
+#: edit_act_buttons_block
+msgctxt "edit_act_buttons_block"
+msgid "Buttons"
+msgstr "Πλήκτρα"
+
+#: edit_act_helpBtn
+msgid "Help"
+msgstr "Βοήθεια"
+
+#: edit_act_helpBtn_tooltip
+msgid "Show/hide help button"
+msgstr "Εμφάνιση/απόκρυψη πλήκτρου βοήθειας"
+
+#: edit_act_helpBtn_solution
+msgid "Show solution"
+msgstr "Εμφάνιση λύσης"
+
+#: edit_act_helpBtn_msg
+msgid "Show this message:"
+msgstr "Εμφάνιση αυτού του μηνύματος:"
+
+#: edit_act_infoBtn
+msgid "Information"
+msgstr "Πληροφορίες"
+
+#: edit_act_infoBtn_tooltip
+msgid "Show/Hide the button of information"
+msgstr "Εμφάνιση/Απόκρυψη πλήκτρου πληροφοριών"
+
+#: edit_act_infoBtn_url
+msgid "Show this URL:"
+msgstr "Εμφάνιση αυτού του URL:"
+
+#: edit_act_infoBtn_cmd
+msgid "Execute this command:"
+msgstr "Εκτέλεση αυτής της εντολής:"
+
+#: edit_act_infoBtn_url_tooltip
+msgid "Web site address to show when click on the info button"
+msgstr ""
+"Εμφάνιση της διεύθυνσης της ιστοσελίδας με πάτημα του πλήκτρου πληροφοριών"
+
+#: edit_act_infoBtn_cmd_tooltip
+msgid "Command line to be executed on click to the info button."
+msgstr "Η γραμμή εντολών εκτελείται με πάτημα του πλήκτρου πληροφοριών"
+
+#: edit_act_mainWindow
+msgid "Main window:"
+msgstr "Κύριο παράθυρο:"
+
+#: edit_act_gameWindow
+msgid "Game window:"
+msgstr "Παράθυρο παιχνιδιού;"
+
+#: edit_act_margin
+msgid "Margin:"
+msgstr "Περιθώριο:"
+
+#: edit_act_margin_tooltip
+msgid "Horizontal and vertical spacing between visual objects."
+msgstr "Οριζόντια και κάθετη χωρική ανάπτυξη μεταξύ των αντικειμένων."
+
+#: edit_act_bgColor
+msgctxt "edit_act_bgColor"
+msgid "Background color:"
+msgstr "Χρώμα φόντου:"
+
+#: edit_act_bgColor_tooltip
+msgid "Change the background color."
+msgstr "Αλλαγή χρώματος φόντου:"
+
+#: edit_gradient_startColor
+msgid "Start color:"
+msgstr "Χρώμα αρχής:"
+
+#: edit_gradient_endColor
+msgid "End color:"
+msgstr "Χρώμα τέλους:"
+
+#: edit_gradient_startColor_tooltip
+msgid "Selection of the start color"
+msgstr "Επιλογή του χρώματος αρχής"
+
+#: edit_gradient_endColor_tooltip
+msgid "Selection of the end color"
+msgstr "Επιλογή του χρώματος τέλους"
+
+#: edit_gradient_cycles
+msgid "Cycles:"
+msgstr "Κύκλοι:"
+
+#: edit_gradient_cycles_tooltip
+msgid "Number of repetitions of the gradient over the paint surface"
+msgstr "Αριθμός επαναλήψεων διαβάθμισης στην επιφάνεια"
+
+#: edit_gradient_orientation
+msgid "Orientation:"
+msgstr "Προσανατολισμός:"
+
+#: edit_gradient_orientation_tooltip
+msgid "Gradient's orientation, measured in degrees over the horizontal"
+msgstr "Προσανατολισμός διαβάθμισης υπολογισμένος σε μοίρες οριζοντίως"
+
+#: edit_act_gradient
+msgid "Gradient:"
+msgstr "Διαβάθμιση:"
+
+#: edit_act_gradient_tooltip
+msgid "Use gradient of colours"
+msgstr "Χρήση διαβάθμισης χρωμάτων"
+
+#: edit_color_opacity
+msgid "Opacity"
+msgstr "Αδιαφάνεια"
+
+#: edit_color_opacity_tooltip
+msgid "Set the color's alpha channel (opacity) value."
+msgstr "Καθορισμός της τιμής του καναλιού alpha (αδιαφάνεια) του χρώματος."
+
+#: edit_gradient_title
+msgctxt "edit_gradient_title"
+msgid "Gradient"
+msgstr "Διαβάθμιση"
+
+#: edit_gradient_default
+msgid "Use default values (null gradient)"
+msgstr "Χρήση προκαθορισμένων τιμών (μηδενική διαβάθμιση)"
+
+#: edit_act_image
+msgid "Image:"
+msgstr "Εικόνα:"
+
+#: edit_act_descriptionTab
+msgctxt "edit_act_descriptionTab"
+msgid "Description"
+msgstr "Περιγραφή"
+
+#: edit_act_descriptionTab_tooltip
+msgid "Name and description"
+msgstr "Όνομα και περιγραφή"
+
+#: edit_act_tiledBgImg
+msgid "Tiled"
+msgstr "Σε παράθεση"
+
+#: edit_act_tiledBgImg_tooltip
+msgid ""
+"Paint all the surface with the image, repeating it along the X and Y axis as "
+"needed."
+msgstr ""
+"Χρωματισμός της επιφάνειας της εικόνας με επανάληψη κατά μήκος των αξόνων Χ "
+"και Y όπου χρειάζεται."
+
+#: edit_act_preview
+msgctxt "edit_act_preview"
+msgid "Preview:"
+msgstr "Προεπισκόπηση:"
+
+#: edit_act_border
+msgctxt "edit_act_border"
+msgid "Border"
+msgstr "Περίγραμμα"
+
+#: edit_act_border_tooltip
+msgid "Draw a line border arround the window"
+msgstr "Σχεδιασμός μιας γραμμής περιγράμματος γύρω από το παράθυρο"
+
+#: edit_act_transparent
+msgid "Transparent"
+msgstr "Διαφάνεια"
+
+#: edit_act_transparent_tooltip
+msgid "Window has transparent background"
+msgstr "Το παράθυρο έχει διαφανές φόντο"
+
+#: edit_act_width
+msgctxt "edit_act_width"
+msgid "Width:"
+msgstr "Πλάτος:"
+
+#: edit_act_height
+msgctxt "edit_act_height"
+msgid "Height:"
+msgstr "Ύψος:"
+
+#: edit_act_width_tooltip
+msgid "Width of the object, measured in pixels"
+msgstr "Το πλάτος του αντικειμένου υπολογισμένο σε εικονοστοιχεία"
+
+#: edit_act_height_tooltip
+msgid "Height of the object, measured in pixels"
+msgstr "Το ύψος του αντικειμένου υπολογισμένο σε εικονοστοιχεία"
+
+#: edit_act_centered
+msgctxt "edit_act_centered"
+msgid "Centered"
+msgstr "Κεντραρισμένο"
+
+#: edit_act_centered_tooltip
+msgid "The object will be centered over the main window"
+msgstr "Το αντικείμενο θα κεντραριστεί πάνω από το κύριο παράθυρο"
+
+#: edit_act_x
+msgctxt "edit_act_x"
+msgid "X:"
+msgstr "X:"
+
+#: edit_act_x_tooltip
+msgid "Absolute horizontal location"
+msgstr "Απόλυτη οριζόντια θέση"
+
+#: edit_act_y
+msgctxt "edit_act_y"
+msgid "Y:"
+msgstr "Y:"
+
+#: edit_act_y_tooltip
+msgid "Absolute vertical location"
+msgstr "Απόλυτη κάθετη θέση"
+
+#: edit_act_ui_block
+msgctxt "edit_act_ui_block"
+msgid "User interface"
+msgstr "Διεπαφή χρήστη"
+
+#: edit_act_image_tooltip
+msgid "Select an image"
+msgstr "Επιλογή μιας εικόνας"
+
+#: edit_act_text
+msgid "Text:"
+msgstr "Κείμενο:"
+
+#: edit_act_text_tooltip
+msgid "Text to be shown inside this object"
+msgstr "Κείμενο που θα εμφανίζεται μέσα στο αντικείμενο"
+
+#: edit_font_face
+msgid "Typeface:"
+msgstr "Γραμματοσειρά"
+
+#: edit_font_size
+msgid "Size:"
+msgstr "Μέγεθος:"
+
+#: edit_font_bold
+msgid "Bold"
+msgstr "Έντονα"
+
+#: edit_font_italic
+msgid "Italic"
+msgstr "Πλάγια"
+
+#: edit_font_underline
+msgid "Underline"
+msgstr "Υπογράμμιση"
+
+#: edit_font_style
+msgctxt "edit_font_style"
+msgid "Style:"
+msgstr "Στυλ:"
+
+#: edit_cell_title
+msgid "Cell contents"
+msgstr "Περιεχόμενα κελιού"
+
+#: edit_act_messages
+msgctxt "edit_act_messages"
+msgid "Messages"
+msgstr "Μηνύματα"
+
+#: edit_act_msg_initial
+msgid "Initial message:"
+msgstr "Αρχικό μήνυμα:"
+
+#: edit_act_msg_final
+msgid "Final message:"
+msgstr "Τελικό μήνυμα:"
+
+#: edit_act_msg_prev
+msgid "Previous message:"
+msgstr "Προηγούμενο μήνυμα:"
+
+#: edit_act_msg_error
+msgid "Error message:"
+msgstr "Μήνυμα σφάλματος:"
+
+#: edit_act_msg_initial_tooltip
+msgid "Message to be shown when the activity starts"
+msgstr "Μήνυμα που εμφανίζεται με την έναρξη της δραστηριότητας"
+
+#: edit_act_msg_final_tooltip
+msgid "Message to be shown when the activity is finished"
+msgstr "Μήνυμα που εμφανίζεται όταν η δραστηριότητα ολοκληρωθεί"
+
+#: edit_act_msg_error_tooltip
+msgid "Message to be shown when the activity ends with errors"
+msgstr ""
+"Μήνυμα που εμφανίζεται όταν η δραστηριότητα ολοκληρώνεται με σφάλματα."
+
+#: edit_act_msg_prev_tooltip
+msgid ""
+"Message to be shown prior to the start of the activity (only in certain "
+"types of activities)"
+msgstr ""
+"Μήνυμα που εμφανίζεται πριν την έναρξη της δραστηριότητας (μόνο σε "
+"συγκεκριμένους τύπους δραστηριοτήτων)"
+
+#: edit_align
+msgid "Align:"
+msgstr "Στοίχιση:"
+
+#: edit_act_textColor
+msgid "Text color:"
+msgstr "Χρώμα κειμένου:"
+
+#: edit_act_textColor_tooltip
+msgid "Color used to draw text"
+msgstr "Χρώμα κειμένου"
+
+#: edit_act_shadowColor
+msgid "Shadow color:"
+msgstr "Χρώμα σκίασης:"
+
+#: edit_act_shadowColor_tooltip
+msgid "Color used for drawing the text's shadow, when appliable"
+msgstr ""
+"Χρώμα που χρησιμοποιείται για τη σκίαση του κειμένου, όταν τίθεται σε "
+"εφαρμογή"
+
+#: edit_act_shadow
+msgid "Shadow"
+msgstr "Σκιά"
+
+#: edit_act_shadow_tooltip
+msgid "Draw text with shadow"
+msgstr "Κείμενο με σκιά"
+
+#: edit_act_borderColor
+msgid "Border color:"
+msgstr "Χρώμα περιγράμματος:"
+
+#: edit_act_borderColor_tooltip
+msgid "Color used to draw the cell's border"
+msgstr "Χρώμα περιγράμματος κελιού"
+
+#: edit_act_inactiveColor
+msgid "Inactive state color:"
+msgstr "Κατάσταση χρώματος ανενεργή"
+
+#: edit_act_inactiveColor_tooltip
+msgid "Color used when the cell is disabled"
+msgstr "Χρώμα που χρησιμοποιείται όταν το κελί είναι απενεργοποιημένο"
+
+#: edit_act_altColor
+msgid "Alternative color:"
+msgstr "Εναλλακτικό χρώμα:"
+
+#: edit_act_altColor_tooltip
+msgid "Color used to draw the alternative content in solved cells."
+msgstr ""
+"Χρώμα που χρησιμοποιείται για την εγγραφή εναλλακτικού περιεχομένου σε "
+"ολοκληρωμένα κελιά"
+
+#: edit_cell_marked
+msgid "Marked"
+msgstr "Σημειωμένο"
+
+#: edit_cell_disabled
+msgid "Disabled"
+msgstr "Απενεργοποιημένο"
+
+#: edit_cell_alt
+msgid "Alternative"
+msgstr "Εναλλακτικό"
+
+#: edit_cell_textMargin
+msgid "Internal margin:"
+msgstr "Εσωτερικό περιθώριο"
+
+#: edit_cell_textMargin_tooltip
+msgid "Amount of space between cell's border and text."
+msgstr "Διάστημα μεταξύ περιγράμματος και κειμένου ενός κελιού."
+
+#: edit_cell_borderWidth
+msgid "Border width:"
+msgstr "Πλάτος περιγράμματος:"
+
+#: edit_cell_borderWidth_tooltip
+msgid "Width of the stroke used to draw the standard border"
+msgstr "Πλάτος γραμμής για το σχεδιασμό πρότυπου περιγράμματος"
+
+#: edit_cell_markerWidth
+msgid "Marker width:"
+msgstr "Πλάτος γραφίδας;"
+
+#: edit_cell_markerWidth_tooltip
+msgid ""
+"Width of the stroke used to draw the border when the cell is marked or "
+"selected"
+msgstr ""
+"Πλάτος γραμμής περιγράμματος όταν το κελί είναι σημαδεμένο ή επιλεγμένο"
+
+#: edit_cell_alt_tooltip
+msgid "Preview in \"alternative\" state"
+msgstr "Προεπισκόπηση σε \"εναλλακτική\" κατάσταση"
+
+#: edit_cell_disabled_tooltip
+msgid "Preview in \"disabled\" state"
+msgstr "Προεπισκόπηση σε \"απενεργοποιημένη\" κατάσταση"
+
+#: edit_cell_marked_tooltip
+msgid "Preview in \"marked\" state"
+msgstr "Προεπισκόπηση σε \"σημειωμένη\" κατάσταση"
+
+#: edit_act_testAction
+msgid "Preview activity"
+msgstr "Προεπισκόπηση δραστηριότητας"
+
+#: edit_act_testAction_tooltip
+msgid "Preview and test the activity"
+msgstr "Προεπισκόπηση και δοκιμή δραστηριότητας"
+
+#: edit_act_panels_description
+msgctxt "edit_act_panels_description"
+msgid "Description"
+msgstr "Περιγραφή"
+
+#: edit_act_panels_description_tooltip
+msgid "Title and description of the activity"
+msgstr "Τίτλος και περιγραφή της δραστηριότητας"
+
+#: edit_act_panels_options
+msgid "Options"
+msgstr "Επιλογές"
+
+#: edit_act_panels_options_tooltip
+msgid "Options of the activity"
+msgstr "Επιλογές της δραστηριότητας"
+
+#: edit_act_panels_frame
+msgctxt "edit_act_panels_frame"
+msgid "Window"
+msgstr "Παράθυρο"
+
+#: edit_act_panels_frame_tooltip
+msgid "Aspect, size and position of the activity window"
+msgstr "Αναλογία, μέγεθος και θέση του παραθύρου της δραστηριότητας"
+
+#: edit_act_panels_messages
+msgctxt "edit_act_panels_messages"
+msgid "Messages"
+msgstr "Μηνύματα"
+
+#: edit_act_panels_messages_tooltip
+msgid "Content of the activity messages"
+msgstr "Περιεχόμενο μηνυμάτων της δραστηριότητας"
+
+#: edit_act_panels_panel
+msgid "Panel"
+msgstr "Πίνακας"
+
+#: edit_act_panels_panel_tooltip
+msgid "Contents of the panel"
+msgstr "Περιεχόμενα πίνακα"
+
+#: edit_style_title
+msgctxt "edit_style_title"
+msgid "Style"
+msgstr "Στυλ"
+
+#: edit_style_tooltip
+msgid "Set the cells color, font and size"
+msgstr "Καθορίστε το χρώμα, τη γραμματοσειρά και το μέγεθος των κελιών"
+
+#: edit_act_style
+msgctxt "edit_act_style"
+msgid "Style:"
+msgstr "Στυλ:"
+
+#: edit_act_overlap
+msgid "Avoid text overlap image"
+msgstr "Το κείμενο να μην επικαλύπτει την εικόνα"
+
+#: edit_act_overlap_tooltip
+msgid "Try to avoid text overlapping over image"
+msgstr "Αποφυγή επικάλυψης εικόνας από το κείμενο"
+
+#: edit_media_exists_1
+msgid "The file"
+msgstr "Το αρχείο"
+
+#: edit_media_exists_2
+msgid "already exists in the media library!"
+msgstr "υπάρχει ήδη στη βιβλιοθήκη πολυμέσων!"
+
+#: edit_act_shaper
+msgid "Shaper:"
+msgstr "Σχεδιαστής:"
+
+#: edit_act_shaper_err
+msgid "Shaper error:"
+msgstr "Σφάλμα σχεδιαστή:"
+
+#: edit_act_num_cols
+msgid "Columns:"
+msgstr "Στήλες:"
+
+#: edit_act_num_rows
+msgid "Rows:"
+msgstr "Γραμμές:"
+
+#: edit_act_toothHeightFactor
+msgid "Tooth height:"
+msgstr "Ύψος δοντιού:"
+
+#: edit_act_toothWidthFactor
+msgid "Tooth width:"
+msgstr "Πλάτος δοντιού:"
+
+#: edit_act_toothRandom
+msgid "Random distribution"
+msgstr "Τυχαία διανομή"
+
+#: edit_act_shaper_properties
+msgid "Shaper properties"
+msgstr "Ιδιότητες σχεδιαστή"
+
+#: edit_act_panels_text
+msgid "Text"
+msgstr "Κείμενο"
+
+#: edit_act_panels_text_tooltip
+msgid "Text of the activity"
+msgstr "Κείμενο δραστηριότητας"
+
+#: action_saveFile_caption
+msgid "Save..."
+msgstr "Αποθήκευση..."
+
+#: action_saveFile_keys
+msgctxt "action_saveFile_keys"
+msgid "SS"
+msgstr "SS"
+
+#: action_saveFile_tooltip
+msgid "Save the current project"
+msgstr "Αποθήκευση τρέχοντος έργου"
+
+#: action_docTree_caption
+msgid "Document tree..."
+msgstr "Δενδροειδής διάταξη έργου..."
+
+#: action_docTree_keys
+msgid "T*"
+msgstr "T*"
+
+#: action_docTree_tooltip
+msgid "Show the project's document as a tree"
+msgstr "Εμφάνιση δενδροειδούς διάταξης του έργου"
+
+#: edit_docTree_title
+msgid "Document tree"
+msgstr "Δενδροειδής διάταξη έργου"
+
+#: edit_media_referencedBy
+msgid "Referenced by:"
+msgstr "Αναφέρεται:"
+
+#: msg_prompt_loadReferences
+msgid ""
+"<html><font face=\"dialog\" size=\"2\"><B>Warning:</B><P>This project "
+"connects with other projects.<BR>Do you want to explore the links and to "
+"load all the related files?<P>(It's advisable to answer <B>YES</B> when "
+"importing Clic 3.0 activities)</font></html>"
+msgstr ""
+"<html><font face=\"dialog\" μέγεθος=\"2\"><B>Προσοχή:</B><P>Αυτό το έργο "
+"συνδέεται με άλλα έργα.<BR>Θέλετε να εξερευνήσετε τις συνδέσεις και να "
+"φορτώσετε άλλα σχετικά αρχεία;<P>(Προτείνεται να απαντήσετε <B>ΝΑΙ</B> όταν "
+"εισάγεται δραστηριότητες του Clic 3.0)</font></html>"
+
+#: edit_mc_type
+msgctxt "edit_mc_type"
+msgid "Type:"
+msgstr "Τύπος:"
+
+#: edit_mc_type_unknown
+msgid "Unknown"
+msgstr "Άγνωστο"
+
+#: edit_mc_type_sound
+msgid "Play sound"
+msgstr "Αναπαραγωγή ήχου"
+
+#: edit_mc_type_video
+msgid "Play video"
+msgstr "Αναπαραγωγή βίντεο"
+
+#: edit_mc_type_midi
+msgid "Play MIDI"
+msgstr "Αναπαραγωγή MIDI"
+
+#: edit_mc_type_cdaudio
+msgid "Play CD audio"
+msgstr "Αναπαραγωγή CD ήχου"
+
+#: edit_mc_type_record
+msgid "Record sound"
+msgstr "Ηχογράφηση ήχου"
+
+#: edit_mc_type_play_recorded
+msgid "Play recorded sound"
+msgstr "Αναπαραγωγή ηχογραφημένου ήχου"
+
+#: edit_mc_type_run_activity
+msgid "Go to activity"
+msgstr "Μετάβαση στη δραστηριότητα"
+
+#: edit_mc_type_run_sequence
+msgid "Go to sequence"
+msgstr "Μετάβαση στην ακολουθία"
+
+#: edit_mc_type_run_external
+msgid "Run program"
+msgstr "Εκτέλεση προγράμματος"
+
+#: edit_mc_type_url
+msgid "Show URL"
+msgstr "Εμφάνιση URL"
+
+#: edit_mc_type_exit
+msgid "End"
+msgstr "Τέλος"
+
+#: edit_mc_type_return
+msgctxt "edit_mc_type_return"
+msgid "Return"
+msgstr "Επιστροφή"
+
+#: edit_mc_level
+msgid "Priority level:"
+msgstr "Επίπεδο προτεραιότητας:"
+
+#: edit_mc_file
+msgid "File:"
+msgstr "Αρχείο:"
+
+#: edit_mc_externalParam
+msgid "Parameters:"
+msgstr "Παράμετροι:"
+
+#: edit_mc_from
+msgctxt "edit_mc_from"
+msgid "From:"
+msgstr "Από:"
+
+#: edit_mc_to
+msgctxt "edit_mc_to"
+msgid "To:"
+msgstr "Προς:"
+
+#: edit_mc_length
+msgctxt "edit_mc_length"
+msgid "Max. length:"
+msgstr "Μέγιστο μήκος:"
+
+#: edit_mc_recBuffer
+msgid "Record tape:"
+msgstr "Εγγραφή κασέτας:"
+
+#: edit_mc_stretch
+msgid "Stretch size"
+msgstr "Τέντωμα μεγέθους"
+
+#: edit_mc_location
+msgctxt "edit_mc_location"
+msgid "Location:"
+msgstr "Τοποθεσία:"
+
+#: edit_mc_location_x
+msgctxt "edit_mc_location_x"
+msgid "X:"
+msgstr "X:"
+
+#: edit_mc_location_y
+msgctxt "edit_mc_location_y"
+msgid "Y:"
+msgstr "Y:"
+
+#: edit_mc_location_from
+msgctxt "edit_mc_location_from"
+msgid "From:"
+msgstr "Από:"
+
+#: edit_mc_location_from_box
+msgid "Cell"
+msgstr "Κελί"
+
+#: edit_mc_location_from_window
+msgctxt "edit_mc_location_from_window"
+msgid "Window"
+msgstr "Παράθυρο"
+
+#: edit_mc_location_from_frame
+msgid "Frame"
+msgstr "Πλαίσιο"
+
+#: edit_mc_loop
+msgid "Loop playback"
+msgstr "Επανάληψη"
+
+#: edit_mc_autostart
+msgid "Auto start"
+msgstr "Αυτόματη εκκίνηση"
+
+#: edit_mc_catchmouse
+msgid "Catch mouse"
+msgstr "Ποντίκι σύλληψης"
+
+#: edit_mc_title
+msgid "Multimedia and active content"
+msgstr "Πολυμέσα και ενεργό περιεχόμενο"
+
+#: edit_mc_label
+msgid "Active content:"
+msgstr "Ενεργό περιεχόμενο"
+
+#: edit_media_dlg_title
+msgid "Multimedia object selection"
+msgstr "Επιλογή αντικειμένου πολυμέσων"
+
+#: edit_media_title
+msgctxt "edit_media_title"
+msgid "Media library"
+msgstr "Βιβλιοθήκη πολυμέσων"
+
+#: edit_mc_pos_cell
+msgid "Centered over cell"
+msgstr "Στοίχιση στο κέντρο του κελιού"
+
+#: edit_mc_pos_window
+msgid "Centered over window"
+msgstr "Κεντράρισμα στο παράθυρο"
+
+#: edit_mc_pos_absolute
+msgid "Specify position:"
+msgstr "Καθορισμός θέσης:"
+
+#: edit_tree_badFormat
+msgid "Incorrect tree structure or data!"
+msgstr "Λανθασμένη δενδροειδής δομή ή δεδομένα"
+
+#: edit_act_panels_controls
+msgid "Controls"
+msgstr "Στοιχεία ελέγχου"
+
+#: edit_act_panels_controls_tooltip
+msgid "Options for buttons and counters"
+msgstr "Επιλογές για πλήκτρα και μετρητές"
+
+#: edit_act_class
+msgctxt "edit_act_class"
+msgid "Type:"
+msgstr "Τύπος:"
+
+#: edit_act_gridLayout
+msgid "Grid layout:"
+msgstr "Διάταξη πλέγματος:"
+
+#: edit_act_gridLayout_tooltip
+msgid "Relative postion of the panels A and B."
+msgstr "Σχετική θέση πίνακα Α και Β"
+
+#: edit_act_inverseResolution
+msgid "Inverse resolution"
+msgstr "Αντίστροφη ανάλυση"
+
+#: edit_act_inverseResolution_tooltip
+msgid ""
+"The activity is solved when all assigned elements of \"B\" are matched."
+msgstr ""
+"Η δραστηριότητα ολοκληρώνεται όταν όλα τα καθορισμένα στοιχεία από το \"Β\" "
+"έχουν συσχετιστεί"
+
+#: edit_act_showAllArrows
+msgid "Show all arrows"
+msgstr "Εμφάνιση όλων των βελών"
+
+#: edit_act_alt
+msgid "Alternative content:"
+msgstr "Εναλλακτικό περιεχόμενο:"
+
+#: edit_act_alt_tooltip
+msgid "Content shown in solved cells and non-assigned cells."
+msgstr ""
+"Περιεχόμενο που εμφανίζεται σε ολοκληρωμένα και σε μη προσδιορισμένα κελιά."
+
+#: edit_act_alt_toggle
+msgid "ALT"
+msgstr "ALT"
+
+#: edit_act_alt_toggle_tooltip
+msgid "Edit the alternative content"
+msgstr "Επεξεργασία εναλλακτικού περιεχομένου"
+
+#: edit_act_grid
+msgid "Grid"
+msgstr "Πλέγμα"
+
+#: edit_act_grid_A
+msgid "Grid A"
+msgstr "Πλέγμα Α"
+
+#: edit_act_grid_B
+msgid "Grid B"
+msgstr "Πλέγμα Β"
+
+#: edit_act_grid_layout
+msgid "Layout"
+msgstr "Διάταξη"
+
+#: edit_act_grid_relationship
+msgid "Relationship"
+msgstr "Σχέση"
+
+#: edit_seq_activity_header
+msgid "activity"
+msgstr "δραστηριότητα"
+
+#: edit_seq_tag_header
+msgid "tag"
+msgstr "ετικέτα"
+
+#: edit_seq_jump_header
+msgid "jump to"
+msgstr "μετάβαση σε"
+
+#: edit_seq_activity
+msgctxt "edit_seq_activity"
+msgid "Activity:"
+msgstr "Δραστηριότητα:"
+
+#: edit_seq_tag
+msgctxt "edit_seq_tag"
+msgid "Label:"
+msgstr "Ετικέτα:"
+
+#: edit_seq_description
+msgctxt "edit_seq_description"
+msgid "Description:"
+msgstr "Περιγραφή:"
+
+#: edit_seq_auto
+msgid "Move on automatically"
+msgstr "Αυτόματη μετακίνηση"
+
+#: edit_seq_delay
+msgid "Delay:"
+msgstr "Καθυστέρηση:"
+
+#: edit_seq_action_fwd
+msgid "Go forward"
+msgstr "Μετάβαση μπροστά"
+
+#: edit_seq_action_back
+msgid "Go bak"
+msgstr "Πίσω"
+
+#: edit_seq_action_jump
+msgid "Jump to..."
+msgstr "Μετάβαση σε"
+
+#: edit_seq_action_stop
+msgid "Stop"
+msgstr "Διακοπή"
+
+#: edit_seq_action_return
+msgctxt "edit_seq_action_return"
+msgid "Return"
+msgstr "Επιστροφή"
+
+#: edit_seq_action_exit
+msgid "Exit JClic"
+msgstr "Έξοδος από JClic"
+
+#: edit_seq_arrow_fwd
+msgid "Forward arrow:"
+msgstr "Μπροστά:"
+
+#: edit_seq_arrow_back
+msgid "Back arrow:"
+msgstr "Πίσω:"
+
+#: edit_seq_action
+msgid "Action:"
+msgstr "Ενέργεια:"
+
+#: edit_seq_button_enabled
+msgid "Show button"
+msgstr "Προβολή κουμπιού"
+
+#: edit_seq_project
+msgid "JClic Project:"
+msgstr "Έργο Jclic:"
+
+#: edit_act_absolute
+msgid "Absolute position"
+msgstr "Θέση τιμής"
+
+#: edit_act_absolute_tooltip
+msgid "The object will be placed at the specified X and Y co-ordinates"
+msgstr ""
+"Το αντικείμενο θα τοποθετηθεί στην καθορισμένη θέση των συντεταγμένων Χ και Υ"
+
+#: edit_act_location
+msgctxt "edit_act_location"
+msgid "Location:"
+msgstr "Τοποθεσία:"
+
+#: edit_seq_newElement
+msgid "New sequence element..."
+msgstr "Νέα ακολουθία στοιχείου"
+
+#: edit_seq_newElement_tooltip
+msgid "Insert a new element into the activity sequence"
+msgstr "Εισαγωγή νέου στοιχείου στην ακολουθία της δραστηριότητας"
+
+#: edit_seq_newElement_msg
+msgid "Please select an activity for the new sequence element."
+msgstr "Παρακαλώ επιλέξτε μια δραστηριότητα για τη νέα ακολουθία στοιχείου"
+
+#: edit_seq_newElement_error_noAct
+msgid "Cannot create a new sequence element without activity!"
+msgstr ""
+"Δεν μπορεί να δημιουργηθεί μια καινούργια ακολουθία χωρίς δραστηριότητα!"
+
+#: edit_seq_newElement_error_emptyList
+msgid ""
+"This project has no activities! Unable to create sequence elements in an "
+"empty project."
+msgstr ""
+"Το έργο δεν έχει δραστηριότητες! Αδυναμία δημιουργίας ακολουθίας στοιχείων "
+"σε κενό έργο."
+
+#: edit_seq_jump_msg
+msgid "Jump target:"
+msgstr "Στόχος μετακίνησης:"
+
+#: edit_seq_jump_title
+msgid "Jump target"
+msgstr "Στόχος μετακίνησης"
+
+#: edit_act_newActivity_tooltip
+msgid "Add a new activity to project"
+msgstr "Πρόσθηκη νέας δραστηριότητας στο έργο"
+
+#: edit_act_prompt_class
+msgid "Type of activity:"
+msgstr "Τύπος δραστηριότητας"
+
+#: edit_act_prompt_name
+msgctxt "edit_act_prompt_name"
+msgid "Name:"
+msgstr "Όνομα"
+
+#: edit_act_newActivity_msg
+msgid "Please select the type of activity to create and give it a name:"
+msgstr ""
+"Παρακαλώ επιλέξτε τον τύπο της δραστηριότητας που θα δημιουργήσετε και δώστε "
+"ένα όνομα:"
+
+#: edit_act_newActivity_error_noAct
+msgid "You must select an activity type!"
+msgstr "Πρέπει να επιλέξετε τύπο δραστηριότητας!"
+
+#: edit_act_newActivity_error_noName
+msgid "You must especify a name for the activity!"
+msgstr "Πρέπει να ορίσετε ένα όνομα για την δραστηριότητα!"
+
+#: edit_act_newActivity_error_creating
+msgid "Unable to create activity!"
+msgstr "Αδύνατη η δημιουργία δραστηριότητας"
+
+#: edit_act_newActivity_class
+msgid "Java class name:"
+msgstr "Όνομα κατηγορίας Java:"
+
+#: edit_text_act_format
+msgid "Format"
+msgstr "Μορφή"
+
+#: edit_text_act_answer
+msgid "Answer"
+msgstr "Απάντηση"
+
+#: edit_text_act_popup
+msgid "Pop up"
+msgstr "Αναδυόμενο παράθυρο"
+
+#: edit_text_act_answer_label
+msgid "Valid answers:"
+msgstr "Έγκυρες απαντήσεις"
+
+#: edit_list_newElement_tooltip
+msgid "Add a new list element"
+msgstr "Προσθήκη νέας λίστας στοιχείων"
+
+#: edit_list_editElement_tooltip
+msgid "Edit the selected list element"
+msgstr "Επεξεργασία επιλεγμένης λίστας στοιχείων"
+
+#: edit_list_deleteElement_tooltip
+msgid "Delete the selected list element"
+msgstr "Διαγραφή επιλεγμένης λίστας στοιχείων"
+
+#: edit_list_upBtn_tooltip
+msgid "Move up"
+msgstr "Μετακίνηση πάνω"
+
+#: edit_list_downBtn_tooltip
+msgid "Move down"
+msgstr "Μετακίνηση κάτω"
+
+#: edit_list_newValue
+msgid "New text:"
+msgstr "Νέο κείμενο:"
+
+#: edit_list_addElement
+msgid "Add new list element"
+msgstr "Προσθήκη νέας λίστας στοιχείων"
+
+#: edit_list_modifyValue
+msgid "Modify selected text"
+msgstr "Μετατροπή επιλεγμένου κειμένου"
+
+#: edit_text_act_target
+msgid "Target"
+msgstr "Προορισμός"
+
+#: edit_text_act_maxLen
+msgctxt "edit_text_act_maxLen"
+msgid "Max. length:"
+msgstr "Μέγιστο μήκος:"
+
+#: edit_text_act_maxLen_tooltip
+msgid "Maximum amount of characters in the answer."
+msgstr "Μέγιστος αριθμός χαρακτήρων της απάντησης:"
+
+#: edit_text_act_fillingChar
+msgid "Filling character"
+msgstr "Γέμισμα χαρακτήρα"
+
+#: edit_text_act_fillingChar_tooltip
+msgid "Character used to indicate the blank"
+msgstr "Οι χαρακτήρες χρησιμοποιούνται για να δηλώνουν το κενό"
+
+#: edit_text_act_iniLen
+msgid "Initial length:"
+msgstr "Αρχικό μήκος:"
+
+#: edit_text_act_iniLen_tooltip
+msgid ""
+"Number of filling chars that will be displayed at the beginning of the "
+"activity."
+msgstr ""
+"Ο αριθμός των συμπληρωμένων χαρακτήρων θα εμφανιστεί κατά την έναρξη της "
+"δραστηριότητας."
+
+#: edit_text_act_iniText
+msgid "Initial text:"
+msgstr "Αρχικό κείμενο:"
+
+#: edit_text_act_iniText_tooltip
+msgid "Text displayed in the blank at the beggining of the activity."
+msgstr ""
+"Το κείμενο εμφανίζεται στο έγγραφο κατά την έναρξη της δραστηριότητας."
+
+#: edit_text_act_list
+msgid "Show a list of options:"
+msgstr "Εμφάνιση λίστας επιλογών:"
+
+#: edit_text_act_list_tooltip
+msgid "Display a list of options from which the user must select one."
+msgstr ""
+"Εμφάνιση λίστας επιλογών από την οποία ο χρήστης μπορεί να επιλέξει μία:"
+
+#: edit_text_act_check_title
+msgid "Correction options"
+msgstr "Επιλογές διόρθωσης"
+
+#: edit_text_act_popup_no
+msgid "No pop up"
+msgstr "Φραγή αναδυόμενων παραθύρων"
+
+#: edit_text_act_popup_always
+msgid "Pop up automatically"
+msgstr "Αυτόματη ανάδυση παραθύρου"
+
+#: edit_text_act_popup_onError
+msgid "Pop up in errors"
+msgstr "Ανάδυση παραθύρου σε περίπτωση λάθους"
+
+#: edit_text_act_popup_onDemand
+msgid "Pop up with F1"
+msgstr "Ανάδυση παραθύρου με F1"
+
+#: edit_text_act_popup_type
+msgctxt "edit_text_act_popup_type"
+msgid "Type:"
+msgstr "Τύπος:"
+
+#: edit_text_act_popup_delay
+msgid "Pop up delay:"
+msgstr "Καθυστέρηση ανάδυσης παραθύρου:"
+
+#: edit_text_act_popup_maxTime
+msgctxt "edit_text_act_popup_maxTime"
+msgid "Max. time:"
+msgstr "Μέγιστος χρόνος:"
+
+#: edit_text_act_popup_onlyPlay
+msgid "Sound only"
+msgstr "Μόνο ήχος"
+
+#: edit_text_act_err_noSelection
+msgid ""
+"You must select a fragment of text in order to create a new text target!"
+msgstr ""
+"Πρέπει να επιλέξετε ένα απόσπασμα κειμένου αν στοχεύετε στη δημιουργία ενός "
+"νέου κειμένου!"
+
+#: edit_text_act_err_badCharInSelection
+msgid "Target text cannot include paragraph returns nor tabs."
+msgstr ""
+"Το κείμενο δεν μπορεί να περιλαμβάνει παράγραφο που δεν διαθέτει στηλοθέτες."
+
+#: edit_text_act_err_nestedTargets
+msgid "Targets cannot nest!"
+msgstr "Οι στόχοι δεν μπορούν να τοποθετηθούν"
+
+#: edit_text_act_err_cellInTarget
+msgid "Targets cannot contain cells!"
+msgstr "Ο προορισμός δεν μπορεί να περιέχει κελιά"
+
+#: edit_text_act_pageBgColor
+msgid "Paper colour:"
+msgstr "Χρώμα χαρτιού:"
+
+#: edit_text_act_editStylesBtn
+msgid "Edit document styles..."
+msgstr "Επεξεργασία στυλ εγγράφου..."
+
+#: edit_text_act_mainStyle
+msgid "Main style:"
+msgstr "Κύριο στυλ:"
+
+#: edit_text_act_tabSpc
+msgid "Tab space:"
+msgstr "Διάστημα στηλοθέτη:"
+
+#: edit_text_act_tabSize
+msgid "Spaces between tab marks:"
+msgstr "Διαστήματα μεταξύ στηλοθετών:"
+
+#: edit_text_act_colors
+msgid "Colors:"
+msgstr "Χρώματα:"
+
+#: edit_text_act_targetStyle
+msgid "Target colors:"
+msgstr "Προορισμός χρωμάτων:"
+
+#: edit_text_act_errorStyle
+msgid "Error colors:"
+msgstr "Χρώματα σφαλμάτων:"
+
+#: edit_text_act_preview
+msgctxt "edit_text_act_preview"
+msgid "Preview:"
+msgstr "Προεπισκόπηση:"
+
+#: edit_text_act_styleSample_default_start
+msgid "Standard text"
+msgstr "Τυπικό κείμενο"
+
+#: edit_text_act_styleSample_target
+msgid "target"
+msgstr "στόχος"
+
+#: edit_text_act_styleSample_error
+msgid "error"
+msgstr "σφάλμα"
+
+#: edit_text_act_styleSample_default_fill
+msgid "standard text"
+msgstr "τυπικό κείμενο"
+
+#: edit_text_act_styleSample_default_end
+msgid "standard text."
+msgstr "τυπικό κείμενο."
+
+#: edit_text_act_warnDeleteTarget
+msgid ""
+"Warning: This action will supress the currently selected target. Do you want "
+"to proceed?"
+msgstr ""
+"Προειδοποίηση: Αυτή η ενέργεια θα υπερισχύσει από τον τρέχοντα επιλεγμένο "
+"στόχο. Θέλετε να συνεχίσετε;"
+
+#: edit_text_act_prevScreen_title
+msgid "Previous screen..."
+msgstr "Προηγούμενη οθόνη..."
+
+#: edit_text_act_prevScreen_no
+msgid "Don't display any text before starting the activity"
+msgstr "Καμία εμφάνιση κειμένου πριν την έναρξη της δραστηριότητας"
+
+#: edit_text_act_prevScreen_original
+msgid "Display the complete text of the exercise"
+msgstr "Εμφάνιση πλήρους κειμένου της άσκησης."
+
+#: edit_text_act_prevScreen_special
+msgid "Display this text:"
+msgstr "Εμφάνιση αυτού του κειμένου:"
+
+#: edit_text_act_prevScreen_time
+msgctxt "edit_text_act_prevScreen_time"
+msgid "Max. time:"
+msgstr "Μέγιστος χρόνος:"
+
+#: edit_text_act_edit_target
+msgid "Target..."
+msgstr "Στόχος..."
+
+#: edit_text_act_checkButton_show
+msgid "Show correction button"
+msgstr "Εμφάνιση πλήκτρου διόρθωσης"
+
+#: edit_text_act_checkButtonText
+msgid "Button text:"
+msgstr "Πλήκτρο κειμένου;"
+
+#: edit_text_act_checkCase
+msgid "Match case"
+msgstr "Ταίριασμα πεζών/κεφαλαίων"
+
+#: edit_text_act_checkAccents
+msgid "Consider accents and special characters"
+msgstr "Εξέταση τονισμού και ειδικών χαρακτήρων"
+
+#: edit_text_act_checkPunct
+msgid "Consider punctuation marks"
+msgstr "Εξέταση σημείων στίξης"
+
+#: edit_text_act_checkDoubleSpc
+msgid "Allow repeated spaces"
+msgstr "Επιτρέπονται επαναλαμβανόμενα διαστήματα"
+
+#: edit_text_act_checkOptions
+msgid "Criteria"
+msgstr "Κριτήρια"
+
+#: edit_text_act_checkAutoJump
+msgid "Move on to next target when filled in"
+msgstr "Μετάβαση στον επόμενο στόχο όταν συμπληρωθεί"
+
+#: edit_text_act_checkForceOk
+msgid "Move only after correct guess"
+msgstr "Μετάβαση μόνο μετά σωστή πρόβλεψη"
+
+#: edit_text_act_checkDetail
+msgid "Indicate mistakes letter by letter"
+msgstr "Επισήμανση λαθών, γράμμα προς γράμμα"
+
+#: edit_text_act_checkDetail_params
+msgid "Analysis algorithm parameters:"
+msgstr "Παράμετροι ανάλυσης αλγορίθμων:"
+
+#: edit_text_act_checkDetail_steps
+msgid "Steps:"
+msgstr "Βήματα:"
+
+#: edit_text_act_checkDetail_field
+msgid "Exploration field:"
+msgstr "Πεδίο εξερεύνησης:"
+
+#: edit_text_act_defaultCheckButtonText
+msgid "Check"
+msgstr "Έλεγχος"
+
+#: edit_text_act_advancedCorrectionOptions
+msgid "Answer analysis"
+msgstr "Ανάλυση απάντησης"
+
+#: edit_text_act_check_bt
+msgid "Correction..."
+msgstr "Διόρθωση..."
+
+#: edit_text_act_checkButton
+msgid "Correction button"
+msgstr "Πλήκτρο διόρθωσης"
+
+#: edit_text_act_checkProgress
+msgid "Progress"
+msgstr "Πρόοδος"
+
+#: edit_text_act_typeBtn
+msgid "Type..."
+msgstr "Τύπος..."
+
+#: edit_text_act_orderParagraphs
+msgid "Order paragraphs"
+msgstr "Ταξινόμηση παραγράφων"
+
+#: edit_text_act_orderWords
+msgid "Order words"
+msgstr "Ταξινόμηση λέξεων"
+
+#: edit_text_act_order_amongstPar
+msgid "Shuffle words amongst paragraphs"
+msgstr "Αναδιάταξη λέξεων μέσα στις παραγράφους"
+
+#: edit_text_act_type_title
+msgid "Activity type"
+msgstr "Είδος δραστηριότητας"
+
+#: edit_text_act_warnChangeType
+msgid ""
+"This action will clear all the existing targets. Do you want to proceed?"
+msgstr ""
+"Αυτή η ενέργεια θα αφαιρέσει όλους τους υπάρχοντες στόχους. Θέλετε να "
+"συνεχίσετε;"
+
+#: edit_text_act_identWords
+msgid "Identify words"
+msgstr "Αναγνώριση λέξεων"
+
+#: edit_text_act_identChars
+msgid "Identify characters"
+msgstr "Αναγνώριση χαρακτήρων"
+
+#: edit_media_change_name
+msgid "Change name..."
+msgstr "Αλλαγή ονόματος..."
+
+#: edit_media_change_file
+msgid "Change file..."
+msgstr "Αλλαγή αρχείου..."
+
+#: edit_media_includeInZip
+msgid "Save into ZIP file"
+msgstr "Αποθήκευση σε συμπιεσμένο (.zip) αρχείο"
+
+#: edit_media_type
+msgid "Media type:"
+msgstr "Είδος πολυμέσου:"
+
+#: edit_media_size
+msgid "File size:"
+msgstr "Μέγεθος αρχείου:"
+
+#: edit_media_show_type
+msgid "Files of type:"
+msgstr "Τύποι αρχείων:"
+
+#: edit_media_preview
+msgid "Preview media"
+msgstr "Προεπισκόπηση πολυμέσων"
+
+#: edit_media_preview_tooltip
+msgid "Preview media resource"
+msgstr "Προεπισκόπηση πηγών πολυμέσων"
+
+#: edit_media_rename
+msgid "Change resource name"
+msgstr "Αλλαγή ονόματος πηγής:"
+
+#: edit_media_rename_title
+msgid "Rename"
+msgstr "Μετονομασία"
+
+#: edit_media_rename_prompt
+msgid "New name:"
+msgstr "Νέο όνομα:"
+
+#: edit_media_rename_invalid
+msgid "Invalid resource name!"
+msgstr "Μη έγκυρο όνομα πηγής!"
+
+#: edit_media_rename_exists
+msgid ""
+"There is another resource with this name! Each resource must have a unique "
+"name."
+msgstr ""
+"Υπάρχει μια ακόμη πηγή με αυτό το όνομα! Κάθε πηγή πρέπει να έχει ένα "
+"μοναδικό όνομα."
+
+#: edit_media_chfile_invalid
+msgid "Invalid file!"
+msgstr "Μη έγκυρο αρχείο!"
+
+#: err_media_chfile_different
+msgid "File must be of same type"
+msgstr "Το αρχείο πρέπει να είναι του ίδιου είδους"
+
+#: edit_media_font_error
+msgid "Unable to load font!"
+msgstr "Αδυναμία φόρτωσης γραμματοσειράς!"
+
+#: edit_media_save_file
+msgid "Save file (extract from ZIP)"
+msgstr "Αποθήκευση αρχείου (εξαγωγή από ZIP)"
+
+#: edit_media_refresh_file
+msgid "Update media content from file"
+msgstr "Ενημέρωση περιεχομένου πολυμέσων από αρχείο"
+
+#: edit_media_warn_zipFileNotExternal
+msgid ""
+"This is not a \"real\" file, but a object located into a ZIP container. In "
+"order to use this feature, a file with the same name must be present in the "
+"folder where the ZIP file is located."
+msgstr ""
+"Αυτό δεν είναι ένα \"πραγματικό\" αρχείο, αλλά ένα αντικείμενο που βρίσκεται "
+"σε ένα συμπιεσμένο πακέτο. Για να χρησιμοποιήσετε αυτή τη δυνατότητα, πρέπει "
+"να εμφανιστεί ένα αρχείο με το ίδιο όνομα στον φάκελο όπου βρίσκεται το "
+"συμπιεσμένο αρχείο."
+
+#: edit_activities
+msgctxt "edit_activities"
+msgid "Activities"
+msgstr "Δραστηριότητες"
+
+#: edit_sequences
+msgctxt "edit_sequences"
+msgid "Sequences"
+msgstr "Ακολουθίες"
+
+#: edit_media
+msgctxt "edit_media"
+msgid "Media library"
+msgstr "Βιβλιοθήκη πολυμέσων"
+
+#: edit_media_tooltip
+msgid "Manage images and other media files used in the project"
+msgstr ""
+"Διαχείριση εικόνων και άλλων πολυμέσων που χρησιμοποιούνται σε αυτό το έργο"
+
+#: edit_activities_tooltip
+msgid "Create and edit project activities"
+msgstr "Δημιουργία και επεξεργασία δραστηριοτήτων έργου"
+
+#: edit_sequences_tooltip
+msgid "Edit and create sequences of activities"
+msgstr "Δημιουργία και επεξεργασία ακολουθιών δραστηριοτήτων"
+
+#: edit_project_title
+msgctxt "edit_project_title"
+msgid "Title:"
+msgstr "Τίτλος:"
+
+#: edit_project_title_tooltip
+msgid "Project's title"
+msgstr "Τίτλος έργου"
+
+#: edit_project
+msgctxt "edit_project"
+msgid "Project"
+msgstr "Έργο"
+
+#: edit_project_tooltip
+msgid "Edit project properties"
+msgstr "Επεξεργασία ιδιοτήτων του έργου"
+
+#: edit_project_description
+msgctxt "edit_project_description"
+msgid "Description:"
+msgstr "Περιγραφή:"
+
+#: edit_project_description_tooltip
+msgid "General description of the project"
+msgstr "Γενική περιγραφή του έργου"
+
+#: edit_project_area
+msgid "Areas:"
+msgstr "Γνωστικές περιοχές:"
+
+#: edit_project_area_tooltip
+msgid "Curricular areas of the project"
+msgstr "Διδακτικά αντικείμενα του έργου"
+
+#: edit_project_level
+msgid "Levels:"
+msgstr "Γνωστικά επίπεδα:"
+
+#: edit_project_level_tooltip
+msgid "Educational levels of the project"
+msgstr "Εκπαιδευτικά επίπεδα του έργου"
+
+#: edit_project_descriptors
+msgid "Descriptors:"
+msgstr "Λέξεις κλειδιά:"
+
+#: edit_project_descriptors_tooltip
+msgid "Descriptors of the project (separed with comma)"
+msgstr "Λέξεις κλειδιά για το έργο (διαχωρισμένες με κόμμα)"
+
+#: edit_project_languages
+msgid "Languages:"
+msgstr "Γλώσσες:"
+
+#: edit_project_languages_tooltip
+msgid "Languages used in the project"
+msgstr "Γλώσσες που χρησιμοποιούνται στο έργο"
+
+#: edit_project_languages_modify
+msgid "Change the selected language"
+msgstr "Αλλαγή επιλεγμένης γλώσσας"
+
+#: edit_project_languages_add
+msgid "Add language"
+msgstr "Προσθήκη γλώσσας"
+
+#: edit_project_languages_select
+msgid "ISO-639 language codes:"
+msgstr "ISO-639 κωδικός γλώσσας:"
+
+#: edit_project_authors
+msgctxt "edit_project_authors"
+msgid "Authors:"
+msgstr "Συγγραφείς:"
+
+#: edit_project_authors_tooltip
+msgid "People involved in the creation of the project"
+msgstr "Άτομα που συνεισέφεραν στη δημιουργία αυτού του έργου"
+
+#: edit_project_author_name
+msgctxt "edit_project_author_name"
+msgid "Name:"
+msgstr "Όνομα"
+
+#: edit_project_author_mail
+msgctxt "edit_project_author_mail"
+msgid "e-mail:"
+msgstr "Ηλεκτρονική διεύθυνση:"
+
+#: edit_project_author_rol
+msgid "Rol:"
+msgstr "Ρόλος:"
+
+#: edit_project_author_organization
+msgid "Organization:"
+msgstr "Οργανισμός:"
+
+#: edit_project_author_comments
+msgctxt "edit_project_author_comments"
+msgid "Comments:"
+msgstr "Σχόλια:"
+
+#: edit_project_author_url
+msgctxt "edit_project_author_url"
+msgid "URL:"
+msgstr "URL:"
+
+#: edit_project_author_name_tooltip
+msgid "Author's name (required)"
+msgstr "Όνομα συγγραφέα (απαιτείται)"
+
+#: edit_project_author_mail_tooltip
+msgid "Author's e-mail (optional)"
+msgstr "Ηλεκτρονική διεύθυνση συγγραφέων (προαιρετικό)"
+
+#: edit_project_author_rol_tooltip
+msgid ""
+"Person's rol in the project: author, collaborator, drawings, sounds... "
+"(optional)"
+msgstr ""
+"Ρόλος ατόμου στο έργο: δημιουργός, συνεργάτης, προμηθευτής εικόνων, ήχων... "
+"(προαιρετικό)"
+
+#: edit_project_author_organization_tooltip
+msgid "School, university, association... (optional)"
+msgstr "Σχολείο, πανεπιστήμιο, σύλλογος....(προαιρετικό)"
+
+#: edit_project_author_url_tooltip
+msgid "Personal web page (optional)"
+msgstr "Προσωπική ιστοσελίδα (προαιρετικό)"
+
+#: edit_project_author_comments_tooltip
+msgid "Field for other information (optional)"
+msgstr "Πεδίο για άλλες πληροφορίες (προαιρετικό)"
+
+#: edit_project_author_info
+msgid "Author info:"
+msgstr "Πληροφορίες συγγραφέα:"
+
+#: edit_project_author_add
+msgid "Add author to list"
+msgstr "Προσθήκη συγγραφέα στη λίστα"
+
+#: edit_project_author_edit
+msgid "Edit author info"
+msgstr "Επεξεργασία πληροφοριών συγγραφέα"
+
+#: edit_project_org_name
+msgctxt "edit_project_org_name"
+msgid "Name:"
+msgstr "Όνομα:"
+
+#: edit_project_org_name_tooltip
+msgid "School name"
+msgstr "Όνομα σχολείου"
+
+#: edit_project_org_mail
+msgctxt "edit_project_org_mail"
+msgid "e-mail:"
+msgstr "Ηλεκτρονική διεύθυνση:"
+
+#: edit_project_org_mail_tooltip
+msgid "e-mail address of the school"
+msgstr "Ηλεκτρονιθκή διεύθυνση σχολείου"
+
+#: edit_project_org_url
+msgctxt "edit_project_org_url"
+msgid "URL:"
+msgstr "URL:"
+
+#: edit_project_org_url_tooltip
+msgid "School website"
+msgstr "Ιστοσελίδα σχολείου"
+
+#: edit_project_org_address
+msgid "Address:"
+msgstr "Διεύθυνση:"
+
+#: edit_project_org_address_tooltip
+msgid "Snail-mail address"
+msgstr "Ταχυδρομική διεύθυνση"
+
+#: edit_project_org_pc
+msgid "PC:"
+msgstr "Η/Υ:"
+
+#: edit_project_org_pc_tooltip
+msgid "Postal code"
+msgstr "Ταχυδρομικός κώδικας"
+
+#: edit_project_org_city
+msgid "City:"
+msgstr "Πόλη:"
+
+#: edit_project_org_city_tooltip
+msgid "School city"
+msgstr "Πόλη"
+
+#: edit_project_org_country
+msgid "Country:"
+msgstr "Χώρα:"
+
+#: edit_project_org_state
+msgid "State:"
+msgstr "Πολιτεία:"
+
+#: edit_project_org_comments
+msgctxt "edit_project_org_comments"
+msgid "Comments:"
+msgstr "Σχόλια:"
+
+#: edit_project_org
+msgid "School/s:"
+msgstr "Σχολεία:"
+
+#: edit_project_org_tooltip
+msgid "School or other institution involved in the project"
+msgstr "Σχολείο ή άλλο ίδρυμα που συμμετέχει στο έργο!"
+
+#: edit_project_org_info
+msgid "Organization info:"
+msgstr "Πληροφορίες οργανισμού:"
+
+#: edit_project_org_add
+msgid "Add organization"
+msgstr "Προσθήκη οργανισμού"
+
+#: edit_project_org_edit
+msgid "Edit organization data"
+msgstr "Επεξεργασία δεδομένων οργανισμού"
+
+#: edit_project_org_country_tooltip
+msgid "Country, federation, union..."
+msgstr "Χώρα, ομοσπονδία, ένωση ..."
+
+#: edit_project_org_state_tooltip
+msgid "Federal state, community, region..."
+msgstr "Ομοσπονδιακή πολιτεία, κοινότητα, περιοχή ..."
+
+#: edit_project_org_comments_tooltip
+msgid "Other info..."
+msgstr "Άλλες πληροφορίες..."
+
+#: edit_project_rev_date
+msgid "Date:"
+msgstr "Ημερομηνία"
+
+#: edit_project_rev_date_tooltip
+msgid "Date of the revision"
+msgstr "Ημερομηνία αναθεώρησης"
+
+#: edit_project_rev_authors
+msgctxt "edit_project_rev_authors"
+msgid "Authors:"
+msgstr "Συγγραφείς:"
+
+#: edit_project_rev_authors_tooltip
+msgid "Authors of the revision"
+msgstr "Συγγραφείς αναθεώρησης"
+
+#: edit_project_rev_description
+msgctxt "edit_project_rev_description"
+msgid "Description:"
+msgstr "Περιγραφή:"
+
+#: edit_project_rev_description_tooltip
+msgid "Brief description of the changes made"
+msgstr "Σύντομη περιγραφή των αλλαγών που έγιναν"
+
+#: edit_project_rev_comments
+msgctxt "edit_project_rev_comments"
+msgid "Comments:"
+msgstr "Σχόλια:"
+
+#: edit_project_rev_comments_tooltip
+msgid "Other relevant info"
+msgstr "Άλλες σχετικές πληροφορίες"
+
+#: edit_project_rev
+msgid "Revisions:"
+msgstr "Αναθεωρήσεις:"
+
+#: edit_project_rev_tooltip
+msgid "History of main modifications made to the project"
+msgstr "Ιστορικό των κυριότερων τροποποιήσεων που έγιναν στο έργο"
+
+#: edit_project_rev_add
+msgid "Add revision record"
+msgstr "Προσθήκη καταγραφής αναθεωρήσεων"
+
+#: edit_project_rev_edit
+msgid "Edit revision record"
+msgstr "Επεξεργασία καταγραφής αναθεωρήσεων"
+
+#: edit_project_rev_info
+msgid "Revision data"
+msgstr "Δεδομένα αναθεώρησης"
+
+#: edit_media_objects
+msgid "objects"
+msgstr "αντικείμενα"
+
+#: edit_media_object
+msgid "object"
+msgstr "αντικείμενο"
+
+#: edit_evsounds_start
+msgid "Start of activity:"
+msgstr "Έναρξη δραστηριότητας:"
+
+#: edit_evsounds_click
+msgid "Click on object:"
+msgstr "Κάντε κλικ στο αντικείμενο:"
+
+#: edit_evsounds_actionError
+msgid "Erroneous action:"
+msgstr "Εσφαλμένη ενέργεια:"
+
+#: edit_evsounds_actionOk
+msgid "Correct action:"
+msgstr "Σωστή ενέργεια:"
+
+#: edit_evsounds_finishedError
+msgid "Activity finished with errors:"
+msgstr "Η δραστηριότητα ολοκληρώθηκε με λάθη:"
+
+#: edit_evsounds_finishedOk
+msgid "Activity finished OK:"
+msgstr "Η δραστηριότητα ολοκληρώθηκε σωστά:"
+
+#: edit_project_rev_err_nodesc
+msgid "Error: The description field cannot be leaved blank!"
+msgstr "Σφάλμα: Το πεδίο περιγραφής δεν μπορεί να μείνει κενό:"
+
+#: edit_evsounds_dlg_title
+msgid "Edit event sounds"
+msgstr "Επεξεργασία ήχου συμβάντων"
+
+#: edit_project_evsounds
+msgctxt "edit_project_evsounds"
+msgid "Event sounds:"
+msgstr "Ήχοι συμβάντων:"
+
+#: edit_project_evsounds_tooltip
+msgctxt "edit_project_evsounds_tooltip"
+msgid "Set specific sounds for each JClic event"
+msgstr "Καθορίστε συγκεκριμένο ήχο για κάθε συμβάν του JClic"
+
+#: edit_act_evsounds
+msgctxt "edit_act_evsounds"
+msgid "Event sounds:"
+msgstr "Ήχοι συμβάντων:"
+
+#: edit_act_evsounds_tooltip
+msgctxt "edit_act_evsounds_tooltip"
+msgid "Set specific sounds for each JClic event"
+msgstr "Καθορίστε συγκεκριμένο ήχο για κάθε συμβάν του JClic"
+
+#: edit_evsounds_default
+msgid "default sound"
+msgstr "Προεπιλεγμένος ήχος"
+
+#: edit_evsounds_disabled
+msgid "disabled"
+msgstr "απενεργοποιημένο"
+
+#: edit_evsounds_chk_tooltip
+msgid "Enable or disable the sound for this event"
+msgstr "Ενεργοποίηση ή απενεργοποίηση ήχου για αυτό το συμβάν"
+
+#: edit_evsounds_select_tooltip
+msgid ""
+"Click to select a sound for this event, or uncheck to use the default sound"
+msgstr ""
+"Κάνε κλικ για να επιλέξεις ήχο για αυτό το συμβάν ή αποεπέλεξε για να "
+"χρησιμοποιήσεις τον προεπιλεγμένο ήχο"
+
+#: action_newProject_caption
+msgid "New project..."
+msgstr "Νέο έργο"
+
+#: action_newProject_keys
+msgid "NN"
+msgstr "NN"
+
+#: action_newProject_tooltip
+msgid "Create a new JClic project"
+msgstr "Δημιουργία νέου έργου Jclic"
+
+#: edit_arith_op_from
+msgctxt "edit_arith_op_from"
+msgid "From:"
+msgstr "Από:"
+
+#: edit_arith_op_from_tooltip
+msgid "Minimum value of the operator"
+msgstr "Ελάχιστη τιμή τελεστή"
+
+#: edit_arith_op_to
+msgctxt "edit_arith_op_to"
+msgid "To:"
+msgstr "Προς:"
+
+#: edit_arith_op_to_tooltip
+msgid "Maximum value of the operator"
+msgstr "Μέγιστη τιμή τελεστή"
+
+#: edit_arith_op_with
+msgid "With:"
+msgstr "Με:"
+
+#: edit_arith_op_with_tooltip
+msgid "If checked, the operator can also have this value"
+msgstr "Εάν επιλεγεί, ο τελεστής μπορεί επίσης να πάρει αυτή την τιμή"
+
+#: edit_arith_op_fromList
+msgid "One from the list:"
+msgstr "Ένα από τη λίστα:"
+
+#: edit_arith_op_fromList_tooltip
+msgid "List of possible values for the operator"
+msgstr "Λίστα πιθανών τιμών τελεστών"
+
+#: edit_arith_op_decimals
+msgid "Decimals:"
+msgstr "Δεκαδικά:"
+
+#: edit_arith_op_decimals_tooltip
+msgid "Number of decimals of the operand"
+msgstr "Αριθμός δεκαδικών ψηφίων τελεστή"
+
+#: edit_arith_op_dec0
+msgid "# (integer)"
+msgstr "# (ακέραιος)"
+
+#: edit_arith_op_dec1
+msgid "#.#"
+msgstr "#.#"
+
+#: edit_arith_op_dec2
+msgid "#.##"
+msgstr "#.##"
+
+#: edit_arith_firstOp
+msgid "First operand"
+msgstr "Αρχικός τελεστής"
+
+#: edit_arith_secondOp
+msgid "Second operand"
+msgstr "Δεύτερος τελεστής"
+
+#: edit_arith_title
+msgid "Arith2 for JClic"
+msgstr "Arith2 for JClic"
+
+#: edit_arith_operations
+msgid "Operations:"
+msgstr "Πράξεις:"
+
+#: edit_arith_operations_tooltip
+msgid "Select the kind of operations to be performed"
+msgstr "Επέλεξε το είδος των ενεργειών για να εκτελεστούν"
+
+#: edit_arith_operations_plus
+msgid "Plus"
+msgstr "Πρόσθεση"
+
+#: edit_arith_operations_minus
+msgid "Minus"
+msgstr "Αφαίρεση"
+
+#: edit_arith_operations_multiply
+msgid "Multiply"
+msgstr "Πολλαπλασιασμός"
+
+#: edit_arith_operations_divide
+msgid "Divide"
+msgstr "Διαίρεση"
+
+#: edit_arith_unknown
+msgid "Unknown:"
+msgstr "Άγνωστο:"
+
+#: edit_arith_unknown_tooltip
+msgid "Select the item that will act as a unknown"
+msgstr "Επέλεξε το αντικείμενο που θα λειτουργεί ως ο άγνωστος"
+
+#: edit_arith_unknown_aobx
+msgid "The result is the unknown"
+msgstr "Το αποτέλεσμα είναι ο άγνωστος"
+
+#: edit_arith_unknown_aoxr
+msgid "The second operator is the unknown"
+msgstr "Ο δεύτερος τελεστής είναι ο άγνωστος"
+
+#: edit_arith_unknown_xobr
+msgid "The first operator is the unknown"
+msgstr "Ο πρώτος τελεστής είναι ο άγνωστος"
+
+#: edit_arith_unknown_axbr
+msgid "The operation is the unknown"
+msgstr "Άγνωστη λειτουργία"
+
+#: edit_arith_unknown_invert
+msgid "Write the result at the beggining of the expression"
+msgstr "Γράψε το αποτέλεσμα στη αρχή της έκφρασης"
+
+#: edit_arith_result
+msgid "Result:"
+msgstr "Αποτέλεσμα:"
+
+#: edit_arith_result_notCarry
+msgid "Do not carry"
+msgstr "Μην μεταφέρεις"
+
+#: edit_arith_result_random
+msgid "Random"
+msgstr "Τυχαίο"
+
+#: edit_arith_result_asc
+msgid "Ascending"
+msgstr "Αύξουσα"
+
+#: edit_arith_result_order
+msgid "Order by result:"
+msgstr "Ταξινόμηση κατά αποτέλεσμα"
+
+#: edit_arith_result_desc
+msgid "Descending"
+msgstr "Φθίνουσα"
+
+#: edit_arith_result_avoidDup
+msgid "Avoid duplicates"
+msgstr "Αποφυγή διπλότυπων"
+
+#: edit_arith_cond
+msgid "Conditions:"
+msgstr "Συνθήκες:"
+
+#: edit_arith_cond_ind
+msgid "Indifferent"
+msgstr "όμοια"
+
+#: edit_arith_cond_agb
+msgid "The first operator must be greather than the second one"
+msgstr "Ο πρώτος τελεστής πρέπει να είναι μεγαλύτερος από τον δεύτερο"
+
+#: edit_arith_cond_alb
+msgid "The first operator must be lesser than the second one"
+msgstr "Ο πρώτος τελεστής πρέπει να είναι μικρότερος από τον δεύτερο"
+
+#: edit_arith_cond_tooltip
+msgid "Other conditions"
+msgstr "Άλλες συνθήκες"
+
+#: edit_autocp
+msgid "Automatic content generator:"
+msgstr "Αυτόματος δημιουργός περιεχομένων:"
+
+#: edit_autocp_tooltip
+msgid "Select the type of automatic content generator for this activity."
+msgstr ""
+"Επιλογή τύπου δημιουργού αυτόματου περιεχομένου για αυτή τη δραστηριότητα."
+
+#: edit_autocp_block
+msgid "Content generator"
+msgstr "Δημιουργός περιεχομένων"
+
+#: edit_autocp_btn
+msgid "Settings..."
+msgstr "Ρυθμίσεις..."
+
+#: edit_autocp_btn_tooltip
+msgid "Configure the content provider settings"
+msgstr "Διαμόρφωση ρυθμίσεων πάροχου περιεχομένου"
+
+#: edit_data
+msgid "Edit data"
+msgstr "Επεξεργασία δεδομένων"
+
+#: edit_act
+msgid "Activity edit"
+msgstr "Επεξεργασία δραστηριότητας"
+
+#: edit_acp
+msgid "Content provider edit"
+msgstr "Επεξεργασία παροχέα περιεχομένων"
+
+#: edit_acp_err_creating
+msgid "Error creating the content provider!"
+msgstr "Σφάλμα στη δημιουργία πάροχου περιεχομένου!"
+
+#: edit_project_author_group
+msgid "Creation"
+msgstr "Δημιουργία"
+
+#: edit_project_description_block
+msgctxt "edit_project_description_block"
+msgid "Description"
+msgstr "Περιγραφή"
+
+#: edit_project_ui_block
+msgctxt "edit_project_ui_block"
+msgid "User interface"
+msgstr "Διεπαφή χρήστη"
+
+#: edit_act_description
+msgctxt "edit_act_description"
+msgid "Description:"
+msgstr "Περιγραφή:"
+
+#: m_Edit
+msgid "Edit"
+msgstr "Επεξεργασία"
+
+#: m_Edit_Mnemonic
+msgid "E"
+msgstr "E"
+
+#: edit_media_preview_keys
+msgid "P*"
+msgstr "P*"
+
+#: edit_act_newActivity
+msgid "New activity..."
+msgstr "Νέα δραστηριότητα..."
+
+#: edit_act_newActivity_keys
+msgid "A*"
+msgstr "A*"
+
+#: edit_act_testAction_keys
+msgid "P#10"
+msgstr "P#10"
+
+#: edit_seq_newElement_keys
+msgid "S*"
+msgstr "S*"
+
+#: m_Insert
+msgid "Insert"
+msgstr "Εισαγωγή"
+
+#: m_Insert_Mnemonic
+msgid "I"
+msgstr "Ι"
+
+#: m_View
+msgid "View"
+msgstr "Προβολή"
+
+#: m_View_Mnemonic
+msgid "V"
+msgstr "V"
+
+#: action_editProject_caption
+msgctxt "action_editProject_caption"
+msgid "Project"
+msgstr "Έργο"
+
+#: action_editProject_keys
+msgid "PP"
+msgstr "PP"
+
+#: action_editProject_tooltip
+msgid "Edit project settings"
+msgstr "Επεξεργασία ρυθμίσεων έργου"
+
+#: action_editMedia_caption
+msgid "Media"
+msgstr "Μέσα"
+
+#: action_editMedia_keys
+msgid "MM"
+msgstr "MM"
+
+#: action_editMedia_tooltip
+msgid "Edit the project's multimedia library"
+msgstr "Επεξεργασία της βιβλιοθήκης πολυμέσων του έργου"
+
+#: action_editActivities_caption
+msgctxt "action_editActivities_caption"
+msgid "Activities"
+msgstr "Δραστηριότητες"
+
+#: action_editActivities_keys
+msgctxt "action_editActivities_keys"
+msgid "AA"
+msgstr "AA"
+
+#: action_editActivities_tooltip
+msgid "Edit the activities"
+msgstr "Επεξεργασία δραστηριοτήτων"
+
+#: action_editSeq_caption
+msgctxt "action_editSeq_caption"
+msgid "Sequences"
+msgstr "Ακολουθίες"
+
+#: action_editSeq_keys
+msgctxt "action_editSeq_keys"
+msgid "SS"
+msgstr "SS"
+
+#: action_editSeq_tooltip
+msgid "Edit the sequences of activities"
+msgstr "Επεξεργασία ακολουθιών δραστηριοτήτων"
+
+#: warn_project_modified
+msgid "Current project has been modified. Do you want to save the changes?"
+msgstr "Το παρόν έργο έχει τροποποιηθεί. Θέλετε να αποθηκεύσετε τις αλλαγές;"
+
+#: edit_project_descriptors_block
+msgid "Descriptors"
+msgstr "Παιδαγωγικά χαρακτηριστικά"
+
+#: edit_media_new
+msgid "New media object..."
+msgstr "Νέο αντικείμενο πολυμέσων..."
+
+#: edit_media_new_tooltip
+msgid "Add a new image or multimedia object to the library"
+msgstr "Προσθήκη νέας εικόνας ή αντικειμένου πολυμέσων στην βιβλιοθήκη"
+
+#: edit_media_new_keys
+msgid "M*"
+msgstr "M*"
+
+#: edit_seq_threshold
+msgid "Score threshold:"
+msgstr "Κατώτατο όριο βαθμολογίας:"
+
+#: edit_seq_threshold_tooltip_up
+msgid "Take this way when the global score is equal to or higher than..."
+msgstr ""
+"Ακολουθήστε αυτή τη διαδρομή, όταν η συνολική βαθμολογία είναι ίση ή "
+"μεγαλύτερη από..."
+
+#: edit_seq_time
+msgid "Time threshold:"
+msgstr "Αφετηρία χρόνου:"
+
+#: edit_seq_time_tooltip_up
+msgid ""
+"In order to take this way, the time spent on the activities must be less "
+"than..."
+msgstr ""
+"Για να ακολουθήσετε αυτή τη διαδρομή, ο χρόνος που αναλώθηκε για τις "
+"δραστηριότητες πρέπει να είναι μικρότερος από..."
+
+#: edit_seq_threshold_tooltip_down
+msgid "Take this way when the global score is lower than..."
+msgstr ""
+"Ακολουθήστε αυτή τη διαδρομή όταν η συνολική βαθμολογία είναι χαμηλότερη "
+"από..."
+
+#: edit_seq_time_tooltip_down
+msgid "Take this way when the time spent on the activities is more than..."
+msgstr ""
+"Ακολουθήστε αυτή τη διαδρομή, όταν ο χρόνος που αναλώθηκε για τις "
+"δραστηριότητες είναι μεγαλύτερος από..."
+
+#: edit_seq_condJump
+msgid "Conditional jumps"
+msgstr "Εξαρτημένα βήματα"
+
+#: edit_seq_condJump_tooltip
+msgid "Set special jumps to be executed only under specific condicions"
+msgstr ""
+"Καθορίστε ειδικά βήματα που πρέπει να εκτελεστούν μόνο κάτω από "
+"συγκεκριμένους όρους"
+
+#: edit_seq_condJump_upper_tooltip
+msgid "Set conditions to jump to an upper level"
+msgstr "Καθορίστε τους όρους για μετάβαση σε ανώτερο επίπεδο"
+
+#: edit_seq_condJump_lower
+msgid "Lower jump:"
+msgstr "Μετάβαση κάτω:"
+
+#: edit_seq_condJump_upper
+msgid "Upper jump:"
+msgstr "Μετάβαση άνω:"
+
+#: edit_seq_condJump_lower_tooltip
+msgid "Set conditions to jump to an lower level"
+msgstr "Καθορίστε τους όρους για μετάβαση σε κατώτερο επίπεδο"
+
+#: edit_seq_action_tooltip_fw
+msgid "Action assigned to the \"next\" button"
+msgstr "Ενέργεια που ανατέθηκε στο πλήκτρο \"επόμενο\""
+
+#: edit_seq_action_tooltip_bk
+msgid "Action assigned to the \"previous\" button"
+msgstr "Ενέργεια που ανατέθηκε στο πλήκτρο \"προηγούμενο\""
+
+#: edit_seq_jump_tooltip
+msgid "Set the jump target"
+msgstr "Καθορίστε το στόχο της μετάβασης"
+
+#: edit_seq_action_tooltip
+msgid "Action to be done"
+msgstr "Ένέργεια που πρέπει να γίνει"
+
+#: edit_seq_activity_tooltip
+msgid "Activity assigned to this sequence element"
+msgstr "Ενέργεια που ανατέθηκε σε αυτό το στοιχείο της ακολουθίας"
+
+#: edit_seq_tag_tooltip
+msgid "Tag used to reference this sequence element (optional field)"
+msgstr ""
+"Ετικέτα που χρησιμοποιείται ως παραπομπή για αυτό το στοιχείο της ακολουθίας "
+"(προαιρετικό πεδίο)"
+
+#: edit_seq_description_tooltip
+msgid "Description of the sequence element (optional field)"
+msgstr "Περιγραφή στοιχείου ακολουθίας (προαιρετικό πεδίο)"
+
+#: edit_seq_button_enabled_tooltip
+msgid "Enable or disable the arrow button"
+msgstr "Ενεργοποίηση ή απενεργοποίηση πλήκτρου βέλους"
+
+#: edit_seq_auto_tooltip
+msgid "Move on automatically when the activity finishes"
+msgstr "Αυτόματη μετακίνηση όταν η δραστηριότητα ολοκληρώνεται"
+
+#: edit_seq_delay_tooltip
+msgid "Seconds to wait before to do the automatic move"
+msgstr "Δευτερόλεπτα αναμονής πριν την αυτόματη μετακίνηση"
+
+#: edit_color_dlgTitle
+msgid "Select color"
+msgstr "Επιλογή χρώματος"
+
+#: edit_media_renaming
+msgid "Please wait while the resource is being renamed..."
+msgstr "Παρακαλώ περιμένετε ενόσω η πηγή μετανομάζεται..."
+
+#: edit_act_cell_width
+msgctxt "edit_act_cell_width"
+msgid "Width:"
+msgstr "Πλάτος:"
+
+#: edit_act_cell_width_tooltip
+msgid "Cell width (in pixels)"
+msgstr "Πλάτος κελιού (σε εικονοστοιχεία)"
+
+#: edit_act_cell_height
+msgctxt "edit_act_cell_height"
+msgid "Height:"
+msgstr "Ύψος:"
+
+#: edit_act_cell_height_tooltip
+msgid "Cell height (in pixels)"
+msgstr "Ύψος κελιού (σε pixels)"
+
+#: edit_act_hiddenWords
+msgid "Hidden words:"
+msgstr "Κρυμμένες λέξεις:"
+
+#: edit_act_hiddenWords_tooltip
+msgid "List of the hidden words placed in the panel"
+msgstr "Λίστα κρυμμένων λέξεων του πίνακα"
+
+#: edit_act_wordSearch_panelB
+msgid "Use panel B"
+msgstr "Χρήση του πίνακα Β"
+
+#: edit_act_wordSearch_panelB_tooltip
+msgid "The contents of a second panel will be displayed as words are found"
+msgstr ""
+"Τα περιεχόμενα του δεύτερου πίνακα θα εμφανίζονται ως λέξεις που βρέθηκαν"
+
+#: edit_act_shaper_tooltip
+msgid "Select the shaper type to be used in the panel"
+msgstr "Επιλέξτε τη μορφή του σχεδιαστή που θα χρησιμοποιηθεί στον πίνακα"
+
+#: edit_act_num_cols_tooltip
+msgid "Number of columns of  the panel"
+msgstr "Αριθμός στηλών του πίνακα"
+
+#: edit_act_num_rows_tooltip
+msgid "Number of rows of  the panel"
+msgstr "Αριθμός γραμμών του πίνακα"
+
+#: edit_act_wildTransparent
+msgid "Transparent delimiters"
+msgstr "Όρια διαφάνειας"
+
+#: edit_act_wildTransparent_tooltip
+msgid "Treat the delimiters (black boxes) as transparent holes"
+msgstr ""
+"Αντιμετώπιση των ορίων (μαύρα πλαίσια) ως αδύνατα σημεία της διαφάνειας"
+
+#: edit_act_behavior_scramble_times
+msgid "Mixes\\:"
+msgstr "Μείγματα\\:"
+
+#: edit_act_behavior_scramble_times_tooltip
+msgid "Number of times to shuffle"
+msgstr "Πόσες φορές θα γίνει ανακάτωμα"
+
+#: edit_act_copy_title
+msgid "Copy attributtes to..."
+msgstr "Αντιγραφή χαρακτηριστικών στο..."
+
+#: edit_act_copy_attributes
+msgid "Attributes"
+msgstr "Χαρακτηριστικά"
+
+#: edit_act_copy_dest
+msgid "Apply to:"
+msgstr "Εφαρμογή σε:"
+
+#: edit_act_copy_style_main
+msgid "Main window"
+msgstr "Κύριο παράθυρο"
+
+#: edit_act_copy_style_play
+msgid "Play window"
+msgstr "Παράθυρο αναπαραγωγής"
+
+#: edit_act_copy_activities
+msgid "Activities to be modified:"
+msgstr "Δραστηριότητες που πρέπει να τροποποιηθούν:"
+
+#: edit_act_copyAttributes
+msgid "Copy attributes"
+msgstr "Αντιγραφή ιδιοτήτων"
+
+#: edit_act_copyAttributes_keys
+msgid "T"
+msgstr "T"
+
+#: edit_act_copyAttributes_tooltip
+msgid "Copy current activity attributes to other activities"
+msgstr ""
+"Αντιγραφή χαρακτηριστικών της τρέχουσας δραστηριότητας σε άλλες "
+"δραστηριότητες"
+
+#: edit_new_project_name
+msgid "Project name:"
+msgstr "Όνομα έργου:"
+
+#: edit_new_project_name_tooltip
+msgid "Short, descriptive name of the project"
+msgstr "Σύντομο περιγραφικό όνομα του έργου"
+
+#: edit_new_project_filename
+msgctxt "edit_new_project_filename"
+msgid "File name:"
+msgstr "Όνομα αρχείου:"
+
+#: edit_new_project_filename_tooltip
+msgid "Name of the project file, without extension"
+msgstr "Όνομα αρχείου του έργου, χωρίς επέκταση"
+
+#: edit_new_project_folder
+msgctxt "edit_new_project_folder"
+msgid "Folder:"
+msgstr "Φάκελος:"
+
+#: edit_new_project_folder_tooltip
+msgid "Name of the folder where the project will be stored"
+msgstr "Όνομα φακέλου όπου θα αποθηκευτεί το έργο"
+
+#: edit_new_project_folder_browse
+msgctxt "edit_new_project_folder_browse"
+msgid "Browse..."
+msgstr "Περιήγηση..."
+
+#: edit_new_project_title
+msgid "Create new JClic project"
+msgstr "Δημιουργία νέου  έργου JClic"
+
+#: edit_new_project_err_empty
+msgid "Error: Project, file and folder must have valid, non-empty names."
+msgstr ""
+"Σφάλμα: Το έργο, το αρχείο και ο φάκελος πρέπει να έχουν έγκυρα ονόματα."
+
+#: edit_new_project_warning_noEmptyFolder
+msgid ""
+"This folder already contains another Clic 3.0 or JClic project. In order to "
+"avoid confusions, is preferable to maintain each project in a separate "
+"folder, but that isn't a strict rule. Do you really want to create the new "
+"project in this folder?"
+msgstr ""
+"Αυτός ο φάκελος περιέχει ήδη ένα άλλο έργο του Clic 3.0 ή του JClic. Για να "
+"αποφύγετε την αναστάτωση, είναι προτιμότερο να διατηρείτε κάθε έργο σε "
+"ξεχωριστό φάκελο, αν και αυτό δεν είναι αυστηρός κανόνας. Θέλετε πραγματικά "
+"να δημιουργήσετε το νέο έργο σε αυτόν τον φάκελο;"
+
+#: edit_new_project_err_folderCreation
+msgid "Error: Unable to create the specified folder!"
+msgstr "Σφάλμα: Αδύνατη η δημιουργία του επιλεγμένου φακέλου!"
+
+#: edit_act_copy_err_noSelection
+msgid ""
+"Error: No activity selected! In order to use this function you must select "
+"in the list the activity or activities to wich the indicated attributes will "
+"be applied."
+msgstr ""
+"Σφάλμα: Δεν επιλέχθηκε δραστηριότητα! Για να εφαρμοστούν τα υποδεικνυόμενα "
+"χαρακτηριστικά, πρέπει να επιλέξετε από τη λίστα τη δραστηριότητα ή τις "
+"δραστηριότητες στις οποίες θα γίνει η εφαρμογή."
+
+#: edit_act_copy_action_prefix
+msgid "Copying attributes to:"
+msgstr "Αντιγραφή ιδιοτήτων στο:"
+
+#: edit_act_copy_margin
+msgid "Margin"
+msgstr "Περιθώριο"
+
+#: edit_act_copy_bgColor
+msgid "Background color"
+msgstr "Χρώμα υποβάθρου"
+
+#: edit_act_copy_gradient
+msgctxt "edit_act_copy_gradient"
+msgid "Gradient"
+msgstr "Διαβάθμιση"
+
+#: edit_act_copy_bgImage
+msgid "Background image"
+msgstr "Εικόνα φόντου"
+
+#: edit_act_copy_border
+msgctxt "edit_act_copy_border"
+msgid "Border"
+msgstr "Περίγραμμα"
+
+#: edit_act_copy_transparentBg
+msgid "Transparent background"
+msgstr "Φόντο διαφάνειας"
+
+#: edit_act_copy_position
+msgid "Position"
+msgstr "Θέση"
+
+#: edit_act_copy_messages
+msgctxt "edit_act_copy_messages"
+msgid "Messages"
+msgstr "Μηνύματα"
+
+#: edit_act_copy_messages_ini
+msgid "Style of initial message"
+msgstr "Στυλ αρχικού μηνύματος"
+
+#: edit_act_copy_messages_end
+msgid "Style of end message"
+msgstr "Στυλ τελικού μηνύματος"
+
+#: edit_act_copy_messages_err
+msgid "Style of error message"
+msgstr "Στυλ μηνύματος σφάλματος"
+
+#: edit_act_copy_reports
+msgctxt "edit_act_copy_reports"
+msgid "Reports"
+msgstr "Αναφορές"
+
+#: edit_act_copy_rep_include
+msgid "Include activity in reports"
+msgstr "Συμπεριέλαβε την δραστηριότητα στις αναφορές"
+
+#: edit_act_copy_rep_actions
+msgid "Record actions"
+msgstr "Καταγραφή ενεργειών"
+
+#: edit_act_copy_interface
+msgctxt "edit_act_copy_interface"
+msgid "User interface"
+msgstr "Διεπαφή χρήστη"
+
+#: edit_act_copy_skin
+msgid "Skin"
+msgstr "Θέμα"
+
+#: edit_act_copy_evSounds
+msgid "Event sounds"
+msgstr "Ήχοι συμβάντων"
+
+#: edit_act_copy_counters
+msgctxt "edit_act_copy_counters"
+msgid "Counters"
+msgstr "Μετρητές"
+
+#: edit_act_copy_cTime
+msgctxt "edit_act_copy_cTime"
+msgid "Time counter"
+msgstr "Χρονόμετρο"
+
+#: edit_act_copy_maxTime
+msgid "Max. time"
+msgstr "Μέγιστος χρόνος"
+
+#: edit_act_copy_cTries
+msgctxt "edit_act_copy_cTries"
+msgid "Tries counter"
+msgstr "Μετρητής προσπαθειών"
+
+#: edit_act_copy_maxTries
+msgid "Max. tries"
+msgstr "Μέσιστες προσπάθειες"
+
+#: edit_act_copy_cScore
+msgctxt "edit_act_copy_cScore"
+msgid "Score counter"
+msgstr "Μετρητής βαθμολογίας"
+
+#: edit_act_copy_scramble
+msgid "Times to scramble"
+msgstr "Πόσες φορές θα γίνει το ανακάτωμα"
+
+#: edit_act_copy_buttons
+msgctxt "edit_act_copy_buttons"
+msgid "Buttons"
+msgstr "Πλήκτρα"
+
+#: edit_act_copy_btnHelp
+msgid "Help button"
+msgstr "Πλήκτρο βοήθειας"
+
+#: edit_act_copy_btnInfo
+msgid "Information button"
+msgstr "Πλήκτρο πληροφορίας"
+
+#: edit_act_copy_grids
+msgid "Grids"
+msgstr "Πλέγματα"
+
+#: edit_act_copy_gridA
+msgid "Style of grid A"
+msgstr "Στυλ πλέγματος Α"
+
+#: edit_act_copy_gridB
+msgid "Style of grid B"
+msgstr "Στυλ πλέγματος Β"
+
+#: edit_act_copy_textGrid
+msgid "Style of text grids"
+msgstr "Στυλ πλεγμάτων κειμένων"
+
+#: edit_act_copy_text
+msgid "Text activities"
+msgstr "Δραστηριότητες κειμένου"
+
+#: edit_act_copy_fontFace
+msgid "Font face"
+msgstr "Στοιχείο γραμματοσειράς"
+
+#: edit_act_copy_fontSize
+msgid "Font size"
+msgstr "Μέγεθος γραμματοσειράς"
+
+#: edit_act_copy_fontStyle
+msgid "Font style"
+msgstr "Στυλ γραμματοσειράς"
+
+#: edit_act_copy_textColour
+msgid "Main text colour"
+msgstr "Χρώμα κύριου κειμένου"
+
+#: edit_act_copy_textTargetColour
+msgctxt "edit_act_copy_textTargetColour"
+msgid "Select the JClic project of which the activities will be imported"
+msgstr ""
+"Επιλέξτε το σχέδιο εργασίας του JClic από όπου θα εισαχθούν οι δραστηριότητες"
+
+#: edit_act_copy_textErrorColour
+msgid "Errors colour"
+msgstr "Χρώμα σφαλμάτων"
+
+#: edit_act_copy_tabSpace
+msgid "Tab space"
+msgstr "Διάστημα στηλοθέτη"
+
+#: edit_act_copy_messages_prev
+msgid "Style of previous message"
+msgstr "Στυλ προηγούμενου μηνύματος"
+
+#: edit_act_changeType
+msgid "Change activity type"
+msgstr "Αλλαγή τύπου δραστηριότητας"
+
+#: edit_act_newActivity_class_tooltip
+msgid ""
+"Full name of the class to be used to build the activity (advanced users "
+"only!)"
+msgstr ""
+"Πλήρες όνομα είδους που θα χρησιμοποιηθεί για τη δημιουργία της "
+"δραστηριότητας (μόνο για προχωρημένους χρήστες!)"
+
+#: edit_act_newActivity_other
+msgid "Other..."
+msgstr "Άλλο..."
+
+#: edit_act_newActivity_info
+msgid ""
+"Advanced users can also create unregistered types of JClic activities. Just "
+"write below the full class name, prefixed by the package (like "
+"\"com.acme.activities.FooActivity\"). Activity classes must extend "
+"<b>edu.xtec.jclic.Activity</b>, and must be accessibles to the JVM "
+"classloader."
+msgstr ""
+"Οι προχωρημένοι χρήστες μπορούν επίσης να δημιουργήσουν δικές τους "
+"δραστηριότητες για το JClic. Γράψτε το πλήρες όνομα του είδους με το πρόθημα "
+"του πακέτου (π.χ. \"com.acme.activities.FooActivity\"). Τα είδη των "
+"δραστηριοτήτων πρέπει να έχουν επέκταση <b>edu.xtec.jclic.Activity</b> και "
+"πρέπει να είναι προσπελάσιμα από τη JVM."
+
+#: edit_act_newActivity_name
+msgid "Name of the activity:"
+msgstr "Ονομασία δραστηριότητας"
+
+#: edit_act_newActivity_name_tooltip
+msgid "Each activity must have a name unique in the project"
+msgstr "Κάθε δραστηριότητα πρέπει να έχει ένα μοναδικό όνομα στο έργο"
+
+#: edit_act_changeType_warning
+msgid ""
+"<html><p style=\"font-family:Helvetica; font-size:10px;\"><b>Warning:</b> "
+"Changing the type of activity can cause lost of some of the current activity "
+"attributes and objects. Use it with care!</p><p>&nbsp;</p></html>"
+msgstr ""
+"<html><p στυλ=\"font-family:Helvetica; μέγεθος "
+"γραμματοσειράς:10px;\"><b>Προσοχή:</b> Η αλλαγή του τύπου της δραστηριότητας "
+"μπορεί να προκαλέσει απώλεια χαρακτηριστικών και αντικειμένων της τρέχουσας "
+"δραστηριότητας. Χρησιμοποιήστε το με προσοχή!</p><p>&nbsp;</p></html>"
+
+#: applet_codebase
+msgid "Location of JClic code:"
+msgstr "Τοποθεσία κωδικού του JClic:"
+
+#: applet_codebase_tooltip
+msgid "URL pointing to a folder with the JClic program files and scripts"
+msgstr ""
+"URL που στοχεύει σε έναν φάκελο με τα αρχεία και τα σενάρια του JClic"
+
+#: applet_prev_text
+msgid "HTML code before:"
+msgstr "Κώδικας HTML πριν:"
+
+#. #Text to be displayed below the applet. HTM code allowed.
+#: applet_prev_text_tooltip
+msgid "Text or HTML code to be placed before the applet"
+msgstr "Κείμενο ή κώδικας HTML που πρέπει να τοποθετηθεί πριν την εφαρμογή"
+
+#: applet_post_text
+msgid "HTML code after:"
+msgstr "Κώδικας HTML μετά:"
+
+#: applet_post_text_tooltip
+msgid "Text or HTML code to be placed after the applet"
+msgstr "Κείμενο ή κώδικας HTML που πρέπει να τοποθετηθεί μετά την εφαρμογή"
+
+#: applet_size
+msgid "Applet size:"
+msgstr "Μέγεθος εφαρμογής:"
+
+#: applet_size_tooltip
+msgid "Width and height of the applet, in absolute or percentage values."
+msgstr "Πλάτος και ύψος της εφαρμογής, σε απόλυτες ή ποσοστιαίες τιμές."
+
+#: applet_page_title
+msgid "Page title:"
+msgstr "Τίτλος σελίδας:"
+
+#: applet_page_title_tooltip
+msgid "Text to be shown at the top of the browser window"
+msgstr "Κείμενο που θα εμφανίζεται στο επάνω μέρος του φυλλομετρητή"
+
+#: applet_created_info
+msgid "The web page \"%s\" has been created successfully."
+msgstr "Η ιστοσελίδα \"%s\" έχει δημιουργηθεί με επιτυχία."
+
+#: applet_created_prompt
+msgid "Do you want to open it now with the browser?"
+msgstr "Θέλετε να το ανοίξετε με τον φυλλομετρητή τώρα;"
+
+#: action_createHTML_caption
+msgid "Create web page..."
+msgstr "Δημιουργία ιστοσελίδας.."
+
+#: applet_create_title
+msgid "Creation of an HTML page with a JClic applet"
+msgstr "Δημιουργία μιας HTML ιστοσελίδας με μικροεφαρμογή του Jclic"
+
+#: action_createHTML_tooltip
+msgid "Create a HTML page with an applet containing the current project"
+msgstr ""
+"Δημιουργία μιας HTML ιστοσελίδας με μικροεφαρμογή που εμπεριέχεται στο "
+"τρέχον έργο"
+
+#: applet_filename
+msgctxt "applet_filename"
+msgid "File name:"
+msgstr "Όνομα αρχείου:"
+
+#: applet_filename_tooltip
+msgid "Name of the HTML file to be created"
+msgstr "Όνομα του HTML αρχείου που θα δημιουργηθεί"
+
+#: action_createHTML_keys
+msgid "H*"
+msgstr "H*"
+
+#: settings_applet
+msgid "Applet"
+msgstr "Μικροεφαρμογή"
+
+#: settings_applet_tooltip
+msgid "Default values used in web page creation"
+msgstr "Προεπιλεγμένες τιμές για τη δημιουργία ιστοσελίδων"
+
+#: applet_bgcolor
+msgctxt "applet_bgcolor"
+msgid "Background color:"
+msgstr "Χρώμα φόντου:"
+
+#: applet_bgcolor_tooltip
+msgid "HTML page background color"
+msgstr "Χρώμα φόντου HTML ιστοσελίδας"
+
+#: applet_centered
+msgctxt "applet_centered"
+msgid "Centered"
+msgstr "Κεντραρισμένο"
+
+#: applet_centered_tooltip
+msgid "Place the applet horizontally centered"
+msgstr "Τοποθετήστε την εφαρμογή κεντραρισμένη οριζόντια"
+
+#: applet_width_tooltip
+msgid "Applet width (absolute or percentage)"
+msgstr "Πλάτος εφαρμογής (απόλυτη ή ποσοστιαία τιμή)"
+
+#: applet_height_tooltip
+msgid "Applet height (absolute or percentage)"
+msgstr "Ύψος εφαρμογής (απόλυτη ή ποσοστιαία τιμή)"
+
+#: applet_exitUrl
+msgid "On exit, go to:"
+msgstr "Κατά την έξοδο, μετάβαση σε:"
+
+#: applet_exitUrl_tooltip
+msgid "URL where to redirect the navigation on JClic exit"
+msgstr ""
+"URL στην οποία θα ανακατευθύνεται η περιήγηση κατά την έξοδο του JClic."
+
+#: applet_infoFrame
+msgid "Info frame name:"
+msgstr "Όνομα πλαισίου πληροφοριών:"
+
+#: applet_infoFrame_tooltip
+msgid ""
+"Name of the frame used to show the content related to the \"info\" button"
+msgstr ""
+"Όνομα πλαισίου που χρησιμοποιείται για την εμφάνιση περιεχομένου σχετικού με "
+"το πλήκτρο \"πληροφορίες"
+
+#: action_createInstaller_caption
+msgid "Create project installer..."
+msgstr "Δημιουργία εγκαταστάτη έργου..."
+
+#: action_createInstaller_keys
+msgctxt "action_createInstaller_keys"
+msgid "I*"
+msgstr "I*"
+
+#: action_createInstaller_tooltip
+msgid "Create a project installer script for JClic player"
+msgstr ""
+"Δημιουργία σεναρίου εγκατάστασης έργου για τον αναπαραγωγέα του JClic"
+
+#: installer_caption
+msgid "Edit project installer script"
+msgstr "Επεξεργασία σεναρίου εγκαταστάτη έργου"
+
+#: installer_title
+msgctxt "installer_title"
+msgid "Title:"
+msgstr "Τίτλος:"
+
+#: installer_title_tooltip
+msgid "Project title, to be shown on the installer wizard"
+msgstr "Τίτλος έργου που θα εμφανιστεί στον οδηγό εγκατάστασης"
+
+#: installer_authors
+msgid "Autors:"
+msgstr "Δημιουργοί:"
+
+#: installer_authors_tooltip
+msgid "Author/s of the project (short text)"
+msgstr "Δημιουργός/οί του έργου (σύντομο κείμενο)"
+
+#: installer_folder
+msgctxt "installer_folder"
+msgid "Folder:"
+msgstr "Φάκελος:"
+
+#: installer_folder_tooltip
+msgid "Folder name to be suggested by the installer wizard"
+msgstr "Όνομα φακέλου που προτείνεται από τον οδηγό εγκατάστασης"
+
+#: installer_files
+msgid "Files to be copied:"
+msgstr "Άρχεια για αντιγραφή:"
+
+#: installer_files_tooltip
+msgid "Files to be copied by the installer"
+msgstr "Αρχεία που θα αντιγραφούν από τον εγκαταστάτη"
+
+#: installer_files_available
+msgid "Available files"
+msgstr "Διαθέσιμα αρχεία"
+
+#: installer_files_selected
+msgid "Selected files"
+msgstr "Επιλεγμένα αρχεία"
+
+#: installer_files_add
+msgid ">> add >>"
+msgstr ">> προσθήκη >>"
+
+#: installer_files_add_tooltip
+msgid "Add selected file to the list"
+msgstr "Προσθήκη επιλεγμένου αρχείου στη λίστα"
+
+#: installer_files_remove
+msgid "<< remove <<"
+msgstr "<<διαγραφή<<"
+
+#: installer_files_remove_tooltip
+msgid "Remove selected file from the list"
+msgstr "Διαγραφή επιλεγμένου αρχείου από τη λίστα"
+
+#: installer_button
+msgid "Launch button"
+msgstr "Κουμπί έναρξης"
+
+#: installer_button_tooltip
+msgid "Properties of the button to be shown in the project library"
+msgstr ""
+"Οι ιδιότητες το κουμπιού παρουσιάζονται στη βιβλιοθήκη του προγράμματος"
+
+#: installer_button_project
+msgid "Main project:"
+msgstr "Κύριο έργο"
+
+#: installer_button_project_tooltip
+msgid "JClic project to be launched by the button"
+msgstr "Έργο του JClic που θα φορτωθεί με το πλήκτρο"
+
+#: installer_button_text
+msgctxt "installer_button_text"
+msgid "Label:"
+msgstr "Ετικέτα:"
+
+#: installer_button_text_tooltip
+msgid "Short text label, to be shown inside the button"
+msgstr ""
+"Ετικέτα σύντομου κειμένου που θα εμφανίζεται στο εσωτερικό του πλήκτρου"
+
+#: installer_button_icon
+msgid "Icon:"
+msgstr "Εικονίδιο:"
+
+#: installer_button_icon_tooltip
+msgid ""
+"Picture to be used as button icon. Leave blank to use the default JClic icon."
+msgstr ""
+"Εικόνα που θα χρησιμοποιηθεί ως εικονίδιο πλήκτρου. Αν μείνει κενό θα "
+"χρησιμοποιηθεί το προεπιλεγμένο εικονίδιο του JClic."
+
+#: installer_button_description
+msgctxt "installer_button_description"
+msgid "Description"
+msgstr "Περιγραφή"
+
+#: installer_button_description_tooltip
+msgid "Tooltip to be shown by the button"
+msgstr "Συμβουλή οθόνης που εμφανίζεται με το πλήκτρο"
+
+#: installer_error_noTitle
+msgid "Error: Missing project title"
+msgstr "Σφάλμα: Λείπει ο τίτλος του έργου"
+
+#: installer_error_noBaseFolder
+msgid "Error: Missing folder name"
+msgstr "Σφάλμα: Λείπει το όνομα φακέλου"
+
+#: installer_error_noFilesSelected
+msgid "Error: No files selected"
+msgstr "Σφάλμα: Μη επιλεγμένα αρχεία"
+
+#: installer_error_noButtonText
+msgid "Error: Missing launch button text label"
+msgstr "Σφάλμα: Λείπει η ετικέτα κειμένου του πλήκτρου φόρτωσης"
+
+#: installer_error_projectNotInFiles
+msgid ""
+"Error: The project assigned to the launch button is not in the list of files "
+"to be copied"
+msgstr ""
+"Σφάλμα: Το έργο που έχει ανατεθεί στο πλήκτρο φόρτωσης, δεν υπάρχει στη "
+"λίστα των προς αντιγραφή αρχείων"
+
+#: applet_page_full
+msgid "Full-page applet"
+msgstr "Μικροεφαρμογή πλήρους σελίδας"
+
+#: applet_page_mixed
+msgid "Applet with specific dimensions"
+msgstr "Μικροεφαρμογή με καθορισμένες διαστάσεις"
+
+#: edit_text_align_left
+msgid "Align text left"
+msgstr "Στοίχιση κειμένου αριστερά"
+
+#: edit_text_align_center
+msgid "Center text"
+msgstr "Στοίχιση κειμένου στο κέντρο"
+
+#: edit_text_align_right
+msgid "Align text right"
+msgstr "Στοίχιση κειμένου δεξιά"
+
+#: edit_text_act_target_toggle
+msgid "Create or remove target"
+msgstr "Δημιουργία ή αφαίρεση στόχου"
+
+#: edit_text_act_insertCell
+msgid "Insert a cell"
+msgstr "Εισαγωγή ενός κελιού"
+
+#: edit_text_act_content
+msgid "Content"
+msgstr "Περιεχόμενο"
+
+#: edit_text_act_style
+msgctxt "edit_text_act_style"
+msgid "Style"
+msgstr "Στυλ"
+
+#: edit_cell_size
+msgid "Cell size:"
+msgstr "Μέγεθος κελιού:"
+
+#: edit_project_orphanActivities
+msgid ""
+"The following activities never appear in any of the project's activity "
+"sequences, so they never will be displayed:"
+msgstr ""
+"Οι δραστηριότητες που ακολουθούν δεν περιλαμβάνονται σε καμία ακολουθία "
+"δραστηριοτήτων του έργου. Αυτό σημαίνει πως δεν θα εμφανίζονται:"
+
+#: edit_project_orphanMedia
+msgid "The following media objects are not used directly in any activity:"
+msgstr ""
+"Τα παρακάτω αντικείμενα πολυμέσων δεν χρησιμοποιούνται απευθείας σε καμία "
+"δραστηριότητα:"
+
+#: edit_project_orphanActivities_prompt
+msgid "Do you want to add them at the end of the last activity sequence?"
+msgstr ""
+"Θέλεις να προστεθούν στο τέλος της ακολουθίας της τελευταίας δραστηριότητας;"
+
+#: edit_project_orphanMedia_prompt
+msgid "Do you want to remove them?"
+msgstr "Θέλεις να τα αφαιρέσεις;"
+
+#: edit_project_orphanMedia_title
+msgid "Removal of unused media objects"
+msgstr "Διαγραφή μη χρησιμοποιημένων αντικειμένων πολυμέσων"
+
+#: edit_project_orphanActivities_title
+msgid "Orphan activities"
+msgstr "Ορφανές δραστηριότητες"
+
+#: edit_media_refreshAll
+msgid "Update all media content"
+msgstr "Αναβάθμιση όλων των μέσων"
+
+#: edit_media_refreshAll_tooltip
+msgid "Update all media objects reloading its files"
+msgstr ""
+"Ενημέρωση όλων των πολυμεσικών αντικειμένων με επαναφόρτωση των αρχείων τους"
+
+#: edit_media_refreshAll_keys
+msgid "R*"
+msgstr "R*"
+
+#: edit_media_refreshAll_working
+msgid "Updating media..."
+msgstr "Αναβάθμιση μέσων..."
+
+#: edit_media_exportAll
+msgid "Export all media"
+msgstr "Εξαγωγή όλων των μέσων"
+
+#: edit_media_exportAll_tooltip
+msgid "Save to files the content of all media elements"
+msgstr "Αποθήκευση σε αρχείο όλων των περιεχομένων των πολυμεσικών στοιχείων"
+
+#: edit_media_exportAll_keys
+msgid "X*"
+msgstr "Χ*"
+
+#: edit_shape_select
+msgid "Select"
+msgstr "Επιλογή"
+
+#: edit_shape_addPoint
+msgid "Add point"
+msgstr "Προσθήκη σημείου"
+
+#: edit_shape_deletePoint
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: edit_shape_drawRect
+msgid "Draw rectangle"
+msgstr "Σχεδίαση τετραπλεύρου"
+
+#: edit_shape_drawEllipse
+msgid "Draw ellipse"
+msgstr "Σχεδίαση έλλειψης"
+
+#: edit_shape_drawPoly
+msgid "Draw polygon"
+msgstr "Σχεδίαση πολυγώνου"
+
+#: edit_shape_toLine
+msgid "Convert to line"
+msgstr "Μετατροπή σε γραμμή"
+
+#: edit_shape_toBezier
+msgid "Convert to Bézier curve"
+msgstr "Μετατροπή σε καμπύλη Bezier"
+
+#: edit_shape_toQuad
+msgid "Convert to quadratic curve"
+msgstr "Μετατροπή σε δευτεροβάθμια καμπύλη"
+
+#: edit_shape_rLeft
+msgid "Rotate left"
+msgstr "Περιστροφή αριστερά"
+
+#: edit_shape_rRight
+msgid "Rotate right"
+msgstr "Περιστροφή δεξιά"
+
+#: edit_shape_expand
+msgid "Expand"
+msgstr "Ανάπτυξη"
+
+#: edit_shape_contract
+msgid "Contract"
+msgstr "Απομάκρυνση"
+
+#: edit_shape_zoomIn
+msgid "Zoom in"
+msgstr "Μεγέθυνση"
+
+#: edit_shape_zoomOut
+msgid "Zoom out"
+msgstr "Σμίκρυνση"
+
+#: edit_shape_aproxPoints
+msgid "Join nearest points"
+msgstr "Σύνδεση κοντινών σημείων"
+
+#: edit_shape_showPoints
+msgid "Show points"
+msgstr "Εμφάνιση σημείων"
+
+#: edit_shape_showPoints_tooltip
+msgid "Show/Hide the points"
+msgstr "Εμφάνιση/Απόκρυψη σημείων"
+
+#: edit_shape_gridSize
+msgid "Grid size:"
+msgstr "Μέγεθος πλέγματος:"
+
+#: edit_shape_hideGrid
+msgid "Show / Hide grid"
+msgstr "Εμφάνιση/Απόκρυψη πλέγματος"
+
+#: edit_shape_magnetRadius
+msgid "Magnet radius:"
+msgstr "Ακτίνα μαγνήτη:"
+
+#: edit_shape_elements
+msgid "Defined elements"
+msgstr "Καθορισμένα στοιχεία"
+
+#: edit_shape_elemName
+msgid "Name of the selected element"
+msgstr "Όνομα του επιλεγμένου αντικειμένου"
+
+#: edit_shape_magnetRadius_tooltip
+msgid "Action radius of the magnet, when enabled"
+msgstr "Ακτίνα δράσης του μαγνήτη, όταν ενεργοποιείται"
+
+#: edit_shape_gridSize_tooltip
+msgid "Size of the grid"
+msgstr "Μέγεθος πλέγματος"
+
+#: edit_mc_activity
+msgctxt "edit_mc_activity"
+msgid "Activity:"
+msgstr "Δραστηριότητα:"
+
+#: edit_mc_sequence
+msgid "Sequence:"
+msgstr "Ακολουθία:"
+
+#: edit_mc_url
+msgctxt "edit_mc_url"
+msgid "URL:"
+msgstr "URL:"
+
+#: edit_mc_project
+msgid "Project:"
+msgstr "Έργο:"
+
+#: edit_mc_activity_selection
+msgid "Choose activity"
+msgstr "Επιλογή δραστηριότητας"
+
+#: edit_mc_sequence_selection
+msgid "Choose sequence"
+msgstr "Επιλογή ακολουθίας"
+
+#: edit_mc_err_nullContent
+msgid "Insufficient data!"
+msgstr "Ανεπαρκή δεδομένα!"
+
+#: edit_act_arrowColor
+msgid "Arrow color:"
+msgstr "Χρώμα βέλους:"
+
+#: edit_act_arrowColor_tooltip
+msgid ""
+"Color used by the editor to draw the arrows (not exactly, because an XOR bit "
+"mask is used)"
+msgstr ""
+"Χρώμα που χρησιμοποιείται από τον συντάκτη για τον σχεδιασμό των βελών (όχι "
+"ακριβώς, επειδή χρησιμοποιείται μια XOR μάσκα)"
+
+#: edit_act_editActivity
+msgid "Edit..."
+msgstr "Επεξεργασία..."
+
+#: edit_act_editActivity_tooltip
+msgid "Edit the selected activity"
+msgstr "Επεξεργασία της επιλεγμένης δραστηριότητας"
+
+#: action_saveFileAs_caption
+msgid "Save as..."
+msgstr "Αποθήκευση ως..."
+
+#: action_saveFileAs_keys
+msgctxt "action_saveFileAs_keys"
+msgid "AA"
+msgstr "AA"
+
+#: action_saveFileAs_tooltip
+msgid "Save the current project with a different name"
+msgstr "Αποθήκευση της τρέχουσας εργασίας με διαφορετικό όνομα"
+
+#: edit_act_behavior_block
+msgctxt "edit_act_behavior_block"
+msgid "Behavior"
+msgstr "Συμπεριφορά"
+
+#: edit_act_behavior
+msgctxt "edit_act_behavior"
+msgid "Behavior"
+msgstr "Συμπεριφορά"
+
+#: edit_act_behavior_drag
+msgid "Drag objects"
+msgstr "Σύρσιμο αντικειμένων"
+
+#: edit_act_behavior_drag_tooltip
+msgid "Drag objects instead of use a connection line"
+msgstr "Σύρε τα αντικείμενα αντί να χρησιμοποιήσεις τη γραμμή ένωσης"
+
+#: edit_act_behavior_order
+msgid "Check solving order"
+msgstr "Έλεγχος σειράς λύσεων"
+
+#: edit_act_behavior_order_tooltip
+msgid "Cells must be solved in order"
+msgstr "Τα κελιά πρέπει να λυθούν με σειρά"
+
+#: edit_act_scramble
+msgid "Scramble"
+msgstr "Ανακάτωμα όλων"
+
+#: action_importActivities_caption
+msgid "Import activities..."
+msgstr "Εισαγωγή δραστηριοτήτων..."
+
+#: action_importActivities_keys
+msgctxt "action_importActivities_keys"
+msgid "I*"
+msgstr "I*"
+
+#: action_importActivities_tooltip
+msgid "Import activities from another project"
+msgstr "Εισαγωγή δραστηριοτήτων από άλλο σχέδιο εργασίας"
+
+#: import_warn_samefile
+msgid ""
+"The selected file corresponds to the current project. Activities can be "
+"imported only between different projects. Please select another project file."
+msgstr ""
+"Το επιλεγμένο αρχείο αντιστοιχεί στο τρέχον έργο. Δραστηριότητες μπορούν να "
+"εισαχθούν μόνο μεταξύ διαφορετικών έργων. Παρακαλώ επιλέξτε ένα άλλο αρχείο "
+"έργου."
+
+#: import_selectActivities
+msgid "Select one or more activities to import into the current project\\:"
+msgstr ""
+"Επιλέξτε μια ή περισσότερες δραστηριότητες για εισαγωγή στο ενεργό σχέδιο "
+"εργασίας"
+
+#: import_importing
+msgid "Importing..."
+msgstr "Εισαγωγή..."
+
+#: import_checkdep
+msgid "Checking dependencies..."
+msgstr "Έλεγχος εξαρτήσεων"
+
+#: import_impmedia
+msgid "Importing media\\:"
+msgstr "Εισαγωγή μέσων"
+
+#: import_impact
+msgid "Importing activity\\:"
+msgstr "Εισαγόμενη δραστηριότητα"
+
+#: import_selectProject
+msgctxt "import_selectProject"
+msgid "Select the JClic project of which the activities will be imported"
+msgstr ""
+"Επιλέξτε το σχέδιο εργασίας του JClic από όπου θα εισαχθούν οι δραστηριότητες"
+
+#: edit_tagRep_tags
+msgid "Tag marks"
+msgstr "Σημάνσεις ετικέτας"
+
+#: edit_tagRep_tagStart
+msgid "Start mark\\:"
+msgstr "Αρχή σήμανσης"
+
+#: edit_tagRep_tagStart_tooltip
+msgid "Mark used at the beginning of tags"
+msgstr "Σήμανση που χρησιμοποιείται στην αρχή της σήμανσης"
+
+#: edit_tagRep_tagEnd
+msgid "End mark\\:"
+msgstr "Τέλος σήμανσης"
+
+#: edit_tagRep_tagEnd_tooltip
+msgid "Mark used at the end of tags"
+msgstr "Σήμανση που χρησιμοποιείται στο τέλος της σήμανσης"
+
+#: edit_tagRep_file
+msgid "File"
+msgstr "Αρχείο"
+
+#: edit_tagRep_fileName
+msgid "File or URL\\:"
+msgstr "Αρχείο ή ιστοτόπος"
+
+#: edit_tagRep_fileName_tooltip
+msgid "Name or URL of the file containing the values that will replace tags"
+msgstr ""
+"Όνομα ή URL του αρχείου που περιέχει τις τιμές, οι οποίες θα αντικαταστήσουν "
+"τις ετικέτες"
+
+#: edit_tagRep_charset
+msgid "Charset\\:"
+msgstr "Σετ χαρακτήρων"
+
+#: edit_tagRep_charset_tooltip
+msgid "Character encoding used in the file"
+msgstr "Κωδικοποιημένοι χαρακτήρες χρησιμοποιούνται στο αρχείο"
+
+#: edit_tagRep_browseFile
+msgctxt "edit_tagRep_browseFile"
+msgid "Browse..."
+msgstr "Περιήγηση..."
+
+#: edit_tagRep_browseFile_tooltip
+msgid "Browse the filesystem"
+msgstr "Περιήγηση στο σύστημα αρχείων"
+
+#: edit_tagRep_title
+msgid "Tag replacing"
+msgstr "Αντικατάσταση ετικέτας"
+
+#: edit_text_act_clearStylesBtn
+msgid "Clear text styles..."
+msgstr "Αφαίρεση στυλ κειμένου..."
+
+#: edit_text_act_clearStylesPrompt
+msgid ""
+"Warning\\: This action will clear the specific character attributes applied "
+"to the document, setting it back to its main style. This action cannot be "
+"undone. Do you want to do it?"
+msgstr ""
+"Προσοχή\\: Αυτή η ενέργεια θα αφαιρέσει τα ιδιαίτερα χαρακτηριστικά του "
+"κειμένου που εφαρμόζονται στο έγγραφο και θα εφαρμόσει το κύριο στυλ. Αυτή η "
+"ενέργεια δεν μπορεί να αναιρεθεί. Θέλετε οπωσδήποτε να το κάνετε;"
+
+#: img_max_size
+msgid "Maximum size of images:"
+msgstr "Μέγιστο μέγεθος εικόνων:"
+
+#: img_max_width_tooltip
+msgid "Maximum width of images imported into the media library."
+msgstr "Μέγιστο πλάτος εικόνων που εισάγονται στη βιβλιοθήκη πολυμέσων."
+
+#: img_max_height_tooltip
+msgid "Maximum height of images imported into the media library."
+msgstr "Μέγιστο ύψος εικόνων που εισάγονται στη βιβλιοθήκη πολυμέσων."
+
+#: img_resize_prompt
+msgid ""
+"The image \"%s\" has a size of %s pixels. This exceeds the maximum allowed "
+"by JClic Author (%s). Do you want to resize it?"
+msgstr ""
+"Η εικόνα \"%s\" έχει μέγεθος %s εικονοστοιχείων. Αυτό ξεπερνάει το μέγιστο "
+"μέγεθος που επιτρέπεται από το JClic Author (%s). Θέλετε να αλλάξετε το "
+"μέγεθος;"

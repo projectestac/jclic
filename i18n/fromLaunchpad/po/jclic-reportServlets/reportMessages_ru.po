@@ -1,0 +1,592 @@
+# Russian translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2009-12-18 17:42+0000\n"
+"Last-Translator: Artem Vorotnikov <Unknown>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: login_pwd
+msgid "Password:"
+msgstr "Пароль:"
+
+#: login_desc
+msgid ""
+"You need to provide a valid password in order to access the reports database."
+msgstr ""
+"Вы должны ввести действительный пароль для доступа к базе данных отчётов."
+
+#: login_title
+msgid "Login"
+msgstr "Вход"
+
+#: submit
+msgid "Submit..."
+msgstr "Отправить..."
+
+#: login_incorrect
+msgid "Incorrect password!"
+msgstr "Неверный пароль!"
+
+#: main_title
+msgid "Main menu"
+msgstr "Главное меню"
+
+#: users_admin_title
+msgid "Users and groups admin"
+msgstr "Адм. пользователей и групп"
+
+#: group_report_title
+msgid "Group reports"
+msgstr "Групповые отчёты"
+
+#: user_report_title
+msgid "User reports"
+msgstr "Отчёты пользователя"
+
+#: act_report_title
+msgid "Activity reports"
+msgstr "Отчёты о заданиях"
+
+#: db_admin_title
+msgid "Database admin"
+msgstr "Администратор базы данных"
+
+#: db_admin_settings_error
+msgid "Unable to set the new database values!"
+msgstr "Невозможно задать новые значения базы данных!"
+
+#: db_admin_param_agc
+msgid "Allow users to create new groups"
+msgstr "Разрешить пользователям создавать новые группы"
+
+#: db_admin_param_auc
+msgid "Allow users to create new users"
+msgstr "Разрешить пользователям создавать новых пользователей"
+
+#: db_admin_param_shgl
+msgid "Select group in a list"
+msgstr "Выберите группу из списка"
+
+#: db_admin_param_shul
+msgid "Select user name in a list"
+msgstr "Выберите имя пользователя из списка"
+
+#: db_admin_param_ut
+msgid "Database has tables of users and groups"
+msgstr "База данных содержит таблицы пользователей и групп"
+
+#: db_admin_edit_btn
+msgid "Edit settings..."
+msgstr "Изменить настройки..."
+
+#: db_admin_pw_edit_btn
+msgid "Set password..."
+msgstr "Установить пароль..."
+
+#: title
+msgid "Title"
+msgstr "Заголовок"
+
+#: db_admin_edit_title
+msgid "Edit database settings"
+msgstr "Изменить настройки базы данных"
+
+#: db_admin_pw_edit_title
+msgid "Change system password"
+msgstr "Изменить системный пароль"
+
+#: db_admin_pw_newPwd
+msgid "New password"
+msgstr "Новый пароль"
+
+#: db_admin_pw_verifyPwd
+msgid "Retype password"
+msgstr "Повторите пароль"
+
+#: db_admin_pw_noFit
+msgid "Password fields don't fit!"
+msgstr "Поля паролей не заполнены!"
+
+#: report_group
+msgid "Group:"
+msgstr "Группа:"
+
+#: report_user
+msgid "User:"
+msgstr "Пользователь:"
+
+#: report_project
+msgid "Project:"
+msgstr "Проект:"
+
+#: report_all_projects
+msgid "All projects"
+msgstr "Все проекты"
+
+#: report_key
+msgid "Key:"
+msgstr "Ключ:"
+
+#: report_code
+msgid "Code:"
+msgstr "Код:"
+
+#: report_context
+msgid "Context:"
+msgstr "Контекст:"
+
+#: report_from
+msgid "From:"
+msgstr "От:"
+
+#: month_1
+msgid "january"
+msgstr "январь"
+
+#: month_2
+msgid "february"
+msgstr "февраль"
+
+#: month_3
+msgid "march"
+msgstr "март"
+
+#: month_4
+msgid "april"
+msgstr "апрель"
+
+#: month_5
+msgid "may"
+msgstr "май"
+
+#: month_6
+msgid "june"
+msgstr "июнь"
+
+#: month_7
+msgid "july"
+msgstr "июль"
+
+#: month_8
+msgid "august"
+msgstr "август"
+
+#: month_9
+msgid "september"
+msgstr "сентябрь"
+
+#: month_10
+msgid "october"
+msgstr "октябрь"
+
+#: month_11
+msgid "november"
+msgstr "ноябрь"
+
+#: month_12
+msgid "december"
+msgstr "декабрь"
+
+#: report_to
+msgid "To:"
+msgstr "Кому:"
+
+#: report_global_precision
+msgid "Global precision"
+msgstr "Общая точность"
+
+#: report_solved_activities
+msgid "Solved activities"
+msgstr "Решённые задания"
+
+#: report_user_evolution
+msgid "User evolution"
+msgstr "Развитие пользователя"
+
+#: report_group_evolution
+msgid "Group evolution"
+msgstr "Развитие группы"
+
+#: report_project_evolution
+msgid "Project evolution"
+msgstr "Развитие проекта"
+
+#: report_result_distribution
+msgid "Result distribution"
+msgstr "Распределение результатов"
+
+#: report_no_data
+msgid "NO DATA"
+msgstr "НЕТ ДАННЫХ"
+
+#: report_users
+msgid "Users:"
+msgstr "Пользователи"
+
+#: report_sessions
+msgctxt "report_sessions"
+msgid "Sessions:"
+msgstr "Сессии:"
+
+#: report_projects
+msgid "Projects:"
+msgstr "Проекты:"
+
+#: report_actDone
+msgid "Activities done:"
+msgstr "Выполненных заданий:"
+
+#: report_actSolved
+msgid "Activities solved:"
+msgstr "Решённых заданий:"
+
+#: report_totalTime
+msgid "Total time:"
+msgstr "Общее время:"
+
+#: report_globalPrec
+msgid "Global score:"
+msgstr "Общий счёт"
+
+#: report_globalSummary
+msgid "Global summary"
+msgstr "Общие итоги"
+
+#: report_header_date
+msgid "date"
+msgstr "дата"
+
+#: report_session_list
+msgctxt "report_session_list"
+msgid "Sessions:"
+msgstr "Сессии:"
+
+#: report_header_user
+msgid "user"
+msgstr "пользователь"
+
+#: report_header_project
+msgid "project"
+msgstr "проект"
+
+#: report_header_numActs
+msgid "activities"
+msgstr "задания"
+
+#: report_header_actsSolved
+msgid "acts. solved"
+msgstr "реш. заданий"
+
+#: report_header_time
+msgid "time"
+msgstr "время"
+
+#: report_header_prec
+msgid "score"
+msgstr "счёт"
+
+#: report_session_detail_show
+msgid "show session details"
+msgstr "показать подробности сессии"
+
+#: report_session_detail_title
+msgid "Activities done in session"
+msgstr "Действия завершенные в сессии"
+
+#: report_header_activity
+msgid "activity"
+msgstr "активность"
+
+#: report_header_actions
+msgid "actions"
+msgstr "действия"
+
+#: report_header_score
+msgid "corrects"
+msgstr "поправки"
+
+#: report_header_solved
+msgid "ok"
+msgstr "ok"
+
+#: Y
+msgctxt "Y"
+msgid "Y"
+msgstr "Y"
+
+#: N
+msgctxt "N"
+msgid "N"
+msgstr "N"
+
+#: report_session_detail_hide
+msgid "hide session details"
+msgstr "скрыть подробности сессии"
+
+#: report_header_sessions
+msgid "sessions"
+msgstr "сессии"
+
+#: report_all_activities
+msgid "All activities"
+msgstr "Вся активность"
+
+#: report_activity
+msgid "Activity:"
+msgstr "Активность:"
+
+#: report_many
+msgid "several"
+msgstr "несколько"
+
+#: report_n_users
+msgid "users"
+msgstr "пользователей"
+
+#: group_admin_title
+msgid "Groups administration"
+msgstr "Управление группами"
+
+#: group_admin_new_button
+msgid "New group..."
+msgstr "Новая группа..."
+
+#: group_admin_groups
+msgid "Groups"
+msgstr "Группы"
+
+#: report_actions
+msgid "Actions"
+msgstr "Действия"
+
+#: group_admin_edit_button
+msgctxt "group_admin_edit_button"
+msgid "Edit..."
+msgstr "Изменить..."
+
+#: user_admin_title
+msgid "User admin"
+msgstr "Адм. пользователей"
+
+#: group_admin_delete_button
+msgctxt "group_admin_delete_button"
+msgid "Delete..."
+msgstr "Удалить..."
+
+#: group_admin_clear_button
+msgctxt "group_admin_clear_button"
+msgid "Clear reports..."
+msgstr "Очистить отчёты..."
+
+#: group_admin_properties
+msgid "Group properties"
+msgstr "Свойства группы:"
+
+#: group_admin_name
+msgctxt "group_admin_name"
+msgid "Name:"
+msgstr "Название:"
+
+#: group_admin_id
+msgctxt "group_admin_id"
+msgid "Identifier:"
+msgstr "Идентификатор:"
+
+#: group_admin_icon
+msgctxt "group_admin_icon"
+msgid "Icon:"
+msgstr "Значок:"
+
+#: error
+msgid "ERROR"
+msgstr "ОШИБКА"
+
+#: return
+msgid "return..."
+msgstr "возврат..."
+
+#: group_admin_users
+msgid "Users"
+msgstr "Пользователи"
+
+#: group_admin_no_users
+msgid "This group has no users."
+msgstr "В этой группе нет пользователей."
+
+#: group_admin_create_user_button
+msgid "Create a new user..."
+msgstr "Создать нового пользователя..."
+
+#: cancel
+msgid "Cancel"
+msgstr "Отмена"
+
+#: group_admin_invalid_name
+msgid "Incorrect group name!"
+msgstr "Неверное название группы!"
+
+#: group_admin_invalid_id
+msgid "Incorrect group identifier!"
+msgstr "Неверный идентификатор группы!"
+
+#: group_admin_id_already_exists
+msgid "There is another group with the same identifier in the database!"
+msgstr "В базе данных имеется группа с таким же идентификатором."
+
+#: group_admin_delete_group
+msgid "Delete group"
+msgstr "Удалить группу"
+
+#: report_areyousure
+msgid "Are you sure?"
+msgstr "Вы уверены?"
+
+#: YES
+msgid "Yes"
+msgstr "Да"
+
+#: NOT
+msgid "Not"
+msgstr "Нет"
+
+#: group_admin_delete_group_explain
+msgid ""
+"This operation will also delete on the database all users of this group. All "
+"data of these users will be lost."
+msgstr ""
+"Эта операция также удалит всех пользователей этой группы, Все данные об этих "
+"пользователях будут потеряны."
+
+#: db_error
+msgid "Unable to complete the task."
+msgstr "Невозможно звершить действие."
+
+#: group_admin_clear_group
+msgid "Clear report data of group"
+msgstr "Очистить данные отчётов группы"
+
+#: group_admin_clear_group_explain
+msgid ""
+"This operation will clear all the reports of the activities done by the "
+"members of this group between the specified dates."
+msgstr ""
+"Эта операция удалит все отчёты членов этой группы между указанными датами."
+
+#: db_clear_reports_date
+msgid "Clear report data"
+msgstr "Очистить данные отчётов"
+
+#: user_admin_invalid_name
+msgid "Invalid user name."
+msgstr "Неверное имя пользователя."
+
+#: user_admin_invalid_id
+msgid "Invalid user identifier"
+msgstr "Неверный идентификатор пользователя."
+
+#: user_admin_id_already_exists
+msgid "There is another user with the same identifier in the database!"
+msgstr "В базе данных существует пользователь с таким же идентификатором!"
+
+#: user_admin_user_deleted
+msgid "The user was successfully deleted from the database."
+msgstr "Пользователь успешно удалён из базы данных."
+
+#: user_admin_id
+msgctxt "user_admin_id"
+msgid "Identifier:"
+msgstr "Идентификатор:"
+
+#: user_admin_name
+msgctxt "user_admin_name"
+msgid "Name:"
+msgstr "Имя:"
+
+#: user_admin_icon
+msgctxt "user_admin_icon"
+msgid "Icon:"
+msgstr "Значок:"
+
+#: user_admin_edit_button
+msgctxt "user_admin_edit_button"
+msgid "Edit..."
+msgstr "Изменить..."
+
+#: user_admin_delete_button
+msgctxt "user_admin_delete_button"
+msgid "Delete..."
+msgstr "Удалить..."
+
+#: user_admin_clear_button
+msgctxt "user_admin_clear_button"
+msgid "Clear reports..."
+msgstr "Очистить отчёты..."
+
+#: user_admin_delete_user
+msgid "Delete user"
+msgstr "Удалить пользователя"
+
+#: user_admin_delete_user_explain
+msgid ""
+"This operation will delete this user and his reports from the database."
+msgstr "Эта операция удалит пользователя и его отчёты из базы данных."
+
+#: user_admin_clear_user
+msgid "Clear report data of user"
+msgstr "Очистка данных отчётов пользователя"
+
+#: user_admin_clear_user_explain
+msgid ""
+"This operation will clear all the reports of the activities done by this "
+"user between the specified dates."
+msgstr "Эта операция удалит все отчёты пользователя между указанными датами."
+
+#: success
+msgid "Operation successful"
+msgstr "Операция успешно завершена"
+
+#: bad_data
+msgid "Bad data!"
+msgstr "Неверные данные!"
+
+#: db_admin_param_lap
+msgid "Time between connections (seconds)\\:"
+msgstr "Время между подключениями (секунд)\\:"
+
+#: jclic_reports
+msgid "JClic reports"
+msgstr "Отчёты JClic"
+
+#: YES_SHORT
+msgctxt "YES_SHORT"
+msgid "Y"
+msgstr "Y"
+
+#: NOT_SHORT
+msgctxt "NOT_SHORT"
+msgid "N"
+msgstr "N"
+
+#: user_admin_pw_prompt
+msgid "Password\\:"
+msgstr "Пароль\\:"
+
+#: user_admin_pw_prompt_confirm
+msgid "Confirm password\\:"
+msgstr "Повторите пароль\\:"
+
+#: user_admin_err_bad_pw
+msgid "Passwords don't match\\!"
+msgstr "Пароли не совпадают\\!"

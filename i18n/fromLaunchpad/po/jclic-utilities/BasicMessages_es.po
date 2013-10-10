@@ -1,0 +1,335 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JClic 0.2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2012-01-30 07:08+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: ERROR
+msgid "ERROR"
+msgstr "ERROR"
+
+#: OK
+msgid "OK"
+msgstr "Aceptar"
+
+#: YES
+msgid "Yes"
+msgstr "Sí"
+
+#: NO
+msgid "No"
+msgstr "No"
+
+#: DELETE
+msgid "Delete"
+msgstr "Eliminar"
+
+#: PASTE
+msgid "Paste"
+msgstr "Pegar"
+
+#: CUT
+msgid "Cut"
+msgstr "Recortar"
+
+#: COPY
+msgid "Copy"
+msgstr "Copiar"
+
+#: FILE_SAVE
+msgid "Save file"
+msgstr "Guardar archivo"
+
+#: CONFIRM
+msgid "Please confirm"
+msgstr "Confirmar operación"
+
+#: FILE_OPEN
+msgid "Open file"
+msgstr "Abrir archivo"
+
+#: FILE_ERR_BEG_DIR
+msgid "Folder"
+msgstr "La carpeta"
+
+#: URL
+msgid "URL:"
+msgstr "URL:"
+
+#: PASSWORD
+msgid "Password:"
+msgstr "Contraseña:"
+
+#: WARNING
+msgid "Warning!"
+msgstr "¡Atención!"
+
+#: FILE_NOT_READABLE
+msgid "Cannot be read!"
+msgstr "No puede ser leído!"
+
+#: FILE_NOT_EXIST
+msgid "Does not exist!"
+msgstr "No existe!"
+
+#: FILE_READONLY
+msgid "Is read-only. It cannot be overwritted!"
+msgstr "Es de solo lectura y no puede ser reemplazado."
+
+#: FILE_OVERWRITE_DIR_PROMPT
+msgctxt "FILE_OVERWRITE_DIR_PROMPT"
+msgid "Do you want to overwrite it?"
+msgstr "¿Desea reemplazarla?"
+
+#: FILE_OVERWRITE_PROMPT
+msgctxt "FILE_OVERWRITE_PROMPT"
+msgid "Do you want to overwrite it?"
+msgstr "¿Desea reemplazarlo?"
+
+#: FILE_EXISTS
+msgid "already exists on your system."
+msgstr "ya se encuentra en su ordenador."
+
+#: FILE_DIR_BEG
+msgid "The folder"
+msgstr "La carpeta"
+
+#: FILE_BEG
+msgid "The file"
+msgstr "El archivo"
+
+#: UNNAMED
+msgid "Unnamed"
+msgstr "Sin nombre"
+
+#: FILE_ERR_READING
+msgid "Error reading file"
+msgstr "Error al leer el archivo"
+
+#: FILE_ERR_SAVING
+msgid "Error saving file"
+msgstr "Error al grabar el archivo"
+
+#: FILE_FIND
+msgid "Find file"
+msgstr "Buscar archivo"
+
+#: FILE_ERR_READONLY
+msgid "is read-only."
+msgstr "es de solo lectura."
+
+#: FILE_ERR_EXISTS
+msgid "exists. Do you want to overwrite it?"
+msgstr "ya existe. ¿Desea sobreescribirlo?"
+
+#: FILE_ERR_UNREADABLE
+msgid "is unreadable."
+msgstr "no se puede leer."
+
+#: FILE_ERR_BEG
+msgid "File"
+msgstr "El archivo"
+
+#: LOADING
+msgid "loading..."
+msgstr "cargando…"
+
+#: FALSE
+msgid "false"
+msgstr "falso"
+
+#: CHECK_SIGNATURE_URL
+msgid "messages/checksignature.html"
+msgstr "messages/checksignature_es.html"
+
+#: URL_LAUNCH_ERROR
+msgid "Error launching URL"
+msgstr "Error al invocar la URL!"
+
+#: URL_ERROR
+msgid "Error building URL!"
+msgstr "¡Error al construir la URL!"
+
+#: QUESTION
+msgid "Question"
+msgstr "Pregunta"
+
+#: PASSWORD_INCORRECT
+msgid "Incorrect password!"
+msgstr "¡Contraseña incorrecta!"
+
+#: TRUE
+msgid "true"
+msgstr "verdadero"
+
+#: CANCEL
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: FILE_ERR_DELETING
+msgid "Error deleting file"
+msgstr "Error al borrar el archivo"
+
+#: URL_OPEN
+msgid "Open URL"
+msgstr "Abrir URL"
+
+#: FILE_ERR_RESTORING
+msgid "Error restoring file"
+msgstr "Error al restaurar el archivo"
+
+#: WRITING_FILE
+msgid "Writing file..."
+msgstr "Escribiendo archivo..."
+
+#: XML_ATTRIBUTE
+msgid "Attribute"
+msgstr "Atributo"
+
+#: XML_VALUE
+msgid "Value"
+msgstr "Valor"
+
+#: XML_NOT_EDITABLE
+msgid "This field is not editable!"
+msgstr "Este campo no es editable!"
+
+#: XML_TEXT
+msgid "text"
+msgstr "texto"
+
+#: XML_NEW_ATTRIBUTE
+msgid "Add attribute"
+msgstr "Añadir un nuevo atributo"
+
+#: WORKING
+msgid "Working..."
+msgstr "Trabajando..."
+
+#: LOADING_FILE
+msgid "Loading file"
+msgstr "Leyendo el archivo"
+
+#: XML_DEL_ATTRIBUTE
+msgid "Delete attribute"
+msgstr "Eliminar el atributo"
+
+#: XML_ELEMENT
+msgid "Element"
+msgstr "Elemento"
+
+#: XML_NEW_ELEMENT
+msgid "New element"
+msgstr "Nuevo elemento"
+
+#: XML_DEL_ELEMENT
+msgid "Delete element"
+msgstr "Eliminar elemento"
+
+#: XML_NAME
+msgid "Name"
+msgstr "Nombre"
+
+#: RETRY
+msgid "Retry"
+msgstr "Reintentar"
+
+#: IGNORE
+msgid "Ignore"
+msgstr "Ignorar"
+
+#: DATE_INCORRECT
+msgid "Date incorrect!"
+msgstr "¡Fecha incorrecta!"
+
+#: BAD_NUMBER
+msgid "Incorrect number!"
+msgstr "¡Número incorrecto!"
+
+#: NONE
+msgid "None"
+msgstr "Ninguno"
+
+#: COPY_keys
+msgid "CC"
+msgstr "CC"
+
+#: CUT_keys
+msgid "TX"
+msgstr "TX"
+
+#: PASTE_keys
+msgid "PV"
+msgstr "PV"
+
+#: DELETE_keys
+msgid "D#127"
+msgstr "E#127"
+
+#: SELECT_ALL
+msgid "Select all"
+msgstr "Seleccionar todo"
+
+#: SELECT_NONE
+msgid "Clear selection"
+msgstr "Deshacer seleccion"
+
+#: WIDTH
+msgid "Width:"
+msgstr "Anchura:"
+
+#: HEIGHT
+msgid "Height:"
+msgstr "Altura:"
+
+#: BROWSE_FILES
+msgid "Browse files..."
+msgstr "Buscar archivo..."
+
+#: VERSION
+msgid "version"
+msgstr "versión"
+
+#: ABOUT
+msgid "About..."
+msgstr "Acerca de..."
+
+#: YES_TO_ALL
+msgid "Yes to all"
+msgstr "Sí a todos"
+
+#: NO_TO_ALL
+msgid "No to all"
+msgstr "No a todos"
+
+#: SAVE
+msgid "Save"
+msgstr "Guardar"
+
+#: OPEN
+msgid "Open"
+msgstr "Abrir"
+
+#: FILE_OPEN_TOOLTIP
+msgid "Open the selected file"
+msgstr "Abrir el archivo seleccionado"
+
+#: FILE_SAVE_TOOLTIP
+msgid "Save the specified file"
+msgstr "Guardar el archivo especificado"
+
+#: SAVING
+msgid "saving..."
+msgstr "guardando..."
+
+#: SAVING_FILE
+msgid "Saving file"
+msgstr "Guardando el archivo"

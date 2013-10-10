@@ -1,0 +1,794 @@
+# Traditional Chinese translation for jclic
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-03-27 00:34+0200\n"
+"PO-Revision-Date: 2012-04-05 04:02+0000\n"
+"Last-Translator: Cho Chin-Ping <aegenius0615@yahoo.com.tw>\n"
+"Language-Team: Traditional Chinese <zh_TW@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. #JClic main messages
+#: label_time
+msgid "time"
+msgstr "時間"
+
+#: label_actions
+msgid "tries"
+msgstr "嘗試次數"
+
+#: label_score
+msgid "score"
+msgstr "分數"
+
+#: Skin
+msgid "Skin"
+msgstr "外觀"
+
+#: action_next_caption
+msgid "Next"
+msgstr "下一首"
+
+#: action_next_tooltip
+msgid "Next activity"
+msgstr "下一個活動"
+
+#: action_prev_caption
+msgid "Previous"
+msgstr "上一頁"
+
+#: action_prev_tooltip
+msgid "Previous activity"
+msgstr "上一個活動"
+
+#: action_reset_caption
+msgid "Restart"
+msgstr "重新開始"
+
+#: action_reset_tooltip
+msgid "Restart activity"
+msgstr "重設活動"
+
+#: action_info_caption
+msgid "Information"
+msgstr "相關資訊"
+
+#: about_window_lb_project
+msgid "Project"
+msgstr "專案"
+
+#: about_window_lb_languages
+msgid "languages"
+msgstr "語言"
+
+#: about_window_lb_language
+msgid "language"
+msgstr "語言"
+
+#: about_window_close_button
+msgctxt "about_window_close_button"
+msgid "Return"
+msgstr "返回"
+
+#: about_window_caption
+msgid "About"
+msgstr "關於"
+
+#: action_about_tooltip
+msgid "User reports"
+msgstr "使用者報告"
+
+#: about_window_lb_report
+msgid "Report"
+msgstr "報告"
+
+#: about_window_browser_button
+msgid "View in browser"
+msgstr "在瀏覽器檢視"
+
+#: report_no_activities
+msgid "No activities reported!"
+msgstr "沒有活動報告"
+
+#: report_system_standard
+msgid "Report not registered in any DB"
+msgstr "回報在DB中無註冊"
+
+#: report_lb_time
+msgid "Time"
+msgstr "時間"
+
+#: msg_error_loading_sequence
+msgid "Error loading sequence"
+msgstr "載入順序錯誤"
+
+#: media_qt_error_initializing
+msgid "Error initializing QuickTime!"
+msgstr "QuickTime 初始化錯誤！"
+
+#: media_check_url
+msgid "messages/checkmedia.html"
+msgstr "messages/checkmedia.html"
+
+#: filesystem_openURL
+msgid "Open URL..."
+msgstr "開啟 URL..."
+
+#: filesystem_openFile
+msgid "Open file..."
+msgstr "開啟檔案..."
+
+#: filesystem_enterURL
+msgid "Please enter the URL to the resource to be loaded."
+msgstr "請進入URL來載入資源"
+
+#: msg_error_executing_external
+msgid "Error executing the command:"
+msgstr "執行指令錯誤："
+
+#: editor_moveDown_tooltip
+msgid "Move the selected element down"
+msgstr "向下移動選取的元件"
+
+#: editor_moveUp_tooltip
+msgid "Move the selected element up"
+msgstr "向上移動選取的元件"
+
+#: editor_moveDown
+msgid "Move down"
+msgstr "下移"
+
+#: editor_moveUp
+msgid "Move up"
+msgstr "上移"
+
+#: filefilter_all_images
+msgid "Image files (*.gif, *.jpg, *.png, *.bmp, *.ico)"
+msgstr "影像檔 (*.gif, *.jpg, *.png, *.bmp, *.ico)"
+
+#: filefilter_png
+msgid "PNG images"
+msgstr "PNG 檔"
+
+#: filefilter_jpg
+msgid "JPG images"
+msgstr "JPG 檔"
+
+#: filefilter_gif
+msgid "GIF images"
+msgstr "GIF 檔"
+
+#: filesystem_saveURLerror
+msgid "URL-based files are read-only."
+msgstr "URL-based檔僅可唯讀"
+
+#: filefilter_all_clic
+msgid "Clic 3.0 packages (*.pac, *.pcc)"
+msgstr "Clic 3.0 套件 (*.pac, *.pcc)"
+
+#: filefilter_all
+msgid "All files"
+msgstr "所有檔案"
+
+#: filefilter_all_jclic_clic
+msgid "JClic and Clic 3.0 projects (*.jclic, *.jclic.zip, *.pac, *.pcc)"
+msgstr "JClic 與 Clic 3.0 專案 (*.jclic, *.jclic.zip, *.pac, *.pcc)"
+
+#: filefilter_all_jclic
+msgid "JClic projects (*.jclic, *.jclic.zip)"
+msgstr "JClic 專案 (*.jclic, *.jclic.zip)"
+
+#: filefilter_pcc
+msgid "Clic 3.0 compact packages (*.pcc)"
+msgstr "Clic 3.0 組裝包 (*.pcc)"
+
+#: filefilter_pac
+msgid "Clic 3.0 open packages (*.pac)"
+msgstr "Clic 3.0 開放包 (*.pac)"
+
+#: filefilter_jclic_zip
+msgid "JClic compressed projects (*.jclic.zip)"
+msgstr "JClic 壓縮專案 (*.jclic.zip)"
+
+#: filefilter_jclic
+msgid "JClic projects (*.jclic)"
+msgstr "JClic 專案 (*.jclic)"
+
+#: about_window_lb_mediaSystem
+msgid "Multimedia system"
+msgstr "多媒體系統"
+
+#: about_window_lb_level
+msgid "Level"
+msgstr "等級"
+
+#: about_window_lb_area
+msgid "Area"
+msgstr "區域"
+
+#: report_num_actions
+msgid "Actions done:"
+msgstr "活動完成："
+
+#: report_project
+msgid "Project:"
+msgstr "專案："
+
+#: report_lb_totals
+msgid "Total:"
+msgstr "總計："
+
+#: report_num_projects
+msgid "Projects:"
+msgstr "專案："
+
+#: report_session
+msgid "Session:"
+msgstr "作業階段："
+
+#: msg_warn_no_exec_in_applets
+msgid ""
+"For security reasons, execution of external programs is disabled in JClic "
+"applets."
+msgstr "基於安全考量，執行在JClic applet的外部程序被禁用。"
+
+#: msg_error_starting_activity
+msgid "Error starting activity!"
+msgstr "活動開始錯誤"
+
+#: msg_error_loading_project
+msgid "Error loading project"
+msgstr "載入專案錯誤"
+
+#: msg_error_playing_media
+msgid "Error playing media!"
+msgstr "播放媒體錯誤"
+
+#: msg_activity_finished
+msgid "Activity finished!"
+msgstr "活動完成！"
+
+#: msg_playing_media
+msgid "Playing media"
+msgstr "播放媒體"
+
+#: msg_activity_running
+msgid "Activity running"
+msgstr "活動進行中"
+
+#: msg_activity_ready
+msgid "Activity ready"
+msgstr "活動準備"
+
+#: msg_initializing
+msgid "Initializing..."
+msgstr "正在初始化..."
+
+#: msg_preparing_media
+msgid "Preparing media"
+msgstr "媒體準備中"
+
+#: msg_error_loading_activity
+msgid "Error loading activity"
+msgstr "活動載入錯誤"
+
+#: msg_loading_activity
+msgid "Loading activity"
+msgstr "活動載入中"
+
+#: msg_loading_project
+msgid "Loading project..."
+msgstr "專案載入中..."
+
+#: msg_ready
+msgid "Ready"
+msgstr "準備就緒"
+
+#: err_reading_data
+msgid "Error loading file"
+msgstr "檔案載入錯誤"
+
+#: err_file_save
+msgid "Error saving file!"
+msgstr "檔案儲存錯誤！"
+
+#: err_file_open
+msgid "Error opening file!"
+msgstr "開始檔案錯誤！"
+
+#: report_started
+msgid "Session started:"
+msgstr "工作開始："
+
+#: report_lb_score
+msgid "Score"
+msgstr "分數"
+
+#: report_lb_actions
+msgid "Actions"
+msgstr "動作"
+
+#: report_lb_solved
+msgid "Ok"
+msgstr "確定"
+
+#: report_lb_activity
+msgctxt "report_lb_activity"
+msgid "Activity"
+msgstr "活動"
+
+#: report_lb_sequence
+msgid "Sequence"
+msgstr "順序"
+
+#: report_global_score
+msgid "Global score:"
+msgstr "總成績"
+
+#: report_total_time
+msgid "Total time on activities:"
+msgstr "活動總時間"
+
+#: report_num_activities_solved
+msgid "Activities ok:"
+msgstr "活動完成"
+
+#: report_num_activities
+msgid "Activities done:"
+msgstr "活動結束"
+
+#: report_num_sequences
+msgid "Sequences:"
+msgstr "順序："
+
+#: report_system
+msgid "Report system:"
+msgstr "報告系統"
+
+#: report_user
+msgid "User:"
+msgstr "使用者:"
+
+#: report_not_finished
+msgid "Activity not finished"
+msgstr "活動沒有完成"
+
+#: action_info_tooltip
+msgid "Additional information"
+msgstr "額外資訊"
+
+#: action_help_caption
+msgid "Help"
+msgstr "說明"
+
+#: action_help_tooltip
+msgid "Help about this activity"
+msgstr "活動幫助"
+
+#: action_audio_caption
+msgid "Sounds"
+msgstr "音效"
+
+#: action_audio_tooltip
+msgid "Enable/disable sounds"
+msgstr "啟用/停用 音效"
+
+#: about_window_lb_system
+msgid "System"
+msgstr "系統"
+
+#: about_window_lb_total_mem
+msgid "Total memory"
+msgstr "全部記憶體"
+
+#: about_window_lb_free_mem
+msgid "Free memory"
+msgstr "未用記憶體"
+
+#: about_window_lb_java_home
+msgid "Java home"
+msgstr "Java 首頁"
+
+#: about_window_lb_java_vm
+msgid "Java virtual machine"
+msgstr "Java 虛擬機器"
+
+#: about_window_lb_java_version
+msgid "Java version"
+msgstr "Java版本"
+
+#: about_window_lb_os
+msgid "Operating system"
+msgstr "作業系統"
+
+#: about_window_lb_version
+msgid "Version"
+msgstr "版本"
+
+#: about_window_lb_descriptors
+msgid "Descriptors"
+msgstr "描述"
+
+#: about_window_lb_description
+msgid "Description"
+msgstr "描述"
+
+#: about_window_lb_history
+msgid "History"
+msgstr "歷史紀錄"
+
+#: about_window_lb_organizations
+msgid "Organizations"
+msgstr "組織"
+
+#: about_window_lb_organization
+msgid "Organization"
+msgstr "組織"
+
+#: about_window_lb_authors
+msgid "Authors"
+msgstr "作者"
+
+#: about_window_lb_author
+msgid "Author"
+msgstr "開發者"
+
+#: about_window_lb_activity
+msgctxt "about_window_lb_activity"
+msgid "Activity"
+msgstr "活動"
+
+#: help_window_close_button
+msgid "Return to activity"
+msgstr "返回活動"
+
+#: help_window_caption
+msgid "Help window"
+msgstr "說明視窗"
+
+#: action_about_caption
+msgid "Reports"
+msgstr "報告"
+
+#: action_about_keys
+msgid "RR"
+msgstr "RR"
+
+#: action_audio_keys
+msgid "SS"
+msgstr "SS"
+
+#: action_help_keys
+msgid "HH"
+msgstr "HH"
+
+#: action_info_keys
+msgid "II"
+msgstr "II"
+
+#: action_next_keys
+msgid "N*"
+msgstr "N*"
+
+#: action_prev_keys
+msgid "P*"
+msgstr "P*"
+
+#: action_reset_keys
+msgid "R*"
+msgstr "R*"
+
+#: filefilter_install
+msgid "JClic project installers (*.jclic.inst)"
+msgstr "JClic 安裝專案 (*.jclic.inst)"
+
+#: report_err_no_users
+msgid "No users defined in the reports database!"
+msgstr "在報告資料庫中沒有使用者被定義"
+
+#: report_err_no_users_in_group
+msgid "No users defined for this group in the reports database!"
+msgstr "在報告資料庫群組中沒有使用者被定義"
+
+#: report_new_user
+msgid "New user..."
+msgstr "新使用者..."
+
+#: report_new_user_tooltip
+msgid "Create a new user in the reports database"
+msgstr "在報告資料庫建立新使用者"
+
+#: report_err_creating_user
+msgid "Error creating new user!"
+msgstr "建立新使用者錯誤！"
+
+#: report_select_user
+msgid "User identification for the reports database"
+msgstr "報告資料庫的使用者認證"
+
+#: report_userlist_title
+msgid "Please select your name:"
+msgstr "請選取您的姓名："
+
+#: report_ident_user
+msgid "User identification"
+msgstr "使用者認證"
+
+#: report_name_prompt
+msgid "Name:"
+msgstr "名稱:"
+
+#: report_id_prompt
+msgid "Login:"
+msgstr "帳號："
+
+#: report_pw_prompt
+msgid "Password:"
+msgstr "密碼："
+
+#: report_pw_prompt_confirm
+msgid "Confirm password:"
+msgstr "確認密碼："
+
+#: report_new_user_data
+msgid "Creation of a new user:"
+msgstr "建立新使用者："
+
+#: report_err_bad_data
+msgid "Incorrect data!"
+msgstr "不正確的資料！"
+
+#: report_generic_group_name
+msgid "Generic"
+msgstr "一般"
+
+#: report_new_group
+msgid "Create a new group..."
+msgstr "建立新的群組"
+
+#: report_err_creating_group
+msgid "Error creating the new group!"
+msgstr "建立新群組錯誤！"
+
+#: report_grouplist_title
+msgid "Please select your group:"
+msgstr "請選擇您的群組"
+
+#: report_new_group_data
+msgid "Creation of a new users group:"
+msgstr "建立新的使用者群組"
+
+#: report_err_invalid_user
+msgid "Missing user ID or incorrect password."
+msgstr "錯誤的使用者帳號或不正確的密碼。"
+
+#: report_user_has_pwd
+msgid "This account is password-protected."
+msgstr "這個帳號有密碼保護。"
+
+#: report_err_init
+msgid "Error initializing report system."
+msgstr "報告系統初始化錯誤。"
+
+#: report_not_connected
+msgid "not connected"
+msgstr "未連線"
+
+#: report_err_creating
+msgid "Error creating reports agent"
+msgstr "建立報告時發生錯誤"
+
+#: action_return_caption
+msgctxt "action_return_caption"
+msgid "Return"
+msgstr "返回"
+
+#: action_return_tooltip
+msgid "Return to the last menu"
+msgstr "返回到最後的選單"
+
+#: action_return_keys
+msgid "T*"
+msgstr "T*"
+
+#: filefilter_all_sounds
+msgid "Sounds (*.wav, *.mp3, *.ogg, *.au, *.aiff)"
+msgstr "音效 (*.wav, *.mp3, *.ogg, *.au, *.aiff)"
+
+#: filefilter_midi
+msgid "MIDI files (*.mid)"
+msgstr "MIDI 檔 (*.mid)"
+
+#: filefilter_all_video
+msgid "Video files (*.avi, *.mov, *.mpeg)"
+msgstr "影片檔 (*.avi, *.mov, *.mpeg)"
+
+#: filefilter_all_anim
+msgid "Flash 2.0 files (*.swf)"
+msgstr "Flash 2.0 檔 (*.swf)"
+
+#: filefilter_skins
+msgid "Skins (*.xml)"
+msgstr "模板 (*.xml)"
+
+#: filefilter_all_media
+msgid "All media files"
+msgstr "所有媒體檔案"
+
+#: filesystem_copyToRoot_1
+msgid "The file"
+msgstr "檔案"
+
+#: filesystem_copyToRoot_2
+msgid "is out of the current project's folder."
+msgstr "不在目前的專案資料夾"
+
+#: filesystem_copyToRoot_3
+msgid "It's advisable to have all the files in the same folder."
+msgstr "在同一文件夾下的所有文件是可使用的。"
+
+#: filesystem_copyToRoot_4
+msgid "Do you want to copy the selected file to the project's folder?"
+msgstr "您要複製所選取的檔案到專案資料夾嗎？"
+
+#: filesystem_copyFile
+msgid "Copying file"
+msgstr "複製檔案"
+
+#: msg_loading
+msgid "Loading"
+msgstr "載入中"
+
+#: report_err_bad_id
+msgid "Bad identifier!"
+msgstr "辨識碼有誤！"
+
+#: report_err_duplicate_id
+msgid "This identifier already exists in the database!"
+msgstr "這個驗證碼已經出現在資料庫中！"
+
+#: report_err_bad_name
+msgid "Bad name!"
+msgstr "名稱有誤！"
+
+#: report_err_bad_pw
+msgid "Passwords don't match!"
+msgstr "兩次輸入的密碼不符！"
+
+#: report_err_connect
+msgid "Error connecting to the reports database!"
+msgstr "連線到報告資料庫錯誤！"
+
+#: test_alert_exit
+msgid "EXIT: At this point, the program will exit."
+msgstr "離開:在這情況，程式將會結束"
+
+#: test_alert_jump_to
+msgid "At this point the program will jump to the project:"
+msgstr "在這情況，程式將會跳至專案"
+
+#: ftype_image
+msgid "Image"
+msgstr "影像"
+
+#: ftype_audio
+msgid "Digital audio"
+msgstr "數位音樂"
+
+#: ftype_midi
+msgid "MIDI file"
+msgstr "MIDI 檔"
+
+#: ftype_xml
+msgid "XML file"
+msgstr "XML 檔"
+
+#: ftype_anim
+msgid "Animation"
+msgstr "動畫"
+
+#: ftype_video
+msgid "Digital video"
+msgstr "數位影片"
+
+#: ftype_font
+msgid "TrueType font"
+msgstr "TrueType 字型檔"
+
+#: ftype_jclic
+msgid "JClic project"
+msgstr "JClic 專案"
+
+#: ftype_inst
+msgid "JClic project installer script"
+msgstr "JClic專案安裝腳本"
+
+#: ftype_unknown
+msgid "Unknown"
+msgstr "未知"
+
+#: ftype_animated
+msgid "animated"
+msgstr "動畫"
+
+#: filefilter_fonts
+msgid "Fonts (*.ttf)"
+msgstr "字型 (*.ttf)"
+
+#: editor_moveUp_keys
+msgid "U#38"
+msgstr "U#38"
+
+#: editor_moveDown_keys
+msgid "W#40"
+msgstr "W#40"
+
+#: filefilter_all_html
+msgid "HTML documents (*.htm, *.html)"
+msgstr "HTML 文件 (*.htm, *.html)"
+
+#: about_creditsDoc
+msgid "about/credits.html"
+msgstr "about/credits.html"
+
+#: about_licenseDoc
+msgid "about/license.html"
+msgstr "about/license.html"
+
+#: about_sponsorsCaption
+msgid "With the support of:"
+msgstr "支持:"
+
+#: about_window_systemInfo
+msgid "System information"
+msgstr "系統資訊"
+
+#: about_window_projectInfo
+msgid "Current project info"
+msgstr "目前專案資訊"
+
+#: about_window_reportInfo
+msgid "Current session results"
+msgstr "本次執行結果"
+
+#: about_otherCreditsCaption
+msgid "This product includes software developed by:"
+msgstr "本產品包含軟體製作:"
+
+#: msg_saving_project
+msgid "Saving project..."
+msgstr "儲存專案中..."
+
+#: filefilter_text
+msgid "Text files (*.txt)"
+msgstr "文字檔 (*.txt)"
+
+#. #Translation credits displayed on the about window, in HTML format
+#: html_translation_credits
+msgid "English version, by The JClic team"
+msgstr "英文版，由The JClic team製作"
+
+#. #Abstract of the GPL license, version 2.0, as shown on the About window
+#: html_gpl_license
+msgid ""
+"This program is free software; you can redistribute it and/or  modify it "
+"under the terms of the GNU General Public License  as published by the Free "
+"Software Foundation; either version 2  of the License, or (at your option) "
+"any later version.<br>&nbsp;<BR>This program is distributed in the hope that "
+"it will be useful,  but WITHOUT ANY WARRANTY; without even the implied "
+"warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the  "
+"<a href\\=\"http\\://www.gnu.org/copyleft/gpl.html\">GNU General Public "
+"License</a>  for more details."
+msgstr ""
+"本程式是自由軟體，您可以藉由自由軟體基金會的GNU通用公共授權條款下，重新製作或修改它；從第二版的許可，或（由你選擇）任何更新的版本。<br>&nbsp;"
+"<BR>此程式分配希望這將是有益的，但沒有任何保證;也沒有商業性或特定目的的隱藏保證。參見<a href\\=\"http\\"
+"://www.gnu.org/copyleft/gpl.html\"> GNU通用公共授權條款</ a>獲得更多細節。"

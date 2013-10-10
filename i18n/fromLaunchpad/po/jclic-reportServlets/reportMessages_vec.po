@@ -1,0 +1,596 @@
+# Venetian translation for jclic
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2010-05-24 09:45+0000\n"
+"Last-Translator: Fabio <Unknown>\n"
+"Language-Team: Venetian <vec@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: login_pwd
+msgid "Password:"
+msgstr "Password:"
+
+#: login_desc
+msgid ""
+"You need to provide a valid password in order to access the reports database."
+msgstr ""
+"Te gà da fornir na password vàƚida par intrar inte 'l database de i reports."
+
+#: login_title
+msgid "Login"
+msgstr "Login"
+
+#: submit
+msgid "Submit..."
+msgstr "Spedisi..."
+
+#: login_incorrect
+msgid "Incorrect password!"
+msgstr "Password no rispondente!"
+
+#: main_title
+msgid "Main menu"
+msgstr "Menu primario"
+
+#: users_admin_title
+msgid "Users and groups admin"
+msgstr "Ministrador de utenti e grupi"
+
+#: group_report_title
+msgid "Group reports"
+msgstr "Reports grupo"
+
+#: user_report_title
+msgid "User reports"
+msgstr "Reports utente"
+
+#: act_report_title
+msgid "Activity reports"
+msgstr "REports de atività"
+
+#: db_admin_title
+msgid "Database admin"
+msgstr "Ministrador de 'l database"
+
+#: db_admin_settings_error
+msgid "Unable to set the new database values!"
+msgstr "No se pol inpostar i vaƚori niovi de 'l database!"
+
+#: db_admin_param_agc
+msgid "Allow users to create new groups"
+msgstr "Conténteghe a i utenti de inviar grupi niovi"
+
+#: db_admin_param_auc
+msgid "Allow users to create new users"
+msgstr "Conténteghe a i utenti de inviar utenti niovi"
+
+#: db_admin_param_shgl
+msgid "Select group in a list"
+msgstr "Desernisi un grupo da na lista"
+
+#: db_admin_param_shul
+msgid "Select user name in a list"
+msgstr "Desernisi un nòme utente da na lista"
+
+#: db_admin_param_ut
+msgid "Database has tables of users and groups"
+msgstr "El database el gà tavèƚe de utenti e grupi"
+
+#: db_admin_edit_btn
+msgid "Edit settings..."
+msgstr "Modìfega inpostasion..."
+
+#: db_admin_pw_edit_btn
+msgid "Set password..."
+msgstr "Definisi password..."
+
+#: title
+msgid "Title"
+msgstr "Tìtoƚo"
+
+#: db_admin_edit_title
+msgid "Edit database settings"
+msgstr "Modìfega ƚe inpostasion de 'l database"
+
+#: db_admin_pw_edit_title
+msgid "Change system password"
+msgstr "Canbia ƚa password de 'l sistèma"
+
+#: db_admin_pw_newPwd
+msgid "New password"
+msgstr "Password niova"
+
+#: db_admin_pw_verifyPwd
+msgid "Retype password"
+msgstr "Scrivi password da novo"
+
+#: db_admin_pw_noFit
+msgid "Password fields don't fit!"
+msgstr "I canpi password no i conbina!"
+
+#: report_group
+msgid "Group:"
+msgstr "Grupo:"
+
+#: report_user
+msgid "User:"
+msgstr "Utente:"
+
+#: report_project
+msgid "Project:"
+msgstr "Proxèto:"
+
+#: report_all_projects
+msgid "All projects"
+msgstr "Tuti i proxèti"
+
+#: report_key
+msgid "Key:"
+msgstr "Ciave:"
+
+#: report_code
+msgid "Code:"
+msgstr "Còdexe:"
+
+#: report_context
+msgid "Context:"
+msgstr "Contenudo:"
+
+#: report_from
+msgid "From:"
+msgstr "Da:"
+
+#: month_1
+msgid "january"
+msgstr "xenaro"
+
+#: month_2
+msgid "february"
+msgstr "febraro"
+
+#: month_3
+msgid "march"
+msgstr "marso"
+
+#: month_4
+msgid "april"
+msgstr "april"
+
+#: month_5
+msgid "may"
+msgstr "majo"
+
+#: month_6
+msgid "june"
+msgstr "xugno"
+
+#: month_7
+msgid "july"
+msgstr "lujo"
+
+#: month_8
+msgid "august"
+msgstr "agosto"
+
+#: month_9
+msgid "september"
+msgstr "setenbre"
+
+#: month_10
+msgid "october"
+msgstr "otobre"
+
+#: month_11
+msgid "november"
+msgstr "novenbre"
+
+#: month_12
+msgid "december"
+msgstr "desenbre"
+
+#: report_to
+msgid "To:"
+msgstr "A:"
+
+#: report_global_precision
+msgid "Global precision"
+msgstr "Precixion global"
+
+#: report_solved_activities
+msgid "Solved activities"
+msgstr "Atività resolveste"
+
+#: report_user_evolution
+msgid "User evolution"
+msgstr "Evoƚusion utente"
+
+#: report_group_evolution
+msgid "Group evolution"
+msgstr "Evoƚusion grupo"
+
+#: report_project_evolution
+msgid "Project evolution"
+msgstr "Evoƚusion proxèto"
+
+#: report_result_distribution
+msgid "Result distribution"
+msgstr "Destribusion de i rexultadi"
+
+#: report_no_data
+msgid "NO DATA"
+msgstr "NO GHE XÉ DATI"
+
+#: report_users
+msgid "Users:"
+msgstr "Utenti:"
+
+#: report_sessions
+msgctxt "report_sessions"
+msgid "Sessions:"
+msgstr "Sesion:"
+
+#: report_projects
+msgid "Projects:"
+msgstr "Proxèti:"
+
+#: report_actDone
+msgid "Activities done:"
+msgstr "Atività concluxe:"
+
+#: report_actSolved
+msgid "Activities solved:"
+msgstr "Atività resolveste:"
+
+#: report_totalTime
+msgid "Total time:"
+msgstr "Tenpo total:"
+
+#: report_globalPrec
+msgid "Global score:"
+msgstr "Pontexio global:"
+
+#: report_globalSummary
+msgid "Global summary"
+msgstr "Somario global"
+
+#: report_header_date
+msgid "date"
+msgstr "data"
+
+#: report_session_list
+msgctxt "report_session_list"
+msgid "Sessions:"
+msgstr "Sesion:"
+
+#: report_header_user
+msgid "user"
+msgstr "utente"
+
+#: report_header_project
+msgid "project"
+msgstr "proxèto"
+
+#: report_header_numActs
+msgid "activities"
+msgstr "atività"
+
+#: report_header_actsSolved
+msgid "acts. solved"
+msgstr "at. resòlte"
+
+#: report_header_time
+msgid "time"
+msgstr "tenpo"
+
+#: report_header_prec
+msgid "score"
+msgstr "pontexio"
+
+#: report_session_detail_show
+msgid "show session details"
+msgstr "mostra detali sesion"
+
+#: report_session_detail_title
+msgid "Activities done in session"
+msgstr "Atività concluxe inte ƚa sesion"
+
+#: report_header_activity
+msgid "activity"
+msgstr "atività"
+
+#: report_header_actions
+msgid "actions"
+msgstr "asion"
+
+#: report_header_score
+msgid "corrects"
+msgstr "corète"
+
+#: report_header_solved
+msgid "ok"
+msgstr "ok"
+
+#: Y
+msgctxt "Y"
+msgid "Y"
+msgstr "S"
+
+#: N
+msgctxt "N"
+msgid "N"
+msgstr "N"
+
+#: report_session_detail_hide
+msgid "hide session details"
+msgstr "scondi detali de sesion"
+
+#: report_header_sessions
+msgid "sessions"
+msgstr "sesion"
+
+#: report_all_activities
+msgid "All activities"
+msgstr "Tute ƚe atività"
+
+#: report_activity
+msgid "Activity:"
+msgstr "Atività:"
+
+#: report_many
+msgid "several"
+msgstr "vari"
+
+#: report_n_users
+msgid "users"
+msgstr "utenti"
+
+#: group_admin_title
+msgid "Groups administration"
+msgstr "Monistrasion de 'l grupo"
+
+#: group_admin_new_button
+msgid "New group..."
+msgstr "Grupo niovo..."
+
+#: group_admin_groups
+msgid "Groups"
+msgstr "Grupi"
+
+#: report_actions
+msgid "Actions"
+msgstr "Asion"
+
+#: group_admin_edit_button
+msgctxt "group_admin_edit_button"
+msgid "Edit..."
+msgstr "Modìfega..."
+
+#: user_admin_title
+msgid "User admin"
+msgstr "Ministrador de i utenti"
+
+#: group_admin_delete_button
+msgctxt "group_admin_delete_button"
+msgid "Delete..."
+msgstr "Scansèƚa..."
+
+#: group_admin_clear_button
+msgctxt "group_admin_clear_button"
+msgid "Clear reports..."
+msgstr "Sneta reports..."
+
+#: group_admin_properties
+msgid "Group properties"
+msgstr "Propietà grupo"
+
+#: group_admin_name
+msgctxt "group_admin_name"
+msgid "Name:"
+msgstr "Nòme:"
+
+#: group_admin_id
+msgctxt "group_admin_id"
+msgid "Identifier:"
+msgstr "id:"
+
+#: group_admin_icon
+msgctxt "group_admin_icon"
+msgid "Icon:"
+msgstr "Icona:"
+
+#: error
+msgid "ERROR"
+msgstr "EROR"
+
+#: return
+msgid "return..."
+msgstr "indrio..."
+
+#: group_admin_users
+msgid "Users"
+msgstr "Utenti"
+
+#: group_admin_no_users
+msgid "This group has no users."
+msgstr "Sto grupo no 'l gà utenti"
+
+#: group_admin_create_user_button
+msgid "Create a new user..."
+msgstr "Definisi un utente niovo..."
+
+#: cancel
+msgid "Cancel"
+msgstr "Anuƚa"
+
+#: group_admin_invalid_name
+msgid "Incorrect group name!"
+msgstr "Nòme grupo no corèto!"
+
+#: group_admin_invalid_id
+msgid "Incorrect group identifier!"
+msgstr "Id grupo no corèto!"
+
+#: group_admin_id_already_exists
+msgid "There is another group with the same identifier in the database!"
+msgstr "Ghe xé naltro grupo co'l steso idenrifegador inte 'l database!"
+
+#: group_admin_delete_group
+msgid "Delete group"
+msgstr "Scansèƚa grupo"
+
+#: report_areyousure
+msgid "Are you sure?"
+msgstr "Sito seguro?"
+
+#: YES
+msgid "Yes"
+msgstr "Sì"
+
+#: NOT
+msgid "Not"
+msgstr "Nò"
+
+#: group_admin_delete_group_explain
+msgid ""
+"This operation will also delete on the database all users of this group. All "
+"data of these users will be lost."
+msgstr ""
+"Sta fatura ƚa scanseƚarà anca tuti i utenti de sto grupo da 'l database. "
+"Tuti i dati de sti utenti i andarà pèrsi."
+
+#: db_error
+msgid "Unable to complete the task."
+msgstr "No se pol conpletar ƚa fatura"
+
+#: group_admin_clear_group
+msgid "Clear report data of group"
+msgstr "Sneta dati report de 'l grupo"
+
+#: group_admin_clear_group_explain
+msgid ""
+"This operation will clear all the reports of the activities done by the "
+"members of this group between the specified dates."
+msgstr ""
+"Sta fatura ƚa snetarà tuti i reports de ƚe atività fate da i menbri de sto "
+"grupo  fra ƚe date spesifegàe."
+
+#: db_clear_reports_date
+msgid "Clear report data"
+msgstr "Sneta dati report"
+
+#: user_admin_invalid_name
+msgid "Invalid user name."
+msgstr "Nòme utente no vàƚido."
+
+#: user_admin_invalid_id
+msgid "Invalid user identifier"
+msgstr "Identifegaor utente invàƚido"
+
+#: user_admin_id_already_exists
+msgid "There is another user with the same identifier in the database!"
+msgstr "Ghe xé naltro utente co'l steso identifegador inte 'l database!"
+
+#: user_admin_user_deleted
+msgid "The user was successfully deleted from the database."
+msgstr "El utente el xé stà scanseƚà da 'l database."
+
+#: user_admin_id
+msgctxt "user_admin_id"
+msgid "Identifier:"
+msgstr "Id:"
+
+#: user_admin_name
+msgctxt "user_admin_name"
+msgid "Name:"
+msgstr "Nòme:"
+
+#: user_admin_icon
+msgctxt "user_admin_icon"
+msgid "Icon:"
+msgstr "Icona:"
+
+#: user_admin_edit_button
+msgctxt "user_admin_edit_button"
+msgid "Edit..."
+msgstr "Modìfega..."
+
+#: user_admin_delete_button
+msgctxt "user_admin_delete_button"
+msgid "Delete..."
+msgstr "Scansèƚa..."
+
+#: user_admin_clear_button
+msgctxt "user_admin_clear_button"
+msgid "Clear reports..."
+msgstr "Sneta reports..."
+
+#: user_admin_delete_user
+msgid "Delete user"
+msgstr "Scansèƚa utente"
+
+#: user_admin_delete_user_explain
+msgid ""
+"This operation will delete this user and his reports from the database."
+msgstr ""
+"Sta operasion ƚa scanseƚarà sto utente e i so reports da 'l database."
+
+#: user_admin_clear_user
+msgid "Clear report data of user"
+msgstr "Scansèƚa dati report de 'l utente"
+
+#: user_admin_clear_user_explain
+msgid ""
+"This operation will clear all the reports of the activities done by this "
+"user between the specified dates."
+msgstr ""
+"Sta fatura ƚa scanseƚarà tuti i reports de ƚe atività fate da sto utente fra "
+"ƚe date spesifegàe."
+
+#: success
+msgid "Operation successful"
+msgstr "Operasion concluxa poƚito"
+
+#: bad_data
+msgid "Bad data!"
+msgstr "Dati sbaliài!"
+
+#: db_admin_param_lap
+msgid "Time between connections (seconds)\\:"
+msgstr "Tenpo fra ƚe conesion (seondi)\\:"
+
+#: jclic_reports
+msgid "JClic reports"
+msgstr "Reports JClic"
+
+#: YES_SHORT
+msgctxt "YES_SHORT"
+msgid "Y"
+msgstr "S"
+
+#: NOT_SHORT
+msgctxt "NOT_SHORT"
+msgid "N"
+msgstr "N"
+
+#: user_admin_pw_prompt
+msgid "Password\\:"
+msgstr "Password\\:"
+
+#: user_admin_pw_prompt_confirm
+msgid "Confirm password\\:"
+msgstr "Confirm password\\:"
+
+#: user_admin_err_bad_pw
+msgid "Passwords don't match\\!"
+msgstr "Ƚe password no ƚe conbina\\!"

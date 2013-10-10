@@ -1,0 +1,308 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JClic 0.2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2010-01-22 18:04+0000\n"
+"Last-Translator: Francesc Busquets <francesc@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: error_serverCannotStart
+msgid "Unable to start server!"
+msgstr "No s'ha pogut posar en marxa el servidor!"
+
+#: error_incorrectData
+msgid "Incorrect data!"
+msgstr "Dades incorrectes!"
+
+#: column_IP_title
+msgid "IP"
+msgstr "IP"
+
+#: column_port_title
+msgid "Port"
+msgstr "Port"
+
+#: column_started_title
+msgid "Started"
+msgstr "Engegat"
+
+#: column_lastMessage_title
+msgid "Last message"
+msgstr "Darrer missatge"
+
+#: column_IP_tooltip
+msgid "Client IP address"
+msgstr "Adreça IP de l'ordinador client"
+
+#: column_port_tooltip
+msgid "Local port used in this connection"
+msgstr "Port local emprat per a aquesta connexió"
+
+#: column_started_tooltip
+msgid "Date and time at witch the connection was started"
+msgstr "Data i hora en què s'ha iniciat la connexió"
+
+#: column_lastMessage_tooltip
+msgid "Header of the last received message"
+msgstr "Capçalera del darrer missatge rebut"
+
+#: error_propertiesFile_beg
+msgid "Unable to load the properties file \""
+msgstr "No es pot obrir el fitxer de configuració \""
+
+#: error_propertiesFile_end
+msgid "\" Using default settings."
+msgstr "\". El programa utilitzarà els valors per defecte."
+
+#: form_title
+msgid "JClic reports server"
+msgstr "Servidor d'informes JClic"
+
+#: form_connections_title
+msgid "Connections:"
+msgstr "Connexions:"
+
+#: form_messages_title
+msgid "System messages:"
+msgstr "Missatges de sistema:"
+
+#: form_settings_title
+msgid "Settings:"
+msgstr "Configuració:"
+
+#: form_connections_close
+msgid "Close connection"
+msgstr "Tanca la connexió"
+
+#: form_connections_close_tooltip
+msgid "Close the selected connection"
+msgstr "Tanca la connexió seleccionada a la llista"
+
+#: form_settings_driver
+msgctxt "form_settings_driver"
+msgid "Driver:"
+msgstr "Controlador:"
+
+#: form_settings_driver_tooltip
+msgid "JDBC driver to use for connect to the database"
+msgstr "Controlador JDBC utilitzat per a connectar amb la base de dades"
+
+#: form_settings_database
+msgid "Database:"
+msgstr "Base de dades:"
+
+#: form_settings_database_tooltip
+msgid "Name of the reports database"
+msgstr "Nom de la base de dades d'informes"
+
+#: form_settings_port
+msgctxt "form_settings_port"
+msgid "Port:"
+msgstr "Port:"
+
+#: form_settings_port_tooltip
+msgid "TCP port where the server will listen for connections"
+msgstr "Port TCP on el servidor atendrà les connexions"
+
+#: form_settings_password_tooltip
+msgid "System DB password"
+msgstr "Contrasenya de l'usuari de sistema"
+
+#: form_settings_password
+msgctxt "form_settings_password"
+msgid "Password:"
+msgstr "Contrasenya:"
+
+#: form_settings_user_tooltip
+msgid "System DB user name"
+msgstr "Nom d'usuari de sistema de la base de dades"
+
+#: form_settings_user
+msgid "User:"
+msgstr "Usuari:"
+
+#: ERROR
+msgid "ERROR"
+msgstr "ERROR"
+
+#: form_settings_timeout
+msgctxt "form_settings_timeout"
+msgid "Timeout:"
+msgstr "Timeout:"
+
+#: form_settings_timeout_tooltip
+msgid "Maximum inactivity seconds allowed to connections"
+msgstr "Màxim nombre de segons d'inactivitat permès a les connexions"
+
+#: form_btn_start
+msgid "Start"
+msgstr "Engega"
+
+#: form_btn_stop
+msgid "Stop"
+msgstr "Atura"
+
+#: form_btn_exit
+msgid "Exit"
+msgstr "Surt"
+
+#: form_btn_exit_tooltip
+msgid "Stop server and shutdown program"
+msgstr "Atura el servidor i tancar el programa"
+
+#: form_btn_stop_tooltip
+msgid "Close all connections and stop server"
+msgstr "Tancar totes les connexions i atura el servidor"
+
+#: form_btn_start_tooltip
+msgid "Begin listening for clients"
+msgstr "Inicia l'atenció als clients"
+
+#: form_messages_verbose
+msgid "Verbose"
+msgstr "Mostra informació ampliada"
+
+#: form_messages_verbose_tooltip
+msgid "Display all messages"
+msgstr "Mostra tots els missatges entrants"
+
+#: form_messages_copy
+msgid "Copy to clipboard"
+msgstr "Copia"
+
+#: form_messages_copy_tooltip
+msgid "Copy the console output to clipboard"
+msgstr "Copia el contingut de la finestra a la carpeta de sistema"
+
+#: form_messages_clear
+msgid "Clear"
+msgstr "Esborra"
+
+#: form_messages_clear_tooltip
+msgid "Clears the console output"
+msgstr "Neteja la finestra de missatges"
+
+#: error_DB
+msgid "Requested action could not be completed"
+msgstr "L'acció sol.licitada no s'ha pogut completar"
+
+#: settings_title
+msgid "JClic reports server settings"
+msgstr "Configuració de servidor d'informes JClic"
+
+#: settings_options_title
+msgid "Options"
+msgstr "Opcions"
+
+#: settings_options_language
+msgid "Language:"
+msgstr "Idioma:"
+
+#: settings_options_look
+msgid "Look & feel:"
+msgstr "Aparença:"
+
+#: settings_db_title
+msgid "Database"
+msgstr "Base de dades"
+
+#: settings_db_driver
+msgctxt "settings_db_driver"
+msgid "Driver:"
+msgstr "Controlador:"
+
+#: settings_options_tooltips
+msgid "Tooltips"
+msgstr "Etiquetes d'ajuda"
+
+#: settings_db_url
+msgid "URL:"
+msgstr "URL:"
+
+#: settings_db_usr
+msgid "DB user:"
+msgstr "Usuari de la base de dades:"
+
+#: settings_db_pwd
+msgctxt "settings_db_pwd"
+msgid "Password:"
+msgstr "Contrasenya:"
+
+#: settings_server_title
+msgid "Reports server"
+msgstr "Servidor d'informes"
+
+#: settings_server_timeout
+msgctxt "settings_server_timeout"
+msgid "Timeout:"
+msgstr "Temps màxim d'espera:"
+
+#: settings_server_port
+msgctxt "settings_server_port"
+msgid "Port:"
+msgstr "Port:"
+
+#: settings_server_autostart
+msgid "Autostart"
+msgstr "Engegada automàtica"
+
+#: settings_web_title
+msgid "Web server"
+msgstr "Servidor web"
+
+#: settings_server_logFile
+msgid "Write logs to file:"
+msgstr "Escriure logs al fitxer:"
+
+#: settings_button
+msgid "Settings..."
+msgstr "Configuració..."
+
+#: error_writting_settings
+msgid "Error writting settings file!"
+msgstr "Error en escriure el fitxer de configuració!"
+
+#: form_btn_show
+msgid "launch browser..."
+msgstr "engega el navegador..."
+
+#: error_starting_browser
+msgid "Error launching browser!"
+msgstr "Error en executar el navegador!"
+
+#: error_opening_logs
+msgid "Error opening log files!"
+msgstr "Error en obrir els fitxers de registre!"
+
+#: settings_file
+msgid "File..."
+msgstr "Fitxer..."
+
+#: settings_tablePrefix
+msgid "Table names prefix:"
+msgstr "Prefixe dels noms de les taules:"
+
+#: settings_createTables
+msgid "Create tables if not exist"
+msgstr "Crea taules si no existeixen"
+
+#: settings_session_lifetime
+msgid "Session lifetime (minutes)\\:"
+msgstr "Durada màxima d'una sessió inactiva (minuts):"
+
+#: settings_browser
+msgid "Preferred browser\\:"
+msgstr "Navegador preferit:"
+
+#: settings_browser_tooltip
+msgid ""
+"Command used to launch the browser (firefox, iexplore, mozilla, opera...)"
+msgstr ""
+"Ordre emprada per a engegar el navegador (firefox, iexplore, mozilla, "
+"opera...)"

@@ -1,0 +1,130 @@
+# Chinese (Traditional) translation for jclic
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2012-03-26 01:18+0000\n"
+"Last-Translator: Cho Chin-Ping <aegenius0615@yahoo.com.tw>\n"
+"Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: @associations.ComplexAssociation
+msgid ""
+"Complex association|In this activity there are also two sets of information, "
+"but these may have a different number of parts and there may be different "
+"types of relation between them e.g.: one-to-one, various to one, parts "
+"without a relation, etc."
+msgstr ""
+"複雜的關係|在這個活動中也有兩組資訊，但這些可能有不同的選項數，而且他們之間的關係可能有不同的類型\r\n"
+"，例如：一對一，多對一，部分無關，等等。"
+
+#: @associations.SimpleAssociation
+msgid ""
+"Simple association|There are two sets of information that have the same "
+"number of parts. Each part from the original set corresponds to one, and "
+"only one, part of the image set."
+msgstr "簡單的關係|在這個活動中有兩組相同數目的資訊。每個部分從對應到相關的另一個，並且只有一個，圖像的一部分。"
+
+#: @memory.MemoryGame
+msgid ""
+"Finding pairs|Each of the pieces appear twice, but face down. In each go two "
+"pieces are turned over and are turned back over if they are not the same. "
+"The objective is to find all the pairs."
+msgstr "配對|這些碎片成雙成對，但是是覆蓋的。假若相同的話就會翻開，不同的話就會蓋回去。目標是找出所有配對。"
+
+#: @panels.Explore
+msgid ""
+"Explore activity|An initial piece of information is shown and, upon clicking "
+"on it, a given piece of information is shown for each element."
+msgstr "探索活動|一個初始信息會被顯示，點擊後，顯示每個元素的信息。"
+
+#: @panels.Identify
+msgid ""
+"Identify cells|There is just one set of information and you have to click on "
+"those parts that meet a certain condition."
+msgstr "確認細胞|這只是一組資訊並且你需要點擊這些部份來滿足特定的條件。"
+
+#: @panels.InformationScreen
+msgid ""
+"Information screen|One set of information is shown and there is the option "
+"of activating the multimedia content for each piece of information."
+msgstr "資訊屏幕|其中一組資料顯示，並有運作中多媒體內容的每一條資訊的選項。"
+
+#: @puzzles.DoublePuzzle
+msgid ""
+"Double puzzle|Two grids are shown. One contains the disordered information "
+"and the other is empty. The object has to be rearranged in the empty grid by "
+"dragging the pieces one by one."
+msgstr "雙層拼圖|顯示兩個網格。一個包含無序的訊息，另一個是空的。物件必須一個一個拖曳到空的網格中重新排序。"
+
+#: @puzzles.ExchangePuzzle
+msgid ""
+"Exchange puzzle|The information is swapped within the same panel. In each go "
+"two pieces swap position until the object is reordered."
+msgstr "互換拼圖|在同一個版面上交換資訊。一次交換兩個訊息的位子直到它被重新排序整齊。"
+
+#: @puzzles.HolePuzzle
+msgid ""
+"Hole puzzle|In the same panel one piece is missing and the others are "
+"shuffled. In each go one of the pieces next to the empty space is moved "
+"until they are back in the original order."
+msgstr "拼圖填空|少了一塊的面板被打亂。把每一塊拼在空格旁邊，直到恢復原來的順序。"
+
+#: @text.WrittenAnswer
+msgid ""
+"Written answer|A set of information is shown and the corresponding text for "
+"each of its parts must be written."
+msgstr "書面回答|顯示出一組訊息，必須寫入它每部分相對應的文字。"
+
+#: @text.FillInBlanks
+msgid ""
+"Text: Fill-in blanks|The user has to complete certain words, letters and "
+"phrases that have been hidden or camouflaged in a text. The solution of each "
+"of the elements may be set up in different ways: writing in a blank space; "
+"correcting a phrase that contains errors; or selecting from a list of "
+"various possible answers."
+msgstr ""
+"文字：填空|使用者需完成在本文內被隱藏或偽裝的特定單詞，字母，片語。每題的解法可能有多種方法：填空格;更正含錯的片語;或是從一列可能的答案中選出最佳的答案"
+"。"
+
+#: @text.Identify
+msgid ""
+"Text: Identify elements|The user has to point out some words, letters, "
+"numbers, symbols or punctuation marks with a click of the mouse."
+msgstr "文字：辨認元素| 使用者利用滑鼠點擊單詞，字母，數字，符號或標點符號。"
+
+#: @text.Order
+msgid ""
+"Text: Order elements|When designing this activity some of the words or "
+"paragraphs of a text are selected to be shuffled around. The user has to put "
+"them back in order."
+msgstr "文字：排序元素| 在設計這項活動時，選取文章內的一些字或是段落並打亂他們。讓使用者重新排出正確的順序。"
+
+#: @text.Complete
+msgid ""
+"Text: Complete text|Various parts of a text (letters, words, punctuation "
+"signs, or phrases) are taken out and the user has to complete it."
+msgstr "文字：完成文章|文章的數個部份（文字，單詞，標點符號或是片語）被拿出，讓使用者去完成它。"
+
+#: @textGrid.CrossWord
+msgid ""
+"Crosswords|The word table has to be completed according to its definitions. "
+"The definitions may be text, graphics or sound. The programme automatically "
+"shows the definitions of the two words which cross in the cursor position."
+msgstr "填字|詞彙表必須由每個辭彙的定義來完成。定義可能是文字，圖片或聲音。程式會自動顯示游標所指兩個詞的定義"
+
+#: @textGrid.WordSearch
+msgid ""
+"Word search|The hidden words have to be found in a grid of letters. The "
+"neutral cells in the grid (those with no word) are completed with characters "
+"chosen at random."
+msgstr "尋找文字|隱藏的文字必須在交錯的字母中。在網格中的空格（無字的格子）已經用隨機選擇的字元填寫完成。"

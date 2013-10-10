@@ -1,0 +1,3461 @@
+# Czech translation for jclic
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-01-13 23:10+0200\n"
+"PO-Revision-Date: 2011-10-02 07:47+0000\n"
+"Last-Translator: Zbyněk Schwarz <Unknown>\n"
+"Language-Team: Czech <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. #JClic Author messages
+#: edit_act_description_block
+msgctxt "edit_act_description_block"
+msgid "Description"
+msgstr "Popis"
+
+#: edit_act_name_tooltip
+msgid "Name of the activity"
+msgstr "Název aktivity"
+
+#: edit_act_name
+msgctxt "edit_act_name"
+msgid "Name:"
+msgstr "Název:"
+
+#: edit_act_description_tooltip
+msgid "Description of the activity"
+msgstr "Popis aktivity"
+
+#: edit_act_reports_block
+msgctxt "edit_act_reports_block"
+msgid "Reports"
+msgstr "Sestavy"
+
+#: edit_act_includeInReports
+msgid "Include this activity in reports"
+msgstr "Zahrň aktivity v Sestavách"
+
+#: edit_act_includeInReports_tooltip
+msgid "Include the results of this activity in users' reports"
+msgstr "Zahrň výsledky aktivity v uživatelských sestavách"
+
+#: edit_act_code
+msgid "Code:"
+msgstr "Kód"
+
+#: edit_act_code_tooltip
+msgid "Optional code used to group and search in the reports database."
+msgstr "Volitelný kód se používá pro skupiny a vyhledávání v databázi zpráv."
+
+#: edit_act_reportActions
+msgid "Report user actions"
+msgstr "Report uživatelských akcí"
+
+#: edit_act_reportActions_tooltip
+msgid "Register the details of all the actions performed by users"
+msgstr "Zaznamenat detaily o všech akcích provedených uživateli"
+
+#: edit_act_counters_block
+msgctxt "edit_act_counters_block"
+msgid "Counters"
+msgstr "Počítadla"
+
+#: edit_act_timeCounter
+msgctxt "edit_act_timeCounter"
+msgid "Time counter"
+msgstr "Počítadlo času"
+
+#: edit_act_timeCounter_tooltip
+msgid "Show/hide the time conter"
+msgstr "Skrýt/zobrazit časové počítadlo"
+
+#: edit_act_actionsCounter
+msgctxt "edit_act_actionsCounter"
+msgid "Tries counter"
+msgstr "Počítadlo pokusů"
+
+#: edit_act_actionsCounter_tooltip
+msgid "Show/hide the tries counter"
+msgstr "Skrýt/zobrazit počítadlo pokusů"
+
+#: edit_act_scoreCounter
+msgctxt "edit_act_scoreCounter"
+msgid "Score counter"
+msgstr "Počítadlo skóre"
+
+#: edit_act_scoreCounter_tooltip
+msgid "Show/hide the score counter."
+msgstr "Skrýt/zobrazit počítadlo skóre."
+
+#: edit_act_maxTime
+msgid "Max time:"
+msgstr "Maximální čas:"
+
+#: edit_act_maxTime_tooltip
+msgid ""
+"Maximum time to to solve the activity, in seconds, or 0 for unlimited time."
+msgstr ""
+"Maximální čas k vyřešení činnosti, v sekundách, nebo 0 pro neomezenou dobu."
+
+#: edit_act_countdown
+msgid "Countdown"
+msgstr "Odpočet"
+
+#: edit_act_countdown_tooltip
+msgid "The counter starts at máximum value, decreasing to 0."
+msgstr "Čítač začíná na maximální hodnotě, klesající na 0."
+
+#: edit_act_maxActions
+msgid "Max tries:"
+msgstr "Max pokusů:"
+
+#: edit_act_maxActions_tooltip
+msgid "Maximum number of tries allowed, or 0 for unlimited tries."
+msgstr "Povolen maximální počet pokusů, nebo 0 pro neomezené pokusy."
+
+#: edit_act_buttons_block
+msgctxt "edit_act_buttons_block"
+msgid "Buttons"
+msgstr "Tlačítka"
+
+#: edit_act_helpBtn
+msgid "Help"
+msgstr "Nápověda"
+
+#: edit_act_helpBtn_tooltip
+msgid "Show/hide help button"
+msgstr "Skrýt/zobrazit tlačítko pomoci"
+
+#: edit_act_helpBtn_solution
+msgid "Show solution"
+msgstr "Zobrazit řešení"
+
+#: edit_act_helpBtn_msg
+msgid "Show this message:"
+msgstr "Ukázat tuto zprávu:"
+
+#: edit_act_infoBtn
+msgid "Information"
+msgstr "Informace"
+
+#: edit_act_infoBtn_tooltip
+msgid "Show/Hide the button of information"
+msgstr "Ukaž/Skryj informační tlačítko"
+
+#: edit_act_infoBtn_url
+msgid "Show this URL:"
+msgstr "Zobratiz tuto internetovou adresu:"
+
+#: edit_act_infoBtn_cmd
+msgid "Execute this command:"
+msgstr "Vykonat tento příkaz:"
+
+#: edit_act_infoBtn_url_tooltip
+msgid "Web site address to show when click on the info button"
+msgstr "Adresu internetové stránky zobrazíte, když kliknete na info tlačítko"
+
+#: edit_act_infoBtn_cmd_tooltip
+msgid "Command line to be executed on click to the info button."
+msgstr "Příkazová řádka bude spuštěnana při kliknutí na info tlačítko."
+
+#: edit_act_mainWindow
+msgid "Main window:"
+msgstr "Vlastní okno:"
+
+#: edit_act_gameWindow
+msgid "Game window:"
+msgstr "Herní okno:"
+
+#: edit_act_margin
+msgid "Margin:"
+msgstr "Okraj:"
+
+#: edit_act_margin_tooltip
+msgid "Horizontal and vertical spacing between visual objects."
+msgstr "Horizontální a vertikální rozestup mezi vizuálními objekty."
+
+#: edit_act_bgColor
+msgctxt "edit_act_bgColor"
+msgid "Background color:"
+msgstr "Barva pozadí:"
+
+#: edit_act_bgColor_tooltip
+msgid "Change the background color."
+msgstr "Změnit barvu pozadí."
+
+#: edit_gradient_startColor
+msgid "Start color:"
+msgstr "Spustit barvu:"
+
+#: edit_gradient_endColor
+msgid "End color:"
+msgstr "Konec barvy:"
+
+#: edit_gradient_startColor_tooltip
+msgid "Selection of the start color"
+msgstr "Výběr počáteční barvy"
+
+#: edit_gradient_endColor_tooltip
+msgid "Selection of the end color"
+msgstr "Výběr konečné barvy"
+
+#: edit_gradient_cycles
+msgid "Cycles:"
+msgstr "Cykly:"
+
+#: edit_gradient_cycles_tooltip
+msgid "Number of repetitions of the gradient over the paint surface"
+msgstr "Počet opakování přechodu na barevném povrchu"
+
+#: edit_gradient_orientation
+msgid "Orientation:"
+msgstr "Orientace:"
+
+#: edit_gradient_orientation_tooltip
+msgid "Gradient's orientation, measured in degrees over the horizontal"
+msgstr "Spádová orientace, měřená ve stupních nad horizontálou"
+
+#: edit_act_gradient
+msgid "Gradient:"
+msgstr "Přechod:"
+
+#: edit_act_gradient_tooltip
+msgid "Use gradient of colours"
+msgstr "Použijte spád barev"
+
+#: edit_color_opacity
+msgid "Opacity"
+msgstr "Průhlednost"
+
+#: edit_color_opacity_tooltip
+msgid "Set the color's alpha channel (opacity) value."
+msgstr "Nastavit hodnotu odstínu (krycí) barvy."
+
+#: edit_gradient_title
+msgctxt "edit_gradient_title"
+msgid "Gradient"
+msgstr "Přechod"
+
+#: edit_gradient_default
+msgid "Use default values (null gradient)"
+msgstr "Použít výchozí hodnoty (nulový spád)"
+
+#: edit_act_image
+msgid "Image:"
+msgstr "Obrázek:"
+
+#: edit_act_descriptionTab
+msgctxt "edit_act_descriptionTab"
+msgid "Description"
+msgstr "Popiska"
+
+#: edit_act_descriptionTab_tooltip
+msgid "Name and description"
+msgstr "Název a popisek"
+
+#: edit_act_tiledBgImg
+msgid "Tiled"
+msgstr "Dlaždice"
+
+#: edit_act_tiledBgImg_tooltip
+msgid ""
+"Paint all the surface with the image, repeating it along the X and Y axis as "
+"needed."
+msgstr ""
+"Vymalovat všechny plochy obrázkem, podle potřeby opakovat podél osy X a Y."
+
+#: edit_act_preview
+msgctxt "edit_act_preview"
+msgid "Preview:"
+msgstr "Náhled:"
+
+#: edit_act_border
+msgctxt "edit_act_border"
+msgid "Border"
+msgstr "Okraj"
+
+#: edit_act_border_tooltip
+msgid "Draw a line border arround the window"
+msgstr "Nakreslit okrajovou čáru kolem okna"
+
+#: edit_act_transparent
+msgid "Transparent"
+msgstr "Průhledný"
+
+#: edit_act_transparent_tooltip
+msgid "Window has transparent background"
+msgstr "Okno má průhledné pozadí"
+
+#: edit_act_width
+msgctxt "edit_act_width"
+msgid "Width:"
+msgstr "Šířka:"
+
+#: edit_act_height
+msgctxt "edit_act_height"
+msgid "Height:"
+msgstr "Výška:"
+
+#: edit_act_width_tooltip
+msgid "Width of the object, measured in pixels"
+msgstr "Šířka objektu, měřená v pixelech"
+
+#: edit_act_height_tooltip
+msgid "Height of the object, measured in pixels"
+msgstr "Výška objektu, měřená v pixelech"
+
+#: edit_act_centered
+msgctxt "edit_act_centered"
+msgid "Centered"
+msgstr "Ve středu"
+
+#: edit_act_centered_tooltip
+msgid "The object will be centered over the main window"
+msgstr "Objekt bude soustředěn v hlavním okně"
+
+#: edit_act_x
+msgctxt "edit_act_x"
+msgid "X:"
+msgstr "X:"
+
+#: edit_act_x_tooltip
+msgid "Absolute horizontal location"
+msgstr "Úplná horizontální poloha"
+
+#: edit_act_y
+msgctxt "edit_act_y"
+msgid "Y:"
+msgstr "Y:"
+
+#: edit_act_y_tooltip
+msgid "Absolute vertical location"
+msgstr "Úplně svislé umístění"
+
+#: edit_act_ui_block
+msgctxt "edit_act_ui_block"
+msgid "User interface"
+msgstr "Uživatelské rozhraní"
+
+#: edit_act_image_tooltip
+msgid "Select an image"
+msgstr "Zvolit obrázek"
+
+#: edit_act_text
+msgid "Text:"
+msgstr "Text:"
+
+#: edit_act_text_tooltip
+msgid "Text to be shown inside this object"
+msgstr "Text musí být uveden v tomto objektu"
+
+#: edit_font_face
+msgid "Typeface:"
+msgstr "Písmo:"
+
+#: edit_font_size
+msgid "Size:"
+msgstr "Velikost:"
+
+#: edit_font_bold
+msgid "Bold"
+msgstr "Tučně"
+
+#: edit_font_italic
+msgid "Italic"
+msgstr "Kurziva"
+
+#: edit_font_underline
+msgid "Underline"
+msgstr "Podtržené"
+
+#: edit_font_style
+msgctxt "edit_font_style"
+msgid "Style:"
+msgstr "Styl:"
+
+#: edit_cell_title
+msgid "Cell contents"
+msgstr "Obsah políčka"
+
+#: edit_act_messages
+msgctxt "edit_act_messages"
+msgid "Messages"
+msgstr "Zprávy"
+
+#: edit_act_msg_initial
+msgid "Initial message:"
+msgstr "Počáteční zpráva:"
+
+#: edit_act_msg_final
+msgid "Final message:"
+msgstr "Konečná zpráva:"
+
+#: edit_act_msg_prev
+msgid "Previous message:"
+msgstr "Předchozí zpráva:"
+
+#: edit_act_msg_error
+msgid "Error message:"
+msgstr "Chybová zpráva:"
+
+#: edit_act_msg_initial_tooltip
+msgid "Message to be shown when the activity starts"
+msgstr "Zpráva se zobrazí při začátku aktivity"
+
+#: edit_act_msg_final_tooltip
+msgid "Message to be shown when the activity is finished"
+msgstr "Zpráva se zobrazí při dokončení aktivity"
+
+#: edit_act_msg_error_tooltip
+msgid "Message to be shown when the activity ends with errors"
+msgstr "Zpráva se zobrazí když činnost skončí s chybami"
+
+#: edit_act_msg_prev_tooltip
+msgid ""
+"Message to be shown prior to the start of the activity (only in certain "
+"types of activities)"
+msgstr ""
+"Zpráva zobrazená před spuštěním činnosti (pouze v určitých typech činností)"
+
+#: edit_align
+msgid "Align:"
+msgstr "Zarovnat:"
+
+#: edit_act_textColor
+msgid "Text color:"
+msgstr "Barva textu:"
+
+#: edit_act_textColor_tooltip
+msgid "Color used to draw text"
+msgstr "Barva použitá pro vykreslení textu"
+
+#: edit_act_shadowColor
+msgid "Shadow color:"
+msgstr "Barva stínu:"
+
+#: edit_act_shadowColor_tooltip
+msgid "Color used for drawing the text's shadow, when appliable"
+msgstr "Barva použitá pro vykreslení stínu textu, pokud je použit"
+
+#: edit_act_shadow
+msgid "Shadow"
+msgstr "Stín"
+
+#: edit_act_shadow_tooltip
+msgid "Draw text with shadow"
+msgstr "Vykreslený text se stínem"
+
+#: edit_act_borderColor
+msgid "Border color:"
+msgstr "Barva ohraničení:"
+
+#: edit_act_borderColor_tooltip
+msgid "Color used to draw the cell's border"
+msgstr "Barva použitá pro vykreslení ohraničení buňky"
+
+#: edit_act_inactiveColor
+msgid "Inactive state color:"
+msgstr "Barva neaktivního stavu:"
+
+#: edit_act_inactiveColor_tooltip
+msgid "Color used when the cell is disabled"
+msgstr "Barva použitá, když je buňka vypnutá"
+
+#: edit_act_altColor
+msgid "Alternative color:"
+msgstr "Alternativní barva:"
+
+#: edit_act_altColor_tooltip
+msgid "Color used to draw the alternative content in solved cells."
+msgstr ""
+"Barva použitá pro vykreslení alternativního obsahu v řešených buňkách."
+
+#: edit_cell_marked
+msgid "Marked"
+msgstr "Označená"
+
+#: edit_cell_disabled
+msgid "Disabled"
+msgstr "Vypnuto"
+
+#: edit_cell_alt
+msgid "Alternative"
+msgstr "Alternativní"
+
+#: edit_cell_textMargin
+msgid "Internal margin:"
+msgstr "Vnitřní okraj:"
+
+#: edit_cell_textMargin_tooltip
+msgid "Amount of space between cell's border and text."
+msgstr "Množství prostoru mezi okrajem buňky a textem."
+
+#: edit_cell_borderWidth
+msgid "Border width:"
+msgstr "Šířka okraje:"
+
+#: edit_cell_borderWidth_tooltip
+msgid "Width of the stroke used to draw the standard border"
+msgstr "Šířka tahu použitá k vykreslení standardního okraje"
+
+#: edit_cell_markerWidth
+msgid "Marker width:"
+msgstr "Šířka zvýraznění:"
+
+#: edit_cell_markerWidth_tooltip
+msgid ""
+"Width of the stroke used to draw the border when the cell is marked or "
+"selected"
+msgstr ""
+"Šířka tahu použitá k vykreslení okraje když je buňka označena nebo vybrána"
+
+#: edit_cell_alt_tooltip
+msgid "Preview in \"alternative\" state"
+msgstr "Náhled v \"alternativním\" stavu"
+
+#: edit_cell_disabled_tooltip
+msgid "Preview in \"disabled\" state"
+msgstr "Náhled ve \"vypnutém\" stavu"
+
+#: edit_cell_marked_tooltip
+msgid "Preview in \"marked\" state"
+msgstr "Náhled v \"označeném\" stavu"
+
+#: edit_act_testAction
+msgid "Preview activity"
+msgstr "Náhled činnosti"
+
+#: edit_act_testAction_tooltip
+msgid "Preview and test the activity"
+msgstr "Náhled a test činnosti"
+
+#: edit_act_panels_description
+msgctxt "edit_act_panels_description"
+msgid "Description"
+msgstr "Popisek"
+
+#: edit_act_panels_description_tooltip
+msgid "Title and description of the activity"
+msgstr "Název a popis činnosti"
+
+#: edit_act_panels_options
+msgid "Options"
+msgstr "Volby"
+
+#: edit_act_panels_options_tooltip
+msgid "Options of the activity"
+msgstr "Nastavení činnosti"
+
+#: edit_act_panels_frame
+msgctxt "edit_act_panels_frame"
+msgid "Window"
+msgstr "Okno"
+
+#: edit_act_panels_frame_tooltip
+msgid "Aspect, size and position of the activity window"
+msgstr "Vzhled, velikost a umístění okna činnosti"
+
+#: edit_act_panels_messages
+msgctxt "edit_act_panels_messages"
+msgid "Messages"
+msgstr "Zprávy"
+
+#: edit_act_panels_messages_tooltip
+msgid "Content of the activity messages"
+msgstr "Obsah zpráv o činnosti"
+
+#: edit_act_panels_panel
+msgid "Panel"
+msgstr "Panel"
+
+#: edit_act_panels_panel_tooltip
+msgid "Contents of the panel"
+msgstr "Obsah panelu"
+
+#: edit_style_title
+msgctxt "edit_style_title"
+msgid "Style"
+msgstr "Styl"
+
+#: edit_style_tooltip
+msgid "Set the cells color, font and size"
+msgstr "Nastavit barvu, písmo a velikost buňky"
+
+#: edit_act_style
+msgctxt "edit_act_style"
+msgid "Style:"
+msgstr "Styl:"
+
+#: edit_act_overlap
+msgid "Avoid text overlap image"
+msgstr "Vyvarovat se textu překrývající obrázek"
+
+#: edit_act_overlap_tooltip
+msgid "Try to avoid text overlapping over image"
+msgstr "Pokusit se vyvarovat textu překrývající obrázek"
+
+#: edit_media_exists_1
+msgid "The file"
+msgstr "Soubor"
+
+#: edit_media_exists_2
+msgid "already exists in the media library!"
+msgstr "již existuje v médiální knihovně!"
+
+#: edit_act_shaper
+msgid "Shaper:"
+msgstr "Formovač:"
+
+#: edit_act_shaper_err
+msgid "Shaper error:"
+msgstr "Chyba formovače:"
+
+#: edit_act_num_cols
+msgid "Columns:"
+msgstr "Sloupce:"
+
+#: edit_act_num_rows
+msgid "Rows:"
+msgstr "Řádky:"
+
+#: edit_act_toothHeightFactor
+msgid "Tooth height:"
+msgstr "Výška zubu:"
+
+#: edit_act_toothWidthFactor
+msgid "Tooth width:"
+msgstr "Šířka zubu:"
+
+#: edit_act_toothRandom
+msgid "Random distribution"
+msgstr "Náhodné rozdělení"
+
+#: edit_act_shaper_properties
+msgid "Shaper properties"
+msgstr "Vlastnosti formovače"
+
+#: edit_act_panels_text
+msgid "Text"
+msgstr "Text"
+
+#: edit_act_panels_text_tooltip
+msgid "Text of the activity"
+msgstr "Text činnosti"
+
+#: action_saveFile_caption
+msgid "Save..."
+msgstr "Uložit..."
+
+#: action_saveFile_keys
+msgctxt "action_saveFile_keys"
+msgid "SS"
+msgstr "SS"
+
+#: action_saveFile_tooltip
+msgid "Save the current project"
+msgstr "Uložit aktuální projekt"
+
+#: action_docTree_caption
+msgid "Document tree..."
+msgstr "Strom dokumentu..."
+
+#: action_docTree_keys
+msgid "T*"
+msgstr "T*"
+
+#: action_docTree_tooltip
+msgid "Show the project's document as a tree"
+msgstr "Zobrazit dokument projektu jako strom"
+
+#: edit_docTree_title
+msgid "Document tree"
+msgstr "Strom dokumentu"
+
+#: edit_media_referencedBy
+msgid "Referenced by:"
+msgstr "Odkazováno od:"
+
+#: msg_prompt_loadReferences
+msgid ""
+"<html><font face=\"dialog\" size=\"2\"><B>Warning:</B><P>This project "
+"connects with other projects.<BR>Do you want to explore the links and to "
+"load all the related files?<P>(It's advisable to answer <B>YES</B> when "
+"importing Clic 3.0 activities)</font></html>"
+msgstr ""
+"<html><font face=\"dialog\" size=\"2\"><B>Varování:</B><P>Tentorojekt je "
+"propojen s jinými projekty.<BR>Chcete si odkazy prohlédnout a načíst všechny "
+"související soubory?<P>(Při importu činností Clic 3.0 je doporučeno "
+"odpovědět <B>ANO</B>)</font></html>"
+
+#: edit_mc_type
+msgctxt "edit_mc_type"
+msgid "Type:"
+msgstr "Typ:"
+
+#: edit_mc_type_unknown
+msgid "Unknown"
+msgstr "Neznámý"
+
+#: edit_mc_type_sound
+msgid "Play sound"
+msgstr "Přehrát zvuk"
+
+#: edit_mc_type_video
+msgid "Play video"
+msgstr "Přehrát video"
+
+#: edit_mc_type_midi
+msgid "Play MIDI"
+msgstr "Přehrát MIDI"
+
+#: edit_mc_type_cdaudio
+msgid "Play CD audio"
+msgstr "Přehrát zvukové CD"
+
+#: edit_mc_type_record
+msgid "Record sound"
+msgstr "Zaznamenat zvuk"
+
+#: edit_mc_type_play_recorded
+msgid "Play recorded sound"
+msgstr "Přehrát nahraný zvuk"
+
+#: edit_mc_type_run_activity
+msgid "Go to activity"
+msgstr "Jít na aktivitu"
+
+#: edit_mc_type_run_sequence
+msgid "Go to sequence"
+msgstr "Jít na sekvenci"
+
+#: edit_mc_type_run_external
+msgid "Run program"
+msgstr "Spustit program"
+
+#: edit_mc_type_url
+msgid "Show URL"
+msgstr "Zobrazit URL"
+
+#: edit_mc_type_exit
+msgid "End"
+msgstr "Konec"
+
+#: edit_mc_type_return
+msgctxt "edit_mc_type_return"
+msgid "Return"
+msgstr "Zpět"
+
+#: edit_mc_level
+msgid "Priority level:"
+msgstr "Úroveň priority:"
+
+#: edit_mc_file
+msgid "File:"
+msgstr "Soubor:"
+
+#: edit_mc_externalParam
+msgid "Parameters:"
+msgstr "Parametry:"
+
+#: edit_mc_from
+msgctxt "edit_mc_from"
+msgid "From:"
+msgstr "Z:"
+
+#: edit_mc_to
+msgctxt "edit_mc_to"
+msgid "To:"
+msgstr "Do:"
+
+#: edit_mc_length
+msgctxt "edit_mc_length"
+msgid "Max. length:"
+msgstr "Max. délka:"
+
+#: edit_mc_recBuffer
+msgid "Record tape:"
+msgstr "Nahrávací páska:"
+
+#: edit_mc_stretch
+msgid "Stretch size"
+msgstr "Velikost roztažení"
+
+#: edit_mc_location
+msgctxt "edit_mc_location"
+msgid "Location:"
+msgstr "Umístění:"
+
+#: edit_mc_location_x
+msgctxt "edit_mc_location_x"
+msgid "X:"
+msgstr "X:"
+
+#: edit_mc_location_y
+msgctxt "edit_mc_location_y"
+msgid "Y:"
+msgstr "Y:"
+
+#: edit_mc_location_from
+msgctxt "edit_mc_location_from"
+msgid "From:"
+msgstr "Z:"
+
+#: edit_mc_location_from_box
+msgid "Cell"
+msgstr "Buňka"
+
+#: edit_mc_location_from_window
+msgctxt "edit_mc_location_from_window"
+msgid "Window"
+msgstr "Okno"
+
+#: edit_mc_location_from_frame
+msgid "Frame"
+msgstr "Okno"
+
+#: edit_mc_loop
+msgid "Loop playback"
+msgstr "Přehrávání smyčky"
+
+#: edit_mc_autostart
+msgid "Auto start"
+msgstr "Automatický start"
+
+#: edit_mc_catchmouse
+msgid "Catch mouse"
+msgstr "Chytit myš"
+
+#: edit_mc_title
+msgid "Multimedia and active content"
+msgstr "Multimédia a aktivní obsah"
+
+#: edit_mc_label
+msgid "Active content:"
+msgstr "Aktivní obsah:"
+
+#: edit_media_dlg_title
+msgid "Multimedia object selection"
+msgstr "Výběr multimediálního objektu"
+
+#: edit_media_title
+msgctxt "edit_media_title"
+msgid "Media library"
+msgstr "Knihovna médií"
+
+#: edit_mc_pos_cell
+msgid "Centered over cell"
+msgstr "Vystředěno nad buňkou"
+
+#: edit_mc_pos_window
+msgid "Centered over window"
+msgstr "Vystředěno nad oknem"
+
+#: edit_mc_pos_absolute
+msgid "Specify position:"
+msgstr "Určete pozici:"
+
+#: edit_tree_badFormat
+msgid "Incorrect tree structure or data!"
+msgstr "Nesprávná struktura stromu nebo data!"
+
+#: edit_act_panels_controls
+msgid "Controls"
+msgstr "Ovládání"
+
+#: edit_act_panels_controls_tooltip
+msgid "Options for buttons and counters"
+msgstr "Možnosti pro tlačítka a počítadla"
+
+#: edit_act_class
+msgctxt "edit_act_class"
+msgid "Type:"
+msgstr "Typ:"
+
+#: edit_act_gridLayout
+msgid "Grid layout:"
+msgstr "Rozvržení mřížky:"
+
+#: edit_act_gridLayout_tooltip
+msgid "Relative postion of the panels A and B."
+msgstr "Vzájemná poloha panelů A a B"
+
+#: edit_act_inverseResolution
+msgid "Inverse resolution"
+msgstr "Obrácené rozlišení"
+
+#: edit_act_inverseResolution_tooltip
+msgid ""
+"The activity is solved when all assigned elements of \"B\" are matched."
+msgstr ""
+"Činnost je vyřešena, když všechny přidělené prvky z \"B\" se shodují."
+
+#: edit_act_showAllArrows
+msgid "Show all arrows"
+msgstr "Zobrazit všechny šipky"
+
+#: edit_act_alt
+msgid "Alternative content:"
+msgstr "Alternativní obsah:"
+
+#: edit_act_alt_tooltip
+msgid "Content shown in solved cells and non-assigned cells."
+msgstr "Obsah zobrazený ve vyřešených buňkách a nepřidělených buňkách."
+
+#: edit_act_alt_toggle
+msgid "ALT"
+msgstr "ALT"
+
+#: edit_act_alt_toggle_tooltip
+msgid "Edit the alternative content"
+msgstr "Upravit alternativní obsah"
+
+#: edit_act_grid
+msgid "Grid"
+msgstr "Mřížka"
+
+#: edit_act_grid_A
+msgid "Grid A"
+msgstr "Mřížka A"
+
+#: edit_act_grid_B
+msgid "Grid B"
+msgstr "Mřížka B"
+
+#: edit_act_grid_layout
+msgid "Layout"
+msgstr "Rozvržení"
+
+#: edit_act_grid_relationship
+msgid "Relationship"
+msgstr "Vztah"
+
+#: edit_seq_activity_header
+msgid "activity"
+msgstr "aktivita"
+
+#: edit_seq_tag_header
+msgid "tag"
+msgstr "značka"
+
+#: edit_seq_jump_header
+msgid "jump to"
+msgstr "přeskočit na"
+
+#: edit_seq_activity
+msgctxt "edit_seq_activity"
+msgid "Activity:"
+msgstr "Aktivita:"
+
+#: edit_seq_tag
+msgctxt "edit_seq_tag"
+msgid "Label:"
+msgstr "Popisek:"
+
+#: edit_seq_description
+msgctxt "edit_seq_description"
+msgid "Description:"
+msgstr "Popis:"
+
+#: edit_seq_auto
+msgid "Move on automatically"
+msgstr "Posunout automaticky"
+
+#: edit_seq_delay
+msgid "Delay:"
+msgstr "Prodleva:"
+
+#: edit_seq_action_fwd
+msgid "Go forward"
+msgstr "Další"
+
+#: edit_seq_action_back
+msgid "Go bak"
+msgstr "Jít zpět"
+
+#: edit_seq_action_jump
+msgid "Jump to..."
+msgstr "Přeskočit na..."
+
+#: edit_seq_action_stop
+msgid "Stop"
+msgstr "Zastavit"
+
+#: edit_seq_action_return
+msgctxt "edit_seq_action_return"
+msgid "Return"
+msgstr "Vrátit"
+
+#: edit_seq_action_exit
+msgid "Exit JClic"
+msgstr "Ukončit JClic"
+
+#: edit_seq_arrow_fwd
+msgid "Forward arrow:"
+msgstr "Šipka dopředu:"
+
+#: edit_seq_arrow_back
+msgid "Back arrow:"
+msgstr "Šipka dozadu:"
+
+#: edit_seq_action
+msgid "Action:"
+msgstr "Akce:"
+
+#: edit_seq_button_enabled
+msgid "Show button"
+msgstr "Zobrazit tlačítko"
+
+#: edit_seq_project
+msgid "JClic Project:"
+msgstr "JClic projekt:"
+
+#: edit_act_absolute
+msgid "Absolute position"
+msgstr "Absolutní pozice"
+
+#: edit_act_absolute_tooltip
+msgid "The object will be placed at the specified X and Y co-ordinates"
+msgstr "Objekt bude umístěn v zadaných souřadnicích X a Y"
+
+#: edit_act_location
+msgctxt "edit_act_location"
+msgid "Location:"
+msgstr "Umístění:"
+
+#: edit_seq_newElement
+msgid "New sequence element..."
+msgstr "Nový prvek sekvence..."
+
+#: edit_seq_newElement_tooltip
+msgid "Insert a new element into the activity sequence"
+msgstr "Vložit nový prvek do sekvence činnosti"
+
+#: edit_seq_newElement_msg
+msgid "Please select an activity for the new sequence element."
+msgstr "Vyberte, prosím, aktivitu pro nový prvek sekvence."
+
+#: edit_seq_newElement_error_noAct
+msgid "Cannot create a new sequence element without activity!"
+msgstr "Nelze vytvořit nový prvek sekvence bez činnosti!"
+
+#: edit_seq_newElement_error_emptyList
+msgid ""
+"This project has no activities! Unable to create sequence elements in an "
+"empty project."
+msgstr ""
+"Tento projekt nemá žádné činnosti! Nelze vytvořit prvky sekvence bez "
+"prázdného objektu."
+
+#: edit_seq_jump_msg
+msgid "Jump target:"
+msgstr "Cíl skoku:"
+
+#: edit_seq_jump_title
+msgid "Jump target"
+msgstr "Cíl skoku"
+
+#: edit_act_newActivity_tooltip
+msgid "Add a new activity to project"
+msgstr "Přidat novou činnost do projektu"
+
+#: edit_act_prompt_class
+msgid "Type of activity:"
+msgstr "Typ činnosti:"
+
+#: edit_act_prompt_name
+msgctxt "edit_act_prompt_name"
+msgid "Name:"
+msgstr "Název:"
+
+#: edit_act_newActivity_msg
+msgid "Please select the type of activity to create and give it a name:"
+msgstr "Vyberte, prosím, typ činnosti pro vytvoření a zadejte její název:"
+
+#: edit_act_newActivity_error_noAct
+msgid "You must select an activity type!"
+msgstr "Musíte zvolit typ činnosti!"
+
+#: edit_act_newActivity_error_noName
+msgid "You must especify a name for the activity!"
+msgstr "Musíte zadat název pro činnosti!"
+
+#: edit_act_newActivity_error_creating
+msgid "Unable to create activity!"
+msgstr "Nelze vytvořit akivitu!"
+
+#: edit_act_newActivity_class
+msgid "Java class name:"
+msgstr "Jméno třídy Java:"
+
+#: edit_text_act_format
+msgid "Format"
+msgstr "Formát"
+
+#: edit_text_act_answer
+msgid "Answer"
+msgstr "Odpověď"
+
+#: edit_text_act_popup
+msgid "Pop up"
+msgstr "Vyskočit"
+
+#: edit_text_act_answer_label
+msgid "Valid answers:"
+msgstr "Platné odpovědi"
+
+#: edit_list_newElement_tooltip
+msgid "Add a new list element"
+msgstr "Přidat nový prvek seznamu"
+
+#: edit_list_editElement_tooltip
+msgid "Edit the selected list element"
+msgstr "Upravit vybraný prvek seznamu"
+
+#: edit_list_deleteElement_tooltip
+msgid "Delete the selected list element"
+msgstr "Smazat vybraný prvek seznamu"
+
+#: edit_list_upBtn_tooltip
+msgid "Move up"
+msgstr "Přesunout nahoru"
+
+#: edit_list_downBtn_tooltip
+msgid "Move down"
+msgstr "Přesunout dolů"
+
+#: edit_list_newValue
+msgid "New text:"
+msgstr "Nový text:"
+
+#: edit_list_addElement
+msgid "Add new list element"
+msgstr "Přidat nový prvek seznamu"
+
+#: edit_list_modifyValue
+msgid "Modify selected text"
+msgstr "Změnit vybraný text"
+
+#: edit_text_act_target
+msgid "Target"
+msgstr "Cíl"
+
+#: edit_text_act_maxLen
+msgctxt "edit_text_act_maxLen"
+msgid "Max. length:"
+msgstr "Max. délka:"
+
+#: edit_text_act_maxLen_tooltip
+msgid "Maximum amount of characters in the answer."
+msgstr "Maximální počet znaků v odpovědi"
+
+#: edit_text_act_fillingChar
+msgid "Filling character"
+msgstr "Vyplňující znak"
+
+#: edit_text_act_fillingChar_tooltip
+msgid "Character used to indicate the blank"
+msgstr "Znak použitý k určení mezery"
+
+#: edit_text_act_iniLen
+msgid "Initial length:"
+msgstr "Počáteční délka:"
+
+#: edit_text_act_iniLen_tooltip
+msgid ""
+"Number of filling chars that will be displayed at the beginning of the "
+"activity."
+msgstr "Počet vyplňujících znaků, které budou zobrazeny na začátku činnosti."
+
+#: edit_text_act_iniText
+msgid "Initial text:"
+msgstr "Počáteční text:"
+
+#: edit_text_act_iniText_tooltip
+msgid "Text displayed in the blank at the beggining of the activity."
+msgstr "Text zobrazený v mezeře na začátku činnosti."
+
+#: edit_text_act_list
+msgid "Show a list of options:"
+msgstr "Zobrazit seznam možností:"
+
+#: edit_text_act_list_tooltip
+msgid "Display a list of options from which the user must select one."
+msgstr "Zobrazit seznam možností, z nichž uživatel musí jednu vybrat."
+
+#: edit_text_act_check_title
+msgid "Correction options"
+msgstr "Možnosti opravy"
+
+#: edit_text_act_popup_no
+msgid "No pop up"
+msgstr "Žádné vyskakování"
+
+#: edit_text_act_popup_always
+msgid "Pop up automatically"
+msgstr "Vyskočit automaticky"
+
+#: edit_text_act_popup_onError
+msgid "Pop up in errors"
+msgstr "Vyskočit při chybách"
+
+#: edit_text_act_popup_onDemand
+msgid "Pop up with F1"
+msgstr "Vyskočit pomocí F1"
+
+#: edit_text_act_popup_type
+msgctxt "edit_text_act_popup_type"
+msgid "Type:"
+msgstr "Typ:"
+
+#: edit_text_act_popup_delay
+msgid "Pop up delay:"
+msgstr "Zpoždění vyskočení:"
+
+#: edit_text_act_popup_maxTime
+msgctxt "edit_text_act_popup_maxTime"
+msgid "Max. time:"
+msgstr "Max. čas:"
+
+#: edit_text_act_popup_onlyPlay
+msgid "Sound only"
+msgstr "Pouze zvuk"
+
+#: edit_text_act_err_noSelection
+msgid ""
+"You must select a fragment of text in order to create a new text target!"
+msgstr "Musíte zvolit část textu, abyste vytvořili nový cílový text!"
+
+#: edit_text_act_err_badCharInSelection
+msgid "Target text cannot include paragraph returns nor tabs."
+msgstr "Cílový text nemůže obsahovat odstavec ani záložky"
+
+#: edit_text_act_err_nestedTargets
+msgid "Targets cannot nest!"
+msgstr "Cíle nemohou být vnořené!"
+
+#: edit_text_act_err_cellInTarget
+msgid "Targets cannot contain cells!"
+msgstr "Cíle nemohou obsahovat buňky"
+
+#: edit_text_act_pageBgColor
+msgid "Paper colour:"
+msgstr "Barva papíru:"
+
+#: edit_text_act_editStylesBtn
+msgid "Edit document styles..."
+msgstr "Upravit styly dokumentu..."
+
+#: edit_text_act_mainStyle
+msgid "Main style:"
+msgstr "Hlavní styl:"
+
+#: edit_text_act_tabSpc
+msgid "Tab space:"
+msgstr "Mezera záložky:"
+
+#: edit_text_act_tabSize
+msgid "Spaces between tab marks:"
+msgstr "Mezery mezi značkami záložek:"
+
+#: edit_text_act_colors
+msgid "Colors:"
+msgstr "Barvy:"
+
+#: edit_text_act_targetStyle
+msgid "Target colors:"
+msgstr "Cílové barvy:"
+
+#: edit_text_act_errorStyle
+msgid "Error colors:"
+msgstr "Chybové barvy:"
+
+#: edit_text_act_preview
+msgctxt "edit_text_act_preview"
+msgid "Preview:"
+msgstr "Náhled:"
+
+#: edit_text_act_styleSample_default_start
+msgid "Standard text"
+msgstr "Standardní text"
+
+#: edit_text_act_styleSample_target
+msgid "target"
+msgstr "cíl"
+
+#: edit_text_act_styleSample_error
+msgid "error"
+msgstr "chyba"
+
+#: edit_text_act_styleSample_default_fill
+msgid "standard text"
+msgstr "standardní text"
+
+#: edit_text_act_styleSample_default_end
+msgid "standard text."
+msgstr "standardní text."
+
+#: edit_text_act_warnDeleteTarget
+msgid ""
+"Warning: This action will supress the currently selected target. Do you want "
+"to proceed?"
+msgstr ""
+"Varování: Tato činnost potlačí současný zvolený cíl. Chcete pokračovat?"
+
+#: edit_text_act_prevScreen_title
+msgid "Previous screen..."
+msgstr "Předchozí obrazovka..."
+
+#: edit_text_act_prevScreen_no
+msgid "Don't display any text before starting the activity"
+msgstr "Nezobrazovat žádný text před začátkem činnosti"
+
+#: edit_text_act_prevScreen_original
+msgid "Display the complete text of the exercise"
+msgstr "Zobrazit dokončený text cvičení"
+
+#: edit_text_act_prevScreen_special
+msgid "Display this text:"
+msgstr "Zobrazit tento text:"
+
+#: edit_text_act_prevScreen_time
+msgctxt "edit_text_act_prevScreen_time"
+msgid "Max. time:"
+msgstr "Max. čas:"
+
+#: edit_text_act_edit_target
+msgid "Target..."
+msgstr "Cíl..."
+
+#: edit_text_act_checkButton_show
+msgid "Show correction button"
+msgstr "Zobrazit tlačítko opravy"
+
+#: edit_text_act_checkButtonText
+msgid "Button text:"
+msgstr "Text tlačítka:"
+
+#: edit_text_act_checkCase
+msgid "Match case"
+msgstr "Shoda s velikostí písmen"
+
+#: edit_text_act_checkAccents
+msgid "Consider accents and special characters"
+msgstr "Zvažovat znaménka a zvláštní znaky"
+
+#: edit_text_act_checkPunct
+msgid "Consider punctuation marks"
+msgstr "Zvažovat interpunkční znaménka"
+
+#: edit_text_act_checkDoubleSpc
+msgid "Allow repeated spaces"
+msgstr "Povolit opakované mezery"
+
+#: edit_text_act_checkOptions
+msgid "Criteria"
+msgstr "Kritéria"
+
+#: edit_text_act_checkAutoJump
+msgid "Move on to next target when filled in"
+msgstr "Přesunout na dakší cíl při vyplnění"
+
+#: edit_text_act_checkForceOk
+msgid "Move only after correct guess"
+msgstr "Přesunout se pouze po správném odhadu"
+
+#: edit_text_act_checkDetail
+msgid "Indicate mistakes letter by letter"
+msgstr "Ukázat chyby písmeno po písmeně"
+
+#: edit_text_act_checkDetail_params
+msgid "Analysis algorithm parameters:"
+msgstr "Parametry algoritmu analýzy:"
+
+#: edit_text_act_checkDetail_steps
+msgid "Steps:"
+msgstr "Kroky:"
+
+#: edit_text_act_checkDetail_field
+msgid "Exploration field:"
+msgstr "Pole průzkumu:"
+
+#: edit_text_act_defaultCheckButtonText
+msgid "Check"
+msgstr "Zkontrolovat"
+
+#: edit_text_act_advancedCorrectionOptions
+msgid "Answer analysis"
+msgstr "Analýza odpovědi"
+
+#: edit_text_act_check_bt
+msgid "Correction..."
+msgstr "Oprava..."
+
+#: edit_text_act_checkButton
+msgid "Correction button"
+msgstr "Tlačítko opravy"
+
+#: edit_text_act_checkProgress
+msgid "Progress"
+msgstr "Postup"
+
+#: edit_text_act_typeBtn
+msgid "Type..."
+msgstr "Typ..."
+
+#: edit_text_act_orderParagraphs
+msgid "Order paragraphs"
+msgstr "Seřadit odstavce"
+
+#: edit_text_act_orderWords
+msgid "Order words"
+msgstr "Seřadit slova"
+
+#: edit_text_act_order_amongstPar
+msgid "Shuffle words amongst paragraphs"
+msgstr "Zamíchat slova mezi paragrafy"
+
+#: edit_text_act_type_title
+msgid "Activity type"
+msgstr "Typ činnosti"
+
+#: edit_text_act_warnChangeType
+msgid ""
+"This action will clear all the existing targets. Do you want to proceed?"
+msgstr "Tato činnost smaže všechny existující cíle. Chcete pokračovat?"
+
+#: edit_text_act_identWords
+msgid "Identify words"
+msgstr "Rozpoznat slova"
+
+#: edit_text_act_identChars
+msgid "Identify characters"
+msgstr "Rozpoznat znaky"
+
+#: edit_media_change_name
+msgid "Change name..."
+msgstr "Změnit název..."
+
+#: edit_media_change_file
+msgid "Change file..."
+msgstr "Uměnit soubor..."
+
+#: edit_media_includeInZip
+msgid "Save into ZIP file"
+msgstr "Uložit do souboru ZIP"
+
+#: edit_media_type
+msgid "Media type:"
+msgstr "Typ média:"
+
+#: edit_media_size
+msgid "File size:"
+msgstr "Velikost souboru:"
+
+#: edit_media_show_type
+msgid "Files of type:"
+msgstr "Soubory typu:"
+
+#: edit_media_preview
+msgid "Preview media"
+msgstr "Náhled média"
+
+#: edit_media_preview_tooltip
+msgid "Preview media resource"
+msgstr "Náhled zdroje média"
+
+#: edit_media_rename
+msgid "Change resource name"
+msgstr "Změnit název zdroje"
+
+#: edit_media_rename_title
+msgid "Rename"
+msgstr "Přejmenovat"
+
+#: edit_media_rename_prompt
+msgid "New name:"
+msgstr "Nové jméno:"
+
+#: edit_media_rename_invalid
+msgid "Invalid resource name!"
+msgstr "Neplatný název zdroje!"
+
+#: edit_media_rename_exists
+msgid ""
+"There is another resource with this name! Each resource must have a unique "
+"name."
+msgstr ""
+"Zdroj s tímto jménem již existuje! Každý zdroj musí mít jedinečné jméno."
+
+#: edit_media_chfile_invalid
+msgid "Invalid file!"
+msgstr "Neplatný soubor!"
+
+#: err_media_chfile_different
+msgid "File must be of same type"
+msgstr "Soubor musí být stejného typu"
+
+#: edit_media_font_error
+msgid "Unable to load font!"
+msgstr "Nelze načíst písmo!"
+
+#: edit_media_save_file
+msgid "Save file (extract from ZIP)"
+msgstr "Uložit soubor (extrahovat ze ZIP)"
+
+#: edit_media_refresh_file
+msgid "Update media content from file"
+msgstr "Aktualizovat obsah média ze souboru"
+
+#: edit_media_warn_zipFileNotExternal
+msgid ""
+"This is not a \"real\" file, but a object located into a ZIP container. In "
+"order to use this feature, a file with the same name must be present in the "
+"folder where the ZIP file is located."
+msgstr ""
+"Toto není \"skutečný\" soubor, ale objekt umístěný v kontejneru ZIP. Abyste "
+"tuto funkci mohli použít, musí být ve složce, kde se nachází soubor ZIP, "
+"umístěn soubor se stejným názvem."
+
+#: edit_activities
+msgctxt "edit_activities"
+msgid "Activities"
+msgstr "Činnosti"
+
+#: edit_sequences
+msgctxt "edit_sequences"
+msgid "Sequences"
+msgstr "Sledy"
+
+#: edit_media
+msgctxt "edit_media"
+msgid "Media library"
+msgstr "Knihovna médií"
+
+#: edit_media_tooltip
+msgid "Manage images and other media files used in the project"
+msgstr "Spravovat obrázky a soubory jiných médií použitých v projektu"
+
+#: edit_activities_tooltip
+msgid "Create and edit project activities"
+msgstr "Vytvořit a upravit činnosti projektu"
+
+#: edit_sequences_tooltip
+msgid "Edit and create sequences of activities"
+msgstr "Upravit a vytvořit sled činností"
+
+#: edit_project_title
+msgctxt "edit_project_title"
+msgid "Title:"
+msgstr "Název:"
+
+#: edit_project_title_tooltip
+msgid "Project's title"
+msgstr "Název projektu"
+
+#: edit_project
+msgctxt "edit_project"
+msgid "Project"
+msgstr "Projekt"
+
+#: edit_project_tooltip
+msgid "Edit project properties"
+msgstr "Upravit vlastnosti projektu"
+
+#: edit_project_description
+msgctxt "edit_project_description"
+msgid "Description:"
+msgstr "Popis:"
+
+#: edit_project_description_tooltip
+msgid "General description of the project"
+msgstr "Celkový popis projektu"
+
+#: edit_project_area
+msgid "Areas:"
+msgstr "Oblasti:"
+
+#: edit_project_area_tooltip
+msgid "Curricular areas of the project"
+msgstr "Oblasti učiva projektu"
+
+#: edit_project_level
+msgid "Levels:"
+msgstr "Úrovně:"
+
+#: edit_project_level_tooltip
+msgid "Educational levels of the project"
+msgstr "Vzdělávací úrovně projektu"
+
+#: edit_project_descriptors
+msgid "Descriptors:"
+msgstr "Popisovače:"
+
+#: edit_project_descriptors_tooltip
+msgid "Descriptors of the project (separed with comma)"
+msgstr "Popisovače projektu (oddělené čárkou)"
+
+#: edit_project_languages
+msgid "Languages:"
+msgstr "Jazyky:"
+
+#: edit_project_languages_tooltip
+msgid "Languages used in the project"
+msgstr "Jazyky použité v projektu"
+
+#: edit_project_languages_modify
+msgid "Change the selected language"
+msgstr "Změnit vybraný jazyk"
+
+#: edit_project_languages_add
+msgid "Add language"
+msgstr "Přidat jazyk"
+
+#: edit_project_languages_select
+msgid "ISO-639 language codes:"
+msgstr "Kódy jazyků ISO-639:"
+
+#: edit_project_authors
+msgctxt "edit_project_authors"
+msgid "Authors:"
+msgstr "Autoři:"
+
+#: edit_project_authors_tooltip
+msgid "People involved in the creation of the project"
+msgstr "Lidé zapojení do vytváření tohoto projektu"
+
+#: edit_project_author_name
+msgctxt "edit_project_author_name"
+msgid "Name:"
+msgstr "Jméno:"
+
+#: edit_project_author_mail
+msgctxt "edit_project_author_mail"
+msgid "e-mail:"
+msgstr "e-mail:"
+
+#: edit_project_author_rol
+msgid "Rol:"
+msgstr "Role:"
+
+#: edit_project_author_organization
+msgid "Organization:"
+msgstr "Organizace:"
+
+#: edit_project_author_comments
+msgctxt "edit_project_author_comments"
+msgid "Comments:"
+msgstr "Komentáře:"
+
+#: edit_project_author_url
+msgctxt "edit_project_author_url"
+msgid "URL:"
+msgstr "URL:"
+
+#: edit_project_author_name_tooltip
+msgid "Author's name (required)"
+msgstr "Jméno autora (povinné)"
+
+#: edit_project_author_mail_tooltip
+msgid "Author's e-mail (optional)"
+msgstr "E-mail autora (nepovinné)"
+
+#: edit_project_author_rol_tooltip
+msgid ""
+"Person's rol in the project: author, collaborator, drawings, sounds... "
+"(optional)"
+msgstr ""
+"Role osoby v projektu: autor, spolupracovník, kresby, zvuky... (nepovinné)"
+
+#: edit_project_author_organization_tooltip
+msgid "School, university, association... (optional)"
+msgstr "Škola, univerzita, asociace... (nepovinné)"
+
+#: edit_project_author_url_tooltip
+msgid "Personal web page (optional)"
+msgstr "Osobní internetová stránka (nepovinné)"
+
+#: edit_project_author_comments_tooltip
+msgid "Field for other information (optional)"
+msgstr "Pole pro další informace (nepovinné)"
+
+#: edit_project_author_info
+msgid "Author info:"
+msgstr "Informace o autorovi:"
+
+#: edit_project_author_add
+msgid "Add author to list"
+msgstr "Přidat autora do seznamu"
+
+#: edit_project_author_edit
+msgid "Edit author info"
+msgstr "Upravit informace o autorovi"
+
+#: edit_project_org_name
+msgctxt "edit_project_org_name"
+msgid "Name:"
+msgstr "Jméno:"
+
+#: edit_project_org_name_tooltip
+msgid "School name"
+msgstr "Jméno školy"
+
+#: edit_project_org_mail
+msgctxt "edit_project_org_mail"
+msgid "e-mail:"
+msgstr "e-mail:"
+
+#: edit_project_org_mail_tooltip
+msgid "e-mail address of the school"
+msgstr "e-mailová adresa školy"
+
+#: edit_project_org_url
+msgctxt "edit_project_org_url"
+msgid "URL:"
+msgstr "URL:"
+
+#: edit_project_org_url_tooltip
+msgid "School website"
+msgstr "Internetová stránka školy"
+
+#: edit_project_org_address
+msgid "Address:"
+msgstr "Adresa:"
+
+#: edit_project_org_address_tooltip
+msgid "Snail-mail address"
+msgstr "Poštovní adresa"
+
+#: edit_project_org_pc
+msgid "PC:"
+msgstr "PC:"
+
+#: edit_project_org_pc_tooltip
+msgid "Postal code"
+msgstr "PSČ"
+
+#: edit_project_org_city
+msgid "City:"
+msgstr "Město:"
+
+#: edit_project_org_city_tooltip
+msgid "School city"
+msgstr "Město školy"
+
+#: edit_project_org_country
+msgid "Country:"
+msgstr "Země:"
+
+#: edit_project_org_state
+msgid "State:"
+msgstr "Stát:"
+
+#: edit_project_org_comments
+msgctxt "edit_project_org_comments"
+msgid "Comments:"
+msgstr "Komentáře:"
+
+#: edit_project_org
+msgid "School/s:"
+msgstr "Škola/y:"
+
+#: edit_project_org_tooltip
+msgid "School or other institution involved in the project"
+msgstr "Škola nebo jiná instituce zapojená do tohoto projektu"
+
+#: edit_project_org_info
+msgid "Organization info:"
+msgstr "Informao organizaci:"
+
+#: edit_project_org_add
+msgid "Add organization"
+msgstr "Přidat organizaci"
+
+#: edit_project_org_edit
+msgid "Edit organization data"
+msgstr "Upravit data organizace"
+
+#: edit_project_org_country_tooltip
+msgid "Country, federation, union..."
+msgstr "Země, federace, sdružení..."
+
+#: edit_project_org_state_tooltip
+msgid "Federal state, community, region..."
+msgstr "Federální stát, komunita, kraj..."
+
+#: edit_project_org_comments_tooltip
+msgid "Other info..."
+msgstr "Jiné informace..."
+
+#: edit_project_rev_date
+msgid "Date:"
+msgstr "Datum:"
+
+#: edit_project_rev_date_tooltip
+msgid "Date of the revision"
+msgstr "Datum revize"
+
+#: edit_project_rev_authors
+msgctxt "edit_project_rev_authors"
+msgid "Authors:"
+msgstr "Autoři:"
+
+#: edit_project_rev_authors_tooltip
+msgid "Authors of the revision"
+msgstr "Autoři revize"
+
+#: edit_project_rev_description
+msgctxt "edit_project_rev_description"
+msgid "Description:"
+msgstr "Popis:"
+
+#: edit_project_rev_description_tooltip
+msgid "Brief description of the changes made"
+msgstr "Krátký popis provedených změn"
+
+#: edit_project_rev_comments
+msgctxt "edit_project_rev_comments"
+msgid "Comments:"
+msgstr "Komentáře:"
+
+#: edit_project_rev_comments_tooltip
+msgid "Other relevant info"
+msgstr "Jiné důležité informace"
+
+#: edit_project_rev
+msgid "Revisions:"
+msgstr "Revize:"
+
+#: edit_project_rev_tooltip
+msgid "History of main modifications made to the project"
+msgstr "Historie hlavních změn provedených v projektu"
+
+#: edit_project_rev_add
+msgid "Add revision record"
+msgstr "Přidat záznam revize"
+
+#: edit_project_rev_edit
+msgid "Edit revision record"
+msgstr "Upravit záznam revize"
+
+#: edit_project_rev_info
+msgid "Revision data"
+msgstr "Data revize"
+
+#: edit_media_objects
+msgid "objects"
+msgstr "objekty"
+
+#: edit_media_object
+msgid "object"
+msgstr "objekt"
+
+#: edit_evsounds_start
+msgid "Start of activity:"
+msgstr "Začátek činnosti:"
+
+#: edit_evsounds_click
+msgid "Click on object:"
+msgstr "Kliknutí na objekt:"
+
+#: edit_evsounds_actionError
+msgid "Erroneous action:"
+msgstr "Chybná činnost:"
+
+#: edit_evsounds_actionOk
+msgid "Correct action:"
+msgstr "Správna činnost:"
+
+#: edit_evsounds_finishedError
+msgid "Activity finished with errors:"
+msgstr "Činnost dokončena s chybami:"
+
+#: edit_evsounds_finishedOk
+msgid "Activity finished OK:"
+msgstr "Činnost dokončena v pořádku:"
+
+#: edit_project_rev_err_nodesc
+msgid "Error: The description field cannot be leaved blank!"
+msgstr "Chyba: Popisné pole nemohou být zanechána prázdná!"
+
+#: edit_evsounds_dlg_title
+msgid "Edit event sounds"
+msgstr "Upravit zvuky událostí"
+
+#: edit_project_evsounds
+msgctxt "edit_project_evsounds"
+msgid "Event sounds:"
+msgstr "Zvuky událostí:"
+
+#: edit_project_evsounds_tooltip
+msgctxt "edit_project_evsounds_tooltip"
+msgid "Set specific sounds for each JClic event"
+msgstr "Nastavit určité zvuky pro každou událost JClic"
+
+#: edit_act_evsounds
+msgctxt "edit_act_evsounds"
+msgid "Event sounds:"
+msgstr "Zvuky událostí:"
+
+#: edit_act_evsounds_tooltip
+msgctxt "edit_act_evsounds_tooltip"
+msgid "Set specific sounds for each JClic event"
+msgstr "Nastavit určité zvuky pro každou událost JClic"
+
+#: edit_evsounds_default
+msgid "default sound"
+msgstr "výchozí zvuk"
+
+#: edit_evsounds_disabled
+msgid "disabled"
+msgstr "zakázáno"
+
+#: edit_evsounds_chk_tooltip
+msgid "Enable or disable the sound for this event"
+msgstr "Povolit nebo zakázat zvuk pro tuto událost"
+
+#: edit_evsounds_select_tooltip
+msgid ""
+"Click to select a sound for this event, or uncheck to use the default sound"
+msgstr ""
+"Klikněte pro vybrání zvuku pro tuto událost, nebo odškrtněte pro použití "
+"výchozího zvuku"
+
+#: action_newProject_caption
+msgid "New project..."
+msgstr "Nový projekt..."
+
+#: action_newProject_keys
+msgid "NN"
+msgstr "NN"
+
+#: action_newProject_tooltip
+msgid "Create a new JClic project"
+msgstr "Vytvořit nový projekt JClic"
+
+#: edit_arith_op_from
+msgctxt "edit_arith_op_from"
+msgid "From:"
+msgstr "Od:"
+
+#: edit_arith_op_from_tooltip
+msgid "Minimum value of the operator"
+msgstr "Minimální hodnota operátoru"
+
+#: edit_arith_op_to
+msgctxt "edit_arith_op_to"
+msgid "To:"
+msgstr "Do:"
+
+#: edit_arith_op_to_tooltip
+msgid "Maximum value of the operator"
+msgstr "Maximální hodnota operátoru"
+
+#: edit_arith_op_with
+msgid "With:"
+msgstr "S:"
+
+#: edit_arith_op_with_tooltip
+msgid "If checked, the operator can also have this value"
+msgstr "Pokud je zaškrtnuto, operátor může také mí tuto hodnotu"
+
+#: edit_arith_op_fromList
+msgid "One from the list:"
+msgstr "Jeden ze seznamu:"
+
+#: edit_arith_op_fromList_tooltip
+msgid "List of possible values for the operator"
+msgstr "Seznam možných hodnot pro operátora"
+
+#: edit_arith_op_decimals
+msgid "Decimals:"
+msgstr "Desetinná čísla:"
+
+#: edit_arith_op_decimals_tooltip
+msgid "Number of decimals of the operand"
+msgstr "Počet desetinných čísel operandu"
+
+#: edit_arith_op_dec0
+msgid "# (integer)"
+msgstr "# (celé číslo)"
+
+#: edit_arith_op_dec1
+msgid "#.#"
+msgstr "#.#"
+
+#: edit_arith_op_dec2
+msgid "#.##"
+msgstr "#.##"
+
+#: edit_arith_firstOp
+msgid "First operand"
+msgstr "První operand"
+
+#: edit_arith_secondOp
+msgid "Second operand"
+msgstr "Druhý operand"
+
+#: edit_arith_title
+msgid "Arith2 for JClic"
+msgstr "Arith2 pro JClic"
+
+#: edit_arith_operations
+msgid "Operations:"
+msgstr "Operace:"
+
+#: edit_arith_operations_tooltip
+msgid "Select the kind of operations to be performed"
+msgstr "Vyberte druh operací k provedení"
+
+#: edit_arith_operations_plus
+msgid "Plus"
+msgstr "Plus"
+
+#: edit_arith_operations_minus
+msgid "Minus"
+msgstr "Mínus"
+
+#: edit_arith_operations_multiply
+msgid "Multiply"
+msgstr "Násobit"
+
+#: edit_arith_operations_divide
+msgid "Divide"
+msgstr "Dělit"
+
+#: edit_arith_unknown
+msgid "Unknown:"
+msgstr "Neznámá:"
+
+#: edit_arith_unknown_tooltip
+msgid "Select the item that will act as a unknown"
+msgstr "Vyberte položku, která se bude chovat jako neznámá"
+
+#: edit_arith_unknown_aobx
+msgid "The result is the unknown"
+msgstr "Výsledek je neznámý"
+
+#: edit_arith_unknown_aoxr
+msgid "The second operator is the unknown"
+msgstr "Druhý operátor je neznámá"
+
+#: edit_arith_unknown_xobr
+msgid "The first operator is the unknown"
+msgstr "První operátor je neznámá"
+
+#: edit_arith_unknown_axbr
+msgid "The operation is the unknown"
+msgstr "Operátor je neznámá"
+
+#: edit_arith_unknown_invert
+msgid "Write the result at the beggining of the expression"
+msgstr "Napsat výsledek na začátku výrazu"
+
+#: edit_arith_result
+msgid "Result:"
+msgstr "Výsledek:"
+
+#: edit_arith_result_notCarry
+msgid "Do not carry"
+msgstr "Nepřenášet"
+
+#: edit_arith_result_random
+msgid "Random"
+msgstr "Náhodné"
+
+#: edit_arith_result_asc
+msgid "Ascending"
+msgstr "Vzestupně"
+
+#: edit_arith_result_order
+msgid "Order by result:"
+msgstr "Seřadit podle výsledku:"
+
+#: edit_arith_result_desc
+msgid "Descending"
+msgstr "Sestupně"
+
+#: edit_arith_result_avoidDup
+msgid "Avoid duplicates"
+msgstr "Zamezit duplikátům"
+
+#: edit_arith_cond
+msgid "Conditions:"
+msgstr "Podmínky:"
+
+#: edit_arith_cond_ind
+msgid "Indifferent"
+msgstr "Neutrální"
+
+#: edit_arith_cond_agb
+msgid "The first operator must be greather than the second one"
+msgstr "První operátor musí být větší než druhý"
+
+#: edit_arith_cond_alb
+msgid "The first operator must be lesser than the second one"
+msgstr "První operátor musí být menší než druhý"
+
+#: edit_arith_cond_tooltip
+msgid "Other conditions"
+msgstr "Jiné podmínky"
+
+#: edit_autocp
+msgid "Automatic content generator:"
+msgstr "Automatický generátor obsahu:"
+
+#: edit_autocp_tooltip
+msgid "Select the type of automatic content generator for this activity."
+msgstr "Vyberte typ automatického generátoru obsahu pro tuto činnost."
+
+#: edit_autocp_block
+msgid "Content generator"
+msgstr "Generátor obsahu"
+
+#: edit_autocp_btn
+msgid "Settings..."
+msgstr "Nastavení..."
+
+#: edit_autocp_btn_tooltip
+msgid "Configure the content provider settings"
+msgstr "Nastavení poskytovatele obsahu"
+
+#: edit_data
+msgid "Edit data"
+msgstr "Upravit data"
+
+#: edit_act
+msgid "Activity edit"
+msgstr "Úprava činnosti"
+
+#: edit_acp
+msgid "Content provider edit"
+msgstr "Úprava poskytovatele obsahu"
+
+#: edit_acp_err_creating
+msgid "Error creating the content provider!"
+msgstr "Chyba při vytváření poskytovatele obsahu!"
+
+#: edit_project_author_group
+msgid "Creation"
+msgstr "Tvorba"
+
+#: edit_project_description_block
+msgctxt "edit_project_description_block"
+msgid "Description"
+msgstr "Popis"
+
+#: edit_project_ui_block
+msgctxt "edit_project_ui_block"
+msgid "User interface"
+msgstr "Uživatelské rozhraní"
+
+#: edit_act_description
+msgctxt "edit_act_description"
+msgid "Description:"
+msgstr "Popis:"
+
+#: m_Edit
+msgid "Edit"
+msgstr "Upravit"
+
+#: m_Edit_Mnemonic
+msgid "E"
+msgstr "E"
+
+#: edit_media_preview_keys
+msgid "P*"
+msgstr "P*"
+
+#: edit_act_newActivity
+msgid "New activity..."
+msgstr "Nová činnost..."
+
+#: edit_act_newActivity_keys
+msgid "A*"
+msgstr "A*"
+
+#: edit_act_testAction_keys
+msgid "P#10"
+msgstr "P#10"
+
+#: edit_seq_newElement_keys
+msgid "S*"
+msgstr "S*"
+
+#: m_Insert
+msgid "Insert"
+msgstr "Vložit"
+
+#: m_Insert_Mnemonic
+msgid "I"
+msgstr "I"
+
+#: m_View
+msgid "View"
+msgstr "Zobrazit"
+
+#: m_View_Mnemonic
+msgid "V"
+msgstr "V"
+
+#: action_editProject_caption
+msgctxt "action_editProject_caption"
+msgid "Project"
+msgstr "Projekt"
+
+#: action_editProject_keys
+msgid "PP"
+msgstr "PP"
+
+#: action_editProject_tooltip
+msgid "Edit project settings"
+msgstr "Upravit nastavení projektu"
+
+#: action_editMedia_caption
+msgid "Media"
+msgstr "Média"
+
+#: action_editMedia_keys
+msgid "MM"
+msgstr "MM"
+
+#: action_editMedia_tooltip
+msgid "Edit the project's multimedia library"
+msgstr "Upravit knihovnu multimédií projektu"
+
+#: action_editActivities_caption
+msgctxt "action_editActivities_caption"
+msgid "Activities"
+msgstr "Činnosti"
+
+#: action_editActivities_keys
+msgctxt "action_editActivities_keys"
+msgid "AA"
+msgstr "AA"
+
+#: action_editActivities_tooltip
+msgid "Edit the activities"
+msgstr "Upravit činnosti"
+
+#: action_editSeq_caption
+msgctxt "action_editSeq_caption"
+msgid "Sequences"
+msgstr "Sledy"
+
+#: action_editSeq_keys
+msgctxt "action_editSeq_keys"
+msgid "SS"
+msgstr "SS"
+
+#: action_editSeq_tooltip
+msgid "Edit the sequences of activities"
+msgstr "Upravit sledy činností"
+
+#: warn_project_modified
+msgid "Current project has been modified. Do you want to save the changes?"
+msgstr "Současný projekt byl změněn. Chcete změny uložit?"
+
+#: edit_project_descriptors_block
+msgid "Descriptors"
+msgstr "Popisovače"
+
+#: edit_media_new
+msgid "New media object..."
+msgstr "Nový mediální objekt..."
+
+#: edit_media_new_tooltip
+msgid "Add a new image or multimedia object to the library"
+msgstr "Přidat nový obrázek nebo multimediální objekt do knihovny"
+
+#: edit_media_new_keys
+msgid "M*"
+msgstr "M*"
+
+#: edit_seq_threshold
+msgid "Score threshold:"
+msgstr "Hranice skóre:"
+
+#: edit_seq_threshold_tooltip_up
+msgid "Take this way when the global score is equal to or higher than..."
+msgstr "Jít touto cestou, pokud je globální skóre rovno nebo větší než..."
+
+#: edit_seq_time
+msgid "Time threshold:"
+msgstr "Časová hranice:"
+
+#: edit_seq_time_tooltip_up
+msgid ""
+"In order to take this way, the time spent on the activities must be less "
+"than..."
+msgstr ""
+"Aby se šlo touto cestou, strávený čas na činnostech musí být menší než..."
+
+#: edit_seq_threshold_tooltip_down
+msgid "Take this way when the global score is lower than..."
+msgstr "Jít touto cestou, pokud je globální skóre menší než..."
+
+#: edit_seq_time_tooltip_down
+msgid "Take this way when the time spent on the activities is more than..."
+msgstr "Jít touto cestou, když je čas strávený na činnostech větší než..."
+
+#: edit_seq_condJump
+msgid "Conditional jumps"
+msgstr "Podmíněné skoky"
+
+#: edit_seq_condJump_tooltip
+msgid "Set special jumps to be executed only under specific condicions"
+msgstr ""
+"Nastavit zvláštní skoky, které budou provedeny pouze za určitých podmínek"
+
+#: edit_seq_condJump_upper_tooltip
+msgid "Set conditions to jump to an upper level"
+msgstr "Nastavit podmínky pro skok na vyšší úroveň"
+
+#: edit_seq_condJump_lower
+msgid "Lower jump:"
+msgstr "Skok níže:"
+
+#: edit_seq_condJump_upper
+msgid "Upper jump:"
+msgstr "Skok výše:"
+
+#: edit_seq_condJump_lower_tooltip
+msgid "Set conditions to jump to an lower level"
+msgstr "Nastavit podmínky pro skok na nižší úroveň"
+
+#: edit_seq_action_tooltip_fw
+msgid "Action assigned to the \"next\" button"
+msgstr "Přidělená činnost pro tlačítko \"další\""
+
+#: edit_seq_action_tooltip_bk
+msgid "Action assigned to the \"previous\" button"
+msgstr "Přidělená činnost pro tlačítko \"předchozí\""
+
+#: edit_seq_jump_tooltip
+msgid "Set the jump target"
+msgstr "Nastavit cíl skoku"
+
+#: edit_seq_action_tooltip
+msgid "Action to be done"
+msgstr "Činnosti, které budou provedeny"
+
+#: edit_seq_activity_tooltip
+msgid "Activity assigned to this sequence element"
+msgstr "Přidělená činnost pro tento prvek sekvence"
+
+#: edit_seq_tag_tooltip
+msgid "Tag used to reference this sequence element (optional field)"
+msgstr "Značka použitá pro odkaz na tento prvek sekvence (nepovinné pole)"
+
+#: edit_seq_description_tooltip
+msgid "Description of the sequence element (optional field)"
+msgstr "Popis prvku sekvence (nepovinné pole)"
+
+#: edit_seq_button_enabled_tooltip
+msgid "Enable or disable the arrow button"
+msgstr "Povolit nebo zakázat tlačítko šipky"
+
+#: edit_seq_auto_tooltip
+msgid "Move on automatically when the activity finishes"
+msgstr "Při dokončení činnosti automaticky pokračovat"
+
+#: edit_seq_delay_tooltip
+msgid "Seconds to wait before to do the automatic move"
+msgstr "Koli kvteřin počkat, před automatickým pokračováním"
+
+#: edit_color_dlgTitle
+msgid "Select color"
+msgstr "Vyberte barvu"
+
+#: edit_media_renaming
+msgid "Please wait while the resource is being renamed..."
+msgstr "Počkejte prosím, než bude zdroj přejmenován..."
+
+#: edit_act_cell_width
+msgctxt "edit_act_cell_width"
+msgid "Width:"
+msgstr "Šířka:"
+
+#: edit_act_cell_width_tooltip
+msgid "Cell width (in pixels)"
+msgstr "Šířka buňky (v pixelech)"
+
+#: edit_act_cell_height
+msgctxt "edit_act_cell_height"
+msgid "Height:"
+msgstr "Výška:"
+
+#: edit_act_cell_height_tooltip
+msgid "Cell height (in pixels)"
+msgstr "Výška buňky (v pixelech)"
+
+#: edit_act_hiddenWords
+msgid "Hidden words:"
+msgstr "Skrytá slova:"
+
+#: edit_act_hiddenWords_tooltip
+msgid "List of the hidden words placed in the panel"
+msgstr "Seznam skrytých slov umístěných v panelu"
+
+#: edit_act_wordSearch_panelB
+msgid "Use panel B"
+msgstr "Použít panel B"
+
+#: edit_act_wordSearch_panelB_tooltip
+msgid "The contents of a second panel will be displayed as words are found"
+msgstr "Obsah druhého panelu bude zobrazován jak budou slova nacházena"
+
+#: edit_act_shaper_tooltip
+msgid "Select the shaper type to be used in the panel"
+msgstr "Vyberte typ tvarovače, který bude v panelu použit"
+
+#: edit_act_num_cols_tooltip
+msgid "Number of columns of  the panel"
+msgstr "Počet sloupců v panelu"
+
+#: edit_act_num_rows_tooltip
+msgid "Number of rows of  the panel"
+msgstr "Počet řádků v panelu"
+
+#: edit_act_wildTransparent
+msgid "Transparent delimiters"
+msgstr "Průhledné oddělovače"
+
+#: edit_act_wildTransparent_tooltip
+msgid "Treat the delimiters (black boxes) as transparent holes"
+msgstr "Chovat se k oddělovačům (černým rámečkům) jako k průhledným dírám"
+
+#: edit_act_behavior_scramble_times
+msgid "Mixes\\:"
+msgstr "Míchá\\:"
+
+#: edit_act_behavior_scramble_times_tooltip
+msgid "Number of times to shuffle"
+msgstr "Kolikrát zamíchat"
+
+#: edit_act_copy_title
+msgid "Copy attributtes to..."
+msgstr "Kopírovat vlastnosti do..."
+
+#: edit_act_copy_attributes
+msgid "Attributes"
+msgstr "Vlastnosti"
+
+#: edit_act_copy_dest
+msgid "Apply to:"
+msgstr "Použít na:"
+
+#: edit_act_copy_style_main
+msgid "Main window"
+msgstr "Hlavní okno"
+
+#: edit_act_copy_style_play
+msgid "Play window"
+msgstr "Okno hry"
+
+#: edit_act_copy_activities
+msgid "Activities to be modified:"
+msgstr "Činnosti ke změně:"
+
+#: edit_act_copyAttributes
+msgid "Copy attributes"
+msgstr "Kopírovat vlastnosti"
+
+#: edit_act_copyAttributes_keys
+msgid "T"
+msgstr "T"
+
+#: edit_act_copyAttributes_tooltip
+msgid "Copy current activity attributes to other activities"
+msgstr "Kopírovat vlastnosti současné činnosti do jiných činností"
+
+#: edit_new_project_name
+msgid "Project name:"
+msgstr "Název projektu:"
+
+#: edit_new_project_name_tooltip
+msgid "Short, descriptive name of the project"
+msgstr "Krátký, popisný název projektu"
+
+#: edit_new_project_filename
+msgctxt "edit_new_project_filename"
+msgid "File name:"
+msgstr "Název souboru:"
+
+#: edit_new_project_filename_tooltip
+msgid "Name of the project file, without extension"
+msgstr "Název souboru projektu, bez přípony"
+
+#: edit_new_project_folder
+msgctxt "edit_new_project_folder"
+msgid "Folder:"
+msgstr "Složka:"
+
+#: edit_new_project_folder_tooltip
+msgid "Name of the folder where the project will be stored"
+msgstr "Název složky, kde bude projekt uložen"
+
+#: edit_new_project_folder_browse
+msgctxt "edit_new_project_folder_browse"
+msgid "Browse..."
+msgstr "Procházet…"
+
+#: edit_new_project_title
+msgid "Create new JClic project"
+msgstr "Vytvořit nový projekt JClic"
+
+#: edit_new_project_err_empty
+msgid "Error: Project, file and folder must have valid, non-empty names."
+msgstr "Chyba: Projekt, soubor a složka musí mít platné, neprázdné názvy."
+
+#: edit_new_project_warning_noEmptyFolder
+msgid ""
+"This folder already contains another Clic 3.0 or JClic project. In order to "
+"avoid confusions, is preferable to maintain each project in a separate "
+"folder, but that isn't a strict rule. Do you really want to create the new "
+"project in this folder?"
+msgstr ""
+"Tato složka již obsahuje jiný projekt Clic 3.0 nebo JClic. Aby se zabránilo "
+"zmatkům, je doporučeno, aby byl každý projekt udržován v samostatné složce, "
+"ale není to pevné pravidlo. Opravdu chcete nový projekt vytvořit v této "
+"složce?"
+
+#: edit_new_project_err_folderCreation
+msgid "Error: Unable to create the specified folder!"
+msgstr "Chyba: Nelze vytvořit určenou složku!"
+
+#: edit_act_copy_err_noSelection
+msgid ""
+"Error: No activity selected! In order to use this function you must select "
+"in the list the activity or activities to wich the indicated attributes will "
+"be applied."
+msgstr ""
+"Chyba: Nebyla vybrána žádná činnost! Abyste mohli tuto funkci použít, musíte "
+"vybrat ze seznamu činnosti či činností v kterých budou určené vlastnosti "
+"použity."
+
+#: edit_act_copy_action_prefix
+msgid "Copying attributes to:"
+msgstr "Kopíruji vlastnosti do:"
+
+#: edit_act_copy_margin
+msgid "Margin"
+msgstr "Okraj"
+
+#: edit_act_copy_bgColor
+msgid "Background color"
+msgstr "Barva pozadí"
+
+#: edit_act_copy_gradient
+msgctxt "edit_act_copy_gradient"
+msgid "Gradient"
+msgstr "Přechod"
+
+#: edit_act_copy_bgImage
+msgid "Background image"
+msgstr "Obrázek pozadí"
+
+#: edit_act_copy_border
+msgctxt "edit_act_copy_border"
+msgid "Border"
+msgstr "Ohraničení"
+
+#: edit_act_copy_transparentBg
+msgid "Transparent background"
+msgstr "Průhledné pozadí"
+
+#: edit_act_copy_position
+msgid "Position"
+msgstr "Pozice"
+
+#: edit_act_copy_messages
+msgctxt "edit_act_copy_messages"
+msgid "Messages"
+msgstr "Zprávy"
+
+#: edit_act_copy_messages_ini
+msgid "Style of initial message"
+msgstr "Styl úvodní zprávy"
+
+#: edit_act_copy_messages_end
+msgid "Style of end message"
+msgstr "Styl konečné zprávy"
+
+#: edit_act_copy_messages_err
+msgid "Style of error message"
+msgstr "Styl chybové zprávy"
+
+#: edit_act_copy_reports
+msgctxt "edit_act_copy_reports"
+msgid "Reports"
+msgstr "Hlášení"
+
+#: edit_act_copy_rep_include
+msgid "Include activity in reports"
+msgstr "Zahrnout činnost v záznamech"
+
+#: edit_act_copy_rep_actions
+msgid "Record actions"
+msgstr "Zaznamenat činnosti"
+
+#: edit_act_copy_interface
+msgctxt "edit_act_copy_interface"
+msgid "User interface"
+msgstr "Uživatelské rozhraní"
+
+#: edit_act_copy_skin
+msgid "Skin"
+msgstr "Vzhled"
+
+#: edit_act_copy_evSounds
+msgid "Event sounds"
+msgstr "Zvuky událostí"
+
+#: edit_act_copy_counters
+msgctxt "edit_act_copy_counters"
+msgid "Counters"
+msgstr "Počítadla"
+
+#: edit_act_copy_cTime
+msgctxt "edit_act_copy_cTime"
+msgid "Time counter"
+msgstr "Počítadlo času"
+
+#: edit_act_copy_maxTime
+msgid "Max. time"
+msgstr "Max. čas"
+
+#: edit_act_copy_cTries
+msgctxt "edit_act_copy_cTries"
+msgid "Tries counter"
+msgstr "Počítadlo pokusů"
+
+#: edit_act_copy_maxTries
+msgid "Max. tries"
+msgstr "Max. pokusů"
+
+#: edit_act_copy_cScore
+msgctxt "edit_act_copy_cScore"
+msgid "Score counter"
+msgstr "Počítadlo skóre"
+
+#: edit_act_copy_scramble
+msgid "Times to scramble"
+msgstr "Kolikrát zamíchat"
+
+#: edit_act_copy_buttons
+msgctxt "edit_act_copy_buttons"
+msgid "Buttons"
+msgstr "Tlačítka"
+
+#: edit_act_copy_btnHelp
+msgid "Help button"
+msgstr "Tlačítko nápovědy"
+
+#: edit_act_copy_btnInfo
+msgid "Information button"
+msgstr "Tlačítko informací"
+
+#: edit_act_copy_grids
+msgid "Grids"
+msgstr "Mřížky"
+
+#: edit_act_copy_gridA
+msgid "Style of grid A"
+msgstr "Styl mřížky A"
+
+#: edit_act_copy_gridB
+msgid "Style of grid B"
+msgstr "Styl mřížky B"
+
+#: edit_act_copy_textGrid
+msgid "Style of text grids"
+msgstr "Styl textových mřížek"
+
+#: edit_act_copy_text
+msgid "Text activities"
+msgstr "Textové činnosti"
+
+#: edit_act_copy_fontFace
+msgid "Font face"
+msgstr "Řez písma"
+
+#: edit_act_copy_fontSize
+msgid "Font size"
+msgstr "Velikost písma"
+
+#: edit_act_copy_fontStyle
+msgid "Font style"
+msgstr "Styl písma"
+
+#: edit_act_copy_textColour
+msgid "Main text colour"
+msgstr "Hlavní barva textu"
+
+#: edit_act_copy_textTargetColour
+msgctxt "edit_act_copy_textTargetColour"
+msgid "Select the JClic project of which the activities will be imported"
+msgstr "Vyberte projekt JClic z které budou činnosti importovány"
+
+#: edit_act_copy_textErrorColour
+msgid "Errors colour"
+msgstr "Chybové barvy"
+
+#: edit_act_copy_tabSpace
+msgid "Tab space"
+msgstr "Mezera karty"
+
+#: edit_act_copy_messages_prev
+msgid "Style of previous message"
+msgstr "Styl předchozí zprávy"
+
+#: edit_act_changeType
+msgid "Change activity type"
+msgstr "Změnit typ činnosti"
+
+#: edit_act_newActivity_class_tooltip
+msgid ""
+"Full name of the class to be used to build the activity (advanced users "
+"only!)"
+msgstr ""
+"Úplný název třídy, která bude použita k sestavení činnosti (pouze pro "
+"pokročilé uživatele!)"
+
+#: edit_act_newActivity_other
+msgid "Other..."
+msgstr "Další…"
+
+#: edit_act_newActivity_info
+msgid ""
+"Advanced users can also create unregistered types of JClic activities. Just "
+"write below the full class name, prefixed by the package (like "
+"\"com.acme.activities.FooActivity\"). Activity classes must extend "
+"<b>edu.xtec.jclic.Activity</b>, and must be accessibles to the JVM "
+"classloader."
+msgstr ""
+"Pokročilí uživatelé mohou také vytvořit neregistrované typy činností JClic. "
+"Stačí níže napsat úplný název třídy a balík jako předponu (např. "
+"\"com.acme.činnosti.činnost\"). Třídy činnosti musí rozšiřovat "
+"<b>edu.xtec.jclic.Activity</b>, a musí být přístupné zavaděči tříd JVM."
+
+#: edit_act_newActivity_name
+msgid "Name of the activity:"
+msgstr "Název činnosti:"
+
+#: edit_act_newActivity_name_tooltip
+msgid "Each activity must have a name unique in the project"
+msgstr "Každá třída musí mít v projektu jedinečné jméno"
+
+#: edit_act_changeType_warning
+msgid ""
+"<html><p style=\"font-family:Helvetica; font-size:10px;\"><b>Warning:</b> "
+"Changing the type of activity can cause lost of some of the current activity "
+"attributes and objects. Use it with care!</p><p>&nbsp;</p></html>"
+msgstr ""
+"<html><p style=\"font-family:Helvetica; font-size:10px;\"><b>Varování:</b> "
+"Změna typu činnosti může způsobit ztrátu některých vlastností a objektů "
+"současné činnosti. Používejte opatrně!</p><p>&nbsp;</p></html>"
+
+#: applet_codebase
+msgid "Location of JClic code:"
+msgstr "Umístění kódu JClic:"
+
+#: applet_codebase_tooltip
+msgid "URL pointing to a folder with the JClic program files and scripts"
+msgstr "URL odkazující na složku se soubory a skripty programu JClic"
+
+#: applet_prev_text
+msgid "HTML code before:"
+msgstr "Kód HTML vepředu:"
+
+#. #Text to be displayed below the applet. HTM code allowed.
+#: applet_prev_text_tooltip
+msgid "Text or HTML code to be placed before the applet"
+msgstr "Text nebo kód HTML, který bude umístěn před apletem"
+
+#: applet_post_text
+msgid "HTML code after:"
+msgstr "Kód HTML vzadu:"
+
+#: applet_post_text_tooltip
+msgid "Text or HTML code to be placed after the applet"
+msgstr "Text nebo kód HTML, který bude umístěn za apletem"
+
+#: applet_size
+msgid "Applet size:"
+msgstr "Velikost apletu:"
+
+#: applet_size_tooltip
+msgid "Width and height of the applet, in absolute or percentage values."
+msgstr "Šířka a výška apletu, v absolutních nebo procentuálních hodnotách."
+
+#: applet_page_title
+msgid "Page title:"
+msgstr "Název stránky:"
+
+#: applet_page_title_tooltip
+msgid "Text to be shown at the top of the browser window"
+msgstr "Text, který bude zobrazen v horní části okna prohlížeče"
+
+#: applet_created_info
+msgid "The web page \"%s\" has been created successfully."
+msgstr "Internetová stránka \"%s\" byla úspěšně vytvořena."
+
+#: applet_created_prompt
+msgid "Do you want to open it now with the browser?"
+msgstr "Chcete ji nyní v prohlížeči otevřít ?"
+
+#: action_createHTML_caption
+msgid "Create web page..."
+msgstr "Vytvořit internetovou stránku..."
+
+#: applet_create_title
+msgid "Creation of an HTML page with a JClic applet"
+msgstr "Vytvorení stránky HTML pomocí apletu JClic"
+
+#: action_createHTML_tooltip
+msgid "Create a HTML page with an applet containing the current project"
+msgstr "Vytvořit stránku HTML pomocí apletu obsahující současný projekt"
+
+#: applet_filename
+msgctxt "applet_filename"
+msgid "File name:"
+msgstr "Název souboru:"
+
+#: applet_filename_tooltip
+msgid "Name of the HTML file to be created"
+msgstr "Název vytvářeného HTML souboru"
+
+#: action_createHTML_keys
+msgid "H*"
+msgstr "H*"
+
+#: settings_applet
+msgid "Applet"
+msgstr "Aplet"
+
+#: settings_applet_tooltip
+msgid "Default values used in web page creation"
+msgstr "Výchozí hodnoty použité pro vytvoření stránky"
+
+#: applet_bgcolor
+msgctxt "applet_bgcolor"
+msgid "Background color:"
+msgstr "Barva pozadí:"
+
+#: applet_bgcolor_tooltip
+msgid "HTML page background color"
+msgstr "Barva pozadí stránky HTML"
+
+#: applet_centered
+msgctxt "applet_centered"
+msgid "Centered"
+msgstr "Na střed"
+
+#: applet_centered_tooltip
+msgid "Place the applet horizontally centered"
+msgstr "Umístit aplet vodorovně na střed"
+
+#: applet_width_tooltip
+msgid "Applet width (absolute or percentage)"
+msgstr "Šířka apletu (absolutní nebo procentuální)"
+
+#: applet_height_tooltip
+msgid "Applet height (absolute or percentage)"
+msgstr "Výška apletu (absolutní nebo procentuální)"
+
+#: applet_exitUrl
+msgid "On exit, go to:"
+msgstr "Při ukončení přejít na:"
+
+#: applet_exitUrl_tooltip
+msgid "URL where to redirect the navigation on JClic exit"
+msgstr "URL, kam bude navigace přesměrována po ukončení JClic"
+
+#: applet_infoFrame
+msgid "Info frame name:"
+msgstr "Název informačního rámečku"
+
+#: applet_infoFrame_tooltip
+msgid ""
+"Name of the frame used to show the content related to the \"info\" button"
+msgstr ""
+"Název rámečku, který je použit k zobrazení obsahu souvisejícího s tlačítkem "
+"\"info\""
+
+#: action_createInstaller_caption
+msgid "Create project installer..."
+msgstr "Vytvořit instalátor projektu..."
+
+#: action_createInstaller_keys
+msgctxt "action_createInstaller_keys"
+msgid "I*"
+msgstr "I*"
+
+#: action_createInstaller_tooltip
+msgid "Create a project installer script for JClic player"
+msgstr "Vytvořit skript instalátoru projektu pro přehrávač JClic"
+
+#: installer_caption
+msgid "Edit project installer script"
+msgstr "Upravit skript instalátoru projektu"
+
+#: installer_title
+msgctxt "installer_title"
+msgid "Title:"
+msgstr "Název:"
+
+#: installer_title_tooltip
+msgid "Project title, to be shown on the installer wizard"
+msgstr "Název projektu, který bude zobrazen v průvodci instalací"
+
+#: installer_authors
+msgid "Autors:"
+msgstr "Autoří:"
+
+#: installer_authors_tooltip
+msgid "Author/s of the project (short text)"
+msgstr "Autor/ři projektu (krátky text)"
+
+#: installer_folder
+msgctxt "installer_folder"
+msgid "Folder:"
+msgstr "Složka:"
+
+#: installer_folder_tooltip
+msgid "Folder name to be suggested by the installer wizard"
+msgstr "Název složky, který bude navrhnut průvodcem instalací"
+
+#: installer_files
+msgid "Files to be copied:"
+msgstr "Soubory ke zkopírování:"
+
+#: installer_files_tooltip
+msgid "Files to be copied by the installer"
+msgstr "Soubory ke zkopírování instalátorem"
+
+#: installer_files_available
+msgid "Available files"
+msgstr "Dostupné soubory"
+
+#: installer_files_selected
+msgid "Selected files"
+msgstr "Zvolené soubory"
+
+#: installer_files_add
+msgid ">> add >>"
+msgstr ">> přidat >>"
+
+#: installer_files_add_tooltip
+msgid "Add selected file to the list"
+msgstr "Přidat vybraný soubor do seznamu"
+
+#: installer_files_remove
+msgid "<< remove <<"
+msgstr "<< odstranit <<"
+
+#: installer_files_remove_tooltip
+msgid "Remove selected file from the list"
+msgstr "Odstranit vybraný soubor ze seznamu"
+
+#: installer_button
+msgid "Launch button"
+msgstr "Tlačítko spuštění"
+
+#: installer_button_tooltip
+msgid "Properties of the button to be shown in the project library"
+msgstr "Vlastnosti tlačítka, který bude zobrazen v kniovně projektů"
+
+#: installer_button_project
+msgid "Main project:"
+msgstr "Hlavní projekt:"
+
+#: installer_button_project_tooltip
+msgid "JClic project to be launched by the button"
+msgstr "Projekt JClic, který bude tlačítkem spuštěn"
+
+#: installer_button_text
+msgctxt "installer_button_text"
+msgid "Label:"
+msgstr "Štítek:"
+
+#: installer_button_text_tooltip
+msgid "Short text label, to be shown inside the button"
+msgstr "Krátký textový štítek, který bude zobrazen uvnitř tlačítka"
+
+#: installer_button_icon
+msgid "Icon:"
+msgstr "Ikona:"
+
+#: installer_button_icon_tooltip
+msgid ""
+"Picture to be used as button icon. Leave blank to use the default JClic icon."
+msgstr ""
+"Obrázek, který bude použit jako ikona tlačítka. Nechejte prázdné pro použití "
+"výchozí ikony JClic."
+
+#: installer_button_description
+msgctxt "installer_button_description"
+msgid "Description"
+msgstr "Popis"
+
+#: installer_button_description_tooltip
+msgid "Tooltip to be shown by the button"
+msgstr "Popisek, který bude tlačítkem zobrazen"
+
+#: installer_error_noTitle
+msgid "Error: Missing project title"
+msgstr "Chyba: Chybí název projektu"
+
+#: installer_error_noBaseFolder
+msgid "Error: Missing folder name"
+msgstr "Chyba: Chybí název složky"
+
+#: installer_error_noFilesSelected
+msgid "Error: No files selected"
+msgstr "Chyba: Nebyly vybrány žádné soubory"
+
+#: installer_error_noButtonText
+msgid "Error: Missing launch button text label"
+msgstr "Chyba: Chybí textový štítek tlačítka spuštění"
+
+#: installer_error_projectNotInFiles
+msgid ""
+"Error: The project assigned to the launch button is not in the list of files "
+"to be copied"
+msgstr ""
+"Chyba: Projekt přidělený ke tlačítku spuštění není v seznamu souborů ke "
+"zkopírování"
+
+#: applet_page_full
+msgid "Full-page applet"
+msgstr "Aplet na celou stránku"
+
+#: applet_page_mixed
+msgid "Applet with specific dimensions"
+msgstr "Aplet s určitými rozměry"
+
+#: edit_text_align_left
+msgid "Align text left"
+msgstr "Zarovnat text doleva"
+
+#: edit_text_align_center
+msgid "Center text"
+msgstr "Text na střed"
+
+#: edit_text_align_right
+msgid "Align text right"
+msgstr "Zarovnat text doprava"
+
+#: edit_text_act_target_toggle
+msgid "Create or remove target"
+msgstr "Vytvořit nebo odstranit cíl"
+
+#: edit_text_act_insertCell
+msgid "Insert a cell"
+msgstr "Vložit buňku"
+
+#: edit_text_act_content
+msgid "Content"
+msgstr "Obsah"
+
+#: edit_text_act_style
+msgctxt "edit_text_act_style"
+msgid "Style"
+msgstr "Styl"
+
+#: edit_cell_size
+msgid "Cell size:"
+msgstr "Velikost buňky:"
+
+#: edit_project_orphanActivities
+msgid ""
+"The following activities never appear in any of the project's activity "
+"sequences, so they never will be displayed:"
+msgstr ""
+"Následující činnosti se neobjevili v žádných pořadích činností , takže "
+"nebudou nikdy zobrazeny:"
+
+#: edit_project_orphanMedia
+msgid "The following media objects are not used directly in any activity:"
+msgstr "Následující objekty médií nejsou v žádné činnosti použity přímo:"
+
+#: edit_project_orphanActivities_prompt
+msgid "Do you want to add them at the end of the last activity sequence?"
+msgstr "Chcete je přidat na konec posledního pořadí činností?"
+
+#: edit_project_orphanMedia_prompt
+msgid "Do you want to remove them?"
+msgstr "Chcete je odstranit?"
+
+#: edit_project_orphanMedia_title
+msgid "Removal of unused media objects"
+msgstr "Odstranění nepoužitých objektů médií"
+
+#: edit_project_orphanActivities_title
+msgid "Orphan activities"
+msgstr "Osiřelé činnosti"
+
+#: edit_media_refreshAll
+msgid "Update all media content"
+msgstr "Aktualizovat všechen mediální obsah"
+
+#: edit_media_refreshAll_tooltip
+msgid "Update all media objects reloading its files"
+msgstr "Aktualizovat všechny objekty médií, znovu načtením jejich souborů"
+
+#: edit_media_refreshAll_keys
+msgid "R*"
+msgstr "R*"
+
+#: edit_media_refreshAll_working
+msgid "Updating media..."
+msgstr "Aktualizace médií..."
+
+#: edit_media_exportAll
+msgid "Export all media"
+msgstr "Exportovat všechna média"
+
+#: edit_media_exportAll_tooltip
+msgid "Save to files the content of all media elements"
+msgstr "Veškerý obsah prvků médií uložit do souborů"
+
+#: edit_media_exportAll_keys
+msgid "X*"
+msgstr "X*"
+
+#: edit_shape_select
+msgid "Select"
+msgstr "Vybrat"
+
+#: edit_shape_addPoint
+msgid "Add point"
+msgstr "Přidat bod"
+
+#: edit_shape_deletePoint
+msgid "Delete"
+msgstr "Smazat"
+
+#: edit_shape_drawRect
+msgid "Draw rectangle"
+msgstr "Nakreslit obdelník"
+
+#: edit_shape_drawEllipse
+msgid "Draw ellipse"
+msgstr "Nakreslit elipsu"
+
+#: edit_shape_drawPoly
+msgid "Draw polygon"
+msgstr "Nakreslit mnohoúhelník"
+
+#: edit_shape_toLine
+msgid "Convert to line"
+msgstr "Převést na čáru"
+
+#: edit_shape_toBezier
+msgid "Convert to Bézier curve"
+msgstr "Převést na Beziérovu křivku"
+
+#: edit_shape_toQuad
+msgid "Convert to quadratic curve"
+msgstr "Převést na kvadratickou křivku"
+
+#: edit_shape_rLeft
+msgid "Rotate left"
+msgstr "Otočit doleva"
+
+#: edit_shape_rRight
+msgid "Rotate right"
+msgstr "Otočit doprava"
+
+#: edit_shape_expand
+msgid "Expand"
+msgstr "Zvětšit"
+
+#: edit_shape_contract
+msgid "Contract"
+msgstr "Zmenšit"
+
+#: edit_shape_zoomIn
+msgid "Zoom in"
+msgstr "Přiblížit"
+
+#: edit_shape_zoomOut
+msgid "Zoom out"
+msgstr "Oddálit"
+
+#: edit_shape_aproxPoints
+msgid "Join nearest points"
+msgstr "Spojit nejbližší body"
+
+#: edit_shape_showPoints
+msgid "Show points"
+msgstr "Zobrazit body"
+
+#: edit_shape_showPoints_tooltip
+msgid "Show/Hide the points"
+msgstr "Zobrazit/Skrýt body"
+
+#: edit_shape_gridSize
+msgid "Grid size:"
+msgstr "Velikost mřížky:"
+
+#: edit_shape_hideGrid
+msgid "Show / Hide grid"
+msgstr "Zobrazit / Skrýt mřížku"
+
+#: edit_shape_magnetRadius
+msgid "Magnet radius:"
+msgstr "Poloměr magnetu:"
+
+#: edit_shape_elements
+msgid "Defined elements"
+msgstr "Určené prvky"
+
+#: edit_shape_elemName
+msgid "Name of the selected element"
+msgstr "Název tvoleného prvku"
+
+#: edit_shape_magnetRadius_tooltip
+msgid "Action radius of the magnet, when enabled"
+msgstr "Dosah magnetu, pokud je povolen"
+
+#: edit_shape_gridSize_tooltip
+msgid "Size of the grid"
+msgstr "Velikost mřížky"
+
+#: edit_mc_activity
+msgctxt "edit_mc_activity"
+msgid "Activity:"
+msgstr "Činnost:"
+
+#: edit_mc_sequence
+msgid "Sequence:"
+msgstr "Pořadí:"
+
+#: edit_mc_url
+msgctxt "edit_mc_url"
+msgid "URL:"
+msgstr "URL:"
+
+#: edit_mc_project
+msgid "Project:"
+msgstr "Projekt:"
+
+#: edit_mc_activity_selection
+msgid "Choose activity"
+msgstr "Zvolte činnost"
+
+#: edit_mc_sequence_selection
+msgid "Choose sequence"
+msgstr "Zvolte pořadí"
+
+#: edit_mc_err_nullContent
+msgid "Insufficient data!"
+msgstr "Nedostatečná data:"
+
+#: edit_act_arrowColor
+msgid "Arrow color:"
+msgstr "Barva šipky:"
+
+#: edit_act_arrowColor_tooltip
+msgid ""
+"Color used by the editor to draw the arrows (not exactly, because an XOR bit "
+"mask is used)"
+msgstr ""
+"Barva použitá editorem pro vykreslení šípek (nepřesné, protože je použita "
+"XOR maska bitu)"
+
+#: edit_act_editActivity
+msgid "Edit..."
+msgstr "Upravit..."
+
+#: edit_act_editActivity_tooltip
+msgid "Edit the selected activity"
+msgstr "Upravit vybranou činnost"
+
+#: action_saveFileAs_caption
+msgid "Save as..."
+msgstr "Uložit jako..."
+
+#: action_saveFileAs_keys
+msgctxt "action_saveFileAs_keys"
+msgid "AA"
+msgstr "AA"
+
+#: action_saveFileAs_tooltip
+msgid "Save the current project with a different name"
+msgstr "Uložit současný projekt pod jiným názvem"
+
+#: edit_act_behavior_block
+msgctxt "edit_act_behavior_block"
+msgid "Behavior"
+msgstr "Chování"
+
+#: edit_act_behavior
+msgctxt "edit_act_behavior"
+msgid "Behavior"
+msgstr "Chování"
+
+#: edit_act_behavior_drag
+msgid "Drag objects"
+msgstr "Táhnout objekty"
+
+#: edit_act_behavior_drag_tooltip
+msgid "Drag objects instead of use a connection line"
+msgstr "Táhnout objekty místo použití spojovací čáry"
+
+#: edit_act_behavior_order
+msgid "Check solving order"
+msgstr "Zkontrolovat pořadí řešení"
+
+#: edit_act_behavior_order_tooltip
+msgid "Cells must be solved in order"
+msgstr "Buňky musí být řešeny popořadě"
+
+#: edit_act_scramble
+msgid "Scramble"
+msgstr "Zamíchat"
+
+#: action_importActivities_caption
+msgid "Import activities..."
+msgstr "Importovat činnosti..."
+
+#: action_importActivities_keys
+msgctxt "action_importActivities_keys"
+msgid "I*"
+msgstr "I*"
+
+#: action_importActivities_tooltip
+msgid "Import activities from another project"
+msgstr "Importovat činnosti z jiného projektu"
+
+#: import_warn_samefile
+msgid ""
+"The selected file corresponds to the current project. Activities can be "
+"imported only between different projects. Please select another project file."
+msgstr ""
+"Vybraný soubor odpovídá současnému projektu. Činnosti mohou být importovány "
+"pouze mezi různými projekty. Prosíme, vyberte soubor jiného projektu."
+
+#: import_selectActivities
+msgid "Select one or more activities to import into the current project\\:"
+msgstr ""
+"Vyberte jednu nebo více činnosti pro import do současného projektu\\:"
+
+#: import_importing
+msgid "Importing..."
+msgstr "Importování..."
+
+#: import_checkdep
+msgid "Checking dependencies..."
+msgstr "Kontrola závislostí..."
+
+#: import_impmedia
+msgid "Importing media\\:"
+msgstr "Import médií\\:"
+
+#: import_impact
+msgid "Importing activity\\:"
+msgstr "Import činností\\:"
+
+#: import_selectProject
+msgctxt "import_selectProject"
+msgid "Select the JClic project of which the activities will be imported"
+msgstr "Vyberte projekt JClic z které budou činnosti importovány"
+
+#: edit_tagRep_tags
+msgid "Tag marks"
+msgstr "Označení značek"
+
+#: edit_tagRep_tagStart
+msgid "Start mark\\:"
+msgstr "Počáteční označení\\:"
+
+#: edit_tagRep_tagStart_tooltip
+msgid "Mark used at the beginning of tags"
+msgstr "Označení použité na začátku značek"
+
+#: edit_tagRep_tagEnd
+msgid "End mark\\:"
+msgstr "Konečné označení\\:"
+
+#: edit_tagRep_tagEnd_tooltip
+msgid "Mark used at the end of tags"
+msgstr "Označení použité na konci značek"
+
+#: edit_tagRep_file
+msgid "File"
+msgstr "Soubor"
+
+#: edit_tagRep_fileName
+msgid "File or URL\\:"
+msgstr "Soubor nebo URL\\:"
+
+#: edit_tagRep_fileName_tooltip
+msgid "Name or URL of the file containing the values that will replace tags"
+msgstr "Název nebo URL souboru obsahující hodnoty, které nahradí značky"
+
+#: edit_tagRep_charset
+msgid "Charset\\:"
+msgstr "Znaková sada\\:"
+
+#: edit_tagRep_charset_tooltip
+msgid "Character encoding used in the file"
+msgstr "Kódování znaků použité v souboru"
+
+#: edit_tagRep_browseFile
+msgctxt "edit_tagRep_browseFile"
+msgid "Browse..."
+msgstr "Procházet..."
+
+#: edit_tagRep_browseFile_tooltip
+msgid "Browse the filesystem"
+msgstr "Procházet souborový systém"
+
+#: edit_tagRep_title
+msgid "Tag replacing"
+msgstr "Nahrazení značek"
+
+#: edit_text_act_clearStylesBtn
+msgid "Clear text styles..."
+msgstr "Vyčistit styly textu..."
+
+#: edit_text_act_clearStylesPrompt
+msgid ""
+"Warning\\: This action will clear the specific character attributes applied "
+"to the document, setting it back to its main style. This action cannot be "
+"undone. Do you want to do it?"
+msgstr ""
+"Varování\\: Tato činnost vyčistí určené vlastnosti znaků použité v "
+"dokumentu, což ho nastaví zpátky na jeho hlavní styl. Tuto činnost nelze "
+"vrátit zpět. Chcete toto provést?"
+
+#: img_max_size
+msgid "Maximum size of images:"
+msgstr "Maximální velikost obrázků:"
+
+#: img_max_width_tooltip
+msgid "Maximum width of images imported into the media library."
+msgstr "Maximální šírka obrázků importovaných do knihovny médií."
+
+#: img_max_height_tooltip
+msgid "Maximum height of images imported into the media library."
+msgstr "Maximální výška obrázků importovaných do knihovny médií."
+
+#: img_resize_prompt
+msgid ""
+"The image \"%s\" has a size of %s pixels. This exceeds the maximum allowed "
+"by JClic Author (%s). Do you want to resize it?"
+msgstr ""
+"Obrázek \"%s\" má velikost %s pixelů. To překračuje maximálně povolenou "
+"velikost od Autora JClic (%s). Chcete velikost změnit?"

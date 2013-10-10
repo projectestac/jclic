@@ -1,0 +1,594 @@
+# Czech translation for jclic
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2010-05-23 09:49+0000\n"
+"Last-Translator: Konki <pavel.konkol@seznam.cz>\n"
+"Language-Team: Czech <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: login_pwd
+msgid "Password:"
+msgstr "Heslo:"
+
+#: login_desc
+msgid ""
+"You need to provide a valid password in order to access the reports database."
+msgstr "Musíte zadat platné heslo pro přístup k databázi zpráv."
+
+#: login_title
+msgid "Login"
+msgstr "Přihlášení"
+
+#: submit
+msgid "Submit..."
+msgstr "Odeslat..."
+
+#: login_incorrect
+msgid "Incorrect password!"
+msgstr "Chybné heslo!"
+
+#: main_title
+msgid "Main menu"
+msgstr "Hlavní menu"
+
+#: users_admin_title
+msgid "Users and groups admin"
+msgstr "Uživatelé a administrátoři skupin"
+
+#: group_report_title
+msgid "Group reports"
+msgstr "Skupinová sestava"
+
+#: user_report_title
+msgid "User reports"
+msgstr "Uživatelská sestava"
+
+#: act_report_title
+msgid "Activity reports"
+msgstr "Sestava aktivit"
+
+#: db_admin_title
+msgid "Database admin"
+msgstr "Administrátor databáze"
+
+#: db_admin_settings_error
+msgid "Unable to set the new database values!"
+msgstr "Nelze nastavit hodnoty pro novou databázi!"
+
+#: db_admin_param_agc
+msgid "Allow users to create new groups"
+msgstr "Povolit uživatelům vytvářet nové skupiny"
+
+#: db_admin_param_auc
+msgid "Allow users to create new users"
+msgstr "Povolit uživatelům vytvářet nové uživatele"
+
+#: db_admin_param_shgl
+msgid "Select group in a list"
+msgstr "Vybrat skupinu ze seznamu"
+
+#: db_admin_param_shul
+msgid "Select user name in a list"
+msgstr "Vybrat uživatele ze seznamu"
+
+#: db_admin_param_ut
+msgid "Database has tables of users and groups"
+msgstr "Databáze má tabulky uživatelů a skupin"
+
+#: db_admin_edit_btn
+msgid "Edit settings..."
+msgstr "Upravit nastavení..."
+
+#: db_admin_pw_edit_btn
+msgid "Set password..."
+msgstr "Nastavit heslo..."
+
+#: title
+msgid "Title"
+msgstr "Titulek"
+
+#: db_admin_edit_title
+msgid "Edit database settings"
+msgstr "Upravit nastavení databáze"
+
+#: db_admin_pw_edit_title
+msgid "Change system password"
+msgstr "Změnit heslo systému"
+
+#: db_admin_pw_newPwd
+msgid "New password"
+msgstr "Nové heslo"
+
+#: db_admin_pw_verifyPwd
+msgid "Retype password"
+msgstr "Znovu zadejte heslo"
+
+#: db_admin_pw_noFit
+msgid "Password fields don't fit!"
+msgstr "Hesla se neshodují!"
+
+#: report_group
+msgid "Group:"
+msgstr "Skupina:"
+
+#: report_user
+msgid "User:"
+msgstr "Uživatel:"
+
+#: report_project
+msgid "Project:"
+msgstr "Projekt:"
+
+#: report_all_projects
+msgid "All projects"
+msgstr "Všechny projekty"
+
+#: report_key
+msgid "Key:"
+msgstr "Klávesa:"
+
+#: report_code
+msgid "Code:"
+msgstr "Kód:"
+
+#: report_context
+msgid "Context:"
+msgstr "Kontext:"
+
+#: report_from
+msgid "From:"
+msgstr "Od:"
+
+#: month_1
+msgid "january"
+msgstr "leden"
+
+#: month_2
+msgid "february"
+msgstr "únor"
+
+#: month_3
+msgid "march"
+msgstr "březen"
+
+#: month_4
+msgid "april"
+msgstr "duben"
+
+#: month_5
+msgid "may"
+msgstr "květen"
+
+#: month_6
+msgid "june"
+msgstr "červen"
+
+#: month_7
+msgid "july"
+msgstr "červenec"
+
+#: month_8
+msgid "august"
+msgstr "srpen"
+
+#: month_9
+msgid "september"
+msgstr "září"
+
+#: month_10
+msgid "october"
+msgstr "říjen"
+
+#: month_11
+msgid "november"
+msgstr "listopad"
+
+#: month_12
+msgid "december"
+msgstr "prosinec"
+
+#: report_to
+msgid "To:"
+msgstr "Komu:"
+
+#: report_global_precision
+msgid "Global precision"
+msgstr "Globální přesnost"
+
+#: report_solved_activities
+msgid "Solved activities"
+msgstr "Vyřešené aktivity"
+
+#: report_user_evolution
+msgid "User evolution"
+msgstr "Vývoj uživatele"
+
+#: report_group_evolution
+msgid "Group evolution"
+msgstr "Vývoj skupiny"
+
+#: report_project_evolution
+msgid "Project evolution"
+msgstr "Vývoj projektu"
+
+#: report_result_distribution
+msgid "Result distribution"
+msgstr "Rozdělení výsledků"
+
+#: report_no_data
+msgid "NO DATA"
+msgstr "NO DATA"
+
+#: report_users
+msgid "Users:"
+msgstr "Uživatelé:"
+
+#: report_sessions
+msgctxt "report_sessions"
+msgid "Sessions:"
+msgstr "Sezení:"
+
+#: report_projects
+msgid "Projects:"
+msgstr "Projekty:"
+
+#: report_actDone
+msgid "Activities done:"
+msgstr "Vyzkoušené aktivity:"
+
+#: report_actSolved
+msgid "Activities solved:"
+msgstr "Vyřešené aktivity:"
+
+#: report_totalTime
+msgid "Total time:"
+msgstr "Celkový čas:"
+
+#: report_globalPrec
+msgid "Global score:"
+msgstr "Celkové skóre:"
+
+#: report_globalSummary
+msgid "Global summary"
+msgstr "Souhrnný přehled"
+
+#: report_header_date
+msgid "date"
+msgstr "datum"
+
+#: report_session_list
+msgctxt "report_session_list"
+msgid "Sessions:"
+msgstr "Sezení:"
+
+#: report_header_user
+msgid "user"
+msgstr "uživatel"
+
+#: report_header_project
+msgid "project"
+msgstr "projekt"
+
+#: report_header_numActs
+msgid "activities"
+msgstr "aktivity"
+
+#: report_header_actsSolved
+msgid "acts. solved"
+msgstr "vyřešené aktivity"
+
+#: report_header_time
+msgid "time"
+msgstr "čas"
+
+#: report_header_prec
+msgid "score"
+msgstr "skóre"
+
+#: report_session_detail_show
+msgid "show session details"
+msgstr "zobrazit podrobnosti sezení (sessions)"
+
+#: report_session_detail_title
+msgid "Activities done in session"
+msgstr "Aktivity vyzkoušené v sezení"
+
+#: report_header_activity
+msgid "activity"
+msgstr "aktivita"
+
+#: report_header_actions
+msgid "actions"
+msgstr "akce"
+
+#: report_header_score
+msgid "corrects"
+msgstr "správně"
+
+#: report_header_solved
+msgid "ok"
+msgstr "ok"
+
+#: Y
+msgctxt "Y"
+msgid "Y"
+msgstr "Y"
+
+#: N
+msgctxt "N"
+msgid "N"
+msgstr "N"
+
+#: report_session_detail_hide
+msgid "hide session details"
+msgstr "skrýt detaily sezení"
+
+#: report_header_sessions
+msgid "sessions"
+msgstr "sezení"
+
+#: report_all_activities
+msgid "All activities"
+msgstr "Všechny aktivity"
+
+#: report_activity
+msgid "Activity:"
+msgstr "Aktivita:"
+
+#: report_many
+msgid "several"
+msgstr "několik"
+
+#: report_n_users
+msgid "users"
+msgstr "uživatelé"
+
+#: group_admin_title
+msgid "Groups administration"
+msgstr "Správa skupin"
+
+#: group_admin_new_button
+msgid "New group..."
+msgstr "Nová skupina..."
+
+#: group_admin_groups
+msgid "Groups"
+msgstr "Skupiny"
+
+#: report_actions
+msgid "Actions"
+msgstr "Akce"
+
+#: group_admin_edit_button
+msgctxt "group_admin_edit_button"
+msgid "Edit..."
+msgstr "Upravit..."
+
+#: user_admin_title
+msgid "User admin"
+msgstr "Správce"
+
+#: group_admin_delete_button
+msgctxt "group_admin_delete_button"
+msgid "Delete..."
+msgstr "Smazat..."
+
+#: group_admin_clear_button
+msgctxt "group_admin_clear_button"
+msgid "Clear reports..."
+msgstr "Vymazat zprávy ..."
+
+#: group_admin_properties
+msgid "Group properties"
+msgstr "Vlastnosti skupiny"
+
+#: group_admin_name
+msgctxt "group_admin_name"
+msgid "Name:"
+msgstr "Jméno:"
+
+#: group_admin_id
+msgctxt "group_admin_id"
+msgid "Identifier:"
+msgstr "Identifikátor:"
+
+#: group_admin_icon
+msgctxt "group_admin_icon"
+msgid "Icon:"
+msgstr "Ikona:"
+
+#: error
+msgid "ERROR"
+msgstr "CHYBA"
+
+#: return
+msgid "return..."
+msgstr "zpět..."
+
+#: group_admin_users
+msgid "Users"
+msgstr "Uživatelé"
+
+#: group_admin_no_users
+msgid "This group has no users."
+msgstr "Tato skupina nemá žádné uživatele."
+
+#: group_admin_create_user_button
+msgid "Create a new user..."
+msgstr "Vytvořit nového uživatele..."
+
+#: cancel
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: group_admin_invalid_name
+msgid "Incorrect group name!"
+msgstr "Chybný název skupiny!"
+
+#: group_admin_invalid_id
+msgid "Incorrect group identifier!"
+msgstr "Chybný identifikátor skupiny!"
+
+#: group_admin_id_already_exists
+msgid "There is another group with the same identifier in the database!"
+msgstr "V databázi existuje skupina se stejným identifikátorem!"
+
+#: group_admin_delete_group
+msgid "Delete group"
+msgstr "Smazat skupinu"
+
+#: report_areyousure
+msgid "Are you sure?"
+msgstr "Jste si jisti?"
+
+#: YES
+msgid "Yes"
+msgstr "Ano"
+
+#: NOT
+msgid "Not"
+msgstr "Ne"
+
+#: group_admin_delete_group_explain
+msgid ""
+"This operation will also delete on the database all users of this group. All "
+"data of these users will be lost."
+msgstr ""
+"Tato operace také odstraní z databáze všechny uživatele této skupiny. "
+"Všechna data těchto uživatelů budou smazána."
+
+#: db_error
+msgid "Unable to complete the task."
+msgstr "Nelze dokončit úkol."
+
+#: group_admin_clear_group
+msgid "Clear report data of group"
+msgstr "Vyčistit hlášená data o skupině"
+
+#: group_admin_clear_group_explain
+msgid ""
+"This operation will clear all the reports of the activities done by the "
+"members of this group between the specified dates."
+msgstr ""
+"Tato operace smaže všechna hlášení činností provedených členy této skupiny "
+"mezi zadanými daty."
+
+#: db_clear_reports_date
+msgid "Clear report data"
+msgstr "Vyčistit hlášená data"
+
+#: user_admin_invalid_name
+msgid "Invalid user name."
+msgstr "Neplatné uživatelské jméno."
+
+#: user_admin_invalid_id
+msgid "Invalid user identifier"
+msgstr "Neplatný identifikátor uživatele"
+
+#: user_admin_id_already_exists
+msgid "There is another user with the same identifier in the database!"
+msgstr "V databázi existuje uživatel se stejným identifikátorem!"
+
+#: user_admin_user_deleted
+msgid "The user was successfully deleted from the database."
+msgstr "Uživatel byl úspěšně smazán z databáze."
+
+#: user_admin_id
+msgctxt "user_admin_id"
+msgid "Identifier:"
+msgstr "Identifikátor:"
+
+#: user_admin_name
+msgctxt "user_admin_name"
+msgid "Name:"
+msgstr "Název:"
+
+#: user_admin_icon
+msgctxt "user_admin_icon"
+msgid "Icon:"
+msgstr "Ikona:"
+
+#: user_admin_edit_button
+msgctxt "user_admin_edit_button"
+msgid "Edit..."
+msgstr "Upravit..."
+
+#: user_admin_delete_button
+msgctxt "user_admin_delete_button"
+msgid "Delete..."
+msgstr "Smazat..."
+
+#: user_admin_clear_button
+msgctxt "user_admin_clear_button"
+msgid "Clear reports..."
+msgstr "Vymazat zprávy ..."
+
+#: user_admin_delete_user
+msgid "Delete user"
+msgstr "Vymazat uživatele"
+
+#: user_admin_delete_user_explain
+msgid ""
+"This operation will delete this user and his reports from the database."
+msgstr "Tato operace vymaže tohoto uživatele a jeho hlášení z databáze."
+
+#: user_admin_clear_user
+msgid "Clear report data of user"
+msgstr "Vyčistit datová hlášení uživatele"
+
+#: user_admin_clear_user_explain
+msgid ""
+"This operation will clear all the reports of the activities done by this "
+"user between the specified dates."
+msgstr ""
+"Tato operace smaže všechna hlášení činností tohoto uživatele mezi "
+"stanovenými termíny."
+
+#: success
+msgid "Operation successful"
+msgstr "Operace proběhla úspěšně"
+
+#: bad_data
+msgid "Bad data!"
+msgstr "Špatná data!"
+
+#: db_admin_param_lap
+msgid "Time between connections (seconds)\\:"
+msgstr "Čas mezi připojením (sekundy)\\:"
+
+#: jclic_reports
+msgid "JClic reports"
+msgstr "JClic hlášení"
+
+#: YES_SHORT
+msgctxt "YES_SHORT"
+msgid "Y"
+msgstr "A"
+
+#: NOT_SHORT
+msgctxt "NOT_SHORT"
+msgid "N"
+msgstr "N"
+
+#: user_admin_pw_prompt
+msgid "Password\\:"
+msgstr "Heslo\\:"
+
+#: user_admin_pw_prompt_confirm
+msgid "Confirm password\\:"
+msgstr "Potvrzení hesla\\:"
+
+#: user_admin_err_bad_pw
+msgid "Passwords don't match\\!"
+msgstr "Hesla se neshodují\\!"

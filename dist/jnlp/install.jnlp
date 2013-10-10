@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp codebase="http://clic.xtec.cat/jnlp/jclic/" codebase-absolute="http://clic.xtec.cat/jnlp/jclic/" spec="1.0+"> 
+  <information>
+    <title>JClic project installer</title>
+    <vendor>XTEC</vendor>
+    <homepage href="http://clic.xtec.cat"/>
+    <description>JClic project installer</description> 
+    <description kind="short">Application that downloads and installs JClic projects</description> 
+    <description kind="tooltip">JClic project installer</description> 
+    <icon height="32" href="install_32x32.gif" width="32"/>
+    <icon href="splash_installer.gif" kind="splash"/>
+    <icon height="64" href="install_64x64.gif" width="64"/>
+  </information>
+  <security>
+    <all-permissions/>
+  </security>
+  <resources>
+    <j2se version="1.5+"/>
+    <jar href="jclic.jar" version="1.2.3.2"/>
+  </resources>
+  <application-desc main-class="JClicInstaller">
+    <argument>$$argument</argument>
+  </application-desc> 
+</jnlp>

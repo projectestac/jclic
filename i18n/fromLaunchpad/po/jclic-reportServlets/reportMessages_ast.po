@@ -1,0 +1,601 @@
+# Asturian translation for jclic
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the jclic package.
+# Xandru Armesto <xandru@softastur.org>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2009-09-30 14:01+0000\n"
+"Last-Translator: Xandru <xandru@softastur.org>\n"
+"Language-Team: Asturian <alministradores@softastur.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: login_pwd
+msgid "Password:"
+msgstr "Contraseña:"
+
+#: login_desc
+msgid ""
+"You need to provide a valid password in order to access the reports database."
+msgstr ""
+"Tien d'escribir una contraseña correuta p'acceder a la base de datos "
+"d'informes."
+
+#: login_title
+msgid "Login"
+msgstr "Coneutar"
+
+#: submit
+msgid "Submit..."
+msgstr "Unviar..."
+
+#: login_incorrect
+msgid "Incorrect password!"
+msgstr "¡Contraseña incorreuta!"
+
+#: main_title
+msgid "Main menu"
+msgstr "Menú principal"
+
+#: users_admin_title
+msgid "Users and groups admin"
+msgstr "Alministración de grupos y usuarios"
+
+#: group_report_title
+msgid "Group reports"
+msgstr "Informes de grupu"
+
+#: user_report_title
+msgid "User reports"
+msgstr "Informes d'usuariu/a"
+
+#: act_report_title
+msgid "Activity reports"
+msgstr "Informes de xera"
+
+#: db_admin_title
+msgid "Database admin"
+msgstr "Alministración de la base de datos"
+
+#: db_admin_settings_error
+msgid "Unable to set the new database values!"
+msgstr "¡Nun se pudieron camudar los valores de la base de datos!"
+
+#: db_admin_param_agc
+msgid "Allow users to create new groups"
+msgstr "Permitir a los usuarios criar grupos nuevos"
+
+#: db_admin_param_auc
+msgid "Allow users to create new users"
+msgstr "Permitir a los usuarios la creación de usuarios nuevos"
+
+#: db_admin_param_shgl
+msgid "Select group in a list"
+msgstr "Esbillar grupu d'una llista"
+
+#: db_admin_param_shul
+msgid "Select user name in a list"
+msgstr "Esbillar el nome d'usuariu/a d'una llista"
+
+#: db_admin_param_ut
+msgid "Database has tables of users and groups"
+msgstr "La base de datos tien tables d'usuarios y grupos"
+
+#: db_admin_edit_btn
+msgid "Edit settings..."
+msgstr "Editar propiedaes..."
+
+#: db_admin_pw_edit_btn
+msgid "Set password..."
+msgstr "Afitar contraseña..."
+
+#: title
+msgid "Title"
+msgstr "Títulu"
+
+#: db_admin_edit_title
+msgid "Edit database settings"
+msgstr "Editar propiedaes de la base de datos"
+
+#: db_admin_pw_edit_title
+msgid "Change system password"
+msgstr "Camudar la contraseña del sistema"
+
+#: db_admin_pw_newPwd
+msgid "New password"
+msgstr "Contraseña nueva"
+
+#: db_admin_pw_verifyPwd
+msgid "Retype password"
+msgstr "Volver a escribir la contraseña"
+
+#: db_admin_pw_noFit
+msgid "Password fields don't fit!"
+msgstr "Los dos testos nun concasen!"
+
+#: report_group
+msgid "Group:"
+msgstr "Grupu:"
+
+#: report_user
+msgid "User:"
+msgstr "Usuariu:"
+
+#: report_project
+msgid "Project:"
+msgstr "Proyeutu:"
+
+#: report_all_projects
+msgid "All projects"
+msgstr "Tolos proyeutos"
+
+#: report_key
+msgid "Key:"
+msgstr "Contraseña:"
+
+#: report_code
+msgid "Code:"
+msgstr "Códigu:"
+
+#: report_context
+msgid "Context:"
+msgstr "Contestu:"
+
+#: report_from
+msgid "From:"
+msgstr "Dende:"
+
+#: month_1
+msgid "january"
+msgstr "xineru"
+
+#: month_2
+msgid "february"
+msgstr "febreru"
+
+#: month_3
+msgid "march"
+msgstr "marzu"
+
+#: month_4
+msgid "april"
+msgstr "abril"
+
+#: month_5
+msgid "may"
+msgstr "mayu"
+
+#: month_6
+msgid "june"
+msgstr "xunu"
+
+#: month_7
+msgid "july"
+msgstr "xunetu"
+
+#: month_8
+msgid "august"
+msgstr "agostu"
+
+#: month_9
+msgid "september"
+msgstr "setiembre"
+
+#: month_10
+msgid "october"
+msgstr "ochobre"
+
+#: month_11
+msgid "november"
+msgstr "payares"
+
+#: month_12
+msgid "december"
+msgstr "avientu"
+
+#: report_to
+msgid "To:"
+msgstr "Fasta:"
+
+#: report_global_precision
+msgid "Global precision"
+msgstr "Precisión global"
+
+#: report_solved_activities
+msgid "Solved activities"
+msgstr "Xeres resueltes"
+
+#: report_user_evolution
+msgid "User evolution"
+msgstr "Evolución del usuariu/a"
+
+#: report_group_evolution
+msgid "Group evolution"
+msgstr "Evolución del grupu"
+
+#: report_project_evolution
+msgid "Project evolution"
+msgstr "Evolución del proyeutu"
+
+#: report_result_distribution
+msgid "Result distribution"
+msgstr "Distribución de resultaos"
+
+#: report_no_data
+msgid "NO DATA"
+msgstr "ENSIN DATOS"
+
+#: report_users
+msgid "Users:"
+msgstr "Usuarios\\:"
+
+#: report_sessions
+msgctxt "report_sessions"
+msgid "Sessions:"
+msgstr "Sesiones:"
+
+#: report_projects
+msgid "Projects:"
+msgstr "Proyeutos:"
+
+#: report_actDone
+msgid "Activities done:"
+msgstr "Xeres realizaes:"
+
+#: report_actSolved
+msgid "Activities solved:"
+msgstr "Xeres resueltes:"
+
+#: report_totalTime
+msgid "Total time:"
+msgstr "Tiempu total:"
+
+#: report_globalPrec
+msgid "Global score:"
+msgstr "Precisión global:"
+
+#: report_globalSummary
+msgid "Global summary"
+msgstr "Resume global"
+
+#: report_header_date
+msgid "date"
+msgstr "data"
+
+#: report_session_list
+msgctxt "report_session_list"
+msgid "Sessions:"
+msgstr "Sesiones realizaes:"
+
+#: report_header_user
+msgid "user"
+msgstr "usuariu/a"
+
+#: report_header_project
+msgid "project"
+msgstr "proyeutu"
+
+#: report_header_numActs
+msgid "activities"
+msgstr "xeres"
+
+#: report_header_actsSolved
+msgid "acts. solved"
+msgstr "xeres. resueltes"
+
+#: report_header_time
+msgid "time"
+msgstr "tiempu"
+
+#: report_header_prec
+msgid "score"
+msgstr "precisión"
+
+#: report_session_detail_show
+msgid "show session details"
+msgstr "amosar detalles de la sesión..."
+
+#: report_session_detail_title
+msgid "Activities done in session"
+msgstr "Xeres realizaes na sesión"
+
+#: report_header_activity
+msgid "activity"
+msgstr "xera"
+
+#: report_header_actions
+msgid "actions"
+msgstr "aiciones"
+
+#: report_header_score
+msgid "corrects"
+msgstr "aciertos"
+
+#: report_header_solved
+msgid "ok"
+msgstr "bien"
+
+#: Y
+msgctxt "Y"
+msgid "Y"
+msgstr "S"
+
+#: N
+msgctxt "N"
+msgid "N"
+msgstr "N"
+
+#: report_session_detail_hide
+msgid "hide session details"
+msgstr "esconder detalles de la sesión"
+
+#: report_header_sessions
+msgid "sessions"
+msgstr "sesiones"
+
+#: report_all_activities
+msgid "All activities"
+msgstr "Toles xeres"
+
+#: report_activity
+msgid "Activity:"
+msgstr "Xera:"
+
+#: report_many
+msgid "several"
+msgstr "dellos"
+
+#: report_n_users
+msgid "users"
+msgstr "usuarios"
+
+#: group_admin_title
+msgid "Groups administration"
+msgstr "Alministración de grupos"
+
+#: group_admin_new_button
+msgid "New group..."
+msgstr "Grupu nuevu..."
+
+#: group_admin_groups
+msgid "Groups"
+msgstr "Grupos"
+
+#: report_actions
+msgid "Actions"
+msgstr "Aiciones"
+
+#: group_admin_edit_button
+msgctxt "group_admin_edit_button"
+msgid "Edit..."
+msgstr "Camudar..."
+
+#: user_admin_title
+msgid "User admin"
+msgstr "Alministración d'usuarios"
+
+#: group_admin_delete_button
+msgctxt "group_admin_delete_button"
+msgid "Delete..."
+msgstr "Esborrar..."
+
+#: group_admin_clear_button
+msgctxt "group_admin_clear_button"
+msgid "Clear reports..."
+msgstr "Llimpiar informes..."
+
+#: group_admin_properties
+msgid "Group properties"
+msgstr "Propiedaes del grupu"
+
+#: group_admin_name
+msgctxt "group_admin_name"
+msgid "Name:"
+msgstr "Nome:"
+
+#: group_admin_id
+msgctxt "group_admin_id"
+msgid "Identifier:"
+msgstr "Identificador:"
+
+#: group_admin_icon
+msgctxt "group_admin_icon"
+msgid "Icon:"
+msgstr "Iconu:"
+
+#: error
+msgid "ERROR"
+msgstr "ERROR"
+
+#: return
+msgid "return..."
+msgstr "tornar..."
+
+#: group_admin_users
+msgid "Users"
+msgstr "Usuarios"
+
+#: group_admin_no_users
+msgid "This group has no users."
+msgstr "Esti grupu nun tien usuariu/a dengún."
+
+#: group_admin_create_user_button
+msgid "Create a new user..."
+msgstr "Criar un usuariu/a nuevu..."
+
+#: cancel
+msgid "Cancel"
+msgstr "Encaboxar"
+
+#: group_admin_invalid_name
+msgid "Incorrect group name!"
+msgstr "El nome del grupu ye incorreutu!"
+
+#: group_admin_invalid_id
+msgid "Incorrect group identifier!"
+msgstr "L'identificador de grupu ye incorreutu."
+
+#: group_admin_id_already_exists
+msgid "There is another group with the same identifier in the database!"
+msgstr "¡Yá hai un grupu con esti identificador na base de datos!"
+
+#: group_admin_delete_group
+msgid "Delete group"
+msgstr "Esborrar el grupu"
+
+#: report_areyousure
+msgid "Are you sure?"
+msgstr "¿De xuru?"
+
+#: YES
+msgid "Yes"
+msgstr "Sí"
+
+#: NOT
+msgid "Not"
+msgstr "Non"
+
+#: group_admin_delete_group_explain
+msgid ""
+"This operation will also delete on the database all users of this group. All "
+"data of these users will be lost."
+msgstr ""
+"Esta operación va desaniciar tamién de la base de datos a tolos usuarios "
+"d'esti grupu. Van perdese tolos datos d'estos usuarios."
+
+#: db_error
+msgid "Unable to complete the task."
+msgstr "Nun se pudo facer la operación."
+
+#: group_admin_clear_group
+msgid "Clear report data of group"
+msgstr "Llimpiar los informes del grupu"
+
+#: group_admin_clear_group_explain
+msgid ""
+"This operation will clear all the reports of the activities done by the "
+"members of this group between the specified dates."
+msgstr ""
+"Esta operación va llimpiar tolos informes de les xeres realizaes polos "
+"miembros d'esti grupu ente les dates conseñaes."
+
+#: db_clear_reports_date
+msgid "Clear report data"
+msgstr "Llimpiar los datos d'informes"
+
+#: user_admin_invalid_name
+msgid "Invalid user name."
+msgstr "El nome d'usuariu/a ye incorreutu."
+
+#: user_admin_invalid_id
+msgid "Invalid user identifier"
+msgstr "L'identificador d'usuariu/a ye incorreutu!"
+
+#: user_admin_id_already_exists
+msgid "There is another user with the same identifier in the database!"
+msgstr ""
+"Yá hai otru usuariu/a con esti identificador na base de datos. Los nomes "
+"puen repetise (en dellos grupos) pero los identificadores tienen de ser "
+"únicos."
+
+#: user_admin_user_deleted
+msgid "The user was successfully deleted from the database."
+msgstr "L'usuariu/a foi esborráu dafechu de la base de datos."
+
+#: user_admin_id
+msgctxt "user_admin_id"
+msgid "Identifier:"
+msgstr "Identificador:"
+
+#: user_admin_name
+msgctxt "user_admin_name"
+msgid "Name:"
+msgstr "Nome:"
+
+#: user_admin_icon
+msgctxt "user_admin_icon"
+msgid "Icon:"
+msgstr "Iconu:"
+
+#: user_admin_edit_button
+msgctxt "user_admin_edit_button"
+msgid "Edit..."
+msgstr "Camudar..."
+
+#: user_admin_delete_button
+msgctxt "user_admin_delete_button"
+msgid "Delete..."
+msgstr "Esborrar..."
+
+#: user_admin_clear_button
+msgctxt "user_admin_clear_button"
+msgid "Clear reports..."
+msgstr "Llimpiar informes..."
+
+#: user_admin_delete_user
+msgid "Delete user"
+msgstr "Esborrar l'usuariu/a"
+
+#: user_admin_delete_user_explain
+msgid ""
+"This operation will delete this user and his reports from the database."
+msgstr ""
+"Esta operación va esborrar al usuariu/a y los sos informes de la base de "
+"datos."
+
+#: user_admin_clear_user
+msgid "Clear report data of user"
+msgstr "Llimpiar los informes del usuariu/a"
+
+#: user_admin_clear_user_explain
+msgid ""
+"This operation will clear all the reports of the activities done by this "
+"user between the specified dates."
+msgstr ""
+"Esta operación va llimpiar los informes de les xeres realizaes por esti/a "
+"usuariu/a nel periodu especificáu."
+
+#: success
+msgid "Operation successful"
+msgstr "Operación fecha con ésitu"
+
+#: bad_data
+msgid "Bad data!"
+msgstr "¡Datos incorreutos!"
+
+#: db_admin_param_lap
+msgid "Time between connections (seconds)\\:"
+msgstr "Tiempu ente conexones (segundos)\\:"
+
+#: jclic_reports
+msgid "JClic reports"
+msgstr "Informes JClic"
+
+#: YES_SHORT
+msgctxt "YES_SHORT"
+msgid "Y"
+msgstr "S"
+
+#: NOT_SHORT
+msgctxt "NOT_SHORT"
+msgid "N"
+msgstr "N"
+
+#: user_admin_pw_prompt
+msgid "Password\\:"
+msgstr "Contraseña\\:"
+
+#: user_admin_pw_prompt_confirm
+msgid "Confirm password\\:"
+msgstr "Confirmar contraseña\\:"
+
+#: user_admin_err_bad_pw
+msgid "Passwords don't match\\!"
+msgstr "¡Les contraseñes nun concasen\\!"

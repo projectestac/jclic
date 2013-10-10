@@ -1,0 +1,78 @@
+# Brazilian Portuguese translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-05-30 16:00+0000\n"
+"PO-Revision-Date: 2008-11-30 23:36+0000\n"
+"Last-Translator: Alexandre R Soares <Unknown>\n"
+"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. #Translation language name
+msgid "English"
+msgstr "Português"
+
+#: javaNeeded
+msgid ""
+"JClic needs an updated Java engine, version 1.4 or higher. You can download "
+"it from http://www.java.com"
+msgstr ""
+"jClic requer Java atualizado, versão 1.4 ou superior. Você pode obtê-lo em "
+"http://www.java.com"
+
+#: oldJavaMsg
+msgid "There is an old version of Java installed on this computer."
+msgstr "Há uma versão antiga do Java instalada em seu computador."
+
+#: noJavaMsg
+msgid "It was impossible to find any Java system installed on this computer."
+msgstr "Não foi possível localizar algum sistema de Java em seu computador."
+
+#. #Type of installation (standard, full, minimal)
+#: standardType
+msgid "Standard"
+msgstr "Padrão"
+
+#. #Type of installation (standard, full, minimal)
+#: fullType
+msgid "Full"
+msgstr "Completa"
+
+#. #Type of installation (standard, full, minimal)
+#: liteType
+msgid "Lite"
+msgstr "Mínima"
+
+#: captionStr
+msgid "JClic ${PRODUCT_VERSION} offline setup"
+msgstr "configuração offline JClic ${PRODUCT_VERSION}"
+
+#. #Description of JClic Player
+#: JClicPlayerDesc
+msgid "Application to play JClic activities."
+msgstr "Aplicativo para rodar atividades do JClic"
+
+#. #Description of JClic Author
+#: JClicAuthorDesc
+msgid "Application to create and edit JClic activities."
+msgstr "Aplicativo para criar e editar atividades do JClic"
+
+#. #Description of JClic Applet components
+#: JClicAppletDesc
+msgid "Files needed only in a server with hosted JClic applets."
+msgstr ""
+"Arquivos necessários apenas em um servidor com applets JClic hospedados."
+
+#. #Description of JClic Reports
+#: JClicReportsDesc
+msgid "Reports server."
+msgstr "Servidor de relatórios."

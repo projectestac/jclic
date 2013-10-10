@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin name="empty" class="edu.xtec.jclic.skins.BasicSkin" image="empty.png">
+  <dimension id="preferredSize" width="760" height="560" />
+  <color id="fill" value="0xFFFFFF" />
+  <rectangle id="frame" left="0" top="0" width="30" height="30" />
+  <slicer left="10" right="20" top="10" bottom="20" />
+  <rectangle id="player" left="0" top="0" width="30" height="28" />
+  <rectangle id="messages" left="0" top="28" width="30" height="2" />
+</skin>

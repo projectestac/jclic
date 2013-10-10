@@ -1,0 +1,3497 @@
+# Asturian translation for jclic
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the jclic package.
+# Xandru Armesto <xandru@softastur.org>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-01-13 23:10+0200\n"
+"PO-Revision-Date: 2011-06-09 05:26+0000\n"
+"Last-Translator: Xandru <xandru@softastur.org>\n"
+"Language-Team: Asturian <alministradores@softastur.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. #JClic Author messages
+#: edit_act_description_block
+msgctxt "edit_act_description_block"
+msgid "Description"
+msgstr "Descripción"
+
+#: edit_act_name_tooltip
+msgid "Name of the activity"
+msgstr "Nome de la xera"
+
+#: edit_act_name
+msgctxt "edit_act_name"
+msgid "Name:"
+msgstr "Nome:"
+
+#: edit_act_description_tooltip
+msgid "Description of the activity"
+msgstr "Descripción de la xera"
+
+#: edit_act_reports_block
+msgctxt "edit_act_reports_block"
+msgid "Reports"
+msgstr "Informes"
+
+#: edit_act_includeInReports
+msgid "Include this activity in reports"
+msgstr "Incluyir esta xera nos informes"
+
+#: edit_act_includeInReports_tooltip
+msgid "Include the results of this activity in users' reports"
+msgstr "Incluyir los resultaos d'esta xera nos informes d'usuariu"
+
+#: edit_act_code
+msgid "Code:"
+msgstr "Códigu:"
+
+#: edit_act_code_tooltip
+msgid "Optional code used to group and search in the reports database."
+msgstr ""
+"Códigu opcional utilizáu p'agrupar y peñerar na base de datos d'informes."
+
+#: edit_act_reportActions
+msgid "Report user actions"
+msgstr "Rexistrar tamién les aiciones"
+
+#: edit_act_reportActions_tooltip
+msgid "Register the details of all the actions performed by users"
+msgstr "Rexistrar los detalles de toles aiciones feches polos usuarios."
+
+#: edit_act_counters_block
+msgctxt "edit_act_counters_block"
+msgid "Counters"
+msgstr "Cuntadores"
+
+#: edit_act_timeCounter
+msgctxt "edit_act_timeCounter"
+msgid "Time counter"
+msgstr "Cuntador de tiempu"
+
+#: edit_act_timeCounter_tooltip
+msgid "Show/hide the time conter"
+msgstr "Amosar/anubrir el contador de tiempu."
+
+#: edit_act_actionsCounter
+msgctxt "edit_act_actionsCounter"
+msgid "Tries counter"
+msgstr "Cuntador de intentos"
+
+#: edit_act_actionsCounter_tooltip
+msgid "Show/hide the tries counter"
+msgstr "Amosar/anubrir el contador de intentos."
+
+#: edit_act_scoreCounter
+msgctxt "edit_act_scoreCounter"
+msgid "Score counter"
+msgstr "Cuntador d'aciertos"
+
+#: edit_act_scoreCounter_tooltip
+msgid "Show/hide the score counter."
+msgstr "Amosar/anubrir el contador d'aciertos."
+
+#: edit_act_maxTime
+msgid "Max time:"
+msgstr "Tiempu máximu:"
+
+#: edit_act_maxTime_tooltip
+msgid ""
+"Maximum time to to solve the activity, in seconds, or 0 for unlimited time."
+msgstr ""
+"Tiempu máximu pa resolver la xera, en segundos. El 0 significa tiempu "
+"ilimitáu."
+
+#: edit_act_countdown
+msgid "Countdown"
+msgstr "Cuenta atrás"
+
+#: edit_act_countdown_tooltip
+msgid "The counter starts at máximum value, decreasing to 0."
+msgstr "El cuntador entama col valor máximu, decreciendo fasta 0."
+
+#: edit_act_maxActions
+msgid "Max tries:"
+msgstr "Intentos máx.:"
+
+#: edit_act_maxActions_tooltip
+msgid "Maximum number of tries allowed, or 0 for unlimited tries."
+msgstr "Númberu máximu d'intentos permitíos, o 0 pa ilimitáu."
+
+#: edit_act_buttons_block
+msgctxt "edit_act_buttons_block"
+msgid "Buttons"
+msgstr "Botones"
+
+#: edit_act_helpBtn
+msgid "Help"
+msgstr "Aida"
+
+#: edit_act_helpBtn_tooltip
+msgid "Show/hide help button"
+msgstr "Amosar/anubrir el botón d'aida"
+
+#: edit_act_helpBtn_solution
+msgid "Show solution"
+msgstr "Amosar la solución"
+
+#: edit_act_helpBtn_msg
+msgid "Show this message:"
+msgstr "Amosar esti mensaxe:"
+
+#: edit_act_infoBtn
+msgid "Information"
+msgstr "Información"
+
+#: edit_act_infoBtn_tooltip
+msgid "Show/Hide the button of information"
+msgstr "Amosar/anubrir el botón d'información"
+
+#: edit_act_infoBtn_url
+msgid "Show this URL:"
+msgstr "Amosar esta URL:"
+
+#: edit_act_infoBtn_cmd
+msgid "Execute this command:"
+msgstr "Executar el comandu:"
+
+#: edit_act_infoBtn_url_tooltip
+msgid "Web site address to show when click on the info button"
+msgstr ""
+"Direición de la páxina web que se va amosar al calcar nel botón "
+"d'información."
+
+#: edit_act_infoBtn_cmd_tooltip
+msgid "Command line to be executed on click to the info button."
+msgstr ""
+"Llínia de comandos que va executar al calcar nel botón d'información."
+
+#: edit_act_mainWindow
+msgid "Main window:"
+msgstr "Ventana principal:"
+
+#: edit_act_gameWindow
+msgid "Game window:"
+msgstr "Ventana de xuegu:"
+
+#: edit_act_margin
+msgid "Margin:"
+msgstr "Marxe:"
+
+#: edit_act_margin_tooltip
+msgid "Horizontal and vertical spacing between visual objects."
+msgstr "Espaciu vertical y horizontal ente oxetos visuales."
+
+#: edit_act_bgColor
+msgctxt "edit_act_bgColor"
+msgid "Background color:"
+msgstr "Color de fondu:"
+
+#: edit_act_bgColor_tooltip
+msgid "Change the background color."
+msgstr "Camudar el color de fondu."
+
+#: edit_gradient_startColor
+msgid "Start color:"
+msgstr "Color d'aniciu:"
+
+#: edit_gradient_endColor
+msgid "End color:"
+msgstr "Color final:"
+
+#: edit_gradient_startColor_tooltip
+msgid "Selection of the start color"
+msgstr "Escoyeta del color d'aniciu"
+
+#: edit_gradient_endColor_tooltip
+msgid "Selection of the end color"
+msgstr "Escoyeta del color final"
+
+#: edit_gradient_cycles
+msgid "Cycles:"
+msgstr "Ciclos:"
+
+#: edit_gradient_cycles_tooltip
+msgid "Number of repetitions of the gradient over the paint surface"
+msgstr "Númberu de repeticiones del gradiente sobro la superficie a pintar."
+
+#: edit_gradient_orientation
+msgid "Orientation:"
+msgstr "Orientación:"
+
+#: edit_gradient_orientation_tooltip
+msgid "Gradient's orientation, measured in degrees over the horizontal"
+msgstr "Orientación del gradiente, midida en graos sobro la horizontal."
+
+#: edit_act_gradient
+msgid "Gradient:"
+msgstr "Gradiente:"
+
+#: edit_act_gradient_tooltip
+msgid "Use gradient of colours"
+msgstr "Usar un gradiente de colores"
+
+#: edit_color_opacity
+msgid "Opacity"
+msgstr "Opacidá"
+
+#: edit_color_opacity_tooltip
+msgid "Set the color's alpha channel (opacity) value."
+msgstr "Axusta'l valor de la canal alfa (opacidá) de color."
+
+#: edit_gradient_title
+msgctxt "edit_gradient_title"
+msgid "Gradient"
+msgstr "Gradiente"
+
+#: edit_gradient_default
+msgid "Use default values (null gradient)"
+msgstr "Usar los valores por defeutu (gradiente nulu)"
+
+#: edit_act_image
+msgid "Image:"
+msgstr "Imaxe:"
+
+#: edit_act_descriptionTab
+msgctxt "edit_act_descriptionTab"
+msgid "Description"
+msgstr "Descripción"
+
+#: edit_act_descriptionTab_tooltip
+msgid "Name and description"
+msgstr "Nome y descripción"
+
+#: edit_act_tiledBgImg
+msgid "Tiled"
+msgstr "En mosaicu"
+
+#: edit_act_tiledBgImg_tooltip
+msgid ""
+"Paint all the surface with the image, repeating it along the X and Y axis as "
+"needed."
+msgstr ""
+"Pinta tola superficie cola imaxe, repitiéndola a lo llargo de les exes X ya "
+"Y tantes vegaes como faiga falta."
+
+#: edit_act_preview
+msgctxt "edit_act_preview"
+msgid "Preview:"
+msgstr "Vista previa:"
+
+#: edit_act_border
+msgctxt "edit_act_border"
+msgid "Border"
+msgstr "Borde"
+
+#: edit_act_border_tooltip
+msgid "Draw a line border arround the window"
+msgstr "Dibuxar una llinia de berbesu al rodiu de la ventana"
+
+#: edit_act_transparent
+msgid "Transparent"
+msgstr "Tresparente"
+
+#: edit_act_transparent_tooltip
+msgid "Window has transparent background"
+msgstr "La ventana tien el fondu tresparente"
+
+#: edit_act_width
+msgctxt "edit_act_width"
+msgid "Width:"
+msgstr "Anchor:"
+
+#: edit_act_height
+msgctxt "edit_act_height"
+msgid "Height:"
+msgstr "Altor:"
+
+#: edit_act_width_tooltip
+msgid "Width of the object, measured in pixels"
+msgstr "Anchu del oxetu, en píxeles"
+
+#: edit_act_height_tooltip
+msgid "Height of the object, measured in pixels"
+msgstr "Altor del oxetu, en píxeles"
+
+#: edit_act_centered
+msgctxt "edit_act_centered"
+msgid "Centered"
+msgstr "Centrada"
+
+#: edit_act_centered_tooltip
+msgid "The object will be centered over the main window"
+msgstr "El oxetu asítiase centráu respeutu de la ventana principal"
+
+#: edit_act_x
+msgctxt "edit_act_x"
+msgid "X:"
+msgstr "X:"
+
+#: edit_act_x_tooltip
+msgid "Absolute horizontal location"
+msgstr "Posición horizontal absoluta"
+
+#: edit_act_y
+msgctxt "edit_act_y"
+msgid "Y:"
+msgstr "Y:"
+
+#: edit_act_y_tooltip
+msgid "Absolute vertical location"
+msgstr "Posición vertical absoluta"
+
+#: edit_act_ui_block
+msgctxt "edit_act_ui_block"
+msgid "User interface"
+msgstr "Interface d'usuariu"
+
+#: edit_act_image_tooltip
+msgid "Select an image"
+msgstr "Esbillar una imaxe"
+
+#: edit_act_text
+msgid "Text:"
+msgstr "Testu:"
+
+#: edit_act_text_tooltip
+msgid "Text to be shown inside this object"
+msgstr "Testu que se va amosar nesti oxetu"
+
+#: edit_font_face
+msgid "Typeface:"
+msgstr "Triba:"
+
+#: edit_font_size
+msgid "Size:"
+msgstr "Tamañu:"
+
+#: edit_font_bold
+msgid "Bold"
+msgstr "Negrina"
+
+#: edit_font_italic
+msgid "Italic"
+msgstr "Cursiva"
+
+#: edit_font_underline
+msgid "Underline"
+msgstr "Sorrayáu"
+
+#: edit_font_style
+msgctxt "edit_font_style"
+msgid "Style:"
+msgstr "Estilu:"
+
+#: edit_cell_title
+msgid "Cell contents"
+msgstr "Conteníos de la caxella"
+
+#: edit_act_messages
+msgctxt "edit_act_messages"
+msgid "Messages"
+msgstr "Mensaxes"
+
+#: edit_act_msg_initial
+msgid "Initial message:"
+msgstr "Mensax d'aniciu:"
+
+#: edit_act_msg_final
+msgid "Final message:"
+msgstr "Mensax final:"
+
+#: edit_act_msg_prev
+msgid "Previous message:"
+msgstr "Mensax previu:"
+
+#: edit_act_msg_error
+msgid "Error message:"
+msgstr "Mensax de fallu:"
+
+#: edit_act_msg_initial_tooltip
+msgid "Message to be shown when the activity starts"
+msgstr "Mensax que s'amuesa al entamjar la xera"
+
+#: edit_act_msg_final_tooltip
+msgid "Message to be shown when the activity is finished"
+msgstr "Mensax que s'amuesa al finar la xera"
+
+#: edit_act_msg_error_tooltip
+msgid "Message to be shown when the activity ends with errors"
+msgstr "Mensax que s'amuesa al finar la xera con fallos"
+
+#: edit_act_msg_prev_tooltip
+msgid ""
+"Message to be shown prior to the start of the activity (only in certain "
+"types of activities)"
+msgstr ""
+"Mensax que s'amuesa enantes d'entamar (namás en delles tribes de xeres)"
+
+#: edit_align
+msgid "Align:"
+msgstr "Orientación:"
+
+#: edit_act_textColor
+msgid "Text color:"
+msgstr "Color del testu:"
+
+#: edit_act_textColor_tooltip
+msgid "Color used to draw text"
+msgstr "Color utilizáu pa dibuxar el testu"
+
+#: edit_act_shadowColor
+msgid "Shadow color:"
+msgstr "Color de la solombra:"
+
+#: edit_act_shadowColor_tooltip
+msgid "Color used for drawing the text's shadow, when appliable"
+msgstr "Color utilizáu na solombra del testu, si esiste."
+
+#: edit_act_shadow
+msgid "Shadow"
+msgstr "Solombra"
+
+#: edit_act_shadow_tooltip
+msgid "Draw text with shadow"
+msgstr "Dibuxar el testu con solombra"
+
+#: edit_act_borderColor
+msgid "Border color:"
+msgstr "Color del berbesu:"
+
+#: edit_act_borderColor_tooltip
+msgid "Color used to draw the cell's border"
+msgstr "Color utilizáu pa dibuxar el berbesu de la caxella"
+
+#: edit_act_inactiveColor
+msgid "Inactive state color:"
+msgstr "Color de estáu inactivu:"
+
+#: edit_act_inactiveColor_tooltip
+msgid "Color used when the cell is disabled"
+msgstr "Color utilizáu cuando la caxella ta desactivada"
+
+#: edit_act_altColor
+msgid "Alternative color:"
+msgstr "Color alternativu:"
+
+#: edit_act_altColor_tooltip
+msgid "Color used to draw the alternative content in solved cells."
+msgstr ""
+"Color col que s'amuesa el conteníu alternativu de les caxelles una vegada "
+"solucionadas."
+
+#: edit_cell_marked
+msgid "Marked"
+msgstr "Marcada"
+
+#: edit_cell_disabled
+msgid "Disabled"
+msgstr "Desactivada"
+
+#: edit_cell_alt
+msgid "Alternative"
+msgstr "Alternativa"
+
+#: edit_cell_textMargin
+msgid "Internal margin:"
+msgstr "Marxe internu:"
+
+#: edit_cell_textMargin_tooltip
+msgid "Amount of space between cell's border and text."
+msgstr "Espaciu ente los berbesos de la celda y el testu."
+
+#: edit_cell_borderWidth
+msgid "Border width:"
+msgstr "Anchor del berbesu:"
+
+#: edit_cell_borderWidth_tooltip
+msgid "Width of the stroke used to draw the standard border"
+msgstr "Anchor del trazu utilizáu pa dibuxar el berbesu."
+
+#: edit_cell_markerWidth
+msgid "Marker width:"
+msgstr "Anchor del marcador:"
+
+#: edit_cell_markerWidth_tooltip
+msgid ""
+"Width of the stroke used to draw the border when the cell is marked or "
+"selected"
+msgstr ""
+"Anchor del trazu utilizáu pa dibuxar el berbesu cuando la caxella "
+"s'alcuentra marcada o escoyida."
+
+#: edit_cell_alt_tooltip
+msgid "Preview in \"alternative\" state"
+msgstr "Vista previa n'estáu \"alternativa\""
+
+#: edit_cell_disabled_tooltip
+msgid "Preview in \"disabled\" state"
+msgstr "Vista previa n'estáu \"desactivada\""
+
+#: edit_cell_marked_tooltip
+msgid "Preview in \"marked\" state"
+msgstr "Vista previa n'estáu \"marcada\""
+
+#: edit_act_testAction
+msgid "Preview activity"
+msgstr "Vista previa de la xera"
+
+#: edit_act_testAction_tooltip
+msgid "Preview and test the activity"
+msgstr "Prebar cómo furrula la xera"
+
+#: edit_act_panels_description
+msgctxt "edit_act_panels_description"
+msgid "Description"
+msgstr "Descripción"
+
+#: edit_act_panels_description_tooltip
+msgid "Title and description of the activity"
+msgstr "Títulu y descripción de la xera"
+
+#: edit_act_panels_options
+msgid "Options"
+msgstr "Opciones"
+
+#: edit_act_panels_options_tooltip
+msgid "Options of the activity"
+msgstr "Opciones de la xera"
+
+#: edit_act_panels_frame
+msgctxt "edit_act_panels_frame"
+msgid "Window"
+msgstr "Ventana"
+
+#: edit_act_panels_frame_tooltip
+msgid "Aspect, size and position of the activity window"
+msgstr "Aspeutu, tamañu y posición de la ventana na que corre la xera"
+
+#: edit_act_panels_messages
+msgctxt "edit_act_panels_messages"
+msgid "Messages"
+msgstr "Mensaxes"
+
+#: edit_act_panels_messages_tooltip
+msgid "Content of the activity messages"
+msgstr "Conteníu de los mensaxes de la xera"
+
+#: edit_act_panels_panel
+msgid "Panel"
+msgstr "Panel"
+
+#: edit_act_panels_panel_tooltip
+msgid "Contents of the panel"
+msgstr "Conteníu del panel"
+
+#: edit_style_title
+msgctxt "edit_style_title"
+msgid "Style"
+msgstr "Estilu"
+
+#: edit_style_tooltip
+msgid "Set the cells color, font and size"
+msgstr "Axustar el color, triba y tamañu de lletra de les caxelles"
+
+#: edit_act_style
+msgctxt "edit_act_style"
+msgid "Style:"
+msgstr "Estilu:"
+
+#: edit_act_overlap
+msgid "Avoid text overlap image"
+msgstr "Evitar sobreposición imaxe/testu"
+
+#: edit_act_overlap_tooltip
+msgid "Try to avoid text overlapping over image"
+msgstr "Intentar evitar que testu ya imaxe se solapen"
+
+#: edit_media_exists_1
+msgid "The file"
+msgstr "El ficheru"
+
+#: edit_media_exists_2
+msgid "already exists in the media library!"
+msgstr "yá s'alcuentra na mediateca!"
+
+#: edit_act_shaper
+msgid "Shaper:"
+msgstr "Xenerador de formes:"
+
+#: edit_act_shaper_err
+msgid "Shaper error:"
+msgstr "Error nel xenerador de formes:"
+
+#: edit_act_num_cols
+msgid "Columns:"
+msgstr "Columnes:"
+
+#: edit_act_num_rows
+msgid "Rows:"
+msgstr "Fileres:"
+
+#: edit_act_toothHeightFactor
+msgid "Tooth height:"
+msgstr "Altor de los dientes:"
+
+#: edit_act_toothWidthFactor
+msgid "Tooth width:"
+msgstr "Anchor de los dientes:"
+
+#: edit_act_toothRandom
+msgid "Random distribution"
+msgstr "Distribución aleatoria"
+
+#: edit_act_shaper_properties
+msgid "Shaper properties"
+msgstr "Propiedaes del xenerador de formes"
+
+#: edit_act_panels_text
+msgid "Text"
+msgstr "Testu"
+
+#: edit_act_panels_text_tooltip
+msgid "Text of the activity"
+msgstr "Testu de la xera"
+
+#: action_saveFile_caption
+msgid "Save..."
+msgstr "Guardar..."
+
+#: action_saveFile_keys
+msgctxt "action_saveFile_keys"
+msgid "SS"
+msgstr "SS"
+
+#: action_saveFile_tooltip
+msgid "Save the current project"
+msgstr "Guardar el proyeutu actual"
+
+#: action_docTree_caption
+msgid "Document tree..."
+msgstr "Árbol del documentu..."
+
+#: action_docTree_keys
+msgid "T*"
+msgstr "T*"
+
+#: action_docTree_tooltip
+msgid "Show the project's document as a tree"
+msgstr "Amosar el documentu del proyeutu en forma d'árbol"
+
+#: edit_docTree_title
+msgid "Document tree"
+msgstr "Árbol del documentu"
+
+#: edit_media_referencedBy
+msgid "Referenced by:"
+msgstr "Referenciáu por:"
+
+#: msg_prompt_loadReferences
+msgid ""
+"<html><font face=\"dialog\" size=\"2\"><B>Warning:</B><P>This project "
+"connects with other projects.<BR>Do you want to explore the links and to "
+"load all the related files?<P>(It's advisable to answer <B>YES</B> when "
+"importing Clic 3.0 activities)</font></html>"
+msgstr ""
+"<html><font face=\"dialog\" size=\"8pt\"><B>Atención:</B><P>Esti proyeutu "
+"enllaza con otros proyeutos.<BR>¿Quies esplorar los enllaces y cargar tolos "
+"ficheros rellacionaos?<P>(Recomiéndase responder <B>SÍ</B> cuando se ta "
+"importando un paquete de xeres de Clic 3.0)</font></html>"
+
+#: edit_mc_type
+msgctxt "edit_mc_type"
+msgid "Type:"
+msgstr "Triba:"
+
+#: edit_mc_type_unknown
+msgid "Unknown"
+msgstr "Desconocíu"
+
+#: edit_mc_type_sound
+msgid "Play sound"
+msgstr "Interpretar soníu"
+
+#: edit_mc_type_video
+msgid "Play video"
+msgstr "Interpretar video"
+
+#: edit_mc_type_midi
+msgid "Play MIDI"
+msgstr "Interpretar MIDI"
+
+#: edit_mc_type_cdaudio
+msgid "Play CD audio"
+msgstr "Interpretar CD audio"
+
+#: edit_mc_type_record
+msgid "Record sound"
+msgstr "Grabar soníu"
+
+#: edit_mc_type_play_recorded
+msgid "Play recorded sound"
+msgstr "Interpretar grabación"
+
+#: edit_mc_type_run_activity
+msgid "Go to activity"
+msgstr "Dir a la xera"
+
+#: edit_mc_type_run_sequence
+msgid "Go to sequence"
+msgstr "Dir a la secuencia"
+
+#: edit_mc_type_run_external
+msgid "Run program"
+msgstr "Arrancar un programa"
+
+#: edit_mc_type_url
+msgid "Show URL"
+msgstr "Amosar la URL"
+
+#: edit_mc_type_exit
+msgid "End"
+msgstr "Finar"
+
+#: edit_mc_type_return
+msgctxt "edit_mc_type_return"
+msgid "Return"
+msgstr "Volver"
+
+#: edit_mc_level
+msgid "Priority level:"
+msgstr "Nivel de prioridá:"
+
+#: edit_mc_file
+msgid "File:"
+msgstr "Ficheru:"
+
+#: edit_mc_externalParam
+msgid "Parameters:"
+msgstr "Parámetros:"
+
+#: edit_mc_from
+msgctxt "edit_mc_from"
+msgid "From:"
+msgstr "Dende:"
+
+#: edit_mc_to
+msgctxt "edit_mc_to"
+msgid "To:"
+msgstr "Fasta:"
+
+#: edit_mc_length
+msgctxt "edit_mc_length"
+msgid "Max. length:"
+msgstr "Duración máx.:"
+
+#: edit_mc_recBuffer
+msgid "Record tape:"
+msgstr "Cinta de grabación:"
+
+#: edit_mc_stretch
+msgid "Stretch size"
+msgstr "Axustar tamañu"
+
+#: edit_mc_location
+msgctxt "edit_mc_location"
+msgid "Location:"
+msgstr "Allugamientu:"
+
+#: edit_mc_location_x
+msgctxt "edit_mc_location_x"
+msgid "X:"
+msgstr "X:"
+
+#: edit_mc_location_y
+msgctxt "edit_mc_location_y"
+msgid "Y:"
+msgstr "Y:"
+
+#: edit_mc_location_from
+msgctxt "edit_mc_location_from"
+msgid "From:"
+msgstr "Dende:"
+
+#: edit_mc_location_from_box
+msgid "Cell"
+msgstr "Celda"
+
+#: edit_mc_location_from_window
+msgctxt "edit_mc_location_from_window"
+msgid "Window"
+msgstr "Ventana"
+
+#: edit_mc_location_from_frame
+msgid "Frame"
+msgstr "Marcu"
+
+#: edit_mc_loop
+msgid "Loop playback"
+msgstr "Repetir indefinidamente"
+
+#: edit_mc_autostart
+msgid "Auto start"
+msgstr "Arranque automáticu"
+
+#: edit_mc_catchmouse
+msgid "Catch mouse"
+msgstr "Capturar mur"
+
+#: edit_mc_title
+msgid "Multimedia and active content"
+msgstr "Conteníu activu y multimedia"
+
+#: edit_mc_label
+msgid "Active content:"
+msgstr "Conteníu activu:"
+
+#: edit_media_dlg_title
+msgid "Multimedia object selection"
+msgstr "Escoyeta del oxetu multimedia"
+
+#: edit_media_title
+msgctxt "edit_media_title"
+msgid "Media library"
+msgstr "Mediateca de recursos"
+
+#: edit_mc_pos_cell
+msgid "Centered over cell"
+msgstr "Centráu na celda"
+
+#: edit_mc_pos_window
+msgid "Centered over window"
+msgstr "Centráu na ventana"
+
+#: edit_mc_pos_absolute
+msgid "Specify position:"
+msgstr "Especificar posición:"
+
+#: edit_tree_badFormat
+msgid "Incorrect tree structure or data!"
+msgstr "¡Los datos o la d'árbol son incorrectos.!"
+
+#: edit_act_panels_controls
+msgid "Controls"
+msgstr "Controles"
+
+#: edit_act_panels_controls_tooltip
+msgid "Options for buttons and counters"
+msgstr "Opciones de botones y cuntadores"
+
+#: edit_act_class
+msgctxt "edit_act_class"
+msgid "Type:"
+msgstr "Triba:"
+
+#: edit_act_gridLayout
+msgid "Grid layout:"
+msgstr "Configuración de la rexella:"
+
+#: edit_act_gridLayout_tooltip
+msgid "Relative postion of the panels A and B."
+msgstr "Posición relativa de los paneles A y B."
+
+#: edit_act_inverseResolution
+msgid "Inverse resolution"
+msgstr "Resolución inversa"
+
+#: edit_act_inverseResolution_tooltip
+msgid ""
+"The activity is solved when all assigned elements of \"B\" are matched."
+msgstr ""
+"La xera consideraráse resuelta cuando tolos elementos de \"B\" tean "
+"empareyaos."
+
+#: edit_act_showAllArrows
+msgid "Show all arrows"
+msgstr "Amosar toles fleches"
+
+#: edit_act_alt
+msgid "Alternative content:"
+msgstr "Conteníu alternativu:"
+
+#: edit_act_alt_tooltip
+msgid "Content shown in solved cells and non-assigned cells."
+msgstr "Conteníu que s'amuesa nes caxelles yá resueltes y nes non asignaes."
+
+#: edit_act_alt_toggle
+msgid "ALT"
+msgstr "ALT"
+
+#: edit_act_alt_toggle_tooltip
+msgid "Edit the alternative content"
+msgstr "Editar el conteníu alternativu"
+
+#: edit_act_grid
+msgid "Grid"
+msgstr "Panel"
+
+#: edit_act_grid_A
+msgid "Grid A"
+msgstr "Panel A"
+
+#: edit_act_grid_B
+msgid "Grid B"
+msgstr "Panel B"
+
+#: edit_act_grid_layout
+msgid "Layout"
+msgstr "Distribución"
+
+#: edit_act_grid_relationship
+msgid "Relationship"
+msgstr "Rellaciones"
+
+#: edit_seq_activity_header
+msgid "activity"
+msgstr "xera"
+
+#: edit_seq_tag_header
+msgid "tag"
+msgstr "etiqueta"
+
+#: edit_seq_jump_header
+msgid "jump to"
+msgstr "blincu a"
+
+#: edit_seq_activity
+msgctxt "edit_seq_activity"
+msgid "Activity:"
+msgstr "Xera:"
+
+#: edit_seq_tag
+msgctxt "edit_seq_tag"
+msgid "Label:"
+msgstr "Etiqueta:"
+
+#: edit_seq_description
+msgctxt "edit_seq_description"
+msgid "Description:"
+msgstr "Descripción:"
+
+#: edit_seq_auto
+msgid "Move on automatically"
+msgstr "Avance automáticu"
+
+#: edit_seq_delay
+msgid "Delay:"
+msgstr "Retardu:"
+
+#: edit_seq_action_fwd
+msgid "Go forward"
+msgstr "Dir p'alantre"
+
+#: edit_seq_action_back
+msgid "Go bak"
+msgstr "Dir p'atrás"
+
+#: edit_seq_action_jump
+msgid "Jump to..."
+msgstr "Blincar a..."
+
+#: edit_seq_action_stop
+msgid "Stop"
+msgstr "Parar"
+
+#: edit_seq_action_return
+msgctxt "edit_seq_action_return"
+msgid "Return"
+msgstr "Tornar"
+
+#: edit_seq_action_exit
+msgid "Exit JClic"
+msgstr "Colar de JClic"
+
+#: edit_seq_arrow_fwd
+msgid "Forward arrow:"
+msgstr "Flecha p'alantre:"
+
+#: edit_seq_arrow_back
+msgid "Back arrow:"
+msgstr "Flecha p'atrás:"
+
+#: edit_seq_action
+msgid "Action:"
+msgstr "Aición:"
+
+#: edit_seq_button_enabled
+msgid "Show button"
+msgstr "Amosar botón"
+
+#: edit_seq_project
+msgid "JClic Project:"
+msgstr "Proyeutu JClic:"
+
+#: edit_act_absolute
+msgid "Absolute position"
+msgstr "Posición absoluta"
+
+#: edit_act_absolute_tooltip
+msgid "The object will be placed at the specified X and Y co-ordinates"
+msgstr "L'oxetu va asitiase nes coordenaes X ya Y que se conseñen"
+
+#: edit_act_location
+msgctxt "edit_act_location"
+msgid "Location:"
+msgstr "Allugamientu:"
+
+#: edit_seq_newElement
+msgid "New sequence element..."
+msgstr "Nuevu elementu de secuencia..."
+
+#: edit_seq_newElement_tooltip
+msgid "Insert a new element into the activity sequence"
+msgstr "Inxertar un nuevu elementu na secuencia de xera"
+
+#: edit_seq_newElement_msg
+msgid "Please select an activity for the new sequence element."
+msgstr "Escueyi una xera pal nuevu elementu de secuencia."
+
+#: edit_seq_newElement_error_noAct
+msgid "Cannot create a new sequence element without activity!"
+msgstr ""
+"¡No se pue criar un elementu nuevu de secuencia ensin conseñar la xera!"
+
+#: edit_seq_newElement_error_emptyList
+msgid ""
+"This project has no activities! Unable to create sequence elements in an "
+"empty project."
+msgstr ""
+"¡Nesti proyeutu nun hai xera denguna! Nun se puen criar elementos de "
+"secuencia nun proyeutu baleru."
+
+#: edit_seq_jump_msg
+msgid "Jump target:"
+msgstr "Destín del blincu:"
+
+#: edit_seq_jump_title
+msgid "Jump target"
+msgstr "Destín del blincu"
+
+#: edit_act_newActivity_tooltip
+msgid "Add a new activity to project"
+msgstr "Amestar una xera nueva al proyeutu"
+
+#: edit_act_prompt_class
+msgid "Type of activity:"
+msgstr "Triba de xera:"
+
+#: edit_act_prompt_name
+msgctxt "edit_act_prompt_name"
+msgid "Name:"
+msgstr "Nome:"
+
+#: edit_act_newActivity_msg
+msgid "Please select the type of activity to create and give it a name:"
+msgstr "Escueyi la triba de xera que quies criar y pon-y un nome:"
+
+#: edit_act_newActivity_error_noAct
+msgid "You must select an activity type!"
+msgstr "¡Hai qu'escoyer una triba de xera!"
+
+#: edit_act_newActivity_error_noName
+msgid "You must especify a name for the activity!"
+msgstr "¡Hai qu'indicar un nome pa la xera!"
+
+#: edit_act_newActivity_error_creating
+msgid "Unable to create activity!"
+msgstr "¡Nun se pudo criar la xera!"
+
+#: edit_act_newActivity_class
+msgid "Java class name:"
+msgstr "Nome de la clas Java:"
+
+#: edit_text_act_format
+msgid "Format"
+msgstr "Formatu"
+
+#: edit_text_act_answer
+msgid "Answer"
+msgstr "Rempuesta"
+
+#: edit_text_act_popup
+msgid "Pop up"
+msgstr "Ventana emerxente"
+
+#: edit_text_act_answer_label
+msgid "Valid answers:"
+msgstr "Rempuestes correutes:"
+
+#: edit_list_newElement_tooltip
+msgid "Add a new list element"
+msgstr "Amestar un elementu nuevu a la llista"
+
+#: edit_list_editElement_tooltip
+msgid "Edit the selected list element"
+msgstr "Editar l'elementu escoyíu"
+
+#: edit_list_deleteElement_tooltip
+msgid "Delete the selected list element"
+msgstr "Esborrar l'elementu escoyíu de la llista"
+
+#: edit_list_upBtn_tooltip
+msgid "Move up"
+msgstr "Mover p'arriba"
+
+#: edit_list_downBtn_tooltip
+msgid "Move down"
+msgstr "Mover p'abaxo"
+
+#: edit_list_newValue
+msgid "New text:"
+msgstr "Testu nuevu:"
+
+#: edit_list_addElement
+msgid "Add new list element"
+msgstr "Amestar un elementu nuevu a la llista"
+
+#: edit_list_modifyValue
+msgid "Modify selected text"
+msgstr "Camudar el testu escoyíu"
+
+#: edit_text_act_target
+msgid "Target"
+msgstr "Destín"
+
+#: edit_text_act_maxLen
+msgctxt "edit_text_act_maxLen"
+msgid "Max. length:"
+msgstr "Llargor máximu:"
+
+#: edit_text_act_maxLen_tooltip
+msgid "Maximum amount of characters in the answer."
+msgstr "Númberu máximu de carauteres permitíos na rempuesta."
+
+#: edit_text_act_fillingChar
+msgid "Filling character"
+msgstr "Caráuter de rellenu"
+
+#: edit_text_act_fillingChar_tooltip
+msgid "Character used to indicate the blank"
+msgstr "Caráuter utilizáu pa indicar la incógnita"
+
+#: edit_text_act_iniLen
+msgid "Initial length:"
+msgstr "Llargor  d'ainiciu:"
+
+#: edit_text_act_iniLen_tooltip
+msgid ""
+"Number of filling chars that will be displayed at the beginning of the "
+"activity."
+msgstr ""
+"Númberu de carauteres de rellenu que se van amosar nel aniciu la xera."
+
+#: edit_text_act_iniText
+msgid "Initial text:"
+msgstr "Testu d'aniciu:"
+
+#: edit_text_act_iniText_tooltip
+msgid "Text displayed in the blank at the beggining of the activity."
+msgstr "Testu que se va amosar na incógnita al entamar la xera."
+
+#: edit_text_act_list
+msgid "Show a list of options:"
+msgstr "Amosar una llista de opciones:"
+
+#: edit_text_act_list_tooltip
+msgid "Display a list of options from which the user must select one."
+msgstr "Amosar la llista d'opciones que l'usuariu tien d'escoyer."
+
+#: edit_text_act_check_title
+msgid "Correction options"
+msgstr "Opciones d'evaluación"
+
+#: edit_text_act_popup_no
+msgid "No pop up"
+msgstr "Ensin ventana emerxente"
+
+#: edit_text_act_popup_always
+msgid "Pop up automatically"
+msgstr "Ventana emerxente automática"
+
+#: edit_text_act_popup_onError
+msgid "Pop up in errors"
+msgstr "Ventana emerxente cuando hai fallos"
+
+#: edit_text_act_popup_onDemand
+msgid "Pop up with F1"
+msgstr "Ventana emerxente calcando F1"
+
+#: edit_text_act_popup_type
+msgctxt "edit_text_act_popup_type"
+msgid "Type:"
+msgstr "Triba:"
+
+#: edit_text_act_popup_delay
+msgid "Pop up delay:"
+msgstr "Retardu d'apaición:"
+
+#: edit_text_act_popup_maxTime
+msgctxt "edit_text_act_popup_maxTime"
+msgid "Max. time:"
+msgstr "Tiempu máximu:"
+
+#: edit_text_act_popup_onlyPlay
+msgid "Sound only"
+msgstr "Namás interpretar soníu"
+
+#: edit_text_act_err_noSelection
+msgid ""
+"You must select a fragment of text in order to create a new text target!"
+msgstr ""
+"Pa criar una incógnita nueva fai falta escoyer un fragmentu de testu."
+
+#: edit_text_act_err_badCharInSelection
+msgid "Target text cannot include paragraph returns nor tabs."
+msgstr ""
+"El testu de les incógnites nun puede incluyir retornos de párrafu nin "
+"tabulaciones."
+
+#: edit_text_act_err_nestedTargets
+msgid "Targets cannot nest!"
+msgstr "¡Les incógnites nun se puen solapar"
+
+#: edit_text_act_err_cellInTarget
+msgid "Targets cannot contain cells!"
+msgstr "¡Les incógnites nun pueden tener caxelles!"
+
+#: edit_text_act_pageBgColor
+msgid "Paper colour:"
+msgstr "Color del papel:"
+
+#: edit_text_act_editStylesBtn
+msgid "Edit document styles..."
+msgstr "Editar los estilos del documentu..."
+
+#: edit_text_act_mainStyle
+msgid "Main style:"
+msgstr "Estilu principal:"
+
+#: edit_text_act_tabSpc
+msgid "Tab space:"
+msgstr "Espaciu de tabulador:"
+
+#: edit_text_act_tabSize
+msgid "Spaces between tab marks:"
+msgstr "Espacios ente marques de tabulación:"
+
+#: edit_text_act_colors
+msgid "Colors:"
+msgstr "Colores:"
+
+#: edit_text_act_targetStyle
+msgid "Target colors:"
+msgstr "Colores de les incógnitas:"
+
+#: edit_text_act_errorStyle
+msgid "Error colors:"
+msgstr "Colores d'errores:"
+
+#: edit_text_act_preview
+msgctxt "edit_text_act_preview"
+msgid "Preview:"
+msgstr "Vista preliminar:"
+
+#: edit_text_act_styleSample_default_start
+msgid "Standard text"
+msgstr "Testu normal"
+
+#: edit_text_act_styleSample_target
+msgid "target"
+msgstr "incógnita"
+
+#: edit_text_act_styleSample_error
+msgid "error"
+msgstr "error"
+
+#: edit_text_act_styleSample_default_fill
+msgid "standard text"
+msgstr "testu normal"
+
+#: edit_text_act_styleSample_default_end
+msgid "standard text."
+msgstr "testu normal."
+
+#: edit_text_act_warnDeleteTarget
+msgid ""
+"Warning: This action will supress the currently selected target. Do you want "
+"to proceed?"
+msgstr ""
+"Atención: esta aición va suprimir la incógnita escoyida. ¿De xuru que lo "
+"quies facer?"
+
+#: edit_text_act_prevScreen_title
+msgid "Previous screen..."
+msgstr "Pantalla previa..."
+
+#: edit_text_act_prevScreen_no
+msgid "Don't display any text before starting the activity"
+msgstr "Nun amosar testu dengún enantes d'entamar la xera"
+
+#: edit_text_act_prevScreen_original
+msgid "Display the complete text of the exercise"
+msgstr "Amosar el testu completu del exerciciu"
+
+#: edit_text_act_prevScreen_special
+msgid "Display this text:"
+msgstr "Amosar esti testu:"
+
+#: edit_text_act_prevScreen_time
+msgctxt "edit_text_act_prevScreen_time"
+msgid "Max. time:"
+msgstr "Tiempu máximu:"
+
+#: edit_text_act_edit_target
+msgid "Target..."
+msgstr "Incógnita..."
+
+#: edit_text_act_checkButton_show
+msgid "Show correction button"
+msgstr "Amosar botón d'evaluación"
+
+#: edit_text_act_checkButtonText
+msgid "Button text:"
+msgstr "Testu del botón:"
+
+#: edit_text_act_checkCase
+msgid "Match case"
+msgstr "Comprobar mayúscules / minúscules"
+
+#: edit_text_act_checkAccents
+msgid "Consider accents and special characters"
+msgstr "Considerar acentos y carauteres especiales"
+
+#: edit_text_act_checkPunct
+msgid "Consider punctuation marks"
+msgstr "Considerar les marques de puntuación"
+
+#: edit_text_act_checkDoubleSpc
+msgid "Allow repeated spaces"
+msgstr "Permitir espacios repetíos"
+
+#: edit_text_act_checkOptions
+msgid "Criteria"
+msgstr "Criterios"
+
+#: edit_text_act_checkAutoJump
+msgid "Move on to next target when filled in"
+msgstr "Pasar automáticamente a la incógnita siguiente"
+
+#: edit_text_act_checkForceOk
+msgid "Move only after correct guess"
+msgstr "Pasar namás si se respuende correcho"
+
+#: edit_text_act_checkDetail
+msgid "Indicate mistakes letter by letter"
+msgstr "Conseñar los fallos lletra a lletra"
+
+#: edit_text_act_checkDetail_params
+msgid "Analysis algorithm parameters:"
+msgstr "Parámetros del algoritmu d'analís:"
+
+#: edit_text_act_checkDetail_steps
+msgid "Steps:"
+msgstr "Pasos:"
+
+#: edit_text_act_checkDetail_field
+msgid "Exploration field:"
+msgstr "Campu d'esploración:"
+
+#: edit_text_act_defaultCheckButtonText
+msgid "Check"
+msgstr "Comprobar"
+
+#: edit_text_act_advancedCorrectionOptions
+msgid "Answer analysis"
+msgstr "Analís de les rempuestes"
+
+#: edit_text_act_check_bt
+msgid "Correction..."
+msgstr "Correición..."
+
+#: edit_text_act_checkButton
+msgid "Correction button"
+msgstr "Botón de correición"
+
+#: edit_text_act_checkProgress
+msgid "Progress"
+msgstr "Progresu"
+
+#: edit_text_act_typeBtn
+msgid "Type..."
+msgstr "Triba..."
+
+#: edit_text_act_orderParagraphs
+msgid "Order paragraphs"
+msgstr "Ordenar párrafos"
+
+#: edit_text_act_orderWords
+msgid "Order words"
+msgstr "Ordenar palabres"
+
+#: edit_text_act_order_amongstPar
+msgid "Shuffle words amongst paragraphs"
+msgstr "Baraxar palabres ente párrafos"
+
+#: edit_text_act_type_title
+msgid "Activity type"
+msgstr "Triba de xera"
+
+#: edit_text_act_warnChangeType
+msgid ""
+"This action will clear all the existing targets. Do you want to proceed?"
+msgstr ""
+"Esta aición va esborrar toles incógnites definíes. ¿De xuru que lo quies "
+"facer?"
+
+#: edit_text_act_identWords
+msgid "Identify words"
+msgstr "Identificar palabres"
+
+#: edit_text_act_identChars
+msgid "Identify characters"
+msgstr "Identificar carauteres"
+
+#: edit_media_change_name
+msgid "Change name..."
+msgstr "Camudar nome..."
+
+#: edit_media_change_file
+msgid "Change file..."
+msgstr "Camudar el ficheru..."
+
+#: edit_media_includeInZip
+msgid "Save into ZIP file"
+msgstr "Guardar nel ficheru ZIP"
+
+#: edit_media_type
+msgid "Media type:"
+msgstr "Triba de recursu:"
+
+#: edit_media_size
+msgid "File size:"
+msgstr "Tamañu del ficheru:"
+
+#: edit_media_show_type
+msgid "Files of type:"
+msgstr "Triba de ficheros:"
+
+#: edit_media_preview
+msgid "Preview media"
+msgstr "Previsualizar oxetu"
+
+#: edit_media_preview_tooltip
+msgid "Preview media resource"
+msgstr "Previsualización del recursu multimedia"
+
+#: edit_media_rename
+msgid "Change resource name"
+msgstr "Camudar el nome del recursu"
+
+#: edit_media_rename_title
+msgid "Rename"
+msgstr "Renomar"
+
+#: edit_media_rename_prompt
+msgid "New name:"
+msgstr "Nome nuevu:"
+
+#: edit_media_rename_invalid
+msgid "Invalid resource name!"
+msgstr "¡Nome de recursu non válidu!"
+
+#: edit_media_rename_exists
+msgid ""
+"There is another resource with this name! Each resource must have a unique "
+"name."
+msgstr ""
+"Yá hai otru recursu con esti nome. Los recursos tienen de tener un nome "
+"únicu nel proyeutu."
+
+#: edit_media_chfile_invalid
+msgid "Invalid file!"
+msgstr "¡Ficheru incorreutu!"
+
+#: err_media_chfile_different
+msgid "File must be of same type"
+msgstr "El ficheru tien de ser de la mesma triba"
+
+#: edit_media_font_error
+msgid "Unable to load font!"
+msgstr "¡Nun se pudo cargar la fonte de lletra!"
+
+#: edit_media_save_file
+msgid "Save file (extract from ZIP)"
+msgstr "Guardar el ficheru (extrayelu del ZIP)"
+
+#: edit_media_refresh_file
+msgid "Update media content from file"
+msgstr "Anovar el conteníu del recursu dende'l ficheru"
+
+#: edit_media_warn_zipFileNotExternal
+msgid ""
+"This is not a \"real\" file, but a object located into a ZIP container. In "
+"order to use this feature, a file with the same name must be present in the "
+"folder where the ZIP file is located."
+msgstr ""
+"Esti nun ye un ficheru \"real\", sinón un oxetu allugáu nel interior de un "
+"contenedor ZIP. Pa usar esta función fai falta qu'esista un ficheru col "
+"mesmu nome na carpeta onde s'atopa'l ficheru ZIP."
+
+#: edit_activities
+msgctxt "edit_activities"
+msgid "Activities"
+msgstr "Xeres"
+
+#: edit_sequences
+msgctxt "edit_sequences"
+msgid "Sequences"
+msgstr "Secuencies"
+
+#: edit_media
+msgctxt "edit_media"
+msgid "Media library"
+msgstr "Mediateca"
+
+#: edit_media_tooltip
+msgid "Manage images and other media files used in the project"
+msgstr "Xestión de les imáxenes y otros recursos usaos nel proyeutu."
+
+#: edit_activities_tooltip
+msgid "Create and edit project activities"
+msgstr "Creación y edición de les xeres del proyeutu"
+
+#: edit_sequences_tooltip
+msgid "Edit and create sequences of activities"
+msgstr "Creación y edición de secuencies de xeres"
+
+#: edit_project_title
+msgctxt "edit_project_title"
+msgid "Title:"
+msgstr "Títulu:"
+
+#: edit_project_title_tooltip
+msgid "Project's title"
+msgstr "Títulu del proyeutu"
+
+#: edit_project
+msgctxt "edit_project"
+msgid "Project"
+msgstr "Proyeutu"
+
+#: edit_project_tooltip
+msgid "Edit project properties"
+msgstr "Edición de les propiedaes del proyeutu"
+
+#: edit_project_description
+msgctxt "edit_project_description"
+msgid "Description:"
+msgstr "Descripción:"
+
+#: edit_project_description_tooltip
+msgid "General description of the project"
+msgstr "Descripción xeneral del proyeutu"
+
+#: edit_project_area
+msgid "Areas:"
+msgstr "Áries:"
+
+#: edit_project_area_tooltip
+msgid "Curricular areas of the project"
+msgstr "Áries curriculares pa les que s'empobina'l proyeutu"
+
+#: edit_project_level
+msgid "Levels:"
+msgstr "Niveles:"
+
+#: edit_project_level_tooltip
+msgid "Educational levels of the project"
+msgstr "Niveles y ciclos educativos pa los que s'empobina'l proyeutu"
+
+#: edit_project_descriptors
+msgid "Descriptors:"
+msgstr "Descriptores:"
+
+#: edit_project_descriptors_tooltip
+msgid "Descriptors of the project (separed with comma)"
+msgstr "Descriptores del proyeutu (separtaos por comes)"
+
+#: edit_project_languages
+msgid "Languages:"
+msgstr "Llingües:"
+
+#: edit_project_languages_tooltip
+msgid "Languages used in the project"
+msgstr "Llingües usaes nel proyeutu"
+
+#: edit_project_languages_modify
+msgid "Change the selected language"
+msgstr "Camudar la llingua escoyida"
+
+#: edit_project_languages_add
+msgid "Add language"
+msgstr "Amestar llingua"
+
+#: edit_project_languages_select
+msgid "ISO-639 language codes:"
+msgstr "Códigos de llingua ISO-639:"
+
+#: edit_project_authors
+msgctxt "edit_project_authors"
+msgid "Authors:"
+msgstr "Autores:"
+
+#: edit_project_authors_tooltip
+msgid "People involved in the creation of the project"
+msgstr "Persones que participaren na creación del proyeutu"
+
+#: edit_project_author_name
+msgctxt "edit_project_author_name"
+msgid "Name:"
+msgstr "Nome:"
+
+#: edit_project_author_mail
+msgctxt "edit_project_author_mail"
+msgid "e-mail:"
+msgstr "Corréu electrónicu:"
+
+#: edit_project_author_rol
+msgid "Rol:"
+msgstr "Papel:"
+
+#: edit_project_author_organization
+msgid "Organization:"
+msgstr "Organización:"
+
+#: edit_project_author_comments
+msgctxt "edit_project_author_comments"
+msgid "Comments:"
+msgstr "Comentarios:"
+
+#: edit_project_author_url
+msgctxt "edit_project_author_url"
+msgid "URL:"
+msgstr "URL:"
+
+#: edit_project_author_name_tooltip
+msgid "Author's name (required)"
+msgstr "Nome del autor/a (campu obligatorio)"
+
+#: edit_project_author_mail_tooltip
+msgid "Author's e-mail (optional)"
+msgstr "Direición de corréu electrónicu del autor/a (opcional)"
+
+#: edit_project_author_rol_tooltip
+msgid ""
+"Person's rol in the project: author, collaborator, drawings, sounds... "
+"(optional)"
+msgstr ""
+"Papel de la persona nel proyeutu: autor, collaborador, illustrador, "
+"soníos... (opcional)"
+
+#: edit_project_author_organization_tooltip
+msgid "School, university, association... (optional)"
+msgstr "Escuela, universidá, asociación... (campu opcional)"
+
+#: edit_project_author_url_tooltip
+msgid "Personal web page (optional)"
+msgstr "Páxina web personal (campu opcional)"
+
+#: edit_project_author_comments_tooltip
+msgid "Field for other information (optional)"
+msgstr "Otres carauterístiques (campu opcional)"
+
+#: edit_project_author_info
+msgid "Author info:"
+msgstr "Datos del autor/a:"
+
+#: edit_project_author_add
+msgid "Add author to list"
+msgstr "Amestar un autor a la llista"
+
+#: edit_project_author_edit
+msgid "Edit author info"
+msgstr "Camudar los datos del autor/a"
+
+#: edit_project_org_name
+msgctxt "edit_project_org_name"
+msgid "Name:"
+msgstr "Nome:"
+
+#: edit_project_org_name_tooltip
+msgid "School name"
+msgstr "Nome de la escuela"
+
+#: edit_project_org_mail
+msgctxt "edit_project_org_mail"
+msgid "e-mail:"
+msgstr "Corréu electrónicu:"
+
+#: edit_project_org_mail_tooltip
+msgid "e-mail address of the school"
+msgstr "Direición de corréu electrónicu de la escuela"
+
+#: edit_project_org_url
+msgctxt "edit_project_org_url"
+msgid "URL:"
+msgstr "URL:"
+
+#: edit_project_org_url_tooltip
+msgid "School website"
+msgstr "Direición web de la escuela"
+
+#: edit_project_org_address
+msgid "Address:"
+msgstr "Direición:"
+
+#: edit_project_org_address_tooltip
+msgid "Snail-mail address"
+msgstr "Direición postal de la escuela"
+
+#: edit_project_org_pc
+msgid "PC:"
+msgstr "CP:"
+
+#: edit_project_org_pc_tooltip
+msgid "Postal code"
+msgstr "Códigu postal"
+
+#: edit_project_org_city
+msgid "City:"
+msgstr "Ciudá:"
+
+#: edit_project_org_city_tooltip
+msgid "School city"
+msgstr "Ciudá de la escuela"
+
+#: edit_project_org_country
+msgid "Country:"
+msgstr "País:"
+
+#: edit_project_org_state
+msgid "State:"
+msgstr "Estáu:"
+
+#: edit_project_org_comments
+msgctxt "edit_project_org_comments"
+msgid "Comments:"
+msgstr "Comentarios:"
+
+#: edit_project_org
+msgid "School/s:"
+msgstr "Escuela/es:"
+
+#: edit_project_org_tooltip
+msgid "School or other institution involved in the project"
+msgstr "Escuela u otra institución que participare nel proyeutu"
+
+#: edit_project_org_info
+msgid "Organization info:"
+msgstr "Datos de la organización:"
+
+#: edit_project_org_add
+msgid "Add organization"
+msgstr "Amestar organización"
+
+#: edit_project_org_edit
+msgid "Edit organization data"
+msgstr "Camudar los datos de la organización"
+
+#: edit_project_org_country_tooltip
+msgid "Country, federation, union..."
+msgstr "País, federación, xunión..."
+
+#: edit_project_org_state_tooltip
+msgid "Federal state, community, region..."
+msgstr "Estáu federal, comunidá, rexón..."
+
+#: edit_project_org_comments_tooltip
+msgid "Other info..."
+msgstr "Otros datos..."
+
+#: edit_project_rev_date
+msgid "Date:"
+msgstr "Data:"
+
+#: edit_project_rev_date_tooltip
+msgid "Date of the revision"
+msgstr "Data de la revisión"
+
+#: edit_project_rev_authors
+msgctxt "edit_project_rev_authors"
+msgid "Authors:"
+msgstr "Autores/as:"
+
+#: edit_project_rev_authors_tooltip
+msgid "Authors of the revision"
+msgstr "Autores/as de la revisión"
+
+#: edit_project_rev_description
+msgctxt "edit_project_rev_description"
+msgid "Description:"
+msgstr "Descripción:"
+
+#: edit_project_rev_description_tooltip
+msgid "Brief description of the changes made"
+msgstr "Breve descripción de los cambeos realizados"
+
+#: edit_project_rev_comments
+msgctxt "edit_project_rev_comments"
+msgid "Comments:"
+msgstr "Comentarios:"
+
+#: edit_project_rev_comments_tooltip
+msgid "Other relevant info"
+msgstr "Información adicional"
+
+#: edit_project_rev
+msgid "Revisions:"
+msgstr "Revisiones:"
+
+#: edit_project_rev_tooltip
+msgid "History of main modifications made to the project"
+msgstr "Historial de los cambeos principales fechos nel proyeutu"
+
+#: edit_project_rev_add
+msgid "Add revision record"
+msgstr "Amestar un rexistru de revisión"
+
+#: edit_project_rev_edit
+msgid "Edit revision record"
+msgstr "Camudar el rexistru de la revisión"
+
+#: edit_project_rev_info
+msgid "Revision data"
+msgstr "Datos de la revisión"
+
+#: edit_media_objects
+msgid "objects"
+msgstr "oxetos"
+
+#: edit_media_object
+msgid "object"
+msgstr "oxetu"
+
+#: edit_evsounds_start
+msgid "Start of activity:"
+msgstr "Aniciu de xera:"
+
+#: edit_evsounds_click
+msgid "Click on object:"
+msgstr "Calcar nun oxetu:"
+
+#: edit_evsounds_actionError
+msgid "Erroneous action:"
+msgstr "Aición errónea:"
+
+#: edit_evsounds_actionOk
+msgid "Correct action:"
+msgstr "Aición correuta:"
+
+#: edit_evsounds_finishedError
+msgid "Activity finished with errors:"
+msgstr "Xera finada con fallos:"
+
+#: edit_evsounds_finishedOk
+msgid "Activity finished OK:"
+msgstr "Xera finada correutamente:"
+
+#: edit_project_rev_err_nodesc
+msgid "Error: The description field cannot be leaved blank!"
+msgstr "Error: La descripción nun quedar erma"
+
+#: edit_evsounds_dlg_title
+msgid "Edit event sounds"
+msgstr "Edición de los soníos d'eventos"
+
+#: edit_project_evsounds
+msgctxt "edit_project_evsounds"
+msgid "Event sounds:"
+msgstr "Soníos d'eventos:"
+
+#: edit_project_evsounds_tooltip
+msgctxt "edit_project_evsounds_tooltip"
+msgid "Set specific sounds for each JClic event"
+msgstr "Coseñar soníos específicos pa cada eventu de JClic"
+
+#: edit_act_evsounds
+msgctxt "edit_act_evsounds"
+msgid "Event sounds:"
+msgstr "Soníos d'eventos:"
+
+#: edit_act_evsounds_tooltip
+msgctxt "edit_act_evsounds_tooltip"
+msgid "Set specific sounds for each JClic event"
+msgstr "Coseñar soníos específicos pa cada eventu de JClic"
+
+#: edit_evsounds_default
+msgid "default sound"
+msgstr "soníu por defeutu"
+
+#: edit_evsounds_disabled
+msgid "disabled"
+msgstr "desactiváu"
+
+#: edit_evsounds_chk_tooltip
+msgid "Enable or disable the sound for this event"
+msgstr "Activa o desactiva'l soníu pa esti eventu"
+
+#: edit_evsounds_select_tooltip
+msgid ""
+"Click to select a sound for this event, or uncheck to use the default sound"
+msgstr ""
+"Calcar pa escoyer el soníu arreyáu a esti eventu, o desmarcar pa usar el "
+"soníu por defeutu"
+
+#: action_newProject_caption
+msgid "New project..."
+msgstr "Proyeutu nuevu..."
+
+#: action_newProject_keys
+msgid "NN"
+msgstr "NN"
+
+#: action_newProject_tooltip
+msgid "Create a new JClic project"
+msgstr "Criar un proyeutu JClic nuevu"
+
+#: edit_arith_op_from
+msgctxt "edit_arith_op_from"
+msgid "From:"
+msgstr "Dende:"
+
+#: edit_arith_op_from_tooltip
+msgid "Minimum value of the operator"
+msgstr "Valor mínimu del operador"
+
+#: edit_arith_op_to
+msgctxt "edit_arith_op_to"
+msgid "To:"
+msgstr "Fasta:"
+
+#: edit_arith_op_to_tooltip
+msgid "Maximum value of the operator"
+msgstr "Valor máximu del operador"
+
+#: edit_arith_op_with
+msgid "With:"
+msgstr "Con:"
+
+#: edit_arith_op_with_tooltip
+msgid "If checked, the operator can also have this value"
+msgstr "Si se marca, l'operador pue tener tamién esti valor"
+
+#: edit_arith_op_fromList
+msgid "One from the list:"
+msgstr "Ún de la llista:"
+
+#: edit_arith_op_fromList_tooltip
+msgid "List of possible values for the operator"
+msgstr "Llista de posibles valores del operador"
+
+#: edit_arith_op_decimals
+msgid "Decimals:"
+msgstr "Decimales:"
+
+#: edit_arith_op_decimals_tooltip
+msgid "Number of decimals of the operand"
+msgstr "Númberu de decimales del operando"
+
+#: edit_arith_op_dec0
+msgid "# (integer)"
+msgstr "# (enteru)"
+
+#: edit_arith_op_dec1
+msgid "#.#"
+msgstr "#,#"
+
+#: edit_arith_op_dec2
+msgid "#.##"
+msgstr "#,##"
+
+#: edit_arith_firstOp
+msgid "First operand"
+msgstr "Primer operando"
+
+#: edit_arith_secondOp
+msgid "Second operand"
+msgstr "Segundu operando"
+
+#: edit_arith_title
+msgid "Arith2 for JClic"
+msgstr "Arith2 pa JClic"
+
+#: edit_arith_operations
+msgid "Operations:"
+msgstr "Operaciones:"
+
+#: edit_arith_operations_tooltip
+msgid "Select the kind of operations to be performed"
+msgstr "Selecciona la triba d'operaciones a efectuar"
+
+#: edit_arith_operations_plus
+msgid "Plus"
+msgstr "Sumes"
+
+#: edit_arith_operations_minus
+msgid "Minus"
+msgstr "Restes"
+
+#: edit_arith_operations_multiply
+msgid "Multiply"
+msgstr "Multiplicaciones"
+
+#: edit_arith_operations_divide
+msgid "Divide"
+msgstr "Divisiones"
+
+#: edit_arith_unknown
+msgid "Unknown:"
+msgstr "Incógnita:"
+
+#: edit_arith_unknown_tooltip
+msgid "Select the item that will act as a unknown"
+msgstr "Escueyi l'elementu que va facer d'incógnita"
+
+#: edit_arith_unknown_aobx
+msgid "The result is the unknown"
+msgstr "El resultáu ye la incógnita"
+
+#: edit_arith_unknown_aoxr
+msgid "The second operator is the unknown"
+msgstr "El segundu operador  ye la incógnita"
+
+#: edit_arith_unknown_xobr
+msgid "The first operator is the unknown"
+msgstr "El primer operador ye la incógnita"
+
+#: edit_arith_unknown_axbr
+msgid "The operation is the unknown"
+msgstr "La operación ye la incógnita"
+
+#: edit_arith_unknown_invert
+msgid "Write the result at the beggining of the expression"
+msgstr "Escribir la expressión entamando pel resultáu"
+
+#: edit_arith_result
+msgid "Result:"
+msgstr "Resultáu:"
+
+#: edit_arith_result_notCarry
+msgid "Do not carry"
+msgstr "Ensin llevar"
+
+#: edit_arith_result_random
+msgid "Random"
+msgstr "Aleatoriu"
+
+#: edit_arith_result_asc
+msgid "Ascending"
+msgstr "Ascendente"
+
+#: edit_arith_result_order
+msgid "Order by result:"
+msgstr "Ordenar per resultáu:"
+
+#: edit_arith_result_desc
+msgid "Descending"
+msgstr "Descendente"
+
+#: edit_arith_result_avoidDup
+msgid "Avoid duplicates"
+msgstr "Evitar duplicaos"
+
+#: edit_arith_cond
+msgid "Conditions:"
+msgstr "Condiciones:"
+
+#: edit_arith_cond_ind
+msgid "Indifferent"
+msgstr "Indiferente"
+
+#: edit_arith_cond_agb
+msgid "The first operator must be greather than the second one"
+msgstr "El primer operador tien de ser mayor que'l segundu"
+
+#: edit_arith_cond_alb
+msgid "The first operator must be lesser than the second one"
+msgstr "El primer operador tien de ser menor que'l segundu"
+
+#: edit_arith_cond_tooltip
+msgid "Other conditions"
+msgstr "Otres condiciones"
+
+#: edit_autocp
+msgid "Automatic content generator:"
+msgstr "xenerador automáticu de conteníu:"
+
+#: edit_autocp_tooltip
+msgid "Select the type of automatic content generator for this activity."
+msgstr ""
+"Escoyeta de la triba de xenerador automáticu de conteníu pa esta xera."
+
+#: edit_autocp_block
+msgid "Content generator"
+msgstr "Xenerador de conteníu"
+
+#: edit_autocp_btn
+msgid "Settings..."
+msgstr "Preferencies..."
+
+#: edit_autocp_btn_tooltip
+msgid "Configure the content provider settings"
+msgstr "Configuración de los parámetros del xenerador de conteníu"
+
+#: edit_data
+msgid "Edit data"
+msgstr "Edición de datos"
+
+#: edit_act
+msgid "Activity edit"
+msgstr "Edición de la xera"
+
+#: edit_acp
+msgid "Content provider edit"
+msgstr "Edición del xenerador de conteníu"
+
+#: edit_acp_err_creating
+msgid "Error creating the content provider!"
+msgstr "¡Error de creación del xenerador automáticu de conteníu!"
+
+#: edit_project_author_group
+msgid "Creation"
+msgstr "Creación"
+
+#: edit_project_description_block
+msgctxt "edit_project_description_block"
+msgid "Description"
+msgstr "Descripción"
+
+#: edit_project_ui_block
+msgctxt "edit_project_ui_block"
+msgid "User interface"
+msgstr "Interfaz d'usuariu"
+
+#: edit_act_description
+msgctxt "edit_act_description"
+msgid "Description:"
+msgstr "Descripción:"
+
+#: m_Edit
+msgid "Edit"
+msgstr "Edición"
+
+#: m_Edit_Mnemonic
+msgid "E"
+msgstr "E"
+
+#: edit_media_preview_keys
+msgid "P*"
+msgstr "P*"
+
+#: edit_act_newActivity
+msgid "New activity..."
+msgstr "Xera nueva..."
+
+#: edit_act_newActivity_keys
+msgid "A*"
+msgstr "A*"
+
+#: edit_act_testAction_keys
+msgid "P#10"
+msgstr "P#10"
+
+#: edit_seq_newElement_keys
+msgid "S*"
+msgstr "S*"
+
+#: m_Insert
+msgid "Insert"
+msgstr "Inxertar"
+
+#: m_Insert_Mnemonic
+msgid "I"
+msgstr "I"
+
+#: m_View
+msgid "View"
+msgstr "Ver"
+
+#: m_View_Mnemonic
+msgid "V"
+msgstr "V"
+
+#: action_editProject_caption
+msgctxt "action_editProject_caption"
+msgid "Project"
+msgstr "Proyeutu"
+
+#: action_editProject_keys
+msgid "PP"
+msgstr "PP"
+
+#: action_editProject_tooltip
+msgid "Edit project settings"
+msgstr "Editar les propiedaes del proyeutu"
+
+#: action_editMedia_caption
+msgid "Media"
+msgstr "Mediateca"
+
+#: action_editMedia_keys
+msgid "MM"
+msgstr "MM"
+
+#: action_editMedia_tooltip
+msgid "Edit the project's multimedia library"
+msgstr "Edición de la mediateca del proyeutu"
+
+#: action_editActivities_caption
+msgctxt "action_editActivities_caption"
+msgid "Activities"
+msgstr "Xeres"
+
+#: action_editActivities_keys
+msgctxt "action_editActivities_keys"
+msgid "AA"
+msgstr "AA"
+
+#: action_editActivities_tooltip
+msgid "Edit the activities"
+msgstr "Edición de les xeres"
+
+#: action_editSeq_caption
+msgctxt "action_editSeq_caption"
+msgid "Sequences"
+msgstr "Secuencies"
+
+#: action_editSeq_keys
+msgctxt "action_editSeq_keys"
+msgid "SS"
+msgstr "SS"
+
+#: action_editSeq_tooltip
+msgid "Edit the sequences of activities"
+msgstr "Edición de les secuencies de xeres"
+
+#: warn_project_modified
+msgid "Current project has been modified. Do you want to save the changes?"
+msgstr "Esti proyeutu camudó. ¿Quies guardar los cambeos?"
+
+#: edit_project_descriptors_block
+msgid "Descriptors"
+msgstr "Descriptores"
+
+#: edit_media_new
+msgid "New media object..."
+msgstr "Oxetu multimedia nuevu..."
+
+#: edit_media_new_tooltip
+msgid "Add a new image or multimedia object to the library"
+msgstr "Amestar una imaxe o un oxetu multimedia a la mediateca"
+
+#: edit_media_new_keys
+msgid "M*"
+msgstr "M*"
+
+#: edit_seq_threshold
+msgid "Score threshold:"
+msgstr "Umbral de puntuación:"
+
+#: edit_seq_threshold_tooltip_up
+msgid "Take this way when the global score is equal to or higher than..."
+msgstr ""
+"Siguir esti camín cuando la puntuación global seya mayor o igual que..."
+
+#: edit_seq_time
+msgid "Time threshold:"
+msgstr "Umbral de tiempu:"
+
+#: edit_seq_time_tooltip_up
+msgid ""
+"In order to take this way, the time spent on the activities must be less "
+"than..."
+msgstr ""
+"Pa siguir esti camín hai que tener feches les xeres nun tiempu inferior a..."
+
+#: edit_seq_threshold_tooltip_down
+msgid "Take this way when the global score is lower than..."
+msgstr ""
+"Sigui esti camín siempres que la puntuación global seya inferior a..."
+
+#: edit_seq_time_tooltip_down
+msgid "Take this way when the time spent on the activities is more than..."
+msgstr ""
+"Sigui esti camín siempres que'l tiempu emplegáu nes xeres seya superior a..."
+
+#: edit_seq_condJump
+msgid "Conditional jumps"
+msgstr "Blincos condicionales"
+
+#: edit_seq_condJump_tooltip
+msgid "Set special jumps to be executed only under specific condicions"
+msgstr ""
+"Conseñar blincos que s'executen namás si se dan unes condiciones determinaes"
+
+#: edit_seq_condJump_upper_tooltip
+msgid "Set conditions to jump to an upper level"
+msgstr "Conseñar les condiciones pa blincar a un nivel superior"
+
+#: edit_seq_condJump_lower
+msgid "Lower jump:"
+msgstr "Blincu inferior:"
+
+#: edit_seq_condJump_upper
+msgid "Upper jump:"
+msgstr "Blincu superior:"
+
+#: edit_seq_condJump_lower_tooltip
+msgid "Set conditions to jump to an lower level"
+msgstr "Conseñar les condiciones pa blincar a un nivel inferior"
+
+#: edit_seq_action_tooltip_fw
+msgid "Action assigned to the \"next\" button"
+msgstr "Aición asociada al botón \"siguiente\""
+
+#: edit_seq_action_tooltip_bk
+msgid "Action assigned to the \"previous\" button"
+msgstr "Aición asociada al botón \"anterior\""
+
+#: edit_seq_jump_tooltip
+msgid "Set the jump target"
+msgstr "Conseñar el destín del blincu"
+
+#: edit_seq_action_tooltip
+msgid "Action to be done"
+msgstr "Aición a facer"
+
+#: edit_seq_activity_tooltip
+msgid "Activity assigned to this sequence element"
+msgstr "Xera asociada a esti elementu de la secuencia"
+
+#: edit_seq_tag_tooltip
+msgid "Tag used to reference this sequence element (optional field)"
+msgstr ""
+"Etiqueta emplegada pa referise a esti elementu de la secuencia (campu "
+"opcional)"
+
+#: edit_seq_description_tooltip
+msgid "Description of the sequence element (optional field)"
+msgstr "Descripción del elementu de secuencia (campu opcional)"
+
+#: edit_seq_button_enabled_tooltip
+msgid "Enable or disable the arrow button"
+msgstr "Activar o desactivar el botón de pasu de xera"
+
+#: edit_seq_auto_tooltip
+msgid "Move on automatically when the activity finishes"
+msgstr "Avanzar automáticamente al acabar la xera"
+
+#: edit_seq_delay_tooltip
+msgid "Seconds to wait before to do the automatic move"
+msgstr "Númberu de segundos a esperar enantes de facer el pasu automáticu"
+
+#: edit_color_dlgTitle
+msgid "Select color"
+msgstr "Escoyeta del color"
+
+#: edit_media_renaming
+msgid "Please wait while the resource is being renamed..."
+msgstr "Por favor, espere mientres se camuda'l nome del recursu..."
+
+#: edit_act_cell_width
+msgctxt "edit_act_cell_width"
+msgid "Width:"
+msgstr "Anchor:"
+
+#: edit_act_cell_width_tooltip
+msgid "Cell width (in pixels)"
+msgstr "Anchor de les caxelles (en píxeles)"
+
+#: edit_act_cell_height
+msgctxt "edit_act_cell_height"
+msgid "Height:"
+msgstr "Altor:"
+
+#: edit_act_cell_height_tooltip
+msgid "Cell height (in pixels)"
+msgstr "Altor de les caxelles (en píxeles)"
+
+#: edit_act_hiddenWords
+msgid "Hidden words:"
+msgstr "Pallabres tapecíes:"
+
+#: edit_act_hiddenWords_tooltip
+msgid "List of the hidden words placed in the panel"
+msgstr "Llista de les palabres tapecíes nel panel"
+
+#: edit_act_wordSearch_panelB
+msgid "Use panel B"
+msgstr "Usar el panel B"
+
+#: edit_act_wordSearch_panelB_tooltip
+msgid "The contents of a second panel will be displayed as words are found"
+msgstr ""
+"El conteníu del segundu panel va ser amosáu según se vayan atopando les "
+"palabres"
+
+#: edit_act_shaper_tooltip
+msgid "Select the shaper type to be used in the panel"
+msgstr "Escoyeta de la triba de xenerador de formes del panel"
+
+#: edit_act_num_cols_tooltip
+msgid "Number of columns of  the panel"
+msgstr "Númberu de columnes del panel"
+
+#: edit_act_num_rows_tooltip
+msgid "Number of rows of  the panel"
+msgstr "Númberu de fileres del panel"
+
+#: edit_act_wildTransparent
+msgid "Transparent delimiters"
+msgstr "Separtadores tresparentes"
+
+#: edit_act_wildTransparent_tooltip
+msgid "Treat the delimiters (black boxes) as transparent holes"
+msgstr "Amosar los separtadores (caxelles prietes) como furacos tresparentes"
+
+#: edit_act_behavior_scramble_times
+msgid "Mixes\\:"
+msgstr "Mestures\\:"
+
+#: edit_act_behavior_scramble_times_tooltip
+msgid "Number of times to shuffle"
+msgstr "Númberu de vegaes que se mecerán les pieces"
+
+#: edit_act_copy_title
+msgid "Copy attributtes to..."
+msgstr "Copiar atributos a..."
+
+#: edit_act_copy_attributes
+msgid "Attributes"
+msgstr "Atributos:"
+
+#: edit_act_copy_dest
+msgid "Apply to:"
+msgstr "Aplicar a:"
+
+#: edit_act_copy_style_main
+msgid "Main window"
+msgstr "Ventana principal"
+
+#: edit_act_copy_style_play
+msgid "Play window"
+msgstr "Ventana de xuegu"
+
+#: edit_act_copy_activities
+msgid "Activities to be modified:"
+msgstr "Xeres a camudar:"
+
+#: edit_act_copyAttributes
+msgid "Copy attributes"
+msgstr "Copiar atributos"
+
+#: edit_act_copyAttributes_keys
+msgid "T"
+msgstr "T"
+
+#: edit_act_copyAttributes_tooltip
+msgid "Copy current activity attributes to other activities"
+msgstr "Copiar a otres xeres dellos de los atributos d'esta xera"
+
+#: edit_new_project_name
+msgid "Project name:"
+msgstr "Nome del proyeutu:"
+
+#: edit_new_project_name_tooltip
+msgid "Short, descriptive name of the project"
+msgstr "Nome curtiu y descriptivu del proyeutu"
+
+#: edit_new_project_filename
+msgctxt "edit_new_project_filename"
+msgid "File name:"
+msgstr "Nome del ficheru:"
+
+#: edit_new_project_filename_tooltip
+msgid "Name of the project file, without extension"
+msgstr "Nome del ficheru del proyeutu, ensin estensión"
+
+#: edit_new_project_folder
+msgctxt "edit_new_project_folder"
+msgid "Folder:"
+msgstr "Carpeta:"
+
+#: edit_new_project_folder_tooltip
+msgid "Name of the folder where the project will be stored"
+msgstr "Nome de la carpeta na que se va guardar el proyeutu"
+
+#: edit_new_project_folder_browse
+msgctxt "edit_new_project_folder_browse"
+msgid "Browse..."
+msgstr "Restolar..."
+
+#: edit_new_project_title
+msgid "Create new JClic project"
+msgstr "Creación d'un proyeutu JClic nuevu"
+
+#: edit_new_project_err_empty
+msgid "Error: Project, file and folder must have valid, non-empty names."
+msgstr ""
+"Error: Tanto'l proyeutu como'l ficheru y la carpeta tienen de tener nomes "
+"válidos."
+
+#: edit_new_project_warning_noEmptyFolder
+msgid ""
+"This folder already contains another Clic 3.0 or JClic project. In order to "
+"avoid confusions, is preferable to maintain each project in a separate "
+"folder, but that isn't a strict rule. Do you really want to create the new "
+"project in this folder?"
+msgstr ""
+"Nesta carpeta yá hai otru proyeutu Clic3.0 o JClic. Pa evitar tracamundios "
+"recomiéndase caltener cada proyeutu nuna carpeta independiente, anque nun ye "
+"imprescindible. ¿De xuru que quies criar el proyeutu nuevu nesta carpeta?"
+
+#: edit_new_project_err_folderCreation
+msgid "Error: Unable to create the specified folder!"
+msgstr "Error: ¡Nun fue ha criase la carpeta conseñada!"
+
+#: edit_act_copy_err_noSelection
+msgid ""
+"Error: No activity selected! In order to use this function you must select "
+"in the list the activity or activities to wich the indicated attributes will "
+"be applied."
+msgstr ""
+"Error: ¡Nun s'escoyó xera nenguna. Pa usar esta función hai qu' escoyer na "
+"llista la xera o xeres a les que se van aplicara los atributos conseñaos."
+
+#: edit_act_copy_action_prefix
+msgid "Copying attributes to:"
+msgstr "Copiando atributos a:"
+
+#: edit_act_copy_margin
+msgid "Margin"
+msgstr "Marxe"
+
+#: edit_act_copy_bgColor
+msgid "Background color"
+msgstr "Color de fondu"
+
+#: edit_act_copy_gradient
+msgctxt "edit_act_copy_gradient"
+msgid "Gradient"
+msgstr "Gradiente"
+
+#: edit_act_copy_bgImage
+msgid "Background image"
+msgstr "Imaxe de fondu"
+
+#: edit_act_copy_border
+msgctxt "edit_act_copy_border"
+msgid "Border"
+msgstr "Berbesu"
+
+#: edit_act_copy_transparentBg
+msgid "Transparent background"
+msgstr "Fondu tresparente"
+
+#: edit_act_copy_position
+msgid "Position"
+msgstr "Posición"
+
+#: edit_act_copy_messages
+msgctxt "edit_act_copy_messages"
+msgid "Messages"
+msgstr "Mensaxes"
+
+#: edit_act_copy_messages_ini
+msgid "Style of initial message"
+msgstr "Estilu del mensaxe d'aniciu"
+
+#: edit_act_copy_messages_end
+msgid "Style of end message"
+msgstr "Estilu del mensaxe final"
+
+#: edit_act_copy_messages_err
+msgid "Style of error message"
+msgstr "Estilu del mensaxe de fallu"
+
+#: edit_act_copy_reports
+msgctxt "edit_act_copy_reports"
+msgid "Reports"
+msgstr "Informes"
+
+#: edit_act_copy_rep_include
+msgid "Include activity in reports"
+msgstr "Incluyir la xera nos informes"
+
+#: edit_act_copy_rep_actions
+msgid "Record actions"
+msgstr "Rexistrar aiciones"
+
+#: edit_act_copy_interface
+msgctxt "edit_act_copy_interface"
+msgid "User interface"
+msgstr "Interfaz d'usuariu"
+
+#: edit_act_copy_skin
+msgid "Skin"
+msgstr "Entornu visual"
+
+#: edit_act_copy_evSounds
+msgid "Event sounds"
+msgstr "Soníos d'eventu"
+
+#: edit_act_copy_counters
+msgctxt "edit_act_copy_counters"
+msgid "Counters"
+msgstr "Cuntadores"
+
+#: edit_act_copy_cTime
+msgctxt "edit_act_copy_cTime"
+msgid "Time counter"
+msgstr "Cuntador de tiempu"
+
+#: edit_act_copy_maxTime
+msgid "Max. time"
+msgstr "Tiempu máximu"
+
+#: edit_act_copy_cTries
+msgctxt "edit_act_copy_cTries"
+msgid "Tries counter"
+msgstr "Cuntador d'intentos"
+
+#: edit_act_copy_maxTries
+msgid "Max. tries"
+msgstr "Númberu máximu d'intentos"
+
+#: edit_act_copy_cScore
+msgctxt "edit_act_copy_cScore"
+msgid "Score counter"
+msgstr "Cuntador d'aciertos"
+
+#: edit_act_copy_scramble
+msgid "Times to scramble"
+msgstr "Númberu de vegaes qu'hai que baraxar"
+
+#: edit_act_copy_buttons
+msgctxt "edit_act_copy_buttons"
+msgid "Buttons"
+msgstr "Botones"
+
+#: edit_act_copy_btnHelp
+msgid "Help button"
+msgstr "Botón d'aida"
+
+#: edit_act_copy_btnInfo
+msgid "Information button"
+msgstr "Botón d'información"
+
+#: edit_act_copy_grids
+msgid "Grids"
+msgstr "Paneles"
+
+#: edit_act_copy_gridA
+msgid "Style of grid A"
+msgstr "Estilu del panel A"
+
+#: edit_act_copy_gridB
+msgid "Style of grid B"
+msgstr "Estilu del panel B"
+
+#: edit_act_copy_textGrid
+msgid "Style of text grids"
+msgstr "Estilu de los paneles de testu"
+
+#: edit_act_copy_text
+msgid "Text activities"
+msgstr "Xeres de testu"
+
+#: edit_act_copy_fontFace
+msgid "Font face"
+msgstr "Triba de lletra"
+
+#: edit_act_copy_fontSize
+msgid "Font size"
+msgstr "Tamañu de lletra"
+
+#: edit_act_copy_fontStyle
+msgid "Font style"
+msgstr "Estilu de lletra"
+
+#: edit_act_copy_textColour
+msgid "Main text colour"
+msgstr "Color del testu principal"
+
+#: edit_act_copy_textTargetColour
+msgctxt "edit_act_copy_textTargetColour"
+msgid "Select the JClic project of which the activities will be imported"
+msgstr "Escueyi les xeres del proyeutu JClic que van ser importaes"
+
+#: edit_act_copy_textErrorColour
+msgid "Errors colour"
+msgstr "Color de los fallos"
+
+#: edit_act_copy_tabSpace
+msgid "Tab space"
+msgstr "Espaciu de tabulador"
+
+#: edit_act_copy_messages_prev
+msgid "Style of previous message"
+msgstr "Estilu del mensax previu"
+
+#: edit_act_changeType
+msgid "Change activity type"
+msgstr "Camudar la triba de xera"
+
+#: edit_act_newActivity_class_tooltip
+msgid ""
+"Full name of the class to be used to build the activity (advanced users "
+"only!)"
+msgstr ""
+"Nome completu de la clas que se va emplegar pa construir la xera (¡namás pa "
+"usuarios avanzaos!)"
+
+#: edit_act_newActivity_other
+msgid "Other..."
+msgstr "Otres..."
+
+#: edit_act_newActivity_info
+msgid ""
+"Advanced users can also create unregistered types of JClic activities. Just "
+"write below the full class name, prefixed by the package (like "
+"\"com.acme.activities.FooActivity\"). Activity classes must extend "
+"<b>edu.xtec.jclic.Activity</b>, and must be accessibles to the JVM "
+"classloader."
+msgstr ""
+"Los usuarios/es avanzaos/es pueden criar tamién otres tribes de xeres JClic "
+"nun rexistraes. Escribi debaxo'l nome completu de la clas, precedida pol del "
+"paquete (por exemplu: \"com.acme.activities.FooActivity\"). Les xeres nueves "
+"tienen d'estender edu.xtec.jclic.Activity, y tienen de ser accesibles al "
+"cargador de clases de la máquina virtual de Java."
+
+#: edit_act_newActivity_name
+msgid "Name of the activity:"
+msgstr "Nome de la xera"
+
+#: edit_act_newActivity_name_tooltip
+msgid "Each activity must have a name unique in the project"
+msgstr "Cada xera tien de tener un nome único nel proyeutu"
+
+#: edit_act_changeType_warning
+msgid ""
+"<html><p style=\"font-family:Helvetica; font-size:10px;\"><b>Warning:</b> "
+"Changing the type of activity can cause lost of some of the current activity "
+"attributes and objects. Use it with care!</p><p>&nbsp;</p></html>"
+msgstr ""
+"<html><p style=\"font-family:Helvetica; font-size:10px;\"><b>Atención:</b> "
+"El cambéu de la triba pue causar la perda de dellos de los atributos y "
+"oxetos de la xera que se ta editando. ¡Utilice la función con munchu "
+"cuidáu!</p><p>&nbsp;</p></html>"
+
+#: applet_codebase
+msgid "Location of JClic code:"
+msgstr "Allugamientu del códigu JClic:"
+
+#: applet_codebase_tooltip
+msgid "URL pointing to a folder with the JClic program files and scripts"
+msgstr ""
+"URL qu'apunta a una carpeta na que tean allugaos los ficheros del programa "
+"de JClic"
+
+#: applet_prev_text
+msgid "HTML code before:"
+msgstr "Códigu HTML previu:"
+
+#. #Text to be displayed below the applet. HTM code allowed.
+#: applet_prev_text_tooltip
+msgid "Text or HTML code to be placed before the applet"
+msgstr "Testu o códigu HTML que va aparecer enantes del applet"
+
+#: applet_post_text
+msgid "HTML code after:"
+msgstr "Códigu HTML posterior:"
+
+#: applet_post_text_tooltip
+msgid "Text or HTML code to be placed after the applet"
+msgstr "Testu o códigu HTML que va aparecer dempués del applet"
+
+#: applet_size
+msgid "Applet size:"
+msgstr "Tamañu del applet:"
+
+#: applet_size_tooltip
+msgid "Width and height of the applet, in absolute or percentage values."
+msgstr "Anchor y altor del applet, en valores absolutos o porcentuales."
+
+#: applet_page_title
+msgid "Page title:"
+msgstr "Títulu de la páxina:"
+
+#: applet_page_title_tooltip
+msgid "Text to be shown at the top of the browser window"
+msgstr ""
+"Testu que se va amosar na parte superior de la ventana del restolador"
+
+#: applet_created_info
+msgid "The web page \"%s\" has been created successfully."
+msgstr "La páxina web \"%s\" crióse con ésitu."
+
+#: applet_created_prompt
+msgid "Do you want to open it now with the browser?"
+msgstr "¿Quies abrirla agora col restolador?"
+
+#: action_createHTML_caption
+msgid "Create web page..."
+msgstr "Criar páxina web..."
+
+#: applet_create_title
+msgid "Creation of an HTML page with a JClic applet"
+msgstr "Creación d'una páxina HTML con un applet JClic"
+
+#: action_createHTML_tooltip
+msgid "Create a HTML page with an applet containing the current project"
+msgstr "Creación d'una páxina HTML con un applet que tenga esti proyeutu."
+
+#: applet_filename
+msgctxt "applet_filename"
+msgid "File name:"
+msgstr "Nome del ficheru:"
+
+#: applet_filename_tooltip
+msgid "Name of the HTML file to be created"
+msgstr "Nome del ficheru HTML a criar"
+
+#: action_createHTML_keys
+msgid "H*"
+msgstr "H*"
+
+#: settings_applet
+msgid "Applet"
+msgstr "Applet"
+
+#: settings_applet_tooltip
+msgid "Default values used in web page creation"
+msgstr "Valores por defeutu usados na creación de páxines web"
+
+#: applet_bgcolor
+msgctxt "applet_bgcolor"
+msgid "Background color:"
+msgstr "Color de fondu:"
+
+#: applet_bgcolor_tooltip
+msgid "HTML page background color"
+msgstr "Color de fondu de la páxina web"
+
+#: applet_centered
+msgctxt "applet_centered"
+msgid "Centered"
+msgstr "Centráu"
+
+#: applet_centered_tooltip
+msgid "Place the applet horizontally centered"
+msgstr "Allugar el applet centráu horizontalmente"
+
+#: applet_width_tooltip
+msgid "Applet width (absolute or percentage)"
+msgstr "Anchor del applet (en valor absolutu o porcentual)"
+
+#: applet_height_tooltip
+msgid "Applet height (absolute or percentage)"
+msgstr "Altor del applet (en valor absolutu o porcentual)"
+
+#: applet_exitUrl
+msgid "On exit, go to:"
+msgstr "Al colar, dir pa:"
+
+#: applet_exitUrl_tooltip
+msgid "URL where to redirect the navigation on JClic exit"
+msgstr "URL pa onde se va empobinar la navegación al colar de JClic"
+
+#: applet_infoFrame
+msgid "Info frame name:"
+msgstr "Marcu d'información:"
+
+#: applet_infoFrame_tooltip
+msgid ""
+"Name of the frame used to show the content related to the \"info\" button"
+msgstr ""
+"Nome del marcu emplegáu p'amosar el conteníu incluyíu nel botón \"info\""
+
+#: action_createInstaller_caption
+msgid "Create project installer..."
+msgstr "Criar instalador del proyeutu..."
+
+#: action_createInstaller_keys
+msgctxt "action_createInstaller_keys"
+msgid "I*"
+msgstr "I*"
+
+#: action_createInstaller_tooltip
+msgid "Create a project installer script for JClic player"
+msgstr "Creación d'un ficheru d'instalación del proyeutu pa JClic player"
+
+#: installer_caption
+msgid "Edit project installer script"
+msgstr "Edición del ficheru d'instalación del proyeutu"
+
+#: installer_title
+msgctxt "installer_title"
+msgid "Title:"
+msgstr "Títulu:"
+
+#: installer_title_tooltip
+msgid "Project title, to be shown on the installer wizard"
+msgstr "Títulu del proyeutu que se va amosar nel asistente d'instalación"
+
+#: installer_authors
+msgid "Autors:"
+msgstr "Autores/as:"
+
+#: installer_authors_tooltip
+msgid "Author/s of the project (short text)"
+msgstr "Autores/as del proyeutu (testu curtiu)"
+
+#: installer_folder
+msgctxt "installer_folder"
+msgid "Folder:"
+msgstr "Carpeta:"
+
+#: installer_folder_tooltip
+msgid "Folder name to be suggested by the installer wizard"
+msgstr "Nome de carpeta que va suxerir l'asistente d'instalación"
+
+#: installer_files
+msgid "Files to be copied:"
+msgstr "Ficheros a copiar:"
+
+#: installer_files_tooltip
+msgid "Files to be copied by the installer"
+msgstr "Ficheros que se van copiar na instalación"
+
+#: installer_files_available
+msgid "Available files"
+msgstr "Ficheros disponibles"
+
+#: installer_files_selected
+msgid "Selected files"
+msgstr "Ficheros seleicionaos"
+
+#: installer_files_add
+msgid ">> add >>"
+msgstr ">> amestar >>"
+
+#: installer_files_add_tooltip
+msgid "Add selected file to the list"
+msgstr "Amestar el ficheru escoyíu a la llista"
+
+#: installer_files_remove
+msgid "<< remove <<"
+msgstr "<< quitar <<"
+
+#: installer_files_remove_tooltip
+msgid "Remove selected file from the list"
+msgstr "Quitar el ficheru escoyíu de la llista"
+
+#: installer_button
+msgid "Launch button"
+msgstr "Botón d'activación"
+
+#: installer_button_tooltip
+msgid "Properties of the button to be shown in the project library"
+msgstr "Propiedaes del botón que se va amosar na biblioteca de proyeutos"
+
+#: installer_button_project
+msgid "Main project:"
+msgstr "Proyeutu principal:"
+
+#: installer_button_project_tooltip
+msgid "JClic project to be launched by the button"
+msgstr "Proyeutu JClic asociáu al botón"
+
+#: installer_button_text
+msgctxt "installer_button_text"
+msgid "Label:"
+msgstr "Etiqueta:"
+
+#: installer_button_text_tooltip
+msgid "Short text label, to be shown inside the button"
+msgstr "Etiqueta de testu curtia, que va apaecer dientro del botón"
+
+#: installer_button_icon
+msgid "Icon:"
+msgstr "Iconu:"
+
+#: installer_button_icon_tooltip
+msgid ""
+"Picture to be used as button icon. Leave blank to use the default JClic icon."
+msgstr ""
+"Imaxe que va amosar el botón. Dexar ermo pa usar l'iconu por defeutu de "
+"JClic."
+
+#: installer_button_description
+msgctxt "installer_button_description"
+msgid "Description"
+msgstr "Descripción"
+
+#: installer_button_description_tooltip
+msgid "Tooltip to be shown by the button"
+msgstr "Testu d'aida emerxente que va amosar el botón"
+
+#: installer_error_noTitle
+msgid "Error: Missing project title"
+msgstr "Error: Hai que conseñar el títulu del proyeutu"
+
+#: installer_error_noBaseFolder
+msgid "Error: Missing folder name"
+msgstr "Error: Hai que conseñar el nome de la carpeta"
+
+#: installer_error_noFilesSelected
+msgid "Error: No files selected"
+msgstr "Error: Nun tien escoyíu ficheru dengún"
+
+#: installer_error_noButtonText
+msgid "Error: Missing launch button text label"
+msgstr ""
+"Error: Hai que conseñar el testu de la etiqueta del botón d'activación"
+
+#: installer_error_projectNotInFiles
+msgid ""
+"Error: The project assigned to the launch button is not in the list of files "
+"to be copied"
+msgstr ""
+"Error: El proyeutu asociáu al botón d'activación nun s'alcuentra ente los "
+"ficheros a copiar"
+
+#: applet_page_full
+msgid "Full-page applet"
+msgstr "L'applet ocupa tola páxina"
+
+#: applet_page_mixed
+msgid "Applet with specific dimensions"
+msgstr "L'applet tien dimensiones específiques"
+
+#: edit_text_align_left
+msgid "Align text left"
+msgstr "Alliniar el testu a la esquierda"
+
+#: edit_text_align_center
+msgid "Center text"
+msgstr "Testu centráu"
+
+#: edit_text_align_right
+msgid "Align text right"
+msgstr "Alliniar el testu a la drecha"
+
+#: edit_text_act_target_toggle
+msgid "Create or remove target"
+msgstr "Criar una incógnita o suprimila"
+
+#: edit_text_act_insertCell
+msgid "Insert a cell"
+msgstr "Inxertar una celda"
+
+#: edit_text_act_content
+msgid "Content"
+msgstr "Conteníu"
+
+#: edit_text_act_style
+msgctxt "edit_text_act_style"
+msgid "Style"
+msgstr "Estilu"
+
+#: edit_cell_size
+msgid "Cell size:"
+msgstr "Dimensiones de la celda:"
+
+#: edit_project_orphanActivities
+msgid ""
+"The following activities never appear in any of the project's activity "
+"sequences, so they never will be displayed:"
+msgstr ""
+"Les xeres siguientes enxamás van llegar a executase, darréu que nun apaecen "
+"en secuencia d'actividades del proyeutu denguna:"
+
+#: edit_project_orphanMedia
+msgid "The following media objects are not used directly in any activity:"
+msgstr ""
+"Los oxetos siguientes de la mediateca nun s'empleguen direutamente en xera "
+"denguna:"
+
+#: edit_project_orphanActivities_prompt
+msgid "Do you want to add them at the end of the last activity sequence?"
+msgstr "¿Quies amestales al final de la secuencia cabera de xeres?"
+
+#: edit_project_orphanMedia_prompt
+msgid "Do you want to remove them?"
+msgstr "¿Quies esborralos?"
+
+#: edit_project_orphanMedia_title
+msgid "Removal of unused media objects"
+msgstr "Esborrar de oxetos multimedia nun emplegaos"
+
+#: edit_project_orphanActivities_title
+msgid "Orphan activities"
+msgstr "Xeres güérfanes"
+
+#: edit_media_refreshAll
+msgid "Update all media content"
+msgstr "Anovar el conteníu de tolos recursos"
+
+#: edit_media_refreshAll_tooltip
+msgid "Update all media objects reloading its files"
+msgstr "Anovar tolos recursos volviendo a cargar los ficheros"
+
+#: edit_media_refreshAll_keys
+msgid "R*"
+msgstr "R*"
+
+#: edit_media_refreshAll_working
+msgid "Updating media..."
+msgstr "Anovando recursos..."
+
+#: edit_media_exportAll
+msgid "Export all media"
+msgstr "Esportar tolos recursos"
+
+#: edit_media_exportAll_tooltip
+msgid "Save to files the content of all media elements"
+msgstr "Grabar en ficheros el conteníu de tolos recursos"
+
+#: edit_media_exportAll_keys
+msgid "X*"
+msgstr "X*"
+
+#: edit_shape_select
+msgid "Select"
+msgstr "Esbillar"
+
+#: edit_shape_addPoint
+msgid "Add point"
+msgstr "Amestar un puntu"
+
+#: edit_shape_deletePoint
+msgid "Delete"
+msgstr "Esborrar"
+
+#: edit_shape_drawRect
+msgid "Draw rectangle"
+msgstr "Dibuxar un rectángulo"
+
+#: edit_shape_drawEllipse
+msgid "Draw ellipse"
+msgstr "Dibuxar una elipse"
+
+#: edit_shape_drawPoly
+msgid "Draw polygon"
+msgstr "Dibuxar un polígonu"
+
+#: edit_shape_toLine
+msgid "Convert to line"
+msgstr "Convertir nuna llinia"
+
+#: edit_shape_toBezier
+msgid "Convert to Bézier curve"
+msgstr "Convertir nuna curva Bézier"
+
+#: edit_shape_toQuad
+msgid "Convert to quadratic curve"
+msgstr "Convertir nuna curva cuádrica"
+
+#: edit_shape_rLeft
+msgid "Rotate left"
+msgstr "Xirar a la esquierda"
+
+#: edit_shape_rRight
+msgid "Rotate right"
+msgstr "Xirar a la drecha"
+
+#: edit_shape_expand
+msgid "Expand"
+msgstr "Espander"
+
+#: edit_shape_contract
+msgid "Contract"
+msgstr "Contrayer"
+
+#: edit_shape_zoomIn
+msgid "Zoom in"
+msgstr "Averar"
+
+#: edit_shape_zoomOut
+msgid "Zoom out"
+msgstr "Alloñar"
+
+#: edit_shape_aproxPoints
+msgid "Join nearest points"
+msgstr "Xunta puntos averaos"
+
+#: edit_shape_showPoints
+msgid "Show points"
+msgstr "Amosar puntos"
+
+#: edit_shape_showPoints_tooltip
+msgid "Show/Hide the points"
+msgstr "Amosar/Anubrir los puntos"
+
+#: edit_shape_gridSize
+msgid "Grid size:"
+msgstr "Tamañu de la rexella:"
+
+#: edit_shape_hideGrid
+msgid "Show / Hide grid"
+msgstr "Amosar / Anubrir la rexella"
+
+#: edit_shape_magnetRadius
+msgid "Magnet radius:"
+msgstr "Radiu del imán:"
+
+#: edit_shape_elements
+msgid "Defined elements"
+msgstr "Elementos definíos"
+
+#: edit_shape_elemName
+msgid "Name of the selected element"
+msgstr "Nome del elementu escoyíu"
+
+#: edit_shape_magnetRadius_tooltip
+msgid "Action radius of the magnet, when enabled"
+msgstr "Radiu d'aición del imán, cuando ta activáu"
+
+#: edit_shape_gridSize_tooltip
+msgid "Size of the grid"
+msgstr "Tamañu de la rexella"
+
+#: edit_mc_activity
+msgctxt "edit_mc_activity"
+msgid "Activity:"
+msgstr "Xera:"
+
+#: edit_mc_sequence
+msgid "Sequence:"
+msgstr "Secuencia:"
+
+#: edit_mc_url
+msgctxt "edit_mc_url"
+msgid "URL:"
+msgstr "URL:"
+
+#: edit_mc_project
+msgid "Project:"
+msgstr "Proyeutu:"
+
+#: edit_mc_activity_selection
+msgid "Choose activity"
+msgstr "Escoyeta de la xera"
+
+#: edit_mc_sequence_selection
+msgid "Choose sequence"
+msgstr "Escoyeta de la secuencia"
+
+#: edit_mc_err_nullContent
+msgid "Insufficient data!"
+msgstr "¡Datos insuficientes!"
+
+#: edit_act_arrowColor
+msgid "Arrow color:"
+msgstr "Color de les fleches:"
+
+#: edit_act_arrowColor_tooltip
+msgid ""
+"Color used by the editor to draw the arrows (not exactly, because an XOR bit "
+"mask is used)"
+msgstr ""
+"Color utilizáu pol editor pa dibuxar les fleches (nun ye esauto, darréu que "
+"s'emplega una máscara XOR de bits)"
+
+#: edit_act_editActivity
+msgid "Edit..."
+msgstr "Editar..."
+
+#: edit_act_editActivity_tooltip
+msgid "Edit the selected activity"
+msgstr "Editar la xera escoyida"
+
+#: action_saveFileAs_caption
+msgid "Save as..."
+msgstr "Guardar como..."
+
+#: action_saveFileAs_keys
+msgctxt "action_saveFileAs_keys"
+msgid "AA"
+msgstr "AA"
+
+#: action_saveFileAs_tooltip
+msgid "Save the current project with a different name"
+msgstr "Guardar el proyeutu con un nome distinto"
+
+#: edit_act_behavior_block
+msgctxt "edit_act_behavior_block"
+msgid "Behavior"
+msgstr "Comportamientu"
+
+#: edit_act_behavior
+msgctxt "edit_act_behavior"
+msgid "Behavior"
+msgstr "Comportamientu"
+
+#: edit_act_behavior_drag
+msgid "Drag objects"
+msgstr "Arrastrar"
+
+#: edit_act_behavior_drag_tooltip
+msgid "Drag objects instead of use a connection line"
+msgstr "Arrastrar los oxetos en llugar de xunilos con una llinia"
+
+#: edit_act_behavior_order
+msgid "Check solving order"
+msgstr "Comprobar orde de resolución"
+
+#: edit_act_behavior_order_tooltip
+msgid "Cells must be solved in order"
+msgstr "Les celdes tienen de resolvese n'orde"
+
+#: edit_act_scramble
+msgid "Scramble"
+msgstr "Baraxar"
+
+#: action_importActivities_caption
+msgid "Import activities..."
+msgstr "Importar xeres..."
+
+#: action_importActivities_keys
+msgctxt "action_importActivities_keys"
+msgid "I*"
+msgstr "I*"
+
+#: action_importActivities_tooltip
+msgid "Import activities from another project"
+msgstr "Importar xeres d'otru proyeutu"
+
+#: import_warn_samefile
+msgid ""
+"The selected file corresponds to the current project. Activities can be "
+"imported only between different projects. Please select another project file."
+msgstr ""
+"El ficheru escoyíu correspuende a esti proyeutu. La importación de xeres "
+"namás se pue facer ente proyeutos estremaos. Por favor, escueyi otru "
+"proyeutu."
+
+#: import_selectActivities
+msgid "Select one or more activities to import into the current project\\:"
+msgstr "Escueyi una o más xeres pa importales a esti proyeutu\\:"
+
+#: import_importing
+msgid "Importing..."
+msgstr "Importando..."
+
+#: import_checkdep
+msgid "Checking dependencies..."
+msgstr "Comprobando dependencies..."
+
+#: import_impmedia
+msgid "Importing media\\:"
+msgstr "Importando medios\\:"
+
+#: import_impact
+msgid "Importing activity\\:"
+msgstr "Importando la xera\\:"
+
+#: import_selectProject
+msgctxt "import_selectProject"
+msgid "Select the JClic project of which the activities will be imported"
+msgstr "Escueyi'l proyeutu JClic del que quies importar xeres"
+
+#: edit_tagRep_tags
+msgid "Tag marks"
+msgstr "Marques d'etiquetes"
+
+#: edit_tagRep_tagStart
+msgid "Start mark\\:"
+msgstr "Marca d'aniciu\\:"
+
+#: edit_tagRep_tagStart_tooltip
+msgid "Mark used at the beginning of tags"
+msgstr "Marca qu'indica aniciu d'etiqueta"
+
+#: edit_tagRep_tagEnd
+msgid "End mark\\:"
+msgstr "Marca final\\:"
+
+#: edit_tagRep_tagEnd_tooltip
+msgid "Mark used at the end of tags"
+msgstr "Marca qu'indica final d'etiqueta"
+
+#: edit_tagRep_file
+msgid "File"
+msgstr "Ficheru"
+
+#: edit_tagRep_fileName
+msgid "File or URL\\:"
+msgstr "Ficheru o URL\\:"
+
+#: edit_tagRep_fileName_tooltip
+msgid "Name or URL of the file containing the values that will replace tags"
+msgstr ""
+"Nome o URL del ficheru que contién los valores que van sostituyir les "
+"etiquetes"
+
+#: edit_tagRep_charset
+msgid "Charset\\:"
+msgstr "Codificación\\:"
+
+#: edit_tagRep_charset_tooltip
+msgid "Character encoding used in the file"
+msgstr "Triba de codificación emplegada nel ficheru"
+
+#: edit_tagRep_browseFile
+msgctxt "edit_tagRep_browseFile"
+msgid "Browse..."
+msgstr "Guetar..."
+
+#: edit_tagRep_browseFile_tooltip
+msgid "Browse the filesystem"
+msgstr "Guetar nel sistema de ficheros"
+
+#: edit_tagRep_title
+msgid "Tag replacing"
+msgstr "Sostitución d'etiquetes"
+
+#: edit_text_act_clearStylesBtn
+msgid "Clear text styles..."
+msgstr "Llimpiar estilos de testu..."
+
+#: edit_text_act_clearStylesPrompt
+msgid ""
+"Warning\\: This action will clear the specific character attributes applied "
+"to the document, setting it back to its main style. This action cannot be "
+"undone. Do you want to do it?"
+msgstr ""
+"Atención: Esta aición va llimpiar los atributos especiales de caráuter "
+"qu'esisten nel documentu, tornándolu al estilu principal. Esta operación nun "
+"se pue desfacer. ¿Quies realizala?"
+
+#: img_max_size
+msgid "Maximum size of images:"
+msgstr "Tamañu máximu de les imáxenes:"
+
+#: img_max_width_tooltip
+msgid "Maximum width of images imported into the media library."
+msgstr "Anchor máximu de les imáxenes al importales a la mediteca."
+
+#: img_max_height_tooltip
+msgid "Maximum height of images imported into the media library."
+msgstr "Altor máximu de les imáxenes al importales a la mediteca."
+
+#: img_resize_prompt
+msgid ""
+"The image \"%s\" has a size of %s pixels. This exceeds the maximum allowed "
+"by JClic Author (%s). Do you want to resize it?"
+msgstr ""
+"La imaxe \"%s\" tien un tamañu de %s pixels. Esto supera la llende permitida "
+"por JClic Author (%s). ¿Quies redimensionala?"

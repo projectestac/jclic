@@ -1,0 +1,828 @@
+# Czech translation for jclic
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2010-05-03 10:57+0000\n"
+"Last-Translator: David Kolibáč <david@kolibac.cz>\n"
+"Language-Team: Czech <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. # JClic player messages
+#: m_File
+msgid "File"
+msgstr "Soubor"
+
+#: settings_passwordRequired
+msgid "JClic admin password is required in order to perform this operation."
+msgstr "Pro vykonání operace je třeba heslo administrátora JClic."
+
+#: m_Help
+msgid "Help"
+msgstr "Nápověda"
+
+#: m_Skin
+msgid "Skin"
+msgstr "Motiv"
+
+#: action_helpAbout_caption
+msgid "About..."
+msgstr "O aplikaci..."
+
+#: libraryManager_mainLibraryTitle
+msgid "Main library"
+msgstr "Hlavní knihovna"
+
+#: library_badFormat
+msgid ""
+"This JClic file is not a project library!\n"
+"Libraries are a special type of JClic projects."
+msgstr ""
+"Tento JClic soubor není knihovna projektů!\n"
+"Knihovny jsou speciálním typem JClic projektů."
+
+#: library_mainMenu
+msgid "Main menu"
+msgstr "Hlavní nabídka"
+
+#: library_newLibraryName
+msgctxt "library_newLibraryName"
+msgid "New project library"
+msgstr "Nová knihovna projektu"
+
+#: libraryManager_new_prompt
+msgid "Do you want to create a new library or connect to a existing one?"
+msgstr "Chcete vytvořit novou knihovnu nebo propojit s existující?"
+
+#: libraryManager_connectToLibrary
+msgid "Connect"
+msgstr "Připojit"
+
+#: libraryManager_createNewLibrary
+msgctxt "libraryManager_createNewLibrary"
+msgid "New"
+msgstr "Nová"
+
+#: libraryManager_new_tooltip
+msgid "Create or connect to a new library"
+msgstr "Vytvořit nebo propojit s novou knihovnou"
+
+#: libraryManager_new_caption
+msgctxt "libraryManager_new_caption"
+msgid "New"
+msgstr "Nový"
+
+#: menuElement_dlg_icon_tooltip
+msgid "Button icon"
+msgstr "Ikona tlačítka"
+
+#: menuElement_dlg_description_tooltip
+msgid "Description of the button, used as a tooltip text."
+msgstr "Popis tlačítka, použitý jako bublinová nápověda."
+
+#: menuElement_dlg_description
+msgid "Description:"
+msgstr "Popis:"
+
+#: edit_find_image
+msgid "Find image..."
+msgstr "Najít obrázek..."
+
+#: menuElement_dlg_icon
+msgid "Icon:"
+msgstr "Ikona:"
+
+#: edit_find_file
+msgid "Find file..."
+msgstr "Najít soubor..."
+
+#: menuElement_dlg_project_tooltip
+msgid "Path to JClic project"
+msgstr "Cesta k projektu JClic"
+
+#: menuElement_dlg_project
+msgid "Project:"
+msgstr "Projekt:"
+
+#: menuElement_dlg_text_tooltip
+msgid "Button text"
+msgstr "Text tlačítka"
+
+#: edit_text
+msgid "Text:"
+msgstr "Text:"
+
+#: menu_dlg_name_tooltip
+msgid "Folder name"
+msgstr "Název složky"
+
+#: library_dlg_name_tooltip
+msgid "Library name"
+msgstr "Jméno knihovny"
+
+#: edit_name
+msgid "Name:"
+msgstr "Název:"
+
+#: edit_title
+msgid "Title:"
+msgstr "Titulek:"
+
+#: library_dlg_title
+msgid "Library properties"
+msgstr "Vlastnosti knihovny"
+
+#: menu_dlg_title
+msgid "Folder properties"
+msgstr "Vlastnosti složky"
+
+#: menuElement_dlg_title
+msgid "Button properties"
+msgstr "Vlastnosti tlačítka"
+
+#: menu_delete_tooltip
+msgid "Delete current menu"
+msgstr "Smazat aktuální nabídku"
+
+#: menu_delete_caption
+msgctxt "menu_delete_caption"
+msgid "Delete"
+msgstr "Smazat"
+
+#: menuElement_delete_tooltip
+msgid "Delete current menu element"
+msgstr "Smazat současnou položku nabídky"
+
+#: action_libraries_caption
+msgid "Libraries..."
+msgstr "Knihovny..."
+
+#: dlg_save_title
+msgid "Save file..."
+msgstr "Uložit soubor..."
+
+#: error_propertiesFile_beg
+msgid "Error opening \""
+msgstr "Chyba při otevírání \""
+
+#: error_propertiesFile_end
+msgid "\". Defaults will be used."
+msgstr "\". Budou použity výchozí předvolby."
+
+#: menuElement_delete_caption
+msgctxt "menuElement_delete_caption"
+msgid "Delete"
+msgstr "Smazat"
+
+#: menu_newMenuElement_tooltip
+msgid "Create a new shortcut to a project"
+msgstr "Vytvořte nového zástupce projektu"
+
+#: menu_newMenuName
+msgid "New folder"
+msgstr "Nová složka"
+
+#: menu_newMenu_tooltip
+msgid "Create a new folder for project buttons"
+msgstr "Vytvořte novou složku pro tlačítka projektu"
+
+#: menu_newMenu_caption
+msgid "New button's folder"
+msgstr "Nová složka pro tlačítka"
+
+#: menu_newMenuElement_caption
+msgid "New project button"
+msgstr "Nové tlačítko projektu"
+
+#: menu_newMenuElementName
+msgid "New button"
+msgstr "Nová tlačítko"
+
+#: library_cancel_tooltip
+msgid "Cancel changes"
+msgstr "Zrušit změny"
+
+#: library_cancel_caption
+msgctxt "library_cancel_caption"
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: libraryManager_edit_tooltip
+msgid "Edit selected library"
+msgstr "Upravit vybranou knihovnu"
+
+#: libraryManager_edit_caption
+msgid "Edit"
+msgstr "Upravit"
+
+#: library_select_caption_ok_tooltip
+msgid "Save changes"
+msgstr "Uložit změny"
+
+#: library_select_caption_tooltip
+msgid "Choose selected folder"
+msgstr "Vybrat zvolenou složku"
+
+#: library_select_caption_ok
+msgid "Ok"
+msgstr "Ok"
+
+#: library_select_caption
+msgctxt "library_select_caption"
+msgid "Select"
+msgstr "Vybrat"
+
+#: library_caption
+msgid "JClic projects library"
+msgstr "Knihovna projektů JClic"
+
+#: libraryManager_select_tooltip
+msgid "Open the selected library"
+msgstr "Otevřít vybranou knihovnu"
+
+#: libraryManager_cancel_tooltip
+msgctxt "libraryManager_cancel_tooltip"
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: libraryManager_cancel_caption
+msgctxt "libraryManager_cancel_caption"
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: libraryManager_select_caption
+msgctxt "libraryManager_select_caption"
+msgid "Select"
+msgstr "Vybrat"
+
+#: libraryManager_caption
+msgid "Select library"
+msgstr "Vybrat knihovnu"
+
+#: library_error_reading
+msgid "Error reading project library!"
+msgstr "Chyba při čtení knihovny projektu!"
+
+#: wizard_next
+msgid "Next >"
+msgstr "Další >"
+
+#: wizard_prev
+msgid "< Previous"
+msgstr "< Předchozí"
+
+#: wizard_finish
+msgid "Finish"
+msgstr "Dokončit"
+
+#: library_error_creating_icons
+msgid "Error creating library icons!"
+msgstr "Chyba při vytváření ikon knihovny!"
+
+#: install_title
+msgid "Installation of JClic projects"
+msgstr "Instalace JClic projektů"
+
+#: install_info_description
+msgid "Installation of a new JClic project"
+msgstr "Instalace nových JClic projektů"
+
+#: install_info_from
+msgid "From:"
+msgstr "Z:"
+
+#: wizard_cancel
+msgctxt "wizard_cancel"
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: wizard_cancel_tooltip
+msgid "Cancel the operation"
+msgstr "Zrušit operaci"
+
+#: wizard_finish_tooltip
+msgid "Finish the operation"
+msgstr "Dokončit operaci"
+
+#: wizard_next_tooltip
+msgid "Next step of the operation"
+msgstr "Následující krok operace"
+
+#: wizard_prev_tooltip
+msgid "Previous step of the operation"
+msgstr "Předchozí krok operace"
+
+#: install_select_library
+msgid "Select the library where to install the project:"
+msgstr "Vybrat knihovnu pro instalaci projektu:"
+
+#: install_copy_files
+msgid "File copy"
+msgstr "Kopírovat soubor"
+
+#: install_source
+msgid "Source:"
+msgstr "Zdroj:"
+
+#: install_dest
+msgid "Destination:"
+msgstr "Cíl:"
+
+#: install_status
+msgid "Status:"
+msgstr "Stav:"
+
+#: install_start
+msgid "Start the installation"
+msgstr "Start instalace"
+
+#: install_start_tooltip
+msgid "Start the copy of files to your computer"
+msgstr "Začínají se kopírovat soubory na váš počítač"
+
+#: install_progress_tooltip
+msgid "Progress of the installation"
+msgstr "Průběh instalace"
+
+#: install_msg_waiting
+msgid "Waiting for confirmation."
+msgstr "Čeká se na potvrzení"
+
+#: install_msg_creating_dirs
+msgid "Creating directories"
+msgstr "Vytvářejí se složky"
+
+#: install_msg_copying
+msgid "Copying file"
+msgstr "Kopíruje se soubor"
+
+#: install_msg_end
+msgid "Finished!"
+msgstr "Hotovo!"
+
+#: install_msg_cleanup
+msgid "Performing cleanup..."
+msgstr "Probíhá čištění..."
+
+#: install_msg_cancel
+msgid "Installation cancelled!"
+msgstr "Instalace zrušena!"
+
+#: install_error
+msgid "Install error!"
+msgstr "Chyba instalace!"
+
+#: install_select_folder
+msgid "Select the folder where to place the project icons:"
+msgstr "Vyberte složku pro umístění ikon projektu:"
+
+#: install_library_folders
+msgid "Library folders:"
+msgstr "Složka knihoven:"
+
+#: install_success_1
+msgid "The project are now installed on your system!"
+msgstr "Projekt je nyní nainstalován na vašem systému!"
+
+#: install_success_2
+msgid "In order to run it, select its"
+msgstr "Pro spuštění ho vyberte"
+
+#: install_success_3
+msgid "icon on the project library."
+msgstr "ikona knihovny projektu."
+
+#: wizard_info
+msgid "Press \"Next\" to start."
+msgstr "Stiskněte \"Další\" pro start."
+
+#: install_step_1
+msgid "1. Selection of JClic library"
+msgstr "1. Výběr JClic knihovny"
+
+#: install_step_2
+msgid "2. Download files"
+msgstr "2. Stažení souborů"
+
+#: install_step_3
+msgid "3. Creation of icons"
+msgstr "3. Vytvoření ikon"
+
+#: install_step_4
+msgid "Installation finished!"
+msgstr "Instalace dokončena!"
+
+#: install_info_info
+msgid "You request to install the project:"
+msgstr "Požadujete vytvoření projektu:"
+
+#: settings_title
+msgid "Settings"
+msgstr "Nastavení"
+
+#: library_error_clone
+msgid "Unable to clone library!"
+msgstr "Nelze naklonovat knihovnu!"
+
+#: settings_security
+msgid "Security"
+msgstr "Zabezpečení"
+
+#: settings_password_protect
+msgid "Protect settings with password"
+msgstr "Chránit nastavení heslem"
+
+#: settings_new_password
+msgid "New password:"
+msgstr "Nové heslo:"
+
+#: settings_new_password_confirm
+msgid "Confirm new password:"
+msgstr "Potvrďte nové heslo:"
+
+#: settings_general
+msgid "General"
+msgstr "Obecné"
+
+#: settings_look
+msgid "Look & Feel:"
+msgstr "Vzhled:"
+
+#: settings_skin
+msgid "Skin:"
+msgstr "Motiv:"
+
+#: settings_language
+msgid "Language:"
+msgstr "Jazyk:"
+
+#: settings_reports
+msgid "Reports"
+msgstr "Sestavy"
+
+#: settings_report_use
+msgid "Write scores to a database"
+msgstr "Zapsat skóre do databáze"
+
+#: settings_report_engine
+msgid "Reporter class:"
+msgstr "Třída reportéra:"
+
+#: settings_report_params
+msgid "Parameters:"
+msgstr "Parametry:"
+
+#: settings_media
+msgid "Multimedia"
+msgstr "Multimédia"
+
+#: settings_media_enabled
+msgid "Multimedia enabled"
+msgstr "Multimédia povolena"
+
+#: settings_media_system
+msgid "Multimedia system:"
+msgstr "Systém multimédií:"
+
+#: settings_media_event_sounds
+msgid "Event sounds enabled"
+msgstr "Zvuky událostí povoleny"
+
+#: settings_library
+msgid "Libraries"
+msgstr "Knihovny"
+
+#: settings_library_autorun
+msgid "Automatically go to libraries when JClic starts"
+msgstr "Automaticky jít ke knihovnám při startu JClicu"
+
+#: m_Tools
+msgid "Tools"
+msgstr "Nástroje"
+
+#: m_File_Mnemonic
+msgid "F"
+msgstr "F"
+
+#: m_Tools_Mnemonic
+msgctxt "m_Tools_Mnemonic"
+msgid "T"
+msgstr "T"
+
+#: m_Help_Mnemonic
+msgid "H"
+msgstr "H"
+
+#: m_Activity
+msgid "Activity"
+msgstr "Aktivita"
+
+#: m_Activity_Mnemonic
+msgid "A"
+msgstr "A"
+
+#: action_openFile_caption
+msgid "Open file..."
+msgstr "Otevřít soubor..."
+
+#: action_openFile_tooltip
+msgid "Open a JClic project file"
+msgstr "Otevřít soubor JClic projektu"
+
+#: action_openFile_keys
+msgid "OO"
+msgstr "OO"
+
+#: action_openUrl_caption
+msgid "Open URL..."
+msgstr "Otevřít URL..."
+
+#: action_openUrl_tooltip
+msgid "Open a JClic project directly form Internet"
+msgstr "Otevřít JClic projekt přímo z internetu"
+
+#: action_openUrl_keys
+msgid "UU"
+msgstr "UU"
+
+#: action_exit_caption
+msgid "Exit"
+msgstr "Ukončit"
+
+#: action_exit_tooltip
+msgid "Close JClic"
+msgstr "Uzavřít JClic"
+
+#: action_exit_keys
+msgid "XX"
+msgstr "XX"
+
+#: action_settings_caption
+msgid "Settings..."
+msgstr "Nastavení..."
+
+#: action_settings_tooltip
+msgid "Adjust global program settings"
+msgstr "Upravit celková nastavení programu"
+
+#: action_settings_keys
+msgctxt "action_settings_keys"
+msgid "T"
+msgstr "T"
+
+#: action_libraries_tooltip
+msgid "Open or edit a JClic library."
+msgstr "Otevřít nebo upravit JClic knihovnu."
+
+#: action_libraries_keys
+msgid "LL"
+msgstr "LL"
+
+#: action_helpAbout_tooltip
+msgid "Information about JClic"
+msgstr "Informace o programu JClic"
+
+#: action_helpAbout_keys
+msgid "AA"
+msgstr "AA"
+
+#: menuElement_err_iconTooLarge
+msgid "This image is too large to be used as an icon!"
+msgstr "Tento obrázek je příliš velký na ikonu!"
+
+#: settings_report_tcp
+msgid "Connect to JClic report server:"
+msgstr "Připojit k JClic serveru sestav:"
+
+#: settings_report_jdbc
+msgid "Direct JDBC connection:"
+msgstr "Přímé JDBC spojení:"
+
+#: settings_report_other
+msgid "Other:"
+msgstr "Jiný:"
+
+#: settings_report_address
+msgid "Host:"
+msgstr "Hostitel:"
+
+#: settings_report_port
+msgid "Port:"
+msgstr "Port:"
+
+#: settings_report_driver
+msgid "Driver:"
+msgstr "Ovladač:"
+
+#: settings_report_url
+msgid "URL:"
+msgstr "URL:"
+
+#: settings_report_user
+msgid "User:"
+msgstr "Uživatel:"
+
+#: settings_report_pwd
+msgid "Password:"
+msgstr "Heslo:"
+
+#: settings_report_options
+msgid "Reporter params::"
+msgstr "Parametry reportéra:"
+
+#: settings_report_err_server
+msgid "Bad report server name!"
+msgstr "Špatné jméno serveru sestav!"
+
+#: settings_report_err_port
+msgid "Incorrect port number! Please enter a value between 1000 and 65000."
+msgstr "Špatné číslo portu! Vložte prosím hodnotu mezi 1000 a 65000."
+
+#: settings_report_err
+msgid "Incorrect report system data!"
+msgstr "Nesprávná systémová data reportéra!"
+
+#: settings_report_type
+msgid "Reporting engine:"
+msgstr "Reportovací stroj:"
+
+#: settings_media_jmf
+msgid "Java Media Framework (JMF)"
+msgstr "Java Media Framework (JMF)"
+
+#: settings_media_qt
+msgid "QuickTime"
+msgstr "QuickTime"
+
+#: settings_media_default
+msgid "Auto-detect"
+msgstr "Autodetekce"
+
+#: settings_security_tooltip
+msgid "Security settings"
+msgstr "Bezpečnostní nastavení"
+
+#: settings_report_tooltip
+msgid "Report system settings"
+msgstr "Systémové nastavení reportéra"
+
+#: settings_media_tooltip
+msgid "Multimedia system options"
+msgstr "Nastavení multimediálního systému"
+
+#: settings_general_tooltip
+msgid "Language and aspect settings"
+msgstr "Nastavení jazyka a vzhledu"
+
+#: settings_library_tooltip
+msgid "Library settings and editor"
+msgstr "Nastavení knihovny a editoru"
+
+#: settings_look_tooltip
+msgid "User interface look & feel"
+msgstr "Vzhled uživatelského rozhraní"
+
+#: settings_skin_tooltip
+msgid "Selection of the graphic aspect of JClic"
+msgstr "Výběr grafického vzhledu JClicu"
+
+#: settings_language_tooltip
+msgid "Language selection"
+msgstr "Výběr jazyka"
+
+#: settings_report_use_tooltip
+msgid "Enables/disables the connection to a JClic reports database"
+msgstr "Zapne/vypne spojení do databáze JClic sestav"
+
+#: settings_report_tcp_tooltip
+msgid "Reporting engine based on a TCP/IP connection"
+msgstr "Stroj sestav založený na TCP/IP spojení"
+
+#: settings_report_jdbc_tooltip
+msgid "Reporting engine based on a direct connection to a database"
+msgstr "Stroj sestav založený na přímém propojení s databází"
+
+#: settings_report_other_tooltip
+msgid "Other reporting engines..."
+msgstr "Ostatní stroje sestav..."
+
+#: settings_report_address_tooltip
+msgid "Report server name or IP address"
+msgstr "Jméno serveru sestav nebo IP adresa"
+
+#: settings_report_port_tooltip
+msgid "Port used for connection (default is 5510)"
+msgstr "Port použitý pro spojení (výchozí je 5510)"
+
+#: edit_file
+msgid "File:"
+msgstr "Soubor:"
+
+#: error_launchLibrary
+msgid "Error launching library"
+msgstr "Chyba při spouštění knihovny"
+
+#: install_toSourceFolder
+msgid "Installing to source folder!"
+msgstr "Instaluje se do zdrojové složky!"
+
+#: edit_find_media
+msgid "Find media file..."
+msgstr "Najít soubor s médii..."
+
+#: libraryManager_delete_caption
+msgctxt "libraryManager_delete_caption"
+msgid "Delete"
+msgstr "Smazat"
+
+#: libraryManager_delete_tooltip
+msgid "Delete the reference to the selected library"
+msgstr "Smazat odkaz na vybranou knihovnu"
+
+#: libraryManager_delete_confirm
+msgid "Do you really want to delete the reference to the selected library?"
+msgstr "Opravdu chcete smazat odkaz na vybranou knihovnu?"
+
+#: libraryManager_new_exists
+msgid "This library is already linked to the system."
+msgstr "Tato knihovna je už propojena se systémem."
+
+#: edit_find_image_keys
+msgid "F*"
+msgstr "F*"
+
+#: menu_newMenuElement_caption_keys
+msgid "NN"
+msgstr "NN"
+
+#: menu_newMenu_caption_keys
+msgid "MM"
+msgstr "MM"
+
+#: edit_find_file_keys
+msgid "FF"
+msgstr "FF"
+
+#: libraryManager_newLibaryOption
+msgid "Create new project library"
+msgstr "Vytvořit novou knihovnu projektů"
+
+#: libraryManager_connectToExistingOption
+msgid "Add a link to an exisiting project library"
+msgstr "Přidat odkaz na existující knihovnu projektů"
+
+#: libraryManager_fileOrUrlCaption
+msgid "File or URL\\:"
+msgstr "Soubor nebo URL\\:"
+
+#: libraryManager_newLibraryTitle
+msgctxt "libraryManager_newLibraryTitle"
+msgid "New project library"
+msgstr "Nová knihovna projektu"
+
+#: libraryManager_warnNoFileSelected
+msgid "Please enter thr URL or file name of the project library\\!"
+msgstr "Zadejte prosím URL nebo jméno souboru knihovny projektů\\!"
+
+#: install_launchProject
+msgid "Open the project now"
+msgstr "Otevřít projekt nyní"
+
+#: settings_browser
+msgid "Preferred browser\\:"
+msgstr "Upřednostňovaný prohlížeč\\:"
+
+#: settings_browser_tooltip
+msgid ""
+"Command used to launch the browser (firefox, iexplore, mozilla, opera...)"
+msgstr ""
+"Příkaz pro spuštění prohlížeče (firefox, iexplore, mozilla, opera...)"
+
+#: settings_country
+msgid "Country code\\:"
+msgstr "Kod země\\:"
+
+#: settings_country_tooltip
+msgid ""
+"Optional two-letter code corresponding to the country-specific variant of "
+"the language (ex.\\: BR for Brazilian Portuguese)"
+msgstr ""
+"Volitelný dvoupísmenný kód odpovídající variantě jazyka specifické pro danou "
+"zemi (např.\\: BR pro brazilskou portugalštinu)"
+
+#: settings_variant
+msgid "Variant\\:"
+msgstr "Varianta\\:"
+
+#: settings_variant_tooltip
+msgid "Optional variant code of the language"
+msgstr "Volitelná varianta kódu jazyka"

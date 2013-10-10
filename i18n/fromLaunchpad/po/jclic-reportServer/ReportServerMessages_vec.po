@@ -1,0 +1,312 @@
+# Venetian translation for jclic
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2010-05-21 09:31+0000\n"
+"Last-Translator: Fabio <Unknown>\n"
+"Language-Team: Venetian <vec@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: error_serverCannotStart
+msgid "Unable to start server!"
+msgstr "No se pol inviar el server"
+
+#: error_incorrectData
+msgid "Incorrect data!"
+msgstr "Dati sbaliài!"
+
+#: column_IP_title
+msgid "IP"
+msgstr "IP"
+
+#: column_port_title
+msgid "Port"
+msgstr "Pòrta"
+
+#: column_started_title
+msgid "Started"
+msgstr "Scominsià"
+
+#: column_lastMessage_title
+msgid "Last message"
+msgstr "Ùltimo mesajo"
+
+#: column_IP_tooltip
+msgid "Client IP address"
+msgstr "Indriso IP de 'l client"
+
+#: column_port_tooltip
+msgid "Local port used in this connection"
+msgstr "Pòrta local doparada so sta conesion"
+
+#: column_started_tooltip
+msgid "Date and time at witch the connection was started"
+msgstr "Data e ora in cui xé stà invià ƚa conesion"
+
+#: column_lastMessage_tooltip
+msgid "Header of the last received message"
+msgstr "Intestasion de 'l ùltimo mesajo risevesto"
+
+#: error_propertiesFile_beg
+msgid "Unable to load the properties file \""
+msgstr "No se pol cargar el file de ƚe propietà \""
+
+#: error_propertiesFile_end
+msgid "\" Using default settings."
+msgstr "\" Se dopararà ƚe inpostasion predefinìe."
+
+#: form_title
+msgid "JClic reports server"
+msgstr "Server de i reports de JClic"
+
+#: form_connections_title
+msgid "Connections:"
+msgstr "Conesion:"
+
+#: form_messages_title
+msgid "System messages:"
+msgstr "Mesaji de sistèma:"
+
+#: form_settings_title
+msgid "Settings:"
+msgstr "Inpostasion:"
+
+#: form_connections_close
+msgid "Close connection"
+msgstr "Sèra conesion"
+
+#: form_connections_close_tooltip
+msgid "Close the selected connection"
+msgstr "Sèra ƚa conesion seƚesionada"
+
+#: form_settings_driver
+msgctxt "form_settings_driver"
+msgid "Driver:"
+msgstr "Driver:"
+
+#: form_settings_driver_tooltip
+msgid "JDBC driver to use for connect to the database"
+msgstr "Driver JDBC da doparar par conetarse a 'l database"
+
+#: form_settings_database
+msgid "Database:"
+msgstr "Database:"
+
+#: form_settings_database_tooltip
+msgid "Name of the reports database"
+msgstr "Nòme de 'l database de i reports"
+
+#: form_settings_port
+msgctxt "form_settings_port"
+msgid "Port:"
+msgstr "Pòrta:"
+
+#: form_settings_port_tooltip
+msgid "TCP port where the server will listen for connections"
+msgstr "Pòrta TCP par ƚe conesion de 'l server"
+
+#: form_settings_password_tooltip
+msgid "System DB password"
+msgstr "Password par el dataabse"
+
+#: form_settings_password
+msgctxt "form_settings_password"
+msgid "Password:"
+msgstr "Password:"
+
+#: form_settings_user_tooltip
+msgid "System DB user name"
+msgstr "Nòme utente database"
+
+#: form_settings_user
+msgid "User:"
+msgstr "Utente:"
+
+#: ERROR
+msgid "ERROR"
+msgstr "EROR"
+
+#: form_settings_timeout
+msgctxt "form_settings_timeout"
+msgid "Timeout:"
+msgstr "Tenpo màsimo"
+
+#: form_settings_timeout_tooltip
+msgid "Maximum inactivity seconds allowed to connections"
+msgstr "Màsimo secondi de inatività consentìo par ƚe conesion"
+
+#: form_btn_start
+msgid "Start"
+msgstr "Invìo"
+
+#: form_btn_stop
+msgid "Stop"
+msgstr "Stop"
+
+#: form_btn_exit
+msgid "Exit"
+msgstr "Sòrti"
+
+#: form_btn_exit_tooltip
+msgid "Stop server and shutdown program"
+msgstr "Ferma el server e destùa el programa"
+
+#: form_btn_stop_tooltip
+msgid "Close all connections and stop server"
+msgstr "Sèra tute ƚe conesion e ferma el server"
+
+#: form_btn_start_tooltip
+msgid "Begin listening for clients"
+msgstr "Taca a sercar se ghe xé clients"
+
+#: form_messages_verbose
+msgid "Verbose"
+msgstr "Informasion pì in detalio"
+
+#: form_messages_verbose_tooltip
+msgid "Display all messages"
+msgstr "Mostra tuti i mesaji"
+
+#: form_messages_copy
+msgid "Copy to clipboard"
+msgstr "Còpia inte 'l coƚetador nòde"
+
+#: form_messages_copy_tooltip
+msgid "Copy the console output to clipboard"
+msgstr "Còpia fenèstra inte 'l coƚetador de nòde"
+
+#: form_messages_clear
+msgid "Clear"
+msgstr "Sneta"
+
+#: form_messages_clear_tooltip
+msgid "Clears the console output"
+msgstr "Snetar el contenudo de ƚa fenèstra"
+
+#: error_DB
+msgid "Requested action could not be completed"
+msgstr "No se pol conpletar l'asion richièta"
+
+#: settings_title
+msgid "JClic reports server settings"
+msgstr "Inpostasion de 'l server de i reports JClic."
+
+#: settings_options_title
+msgid "Options"
+msgstr "Opsion"
+
+#: settings_options_language
+msgid "Language:"
+msgstr "Lengua:"
+
+#: settings_options_look
+msgid "Look & feel:"
+msgstr "Faciavista:"
+
+#: settings_db_title
+msgid "Database"
+msgstr "Database"
+
+#: settings_db_driver
+msgctxt "settings_db_driver"
+msgid "Driver:"
+msgstr "Driver:"
+
+#: settings_options_tooltips
+msgid "Tooltips"
+msgstr "Suxerimenti"
+
+#: settings_db_url
+msgid "URL:"
+msgstr "URL:"
+
+#: settings_db_usr
+msgid "DB user:"
+msgstr "Utente database:"
+
+#: settings_db_pwd
+msgctxt "settings_db_pwd"
+msgid "Password:"
+msgstr "Password:"
+
+#: settings_server_title
+msgid "Reports server"
+msgstr "Server reports"
+
+#: settings_server_timeout
+msgctxt "settings_server_timeout"
+msgid "Timeout:"
+msgstr "Tenpo màsimo"
+
+#: settings_server_port
+msgctxt "settings_server_port"
+msgid "Port:"
+msgstr "Pòrta:"
+
+#: settings_server_autostart
+msgid "Autostart"
+msgstr "Auto-invìo"
+
+#: settings_web_title
+msgid "Web server"
+msgstr "Server web"
+
+#: settings_server_logFile
+msgid "Write logs to file:"
+msgstr "Salva i logs inte un file"
+
+#: settings_button
+msgid "Settings..."
+msgstr "Inpostasion..."
+
+#: error_writting_settings
+msgid "Error writting settings file!"
+msgstr "Ghe xé stà un eror a salvando el file de ƚe inpostasion!"
+
+#: form_btn_show
+msgid "launch browser..."
+msgstr "invia navegador..."
+
+#: error_starting_browser
+msgid "Error launching browser!"
+msgstr "Ghe xé stà un eror a inviando el navegador!"
+
+#: error_opening_logs
+msgid "Error opening log files!"
+msgstr "Ghe xé stà un eror a verxindo i files de log!"
+
+#: settings_file
+msgid "File..."
+msgstr "File..."
+
+#: settings_tablePrefix
+msgid "Table names prefix:"
+msgstr "Prefiso nòmi tavèƚa"
+
+#: settings_createTables
+msgid "Create tables if not exist"
+msgstr "Costruisi tavèƚe se no ƚe ghe xé"
+
+#: settings_session_lifetime
+msgid "Session lifetime (minutes)\\:"
+msgstr "Durada sesion (menuti)\\:"
+
+#: settings_browser
+msgid "Preferred browser\\:"
+msgstr "Navegador preferìo\\:"
+
+#: settings_browser_tooltip
+msgid ""
+"Command used to launch the browser (firefox, iexplore, mozilla, opera...)"
+msgstr ""
+"Comando doparà par inviar el navegador (firefox, iexplore, mozilla, opera...)"

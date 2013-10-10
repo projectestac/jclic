@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="skin.xsd" name="basic" class="edu.xtec.jclic.skins.BasicSkin" image="default.png">
+	<dimension id="preferredSize" width="760" height="560"/>
+	<color id="fill" value="0xD4D0C8"/>
+	<rectangle id="frame" left="0" top="0" width="330" height="149"/>
+	<rectangle id="player" left="10" top="10" width="310" height="70"/>
+	<rectangle id="messages" left="122" top="85" width="73" height="40"/>
+	<slicer left="130" right="175" top="45" bottom="75"/>
+	<statusBar>
+		<style margin="0">
+			<font family="Helvetica" size="11"/>
+			<color id="foreground" value="black"/>
+		</style>
+		<msgArea id="main">
+			<rectangle left="6" top="130" width="120" height="15"/>
+			<alignment hAlign="left"/>
+		</msgArea>
+		<msgArea id="aux">
+			<rectangle left="130" top="130" width="47" height="15"/>
+			<alignment hAlign="left"/>
+		</msgArea>
+	</statusBar>
+	<buttons>
+		<settings>
+			<dimension width="36" height="21"/>
+			<offset id="active" right="0" down="21"/>
+			<offset id="over" right="0" down="42"/>
+			<offset id="disabled" right="0" down="63"/>
+		</settings>
+		<button id="prev">
+			<point id="pos" left="9" top="84"/>
+			<point id="source" left="113" top="155"/>
+		</button>
+		<button id="next">
+			<point id="pos" left="45" top="84"/>
+			<point id="source" left="149" top="155"/>
+		</button>
+		<button id="reset">
+			<point id="pos" left="81" top="84"/>
+			<point id="source" left="77" top="155"/>
+		</button>
+		<button id="help">
+			<point id="pos" left="9" top="105"/>
+			<point id="source" left="41" top="155"/>
+		</button>
+		<button id="info">
+			<point id="pos" left="45" top="105"/>
+			<point id="source" left="5" top="155"/>
+		</button>
+		<button id="about">
+			<point id="pos" left="81" top="105"/>
+			<point id="source" left="185" top="155"/>
+		</button>
+		<button id="audio" toggle="true">
+			<settings>
+				<dimension width="14" height="14"/>
+				<offset id="active" right="0" down="15"/>
+				<offset id="over" right="0" down="30"/>
+			</settings>
+			<point id="pos" left="310" top="131"/>
+			<point id="source" left="275" top="155"/>
+		</button>
+	</buttons>
+	<counters>
+		<settings>
+			<dimension id="counter" width="35" height="20"/>
+			<dimension id="label" width="37" height="14"/>
+		</settings>
+		<style margin="0">
+			<font id="label" family="helvetica" size="10"/>
+			<color id="foreground" value="black"/>
+		</style>
+		<digits align="down">
+			<dimension width="10" height="20"/>
+			<point id="source" left="345" top="5"/>
+		</digits>
+		<counter id="score">
+			<point id="counter" left="202" top="100"/>
+			<point id="label" left="201" top="83"/>
+		</counter>
+		<counter id="actions">
+			<point id="counter" left="243" top="100"/>
+			<point id="label" left="242" top="83"/>
+		</counter>
+		<counter id="time">
+			<point id="counter" left="284" top="100"/>
+			<point id="label" left="283" top="83"/>
+		</counter>
+	</counters>
+	<progressBar autoHide="true" border="false" showPercent="true">
+		<rectangle left="180" top="130" width="60" height="15"/>
+		<style>
+			<font family="System" size="9" bold="true"/>
+			<color id="foreground" value="red"/>
+		</style>
+	</progressBar>
+	<progressAnimation frames="5" delay="50" step="2" direction="left" autoHide="true">
+		<dimension width="60" height="15"/>
+		<point id="source" left="15" top="250"/>
+		<point id="pos" left="244" top="130"/>
+	</progressAnimation>
+</skin>

@@ -1,0 +1,173 @@
+JClic: Authoring and playing system for educational activities
+-----------------------------------------------------------------------------
+
+This file contains information about the internal structure of JClic and 
+the organization of the source code.
+
+For compilation instructions, see INSTALL.txt
+
+-----------------------------------------------------------------------------
+
+Directories
+
+The source code of JClic is organized into the following directories:
+
+* src
+  Contains the source code of the JClic modules. It is organized in several
+  sub-directories:
+  - activities            JClic activities
+  - author                Code specific of the JClic author module
+  - core                  Main classes of JClic
+  - extra                 No Java code here: only miscellaneous resources
+  - interface             Main interfaces and constants
+  - jclicApplet           Code for the JClic applet
+  - jclicPlayer           Code for the JClic player module
+  - player                Code used by JClic player and JClic author
+  - qt61                  QuickTime 6.1 functions, used only in Mac OS X
+  - report/reportServer   The stand-alone JClic reports server
+  - report/webApp         The J2EE application release of the reports server
+  - report/reportServlets Code common to both versions of the reports server
+  - shapers               The cell shape editor of JClic author
+  - utilities             Miscellaneous utilities
+  
+* extensions
+  Contains the code of several libraries and external tools needed to
+  run JClic:
+  - dbconn      Implementation of three types of JDBC connections, used
+                by JClic reports: single, pooled and JNDI-defined.
+  - soundspi    Classes used to play audio compressed in MP3 and OGG formats.
+                Code from four external projects are used:
+                ** JLayer (http://www.javazoom.net/javalayer/javalayer.html)
+                ** JOrbis (http://www.jcraft.com/jorbis/)
+                ** MP3SPI (http://www.javazoom.net/mp3spi/mp3spi.html)
+                ** Tritonus (http://www.tritonus.org/)
+  - xml         Classes used to write, read and parse XML files:
+                ** JDom (http://www.jdom.org) without XPath features.
+                ** CustomJDom - Special XML outputter
+  - img         Libraries for graphics processing
+                ** image4j (http://image4j.sourceforge.net)
+  - json        The JSON-java library
+                ** json (http://json.org)
+
+* lib
+  External libraries needed to compile JClic:
+  - jmf-api     Java Media Framework API empty implementation, to be used only at compile time.
+                (http://java.sun.com/products/java-media/jmf/)
+  - qtjava-api  QuickTime for Java empty implementation, to be used only at compile time.            
+                (http://developer.apple.com/quicktime/qtjava/)  
+  - servlet-api Needed to compile the J2EE version of JClic reports. Empty implementation, to be 
+                used only at compile time. (http://java.sun.com/products/servlet/reference/api)
+
+* deploy
+  Contains the "applicaton.xml" file, used in the J2EE web application of 
+  JClic reports
+  
+* dist
+  This is the directory where the JAR files obtained as result of the build 
+  process are stored. It contains also some scripts, icons and JNLP (Java 
+  Network Launching Protocol) files.
+  
+* instal
+  This directory contains a script that generates the Windows installer of 
+  JClic using the Nullsoft Scriptable Install System 
+  (http://nsis.sourceforge.net). It contains also an Ant script that launches 
+  NSIS and creates a ZIP with all the files needed to run JClic in any 
+  Java-enabled system.
+
+* i18n
+  Contains utilities used to translate JClic into different languages.
+  JClic uses Launchpad (https://translations.launchpad.net/jclic) as a translation platform.
+  
+* keystore
+  This folder contains a key store with a test certificate, that can be used
+  to sign the JAR files for test purposes. Please use your own certificate 
+  if you plan to distribute your own versions of the program.
+  
+* xml
+  XML Schema (XSD) and Document Type Definitions (DTD) corresponding to the 
+  documents used by JClic to store skins and projects.    
+
+-----------------------------------------------------------------------------
+
+Edit instructions:
+
+JClic was made using NetBeans, currently version 3.7.
+You can download this IDE from:
+
+https://netbeans.org/downloads/
+
+Build the extensions by launching "ant" from the following subdirectories:
+extensions/dbconn
+extensions/img/image4j
+extensions/json
+extensions/xml
+extensions/soundspi
+
+Copy the resulting jar files into the "lib" directory:
+extensions/dbconn/build/dbconn.jar
+extensions/img/image4j/dist/image4j.jar
+extensions/json/build/json.jar
+extensions/xml/build/jdom.jar
+extensions/soundspi/build/soundspi.jar
+
+Launch NetBeans, create a new project and mount the following 17 
+filesystems from the directory containing the JClic source code:
+
+File-based filesystems:
+lib/jdom.jar
+lib/dbconn.jar
+lib/soundspi.jar
+lib/json.jar
+lib/image4j.jar
+
+Directory-based filesystems:
+lib/jmf-api
+src/activities
+src/author
+src/core
+src/extra
+src/interface
+src/jclicApplet
+src/jclicPlayer
+src/player
+src/shapers
+src/utilities
+src/report/reportServer
+src/report/reportServlets
+src/report/webApp
+
+After mounting the last filesystem, a new one will be automatically created:
+src/report/webApp/WEB-INF/classes
+
+The classes are distributed into different directories.
+
+The JClic classes are organized into the following Java packages:
+
+/                           Main classes (JClicApplet, JClicPlayer, 
+                            JClicInstaller, JClicAuthor and ReportServer)
+/edu/xtec/jclic             Main JClic core classes and interfaces
+/edu/xtec/jclic/activities  The JClic activities. Each group of similar
+                            activities has its own package: associations,
+                            memory, panels, puzzles, text and textGrid
+/edu/xtec/jclic/automation  The classes that provide automatic contents to
+                            activities. One package is included here: "arith",
+                            for automatic mental arithmetics.
+/edu/xtec/jclic/bags        Classes dealing with collections of objects like
+                            activities, media, and sequence elements.
+/edu/xtec/jclic/boxes       Graphic and multimedia elements: cells, counters,
+                            grids, buttons...
+/edu/xtec/jclic/clic3       Classes used to import Clic 3.0 activities
+/edu/xtec/jclic/edit        Base for "editors", special classes used to 
+                            modify complex objects.
+/edu/xtec/jclic/fileSystem  Filesystems are objects used to read and write to
+                            files under different protocols and formats.
+/edu/xtec/jclic/media       Classes that deal with sound, video...
+/edu/xtec/jclic/misc        Miscellaneous utilities specific to JClic
+/edu/xtec/jclic/project     Components of the JClic project structure
+/edu/xtec/jclic/report      Activity results reporting system
+/edu/xtec/jclic/shapers     Classes that deal with cell and grid shapes
+/edu/xtec/jclic/skins       Support to JClic visual aspects
+/edu/xtec/jclic/beans       Visual controls used in JClic Author.
+/edu/xtec/resources         Different sub-packages containing messages, icons,
+                            graphics, sounds, etc.
+/edu/xtec/util              Utility classes not specific to JClic                            

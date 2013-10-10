@@ -1,0 +1,340 @@
+# Arabic translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2008-03-19 14:27+0000\n"
+"Last-Translator: hmagroun <hmagroun@yahoo.fr>\n"
+"Language-Team: Arabic <ar@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: ERROR
+msgid "ERROR"
+msgstr "خطأ"
+
+#: OK
+msgid "OK"
+msgstr "موافق"
+
+#: YES
+msgid "Yes"
+msgstr "نعم"
+
+#: NO
+msgid "No"
+msgstr "لا"
+
+#: DELETE
+msgid "Delete"
+msgstr "احذف"
+
+#: PASTE
+msgid "Paste"
+msgstr "ألصق"
+
+#: CUT
+msgid "Cut"
+msgstr "قص"
+
+#: COPY
+msgid "Copy"
+msgstr "نسخ"
+
+#: FILE_SAVE
+msgid "Save file"
+msgstr "حفظ الملف"
+
+#: CONFIRM
+msgid "Please confirm"
+msgstr ""
+
+#: FILE_OPEN
+msgid "Open file"
+msgstr "افتح ملفّ"
+
+#: FILE_ERR_BEG_DIR
+msgid "Folder"
+msgstr "مجلد"
+
+#: URL
+msgid "URL:"
+msgstr "العنوان:"
+
+#: PASSWORD
+msgid "Password:"
+msgstr "كلمة المرور:"
+
+#: WARNING
+msgid "Warning!"
+msgstr "تحذير!"
+
+#: FILE_NOT_READABLE
+msgid "Cannot be read!"
+msgstr ""
+
+#: FILE_NOT_EXIST
+msgid "Does not exist!"
+msgstr ""
+
+#: FILE_READONLY
+msgid "Is read-only. It cannot be overwritted!"
+msgstr ""
+
+#: FILE_OVERWRITE_DIR_PROMPT
+msgctxt "FILE_OVERWRITE_DIR_PROMPT"
+msgid "Do you want to overwrite it?"
+msgstr "هل تود أن تستبدله؟"
+
+#: FILE_OVERWRITE_PROMPT
+msgctxt "FILE_OVERWRITE_PROMPT"
+msgid "Do you want to overwrite it?"
+msgstr "هل تود أن تستبدله؟"
+
+#: FILE_EXISTS
+msgid "already exists on your system."
+msgstr ""
+
+#: FILE_DIR_BEG
+msgid "The folder"
+msgstr ""
+
+#: FILE_BEG
+msgid "The file"
+msgstr "الملف"
+
+#: UNNAMED
+msgid "Unnamed"
+msgstr "غير مسمّى"
+
+#: FILE_ERR_READING
+msgid "Error reading file"
+msgstr "خطأ أثناء قراءة الملف"
+
+#: FILE_ERR_SAVING
+msgid "Error saving file"
+msgstr "حدث خطأ أثناء حفظ الملف"
+
+#: FILE_FIND
+msgid "Find file"
+msgstr ""
+
+#: FILE_ERR_READONLY
+msgid "is read-only."
+msgstr ""
+
+#: FILE_ERR_EXISTS
+msgid "exists. Do you want to overwrite it?"
+msgstr ""
+
+#: FILE_ERR_UNREADABLE
+msgid "is unreadable."
+msgstr ""
+
+#: FILE_ERR_BEG
+msgid "File"
+msgstr "ملف"
+
+#: LOADING
+msgid "loading..."
+msgstr "جاري التحميل..."
+
+#: FALSE
+msgid "false"
+msgstr "خطأ"
+
+#: CHECK_SIGNATURE_URL
+msgid "messages/checksignature.html"
+msgstr ""
+
+#: URL_LAUNCH_ERROR
+msgid "Error launching URL"
+msgstr ""
+
+#: URL_ERROR
+msgid "Error building URL!"
+msgstr ""
+
+#: QUESTION
+msgid "Question"
+msgstr "سؤال"
+
+#: PASSWORD_INCORRECT
+msgid "Incorrect password!"
+msgstr ""
+
+#: TRUE
+msgid "true"
+msgstr "صحيح"
+
+#: CANCEL
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: FILE_ERR_DELETING
+msgid "Error deleting file"
+msgstr ""
+
+#: URL_OPEN
+msgid "Open URL"
+msgstr "افتح عنوان إنترنت"
+
+#: FILE_ERR_RESTORING
+msgid "Error restoring file"
+msgstr ""
+
+#: WRITING_FILE
+msgid "Writing file..."
+msgstr ""
+
+#: XML_ATTRIBUTE
+msgid "Attribute"
+msgstr "الصّفة"
+
+#: XML_VALUE
+msgid "Value"
+msgstr "قيمة"
+
+#: XML_NOT_EDITABLE
+msgid "This field is not editable!"
+msgstr ""
+
+#: XML_TEXT
+msgid "text"
+msgstr "نص"
+
+#: XML_NEW_ATTRIBUTE
+msgid "Add attribute"
+msgstr ""
+
+#: WORKING
+msgid "Working..."
+msgstr "...جارٍ العمل"
+
+#: LOADING_FILE
+msgid "Loading file"
+msgstr ""
+
+#: XML_DEL_ATTRIBUTE
+msgid "Delete attribute"
+msgstr ""
+
+#: XML_ELEMENT
+msgid "Element"
+msgstr "عنصر"
+
+#: XML_NEW_ELEMENT
+msgid "New element"
+msgstr ""
+
+#: XML_DEL_ELEMENT
+msgid "Delete element"
+msgstr ""
+
+#: XML_NAME
+msgid "Name"
+msgstr "الإسم"
+
+#: RETRY
+msgid "Retry"
+msgstr "إعادة المحاولة"
+
+#: IGNORE
+msgid "Ignore"
+msgstr "تجاهل"
+
+#: DATE_INCORRECT
+msgid "Date incorrect!"
+msgstr ""
+
+#: BAD_NUMBER
+msgid "Incorrect number!"
+msgstr ""
+
+#: NONE
+msgid "None"
+msgstr "لا شيئ"
+
+#: COPY_keys
+msgid "CC"
+msgstr ""
+
+#: CUT_keys
+msgid "TX"
+msgstr ""
+
+#: PASTE_keys
+msgid "PV"
+msgstr ""
+
+#: DELETE_keys
+msgid "D#127"
+msgstr ""
+
+#: SELECT_ALL
+msgid "Select all"
+msgstr "اختر الكل"
+
+#: SELECT_NONE
+msgid "Clear selection"
+msgstr ""
+
+#: WIDTH
+msgid "Width:"
+msgstr "العرض:"
+
+#: HEIGHT
+msgid "Height:"
+msgstr "الطول:"
+
+#: BROWSE_FILES
+msgid "Browse files..."
+msgstr ""
+
+#: VERSION
+msgid "version"
+msgstr "الإصدارة"
+
+#: ABOUT
+msgid "About..."
+msgstr "حول..."
+
+#: YES_TO_ALL
+msgid "Yes to all"
+msgstr "نعم للجميع"
+
+#: NO_TO_ALL
+msgid "No to all"
+msgstr ""
+
+#: SAVE
+msgid "Save"
+msgstr "حفظ"
+
+#: OPEN
+msgid "Open"
+msgstr "افتح"
+
+#: FILE_OPEN_TOOLTIP
+msgid "Open the selected file"
+msgstr ""
+
+#: FILE_SAVE_TOOLTIP
+msgid "Save the specified file"
+msgstr ""
+
+#: SAVING
+msgid "saving..."
+msgstr ""
+
+#: SAVING_FILE
+msgid "Saving file"
+msgstr ""

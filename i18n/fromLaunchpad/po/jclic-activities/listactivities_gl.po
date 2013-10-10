@@ -1,0 +1,168 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JClic 0.2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2010-12-21 20:02+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: @associations.ComplexAssociation
+msgid ""
+"Complex association|In this activity there are also two sets of information, "
+"but these may have a different number of parts and there may be different "
+"types of relation between them e.g.: one-to-one, various to one, parts "
+"without a relation, etc."
+msgstr ""
+"Asociación complexa|Neste tipo de actividade preséntanse tamén dous "
+"conxuntos de información, pero estes poden ter un número diferente de "
+"elementos e entre eles pódense dar diversos tipos de relacións: Un a un, "
+"varios a un, elementos sen asignar..."
+
+#: @associations.SimpleAssociation
+msgid ""
+"Simple association|There are two sets of information that have the same "
+"number of parts. Each part from the original set corresponds to one, and "
+"only one, part of the image set."
+msgstr ""
+"Asociación simple|Preséntanse dous conxuntos de información que teñen o "
+"mesmo número de elementos. A cada elemento do conxunto orixe corresponde un "
+"e só un elemento do conxunto imaxe."
+
+#: @memory.MemoryGame
+msgid ""
+"Finding pairs|Each of the pieces appear twice, but face down. In each go two "
+"pieces are turned over and are turned back over if they are not the same. "
+"The objective is to find all the pairs."
+msgstr ""
+"Xogo de memoria|Cada unha das pezas que forman o obxecto preséntase  dúas "
+"veces e agochadas na xanela de xogo. En cada tirada descóbrense un par de "
+"pezas, que se volven a agochar se non foren idénticas.  O obxectivo é "
+"descobrir todas as parellas."
+
+#: @panels.Explore
+msgid ""
+"Explore activity|An initial piece of information is shown and, upon clicking "
+"on it, a given piece of information is shown for each element."
+msgstr ""
+"Actividade de exploración|Móstrase unha información inicial e cando se preme "
+"nela aparece, para cada elemento, unha determinada peza de información."
+
+#: @panels.Identify
+msgid ""
+"Identify cells|There is just one set of information and you have to click on "
+"those parts that meet a certain condition."
+msgstr ""
+"Actividade de identificación|Preséntase só un conxunto de información e hai "
+"que premer nos elementos que cumpriren unha determinada condición."
+
+#: @panels.InformationScreen
+msgid ""
+"Information screen|One set of information is shown and there is the option "
+"of activating the multimedia content for each piece of information."
+msgstr ""
+"Pantalla de información|Móstrase un conxunto de información e, "
+"opcionalmente, ofrécese a posibilidade de activar o contido multimedia "
+"asociado a cada elemento."
+
+#: @puzzles.DoublePuzzle
+msgid ""
+"Double puzzle|Two grids are shown. One contains the disordered information "
+"and the other is empty. The object has to be rearranged in the empty grid by "
+"dragging the pieces one by one."
+msgstr ""
+"Quebracabezas dobre|Móstranse dous paneis. Nun aparece a información "
+"desordenada e o outro está baleiro. Hai que reconstruír o obxecto neste "
+"último arrastrando as pezas unha a unha."
+
+#: @puzzles.ExchangePuzzle
+msgid ""
+"Exchange puzzle|The information is swapped within the same panel. In each go "
+"two pieces swap position until the object is reordered."
+msgstr ""
+"Quebracabezas de intercambio|Nun único panel mestúrase a información. En "
+"cada xogada intercámbianse as posicións de dúas pezas ata ordenar o obxecto."
+
+#: @puzzles.HolePuzzle
+msgid ""
+"Hole puzzle|In the same panel one piece is missing and the others are "
+"shuffled. In each go one of the pieces next to the empty space is moved "
+"until they are back in the original order."
+msgstr ""
+"Quebracabezas de burato|Nun único panel faise desaparecer unha peza e "
+"mestúranse as restantes. En cada xogada pódese desprazar unha das pezas "
+"veciñas do burato, ata telas todas na orde orixinal."
+
+#: @text.WrittenAnswer
+msgid ""
+"Written answer|A set of information is shown and the corresponding text for "
+"each of its parts must be written."
+msgstr ""
+"Resposta escrita|Móstrase un conxunto de información e, para cada elemento, "
+"hai que escribir o texto correspondente ou de resposta."
+
+#: @text.FillInBlanks
+msgid ""
+"Text: Fill-in blanks|The user has to complete certain words, letters and "
+"phrases that have been hidden or camouflaged in a text. The solution of each "
+"of the elements may be set up in different ways: writing in a blank space; "
+"correcting a phrase that contains errors; or selecting from a list of "
+"various possible answers."
+msgstr ""
+"Texto: encher buratos|Nun texto escóllense determinadas palabras, letras e "
+"frases que se agochan ou  camuflan. A resolución de cada un dos elementos "
+"agochados pódese efectuar de xeitos diferentes: Escribindo nun espacio "
+"baleiro, corrixindo unha expresión que contén erros ou escolléndoa nunha "
+"lista entre distintas respostas posíbeis."
+
+#: @text.Identify
+msgid ""
+"Text: Identify elements|The user has to point out some words, letters, "
+"numbers, symbols or punctuation marks with a click of the mouse."
+msgstr ""
+"Texto: identificar elementos|O usuario ten que  sinalar cun clic do rato "
+"palabras, letras, cifras, símbolos ou signos de puntuación."
+
+#: @text.Order
+msgid ""
+"Text: Order elements|When designing this activity some of the words or "
+"paragraphs of a text are selected to be shuffled around. The user has to put "
+"them back in order."
+msgstr ""
+"Texto: ordenar elementos|No deseño da actividade escóllense no texto "
+"palabras ou parágrafos que se barallan. O usuario ten de intentar volver a "
+"pólo en orde."
+
+#: @text.Complete
+msgid ""
+"Text: Complete text|Various parts of a text (letters, words, punctuation "
+"signs, or phrases) are taken out and the user has to complete it."
+msgstr ""
+"Texto: completar texto|Nun texto fanse desaparecer algúns elementos (letras, "
+"palabras, signos de puntuación, frases) e o usuario ten de completalo."
+
+#: @textGrid.CrossWord
+msgid ""
+"Crosswords|The word table has to be completed according to its definitions. "
+"The definitions may be text, graphics or sound. The programme automatically "
+"shows the definitions of the two words which cross in the cursor position."
+msgstr ""
+"Encrucillado|Hai que ir enchendo o panel de palabras a partir das "
+"definicións. As definicións poden ser textuais, gráficas ou sonoras. O "
+"programa mostra automaticamente as definicións das dúas palabras que se "
+"cruzan na posición actual do cursor."
+
+#: @textGrid.WordSearch
+msgid ""
+"Word search|The hidden words have to be found in a grid of letters. The "
+"neutral cells in the grid (those with no word) are completed with characters "
+"chosen at random."
+msgstr ""
+"Sopa de letras|Hai que encontrar as palabras escondidas nunha cuadrícula de "
+"letras. As celas neutras desta grella (as que non pertencen a ningunha "
+"palabra) énchense con caracteres escolleitos ao chou en cada xogada."

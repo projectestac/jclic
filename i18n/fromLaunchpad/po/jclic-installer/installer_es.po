@@ -1,0 +1,74 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JClic installer 0.2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-05-30 16:00+0000\n"
+"PO-Revision-Date: 2008-06-02 10:10+0000\n"
+"Last-Translator: Francesc Busquets <Unknown>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. #Translation language name
+msgid "English"
+msgstr "Español"
+
+#: javaNeeded
+msgid ""
+"JClic needs an updated Java engine, version 1.4 or higher. You can download "
+"it from http://www.java.com"
+msgstr ""
+"JClic necesita un motor Java actualizado, versión 1.4 o superior. Puede "
+"descargarlo gratuitamente desde http://www.java.com"
+
+#: oldJavaMsg
+msgid "There is an old version of Java installed on this computer."
+msgstr "El sistema Java de este ordenador es antiguo."
+
+#: noJavaMsg
+msgid "It was impossible to find any Java system installed on this computer."
+msgstr "No se ha encontrado ningún sistema Java instalado en este ordenador."
+
+#. #Type of installation (standard, full, minimal)
+#: standardType
+msgid "Standard"
+msgstr "Estándar"
+
+#. #Type of installation (standard, full, minimal)
+#: fullType
+msgid "Full"
+msgstr "Completa"
+
+#. #Type of installation (standard, full, minimal)
+#: liteType
+msgid "Lite"
+msgstr "Mínima"
+
+#: captionStr
+msgid "JClic ${PRODUCT_VERSION} offline setup"
+msgstr "Instalación de JClic ${PRODUCT_VERSION}"
+
+#. #Description of JClic Player
+#: JClicPlayerDesc
+msgid "Application to play JClic activities."
+msgstr "Aplicación para visualizar y realizar actividades JClic."
+
+#. #Description of JClic Author
+#: JClicAuthorDesc
+msgid "Application to create and edit JClic activities."
+msgstr "Aplicación para crear y modificar actividades JClic."
+
+#. #Description of JClic Applet components
+#: JClicAppletDesc
+msgid "Files needed only in a server with hosted JClic applets."
+msgstr ""
+"Archivos que son necesarios únicamente en un servidor que aloje applets "
+"JClic."
+
+#. #Description of JClic Reports
+#: JClicReportsDesc
+msgid "Reports server."
+msgstr "Servidor de informes."

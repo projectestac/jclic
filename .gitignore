@@ -1,6 +1,31 @@
 *.class
 
-# Package Files #
+# Package Files and binary distributables #
 *.jar
 *.war
 *.ear
+*.exe
+*.zip
+*.gz
+
+# Back and log files #
+*.bak
+*~
+*.log
+
+# Build and doc directories #
+build/
+apidoc/
+javadoc/
+**/build/
+**/apidoc/
+**/javadoc/
+
+# Directories with intermediate files #
+i18n/fromLaunchpad/properties/
+i18n/toLaunchpad/po/
+netbeans/
+
+# Directories with non redistribuable files #
+lib/bootstrap/
+

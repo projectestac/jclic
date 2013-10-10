@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+
+<project name="JDom" basedir="." default="all">
+
+  <!-- =================================================================== -->
+  <!-- INIT                                                                -->
+  <!-- =================================================================== -->
+  <target name="init">  
+
+    <!-- Variables -->
+    <property name="name"           value="JDom 1.0" />    
+    <property name="year"           value="2013" />
+    
+    <!-- JClic is currently targeted to JVM 1.5 -->
+    <property name="ant.build.javac.source" value="1.5"/>
+    <property name="ant.build.javac.target" value="1.5"/>    
+
+    <property name="build.dir"      location="build" />
+    <property name="apidoc.dir"     location="apidoc" />
+    
+    <property name="debug"          value="on" />    
+    <property name="deprecation"    value="on" />    
+    <property name="optimize"       value="on" />    
+    
+    <echo message="---------------------"/>
+    <echo message="JDom build"/>
+    <echo message="---------------------"/>
+    
+    <!-- Create dirs -->
+    <mkdir dir="${build.dir}"/>
+
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- MAIN                                                                -->
+  <!-- =================================================================== -->
+  <target name="all" 
+          depends="jdom" 
+          description="Build everything.">
+
+    <echo message="*** JDom successfully compiled!"/>
+
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- CLEAN                                                               -->
+  <!-- =================================================================== -->
+  <target name="clean" 
+          depends="init" 
+          description="Clean build dir">
+    <delete dir="${build.dir}" />
+    <echo message="*** Build dir cleared!"/>
+  </target>
+  
+  <!-- =================================================================== -->
+  <!-- JAVADOC                                                             -->
+  <!-- =================================================================== -->
+  <target name="javadoc" 
+          depends="all" 
+          description="JDom JavaDoc">
+    <delete dir="${apidoc.dir}" />
+    <mkdir dir="${apidoc.dir}"/>
+    <javadoc packagenames="org.jdom.*" 
+             destdir="${apidoc.dir}" 
+             author="true" 
+             version="true" 
+             use="true" 
+             splitindex="true" 
+             noindex="false" 
+             windowtitle="${name} API" 
+             doctitle="${name}">
+             <sourcepath>
+               <pathelement location="jdom-1.0/src"/>
+               <pathelement location="customJdom-1.0/src"/>
+             </sourcepath>
+             <classpath />
+             <excludepackage name="org.jdom.xpath" />
+             <link href="http://docs.oracle.com/javase/1.5.0/docs/api/" />
+    </javadoc>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- JDOM                                                                -->
+  <!-- =================================================================== -->
+  <target name="jdom" 
+          depends="init">
+    <mkdir dir="${build.dir}/jdom"/>
+    <javac destdir="${build.dir}/jdom" 
+           debug="${debug}" 
+           deprecation="${deprecation}"
+           source="${ant.build.javac.source}"
+           target="${ant.build.javac.target}"
+           includeAntRuntime="false"
+           optimize="${optimize}">
+           <src path="jdom-1.0/src" />
+           <src path="customJdom-1.0/src" />
+           <exclude name="org/jdom/xpath/**/*"/>
+    </javac>
+    <jar jarfile="${build.dir}/jdom.jar" 
+         basedir="${build.dir}/jdom" />
+  </target>
+
+</project>

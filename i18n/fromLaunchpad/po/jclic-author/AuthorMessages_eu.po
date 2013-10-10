@@ -1,0 +1,3484 @@
+# Basque translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2010-01-13 23:10+0200\n"
+"PO-Revision-Date: 2010-01-18 06:49+0000\n"
+"Last-Translator: Pedro Lonbide <zuzen@santurtzieus.com>\n"
+"Language-Team: Basque <eu@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. #JClic Author messages
+#: edit_act_description_block
+msgctxt "edit_act_description_block"
+msgid "Description"
+msgstr "Deskribapena"
+
+#: edit_act_name_tooltip
+msgid "Name of the activity"
+msgstr "Jardueraren izena"
+
+#: edit_act_name
+msgctxt "edit_act_name"
+msgid "Name:"
+msgstr "Izena:"
+
+#: edit_act_description_tooltip
+msgid "Description of the activity"
+msgstr "Jardueraren deskribapena"
+
+#: edit_act_reports_block
+msgctxt "edit_act_reports_block"
+msgid "Reports"
+msgstr "Txostenak"
+
+#: edit_act_includeInReports
+msgid "Include this activity in reports"
+msgstr "Jarduera hau txostenetan sartu"
+
+#: edit_act_includeInReports_tooltip
+msgid "Include the results of this activity in users' reports"
+msgstr "Jarduera honen emaitzak erabiltzaileen txostenetan sartu"
+
+#: edit_act_code
+msgid "Code:"
+msgstr "Kodea:"
+
+#: edit_act_code_tooltip
+msgid "Optional code used to group and search in the reports database."
+msgstr ""
+"Aukerazko kodea txostenen datu-basean saikapenak eta bilaketak egiteko."
+
+#: edit_act_reportActions
+msgid "Report user actions"
+msgstr "Erabiltzaileen ekintzak jaso"
+
+#: edit_act_reportActions_tooltip
+msgid "Register the details of all the actions performed by users"
+msgstr "Erregistratu erabiltzaileek egindako ekintza guztien xehetasunak"
+
+#: edit_act_counters_block
+msgctxt "edit_act_counters_block"
+msgid "Counters"
+msgstr "Kontagailuak"
+
+#: edit_act_timeCounter
+msgctxt "edit_act_timeCounter"
+msgid "Time counter"
+msgstr "Denbora-kontagailua"
+
+#: edit_act_timeCounter_tooltip
+msgid "Show/hide the time conter"
+msgstr "Erakutsi/ezkutatu denbora-kontagailua"
+
+#: edit_act_actionsCounter
+msgctxt "edit_act_actionsCounter"
+msgid "Tries counter"
+msgstr "Saiakera-kontagailua"
+
+#: edit_act_actionsCounter_tooltip
+msgid "Show/hide the tries counter"
+msgstr "Erakutsi/ezkutatu saiakera-kontagailua"
+
+#: edit_act_scoreCounter
+msgctxt "edit_act_scoreCounter"
+msgid "Score counter"
+msgstr "Puntuazio-kontagailua"
+
+#: edit_act_scoreCounter_tooltip
+msgid "Show/hide the score counter."
+msgstr "Erakutsi/ezkutatu puntuazio-kontagailua"
+
+#: edit_act_maxTime
+msgid "Max time:"
+msgstr "Gehienezko denbora:"
+
+#: edit_act_maxTime_tooltip
+msgid ""
+"Maximum time to to solve the activity, in seconds, or 0 for unlimited time."
+msgstr ""
+"Jarduera egiteko gehienezko denbora, segundutan, edo 0 denbora-mugarik ez "
+"ezartzeko."
+
+#: edit_act_countdown
+msgid "Countdown"
+msgstr "Atzerako kontaketa"
+
+#: edit_act_countdown_tooltip
+msgid "The counter starts at máximum value, decreasing to 0."
+msgstr "Kontagailua balore handienetik hasten da, 0raino jaitsiz."
+
+#: edit_act_maxActions
+msgid "Max tries:"
+msgstr "Gehieneko saiakerak:"
+
+#: edit_act_maxActions_tooltip
+msgid "Maximum number of tries allowed, or 0 for unlimited tries."
+msgstr "Baimendutako saiakeren gehieneko kopurua, edo 0 mugagabeak izateko"
+
+#: edit_act_buttons_block
+msgctxt "edit_act_buttons_block"
+msgid "Buttons"
+msgstr "Botoiak"
+
+#: edit_act_helpBtn
+msgid "Help"
+msgstr "Laguntza"
+
+#: edit_act_helpBtn_tooltip
+msgid "Show/hide help button"
+msgstr "Erakutsi/ezkutatu laguntza-botoia"
+
+#: edit_act_helpBtn_solution
+msgid "Show solution"
+msgstr "Erakutsi erantzuna"
+
+#: edit_act_helpBtn_msg
+msgid "Show this message:"
+msgstr "Erakutsi mezu hau:"
+
+#: edit_act_infoBtn
+msgid "Information"
+msgstr "Informazioa"
+
+#: edit_act_infoBtn_tooltip
+msgid "Show/Hide the button of information"
+msgstr "Erakutsi/ezkutatu informazio-botoia"
+
+#: edit_act_infoBtn_url
+msgid "Show this URL:"
+msgstr "Erakutsi URL hau:"
+
+#: edit_act_infoBtn_cmd
+msgid "Execute this command:"
+msgstr "Exekutatu komandoa"
+
+#: edit_act_infoBtn_url_tooltip
+msgid "Web site address to show when click on the info button"
+msgstr ""
+"Informazio-botoiari sakatuta erakutsi beharreko web-gunearen helbidea"
+
+#: edit_act_infoBtn_cmd_tooltip
+msgid "Command line to be executed on click to the info button."
+msgstr "Informazio-botoiari sakatuta exekutatuko den komando-lerroa"
+
+#: edit_act_mainWindow
+msgid "Main window:"
+msgstr "Leiho nagusia:"
+
+#: edit_act_gameWindow
+msgid "Game window:"
+msgstr "Jolas-leihoa:"
+
+#: edit_act_margin
+msgid "Margin:"
+msgstr "Marjina:"
+
+#: edit_act_margin_tooltip
+msgid "Horizontal and vertical spacing between visual objects."
+msgstr "Ikusteko objektuen arteko espazio horizontala eta bertikala"
+
+#: edit_act_bgColor
+msgctxt "edit_act_bgColor"
+msgid "Background color:"
+msgstr "Atzealdeko kolorea:"
+
+#: edit_act_bgColor_tooltip
+msgid "Change the background color."
+msgstr "Aldatu atzealdeko kolorea"
+
+#: edit_gradient_startColor
+msgid "Start color:"
+msgstr "Hasierako kolorea:"
+
+#: edit_gradient_endColor
+msgid "End color:"
+msgstr "Amaierako kolorea:"
+
+#: edit_gradient_startColor_tooltip
+msgid "Selection of the start color"
+msgstr "Hasierako kolorearen aukeraketa"
+
+#: edit_gradient_endColor_tooltip
+msgid "Selection of the end color"
+msgstr "Amaierako kolorearen aukeraketa"
+
+#: edit_gradient_cycles
+msgid "Cycles:"
+msgstr "Zikloak:"
+
+#: edit_gradient_cycles_tooltip
+msgid "Number of repetitions of the gradient over the paint surface"
+msgstr "Gradientearen errepikapenak margotzeko azalearen gainean"
+
+#: edit_gradient_orientation
+msgid "Orientation:"
+msgstr "Orientazioa:"
+
+#: edit_gradient_orientation_tooltip
+msgid "Gradient's orientation, measured in degrees over the horizontal"
+msgstr "Gradientearen orientazioa, gradutan neurtua horizontalarekiko"
+
+#: edit_act_gradient
+msgid "Gradient:"
+msgstr "Gradientea:"
+
+#: edit_act_gradient_tooltip
+msgid "Use gradient of colours"
+msgstr "Erabili kolore-gradientea"
+
+#: edit_color_opacity
+msgid "Opacity"
+msgstr "Opakutasuna"
+
+#: edit_color_opacity_tooltip
+msgid "Set the color's alpha channel (opacity) value."
+msgstr "Kolorearen alfa kanalaren balorea (opakutasuna) zehazten du"
+
+#: edit_gradient_title
+msgctxt "edit_gradient_title"
+msgid "Gradient"
+msgstr "Gradientea"
+
+#: edit_gradient_default
+msgid "Use default values (null gradient)"
+msgstr "Berezko baloreak erabili"
+
+#: edit_act_image
+msgid "Image:"
+msgstr "Irudia:"
+
+#: edit_act_descriptionTab
+msgctxt "edit_act_descriptionTab"
+msgid "Description"
+msgstr "Deskribapena"
+
+#: edit_act_descriptionTab_tooltip
+msgid "Name and description"
+msgstr "Izena eta deskribapena"
+
+#: edit_act_tiledBgImg
+msgid "Tiled"
+msgstr "Mosaikoan"
+
+#: edit_act_tiledBgImg_tooltip
+msgid ""
+"Paint all the surface with the image, repeating it along the X and Y axis as "
+"needed."
+msgstr ""
+"Irudiaren azalera osoa margotzen du, X eta Y ardatzen inguruan behar beste "
+"aldiz errepikatuz"
+
+#: edit_act_preview
+msgctxt "edit_act_preview"
+msgid "Preview:"
+msgstr "Aurrebista:"
+
+#: edit_act_border
+msgctxt "edit_act_border"
+msgid "Border"
+msgstr "Ertza"
+
+#: edit_act_border_tooltip
+msgid "Draw a line border arround the window"
+msgstr "Marraztu lerro bat ertzean leiho inguruan"
+
+#: edit_act_transparent
+msgid "Transparent"
+msgstr "Gardena"
+
+#: edit_act_transparent_tooltip
+msgid "Window has transparent background"
+msgstr "Leihoak atzeko aldea gardena du"
+
+#: edit_act_width
+msgctxt "edit_act_width"
+msgid "Width:"
+msgstr "Zabalera"
+
+#: edit_act_height
+msgctxt "edit_act_height"
+msgid "Height:"
+msgstr "Altuera:"
+
+#: edit_act_width_tooltip
+msgid "Width of the object, measured in pixels"
+msgstr "Objektuaren zabalera, pixeletan neurtua"
+
+#: edit_act_height_tooltip
+msgid "Height of the object, measured in pixels"
+msgstr "Objektuaren altuera, pixeletan neurtua"
+
+#: edit_act_centered
+msgctxt "edit_act_centered"
+msgid "Centered"
+msgstr "Zentratuta"
+
+#: edit_act_centered_tooltip
+msgid "The object will be centered over the main window"
+msgstr "Objetktuak zentratuta egon behar du leiho nagusian"
+
+#: edit_act_x
+msgctxt "edit_act_x"
+msgid "X:"
+msgstr "X:"
+
+#: edit_act_x_tooltip
+msgid "Absolute horizontal location"
+msgstr "Kokapen erabat horizontala"
+
+#: edit_act_y
+msgctxt "edit_act_y"
+msgid "Y:"
+msgstr "Y:"
+
+#: edit_act_y_tooltip
+msgid "Absolute vertical location"
+msgstr "Kokapen erabat bertikala"
+
+#: edit_act_ui_block
+msgctxt "edit_act_ui_block"
+msgid "User interface"
+msgstr "Erabiltzailearen interfazea"
+
+#: edit_act_image_tooltip
+msgid "Select an image"
+msgstr "Aukeratu irudi bat"
+
+#: edit_act_text
+msgid "Text:"
+msgstr "Testua:"
+
+#: edit_act_text_tooltip
+msgid "Text to be shown inside this object"
+msgstr "Objektu honen barruan erakutsi beharreko testua"
+
+#: edit_font_face
+msgid "Typeface:"
+msgstr "Mota:"
+
+#: edit_font_size
+msgid "Size:"
+msgstr "Tamaina:"
+
+#: edit_font_bold
+msgid "Bold"
+msgstr "Lodia"
+
+#: edit_font_italic
+msgid "Italic"
+msgstr "Etzana"
+
+#: edit_font_underline
+msgid "Underline"
+msgstr "Azpimarratu"
+
+#: edit_font_style
+msgctxt "edit_font_style"
+msgid "Style:"
+msgstr "Estiloa:"
+
+#: edit_cell_title
+msgid "Cell contents"
+msgstr "Gelaxkaren edukia"
+
+#: edit_act_messages
+msgctxt "edit_act_messages"
+msgid "Messages"
+msgstr "Mezuak"
+
+#: edit_act_msg_initial
+msgid "Initial message:"
+msgstr "Hasierako mezua"
+
+#: edit_act_msg_final
+msgid "Final message:"
+msgstr "Amaierako mezua"
+
+#: edit_act_msg_prev
+msgid "Previous message:"
+msgstr "Aurreko mezua:"
+
+#: edit_act_msg_error
+msgid "Error message:"
+msgstr "Errore-mezua:"
+
+#: edit_act_msg_initial_tooltip
+msgid "Message to be shown when the activity starts"
+msgstr "Jarduera hasten denean erakutsi beharreko mezua"
+
+#: edit_act_msg_final_tooltip
+msgid "Message to be shown when the activity is finished"
+msgstr "Jarduera bukatutakoan erakutsi beharreko mezua"
+
+#: edit_act_msg_error_tooltip
+msgid "Message to be shown when the activity ends with errors"
+msgstr ""
+"Jarduera hainbat errorerekin bukatzen denean erakutsi beharreko mezua"
+
+#: edit_act_msg_prev_tooltip
+msgid ""
+"Message to be shown prior to the start of the activity (only in certain "
+"types of activities)"
+msgstr ""
+"Jarduera hasi aurretik erakusten den mezua (jarduera-mota jakin batzuetan "
+"baino ez)"
+
+#: edit_align
+msgid "Align:"
+msgstr "Lerrokatu:"
+
+#: edit_act_textColor
+msgid "Text color:"
+msgstr "Testuaren kolorea:"
+
+#: edit_act_textColor_tooltip
+msgid "Color used to draw text"
+msgstr "Testua marrazteko erabilitako kolorea"
+
+#: edit_act_shadowColor
+msgid "Shadow color:"
+msgstr "Itzalaren kolorea:"
+
+#: edit_act_shadowColor_tooltip
+msgid "Color used for drawing the text's shadow, when appliable"
+msgstr "Testuaren itzala marrazteko erabilitako kolorea, baldin bada"
+
+#: edit_act_shadow
+msgid "Shadow"
+msgstr "Itzala"
+
+#: edit_act_shadow_tooltip
+msgid "Draw text with shadow"
+msgstr "Testua itzalarekin marraztu"
+
+#: edit_act_borderColor
+msgid "Border color:"
+msgstr "Ertzaren kolorea:"
+
+#: edit_act_borderColor_tooltip
+msgid "Color used to draw the cell's border"
+msgstr "Gelaxkaren ertza marrazteko erabilitako kolorea"
+
+#: edit_act_inactiveColor
+msgid "Inactive state color:"
+msgstr "Inaktibo-egoeraren kolorea"
+
+#: edit_act_inactiveColor_tooltip
+msgid "Color used when the cell is disabled"
+msgstr "Gelaxka desgaituta dagoenean erabilitako kolorea"
+
+#: edit_act_altColor
+msgid "Alternative color:"
+msgstr "Ordezko kolorea:"
+
+#: edit_act_altColor_tooltip
+msgid "Color used to draw the alternative content in solved cells."
+msgstr ""
+"Gelaxken ordezko edukia erakusteko kolorea, behin erantzuna emandakoan"
+
+#: edit_cell_marked
+msgid "Marked"
+msgstr "Markatua"
+
+#: edit_cell_disabled
+msgid "Disabled"
+msgstr "Desgaituta"
+
+#: edit_cell_alt
+msgid "Alternative"
+msgstr "Ordezkoa"
+
+#: edit_cell_textMargin
+msgid "Internal margin:"
+msgstr "Barneko ertza:"
+
+#: edit_cell_textMargin_tooltip
+msgid "Amount of space between cell's border and text."
+msgstr "Gelaxkaren eta testuaren ertzen arteko espazioa"
+
+#: edit_cell_borderWidth
+msgid "Border width:"
+msgstr "Ertzaren zabalera:"
+
+#: edit_cell_borderWidth_tooltip
+msgid "Width of the stroke used to draw the standard border"
+msgstr "Ertza margotzeko erabilitako marraren lodiera"
+
+#: edit_cell_markerWidth
+msgid "Marker width:"
+msgstr "Markatzailearen lodiera:"
+
+#: edit_cell_markerWidth_tooltip
+msgid ""
+"Width of the stroke used to draw the border when the cell is marked or "
+"selected"
+msgstr ""
+"Ertza margotzeko erabilitako  marraren lodiera, gelaxka markatuta edo "
+"aukeratuta dagoenean"
+
+#: edit_cell_alt_tooltip
+msgid "Preview in \"alternative\" state"
+msgstr "Aurreikusi \"ordezkoa\" egoeran"
+
+#: edit_cell_disabled_tooltip
+msgid "Preview in \"disabled\" state"
+msgstr "Aurreikusi \"desgaituta\" egoeran"
+
+#: edit_cell_marked_tooltip
+msgid "Preview in \"marked\" state"
+msgstr "Aurreikusi \"markatuta\" egoeran"
+
+#: edit_act_testAction
+msgid "Preview activity"
+msgstr "Jarduera aurreikusi"
+
+#: edit_act_testAction_tooltip
+msgid "Preview and test the activity"
+msgstr "Jarduera aurreikusi eta probatu"
+
+#: edit_act_panels_description
+msgctxt "edit_act_panels_description"
+msgid "Description"
+msgstr "Deskribapena"
+
+#: edit_act_panels_description_tooltip
+msgid "Title and description of the activity"
+msgstr "Jardueraren izenburua eta deskribapena"
+
+#: edit_act_panels_options
+msgid "Options"
+msgstr "Aukerak"
+
+#: edit_act_panels_options_tooltip
+msgid "Options of the activity"
+msgstr "Jardueraren aukerak"
+
+#: edit_act_panels_frame
+msgctxt "edit_act_panels_frame"
+msgid "Window"
+msgstr "Leihoa"
+
+#: edit_act_panels_frame_tooltip
+msgid "Aspect, size and position of the activity window"
+msgstr "Jarduera-leihoaren itxura, tamaina eta kokapena"
+
+#: edit_act_panels_messages
+msgctxt "edit_act_panels_messages"
+msgid "Messages"
+msgstr "Mezuak"
+
+#: edit_act_panels_messages_tooltip
+msgid "Content of the activity messages"
+msgstr "Jarduera-mezuen edukia"
+
+#: edit_act_panels_panel
+msgid "Panel"
+msgstr "Panela"
+
+#: edit_act_panels_panel_tooltip
+msgid "Contents of the panel"
+msgstr "Panelaren edukia"
+
+#: edit_style_title
+msgctxt "edit_style_title"
+msgid "Style"
+msgstr "Estiloa"
+
+#: edit_style_tooltip
+msgid "Set the cells color, font and size"
+msgstr "Aukeratu gelaxken kolorea, mota eta tamaina"
+
+#: edit_act_style
+msgctxt "edit_act_style"
+msgid "Style:"
+msgstr "Estiloa:"
+
+#: edit_act_overlap
+msgid "Avoid text overlap image"
+msgstr "Ekidin irudia eta testua gainjartzea"
+
+#: edit_act_overlap_tooltip
+msgid "Try to avoid text overlapping over image"
+msgstr "Saiatu ekiditen irudia eta testua gainjartzea"
+
+#: edit_media_exists_1
+msgid "The file"
+msgstr "Fitxategia"
+
+#: edit_media_exists_2
+msgid "already exists in the media library!"
+msgstr "dagoeneko badago media-biltegian!"
+
+#: edit_act_shaper
+msgid "Shaper:"
+msgstr "Piezak:"
+
+#: edit_act_shaper_err
+msgid "Shaper error:"
+msgstr "Errorea piezan:"
+
+#: edit_act_num_cols
+msgid "Columns:"
+msgstr "Zutabeak:"
+
+#: edit_act_num_rows
+msgid "Rows:"
+msgstr "Lerroak:"
+
+#: edit_act_toothHeightFactor
+msgid "Tooth height:"
+msgstr "Hortzen altuera:"
+
+#: edit_act_toothWidthFactor
+msgid "Tooth width:"
+msgstr "Hortzen zabalera:"
+
+#: edit_act_toothRandom
+msgid "Random distribution"
+msgstr "Ausazko banaketa"
+
+#: edit_act_shaper_properties
+msgid "Shaper properties"
+msgstr "Piezen ezaugarriak"
+
+#: edit_act_panels_text
+msgid "Text"
+msgstr "Testua"
+
+#: edit_act_panels_text_tooltip
+msgid "Text of the activity"
+msgstr "Jardueraren testua"
+
+#: action_saveFile_caption
+msgid "Save..."
+msgstr "Gorde..."
+
+#: action_saveFile_keys
+msgctxt "action_saveFile_keys"
+msgid "SS"
+msgstr "HH"
+
+#: action_saveFile_tooltip
+msgid "Save the current project"
+msgstr "Gorde oraingo proiektua"
+
+#: action_docTree_caption
+msgid "Document tree..."
+msgstr "Dokumentuaren zuhaitza..."
+
+#: action_docTree_keys
+msgid "T*"
+msgstr "I*"
+
+#: action_docTree_tooltip
+msgid "Show the project's document as a tree"
+msgstr "Erakutsi proiektuaren dokumentua zuhaitz moduan"
+
+#: edit_docTree_title
+msgid "Document tree"
+msgstr "Dokumentuaren zuhaitza"
+
+#: edit_media_referencedBy
+msgid "Referenced by:"
+msgstr "Noren erreferentzia:"
+
+#: msg_prompt_loadReferences
+msgid ""
+"<html><font face=\"dialog\" size=\"2\"><B>Warning:</B><P>This project "
+"connects with other projects.<BR>Do you want to explore the links and to "
+"load all the related files?<P>(It's advisable to answer <B>YES</B> when "
+"importing Clic 3.0 activities)</font></html>"
+msgstr ""
+"<html><font face=\"dialog\" size=\"2\"><B>Kontuz:</B><P>Proiektu hau beste "
+"batzuekin lotuta dago.<BR>Estekak arakatu eta lotutako fitxategi guztiak "
+"bilatu nahi al dituzu?<P>(Ez da gomendagarria <B>BAI</B> erantzutea Clic 3.0 "
+"jarduerak inportatzean)</font></html>"
+
+#: edit_mc_type
+msgctxt "edit_mc_type"
+msgid "Type:"
+msgstr "Mota:"
+
+#: edit_mc_type_unknown
+msgid "Unknown"
+msgstr "Ezezaguna"
+
+#: edit_mc_type_sound
+msgid "Play sound"
+msgstr "Soinua erreproduzitu"
+
+#: edit_mc_type_video
+msgid "Play video"
+msgstr "Bideoa erreproduzitu"
+
+#: edit_mc_type_midi
+msgid "Play MIDI"
+msgstr "MIDI erreproduzitu"
+
+#: edit_mc_type_cdaudio
+msgid "Play CD audio"
+msgstr "Audio CD-a erreproduzitu"
+
+#: edit_mc_type_record
+msgid "Record sound"
+msgstr "Grabatu soinua"
+
+#: edit_mc_type_play_recorded
+msgid "Play recorded sound"
+msgstr "Grabatutako soinua erreproduzitu"
+
+#: edit_mc_type_run_activity
+msgid "Go to activity"
+msgstr "Joan jarduerara"
+
+#: edit_mc_type_run_sequence
+msgid "Go to sequence"
+msgstr "Joan sekuentziara"
+
+#: edit_mc_type_run_external
+msgid "Run program"
+msgstr "Programa abiarazi"
+
+#: edit_mc_type_url
+msgid "Show URL"
+msgstr "Erakutsi URLa"
+
+#: edit_mc_type_exit
+msgid "End"
+msgstr "Amaitu"
+
+#: edit_mc_type_return
+msgctxt "edit_mc_type_return"
+msgid "Return"
+msgstr "Itzuli"
+
+#: edit_mc_level
+msgid "Priority level:"
+msgstr "Lehentasun-maila:"
+
+#: edit_mc_file
+msgid "File:"
+msgstr "Fitxategia:"
+
+#: edit_mc_externalParam
+msgid "Parameters:"
+msgstr "Parametroak:"
+
+#: edit_mc_from
+msgctxt "edit_mc_from"
+msgid "From:"
+msgstr "Hemendik:"
+
+#: edit_mc_to
+msgctxt "edit_mc_to"
+msgid "To:"
+msgstr "Hona:"
+
+#: edit_mc_length
+msgctxt "edit_mc_length"
+msgid "Max. length:"
+msgstr "Geh. iraupena:"
+
+#: edit_mc_recBuffer
+msgid "Record tape:"
+msgstr "Grabazio-zinta:"
+
+#: edit_mc_stretch
+msgid "Stretch size"
+msgstr "Sartzen ez bada, konprimitu"
+
+#: edit_mc_location
+msgctxt "edit_mc_location"
+msgid "Location:"
+msgstr "Kokapena:"
+
+#: edit_mc_location_x
+msgctxt "edit_mc_location_x"
+msgid "X:"
+msgstr "X:"
+
+#: edit_mc_location_y
+msgctxt "edit_mc_location_y"
+msgid "Y:"
+msgstr "Y:"
+
+#: edit_mc_location_from
+msgctxt "edit_mc_location_from"
+msgid "From:"
+msgstr "Hemendik:"
+
+#: edit_mc_location_from_box
+msgid "Cell"
+msgstr "Gelaxka"
+
+#: edit_mc_location_from_window
+msgctxt "edit_mc_location_from_window"
+msgid "Window"
+msgstr "Leihoa"
+
+#: edit_mc_location_from_frame
+msgid "Frame"
+msgstr "Markoa"
+
+#: edit_mc_loop
+msgid "Loop playback"
+msgstr "Errepikatu etengabe"
+
+#: edit_mc_autostart
+msgid "Auto start"
+msgstr "Hasiera automatikoa"
+
+#: edit_mc_catchmouse
+msgid "Catch mouse"
+msgstr "Sagua harrapatu"
+
+#: edit_mc_title
+msgid "Multimedia and active content"
+msgstr "Eduki aktiboa eta multimedia"
+
+#: edit_mc_label
+msgid "Active content:"
+msgstr "Eduki aktiboa:"
+
+#: edit_media_dlg_title
+msgid "Multimedia object selection"
+msgstr "Aukeratu objektu multimedia"
+
+#: edit_media_title
+msgctxt "edit_media_title"
+msgid "Media library"
+msgstr "Media-biltegia"
+
+#: edit_mc_pos_cell
+msgid "Centered over cell"
+msgstr "Gelaxkan zentratuta"
+
+#: edit_mc_pos_window
+msgid "Centered over window"
+msgstr "Leihoan zentratuta"
+
+#: edit_mc_pos_absolute
+msgid "Specify position:"
+msgstr "Zehaztu kokapena:"
+
+#: edit_tree_badFormat
+msgid "Incorrect tree structure or data!"
+msgstr "Zuhaitzaren egitura edo datuak ez dira zuzenak!"
+
+#: edit_act_panels_controls
+msgid "Controls"
+msgstr "Kontrolak"
+
+#: edit_act_panels_controls_tooltip
+msgid "Options for buttons and counters"
+msgstr "Botoi eta kontagailuen ezarpenak"
+
+#: edit_act_class
+msgctxt "edit_act_class"
+msgid "Type:"
+msgstr "Mota:"
+
+#: edit_act_gridLayout
+msgid "Grid layout:"
+msgstr "Panelen banaketa:"
+
+#: edit_act_gridLayout_tooltip
+msgid "Relative postion of the panels A and B."
+msgstr "A eta B panelen kokapen erlatiboa"
+
+#: edit_act_inverseResolution
+msgid "Inverse resolution"
+msgstr "Alderantzizko erresoluzioa"
+
+#: edit_act_inverseResolution_tooltip
+msgid ""
+"The activity is solved when all assigned elements of \"B\" are matched."
+msgstr ""
+"Jarduera bukatutzat emango da \"B\"ri ezarritako elementu guztiak egindakoan."
+
+#: edit_act_showAllArrows
+msgid "Show all arrows"
+msgstr "Erakutsi gezi guztiak"
+
+#: edit_act_alt
+msgid "Alternative content:"
+msgstr "Ordezko edukia:"
+
+#: edit_act_alt_tooltip
+msgid "Content shown in solved cells and non-assigned cells."
+msgstr "Burututako edo ezarri gabeko gelaxketan erakutsitako edukia"
+
+#: edit_act_alt_toggle
+msgid "ALT"
+msgstr "ALT"
+
+#: edit_act_alt_toggle_tooltip
+msgid "Edit the alternative content"
+msgstr "Editatu ordezko edukia"
+
+#: edit_act_grid
+msgid "Grid"
+msgstr "Taula"
+
+#: edit_act_grid_A
+msgid "Grid A"
+msgstr "A taula"
+
+#: edit_act_grid_B
+msgid "Grid B"
+msgstr "B taula"
+
+#: edit_act_grid_layout
+msgid "Layout"
+msgstr "Diseinua"
+
+#: edit_act_grid_relationship
+msgid "Relationship"
+msgstr "Erlazioa"
+
+#: edit_seq_activity_header
+msgid "activity"
+msgstr "jarduera"
+
+#: edit_seq_tag_header
+msgid "tag"
+msgstr "etiketa"
+
+#: edit_seq_jump_header
+msgid "jump to"
+msgstr "jauzi hona:"
+
+#: edit_seq_activity
+msgctxt "edit_seq_activity"
+msgid "Activity:"
+msgstr "Jarduera:"
+
+#: edit_seq_tag
+msgctxt "edit_seq_tag"
+msgid "Label:"
+msgstr "Etiketa:"
+
+#: edit_seq_description
+msgctxt "edit_seq_description"
+msgid "Description:"
+msgstr "Deskribapena:"
+
+#: edit_seq_auto
+msgid "Move on automatically"
+msgstr "Aurrera joan automatikoki"
+
+#: edit_seq_delay
+msgid "Delay:"
+msgstr "Denbora-tartea:"
+
+#: edit_seq_action_fwd
+msgid "Go forward"
+msgstr "Joan aurrera"
+
+#: edit_seq_action_back
+msgid "Go bak"
+msgstr "Joan atzera"
+
+#: edit_seq_action_jump
+msgid "Jump to..."
+msgstr "Jauzi hona..."
+
+#: edit_seq_action_stop
+msgid "Stop"
+msgstr "Gelditu"
+
+#: edit_seq_action_return
+msgctxt "edit_seq_action_return"
+msgid "Return"
+msgstr "Itzuli"
+
+#: edit_seq_action_exit
+msgid "Exit JClic"
+msgstr "Itxi JClic"
+
+#: edit_seq_arrow_fwd
+msgid "Forward arrow:"
+msgstr "Aurrera gezia:"
+
+#: edit_seq_arrow_back
+msgid "Back arrow:"
+msgstr "Atzera gezia:"
+
+#: edit_seq_action
+msgid "Action:"
+msgstr "Ekintza:"
+
+#: edit_seq_button_enabled
+msgid "Show button"
+msgstr "Erakutsi botoia"
+
+#: edit_seq_project
+msgid "JClic Project:"
+msgstr "JClic Proiektua:"
+
+#: edit_act_absolute
+msgid "Absolute position"
+msgstr "Kokapen absolutua"
+
+#: edit_act_absolute_tooltip
+msgid "The object will be placed at the specified X and Y co-ordinates"
+msgstr "Objektua adierazitako X eta Y koordenadetan ezarriko da"
+
+#: edit_act_location
+msgctxt "edit_act_location"
+msgid "Location:"
+msgstr "Kokapena:"
+
+#: edit_seq_newElement
+msgid "New sequence element..."
+msgstr "Sekuentzia-elementu berria..."
+
+#: edit_seq_newElement_tooltip
+msgid "Insert a new element into the activity sequence"
+msgstr "Sartu elementu berria jarduera-sekuentzian"
+
+#: edit_seq_newElement_msg
+msgid "Please select an activity for the new sequence element."
+msgstr "Mesedez, aukeratu jarduera bat sekuentzia-elementu berrirako."
+
+#: edit_seq_newElement_error_noAct
+msgid "Cannot create a new sequence element without activity!"
+msgstr "Jarduerarik gabe ezin da sekuentzia-elementu berririk sortu!"
+
+#: edit_seq_newElement_error_emptyList
+msgid ""
+"This project has no activities! Unable to create sequence elements in an "
+"empty project."
+msgstr ""
+"Proiketu honek ez du jarduerarik! Ezin, beraz, elementu-sekuentziarik sortu "
+"hutsik dagoen proiektuan."
+
+#: edit_seq_jump_msg
+msgid "Jump target:"
+msgstr "Jauziaren helmuga:"
+
+#: edit_seq_jump_title
+msgid "Jump target"
+msgstr "Jauziaren helmuga"
+
+#: edit_act_newActivity_tooltip
+msgid "Add a new activity to project"
+msgstr "Gaineratu jarduera proiektuari"
+
+#: edit_act_prompt_class
+msgid "Type of activity:"
+msgstr "Jarduera-mota:"
+
+#: edit_act_prompt_name
+msgctxt "edit_act_prompt_name"
+msgid "Name:"
+msgstr "Izena:"
+
+#: edit_act_newActivity_msg
+msgid "Please select the type of activity to create and give it a name:"
+msgstr "Mesedez, aukeratu sortu beharreko jarduera-mota eta eman izena:"
+
+#: edit_act_newActivity_error_noAct
+msgid "You must select an activity type!"
+msgstr "Jarduera-mota bat aukeratu behar duzu!"
+
+#: edit_act_newActivity_error_noName
+msgid "You must especify a name for the activity!"
+msgstr "Jarduerari izena eman behar diozu!"
+
+#: edit_act_newActivity_error_creating
+msgid "Unable to create activity!"
+msgstr "Ezin da jarduerarik sortu!"
+
+#: edit_act_newActivity_class
+msgid "Java class name:"
+msgstr "Java mota:"
+
+#: edit_text_act_format
+msgid "Format"
+msgstr "Formatua"
+
+#: edit_text_act_answer
+msgid "Answer"
+msgstr "Erantzuna"
+
+#: edit_text_act_popup
+msgid "Pop up"
+msgstr "Pop up"
+
+#: edit_text_act_answer_label
+msgid "Valid answers:"
+msgstr "Balio duten erantzunak:"
+
+#: edit_list_newElement_tooltip
+msgid "Add a new list element"
+msgstr "Zerrrendako elementu berria gaineratu"
+
+#: edit_list_editElement_tooltip
+msgid "Edit the selected list element"
+msgstr "Editatu aukeratutako zerrendako elementua"
+
+#: edit_list_deleteElement_tooltip
+msgid "Delete the selected list element"
+msgstr "Ezabatu aukeratutako zerrendako elementua"
+
+#: edit_list_upBtn_tooltip
+msgid "Move up"
+msgstr "Eraman gora"
+
+#: edit_list_downBtn_tooltip
+msgid "Move down"
+msgstr "Eraman behera"
+
+#: edit_list_newValue
+msgid "New text:"
+msgstr "Testu berria:"
+
+#: edit_list_addElement
+msgid "Add new list element"
+msgstr "Gaineratu zerrendako elementu berria"
+
+#: edit_list_modifyValue
+msgid "Modify selected text"
+msgstr "Aldatu aukeratutako testua"
+
+#: edit_text_act_target
+msgid "Target"
+msgstr "Helburua"
+
+#: edit_text_act_maxLen
+msgctxt "edit_text_act_maxLen"
+msgid "Max. length:"
+msgstr "Geh. iraupena:"
+
+#: edit_text_act_maxLen_tooltip
+msgid "Maximum amount of characters in the answer."
+msgstr "Erantzunaren gehienezko karaktere-kopurua."
+
+#: edit_text_act_fillingChar
+msgid "Filling character"
+msgstr "Bete-lanetarako karakterea"
+
+#: edit_text_act_fillingChar_tooltip
+msgid "Character used to indicate the blank"
+msgstr "Zuriunea adierazteko erabilitako karaktera"
+
+#: edit_text_act_iniLen
+msgid "Initial length:"
+msgstr "Hasierako iraupena:"
+
+#: edit_text_act_iniLen_tooltip
+msgid ""
+"Number of filling chars that will be displayed at the beginning of the "
+"activity."
+msgstr ""
+"Jardueraren hasieran erakutsiko diren bete-lanetarako karaktere-kopurua."
+
+#: edit_text_act_iniText
+msgid "Initial text:"
+msgstr "Hasierako testua:"
+
+#: edit_text_act_iniText_tooltip
+msgid "Text displayed in the blank at the beggining of the activity."
+msgstr "Jarduera hasieran zuriunean erakutsitako testua."
+
+#: edit_text_act_list
+msgid "Show a list of options:"
+msgstr "Erakutsi aukera-zerrenda:"
+
+#: edit_text_act_list_tooltip
+msgid "Display a list of options from which the user must select one."
+msgstr ""
+"Erakutsi aukera-zerrenda. Hortik aukeratu beharko du bat erabiltzaileak."
+
+#: edit_text_act_check_title
+msgid "Correction options"
+msgstr "Zuzenketarako aukerak"
+
+#: edit_text_act_popup_no
+msgid "No pop up"
+msgstr "Pop up-ik ez"
+
+#: edit_text_act_popup_always
+msgid "Pop up automatically"
+msgstr "Pop up-ak automatikoki"
+
+#: edit_text_act_popup_onError
+msgid "Pop up in errors"
+msgstr "Errorerako pop up-a"
+
+#: edit_text_act_popup_onDemand
+msgid "Pop up with F1"
+msgstr "Pop up-a F1ekin"
+
+#: edit_text_act_popup_type
+msgctxt "edit_text_act_popup_type"
+msgid "Type:"
+msgstr "Mota:"
+
+#: edit_text_act_popup_delay
+msgid "Pop up delay:"
+msgstr "Itxaroteko pop up-a:"
+
+#: edit_text_act_popup_maxTime
+msgctxt "edit_text_act_popup_maxTime"
+msgid "Max. time:"
+msgstr "Geh. denbora:"
+
+#: edit_text_act_popup_onlyPlay
+msgid "Sound only"
+msgstr "Soinua bakarrik"
+
+#: edit_text_act_err_noSelection
+msgid ""
+"You must select a fragment of text in order to create a new text target!"
+msgstr "Testu zati bat aukeratu behar duzu helburu testu berria sortzeko!"
+
+#: edit_text_act_err_badCharInSelection
+msgid "Target text cannot include paragraph returns nor tabs."
+msgstr "Helburu testuak ezin du paragrafo-jauzirik eta tabuladorerik izan."
+
+#: edit_text_act_err_nestedTargets
+msgid "Targets cannot nest!"
+msgstr "Ezezagunak ezin dira pilatu"
+
+#: edit_text_act_err_cellInTarget
+msgid "Targets cannot contain cells!"
+msgstr "Ezezagunek ezin dute gelaxkarik izan!"
+
+#: edit_text_act_pageBgColor
+msgid "Paper colour:"
+msgstr "Paperaren kolorea:"
+
+#: edit_text_act_editStylesBtn
+msgid "Edit document styles..."
+msgstr "Editatu dokumentuaren estiloak..."
+
+#: edit_text_act_mainStyle
+msgid "Main style:"
+msgstr "Hasierako estiloa:"
+
+#: edit_text_act_tabSpc
+msgid "Tab space:"
+msgstr "Tabuladorea:"
+
+#: edit_text_act_tabSize
+msgid "Spaces between tab marks:"
+msgstr "Tabuladore-marken arteko espazioak:"
+
+#: edit_text_act_colors
+msgid "Colors:"
+msgstr "Koloreak:"
+
+#: edit_text_act_targetStyle
+msgid "Target colors:"
+msgstr "Ezezagunen koloreak:"
+
+#: edit_text_act_errorStyle
+msgid "Error colors:"
+msgstr "Errorea koloreetan:"
+
+#: edit_text_act_preview
+msgctxt "edit_text_act_preview"
+msgid "Preview:"
+msgstr "Aurrebista:"
+
+#: edit_text_act_styleSample_default_start
+msgid "Standard text"
+msgstr "Testu estandarra"
+
+#: edit_text_act_styleSample_target
+msgid "target"
+msgstr "helburua"
+
+#: edit_text_act_styleSample_error
+msgid "error"
+msgstr "errorea"
+
+#: edit_text_act_styleSample_default_fill
+msgid "standard text"
+msgstr "testu estandarra"
+
+#: edit_text_act_styleSample_default_end
+msgid "standard text."
+msgstr "testu estandarra."
+
+#: edit_text_act_warnDeleteTarget
+msgid ""
+"Warning: This action will supress the currently selected target. Do you want "
+"to proceed?"
+msgstr ""
+"Kontuz: Ekintza honek une honetan aukeratutako helburua kenduko du. Aurrera "
+"egin nahi al duzu?"
+
+#: edit_text_act_prevScreen_title
+msgid "Previous screen..."
+msgstr "Aurreko pantaila..."
+
+#: edit_text_act_prevScreen_no
+msgid "Don't display any text before starting the activity"
+msgstr "Ez erakutsi testurik jarduera hasi arte"
+
+#: edit_text_act_prevScreen_original
+msgid "Display the complete text of the exercise"
+msgstr "Erakutsi ariketaren testu osoa"
+
+#: edit_text_act_prevScreen_special
+msgid "Display this text:"
+msgstr "Erakutsi testu hau:"
+
+#: edit_text_act_prevScreen_time
+msgctxt "edit_text_act_prevScreen_time"
+msgid "Max. time:"
+msgstr "Geh. denbora:"
+
+#: edit_text_act_edit_target
+msgid "Target..."
+msgstr "Helburua..."
+
+#: edit_text_act_checkButton_show
+msgid "Show correction button"
+msgstr "Erakutsi zuzenketarako botoia"
+
+#: edit_text_act_checkButtonText
+msgid "Button text:"
+msgstr "Botoiaren testua:"
+
+#: edit_text_act_checkCase
+msgid "Match case"
+msgstr "Larria/xeheak"
+
+#: edit_text_act_checkAccents
+msgid "Consider accents and special characters"
+msgstr "Azentuak eta karaktere bereziak kontuan izan"
+
+#: edit_text_act_checkPunct
+msgid "Consider punctuation marks"
+msgstr "Kontuan hartu puntuazio-markak"
+
+#: edit_text_act_checkDoubleSpc
+msgid "Allow repeated spaces"
+msgstr "Baimendu errepikatutako espazioak"
+
+#: edit_text_act_checkOptions
+msgid "Criteria"
+msgstr "Irizpideak"
+
+#: edit_text_act_checkAutoJump
+msgid "Move on to next target when filled in"
+msgstr "Hurrengo ezezagunera jauzi egin automatikoki"
+
+#: edit_text_act_checkForceOk
+msgid "Move only after correct guess"
+msgstr "Erantzun zuzenarren ondoren bakarrik mugitu"
+
+#: edit_text_act_checkDetail
+msgid "Indicate mistakes letter by letter"
+msgstr "Adierazi erroreak letraz letra"
+
+#: edit_text_act_checkDetail_params
+msgid "Analysis algorithm parameters:"
+msgstr "Analisi-algoritmoaren parametroak:"
+
+#: edit_text_act_checkDetail_steps
+msgid "Steps:"
+msgstr "Pausoak:"
+
+#: edit_text_act_checkDetail_field
+msgid "Exploration field:"
+msgstr "Arakatu eremua:"
+
+#: edit_text_act_defaultCheckButtonText
+msgid "Check"
+msgstr "Egiaztatu"
+
+#: edit_text_act_advancedCorrectionOptions
+msgid "Answer analysis"
+msgstr "Erantzunen azterketa"
+
+#: edit_text_act_check_bt
+msgid "Correction..."
+msgstr "Zuzenketa..."
+
+#: edit_text_act_checkButton
+msgid "Correction button"
+msgstr "Zuzenketa-botoia"
+
+#: edit_text_act_checkProgress
+msgid "Progress"
+msgstr "Progresioa"
+
+#: edit_text_act_typeBtn
+msgid "Type..."
+msgstr "Mota..."
+
+#: edit_text_act_orderParagraphs
+msgid "Order paragraphs"
+msgstr "Paragrafoen ordena"
+
+#: edit_text_act_orderWords
+msgid "Order words"
+msgstr "Hitzen ordena"
+
+#: edit_text_act_order_amongstPar
+msgid "Shuffle words amongst paragraphs"
+msgstr "Hitzak nahastu paragrafo artean"
+
+#: edit_text_act_type_title
+msgid "Activity type"
+msgstr "Jarduera-mota"
+
+#: edit_text_act_warnChangeType
+msgid ""
+"This action will clear all the existing targets. Do you want to proceed?"
+msgstr ""
+"Une honetan definitutako ezezagun guztiak ezabatuko ditu ekintza honek. Hori "
+"egin nahi al duzu?"
+
+#: edit_text_act_identWords
+msgid "Identify words"
+msgstr "Identifikatu hitzak"
+
+#: edit_text_act_identChars
+msgid "Identify characters"
+msgstr "Identifikatu karaktereak"
+
+#: edit_media_change_name
+msgid "Change name..."
+msgstr "Aldatu izena..."
+
+#: edit_media_change_file
+msgid "Change file..."
+msgstr "Aldatu fitxategia..."
+
+#: edit_media_includeInZip
+msgid "Save into ZIP file"
+msgstr "Gorde ZIP fitxategian"
+
+#: edit_media_type
+msgid "Media type:"
+msgstr "Media-mota:"
+
+#: edit_media_size
+msgid "File size:"
+msgstr "Fitxategiaren tamaina:"
+
+#: edit_media_show_type
+msgid "Files of type:"
+msgstr "Mota honetako fitxategiak:"
+
+#: edit_media_preview
+msgid "Preview media"
+msgstr "Aurreikusi media"
+
+#: edit_media_preview_tooltip
+msgid "Preview media resource"
+msgstr "Aurreikusi media-baliabidea"
+
+#: edit_media_rename
+msgid "Change resource name"
+msgstr "Aldatu baliabidearen izena"
+
+#: edit_media_rename_title
+msgid "Rename"
+msgstr "Izena aldatu"
+
+#: edit_media_rename_prompt
+msgid "New name:"
+msgstr "Izen berria:"
+
+#: edit_media_rename_invalid
+msgid "Invalid resource name!"
+msgstr "Baliabide-izen okerra!"
+
+#: edit_media_rename_exists
+msgid ""
+"There is another resource with this name! Each resource must have a unique "
+"name."
+msgstr ""
+"Bada izen hori duen beste baliabide bat! Baliabide bakoitzak izen ezberdin "
+"bat behar du."
+
+#: edit_media_chfile_invalid
+msgid "Invalid file!"
+msgstr "Fitxategi okerra!"
+
+#: err_media_chfile_different
+msgid "File must be of same type"
+msgstr "Fitxategiak mota berekoa izan behar du"
+
+#: edit_media_font_error
+msgid "Unable to load font!"
+msgstr "Ezin izan da letra-mota kargatu!"
+
+#: edit_media_save_file
+msgid "Save file (extract from ZIP)"
+msgstr "Fitxategia gorde (ZIPetik atera)"
+
+#: edit_media_refresh_file
+msgid "Update media content from file"
+msgstr "Baliabidearen edukia fitxategitik eguneratu"
+
+#: edit_media_warn_zipFileNotExternal
+msgid ""
+"This is not a \"real\" file, but a object located into a ZIP container. In "
+"order to use this feature, a file with the same name must be present in the "
+"folder where the ZIP file is located."
+msgstr ""
+"Hau ez da \"benetako\" fitxategi bat, ZIP edukiontzi batean kokatutako "
+"objektu bat baizik. Funtzio hau erabiltzeko, izen bereko fitxategiak ZIP "
+"fitxategia dagoen direktorio berean egon behar du."
+
+#: edit_activities
+msgctxt "edit_activities"
+msgid "Activities"
+msgstr "Jarduerak"
+
+#: edit_sequences
+msgctxt "edit_sequences"
+msgid "Sequences"
+msgstr "Sekuentziak"
+
+#: edit_media
+msgctxt "edit_media"
+msgid "Media library"
+msgstr "Media-biltegia"
+
+#: edit_media_tooltip
+msgid "Manage images and other media files used in the project"
+msgstr ""
+"Proiektuan erabilitako irudiak eta bestelako media fitxategiak kudeatu"
+
+#: edit_activities_tooltip
+msgid "Create and edit project activities"
+msgstr "Proiektu-jarduerak sortu eta editatu"
+
+#: edit_sequences_tooltip
+msgid "Edit and create sequences of activities"
+msgstr "Jarduera-sekuentziak sortu eta editatu"
+
+#: edit_project_title
+msgctxt "edit_project_title"
+msgid "Title:"
+msgstr "Izenburua:"
+
+#: edit_project_title_tooltip
+msgid "Project's title"
+msgstr "Proiektuaren izenburua"
+
+#: edit_project
+msgctxt "edit_project"
+msgid "Project"
+msgstr "Proiektua"
+
+#: edit_project_tooltip
+msgid "Edit project properties"
+msgstr "Editatu proiektuaren ezaugarriak"
+
+#: edit_project_description
+msgctxt "edit_project_description"
+msgid "Description:"
+msgstr "Deskribapena:"
+
+#: edit_project_description_tooltip
+msgid "General description of the project"
+msgstr "Proiektuaren deskribapen orokorra"
+
+#: edit_project_area
+msgid "Areas:"
+msgstr "Atalak:"
+
+#: edit_project_area_tooltip
+msgid "Curricular areas of the project"
+msgstr "Proiektuaren kurrikulu-atalak"
+
+#: edit_project_level
+msgid "Levels:"
+msgstr "Mailak:"
+
+#: edit_project_level_tooltip
+msgid "Educational levels of the project"
+msgstr "Proiektuaren hezkuntza-mailak"
+
+#: edit_project_descriptors
+msgid "Descriptors:"
+msgstr "Deskribatzaileak:"
+
+#: edit_project_descriptors_tooltip
+msgid "Descriptors of the project (separed with comma)"
+msgstr "Proiektuaren deskribatzaileak (komaz banatuta)"
+
+#: edit_project_languages
+msgid "Languages:"
+msgstr "Hizkuntzak:"
+
+#: edit_project_languages_tooltip
+msgid "Languages used in the project"
+msgstr "Proiektuan erabilitako hizkuntzak"
+
+#: edit_project_languages_modify
+msgid "Change the selected language"
+msgstr "Aldatu aukeratutako hizkuntza"
+
+#: edit_project_languages_add
+msgid "Add language"
+msgstr "Gaineratu hizkuntza"
+
+#: edit_project_languages_select
+msgid "ISO-639 language codes:"
+msgstr "ISO-639 hizkuntza-kodeak:"
+
+#: edit_project_authors
+msgctxt "edit_project_authors"
+msgid "Authors:"
+msgstr "Egileak:"
+
+#: edit_project_authors_tooltip
+msgid "People involved in the creation of the project"
+msgstr "Proiektua sortzen ari direnak"
+
+#: edit_project_author_name
+msgctxt "edit_project_author_name"
+msgid "Name:"
+msgstr "Izena:"
+
+#: edit_project_author_mail
+msgctxt "edit_project_author_mail"
+msgid "e-mail:"
+msgstr "e-posta:"
+
+#: edit_project_author_rol
+msgid "Rol:"
+msgstr "Rola:"
+
+#: edit_project_author_organization
+msgid "Organization:"
+msgstr "Erakundea:"
+
+#: edit_project_author_comments
+msgctxt "edit_project_author_comments"
+msgid "Comments:"
+msgstr "Iruzkinak:"
+
+#: edit_project_author_url
+msgctxt "edit_project_author_url"
+msgid "URL:"
+msgstr "URL-a:"
+
+#: edit_project_author_name_tooltip
+msgid "Author's name (required)"
+msgstr "Egilearen izena (derrigorrezkoa)"
+
+#: edit_project_author_mail_tooltip
+msgid "Author's e-mail (optional)"
+msgstr "Egilearen e-posta (aukerakoa)"
+
+#: edit_project_author_rol_tooltip
+msgid ""
+"Person's rol in the project: author, collaborator, drawings, sounds... "
+"(optional)"
+msgstr ""
+"Pertsonen rolak proiektuan: egilea, laguntzailea, marrazkilaria, soinuak... "
+"(aukerakoa)"
+
+#: edit_project_author_organization_tooltip
+msgid "School, university, association... (optional)"
+msgstr "Eskola, unibertsitatea, elkartea... (aukerakoa)"
+
+#: edit_project_author_url_tooltip
+msgid "Personal web page (optional)"
+msgstr "Web-orri pertsonala (aukerakoa)"
+
+#: edit_project_author_comments_tooltip
+msgid "Field for other information (optional)"
+msgstr "Bestelako informaziorako eremua (aukerakoa)"
+
+#: edit_project_author_info
+msgid "Author info:"
+msgstr "Egilearen informazioa:"
+
+#: edit_project_author_add
+msgid "Add author to list"
+msgstr "Gaineratu egilea zerrendara"
+
+#: edit_project_author_edit
+msgid "Edit author info"
+msgstr "Editatu egilearen informazioa"
+
+#: edit_project_org_name
+msgctxt "edit_project_org_name"
+msgid "Name:"
+msgstr "Izena:"
+
+#: edit_project_org_name_tooltip
+msgid "School name"
+msgstr "Eskolaren izena"
+
+#: edit_project_org_mail
+msgctxt "edit_project_org_mail"
+msgid "e-mail:"
+msgstr "e-posta:"
+
+#: edit_project_org_mail_tooltip
+msgid "e-mail address of the school"
+msgstr "Eskolaren e-posta helbidea"
+
+#: edit_project_org_url
+msgctxt "edit_project_org_url"
+msgid "URL:"
+msgstr "URL-a:"
+
+#: edit_project_org_url_tooltip
+msgid "School website"
+msgstr "Eskolaren web-gunea"
+
+#: edit_project_org_address
+msgid "Address:"
+msgstr "Helbidea"
+
+#: edit_project_org_address_tooltip
+msgid "Snail-mail address"
+msgstr "Eskolaren posta-helbidea"
+
+#: edit_project_org_pc
+msgid "PC:"
+msgstr "PC:"
+
+#: edit_project_org_pc_tooltip
+msgid "Postal code"
+msgstr "Posta-kodea"
+
+#: edit_project_org_city
+msgid "City:"
+msgstr "Herria:"
+
+#: edit_project_org_city_tooltip
+msgid "School city"
+msgstr "Eskola dagoen hiria"
+
+#: edit_project_org_country
+msgid "Country:"
+msgstr "Herrialdea/Estatua:"
+
+#: edit_project_org_state
+msgid "State:"
+msgstr "Herrialdea:"
+
+#: edit_project_org_comments
+msgctxt "edit_project_org_comments"
+msgid "Comments:"
+msgstr "Iruzkinak:"
+
+#: edit_project_org
+msgid "School/s:"
+msgstr "Eskola/k:"
+
+#: edit_project_org_tooltip
+msgid "School or other institution involved in the project"
+msgstr "Proiektuan ari den eskola edota beste erakundea"
+
+#: edit_project_org_info
+msgid "Organization info:"
+msgstr "Erakundearen informazioa:"
+
+#: edit_project_org_add
+msgid "Add organization"
+msgstr "Gaineratu erakundea"
+
+#: edit_project_org_edit
+msgid "Edit organization data"
+msgstr "Editatu erakundearen datuak"
+
+#: edit_project_org_country_tooltip
+msgid "Country, federation, union..."
+msgstr "Estatua"
+
+#: edit_project_org_state_tooltip
+msgid "Federal state, community, region..."
+msgstr "Herrialdea"
+
+#: edit_project_org_comments_tooltip
+msgid "Other info..."
+msgstr "Bestelako informazioa..."
+
+#: edit_project_rev_date
+msgid "Date:"
+msgstr "Data:"
+
+#: edit_project_rev_date_tooltip
+msgid "Date of the revision"
+msgstr "Berrikusketaren data"
+
+#: edit_project_rev_authors
+msgctxt "edit_project_rev_authors"
+msgid "Authors:"
+msgstr "Egileak:"
+
+#: edit_project_rev_authors_tooltip
+msgid "Authors of the revision"
+msgstr "Berrikusketaren egileak"
+
+#: edit_project_rev_description
+msgctxt "edit_project_rev_description"
+msgid "Description:"
+msgstr "Deskribapena:"
+
+#: edit_project_rev_description_tooltip
+msgid "Brief description of the changes made"
+msgstr "Egindako aldaketen deskribapen laburra"
+
+#: edit_project_rev_comments
+msgctxt "edit_project_rev_comments"
+msgid "Comments:"
+msgstr "Iruzkinak:"
+
+#: edit_project_rev_comments_tooltip
+msgid "Other relevant info"
+msgstr "Bestelako informazio garrantzitsua"
+
+#: edit_project_rev
+msgid "Revisions:"
+msgstr "Berrikusketak:"
+
+#: edit_project_rev_tooltip
+msgid "History of main modifications made to the project"
+msgstr "Proiektuari egindako aldaketa nagusien historiala"
+
+#: edit_project_rev_add
+msgid "Add revision record"
+msgstr "Berrikusketa-erregistroa gaineratu"
+
+#: edit_project_rev_edit
+msgid "Edit revision record"
+msgstr "Berrikusketa-erregistroa editatu"
+
+#: edit_project_rev_info
+msgid "Revision data"
+msgstr "Berrikusketa-data"
+
+#: edit_media_objects
+msgid "objects"
+msgstr "objektuak"
+
+#: edit_media_object
+msgid "object"
+msgstr "objektua"
+
+#: edit_evsounds_start
+msgid "Start of activity:"
+msgstr "Jardueraren hasiera:"
+
+#: edit_evsounds_click
+msgid "Click on object:"
+msgstr "Sakatu objetktuari:"
+
+#: edit_evsounds_actionError
+msgid "Erroneous action:"
+msgstr "Okerreko ekintza:"
+
+#: edit_evsounds_actionOk
+msgid "Correct action:"
+msgstr "Ekintza zuzena:"
+
+#: edit_evsounds_finishedError
+msgid "Activity finished with errors:"
+msgstr "Hainbat okerrekin bukatutako jarduera:"
+
+#: edit_evsounds_finishedOk
+msgid "Activity finished OK:"
+msgstr "Egoki bukatutako jarduera:"
+
+#: edit_project_rev_err_nodesc
+msgid "Error: The description field cannot be leaved blank!"
+msgstr "Errorea: deskribapenerako eremua ezin da hutsik utzi!"
+
+#: edit_evsounds_dlg_title
+msgid "Edit event sounds"
+msgstr "Editatu ekintzaren soinuak"
+
+#: edit_project_evsounds
+msgctxt "edit_project_evsounds"
+msgid "Event sounds:"
+msgstr "Ekintzaren soinuak:"
+
+#: edit_project_evsounds_tooltip
+msgctxt "edit_project_evsounds_tooltip"
+msgid "Set specific sounds for each JClic event"
+msgstr "Ezarri soinu zehatzak JClic ekintza bakoitzerako"
+
+#: edit_act_evsounds
+msgctxt "edit_act_evsounds"
+msgid "Event sounds:"
+msgstr "Ekintzaren soinuak:"
+
+#: edit_act_evsounds_tooltip
+msgctxt "edit_act_evsounds_tooltip"
+msgid "Set specific sounds for each JClic event"
+msgstr "Ezarri soinu zehatzak JClic ekintza bakoitzerako"
+
+#: edit_evsounds_default
+msgid "default sound"
+msgstr "berezko soinua"
+
+#: edit_evsounds_disabled
+msgid "disabled"
+msgstr "ezgaituta"
+
+#: edit_evsounds_chk_tooltip
+msgid "Enable or disable the sound for this event"
+msgstr "Gaitu edo ezgaitu ekintza honetarako soinua"
+
+#: edit_evsounds_select_tooltip
+msgid ""
+"Click to select a sound for this event, or uncheck to use the default sound"
+msgstr ""
+"Sakatu ekintza honetarako soinua aukeratzeko, edo markatu gabe utzi berezko "
+"soinua erabiltzeko"
+
+#: action_newProject_caption
+msgid "New project..."
+msgstr "Proiektu berria..."
+
+#: action_newProject_keys
+msgid "NN"
+msgstr "NN"
+
+#: action_newProject_tooltip
+msgid "Create a new JClic project"
+msgstr "Sortu JClic proiektu berria"
+
+#: edit_arith_op_from
+msgctxt "edit_arith_op_from"
+msgid "From:"
+msgstr "Hemendik:"
+
+#: edit_arith_op_from_tooltip
+msgid "Minimum value of the operator"
+msgstr "Operatzailearen gutxieneko balorea"
+
+#: edit_arith_op_to
+msgctxt "edit_arith_op_to"
+msgid "To:"
+msgstr "Hona:"
+
+#: edit_arith_op_to_tooltip
+msgid "Maximum value of the operator"
+msgstr "Operatzailearen gehienezko balorea"
+
+#: edit_arith_op_with
+msgid "With:"
+msgstr "Honekin:"
+
+#: edit_arith_op_with_tooltip
+msgid "If checked, the operator can also have this value"
+msgstr "Markatuta, operatzaileak balore hau ere izan dezake"
+
+#: edit_arith_op_fromList
+msgid "One from the list:"
+msgstr "Zerrendako bat:"
+
+#: edit_arith_op_fromList_tooltip
+msgid "List of possible values for the operator"
+msgstr "Operatzaileak izan ditzakeen baloreen zerrenda"
+
+#: edit_arith_op_decimals
+msgid "Decimals:"
+msgstr "Hamarrenak:"
+
+#: edit_arith_op_decimals_tooltip
+msgid "Number of decimals of the operand"
+msgstr "Operatzailearen hamarren-kopurua"
+
+#: edit_arith_op_dec0
+msgid "# (integer)"
+msgstr "# (osoa)"
+
+#: edit_arith_op_dec1
+msgid "#.#"
+msgstr "#.#"
+
+#: edit_arith_op_dec2
+msgid "#.##"
+msgstr "#.##"
+
+#: edit_arith_firstOp
+msgid "First operand"
+msgstr "Lehen operatzailea"
+
+#: edit_arith_secondOp
+msgid "Second operand"
+msgstr "Bigarren operatzailea"
+
+#: edit_arith_title
+msgid "Arith2 for JClic"
+msgstr "JClic-erako Arith2"
+
+#: edit_arith_operations
+msgid "Operations:"
+msgstr "Eragiketak:"
+
+#: edit_arith_operations_tooltip
+msgid "Select the kind of operations to be performed"
+msgstr "Aukeratu egin beharreko eragiketa-mota"
+
+#: edit_arith_operations_plus
+msgid "Plus"
+msgstr "Plus"
+
+#: edit_arith_operations_minus
+msgid "Minus"
+msgstr "Minus"
+
+#: edit_arith_operations_multiply
+msgid "Multiply"
+msgstr "Biderkatu"
+
+#: edit_arith_operations_divide
+msgid "Divide"
+msgstr "Zatitu"
+
+#: edit_arith_unknown
+msgid "Unknown:"
+msgstr "Ezezaguna:"
+
+#: edit_arith_unknown_tooltip
+msgid "Select the item that will act as a unknown"
+msgstr "Aukeratu zein elementu izango den ezezaguna"
+
+#: edit_arith_unknown_aobx
+msgid "The result is the unknown"
+msgstr "Emaitza da ezezaguna"
+
+#: edit_arith_unknown_aoxr
+msgid "The second operator is the unknown"
+msgstr "Bigarren operatzailea da ezezaguna"
+
+#: edit_arith_unknown_xobr
+msgid "The first operator is the unknown"
+msgstr "Lehen operatzailea da ezezaguna"
+
+#: edit_arith_unknown_axbr
+msgid "The operation is the unknown"
+msgstr "Eragiketa da ezezaguna"
+
+#: edit_arith_unknown_invert
+msgid "Write the result at the beggining of the expression"
+msgstr "Emaitza espresioaren hasieran idatzi"
+
+#: edit_arith_result
+msgid "Result:"
+msgstr "Emaitza:"
+
+#: edit_arith_result_notCarry
+msgid "Do not carry"
+msgstr "\"Eraman\" gabe"
+
+#: edit_arith_result_random
+msgid "Random"
+msgstr "Ausazkoa"
+
+#: edit_arith_result_asc
+msgid "Ascending"
+msgstr "Gorantz"
+
+#: edit_arith_result_order
+msgid "Order by result:"
+msgstr "Ordenatu emaitzaren arabera:"
+
+#: edit_arith_result_desc
+msgid "Descending"
+msgstr "Beherantz"
+
+#: edit_arith_result_avoidDup
+msgid "Avoid duplicates"
+msgstr "Ekidin bikoizpenak"
+
+#: edit_arith_cond
+msgid "Conditions:"
+msgstr "Baldintzak:"
+
+#: edit_arith_cond_ind
+msgid "Indifferent"
+msgstr "Berdin da"
+
+#: edit_arith_cond_agb
+msgid "The first operator must be greather than the second one"
+msgstr "Lehenengo operatzaileak bigarrenak baino handiagoa izan behar du"
+
+#: edit_arith_cond_alb
+msgid "The first operator must be lesser than the second one"
+msgstr "Lehenengo operatzaileak bigarrenak baino txikiagoa izan behar du"
+
+#: edit_arith_cond_tooltip
+msgid "Other conditions"
+msgstr "Bestelako baldintzak"
+
+#: edit_autocp
+msgid "Automatic content generator:"
+msgstr "Eduki-sortzaile automatikoa:"
+
+#: edit_autocp_tooltip
+msgid "Select the type of automatic content generator for this activity."
+msgstr "Aukeratu jarduera honetarako eduki-sortzaile automatikoa."
+
+#: edit_autocp_block
+msgid "Content generator"
+msgstr "Eduki-sortzailea"
+
+#: edit_autocp_btn
+msgid "Settings..."
+msgstr "Ezarpenak..."
+
+#: edit_autocp_btn_tooltip
+msgid "Configure the content provider settings"
+msgstr "Eduki-sortzailearen ezarpenak ezarri"
+
+#: edit_data
+msgid "Edit data"
+msgstr "Editatu datua"
+
+#: edit_act
+msgid "Activity edit"
+msgstr "Editatu jarduera"
+
+#: edit_acp
+msgid "Content provider edit"
+msgstr "Eduki-sortzailearen edizioa"
+
+#: edit_acp_err_creating
+msgid "Error creating the content provider!"
+msgstr "Errorea eduki-sortzaile automatikoa sortzean!"
+
+#: edit_project_author_group
+msgid "Creation"
+msgstr "Sorrera"
+
+#: edit_project_description_block
+msgctxt "edit_project_description_block"
+msgid "Description"
+msgstr "Deskribapena"
+
+#: edit_project_ui_block
+msgctxt "edit_project_ui_block"
+msgid "User interface"
+msgstr "Erabiltzailearen interfazea"
+
+#: edit_act_description
+msgctxt "edit_act_description"
+msgid "Description:"
+msgstr "Deskribapena:"
+
+#: m_Edit
+msgid "Edit"
+msgstr "Editatu"
+
+#: m_Edit_Mnemonic
+msgid "E"
+msgstr "E"
+
+#: edit_media_preview_keys
+msgid "P*"
+msgstr "A*"
+
+#: edit_act_newActivity
+msgid "New activity..."
+msgstr "Jarduera berria..."
+
+#: edit_act_newActivity_keys
+msgid "A*"
+msgstr "J*"
+
+#: edit_act_testAction_keys
+msgid "P#10"
+msgstr "P#10"
+
+#: edit_seq_newElement_keys
+msgid "S*"
+msgstr "S*"
+
+#: m_Insert
+msgid "Insert"
+msgstr "Txertatu"
+
+#: m_Insert_Mnemonic
+msgid "I"
+msgstr "T*"
+
+#: m_View
+msgid "View"
+msgstr "Ikusi"
+
+#: m_View_Mnemonic
+msgid "V"
+msgstr "I"
+
+#: action_editProject_caption
+msgctxt "action_editProject_caption"
+msgid "Project"
+msgstr "Proiektua"
+
+#: action_editProject_keys
+msgid "PP"
+msgstr "PP"
+
+#: action_editProject_tooltip
+msgid "Edit project settings"
+msgstr "Editatu proiektuaren ezarpenak"
+
+#: action_editMedia_caption
+msgid "Media"
+msgstr "Media"
+
+#: action_editMedia_keys
+msgid "MM"
+msgstr "BB"
+
+#: action_editMedia_tooltip
+msgid "Edit the project's multimedia library"
+msgstr "Editatu proiektuaren multimedia-biltegia"
+
+#: action_editActivities_caption
+msgctxt "action_editActivities_caption"
+msgid "Activities"
+msgstr "Jarduerak"
+
+#: action_editActivities_keys
+msgctxt "action_editActivities_keys"
+msgid "AA"
+msgstr "JJ"
+
+#: action_editActivities_tooltip
+msgid "Edit the activities"
+msgstr "Jarduerak editatu"
+
+#: action_editSeq_caption
+msgctxt "action_editSeq_caption"
+msgid "Sequences"
+msgstr "Sekuentziak"
+
+#: action_editSeq_keys
+msgctxt "action_editSeq_keys"
+msgid "SS"
+msgstr "SS"
+
+#: action_editSeq_tooltip
+msgid "Edit the sequences of activities"
+msgstr "Jarduera-sekuentziak editatu"
+
+#: warn_project_modified
+msgid "Current project has been modified. Do you want to save the changes?"
+msgstr ""
+"Oraingo proiektua aldatu egin da. Gorde egin nahi al dituzu aldaketak?"
+
+#: edit_project_descriptors_block
+msgid "Descriptors"
+msgstr "Deskribatzaileak"
+
+#: edit_media_new
+msgid "New media object..."
+msgstr "Media-objektu berria..."
+
+#: edit_media_new_tooltip
+msgid "Add a new image or multimedia object to the library"
+msgstr "Gaineratu irudi edo multimedia-objektu berria biltegian"
+
+#: edit_media_new_keys
+msgid "M*"
+msgstr "M*"
+
+#: edit_seq_threshold
+msgid "Score threshold:"
+msgstr "Atalase-puntuazioa:"
+
+#: edit_seq_threshold_tooltip_up
+msgid "Take this way when the global score is equal to or higher than..."
+msgstr "Egin hau puntuazio orokorra honen berdina edo handiagoa denean..."
+
+#: edit_seq_time
+msgid "Time threshold:"
+msgstr "Atalase-denbora:"
+
+#: edit_seq_time_tooltip_up
+msgid ""
+"In order to take this way, the time spent on the activities must be less "
+"than..."
+msgstr ""
+"Bide honi segitzeko, jarduerak ondorengo denbora-tartea baino lehen egin "
+"behar izan dira:"
+
+#: edit_seq_threshold_tooltip_down
+msgid "Take this way when the global score is lower than..."
+msgstr "Egin hau puntuazio orokorra hau baino txikiagoa denean..."
+
+#: edit_seq_time_tooltip_down
+msgid "Take this way when the time spent on the activities is more than..."
+msgstr ""
+"Segitu bide honi, jardueretan emandako denbora hau baino luzeagoa bada:"
+
+#: edit_seq_condJump
+msgid "Conditional jumps"
+msgstr "Baldintzatutako jauziak"
+
+#: edit_seq_condJump_tooltip
+msgid "Set special jumps to be executed only under specific condicions"
+msgstr "Baldintza zehatzetan egin behar diren jauzi bereziak ezarri"
+
+#: edit_seq_condJump_upper_tooltip
+msgid "Set conditions to jump to an upper level"
+msgstr "Ezarri goragoko maila baterako jauzia egiteko baldintzak"
+
+#: edit_seq_condJump_lower
+msgid "Lower jump:"
+msgstr "Beherako jauzia:"
+
+#: edit_seq_condJump_upper
+msgid "Upper jump:"
+msgstr "Gorako jauzia:"
+
+#: edit_seq_condJump_lower_tooltip
+msgid "Set conditions to jump to an lower level"
+msgstr "Ezarri beherako maila baterako jauzia egiteko baldintzak"
+
+#: edit_seq_action_tooltip_fw
+msgid "Action assigned to the \"next\" button"
+msgstr "\"Hurrengoa\" botoiari ezarritako ekintza"
+
+#: edit_seq_action_tooltip_bk
+msgid "Action assigned to the \"previous\" button"
+msgstr "\"Aurrekoa\" botoiari ezarritako ekintza"
+
+#: edit_seq_jump_tooltip
+msgid "Set the jump target"
+msgstr "Jauziaren helmuga adierazi"
+
+#: edit_seq_action_tooltip
+msgid "Action to be done"
+msgstr "Egin beharreko ekintza"
+
+#: edit_seq_activity_tooltip
+msgid "Activity assigned to this sequence element"
+msgstr "Sekuentzia-elementu honi egokitutako jarduera"
+
+#: edit_seq_tag_tooltip
+msgid "Tag used to reference this sequence element (optional field)"
+msgstr ""
+"Sekuentziako elementu honi erreferentzia egiteko erabilitako etiketa "
+"(aukerako eremua)"
+
+#: edit_seq_description_tooltip
+msgid "Description of the sequence element (optional field)"
+msgstr "Sekuentzia-elementuaren deskribapena (aukerako eremua)"
+
+#: edit_seq_button_enabled_tooltip
+msgid "Enable or disable the arrow button"
+msgstr "Jardueretan aurrera egiteko botoia gaitu edo ezgaitu"
+
+#: edit_seq_auto_tooltip
+msgid "Move on automatically when the activity finishes"
+msgstr "Mugitu automatikoki jarduera bukatzean"
+
+#: edit_seq_delay_tooltip
+msgid "Seconds to wait before to do the automatic move"
+msgstr "Zenbat segundu itxaron behar da automatikoki mugitu aurretik"
+
+#: edit_color_dlgTitle
+msgid "Select color"
+msgstr "Aukeratu kolorea"
+
+#: edit_media_renaming
+msgid "Please wait while the resource is being renamed..."
+msgstr "Mesedez, itxaron baliabidea berrizendatu arte"
+
+#: edit_act_cell_width
+msgctxt "edit_act_cell_width"
+msgid "Width:"
+msgstr "Zabalera:"
+
+#: edit_act_cell_width_tooltip
+msgid "Cell width (in pixels)"
+msgstr "Gelaxkaren zabalera (pixeletan)"
+
+#: edit_act_cell_height
+msgctxt "edit_act_cell_height"
+msgid "Height:"
+msgstr "Altuera:"
+
+#: edit_act_cell_height_tooltip
+msgid "Cell height (in pixels)"
+msgstr "Gelaxkaren altuera (pixeletan)"
+
+#: edit_act_hiddenWords
+msgid "Hidden words:"
+msgstr "Ezkutuko hitzak:"
+
+#: edit_act_hiddenWords_tooltip
+msgid "List of the hidden words placed in the panel"
+msgstr "Panelean ezarritako ezkutuko hitzen zerrenda"
+
+#: edit_act_wordSearch_panelB
+msgid "Use panel B"
+msgstr "Erabili B panela"
+
+#: edit_act_wordSearch_panelB_tooltip
+msgid "The contents of a second panel will be displayed as words are found"
+msgstr "Bigarren paneleko edukian hitzak dauden daudenean erakutsiko dira"
+
+#: edit_act_shaper_tooltip
+msgid "Select the shaper type to be used in the panel"
+msgstr "Aukeratu panelean erabili beharreko pieza-mota"
+
+#: edit_act_num_cols_tooltip
+msgid "Number of columns of  the panel"
+msgstr "Panelaren zutabe-kopurua"
+
+#: edit_act_num_rows_tooltip
+msgid "Number of rows of  the panel"
+msgstr "Panelaren lerro-kopurua"
+
+#: edit_act_wildTransparent
+msgid "Transparent delimiters"
+msgstr "Banatzaile gardenak"
+
+#: edit_act_wildTransparent_tooltip
+msgid "Treat the delimiters (black boxes) as transparent holes"
+msgstr "Erakutsi banatzaileak (laukitxo beltzak) zulo garden gisa"
+
+#: edit_act_behavior_scramble_times
+msgid "Mixes\\:"
+msgstr "Nahasketak\\:"
+
+#: edit_act_behavior_scramble_times_tooltip
+msgid "Number of times to shuffle"
+msgstr "Piezak zenbat aldiz nahastuko diren"
+
+#: edit_act_copy_title
+msgid "Copy attributtes to..."
+msgstr "Kopiatu ezaugarriak hona..."
+
+#: edit_act_copy_attributes
+msgid "Attributes"
+msgstr "Ezaugarriak"
+
+#: edit_act_copy_dest
+msgid "Apply to:"
+msgstr "Aplikatu honi:"
+
+#: edit_act_copy_style_main
+msgid "Main window"
+msgstr "Leiho nagusia"
+
+#: edit_act_copy_style_play
+msgid "Play window"
+msgstr "Jolas-leihoa"
+
+#: edit_act_copy_activities
+msgid "Activities to be modified:"
+msgstr "Aldatu beharreko jarduerak:"
+
+#: edit_act_copyAttributes
+msgid "Copy attributes"
+msgstr "Kopiatu ezaugarriak"
+
+#: edit_act_copyAttributes_keys
+msgid "T"
+msgstr "T"
+
+#: edit_act_copyAttributes_tooltip
+msgid "Copy current activity attributes to other activities"
+msgstr "Kopiatu oraingo jardueraren ezaugarriak beste jarduera batzuei"
+
+#: edit_new_project_name
+msgid "Project name:"
+msgstr "Proiektuaren izena:"
+
+#: edit_new_project_name_tooltip
+msgid "Short, descriptive name of the project"
+msgstr "Proiektua deskribatzeko izen laburra"
+
+#: edit_new_project_filename
+msgctxt "edit_new_project_filename"
+msgid "File name:"
+msgstr "Fitxategiaren izena:"
+
+#: edit_new_project_filename_tooltip
+msgid "Name of the project file, without extension"
+msgstr "Proiektu- fitxategiaren izena, luzapenik gabe"
+
+#: edit_new_project_folder
+msgctxt "edit_new_project_folder"
+msgid "Folder:"
+msgstr "Karpeta:"
+
+#: edit_new_project_folder_tooltip
+msgid "Name of the folder where the project will be stored"
+msgstr "Proiektua gordetzeko karpetaren izena"
+
+#: edit_new_project_folder_browse
+msgctxt "edit_new_project_folder_browse"
+msgid "Browse..."
+msgstr "Arakatu..."
+
+#: edit_new_project_title
+msgid "Create new JClic project"
+msgstr "Sortu JClic proiektu berria"
+
+#: edit_new_project_err_empty
+msgid "Error: Project, file and folder must have valid, non-empty names."
+msgstr ""
+"Errorea: Proiektu, fitxategi eta direktorioek izen onargarria izan behar "
+"dute."
+
+#: edit_new_project_warning_noEmptyFolder
+msgid ""
+"This folder already contains another Clic 3.0 or JClic project. In order to "
+"avoid confusions, is preferable to maintain each project in a separate "
+"folder, but that isn't a strict rule. Do you really want to create the new "
+"project in this folder?"
+msgstr ""
+"Karpeta honek badu beste Clic 3.0 edo JClic proiektu bat dagoeneko. Ez "
+"nahasteko, hobe da proiektu bakoitza aparteko karpeta batean gordetzea, "
+"baina ez da derrigorrezkoa. Benetan gorde nahi al duzu proiektu berria "
+"karpeta honetan?"
+
+#: edit_new_project_err_folderCreation
+msgid "Error: Unable to create the specified folder!"
+msgstr "Errorea: ezin da sortu adierazitako karpeta!"
+
+#: edit_act_copy_err_noSelection
+msgid ""
+"Error: No activity selected! In order to use this function you must select "
+"in the list the activity or activities to wich the indicated attributes will "
+"be applied."
+msgstr ""
+"Errorea: Ez da jarduerarik aukeratu! Funtzio hau erabiltzeko zerrendatik "
+"jardueraren bat aukeratu behar duzu aipatutako ezaugarriak horri/horiei "
+"aplikatzeko."
+
+#: edit_act_copy_action_prefix
+msgid "Copying attributes to:"
+msgstr "Kopiatu ezaugarriak hona:"
+
+#: edit_act_copy_margin
+msgid "Margin"
+msgstr "Marjina"
+
+#: edit_act_copy_bgColor
+msgid "Background color"
+msgstr "Atzeko aldearen kolorea"
+
+#: edit_act_copy_gradient
+msgctxt "edit_act_copy_gradient"
+msgid "Gradient"
+msgstr "Gradientea"
+
+#: edit_act_copy_bgImage
+msgid "Background image"
+msgstr "Atzeko aldearen irudia"
+
+#: edit_act_copy_border
+msgctxt "edit_act_copy_border"
+msgid "Border"
+msgstr "Ertza"
+
+#: edit_act_copy_transparentBg
+msgid "Transparent background"
+msgstr "Atzeko alde gardena"
+
+#: edit_act_copy_position
+msgid "Position"
+msgstr "Kokapena"
+
+#: edit_act_copy_messages
+msgctxt "edit_act_copy_messages"
+msgid "Messages"
+msgstr "Mezuak"
+
+#: edit_act_copy_messages_ini
+msgid "Style of initial message"
+msgstr "Hasierako mezuaren estiloa"
+
+#: edit_act_copy_messages_end
+msgid "Style of end message"
+msgstr "Bukaerako mezuaren estiloa"
+
+#: edit_act_copy_messages_err
+msgid "Style of error message"
+msgstr "Errore-mezuaren estiloa"
+
+#: edit_act_copy_reports
+msgctxt "edit_act_copy_reports"
+msgid "Reports"
+msgstr "Txostenak"
+
+#: edit_act_copy_rep_include
+msgid "Include activity in reports"
+msgstr "Txostenetan jarduera sartu"
+
+#: edit_act_copy_rep_actions
+msgid "Record actions"
+msgstr "Ekintzak erregistratu"
+
+#: edit_act_copy_interface
+msgctxt "edit_act_copy_interface"
+msgid "User interface"
+msgstr "Erabiltzailearen interfazea"
+
+#: edit_act_copy_skin
+msgid "Skin"
+msgstr "Itxura"
+
+#: edit_act_copy_evSounds
+msgid "Event sounds"
+msgstr "Ekintza-soinuak"
+
+#: edit_act_copy_counters
+msgctxt "edit_act_copy_counters"
+msgid "Counters"
+msgstr "Kontagailuak"
+
+#: edit_act_copy_cTime
+msgctxt "edit_act_copy_cTime"
+msgid "Time counter"
+msgstr "Denbora-kontagailua"
+
+#: edit_act_copy_maxTime
+msgid "Max. time"
+msgstr "Gehinezko denbora"
+
+#: edit_act_copy_cTries
+msgctxt "edit_act_copy_cTries"
+msgid "Tries counter"
+msgstr "Saiakera-kontagailua"
+
+#: edit_act_copy_maxTries
+msgid "Max. tries"
+msgstr "Gehi. saiakera-kopurua"
+
+#: edit_act_copy_cScore
+msgctxt "edit_act_copy_cScore"
+msgid "Score counter"
+msgstr "Puntuazio-kontagailua"
+
+#: edit_act_copy_scramble
+msgid "Times to scramble"
+msgstr "Zenbat aldiz nahastu behar den"
+
+#: edit_act_copy_buttons
+msgctxt "edit_act_copy_buttons"
+msgid "Buttons"
+msgstr "Botoiak"
+
+#: edit_act_copy_btnHelp
+msgid "Help button"
+msgstr "Laguntza-botoia"
+
+#: edit_act_copy_btnInfo
+msgid "Information button"
+msgstr "Informazio-botoia"
+
+#: edit_act_copy_grids
+msgid "Grids"
+msgstr "Taulak"
+
+#: edit_act_copy_gridA
+msgid "Style of grid A"
+msgstr "A taularen estiloa"
+
+#: edit_act_copy_gridB
+msgid "Style of grid B"
+msgstr "B taularen estiloa"
+
+#: edit_act_copy_textGrid
+msgid "Style of text grids"
+msgstr "Testu-panelen estiloa"
+
+#: edit_act_copy_text
+msgid "Text activities"
+msgstr "Testu-jarduerak"
+
+#: edit_act_copy_fontFace
+msgid "Font face"
+msgstr "Letra-tipoaren izena"
+
+#: edit_act_copy_fontSize
+msgid "Font size"
+msgstr "Letra-tamaina"
+
+#: edit_act_copy_fontStyle
+msgid "Font style"
+msgstr "Letra-tipoaren estiloa"
+
+#: edit_act_copy_textColour
+msgid "Main text colour"
+msgstr "Testu nagusiaren kolorea"
+
+#: edit_act_copy_textTargetColour
+msgctxt "edit_act_copy_textTargetColour"
+msgid "Select the JClic project of which the activities will be imported"
+msgstr "Aukeratu zein JClic proiektutatik inportatu behar diren jarduerak"
+
+#: edit_act_copy_textErrorColour
+msgid "Errors colour"
+msgstr "Errore-kolorea"
+
+#: edit_act_copy_tabSpace
+msgid "Tab space"
+msgstr "Tabuladoreen arteko espazioa"
+
+#: edit_act_copy_messages_prev
+msgid "Style of previous message"
+msgstr "Aurreko mezuaren estiloa"
+
+#: edit_act_changeType
+msgid "Change activity type"
+msgstr "Aldatu jarduera-mota"
+
+#: edit_act_newActivity_class_tooltip
+msgid ""
+"Full name of the class to be used to build the activity (advanced users "
+"only!)"
+msgstr ""
+"Jarduera egiteko erabiliko den motaren izen osoa (erabiltzaile aurreratuak "
+"bakarrik!)"
+
+#: edit_act_newActivity_other
+msgid "Other..."
+msgstr "Bestelakoa..."
+
+#: edit_act_newActivity_info
+msgid ""
+"Advanced users can also create unregistered types of JClic activities. Just "
+"write below the full class name, prefixed by the package (like "
+"\"com.acme.activities.FooActivity\"). Activity classes must extend "
+"<b>edu.xtec.jclic.Activity</b>, and must be accessibles to the JVM "
+"classloader."
+msgstr ""
+"Erabiltzaile aurreratuek erregistratu gabeko beste JClic jarduera-mota "
+"batzuk ere sor ditzakete. Idatzi azpian motaren izen osoa, aurretik "
+"paketearena duela (adibidez, \"com.acme.activities.FooActivity\").  Jarduera-"
+"motek <b>edu.xtec.jclic.Activity</b> zabaldu behar dute eta JVM "
+"bilatzailearekin eskuratzeko moduan egon behar dute."
+
+#: edit_act_newActivity_name
+msgid "Name of the activity:"
+msgstr "Jardueraren izena:"
+
+#: edit_act_newActivity_name_tooltip
+msgid "Each activity must have a name unique in the project"
+msgstr "Jarduera bakoitzak izen bat izan behar du proiektuan"
+
+#: edit_act_changeType_warning
+msgid ""
+"<html><p style=\"font-family:Helvetica; font-size:10px;\"><b>Warning:</b> "
+"Changing the type of activity can cause lost of some of the current activity "
+"attributes and objects. Use it with care!</p><p>&nbsp;</p></html>"
+msgstr ""
+"<html><p style=\"font-family:Helvetica; font-size:10px;\"><b>Adi:</b> Mota "
+"aldaketak editatzen ari den jardueraren ezaugarri eta objektuak galtzea ekar "
+"dezake. Kontu handiz erabili funtzio hau!</p><p>&nbsp;</p></html>"
+
+#: applet_codebase
+msgid "Location of JClic code:"
+msgstr "JClic kodearen kokapena:"
+
+#: applet_codebase_tooltip
+msgid "URL pointing to a folder with the JClic program files and scripts"
+msgstr "JClic programaren fitxategiak dauden karpetara zuzenduko duen URL-a"
+
+#: applet_prev_text
+msgid "HTML code before:"
+msgstr "Aurreko HTML kodea:"
+
+#. #Text to be displayed below the applet. HTM code allowed.
+#: applet_prev_text_tooltip
+msgid "Text or HTML code to be placed before the applet"
+msgstr "Aplikazioaren aurretik ipini beharreko testua edo HTML kodea"
+
+#: applet_post_text
+msgid "HTML code after:"
+msgstr "Ondorengo HTML kodea:"
+
+#: applet_post_text_tooltip
+msgid "Text or HTML code to be placed after the applet"
+msgstr "Aplikazioaren ondoren ipini beharreko testua edo HTML kodea"
+
+#: applet_size
+msgid "Applet size:"
+msgstr "Aplikazioaren tamaina:"
+
+#: applet_size_tooltip
+msgid "Width and height of the applet, in absolute or percentage values."
+msgstr ""
+"Applet-aren zabalera eta altuera, balore absolutuetan edo ehunekoetan."
+
+#: applet_page_title
+msgid "Page title:"
+msgstr "Orriaren izenburua:"
+
+#: applet_page_title_tooltip
+msgid "Text to be shown at the top of the browser window"
+msgstr "Nabigatzailearen leihoaren goiko aldean erakutsi beharreko testua"
+
+#: applet_created_info
+msgid "The web page \"%s\" has been created successfully."
+msgstr "\"%s\" web-orria egoki sortu da."
+
+#: applet_created_prompt
+msgid "Do you want to open it now with the browser?"
+msgstr "Orain nabigatzailearekin irekitzea nahi al duzu?"
+
+#: action_createHTML_caption
+msgid "Create web page..."
+msgstr "Sortu web-orria..."
+
+#: applet_create_title
+msgid "Creation of an HTML page with a JClic applet"
+msgstr "Sortu HTML orri bat JClic aplikazioarekin"
+
+#: action_createHTML_tooltip
+msgid "Create a HTML page with an applet containing the current project"
+msgstr "Sortu HTML orri bat oraingo proiektua duen aplikazioarekin"
+
+#: applet_filename
+msgctxt "applet_filename"
+msgid "File name:"
+msgstr "Fitxategi-izena:"
+
+#: applet_filename_tooltip
+msgid "Name of the HTML file to be created"
+msgstr "Sortu beharreko HTML fitxategiaren izena"
+
+#: action_createHTML_keys
+msgid "H*"
+msgstr "H*"
+
+#: settings_applet
+msgid "Applet"
+msgstr "Aplikazioa"
+
+#: settings_applet_tooltip
+msgid "Default values used in web page creation"
+msgstr "Web-orria sortzeko erabilitako berezko baloreak"
+
+#: applet_bgcolor
+msgctxt "applet_bgcolor"
+msgid "Background color:"
+msgstr "Atzealdeko kolorea:"
+
+#: applet_bgcolor_tooltip
+msgid "HTML page background color"
+msgstr "HTML orriaren atzealdeko kolorea"
+
+#: applet_centered
+msgctxt "applet_centered"
+msgid "Centered"
+msgstr "Erdian"
+
+#: applet_centered_tooltip
+msgid "Place the applet horizontally centered"
+msgstr "Applet-a erdian ipini horizontalean"
+
+#: applet_width_tooltip
+msgid "Applet width (absolute or percentage)"
+msgstr "Applet-aren zabalera (balore absolutuan edo ehunekoetan)"
+
+#: applet_height_tooltip
+msgid "Applet height (absolute or percentage)"
+msgstr "Applet-aren altuera (balore absolutuan edo ehunekoetan)"
+
+#: applet_exitUrl
+msgid "On exit, go to:"
+msgstr "Irtetean, joan hona:"
+
+#: applet_exitUrl_tooltip
+msgid "URL where to redirect the navigation on JClic exit"
+msgstr "JClic-etik irtetean zein URL-tara zuzendu behar den nabigazioa"
+
+#: applet_infoFrame
+msgid "Info frame name:"
+msgstr "Informazio-markoaren izena:"
+
+#: applet_infoFrame_tooltip
+msgid ""
+"Name of the frame used to show the content related to the \"info\" button"
+msgstr "\"Informazioa\" botoiko edukia erakusteko markoaren izena"
+
+#: action_createInstaller_caption
+msgid "Create project installer..."
+msgstr "Proiektuaren instalatzailea sortu..."
+
+#: action_createInstaller_keys
+msgctxt "action_createInstaller_keys"
+msgid "I*"
+msgstr "I*"
+
+#: action_createInstaller_tooltip
+msgid "Create a project installer script for JClic player"
+msgstr "Proiektuaren instalaziorako fitxategia sortu JClic player-erako"
+
+#: installer_caption
+msgid "Edit project installer script"
+msgstr "Editatu proiektuaren instalazio-script-a"
+
+#: installer_title
+msgctxt "installer_title"
+msgid "Title:"
+msgstr "Izenburua:"
+
+#: installer_title_tooltip
+msgid "Project title, to be shown on the installer wizard"
+msgstr "Instalazio-laguntzailean erakutsiko den proiektuaren izenburua"
+
+#: installer_authors
+msgid "Autors:"
+msgstr "Egileak:"
+
+#: installer_authors_tooltip
+msgid "Author/s of the project (short text)"
+msgstr "Proiektuaren egilea/k (izen laburra)"
+
+#: installer_folder
+msgctxt "installer_folder"
+msgid "Folder:"
+msgstr "Karpeta:"
+
+#: installer_folder_tooltip
+msgid "Folder name to be suggested by the installer wizard"
+msgstr "Instalaziorako laguntzaileak aholkatuko duen karpetaren izena"
+
+#: installer_files
+msgid "Files to be copied:"
+msgstr "Kopiatu behareko fitxategiak:"
+
+#: installer_files_tooltip
+msgid "Files to be copied by the installer"
+msgstr "Instalatzaileak kopiatu beharreko fitxategiak"
+
+#: installer_files_available
+msgid "Available files"
+msgstr "Eskura dauden fitxategiak"
+
+#: installer_files_selected
+msgid "Selected files"
+msgstr "Aukeratutako fitxategiak"
+
+#: installer_files_add
+msgid ">> add >>"
+msgstr ">>gaineratu>>"
+
+#: installer_files_add_tooltip
+msgid "Add selected file to the list"
+msgstr "Gaineratu aukeratutako fitxategia zerrendara"
+
+#: installer_files_remove
+msgid "<< remove <<"
+msgstr "<<kendu<<"
+
+#: installer_files_remove_tooltip
+msgid "Remove selected file from the list"
+msgstr "Kendu aukeratutako fitxategia zerrendatik"
+
+#: installer_button
+msgid "Launch button"
+msgstr "Abiarazi botoia"
+
+#: installer_button_tooltip
+msgid "Properties of the button to be shown in the project library"
+msgstr "Proiektuaren biltegian erakutsi beharreko botoiaren ezaugarriak"
+
+#: installer_button_project
+msgid "Main project:"
+msgstr "Proiektu nagusia:"
+
+#: installer_button_project_tooltip
+msgid "JClic project to be launched by the button"
+msgstr "Botoiaren bidez abiarazi behar den JClic proiektua"
+
+#: installer_button_text
+msgctxt "installer_button_text"
+msgid "Label:"
+msgstr "Etiketa:"
+
+#: installer_button_text_tooltip
+msgid "Short text label, to be shown inside the button"
+msgstr "Izen laburra, botoi barruan erakutsi beharrekoa"
+
+#: installer_button_icon
+msgid "Icon:"
+msgstr "Ikonoa:"
+
+#: installer_button_icon_tooltip
+msgid ""
+"Picture to be used as button icon. Leave blank to use the default JClic icon."
+msgstr ""
+"Botoiaren ikono bezala erabili beharreko irudia. Zuri utzita JClic-eko "
+"berezko ikonoa erabiliko da."
+
+#: installer_button_description
+msgctxt "installer_button_description"
+msgid "Description"
+msgstr "Deskribapena:"
+
+#: installer_button_description_tooltip
+msgid "Tooltip to be shown by the button"
+msgstr "Botoiak erakutsiko duen zabaltzen den laguntza-testua"
+
+#: installer_error_noTitle
+msgid "Error: Missing project title"
+msgstr "Errorea: Ez dago proiektuaren izenbururik"
+
+#: installer_error_noBaseFolder
+msgid "Error: Missing folder name"
+msgstr "Errorea: Ez dago karpetaren izenik"
+
+#: installer_error_noFilesSelected
+msgid "Error: No files selected"
+msgstr "Errorea: Ez da fitxategirik aukeratu"
+
+#: installer_error_noButtonText
+msgid "Error: Missing launch button text label"
+msgstr "Errorea: Ez dago abiarazteko botoiaren testurik"
+
+#: installer_error_projectNotInFiles
+msgid ""
+"Error: The project assigned to the launch button is not in the list of files "
+"to be copied"
+msgstr ""
+"Errorea: Abiarazteko botoiari ezarritako proiektua ez dago kopiatu beharreko "
+"fitxategien zerrendan"
+
+#: applet_page_full
+msgid "Full-page applet"
+msgstr "Orri osoko aplikazioa"
+
+#: applet_page_mixed
+msgid "Applet with specific dimensions"
+msgstr "Applet-ak neurri zehatzak ditu"
+
+#: edit_text_align_left
+msgid "Align text left"
+msgstr "Lerrotu testua ezkerretara"
+
+#: edit_text_align_center
+msgid "Center text"
+msgstr "Testua erdira ekarri"
+
+#: edit_text_align_right
+msgid "Align text right"
+msgstr "Lerrotu testua eskuinera"
+
+#: edit_text_act_target_toggle
+msgid "Create or remove target"
+msgstr "Helburua sortu edo ezabatu"
+
+#: edit_text_act_insertCell
+msgid "Insert a cell"
+msgstr "Sartu gelaxka"
+
+#: edit_text_act_content
+msgid "Content"
+msgstr "Edukia"
+
+#: edit_text_act_style
+msgctxt "edit_text_act_style"
+msgid "Style"
+msgstr "Estiloa"
+
+#: edit_cell_size
+msgid "Cell size:"
+msgstr "Gelaxkaren tamaina:"
+
+#: edit_project_orphanActivities
+msgid ""
+"The following activities never appear in any of the project's activity "
+"sequences, so they never will be displayed:"
+msgstr ""
+"Ondorengo jarduerak ez dira inongo proiektutako jarduera-sekuentziatan "
+"agertzen eta, berez, ez dira inoiz erakutsiko:"
+
+#: edit_project_orphanMedia
+msgid "The following media objects are not used directly in any activity:"
+msgstr ""
+"Ondorengo media-objektuak ez dira zuzenean inongo jardueratan erabiltzen:"
+
+#: edit_project_orphanActivities_prompt
+msgid "Do you want to add them at the end of the last activity sequence?"
+msgstr "Azken jarduera-sekuentziaren ondoren gaineratu nahi al duzu hau?"
+
+#: edit_project_orphanMedia_prompt
+msgid "Do you want to remove them?"
+msgstr "Hau kendu egin nahi al duzu?"
+
+#: edit_project_orphanMedia_title
+msgid "Removal of unused media objects"
+msgstr "Erabili gabeko multimedia objektuak kendu"
+
+#: edit_project_orphanActivities_title
+msgid "Orphan activities"
+msgstr "Jarduera umezurtzak"
+
+#: edit_media_refreshAll
+msgid "Update all media content"
+msgstr "Media-eduki guztiak eguneratu"
+
+#: edit_media_refreshAll_tooltip
+msgid "Update all media objects reloading its files"
+msgstr "Media-eduki guztiak eguneratu bere fitxategiak berriz kargatuta"
+
+#: edit_media_refreshAll_keys
+msgid "R*"
+msgstr "B*"
+
+#: edit_media_refreshAll_working
+msgid "Updating media..."
+msgstr "Mediak eguneratzen..."
+
+#: edit_media_exportAll
+msgid "Export all media"
+msgstr "Esportatu media guztiak"
+
+#: edit_media_exportAll_tooltip
+msgid "Save to files the content of all media elements"
+msgstr "Media elementu guztien edukiak fitxategietan gorde"
+
+#: edit_media_exportAll_keys
+msgid "X*"
+msgstr "E*"
+
+#: edit_shape_select
+msgid "Select"
+msgstr "Aukeratu"
+
+#: edit_shape_addPoint
+msgid "Add point"
+msgstr "Gaineratu puntua"
+
+#: edit_shape_deletePoint
+msgid "Delete"
+msgstr "Ezabatu"
+
+#: edit_shape_drawRect
+msgid "Draw rectangle"
+msgstr "Marraztu laukizuzena"
+
+#: edit_shape_drawEllipse
+msgid "Draw ellipse"
+msgstr "Marraztu elipsea"
+
+#: edit_shape_drawPoly
+msgid "Draw polygon"
+msgstr "Marraztu poligonoa"
+
+#: edit_shape_toLine
+msgid "Convert to line"
+msgstr "Lerro bihurtu"
+
+#: edit_shape_toBezier
+msgid "Convert to Bézier curve"
+msgstr "Bézier-en kurba bihurtu"
+
+#: edit_shape_toQuad
+msgid "Convert to quadratic curve"
+msgstr "Kurba kuadriko bihurtu"
+
+#: edit_shape_rLeft
+msgid "Rotate left"
+msgstr "Ezkerrera biratu"
+
+#: edit_shape_rRight
+msgid "Rotate right"
+msgstr "Eskuinera biratu"
+
+#: edit_shape_expand
+msgid "Expand"
+msgstr "Zabaldu"
+
+#: edit_shape_contract
+msgid "Contract"
+msgstr "Uzkurtu"
+
+#: edit_shape_zoomIn
+msgid "Zoom in"
+msgstr "Handiagotu"
+
+#: edit_shape_zoomOut
+msgid "Zoom out"
+msgstr "Txikiagotu"
+
+#: edit_shape_aproxPoints
+msgid "Join nearest points"
+msgstr "Ondoko puntuak elkartzen ditu"
+
+#: edit_shape_showPoints
+msgid "Show points"
+msgstr "Erakutsi puntuak"
+
+#: edit_shape_showPoints_tooltip
+msgid "Show/Hide the points"
+msgstr "Erakutsi/ezkutatu puntuak"
+
+#: edit_shape_gridSize
+msgid "Grid size:"
+msgstr "Taularen tamaina:"
+
+#: edit_shape_hideGrid
+msgid "Show / Hide grid"
+msgstr "Erakutsi/ezkutatu taula"
+
+#: edit_shape_magnetRadius
+msgid "Magnet radius:"
+msgstr "Imanaren erradioa:"
+
+#: edit_shape_elements
+msgid "Defined elements"
+msgstr "Definitutako elementuak"
+
+#: edit_shape_elemName
+msgid "Name of the selected element"
+msgstr "Aukeratutako elementuaren izena"
+
+#: edit_shape_magnetRadius_tooltip
+msgid "Action radius of the magnet, when enabled"
+msgstr "Imanaren eragin-erradioa, gaituta dagoenean"
+
+#: edit_shape_gridSize_tooltip
+msgid "Size of the grid"
+msgstr "Taularen tamaina"
+
+#: edit_mc_activity
+msgctxt "edit_mc_activity"
+msgid "Activity:"
+msgstr "Jarduera:"
+
+#: edit_mc_sequence
+msgid "Sequence:"
+msgstr "Sekuentzia:"
+
+#: edit_mc_url
+msgctxt "edit_mc_url"
+msgid "URL:"
+msgstr "URL-a:"
+
+#: edit_mc_project
+msgid "Project:"
+msgstr "Proiektua:"
+
+#: edit_mc_activity_selection
+msgid "Choose activity"
+msgstr "Aukeratu jarduera"
+
+#: edit_mc_sequence_selection
+msgid "Choose sequence"
+msgstr "Aukeratu sekuentzia"
+
+#: edit_mc_err_nullContent
+msgid "Insufficient data!"
+msgstr "Datu gutxiegi!"
+
+#: edit_act_arrowColor
+msgid "Arrow color:"
+msgstr "Geziaren kolorea:"
+
+#: edit_act_arrowColor_tooltip
+msgid ""
+"Color used by the editor to draw the arrows (not exactly, because an XOR bit "
+"mask is used)"
+msgstr ""
+"Editatzaileak geziak marrazteko erabilitako kolorea (ez bera, XOR bit "
+"maskara erabiltzen baita)"
+
+#: edit_act_editActivity
+msgid "Edit..."
+msgstr "Editatu..."
+
+#: edit_act_editActivity_tooltip
+msgid "Edit the selected activity"
+msgstr "Editatu aukeratutako jarduera"
+
+#: action_saveFileAs_caption
+msgid "Save as..."
+msgstr "Gorde honela..."
+
+#: action_saveFileAs_keys
+msgctxt "action_saveFileAs_keys"
+msgid "AA"
+msgstr "GG"
+
+#: action_saveFileAs_tooltip
+msgid "Save the current project with a different name"
+msgstr "Gorde oraingo proiektua beste izen batekin"
+
+#: edit_act_behavior_block
+msgctxt "edit_act_behavior_block"
+msgid "Behavior"
+msgstr "Jokaera"
+
+#: edit_act_behavior
+msgctxt "edit_act_behavior"
+msgid "Behavior"
+msgstr "Jokaera"
+
+#: edit_act_behavior_drag
+msgid "Drag objects"
+msgstr "Arrastaka eraman"
+
+#: edit_act_behavior_drag_tooltip
+msgid "Drag objects instead of use a connection line"
+msgstr "Arrastaka eraman objektuak lerro batez lotu beharrean"
+
+#: edit_act_behavior_order
+msgid "Check solving order"
+msgstr "Burutzeko ordena ziurtatu"
+
+#: edit_act_behavior_order_tooltip
+msgid "Cells must be solved in order"
+msgstr "Gelaxkak orden jakin batean burutu behar dira"
+
+#: edit_act_scramble
+msgid "Scramble"
+msgstr "Nahastu"
+
+#: action_importActivities_caption
+msgid "Import activities..."
+msgstr "Inportatu jarduerak..."
+
+#: action_importActivities_keys
+msgctxt "action_importActivities_keys"
+msgid "I*"
+msgstr "I*"
+
+#: action_importActivities_tooltip
+msgid "Import activities from another project"
+msgstr "Inportatu jarduerak beste proiektu batetik"
+
+#: import_warn_samefile
+msgid ""
+"The selected file corresponds to the current project. Activities can be "
+"imported only between different projects. Please select another project file."
+msgstr ""
+"Aukeratutako fitxategia proiektu honetakoa da. Proiektu ezberdinetatik "
+"bakarrik inporta daitezke jarduerak. Mesedez, aukeratu beste proiektu bateko "
+"fitxategia."
+
+#: import_selectActivities
+msgid "Select one or more activities to import into the current project\\:"
+msgstr "Aukeratu jarduera bat edo gehiago oraingo proiektura inportatzeko\\:"
+
+#: import_importing
+msgid "Importing..."
+msgstr "Inportatzen..."
+
+#: import_checkdep
+msgid "Checking dependencies..."
+msgstr "Menpekotasunak ziurtatzen..."
+
+#: import_impmedia
+msgid "Importing media\\:"
+msgstr "Media inportatzen\\:"
+
+#: import_impact
+msgid "Importing activity\\:"
+msgstr "Jarduera inportatzen\\:"
+
+#: import_selectProject
+msgctxt "import_selectProject"
+msgid "Select the JClic project of which the activities will be imported"
+msgstr "Aukeratu inportatu beharreko jarduerak dituen JClic proiektua"
+
+#: edit_tagRep_tags
+msgid "Tag marks"
+msgstr "Markak"
+
+#: edit_tagRep_tagStart
+msgid "Start mark\\:"
+msgstr "Hasiera-marka\\:"
+
+#: edit_tagRep_tagStart_tooltip
+msgid "Mark used at the beginning of tags"
+msgstr "Etiketaren hasiera adierazten duen marka"
+
+#: edit_tagRep_tagEnd
+msgid "End mark\\:"
+msgstr "Bukaera-marka\\:"
+
+#: edit_tagRep_tagEnd_tooltip
+msgid "Mark used at the end of tags"
+msgstr "Etiketaren bukaera adierazten duen marka"
+
+#: edit_tagRep_file
+msgid "File"
+msgstr "Fitxategia"
+
+#: edit_tagRep_fileName
+msgid "File or URL\\:"
+msgstr "Fitxategia edo URL-a\\:"
+
+#: edit_tagRep_fileName_tooltip
+msgid "Name or URL of the file containing the values that will replace tags"
+msgstr ""
+"Etiketak ordezkatuko dituzten baloreak dituen fitxategiaren izena edo URL-a"
+
+#: edit_tagRep_charset
+msgid "Charset\\:"
+msgstr "Kodifikazioa\\:"
+
+#: edit_tagRep_charset_tooltip
+msgid "Character encoding used in the file"
+msgstr "Fitxategian erabilitako kodifikazio-mota"
+
+#: edit_tagRep_browseFile
+msgctxt "edit_tagRep_browseFile"
+msgid "Browse..."
+msgstr "Arakatu..."
+
+#: edit_tagRep_browseFile_tooltip
+msgid "Browse the filesystem"
+msgstr "Arakatu fitxategi-sistema"
+
+#: edit_tagRep_title
+msgid "Tag replacing"
+msgstr "Etiketen ordezkapena"
+
+#: edit_text_act_clearStylesBtn
+msgid "Clear text styles..."
+msgstr "Garbitu testu-estiloak..."
+
+#: edit_text_act_clearStylesPrompt
+msgid ""
+"Warning\\: This action will clear the specific character attributes applied "
+"to the document, setting it back to its main style. This action cannot be "
+"undone. Do you want to do it?"
+msgstr ""
+"Kontuz\\: Honekin dokumentuari aplikatutako karaktere-ezaugarri zehatzak "
+"garbituko dira, berriz ere hasierako estilora eramanda. Ekintza hau ezin da "
+"desegin. Benetan egin nahi al duzu?"
+
+#: img_max_size
+msgid "Maximum size of images:"
+msgstr "Irudien gehienezko tamaina:"
+
+#: img_max_width_tooltip
+msgid "Maximum width of images imported into the media library."
+msgstr "Media-liburutegira inportatutako irudien gehienezko zabalera."
+
+#: img_max_height_tooltip
+msgid "Maximum height of images imported into the media library."
+msgstr "Media-liburutegira inportatutako irudien gehienezko altuera."
+
+#: img_resize_prompt
+msgid ""
+"The image \"%s\" has a size of %s pixels. This exceeds the maximum allowed "
+"by JClic Author (%s). Do you want to resize it?"
+msgstr ""
+"\"%S\" irudiak &S pixeleko tamaina du. JClic Authorrek duen gehienezkoa (%s) "
+"gainditu egiten du. Eman nahi al diozu beste neurri bat?"

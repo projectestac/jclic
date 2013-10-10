@@ -1,0 +1,170 @@
+# Dutch translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2010-02-04 19:57+0000\n"
+"Last-Translator: Heureka <Unknown>\n"
+"Language-Team: Dutch <nl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: @associations.ComplexAssociation
+msgid ""
+"Complex association|In this activity there are also two sets of information, "
+"but these may have a different number of parts and there may be different "
+"types of relation between them e.g.: one-to-one, various to one, parts "
+"without a relation, etc."
+msgstr ""
+"Complexe associatie|In deze activiteit zijn er ook twee groepen informatie, "
+"maar deze kunnen verschillen in aantal en er kunnen verschillende type "
+"relaties zijn tussen de twee groepen zoals: een op een, verschillende op "
+"een, geen relatie, enzovoorts."
+
+#: @associations.SimpleAssociation
+msgid ""
+"Simple association|There are two sets of information that have the same "
+"number of parts. Each part from the original set corresponds to one, and "
+"only one, part of the image set."
+msgstr ""
+"Simpele associatie|Er zijn twee groepen informatie, met evenveel elementen "
+"in elke groep. Elk element van de ene groep komt precies overeen met een "
+"element in de andere groep."
+
+#: @memory.MemoryGame
+msgid ""
+"Finding pairs|Each of the pieces appear twice, but face down. In each go two "
+"pieces are turned over and are turned back over if they are not the same. "
+"The objective is to find all the pairs."
+msgstr ""
+"Duo's zoeken|Elk element komt twee keer voor, je ziet alleen de achterkant. "
+"Bij elke beurt worden er twee elementen zichtbaar gemaakt en terug "
+"onzichtbaar als ze niet gelijk zijn. Je moet alle duo's vinden."
+
+#: @panels.Explore
+msgid ""
+"Explore activity|An initial piece of information is shown and, upon clicking "
+"on it, a given piece of information is shown for each element."
+msgstr ""
+"Exploreren activiteit|Er wordt een lijst met informatie getoond, en als je "
+"op een element klikt, wordt er bijkomende uitleg gegeven."
+
+#: @panels.Identify
+msgid ""
+"Identify cells|There is just one set of information and you have to click on "
+"those parts that meet a certain condition."
+msgstr ""
+"Identificeer cellen|Er is een lijst met informatie en je moet op deze delen "
+"klikken die aan een bepaalde voorwaarde voldoen."
+
+#: @panels.InformationScreen
+msgid ""
+"Information screen|One set of information is shown and there is the option "
+"of activating the multimedia content for each piece of information."
+msgstr ""
+"Informatie scherm|Er is een lijst met informatie en er is de optie om "
+"multimedia te vertonen voor elk element."
+
+#: @puzzles.DoublePuzzle
+msgid ""
+"Double puzzle|Two grids are shown. One contains the disordered information "
+"and the other is empty. The object has to be rearranged in the empty grid by "
+"dragging the pieces one by one."
+msgstr ""
+"Dubbele puzzel|Er worden twee tabellen getoond. Een bevat de informatie die "
+"doorheen is geschud en de ander is leeg. Het doel is de lege tabel te vullen "
+"in de juiste volgorde door de stukken een voor een te verslepen."
+
+#: @puzzles.ExchangePuzzle
+msgid ""
+"Exchange puzzle|The information is swapped within the same panel. In each go "
+"two pieces swap position until the object is reordered."
+msgstr ""
+"Verwissel puzzel|De informatie is in dezelfde tabel door elkaar gehaald. Bij "
+"elke beurt moet je twee delen omwisselen totdat de puzzel is opgelost."
+
+#: @puzzles.HolePuzzle
+msgid ""
+"Hole puzzle|In the same panel one piece is missing and the others are "
+"shuffled. In each go one of the pieces next to the empty space is moved "
+"until they are back in the original order."
+msgstr ""
+"Gat puzzel|In dezelfde tabel ontbreekt een stukje en de andere zijn door "
+"elkaar geschud. Bij elke beurt wordt een stukje in de opening geschoven tot "
+"de puzzel gemaakt is.."
+
+#: @text.WrittenAnswer
+msgid ""
+"Written answer|A set of information is shown and the corresponding text for "
+"each of its parts must be written."
+msgstr ""
+"Geschreven antwoord|Er wordt informatie getoond en de overeenstemmende tekst "
+"moet geschreven worden."
+
+#: @text.FillInBlanks
+msgid ""
+"Text: Fill-in blanks|The user has to complete certain words, letters and "
+"phrases that have been hidden or camouflaged in a text. The solution of each "
+"of the elements may be set up in different ways: writing in a blank space; "
+"correcting a phrase that contains errors; or selecting from a list of "
+"various possible answers."
+msgstr ""
+"Tekst: Invuloefening|De gebruiker moet sommige woorden, letters en zinnen "
+"die weggelaten zijn vervolledigen. De oplossing kan op verschillende "
+"manieren gegeven worden: invullen op een lege plaats, verbeteren van fouten "
+"of kiezen uit een aantal oplossingen."
+
+#: @text.Identify
+msgid ""
+"Text: Identify elements|The user has to point out some words, letters, "
+"numbers, symbols or punctuation marks with a click of the mouse."
+msgstr ""
+"Tekst: Identifier elementen|De gebruiker moet sommige woorden, letters, "
+"cijfers, symbolen of leestekens aanklikken met de muis."
+
+#: @text.Order
+msgid ""
+"Text: Order elements|When designing this activity some of the words or "
+"paragraphs of a text are selected to be shuffled around. The user has to put "
+"them back in order."
+msgstr ""
+"Tekst: Elementen ordenen|Sommige woorden of alinea's zijn door elkaar gezet. "
+"De gebruiker moet ze weer in de juiste volgorde zetten."
+
+#: @text.Complete
+msgid ""
+"Text: Complete text|Various parts of a text (letters, words, punctuation "
+"signs, or phrases) are taken out and the user has to complete it."
+msgstr ""
+"Tekst: Vervolledig tekst|Verschillende delen van een tekst (letters, "
+"woorden, leestekens of zinnen) zijn weggelaten en de gebruiker moet de tekst "
+"vervolledigen."
+
+#: @textGrid.CrossWord
+msgid ""
+"Crosswords|The word table has to be completed according to its definitions. "
+"The definitions may be text, graphics or sound. The programme automatically "
+"shows the definitions of the two words which cross in the cursor position."
+msgstr ""
+"Kruiswoordraadsel|Het kruiswoordraadsel moet ingevuld worden door gebruik te "
+"maken van de definities. De definities mogen met tekst, afbeeldingen of "
+"geluiden. Het programma geeft de twee definities van de woorden waar er een "
+"letter wordt ingevuld."
+
+#: @textGrid.WordSearch
+msgid ""
+"Word search|The hidden words have to be found in a grid of letters. The "
+"neutral cells in the grid (those with no word) are completed with characters "
+"chosen at random."
+msgstr ""
+"Woordzoeker|De verborgen woorden moeten gezocht worden in een rooster met "
+"letters. De cellen die geen letters van woorden bevatten, worden willekeurig "
+"opgevuld."

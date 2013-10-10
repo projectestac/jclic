@@ -1,0 +1,1055 @@
+2013-10-08  Francesc Busquets <fbusquets@xtec.cat>
+
+    * dist/jclic/jclicplugin.js
+    * dist/jnlp/author.jnlp
+    * dist/jnlp/install.jnlp
+    * dist/jnlp/player.jnlp
+    * dist/jnlp/reportServer.jnlp
+    * CHANGES.txt
+    * project.properties: Preparing for release 0.2.3.2
+
+    * src/core/edu/xtec/jclic/report/TCPReporter.java: Check for strings exceeding max field size
+    * src/core/edu/xtec/resources/about/credits.html
+    * src/core/edu/xtec/resources/about/otherCredits.html
+    * src/interface/edu/xtec/jclic/Constants.java
+    * src/jclicApplet/JClicApplet.java to: Added parameter "myurl" to avoid Java 1.7 bug with local applets
+    * src/player/edu/xtec/jclic/project/LibraryManager.java
+    * src/player/edu/xtec/jclic/project/LibraryManagerElement.java
+    * src/utilities/edu/xtec/util/Messages.java
+    * src/utilities/edu/xtec/util/PersistentSettings.java: New feature: "System libraries of JClic projects"
+
+    * build.xml
+    * ext/json: Added JSON-java extensions
+
+
+2013-09-23  Francesc Busquets <fbusquets@xtec.cat>
+
+    * Many files changed! See CHANGES.txt
+
+2011-02-04  Francesc Busquets <fbusquets@xtec.cat>
+
+    * extensions/img/image4j/src/net/sf/image4j/codec/bmp/BMPDecoder.java
+    * extensions/img/image4j/src/net/sf/image4j/codec/bmp/BMPEncoder.java: Image4j updated to version 0.7
+
+    * src/activities/edu/xtec/jclic/activities/text/TextActivityBase.java: Correction of bug #64
+
+    * build.xml
+    * src/core/edu/xtec/jclic/Activity.java
+    * src/core/edu/xtec/jclic/Player.java
+    * src/interface/edu/xtec/jclic/PlayStation.java
+    * src/activities/edu/xtec/jclic/activities/puzzles/DoublePuzzle.java
+    * src/activities/edu/xtec/jclic/activities/text/Complete.java
+    * src/activities/edu/xtec/jclic/activities/text/FillInBlanks.java
+    * src/activities/edu/xtec/jclic/activities/textGrid/CrossWord.java
+    * src/activities/edu/xtec/jclic/activities/text/WrittenAnswer.java:
+    * src/player/edu/xtec/jclic/ExtendedPlayer.java
+    * src/player/edu/xtec/jclic/PlayerSettings.java
+    * src/player/edu/xtec/jclic/accessibility/FressaFunctions.java
+    * src/player/edu/xtec/jclic/accessibility/TFormExchange.java
+    * src/player/edu/xtec/jclic/accessibility/TFormKeyboard.java: Pre-implementation of "Fressa" accessibility functions 
+
+    * src/core/edu/xtec/jclic/edit/Editor.java
+    * src/author/edu/xtec/jclic/bags/ActivitySequenceEditor.java: Correction of bug #172
+
+    * src/jclicApplet/JClicApplet.java
+    * src/core/edu/xtec/jclic/report/TCPReporter.java
+    * src/core/edu/xtec/jclic/fileSystem/FileSystem.java
+    * src/player/edu/xtec/jclic/project/LibraryManagerElement.java
+    * src/utilities/edu/xtec/util/CompoundObject.java
+    * src/author/edu/xtec/jclic/AuthorSingleFrame.java: Correction of bugs #53 and #1414
+
+    * src/core/edu/xtec/jclic/media/JavaSoundAudioPlayer.java: Catch unexpected exceptions thrown by
+                                                               org.classpath.icedtea.pulseaudio.PulseAudioClip.close
+
+    * src/core/edu/xtec/jclic/skins/Skin.java: Implementation of feature request #1591
+
+    * src/core/edu/xtec/resources/about/credits.html
+    * src/core/edu/xtec/resources/about/gencat.png
+    * src/core/edu/xtec/resources/about/otherCredits.html: New logos and names of the Catalan Ministry of Education
+
+    * src/report/reportServlets/edu/xtec/jclic/report/ReportServerJDBCBridge.java: Set default behavior to MySQL
+
+    * src/utilities/edu/xtec/util/BrowserLauncher.java: Changed BrowserLauncher to BareBonesBrowserLauncher
+
+    * dist/jclic/jclicplugin.js
+    * CHANGES.txt
+    * project.properties: Preparing version 0.2.2.0
+
+    * i18n/fromLaunchpad/build.xml
+    * i18n/toLaunchpad/build.xml: Adding jclic-accessibility text messages
+
+    * i18n: New and updated translations
+
+2010-08-02  Francesc Busquets  <fbusquets@xtec.cat>
+
+    * i18n: New and updated translations
+
+2010-05-28  Francesc Busquets  <fbusquets@xtec.cat>
+
+    * instal/build.xml: Create windows installers from Linux using wine
+    * i18n: New and improved translations
+
+
+2010-05-14  Francesc Busquets  <fbusquets@xtec.cat>
+
+    * project.properties: Preparing version 0.2.1.1
+    
+    * extensions/dbconn/build.xml: Updated build script
+    * src/report/webApp/META-INF/context.xml
+    * src/report/webApp/WEB-INF/sun-web.xml
+
+    * src/core/edu/xtec/jclic/Player.java: Correction of bug 1249: Incorrect reporting of activity
+                                           results when the aximum number of attempts is achieved
+
+2010-01-25  Francesc Busquets  <fbusquets@xtec.cat>
+
+    * i18n/fromLaunchpad/build.xml: Corrected a bug in translations. Colons (":") were often
+                                    replaced by slash-colon sequences ("/:").
+                                    
+    * src/author/edu/xtec/jclic/AuthorSingleFrame.java
+    * src/core/edu/xtec/jclic/project/JClicProject.java: More improvements in memory management.                                    
+
+2010-01-15  Francesc Busquets  <fbusquets@xtec.cat>
+
+    * CHANGES.txt
+    * src/author/edu/xtec/jclic/ActivityEditorPanel.form
+    * src/author/edu/xtec/jclic/ActivityEditorPanel.java
+    * src/author/edu/xtec/jclic/bags/ActivityBagEditor.java
+    * src/author/edu/xtec/jclic/bags/MediaBagEditor.java
+    * src/author/edu/xtec/jclic/bags/MediaBagElementEditorPanel.form
+    * src/author/edu/xtec/jclic/bags/MediaBagElementEditorPanel.java
+    * src/author/edu/xtec/jclic/bags/MediaBagSelector.form
+    * src/author/edu/xtec/jclic/bags/MediaBagSelector.java
+    * src/author/edu/xtec/jclic/bags/MediaPreviewPanel.java
+    * src/core/edu/xtec/jclic/bags/MediaBagElement.java
+    * src/core/edu/xtec/jclic/misc/Utils.java
+    * src/core/edu/xtec/jclic/Player.java
+    * src/utilities/edu/xtec/util/Messages.java
+    * src/utilities/edu/xtec/util/StreamIO.java: Miscellaneous improvements like the ability to import media
+                                                 files when editing a cell.                                                 
+    
+2010-01-13  Francesc Busquets  <fbusquets@xtec.cat>
+
+    * CHANGES.txt
+    * dist/jclic/jclicplugin.js
+    * dist/jclic/readme.txt
+    * dist/jclic/llegiume.txt
+    * dist/jclic/leeme.txt
+    * project.properties: Preparing version 0.2.1.0
+    
+    * dist/jnlp/author.jnlp
+    * dist/jnlp/install.jnlp
+    * dist/jnlp/player.jnlp
+    * dist/jnlp/reportServer.jnlp
+    * instal/setup.nsi: Launch JClic Author with the parameter -Xmx256m
+    
+    * src/author/edu/xtec/jclic/ActivityEditorPanel.form
+    * src/author/edu/xtec/jclic/ActivityEditorPanel.java
+    * src/author/edu/xtec/jclic/AuthorSettingsDlg.form
+    * src/author/edu/xtec/jclic/AuthorSettingsDlg.java
+    * src/author/edu/xtec/jclic/AuthorSettings.java
+    * src/author/edu/xtec/jclic/bags/MediaBagEditor.java
+    * src/author/edu/xtec/jclic/bags/MediaBagElementEditor.java
+    * src/author/edu/xtec/jclic/bags/MediaBagMultiEditorPanel.form
+    * src/author/edu/xtec/jclic/bags/MediaBagMultiEditorPanel.java
+    * src/author/edu/xtec/jclic/bags/MediaBagSelector.java
+    * src/author/edu/xtec/jclic/project/JClicProjectEditor.java
+    * src/author/edu/xtec/resources/messages/AuthorMessages_ca.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_es.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages.properties
+    * src/core/edu/xtec/jclic/bags/MediaBagElement.java
+    * src/core/edu/xtec/jclic/bags/MediaBag.java
+    * src/core/edu/xtec/jclic/misc/Utils.java
+    * src/core/edu/xtec/jclic/Player.java
+    * src/core/edu/xtec/jclic/project/JClicProject.java
+    * src/utilities/edu/xtec/util/StrUtils.java: Improvements in memory management and garbage collection.
+                                                 Large images can be automatically resized when imported into
+                                                 the media library of JClic Author
+
+2009-12-23  Francesc Busquets  <fbusquets@xtec.cat>
+
+    * lib/servlet-api/src/javax/servlet/ServletContextEvent.java
+    * lib/servlet-api/src/javax/servlet/ServletContextListener.java
+    * extensions/dbconn/src/edu/xtec/util/db/ConnectionBeanProvider.java: 
+    * src/report/reportServlets/edu/xtec/jclic/report/rp/ReportsRequestProcessor.java
+    * src/report/webApp/WEB-INF/classes/edu/xtec/jclic/report/servlet/ContextParamsReader.java
+    * src/report/webApp/WEB-INF/web.xml: New methods for passing settings to servlets: by "context-param" entries
+                                         in web.xml, and by key-value fields in the database
+    
+    * src/core/edu/xtec/jclic/boxes/ActiveBox.java: Corrected bug 321 - Bad rendring in right-to-left (arabic, hebrew...) texts
+    
+    * src/utilities/edu/xtec/util/Options.java
+    * src/core/edu/xtec/jclic/media/CheckMediaSystem.java: Correction for Mac OS-X SnowLeopard - Avoid QuickTime with 64-bit java
+    
+    * project.properties: Preparing for new version 0.2.1.0
+
+2009-03-03  Francesc Busquets  <fbusquets@xtec.cat>
+
+    * dist/jnlp/install.jnlp
+    * dist/jnlp/author.jnlp: Preparing new version 0.2.0.6
+
+    * src/core/edu/xtec/resources/messages/JClicMessages_pt.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_it.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_pt.properties: Updated translations.
+
+2009-02-25  Francesc Busquets  <fbusquets@xtec.cat>
+
+    * dist/jclic/jclicplugin.js
+    * dist/jnlp/player.jnlp
+    * dist/jnlp/install.jnlp
+    * dist/jnlp/author.jnlp
+    * dist/jnlp/reportServer.jnlp: 
+    * instal/build.xml
+    * instal/setup.nsi: Preparing new version 0.2.0.6
+
+    * src/author/edu/xtec/jclic/activities/text/TextActivityBaseEditor.java
+    * src/activities/edu/xtec/jclic/activities/text/TextActivityBase.java
+    * src/activities/edu/xtec/jclic/activities/text/TextActivityDocument.java
+    * src/author/edu/xtec/jclic/activities/text/TextActivityEditorTextPanel.form
+    * src/author/edu/xtec/jclic/activities/text/TextActivityEditorTextPanel.java
+    * src/author/edu/xtec/resources/icons/doc_styles_clear.gif
+    * src/author/edu/xtec/resources/icons/doc_styles.gif: New button "Clear text style" in JClic Author
+
+    * src/author/edu/xtec/resources/messages/AuthorMessages_ar.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_ca.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_de.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_el.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_es.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_eu.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_fr.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_gl.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_it.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_nl.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_pt_BR.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_pt.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_eu.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_pt_BR.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_eu.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_eu.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_eu.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_pt_BR.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_eu.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_eu.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_pt_BR.properties: New and updated translations
+
+    * src/author/edu/xtec/jclic/AuthorSettings.java
+    * src/core/edu/xtec/resources/about/about.html
+    * src/core/edu/xtec/resources/messages/checkmedia_ca.html
+    * src/core/edu/xtec/resources/messages/checkmedia_de.html
+    * src/core/edu/xtec/resources/messages/checkmedia_es.html
+    * src/core/edu/xtec/resources/messages/checkmedia_gl.html
+    * src/core/edu/xtec/resources/messages/checkmedia_pt_BR.html
+    * src/core/edu/xtec/resources/messages/checkmedia_pt.html
+    * src/core/edu/xtec/resources/messages/checkmedia.html
+    * src/jclicApplet/JClicApplet.html
+    * src/utilities/edu/xtec/resources/messages/checksignature_ca.html
+    * src/utilities/edu/xtec/resources/messages/checksignature_de.html
+    * src/utilities/edu/xtec/resources/messages/checksignature_es.html
+    * src/utilities/edu/xtec/resources/messages/checksignature_gl.html
+    * src/utilities/edu/xtec/resources/messages/checksignature_pt_BR.html
+    * src/utilities/edu/xtec/resources/messages/checksignature_pt.html
+    * src/utilities/edu/xtec/resources/messages/checksignature.html: Unifying domain references to clic.xtec.cat
+
+    * src/core/edu/xtec/jclic/Player.java: Changed the behavior of internal links between activities
+
+    * src/player/edu/xtec/jclic/report/BasicJDBCBridge.java
+    * src/report/reportServlets/edu/xtec/jclic/jclicReports.properties
+    * src/report/reportServlets/edu/xtec/jclic/report/rp/JClicReportService.java: Save server date and time in reports, instead of the client one.
+
+2009-02-15  Francesc Busquets  <fbusquets@xtec.cat>
+
+    * dist/jnlp/player.jnlp
+    * dist/jnlp/author.jnlp
+    * dist/jnlp/reportServer.jnlp
+    * dist/jclic/jclicplugin.js: Preparing new version 0.2.6
+
+    * dist/jclic/icons/favicon.ico
+    * dist/jclic/author.html: Improved author applet
+
+    * src/author/edu/xtec/resources/messages/AuthorMessages_ar.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_de.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_el.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_eu.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_fr.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_gl.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_nl.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_pt_BR.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_ast.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_ca.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_da.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_de.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_el.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_es.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_fr.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_he.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_it.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_nl.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_wo.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_nl.properties
+    * src/extra/edu/xtec/resources/shapers/listshapers_fr.properties
+    * src/extra/edu/xtec/resources/shapers/listshapers_nl.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_ast.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_de.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_el.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_eu.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_nl.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_ru.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_de.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_eu.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_nl.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_pt_BR.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_eu.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_nl.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_pt_BR.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_de.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_nl.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_pt_BR.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_el.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_nl.properties: New and improved translations
+
+    * src/utilities/edu/xtec/util/Messages.java: Added support for ISO-639-2 three-letter language codes, for languages not
+      in ISO-639-1 like Asturian (ast).
+
+    * src/activities/edu/xtec/jclic/activities/puzzles/DoublePuzzle.java
+    * src/core/edu/xtec/jclic/boxes/BoxBag.java
+    * src/core/edu/xtec/jclic/Player.java
+    * src/interface/edu/xtec/jclic/PlayStation.java
+    * src/core/edu/xtec/jclic/Activity.java
+    * src/core/edu/xtec/jclic/boxes/AbstractBox.java: Initial implementation of new accessibility features that make use of java.awt.Robot
+
+    * src/player/edu/xtec/jclic/PlayerSettings.java: Changed default llok and feel to "default", instead of "System".
+
+    * src/report/webApp/META-INF/context.xml
+    * src/report/webApp/WEB-INF/sun-web.xml: new files created for compatibility with GlassFish
+
+2008-06-16  Francesc Busquets  <fbusquets@xtec.cat>
+
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_eu.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_eu.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_eu.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_ru.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_eu.properties
+    * src/extra/edu/xtec/resources/shapers/listshapers_eu.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_eu.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_eu.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_eu.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_el.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_el.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_eu.properties
+    * dist/jclic/jclicplugin.js
+    * dist/jnlp/player.jnlp
+    * dist/jnlp/install.jnlp
+    * dist/jnlp/author.jnlp
+    * dist/jnlp/reportServer.jnlp: Updated translations
+
+2008-06-11  Francesc Busquets  <fbusquets@xtec.cat>
+
+    * src/activities/edu/xtec/jclic/automation/tagreplace/TagReplace.java
+    * src/author/edu/xtec/jclic/AuthorSingleFrame.java
+    * src/core/edu/xtec/jclic/Activity.java
+    * src/core/edu/xtec/jclic/automation/AutoContentProvider.java: Modifications to solve bug 509
+
+    * src/author/edu/xtec/resources/messages/AuthorMessages_el.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_eu.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_eu.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_eu.properties: Updated translations
+
+2008-06-06  Francesc Busquets  <fbusquets@xtec.cat>
+
+    * instal/setup.nsi
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_eu.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_eu.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_it.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_eu.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_ru.properties: New and updated translations
+
+
+2008-05-29  Francesc Busquets  <fbusquets@xtec.cat>
+
+    * i18n/fromLaunchpad/build.xml: Adapted to new launchpad directory names
+    * multiple po files: updated translations
+
+2008-05-28  Francesc Busquets  <fbusquets@xtec.cat>
+
+    * build.xml: Corrected a dependency error in Ant targets "core" and "qt61"
+
+    * dist/jclic/jclicplugin.js
+    * dist/jclic/author.html
+    * src/author/JClicAuthorApplet.java: New JClicAuthor applet
+
+    * src/extra/edu/xtec/resources/shapers/listshapers_it.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_it.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_it.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_it.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_it.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_it.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_it.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_it.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_it.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_ru.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_ru.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_ru.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_eu.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_eu.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_eu.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_eu.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_eu.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_el.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_el.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_el.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_pt.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_pt.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_pt.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_pt.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_gl.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_da.properties: Updated and new translations
+
+2008-04-02  Francesc Busquets  <fbusquets@xtec.cat>
+    * dist/jclic/jclicplugin.js
+    * dist/jnlp/player.jnlp
+    * dist/jnlp/author.jnlp
+    * dist/jnlp/manager.jnlp
+    * dist/jnlp/install.jnlp
+    * dist/jnlp/reportServer.jnlp
+    * project.properties: Preparing new version 0.2.0.3
+
+2008-04-02  Francesc Busquets  <fbusquets@xtec.cat>
+    * src/utilities/edu/xtec/util/FileChooserForFiles.java
+    * src/utilities/edu/xtec/util/FontCheck.java
+    * src/core/edu/xtec/jclic/media/ByteDataSource.java
+    * src/core/edu/xtec/jclic/media/CheckMediaSystem.java
+    * build.xml: Corrected a problem with non catcheable exceptions in applets
+
+2008-04-02  Francesc Busquets  <fbusquets@xtec.cat>
+    * src/core/edu/xtec/resources/messages/JClicMessages_tr.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_da.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_eu.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_pt.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_fr.properties: Updated translations
+
+2008-04-01  Francesc Busquets  <fbusquets@xtec.cat>
+    * src/core/edu/xtec/resources/about/credits.html
+    * src/core/edu/xtec/resources/about/about.html
+    * src/core/edu/xtec/jclic/skins/AboutWindow.java
+    * src/core/edu/xtec/resources/messages/JClicMessages_fr.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_pt_BR.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_tr.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_pt.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_gl.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_da.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_el.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_eu.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_es.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_de.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_ca.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_el.properties: Updated translations
+
+2008-03-26  Francesc Busquets  <fbusquets@xtec.cat>
+    * instal/build.xml
+    * instal/setup.nsi
+    * build.xml
+    * src/jclicApplet/JClicApplet.java
+    * src/author/edu/xtec/resources/messages/AuthorMessages_el.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_eu.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_fr.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_pt.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_da.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_eu.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_fr.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_pt.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_tr.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_el.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_pt.properties
+    * src/extra/edu/xtec/resources/shapers/listshapers_el.properties
+    * src/extra/edu/xtec/resources/shapers/listshapers_pt.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_el.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_eu.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_tr.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_eu.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_pt.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_fr.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_pt.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_tr.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_ar.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_eu.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_pt.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_tr.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_eu.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_pt.properties: Updated translations,
+      and a new applet feature: now they can handle also project installers (files ".jclic.inst").
+
+2008-03-07  Francesc Busquets  <fbusquets@xtec.cat>
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_eu.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_eu.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_eu.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_eu.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_eu.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_eu.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_eu.properties: New Basque translation,
+      and small changes in other languages.
+
+2008-02-29  Francesc Busquets  <fbusquets@xtec.cat>
+
+    * src/author/edu/xtec/resources/messages/AuthorMessages_ca.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_de.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_el.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_es.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_fr.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_gl.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_pt_BR.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_pt.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_ca.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_da.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_de.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_el.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_es.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_fr.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_gl.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_pt_BR.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_pt.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_ca.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_de.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_el.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_fr.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_gl.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_pt_BR.properties
+    * src/extra/edu/xtec/resources/shapers/listshapers_de.properties
+    * src/extra/edu/xtec/resources/shapers/listshapers_el.properties
+    * src/extra/edu/xtec/resources/shapers/listshapers_gl.properties
+    * src/extra/edu/xtec/resources/shapers/listshapers_pt_BR.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_ca.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_de.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_el.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_es.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_fr.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_gl.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_pt_BR.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_pt.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_ca.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_de.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_el.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_es.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_fr.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_gl.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_de.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_el.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_es.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_fr.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_gl.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_ca.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_de.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_el.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_es.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_fr.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_gl.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_pt_BR.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_pt.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_ca.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_da.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_de.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_el.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_fr.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_gl.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_pt_BR.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_pt.properties
+    * i18n/README
+    * i18n/customAntTasks/src/edu/xtec/ant/Prop2Po.java
+    * i18n/customAntTasks/src/edu/xtec/ant/Po2Prop.java
+    * i18n/customAntTasks/build.xml
+    * i18n/toLaunchpad/build.xml
+    * i18n/fromLaunchpad/build.xml
+    * ... and a lot of i18n/fromLaunchpad/po/*_*.po files not listed here: Implemented a new system in i18n/
+      to synchronize the .properties files with the .po files used in the Launchpad translation service.
+
+2008-02-06  Francesc Busquets  <fbusquets@xtec.cat>	
+
+    * src/author/edu/xtec/resources/messages/AuthorMessages.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_ca.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_de.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_es.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_fr.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_gl.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_pt_BR.properties
+    * src/author/edu/xtec/resources/messages/AuthorMessages_pt.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_de.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_es.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_fr.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_gl.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_pt_BR.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_pt.properties
+    * src/core/edu/xtec/resources/messages/JClicMessages_ca.properties
+    * src/extra/edu/xtec/resources/activities/listactivities.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_ca.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_de.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_es.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_fr.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_gl.properties
+    * src/extra/edu/xtec/resources/activities/listactivities_pt_BR.properties
+    * src/extra/edu/xtec/resources/automation/contentproviders.properties
+    * src/extra/edu/xtec/resources/automation/contentproviders_ca.properties
+    * src/extra/edu/xtec/resources/automation/contentproviders_de.properties
+    * src/extra/edu/xtec/resources/automation/contentproviders_es.properties
+    * src/extra/edu/xtec/resources/automation/contentproviders_gl.properties
+    * src/extra/edu/xtec/resources/automation/contentproviders_pt_BR.properties
+    * src/extra/edu/xtec/resources/shapers/listshapers.properties
+    * src/extra/edu/xtec/resources/shapers/listshapers_ca.properties
+    * src/extra/edu/xtec/resources/shapers/listshapers_de.properties
+    * src/extra/edu/xtec/resources/shapers/listshapers_es.properties
+    * src/extra/edu/xtec/resources/shapers/listshapers_gl.properties
+    * src/extra/edu/xtec/resources/shapers/listshapers_pt_BR.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages.properties 
+    * src/player/edu/xtec/resources/messages/PlayerMessages_ca.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_de.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_es.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_fr.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_gl.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_pt_BR.properties
+    * src/player/edu/xtec/resources/messages/PlayerMessages_pt.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_ca.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_de.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_es.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_fr.properties
+    * src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_gl.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_ca.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_de.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_es.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_fr.properties
+    * src/report/reportServlets/edu/xtec/resources/messages/reportMessages_gl.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_ca.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_de.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_es.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_fr.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_gl.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_pt_BR.properties
+    * src/utilities/edu/xtec/resources/messages/BasicMessages_pt.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_ca.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_de.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_es.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_fr.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_gl.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_pt_BR.properties
+    * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_pt.properties
+    * src/author/edu/xtec/jclic/AuthorSingleFrame.java
+    * src/interface/edu/xtec/jclic/Constants.java
+    * src/core/edu/xtec/jclic/Player.java 
+    * src/jclicApplet/JClicApplet.java
+    * src/jclicPlayer/JClicInstaller.java
+    * src/player/edu/xtec/jclic/SingleInstanceJFrame.java
+    * src/report/reportServer/ReportServer.form
+    * src/report/reportServer/ReportServer.java
+    * src/core/edu/xtec/resources/commonSettings.properties: The encoding of all .properties 
+    files unified with the "native2ascii" tool, in order to make if compatible with "prop2po". Also,
+    config expressions (like internal paths to resources or version numbers) have been removed from
+    language files and placed in the new file commonSettings.properties.
+﻿
+2008-01-26  Francesc Busquets  <fbusquets@xtec.cat>	
+
+    * src/core/edu/xtec/jclic/Player.java
+    * removed file src/extra/edu/xtec/resources/fonts/arial2.ttf: Removed clone of arial font,
+    not needed.
+
+﻿2008-01-23  Francesc Busquets  <fbusquets@xtec.cat>	
+
+    * dist/jclic/jclicplugin.js
+    * dist/jclic/leeme.txt
+    * dist/jclic/readme.txt
+    * dist/jclic/llegiume.txt
+    * dist/jnlp/reportServer.jnlp
+    * dist/jnlp/player.jnlp
+    * dist/jnlp/author.jnlp
+    * dist/jnlp/install.jnlp
+    * instal/setup.nsi
+    * instal/build.xml
+    * deploy/reports/xml/application.xml
+    * CHANGES.txt
+    * HACKING.txt
+    * INSTALL.txt
+    * build.xml: The packaging of JClic has been simplified. Now only
+    three JAR files are created: jclic.jar, jclicauthor.jar and jclicreports.jar
+    
+2008-01-23  Francesc Busquets  <fbusquets@xtec.cat>	
+
+    * src/report/reportServlets/edu/xtec/jclic/report/rp/Img.java
+    * removed directory src/report/reportServlets/edu/xtec/util/ranab: The GIF Encoder library,
+    by Rana Bhattacharyya, has been suppressed. The graphics of reports are nou generated by
+    means of the ImageIO API.    
+    
+2008-01-23  Francesc Busquets  <fbusquets@xtec.cat>	
+
+     * added directory extensions/img/image4j
+     * src/core/edu/xtec/jclic/misc/Bmp.java
+     * src/core/edu/xtec/resources/messages/JClicMessages_pt_BR.properties
+     * src/core/edu/xtec/jclic/bags/MediaBagElement.java
+     * src/core/edu/xtec/resources/messages/JClicMessages_gl.properties
+     * src/core/edu/xtec/resources/messages/JClicMessages_es.properties
+     * src/core/edu/xtec/resources/messages/JClicMessages_de.properties
+     * src/core/edu/xtec/resources/messages/JClicMessages.properties
+     * src/core/edu/xtec/resources/messages/JClicMessages_pt.properties
+     * src/core/edu/xtec/resources/messages/JClicMessages_ca.properties
+     * src/core/edu/xtec/resources/messages/JClicMessages_fr.properties
+     * src/core/edu/xtec/resources/about/otherCredits.html     
+     * src/core/edu/xtec/jclic/misc/Utils.java
+     * CREDITS.txt: The class used to import BMP files, by J.Osbaldeston, 
+     has been replaced by the LGPL library image4j (http://image4j.sourceforge.net). Now ICO files are
+     also recognized by JClic.
+
+2008-01-23  Francesc Busquets  <fbusquets@xtec.cat>	
+
+     * added directory extensions/img/image4j
+     * src/core/edu/xtec/jclic/misc/Bmp.java: The class used to import BMP files, by J.Osbaldeston, 
+     has been replaced by the LGPL library image4j (http://image4j.sourceforge.net)
+
+2008-01-14  Francesc Busquets  <fbusquets@xtec.cat>	
+
+     * removed dir lib/servlet-api
+     * added new directory tree lib/servlet-api: The implementation of JSR-154 (Servlet 2.4) taked
+       from the GlassFish project has been substitued by a partial, empty stub implementation of the
+       classes and interfaces needed at compile-time by JClic reports server.
+
+2008-01-14  Francesc Busquets  <fbusquets@xtec.cat>	
+
+     * removed dir extensions/jmf
+     * dist/jclic/jclicplugin.js     
+     * dist/jnlp/reportServer.jnlp
+     * dist/jnlp/jclic.jnlp
+     * dist/jnlp/install.jnlp
+     * dist/jnlp/author.jnlp
+     * dist/jnlp/player.jnlp
+     * instal/setup.nsi
+     * instal/build.xml
+     * CREDITS.txt
+     * HACKING.txt
+     * CHANGES.txt
+     * src/core/edu/xtec/resources/about/otherCredits.html
+     * build.xml: The stub implementations of some JMF codecs in extensions/jmf has been removed to avoid
+       copyright conflicts.
+
+2007-12-29  Francesc Busquets  <fbusquets@xtec.cat>	
+
+     * added file testcert-gkr.keystore
+     * added file testcert-gkr.cer
+     * build.xml: The GCJ compiler and tools use keystores in GKR format, different from
+       Sun's JKS format. The Ant script build script dinamically loads the appropiate keystore for
+       the compiler currently used (Sun JDK or GNU gcj)
+
+2007-12-27  Francesc Busquets  <fbusquets@xtec.cat>	
+
+     * removed dir extensions/xml/jdom-1.0/lib
+     * build.xml: Suppressed the binary JAR files in the jdom-1.0/lib directory. JDOM is now
+       compiled without the X-Path functions, not needed by JClic.
+
+﻿2007-12-10  Francesc Busquets  <fbusquets@xtec.cat>	
+
+     * src/core/edu/xtec/jclic/media/JMFActiveMediaPlayer.java
+     * src/qt61/edu/xtec/jclic/media/QT61AudioPlayer.java
+     * src/core/edu/xtec/jclic/media/JMFAudioPlayer.java
+     * src/qt61/edu/xtec/jclic/media/QT61ActiveMediaPlayer.java
+     * src/qt61/edu/xtec/jclic/media/QT61AudioBuffer.java
+     * src/qt61/edu/xtec/jclic/media/QT61Tools.java
+     * src/core/edu/xtec/jclic/media/ByteDataSource.java: Minor changes in the source code, replacing
+     "include" statements with full qualified names.
+
+2007-12-10  Francesc Busquets  <fbusquets@xtec.cat>	
+    * removed file lib/QTJava.zip
+    * added directory tree lib/qtjava-api
+    * removed file lib/jclicjmf.jar
+    * added directory tree lib/jmf-api
+    * removed file lib/servlet.jar
+    * added dirctory tree lib/servlet-api: Changes made in order to have a clean and full-compilable
+    source code without external non-free dependencies.
+
+2007-12-10  Francesc Busquets  <fbusquets@xtec.cat>	
+    * extensions/soundspi/tritonus/src/org/tritonus/share/sampled/mixer/TClip.java: Added the
+    getLongFramePosition method in order to make it compliant with javax.sound.sampled.DataLine
+    
+2007-11-28  Francesc Busquets  <fbusquets@xtec.cat>	
+	* extensions/dbconn/build.xml
+	* build.xml: File extensions/dbconn/lib/javax-sql-classes.zip is no longer needed since
+	JClic compiles against Java 1.4
+
+2007-11-27  Francesc Busquets  <fbusquets@xtec.cat>	
+
+	* dist/jclic/jclicplugin.js
+	* dist/jnlp/reportServer.jnlp
+	* dist/jnlp/player.jnlp
+	* dist/jnlp/author.jnlp
+	* dist/jnlp/install.jnlp
+	* dist/jnlp/jclic.jnlp
+	* instal/build.xml
+	* instal/setup.nsi
+	* src/core/edu/xtec/jclic/media/CheckMediaSystem.java
+	* src/core/edu/xtec/jclic/media/ActiveMediaPlayer.java
+	* src/core/edu/xtec/jclic/media/EventSoundsElement.java
+	* src/core/edu/xtec/jclic/skins/AboutWindow.java
+	* build.xml
+	* HACKING.txt: Support for QuickTime 6.0 has been supressed in JClic. Mac users can still
+	make use of QuickTime for Java 6.1.
+
+2007-11-27  Francesc Busquets  <fbusquets@xtec.cat>	
+
+	* dist/jclic/jclicplugin.js
+	* dist/jnlp/reportServer.jnlp
+	* dist/jnlp/player.jnlp
+	* dist/jnlp/author.jnlp
+	* dist/jnlp/install.jnlp
+	* dist/jnlp/jclic.jnlp
+	* instal/build.xml
+	* instal/setup.nsi
+	* build.xml
+	* HACKING.txt: The extension "intl.jar" has been supressed from JClic. This extension
+	was a workaround for having the texts of the common Java dialog boxes translated to Catalan.
+	Since Java is a free platform, this must be done in the Java source code.
+
+2007-11-26  Francesc Busquets  <fbusquets@xtec.cat>	
+
+	* src/extra/edu/xtec/resources/skins/mini.xml
+	* src/extra/edu/xtec/resources/skins/mini.png
+	* src/extra/edu/xtec/resources/skins/listskins.properties: Added a new skin
+	called "Mini", suitable for embedding JClic projects in blogs and other web pages with 
+	small space available.
+
+2007-11-23  Francesc Busquets  <fbusquets@xtec.cat>	
+
+	* extensions/dbconn/build.xml
+	* dist/jclic/jclicplugin.js
+	* dist/jnlp/reportServer.jnlp
+	* dist/jnlp/player.jnlp
+	* dist/jnlp/author.jnlp
+	* dist/jnlp/install.jnlp
+	* dist/jnlp/jclic.jnlp
+	* instal/build.xml
+	* instal/setup.nsi
+	* ant/customAntTasks/customAntTasks.jar
+	* build.xml
+	* HACKING.txt
+	* INSTALL.txt
+	* project.properties: The Java virtual machine required by JClic has been updated 
+	from 1.3.1 to 1.4. This allows to use JAXP and other XML libraries provided by the
+	platform, so it's no longer necessary to build jclicxml.jar. JDOM 1.0, still necessary,
+	is built now within the new file "jdom.jar". The directories extensions/xml/jaxp and
+	extensions/xml/crimson have been deleted.
+
+2007-04-30  Francesc Busquets  <fbusquets@xtec.cat>	
+
+	* src/activities/edu/xtec/jclic/beans/ColorButton.java:
+	* src/activities/edu/xtec/jclic/beans/AlphaColorChooserPanel.java:
+	* src/activities/edu/xtec/jclic/beans/AlphaColorChooserPanel.form: Corrected an irregular
+     behavior of colorButton, that returns a new color even when the dialog window is closed.
+
+2007-04-29  Francesc Busquets  <fbusquets@xtec.cat>	
+
+	* src/activities/edu/xtec/jclic/activities/text/WrittenAnswer.java: The marker is drawed
+     only when there are more than one cell to solve. In multiple-answer mode, the first valid
+     option is always displayed when the activity is finished, even if another valid option
+     was entered (useful for natural spelling exercises).
+
+2007-03-30  Francesc Busquets  <fbusquets@xtec.cat>	
+
+	* src/extra/edu/xtec/resources/skins/listskins.properties
+	* src/extra/edu/xtec/resources/skins/empty.png
+	* src/extra/edu/xtec/resources/skins/empty.xml: Added a new skin, named "Empty",
+     without buttons, counters nor message boxes.
+
+2007-02-23  Francesc Busquets  <fbusquets@xtec.cat>	
+
+	* src/author/edu/xtec/jclic/AuthorSingleFrame.java
+	* src/core/edu/xtec/jclic/PlayerHistory.java: Corrections and improvements
+	to the reports system, in order to solve bug #41 (conditional jumps between
+	sequence elements are not always working as expected)
+
+2007-02-21  Francesc Busquets  <fbusquets@xtec.cat>	
+
+	* src/core/edu/xtec/jclic/report/SessionReg.java: Corrected an error in the
+	algorithm that computes the global score for a session
+	
+2006-12-18  Francesc Busquets  <fbusquets@xtec.cat>	
+
+	* src/author/edu/xtec/jclic/AuthorSingleFrame.java: Corrected a problem with
+	the scrolling of JList when importing activities
+	
+2006-10-24  Francesc Busquets  <fbusquets@xtec.cat>	
+
+	* src/core/edu/xtec/jclic/automation/AutoContentProvider.java: Corrected a bug that
+	caused recursive calls into "init(ResourceBridge,FileSystem)"
+
+2006-10-23  Francesc Busquets  <fbusquets@xtec.cat>	
+
+	* src/interface/edu/xtec/jclic/Constants.java
+	* src/core/edu/xtec/jclic/Activity.java
+	* src/core/edu/xtec/jclic/automation/AutoContentProvider.java
+	* src/core/edu/xtec/jclic/misc/Utils.java
+	* src/core/edu/xtec/resources/messages/JClicMessages.properties
+	* src/core/edu/xtec/resources/messages/JClicMessages_ca.properties
+	* src/core/edu/xtec/resources/messages/JClicMessages_es.properties
+	* src/activities/edu/xtec/jclic/automation/tagreplace/TagReplace.java
+	* src/activities/edu/xtec/jclic/automation/TextActivityContentKit.java
+	* src/activities/edu/xtec/jclic/activities/text/TextActivityBase.java
+	* src/activities/edu/xtec/jclic/activities/text/TextTarget.java
+	* src/activities/edu/xtec/jclic/activities/textGrid/WordSearch.java
+	* src/activities/edu/xtec/jclic/activities/textGrid/CrossWord.java:
+	* src/extra/edu/xtec/resources/automation/contentproviders.properties
+	* src/extra/edu/xtec/resources/automation/contentproviders_ca.properties
+	* src/extra/edu/xtec/resources/automation/contentproviders_es.properties
+	* src/author/edu/xtec/jclic/automation/AutoContentProviderEditor.java
+	* src/author/edu/xtec/jclic/automation/tagreplace/TagReplaceEditor.java
+	* src/author/edu/xtec/jclic/automation/tagreplace/TagReplaceEditorPanel.java
+	* src/author/edu/xtec/jclic/automation/tagreplace/TagReplaceEditorPanel.form
+	* src/author/edu/xtec/resources/messages/AuthorMessages.properties
+	* src/author/edu/xtec/resources/messages/AuthorMessages_es.properties
+	* src/author/edu/xtec/resources/messages/AuthorMessages_fr.properties
+	* src/author/edu/xtec/resources/messages/AuthorMessages_ca.properties: Implementation of TagReplace,
+	a new automation module that allows to substitute tags with expressions indicated on text files or URLs.
+
+2006-10-23  Francesc Busquets  <fbusquets@xtec.cat>	
+	
+	* src/author/edu/xtec/jclic/AuthorSingleFrame.java
+	* src/author/edu/xtec/resources/icons/import_act.png: Customized icon and messages
+	for import activities.
+
+2006-09-27  Francesc Busquets  <fbusquets@xtec.cat>
+
+	* src/author/edu/xtec/jclic/AuthorSingleFrame.java:
+	* src/core/edu/xtec/jclic/fileSystem/FileSystem.java: Create parent directories
+	for new files if they don't exists.
+
+2006-07-28  Francesc Busquets  <fbusquets@xtec.cat>
+
+	* build.xml: Converted CR+LF to LF.
+
+2006-07-28  Francesc Busquets  <fbusquets@xtec.cat>
+
+	* src/author/edu/xtec/jclic/AuthorSingleFrame.java:
+	* src/author/edu/xtec/jclic/bags/MediaBagEditor.java:
+	* src/author/edu/xtec/resources/messages/AuthorMessages.properties
+	* src/core/edu/xtec/jclic/project/JClicProject.java: Added the ability to import 
+	activities from another project.
+
+2006-07-28  Francesc Busquets  <fbusquets@xtec.cat>
+
+	* src/core/edu/xtec/jclic/fileSystem/FileSystem.java: Simplified and corrected the 
+	file name character conversion tables.
+
+2006-07-28  Francesc Busquets  <fbusquets@xtec.cat>
+
+	* src/core/edu/xtec/jclic/report/TCPReporter.java:
+	* src/report/reportServer/edu/xtec/jclic/report/HTTPReportServer.java:
+	* src/report/reportServer/edu/xtec/jclic/report/HTTPRequest.java: Modified the 
+	'content-type' header of report requests.
+
+2006-07-28  Francesc Busquets  <fbusquets@xtec.cat>
+
+	* src/player/edu/xtec/jclic/PlayerSettingsDlg.java:
+	* src/player/edu/xtec/jclic/PlayerSettingsDlg.form: Added 'country' and 'variant' options
+	to language selection.
+
+2006-07-28  Francesc Busquets  <fbusquets@xtec.cat>
+
+	* src/shapers/edu/xtec/jclic/shapers/EditableLine2D.java:
+	* src/shapers/edu/xtec/jclic/shapers/PolygonDrawPanel.java:
+	* src/shapers/edu/xtec/jclic/shapers/EditableShape.java:
+	* src/shapers/edu/xtec/jclic/shapers/EditableShapeConstants.java:
+	* src/shapers/edu/xtec/jclic/shapers/EditableEllipse2D.java:
+	* src/core/edu/xtec/jclic/shapers/Holes.java:
+	* src/report/reportServlets/edu/xtec/jclic/report/rp/JClicReportService.java:
+	* src/report/reportServlets/edu/xtec/jclic/report/rp/Basic.java:
+	* src/report/reportServlets/edu/xtec/jclic/report/ReportServerJDBCBridge.java:
+	* src/author/edu/xtec/jclic/bags/ActivityBagEditorPanel.java:
+	* src/core/edu/xtec/jclic/clic3/Clic3.java:
+	* src/utilities/edu/xtec/util/JDomUtility.java:
+	* src/utilities/edu/xtec/util/Html.java:
+	* src/activities/edu/xtec/jclic/activities/panels/Explore.java:
+	* src/author/edu/xtec/jclic/boxes/ActiveBagContentControlPanel.java: Cleaning of commented
+	code and translation of some Catalan comments to English.
+
+2006-07-03  Francesc Busquets  <fbusquets@xtec.cat>
+
+	* build.xml:
+	* HACKING.txt: Corrected some mistakes in build.xml that make it inoperable. Also added some
+	explanations about how to prepare the filesystems in order to open the project with NetBeans.
+
+2006-05-24  Francesc Busquets  <fbusquets@xtec.cat>
+
+	* instal/setup.nsi: Solved bug #46 (Windows installer create icons only
+	for the current user). Added "SetShellVarContext all" to the installer script,
+	so the installer defaults to create shortcuts and icons for all users.
+
+2006-05-24  Francesc Busquets  <fbusquets@xtec.cat>
+
+	* build.xml:
+	* instal/build.xml:
+	* instal/setup.nsi:
+	* src/author/edu/xtec/resources/messages/AuthorMessages.properties:
+	* src/core/edu/xtec/resources/messages/JClicMessages.properties:
+	* src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages.properties:
+	* CHANGES.txt:
+	* COPYING.txt:
+	* CREDITS.txt:
+	* HACKING.txt:
+	* INSTALL.txt:
+	* project.properties: Attending feature request #69 (split readme.txt), five files have been
+	created (CHANGES.txt, COPYING.txt, CREDITS.txt, HACKING.txt and INSTALL.txt). Also, the "version"
+	strings displayed in credits has been moved to the external file "project.properties".	
+	
+2006-05-22  Francesc Busquets  <fbusquets@xtec.cat>
+
+	* src/core/edu/xtec/jclic/report/Reporter.java:
+	* src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages.properties:
+	* src/report/reportServlets/edu/xtec/jclic/report/ReportServerJDBCBridge.java:
+	* src/report/reportServlets/edu/xtec/jclic/report/rp/UserAdmin.java:
+	* src/report/reportServlets/edu/xtec/resources/messages/reportMessages.properties:
+	* src/report/reportServlets/edu/xtec/resources/messages/reportMessages_ca.properties:
+	* src/report/reportServlets/edu/xtec/resources/messages/reportMessages_de.properties:
+	* src/report/reportServlets/edu/xtec/resources/messages/reportMessages_es.properties:
+	* src/report/reportServlets/edu/xtec/resources/messages/reportMessages_fr.properties:
+	* src/report/reportServlets/edu/xtec/resources/messages/reportMessages_gl.properties: 
+	Solved bug #103. The "edit user" and "create user" forms have been modified, so now the 
+	password can be set in JClic Reports when creating a new user, and modified or erased later.
+	
+2006-05-19  Francesc Busquets  <fbusquets@xtec.cat>
+
+	* src/report/reportServer/ReportServerSettingsDlg.java:
+	* src/report/reportServer/ReportServerSettingsDlg.java: Solved a problem with unitialized settings
+	that cause null pointer exception.
+	
+2006-04-20  Francesc Busquets  <fbusquets@xtec.cat>	
+	
+	* src/author/edu/xtec/jclic/bags/ActivityBagElementEditor.java:
+	* src/author/edu/xtec/jclic/project/JclicProjectEditor.java:
+	* src/core/edu/xtec/jclic/bags/ActivityBag.java:
+	* src/core/edu/xtec/jclic/media/EventSounds.java:
+	* src/interface/edu/xtec/jclic/Constants.java: Bug #83 solved.
+	Now custom event sounds are correctly handled by JClic author, both when specified for the 
+	whole project or for a specific activity. In addition, changes to the project global skin 
+	are also shown in the test activity window.
+	
+2006-04-13  Francesc Busquets  <fbusquets@xtec.cat>	
+	
+	* src/author/edu/xtec/resources/messages/AuthorMessages.properties:
+	* src/author/edu/xtec/resources/messages/AuthorMessages_pt.properties:
+	* src/author/edu/xtec/resources/messages/AuthorMessages_pt_BR.properties:
+	* src/author/edu/xtec/resources/messages/AuthorMessages_gl.properties:
+	* src/author/edu/xtec/resources/messages/AuthorMessages_fr.properties:
+	* src/author/edu/xtec/resources/messages/AuthorMessages_es.properties:
+	* src/author/edu/xtec/resources/messages/AuthorMessages_de.properties:
+	* src/author/edu/xtec/resources/messages/AuthorMessages_ca.properties:
+	* src/author/edu/xtec/jclic/boxes/ActiveBagContentEditor.form:
+	* src/author/edu/xtec/jclic/bags/ConditionalJumpPanel.java:
+	* src/author/edu/xtec/jclic/bags/ConditionalJumpPanel.form:
+	* src/author/edu/xtec/jclic/ActivityEditorOptionsPanel.java:
+	* src/author/edu/xtec/jclic/ActivityEditorOptionsPanel.form: Bugs #51, #52 and #42 solved.
+	Now it's possible to set/unset the boolean properties dragCells and useOrder from JClic author. 
+	The check boxes are in the "Options" tab of the Activity editor. Changes in the parameters of 
+	conditional jumps (in "sequences" tab of JClic author) are now retained.
+	
+2006-04-10  Francesc Busquets  <fbusquets@xtec.cat>	
+
+	* src/author/edu/xtec/jclic/boxes/ActiveBagContentControlPanel.java: Bug #38 solved.
+	Data loss when editing crosswords. It was caused by a cleanup of excessive cells, 
+	incorrectly applied to CrossWord activities.

@@ -1,0 +1,597 @@
+# Bosnian translation for jclic
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2012-05-19 14:49+0000\n"
+"Last-Translator: Meliha Gadara <meliha.gadara@edu.fit.ba>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: login_pwd
+msgid "Password:"
+msgstr "Lozinka:"
+
+#: login_desc
+msgid ""
+"You need to provide a valid password in order to access the reports database."
+msgstr ""
+"Morate osigurati validnu lozinku kako bi pristupili izvješću baze podataka."
+
+#: login_title
+msgid "Login"
+msgstr "Prijava"
+
+#: submit
+msgid "Submit..."
+msgstr "Pošalji..."
+
+#: login_incorrect
+msgid "Incorrect password!"
+msgstr "Netačna lozinka!"
+
+#: main_title
+msgid "Main menu"
+msgstr "Glavni izbornik"
+
+#: users_admin_title
+msgid "Users and groups admin"
+msgstr "Administrator korisnika i grupa"
+
+#: group_report_title
+msgid "Group reports"
+msgstr "Izvješća grupa"
+
+#: user_report_title
+msgid "User reports"
+msgstr "Izvješća korisnika"
+
+#: act_report_title
+msgid "Activity reports"
+msgstr "Izvješća aktivnosti"
+
+#: db_admin_title
+msgid "Database admin"
+msgstr "Administrator baze podataka"
+
+#: db_admin_settings_error
+msgid "Unable to set the new database values!"
+msgstr "Nije moguće podesiti nove vrijednosti baze podataka!"
+
+#: db_admin_param_agc
+msgid "Allow users to create new groups"
+msgstr "Dopustiti korisnicima kreiranje novih grupa"
+
+#: db_admin_param_auc
+msgid "Allow users to create new users"
+msgstr "Dopustiti korisnicima kreiranje novih korisnika"
+
+#: db_admin_param_shgl
+msgid "Select group in a list"
+msgstr "Odaberi grupu u listi"
+
+#: db_admin_param_shul
+msgid "Select user name in a list"
+msgstr "Odaberi korisničko ime u listi"
+
+#: db_admin_param_ut
+msgid "Database has tables of users and groups"
+msgstr "Baza podataka ima tabele korisnika i grupa"
+
+#: db_admin_edit_btn
+msgid "Edit settings..."
+msgstr "Uredi postavke..."
+
+#: db_admin_pw_edit_btn
+msgid "Set password..."
+msgstr "Podesi lozinku..."
+
+#: title
+msgid "Title"
+msgstr "Naslov"
+
+#: db_admin_edit_title
+msgid "Edit database settings"
+msgstr "Uredi postavke baze podataka"
+
+#: db_admin_pw_edit_title
+msgid "Change system password"
+msgstr "Promjeni lozinku sistema"
+
+#: db_admin_pw_newPwd
+msgid "New password"
+msgstr "Nova lozinka"
+
+#: db_admin_pw_verifyPwd
+msgid "Retype password"
+msgstr "Ponovo unesite lozinku"
+
+#: db_admin_pw_noFit
+msgid "Password fields don't fit!"
+msgstr "Polja lozinke se ne uklapaju!"
+
+#: report_group
+msgid "Group:"
+msgstr "Grupa:"
+
+#: report_user
+msgid "User:"
+msgstr "Korisnik:"
+
+#: report_project
+msgid "Project:"
+msgstr "Projekt:"
+
+#: report_all_projects
+msgid "All projects"
+msgstr "Svi projekti"
+
+#: report_key
+msgid "Key:"
+msgstr "Tipka:"
+
+#: report_code
+msgid "Code:"
+msgstr "Kod"
+
+#: report_context
+msgid "Context:"
+msgstr "Objašnjenje:"
+
+#: report_from
+msgid "From:"
+msgstr "Od:"
+
+#: month_1
+msgid "january"
+msgstr "januar"
+
+#: month_2
+msgid "february"
+msgstr "februar"
+
+#: month_3
+msgid "march"
+msgstr "mart"
+
+#: month_4
+msgid "april"
+msgstr "april"
+
+#: month_5
+msgid "may"
+msgstr "maj"
+
+#: month_6
+msgid "june"
+msgstr "juni"
+
+#: month_7
+msgid "july"
+msgstr "juli"
+
+#: month_8
+msgid "august"
+msgstr "august"
+
+#: month_9
+msgid "september"
+msgstr "septembar"
+
+#: month_10
+msgid "october"
+msgstr "oktobar"
+
+#: month_11
+msgid "november"
+msgstr "novembar"
+
+#: month_12
+msgid "december"
+msgstr "decembar"
+
+#: report_to
+msgid "To:"
+msgstr "Do:"
+
+#: report_global_precision
+msgid "Global precision"
+msgstr "Globalna preciznost"
+
+#: report_solved_activities
+msgid "Solved activities"
+msgstr "Rješene aktivnosti"
+
+#: report_user_evolution
+msgid "User evolution"
+msgstr "Razvoj korisnika"
+
+#: report_group_evolution
+msgid "Group evolution"
+msgstr "Razvoj grupe"
+
+#: report_project_evolution
+msgid "Project evolution"
+msgstr "Razvoj projekta"
+
+#: report_result_distribution
+msgid "Result distribution"
+msgstr "Rezultat distribucije"
+
+#: report_no_data
+msgid "NO DATA"
+msgstr "NEMA PODATAKA"
+
+#: report_users
+msgid "Users:"
+msgstr "Korisnici:"
+
+#: report_sessions
+msgctxt "report_sessions"
+msgid "Sessions:"
+msgstr "Sesije:"
+
+#: report_projects
+msgid "Projects:"
+msgstr "Projekti:"
+
+#: report_actDone
+msgid "Activities done:"
+msgstr "Urađene aktivnosti:"
+
+#: report_actSolved
+msgid "Activities solved:"
+msgstr "Rješene aktivnosti:"
+
+#: report_totalTime
+msgid "Total time:"
+msgstr "Ukupno vrijeme:"
+
+#: report_globalPrec
+msgid "Global score:"
+msgstr "Ukupan rezultat:"
+
+#: report_globalSummary
+msgid "Global summary"
+msgstr "Globalni pregled"
+
+#: report_header_date
+msgid "date"
+msgstr "datum"
+
+#: report_session_list
+msgctxt "report_session_list"
+msgid "Sessions:"
+msgstr "Sesije:"
+
+#: report_header_user
+msgid "user"
+msgstr "korisnik"
+
+#: report_header_project
+msgid "project"
+msgstr "projekt"
+
+#: report_header_numActs
+msgid "activities"
+msgstr "aktivnosti"
+
+#: report_header_actsSolved
+msgid "acts. solved"
+msgstr "akt.rješene"
+
+#: report_header_time
+msgid "time"
+msgstr "vrijeme"
+
+#: report_header_prec
+msgid "score"
+msgstr "rezultat"
+
+#: report_session_detail_show
+msgid "show session details"
+msgstr "pokaži datelje sesije"
+
+#: report_session_detail_title
+msgid "Activities done in session"
+msgstr "Urađene aktivnosti u sesiji"
+
+#: report_header_activity
+msgid "activity"
+msgstr "aktivnost"
+
+#: report_header_actions
+msgid "actions"
+msgstr "akcije"
+
+#: report_header_score
+msgid "corrects"
+msgstr "ispravke"
+
+#: report_header_solved
+msgid "ok"
+msgstr "uredu"
+
+#: Y
+msgctxt "Y"
+msgid "Y"
+msgstr "Y"
+
+#: N
+msgctxt "N"
+msgid "N"
+msgstr "N"
+
+#: report_session_detail_hide
+msgid "hide session details"
+msgstr "sakrij detalje sesije"
+
+#: report_header_sessions
+msgid "sessions"
+msgstr "sesije"
+
+#: report_all_activities
+msgid "All activities"
+msgstr "Sve aktivnosti"
+
+#: report_activity
+msgid "Activity:"
+msgstr "Aktivnost:"
+
+#: report_many
+msgid "several"
+msgstr "nekoliko"
+
+#: report_n_users
+msgid "users"
+msgstr "korisnici"
+
+#: group_admin_title
+msgid "Groups administration"
+msgstr "Administracija grupa"
+
+#: group_admin_new_button
+msgid "New group..."
+msgstr "Nova grupa..."
+
+#: group_admin_groups
+msgid "Groups"
+msgstr "Grupe"
+
+#: report_actions
+msgid "Actions"
+msgstr "Akcije"
+
+#: group_admin_edit_button
+msgctxt "group_admin_edit_button"
+msgid "Edit..."
+msgstr "Uredi..."
+
+#: user_admin_title
+msgid "User admin"
+msgstr "Korisnik administrator"
+
+#: group_admin_delete_button
+msgctxt "group_admin_delete_button"
+msgid "Delete..."
+msgstr "Obriši..."
+
+#: group_admin_clear_button
+msgctxt "group_admin_clear_button"
+msgid "Clear reports..."
+msgstr "Obriši izvještaje..."
+
+#: group_admin_properties
+msgid "Group properties"
+msgstr "Karakteristike grupe"
+
+#: group_admin_name
+msgctxt "group_admin_name"
+msgid "Name:"
+msgstr "Naziv:"
+
+#: group_admin_id
+msgctxt "group_admin_id"
+msgid "Identifier:"
+msgstr "Identifikator:"
+
+#: group_admin_icon
+msgctxt "group_admin_icon"
+msgid "Icon:"
+msgstr "Ikona:"
+
+#: error
+msgid "ERROR"
+msgstr "GREŠKA"
+
+#: return
+msgid "return..."
+msgstr "vrati..."
+
+#: group_admin_users
+msgid "Users"
+msgstr "Korisnici"
+
+#: group_admin_no_users
+msgid "This group has no users."
+msgstr "Grupa nema korisnika."
+
+#: group_admin_create_user_button
+msgid "Create a new user..."
+msgstr "Kreirajte novog korisnika..."
+
+#: cancel
+msgid "Cancel"
+msgstr "Odustani"
+
+#: group_admin_invalid_name
+msgid "Incorrect group name!"
+msgstr "Netačan naziv grupe!"
+
+#: group_admin_invalid_id
+msgid "Incorrect group identifier!"
+msgstr "Netačan identifikator grupe!"
+
+#: group_admin_id_already_exists
+msgid "There is another group with the same identifier in the database!"
+msgstr "Postoji druga grupa s istim identifikatorom u bazi podataka!"
+
+#: group_admin_delete_group
+msgid "Delete group"
+msgstr "Obriši grupu"
+
+#: report_areyousure
+msgid "Are you sure?"
+msgstr "Da li ste sigurni?"
+
+#: YES
+msgid "Yes"
+msgstr "Da"
+
+#: NOT
+msgid "Not"
+msgstr "Ne"
+
+#: group_admin_delete_group_explain
+msgid ""
+"This operation will also delete on the database all users of this group. All "
+"data of these users will be lost."
+msgstr ""
+"Ova operacija će također izbrisati sve korisnike ove grupe. Svi podaci od "
+"ovih korisnika će biti izgubljeni."
+
+#: db_error
+msgid "Unable to complete the task."
+msgstr "Nije moguće završiti zadatak."
+
+#: group_admin_clear_group
+msgid "Clear report data of group"
+msgstr "Obriši izvještaje o podacima iz grupe"
+
+#: group_admin_clear_group_explain
+msgid ""
+"This operation will clear all the reports of the activities done by the "
+"members of this group between the specified dates."
+msgstr ""
+"Ovaj postupak će izbrisati sve izvještaje o aktivnostima učinjenim od strane "
+"članova ove grupe između navedenih datuma."
+
+#: db_clear_reports_date
+msgid "Clear report data"
+msgstr "Obriši izvještaje o podacima"
+
+#: user_admin_invalid_name
+msgid "Invalid user name."
+msgstr "Neispravno korisničko ime."
+
+#: user_admin_invalid_id
+msgid "Invalid user identifier"
+msgstr "Neispravan identifikator korisnika"
+
+#: user_admin_id_already_exists
+msgid "There is another user with the same identifier in the database!"
+msgstr "Postoji drugi korisnik s istim identifikatorom u bazi podataka!"
+
+#: user_admin_user_deleted
+msgid "The user was successfully deleted from the database."
+msgstr "Ovaj korisnik je uspješno izbrisan iz baze podataka."
+
+#: user_admin_id
+msgctxt "user_admin_id"
+msgid "Identifier:"
+msgstr "Identifikator:"
+
+#: user_admin_name
+msgctxt "user_admin_name"
+msgid "Name:"
+msgstr "Naziv:"
+
+#: user_admin_icon
+msgctxt "user_admin_icon"
+msgid "Icon:"
+msgstr "Ikona:"
+
+#: user_admin_edit_button
+msgctxt "user_admin_edit_button"
+msgid "Edit..."
+msgstr "Uredi..."
+
+#: user_admin_delete_button
+msgctxt "user_admin_delete_button"
+msgid "Delete..."
+msgstr "Obriši..."
+
+#: user_admin_clear_button
+msgctxt "user_admin_clear_button"
+msgid "Clear reports..."
+msgstr "Obriši izvještaje..."
+
+#: user_admin_delete_user
+msgid "Delete user"
+msgstr "Obriši korisnika"
+
+#: user_admin_delete_user_explain
+msgid ""
+"This operation will delete this user and his reports from the database."
+msgstr ""
+"Ovaj postupak će obrisati ovog korisnika i njegove izvještaje iz baze "
+"podataka."
+
+#: user_admin_clear_user
+msgid "Clear report data of user"
+msgstr "Obriši izvješća od podacima korisnika"
+
+#: user_admin_clear_user_explain
+msgid ""
+"This operation will clear all the reports of the activities done by this "
+"user between the specified dates."
+msgstr ""
+"Ovaj postupak će izbrisati sve izvještaje o aktivnostima učinjenim od strane "
+"ovog korisnika između navedenih datuma."
+
+#: success
+msgid "Operation successful"
+msgstr "Operacija uspješna"
+
+#: bad_data
+msgid "Bad data!"
+msgstr "Pogrešan podatak!"
+
+#: db_admin_param_lap
+msgid "Time between connections (seconds)\\:"
+msgstr "Vrijeme između konekcija (sekunde)\\:"
+
+#: jclic_reports
+msgid "JClic reports"
+msgstr "JClic izvješća"
+
+#: YES_SHORT
+msgctxt "YES_SHORT"
+msgid "Y"
+msgstr "Y"
+
+#: NOT_SHORT
+msgctxt "NOT_SHORT"
+msgid "N"
+msgstr "N"
+
+#: user_admin_pw_prompt
+msgid "Password\\:"
+msgstr "Lozinka\\:"
+
+#: user_admin_pw_prompt_confirm
+msgid "Confirm password\\:"
+msgstr "Potvrdi lozinku\\:"
+
+#: user_admin_err_bad_pw
+msgid "Passwords don't match\\!"
+msgstr "Lozinke se ne poklapaju\\!"

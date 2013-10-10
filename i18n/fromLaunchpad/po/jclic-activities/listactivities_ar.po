@@ -1,0 +1,126 @@
+# Arabic translation for jclic
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2011-03-26 09:11+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Arabic <ar@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: @associations.ComplexAssociation
+msgid ""
+"Complex association|In this activity there are also two sets of information, "
+"but these may have a different number of parts and there may be different "
+"types of relation between them e.g.: one-to-one, various to one, parts "
+"without a relation, etc."
+msgstr ""
+
+#: @associations.SimpleAssociation
+msgid ""
+"Simple association|There are two sets of information that have the same "
+"number of parts. Each part from the original set corresponds to one, and "
+"only one, part of the image set."
+msgstr ""
+
+#: @memory.MemoryGame
+msgid ""
+"Finding pairs|Each of the pieces appear twice, but face down. In each go two "
+"pieces are turned over and are turned back over if they are not the same. "
+"The objective is to find all the pairs."
+msgstr ""
+
+#: @panels.Explore
+msgid ""
+"Explore activity|An initial piece of information is shown and, upon clicking "
+"on it, a given piece of information is shown for each element."
+msgstr ""
+
+#: @panels.Identify
+msgid ""
+"Identify cells|There is just one set of information and you have to click on "
+"those parts that meet a certain condition."
+msgstr ""
+
+#: @panels.InformationScreen
+msgid ""
+"Information screen|One set of information is shown and there is the option "
+"of activating the multimedia content for each piece of information."
+msgstr ""
+
+#: @puzzles.DoublePuzzle
+msgid ""
+"Double puzzle|Two grids are shown. One contains the disordered information "
+"and the other is empty. The object has to be rearranged in the empty grid by "
+"dragging the pieces one by one."
+msgstr ""
+
+#: @puzzles.ExchangePuzzle
+msgid ""
+"Exchange puzzle|The information is swapped within the same panel. In each go "
+"two pieces swap position until the object is reordered."
+msgstr ""
+
+#: @puzzles.HolePuzzle
+msgid ""
+"Hole puzzle|In the same panel one piece is missing and the others are "
+"shuffled. In each go one of the pieces next to the empty space is moved "
+"until they are back in the original order."
+msgstr ""
+
+#: @text.WrittenAnswer
+msgid ""
+"Written answer|A set of information is shown and the corresponding text for "
+"each of its parts must be written."
+msgstr ""
+
+#: @text.FillInBlanks
+msgid ""
+"Text: Fill-in blanks|The user has to complete certain words, letters and "
+"phrases that have been hidden or camouflaged in a text. The solution of each "
+"of the elements may be set up in different ways: writing in a blank space; "
+"correcting a phrase that contains errors; or selecting from a list of "
+"various possible answers."
+msgstr ""
+
+#: @text.Identify
+msgid ""
+"Text: Identify elements|The user has to point out some words, letters, "
+"numbers, symbols or punctuation marks with a click of the mouse."
+msgstr ""
+
+#: @text.Order
+msgid ""
+"Text: Order elements|When designing this activity some of the words or "
+"paragraphs of a text are selected to be shuffled around. The user has to put "
+"them back in order."
+msgstr ""
+
+#: @text.Complete
+msgid ""
+"Text: Complete text|Various parts of a text (letters, words, punctuation "
+"signs, or phrases) are taken out and the user has to complete it."
+msgstr ""
+
+#: @textGrid.CrossWord
+msgid ""
+"Crosswords|The word table has to be completed according to its definitions. "
+"The definitions may be text, graphics or sound. The programme automatically "
+"shows the definitions of the two words which cross in the cursor position."
+msgstr ""
+
+#: @textGrid.WordSearch
+msgid ""
+"Word search|The hidden words have to be found in a grid of letters. The "
+"neutral cells in the grid (those with no word) are completed with characters "
+"chosen at random."
+msgstr ""

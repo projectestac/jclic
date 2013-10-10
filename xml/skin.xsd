@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="skin">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="dimension" id="preferredSize" minOccurs="0"/>
+				<xs:element ref="color" id="fill" minOccurs="0"/>
+				<xs:element ref="rectangle" id="frame"/>
+				<xs:element ref="rectangle" id="player"/>
+				<xs:element ref="rectangle" id="messages" minOccurs="0"/>
+				<xs:element ref="slicer"/>
+				<xs:element ref="statusBar" minOccurs="0"/>
+				<xs:element ref="buttons" minOccurs="0"/>
+				<xs:element ref="counters" minOccurs="0"/>
+				<xs:element ref="progressBar" minOccurs="0"/>
+				<xs:element ref="progressAnimation" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="class" type="xs:NCName" use="required"/>
+			<xs:attribute name="image" type="xs:string" use="required"/>
+			<xs:attribute name="name" type="xs:string" use="required"/>
+		</xs:complexType>
+		<xs:unique name="rectId">
+			<xs:selector xpath="./rectangle"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="slicer">
+		<xs:complexType>
+			<xs:attribute name="left" type="xs:integer" use="required"/>
+			<xs:attribute name="right" type="xs:integer" use="required"/>
+			<xs:attribute name="top" type="xs:integer" use="required"/>
+			<xs:attribute name="bottom" type="xs:integer" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="statusBar">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="style"/>
+				<xs:element ref="msgArea" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:unique name="msgAreaId">
+			<xs:selector xpath="./msgArea"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="msgArea">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="rectangle"/>
+				<xs:element ref="alignment"/>
+			</xs:sequence>
+			<xs:attribute name="id" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="main"/>
+						<xs:enumeration value="aux"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="alignment">
+		<xs:complexType>
+			<xs:attribute name="hAlign">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="left"/>
+						<xs:enumeration value="center"/>
+						<xs:enumeration value="right"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="vAlign">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="top"/>
+						<xs:enumeration value="center"/>
+						<xs:enumeration value="bottom"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="buttons">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="settings" minOccurs="0"/>
+				<xs:element ref="button" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:unique name="buttonId">
+			<xs:selector xpath="./button"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="button">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="settings" minOccurs="0"/>
+				<xs:element ref="point"/>
+				<xs:element ref="point"/>
+			</xs:sequence>
+			<xs:attribute name="id" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="prev"/>
+						<xs:enumeration value="next"/>
+						<xs:enumeration value="reset"/>
+						<xs:enumeration value="help"/>
+						<xs:enumeration value="info"/>
+						<xs:enumeration value="about"/>
+						<xs:enumeration value="audio"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="toggle" type="xs:boolean" default="false"/>
+		</xs:complexType>
+		<xs:unique name="pointId">
+			<xs:selector xpath="./point"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="counters">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="settings" minOccurs="0"/>
+				<xs:element ref="style" minOccurs="0"/>
+				<xs:element ref="digits" minOccurs="0"/>
+				<xs:element ref="counter" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:unique name="counterId">
+			<xs:selector xpath="./counter"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="digits">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="dimension"/>
+				<xs:element ref="point"/>
+			</xs:sequence>
+			<xs:attribute name="align" default="down">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="down"/>
+						<xs:enumeration value="right"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="counter">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="point"/>
+				<xs:element ref="point"/>
+			</xs:sequence>
+			<xs:attribute name="id" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="score"/>
+						<xs:enumeration value="actions"/>
+						<xs:enumeration value="time"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+		<xs:unique name="counterPointId">
+			<xs:selector xpath="./point"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="progressBar">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="rectangle"/>
+				<xs:element ref="style" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="autoHide" type="xs:boolean" default="true"/>
+			<xs:attribute name="border" type="xs:boolean" default="false"/>
+			<xs:attribute name="showPercent" type="xs:boolean" default="true"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="progressAnimation">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="dimension"/>
+				<xs:element ref="point"/>
+				<xs:element ref="point"/>
+			</xs:sequence>
+			<xs:attribute name="frames" type="xs:integer" use="required"/>
+			<xs:attribute name="delay" type="xs:integer" use="required"/>
+			<xs:attribute name="step" type="xs:integer" use="required"/>
+			<xs:attribute name="direction" default="right">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="right"/>
+						<xs:enumeration value="bottom"/>
+						<xs:enumeration value="left"/>
+						<xs:enumeration value="top"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="autoHide" type="xs:boolean" default="true"/>
+		</xs:complexType>
+		<xs:unique name="progressAnimPointId">
+			<xs:selector xpath="./point"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="dimension">
+		<xs:complexType>
+			<xs:attribute name="id">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="preferredSize"/>
+						<xs:enumeration value="counter"/>
+						<xs:enumeration value="label"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="width" type="xs:integer" use="required"/>
+			<xs:attribute name="height" type="xs:integer" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="color">
+		<xs:complexType>
+			<xs:attribute name="id">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="background"/>
+						<xs:enumeration value="foreground"/>
+						<xs:enumeration value="fill"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="value" type="xs:NMTOKEN" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="rectangle">
+		<xs:complexType>
+			<xs:attribute name="id">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="frame"/>
+						<xs:enumeration value="player"/>
+						<xs:enumeration value="messages"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="left" type="xs:integer" use="required"/>
+			<xs:attribute name="top" type="xs:integer" use="required"/>
+			<xs:attribute name="width" type="xs:integer" use="required"/>
+			<xs:attribute name="height" type="xs:integer" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="style">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="font"/>
+				<xs:element ref="color"/>
+			</xs:sequence>
+			<xs:attribute name="margin" type="xs:integer"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="font">
+		<xs:complexType>
+			<xs:attribute name="id" type="xs:NCName"/>
+			<xs:attribute name="family" type="xs:NCName" use="required"/>
+			<xs:attribute name="size" type="xs:integer" use="required"/>
+			<xs:attribute name="bold" type="xs:boolean"/>
+			<xs:attribute name="italics" type="xs:boolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="settings">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="dimension" maxOccurs="unbounded"/>
+				<xs:element ref="offset" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:unique name="offsetId">
+			<xs:selector xpath="./offset"/>
+			<xs:field xpath="@id"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="offset">
+		<xs:complexType>
+			<xs:attribute name="id" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="active"/>
+						<xs:enumeration value="over"/>
+						<xs:enumeration value="disabled"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="down" type="xs:integer" use="required"/>
+			<xs:attribute name="right" type="xs:integer" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="point">
+		<xs:complexType>
+			<xs:attribute name="id" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="pos"/>
+						<xs:enumeration value="source"/>
+						<xs:enumeration value="counter"/>
+						<xs:enumeration value="label"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="left" type="xs:integer" use="required"/>
+			<xs:attribute name="top" type="xs:integer" use="required"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

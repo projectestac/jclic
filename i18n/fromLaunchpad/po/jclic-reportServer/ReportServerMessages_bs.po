@@ -1,0 +1,313 @@
+# Bosnian translation for jclic
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2012-05-19 14:03+0000\n"
+"Last-Translator: Meliha Gadara <meliha.gadara@edu.fit.ba>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: error_serverCannotStart
+msgid "Unable to start server!"
+msgstr "Nije moguće pokrenuti poslužitelj!"
+
+#: error_incorrectData
+msgid "Incorrect data!"
+msgstr "Netačni podaci!"
+
+#: column_IP_title
+msgid "IP"
+msgstr "IP"
+
+#: column_port_title
+msgid "Port"
+msgstr "Priključak"
+
+#: column_started_title
+msgid "Started"
+msgstr "Započeto"
+
+#: column_lastMessage_title
+msgid "Last message"
+msgstr "Zadnja poruka"
+
+#: column_IP_tooltip
+msgid "Client IP address"
+msgstr "IP adresa korisnika"
+
+#: column_port_tooltip
+msgid "Local port used in this connection"
+msgstr "Lokalni priključak korišten u ovoj konekciji"
+
+#: column_started_tooltip
+msgid "Date and time at witch the connection was started"
+msgstr "Datum i vrijeme kada je konekcija započeta"
+
+#: column_lastMessage_tooltip
+msgid "Header of the last received message"
+msgstr "Zaglavlje posljednje primljene poruke"
+
+#: error_propertiesFile_beg
+msgid "Unable to load the properties file \""
+msgstr "Nije moguće učitati karakteristike datoteke\""
+
+#: error_propertiesFile_end
+msgid "\" Using default settings."
+msgstr "Upotrebljavanje standardnih podešavanja."
+
+#: form_title
+msgid "JClic reports server"
+msgstr "JClic poslužitelj izvješća"
+
+#: form_connections_title
+msgid "Connections:"
+msgstr "Konekcije:"
+
+#: form_messages_title
+msgid "System messages:"
+msgstr "Poruke sistema:"
+
+#: form_settings_title
+msgid "Settings:"
+msgstr "Podešavanja:"
+
+#: form_connections_close
+msgid "Close connection"
+msgstr "Zatvori konekciju"
+
+#: form_connections_close_tooltip
+msgid "Close the selected connection"
+msgstr "Zatvori odabranu konekciju"
+
+#: form_settings_driver
+msgctxt "form_settings_driver"
+msgid "Driver:"
+msgstr "Drajver:"
+
+#: form_settings_driver_tooltip
+msgid "JDBC driver to use for connect to the database"
+msgstr "JDBC drajver koji se koristi za konekciju s bazom podataka"
+
+#: form_settings_database
+msgid "Database:"
+msgstr "Baza podataka:"
+
+#: form_settings_database_tooltip
+msgid "Name of the reports database"
+msgstr "Naziv baze izvješća"
+
+#: form_settings_port
+msgctxt "form_settings_port"
+msgid "Port:"
+msgstr "Priključak:"
+
+#: form_settings_port_tooltip
+msgid "TCP port where the server will listen for connections"
+msgstr ""
+
+#: form_settings_password_tooltip
+msgid "System DB password"
+msgstr "Poslužitelj DB lozinka"
+
+#: form_settings_password
+msgctxt "form_settings_password"
+msgid "Password:"
+msgstr "Lozinka:"
+
+#: form_settings_user_tooltip
+msgid "System DB user name"
+msgstr "Poslužitelj DB korisničko ime"
+
+#: form_settings_user
+msgid "User:"
+msgstr "Korisnik:"
+
+#: ERROR
+msgid "ERROR"
+msgstr "GREŠKA"
+
+#: form_settings_timeout
+msgctxt "form_settings_timeout"
+msgid "Timeout:"
+msgstr "Vrijeme isticanja:"
+
+#: form_settings_timeout_tooltip
+msgid "Maximum inactivity seconds allowed to connections"
+msgstr "Maksimalno dozvoljeno trajanje neaktivnosti za konekcije."
+
+#: form_btn_start
+msgid "Start"
+msgstr "Početak"
+
+#: form_btn_stop
+msgid "Stop"
+msgstr "Zaustavi"
+
+#: form_btn_exit
+msgid "Exit"
+msgstr "Izlaz"
+
+#: form_btn_exit_tooltip
+msgid "Stop server and shutdown program"
+msgstr "Zaustavi poslužitelj i ugasi program"
+
+#: form_btn_stop_tooltip
+msgid "Close all connections and stop server"
+msgstr "Zatvori sve konekcije i zaustavi poslužitelj"
+
+#: form_btn_start_tooltip
+msgid "Begin listening for clients"
+msgstr "Započni komunikaciju za klijente"
+
+#: form_messages_verbose
+msgid "Verbose"
+msgstr "Detaljnije"
+
+#: form_messages_verbose_tooltip
+msgid "Display all messages"
+msgstr "Prikaži sve poruke"
+
+#: form_messages_copy
+msgid "Copy to clipboard"
+msgstr "Kopiraj u međuspremnik"
+
+#: form_messages_copy_tooltip
+msgid "Copy the console output to clipboard"
+msgstr "Kopiraj konzolni izlaz u međuspremnik"
+
+#: form_messages_clear
+msgid "Clear"
+msgstr "Obriši"
+
+#: form_messages_clear_tooltip
+msgid "Clears the console output"
+msgstr "Obriši konzolni izlaz"
+
+#: error_DB
+msgid "Requested action could not be completed"
+msgstr "Zadana akcije se ne može ispuniti"
+
+#: settings_title
+msgid "JClic reports server settings"
+msgstr "JClic postavke poslužitelja izvješća"
+
+#: settings_options_title
+msgid "Options"
+msgstr "Opcije"
+
+#: settings_options_language
+msgid "Language:"
+msgstr "Jezik:"
+
+#: settings_options_look
+msgid "Look & feel:"
+msgstr ""
+
+#: settings_db_title
+msgid "Database"
+msgstr "Baza podataka"
+
+#: settings_db_driver
+msgctxt "settings_db_driver"
+msgid "Driver:"
+msgstr "Drajver:"
+
+#: settings_options_tooltips
+msgid "Tooltips"
+msgstr "Pojašnjenja"
+
+#: settings_db_url
+msgid "URL:"
+msgstr "URL:"
+
+#: settings_db_usr
+msgid "DB user:"
+msgstr "DB korisnik:"
+
+#: settings_db_pwd
+msgctxt "settings_db_pwd"
+msgid "Password:"
+msgstr "Lozinka:"
+
+#: settings_server_title
+msgid "Reports server"
+msgstr "Poslužitelj izvješća"
+
+#: settings_server_timeout
+msgctxt "settings_server_timeout"
+msgid "Timeout:"
+msgstr "Vrijeme isticanja:"
+
+#: settings_server_port
+msgctxt "settings_server_port"
+msgid "Port:"
+msgstr "Priključak:"
+
+#: settings_server_autostart
+msgid "Autostart"
+msgstr "Automatsko pokretanje"
+
+#: settings_web_title
+msgid "Web server"
+msgstr "Web poslužitelj"
+
+#: settings_server_logFile
+msgid "Write logs to file:"
+msgstr "Zapiši prijave u datoteku:"
+
+#: settings_button
+msgid "Settings..."
+msgstr "Podešavanja..."
+
+#: error_writting_settings
+msgid "Error writting settings file!"
+msgstr "Greška prilikom pisanja postavki datoteke!"
+
+#: form_btn_show
+msgid "launch browser..."
+msgstr "pokrenuti preglednik..."
+
+#: error_starting_browser
+msgid "Error launching browser!"
+msgstr "Greška pri pokretanju preglednika!"
+
+#: error_opening_logs
+msgid "Error opening log files!"
+msgstr "Greška pri otvaranju datoteka za prijavljivanje!"
+
+#: settings_file
+msgid "File..."
+msgstr "Datoteka..."
+
+#: settings_tablePrefix
+msgid "Table names prefix:"
+msgstr "Prefiks tabele imena:"
+
+#: settings_createTables
+msgid "Create tables if not exist"
+msgstr "Kreirajte tabele ako ne postoje"
+
+#: settings_session_lifetime
+msgid "Session lifetime (minutes)\\:"
+msgstr "Trajanje sesije(minute)\\:"
+
+#: settings_browser
+msgid "Preferred browser\\:"
+msgstr "Omiljeni preglednik\\:"
+
+#: settings_browser_tooltip
+msgid ""
+"Command used to launch the browser (firefox, iexplore, mozilla, opera...)"
+msgstr ""
+"Komande upotrebljene za pokretanje preglednika (firefox, iexplore, mozilla, "
+"opera...)"

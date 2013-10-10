@@ -1,0 +1,828 @@
+# Russian translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2009-12-18 17:43+0000\n"
+"Last-Translator: Artem Vorotnikov <Unknown>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. # JClic player messages
+#: m_File
+msgid "File"
+msgstr "Файл"
+
+#: settings_passwordRequired
+msgid "JClic admin password is required in order to perform this operation."
+msgstr "Для выполнения этого действия требуется пароль администратора JClic."
+
+#: m_Help
+msgid "Help"
+msgstr "Справка"
+
+#: m_Skin
+msgid "Skin"
+msgstr "Скин"
+
+#: action_helpAbout_caption
+msgid "About..."
+msgstr "О программе..."
+
+#: libraryManager_mainLibraryTitle
+msgid "Main library"
+msgstr "Основная библиотека"
+
+#: library_badFormat
+msgid ""
+"This JClic file is not a project library!\n"
+"Libraries are a special type of JClic projects."
+msgstr ""
+"Этот файл JClic не библиотека проекта!\n"
+"Бибилотеки - это специальный тип проектов JClic."
+
+#: library_mainMenu
+msgid "Main menu"
+msgstr "Главное меню"
+
+#: library_newLibraryName
+msgctxt "library_newLibraryName"
+msgid "New project library"
+msgstr "Новая библиотека проекта"
+
+#: libraryManager_new_prompt
+msgid "Do you want to create a new library or connect to a existing one?"
+msgstr "Вы хотите создать новую библиотеку или подключить существующую?"
+
+#: libraryManager_connectToLibrary
+msgid "Connect"
+msgstr "Подключить"
+
+#: libraryManager_createNewLibrary
+msgctxt "libraryManager_createNewLibrary"
+msgid "New"
+msgstr "Создать"
+
+#: libraryManager_new_tooltip
+msgid "Create or connect to a new library"
+msgstr "Создать или подключить новую библиотеку"
+
+#: libraryManager_new_caption
+msgctxt "libraryManager_new_caption"
+msgid "New"
+msgstr "Создать"
+
+#: menuElement_dlg_icon_tooltip
+msgid "Button icon"
+msgstr "Значок кнопки"
+
+#: menuElement_dlg_description_tooltip
+msgid "Description of the button, used as a tooltip text."
+msgstr "Описание кнопки, используемое как текст подсказки"
+
+#: menuElement_dlg_description
+msgid "Description:"
+msgstr "Описание:"
+
+#: edit_find_image
+msgid "Find image..."
+msgstr "Найти изображение..."
+
+#: menuElement_dlg_icon
+msgid "Icon:"
+msgstr "Значок:"
+
+#: edit_find_file
+msgid "Find file..."
+msgstr "Найти файл..."
+
+#: menuElement_dlg_project_tooltip
+msgid "Path to JClic project"
+msgstr "Путь к JClic проекту"
+
+#: menuElement_dlg_project
+msgid "Project:"
+msgstr "Проект:"
+
+#: menuElement_dlg_text_tooltip
+msgid "Button text"
+msgstr "Текст кнопки"
+
+#: edit_text
+msgid "Text:"
+msgstr "Текст:"
+
+#: menu_dlg_name_tooltip
+msgid "Folder name"
+msgstr "Имя папки"
+
+#: library_dlg_name_tooltip
+msgid "Library name"
+msgstr "Название библиотеки"
+
+#: edit_name
+msgid "Name:"
+msgstr "Название:"
+
+#: edit_title
+msgid "Title:"
+msgstr "Заголовок:"
+
+#: library_dlg_title
+msgid "Library properties"
+msgstr "Свойства библиотеки"
+
+#: menu_dlg_title
+msgid "Folder properties"
+msgstr "Свойства папки"
+
+#: menuElement_dlg_title
+msgid "Button properties"
+msgstr "Свойства кнопки"
+
+#: menu_delete_tooltip
+msgid "Delete current menu"
+msgstr "Удалить текущее меню"
+
+#: menu_delete_caption
+msgctxt "menu_delete_caption"
+msgid "Delete"
+msgstr "Удалить"
+
+#: menuElement_delete_tooltip
+msgid "Delete current menu element"
+msgstr "Удалить элемент текущего меню"
+
+#: action_libraries_caption
+msgid "Libraries..."
+msgstr "Библиотеки..."
+
+#: dlg_save_title
+msgid "Save file..."
+msgstr "Сохранить файл..."
+
+#: error_propertiesFile_beg
+msgid "Error opening \""
+msgstr "Ошибка открытия \""
+
+#: error_propertiesFile_end
+msgid "\". Defaults will be used."
+msgstr "\". Будет использован стандартный."
+
+#: menuElement_delete_caption
+msgctxt "menuElement_delete_caption"
+msgid "Delete"
+msgstr "Удалить"
+
+#: menu_newMenuElement_tooltip
+msgid "Create a new shortcut to a project"
+msgstr "Создать новый ярлык проекта"
+
+#: menu_newMenuName
+msgid "New folder"
+msgstr "Новая папка"
+
+#: menu_newMenu_tooltip
+msgid "Create a new folder for project buttons"
+msgstr "Создать новую папку для кнопок проекта"
+
+#: menu_newMenu_caption
+msgid "New button's folder"
+msgstr "Новая папка кнопок"
+
+#: menu_newMenuElement_caption
+msgid "New project button"
+msgstr "Новая кнопка проекта"
+
+#: menu_newMenuElementName
+msgid "New button"
+msgstr "Новая кнопка"
+
+#: library_cancel_tooltip
+msgid "Cancel changes"
+msgstr "Отменить изменения"
+
+#: library_cancel_caption
+msgctxt "library_cancel_caption"
+msgid "Cancel"
+msgstr "Отмена"
+
+#: libraryManager_edit_tooltip
+msgid "Edit selected library"
+msgstr "Изменить выбранную библиотеку"
+
+#: libraryManager_edit_caption
+msgid "Edit"
+msgstr "Изменить"
+
+#: library_select_caption_ok_tooltip
+msgid "Save changes"
+msgstr "Сохранить изменения"
+
+#: library_select_caption_tooltip
+msgid "Choose selected folder"
+msgstr "Выбрать выделенную папку"
+
+#: library_select_caption_ok
+msgid "Ok"
+msgstr "Ok"
+
+#: library_select_caption
+msgctxt "library_select_caption"
+msgid "Select"
+msgstr "Выбрать"
+
+#: library_caption
+msgid "JClic projects library"
+msgstr "Библиотека проектов JClic"
+
+#: libraryManager_select_tooltip
+msgid "Open the selected library"
+msgstr "Открыть выбранную библиотеку"
+
+#: libraryManager_cancel_tooltip
+msgctxt "libraryManager_cancel_tooltip"
+msgid "Cancel"
+msgstr "Отмена"
+
+#: libraryManager_cancel_caption
+msgctxt "libraryManager_cancel_caption"
+msgid "Cancel"
+msgstr "Отмена"
+
+#: libraryManager_select_caption
+msgctxt "libraryManager_select_caption"
+msgid "Select"
+msgstr "Выбрать"
+
+#: libraryManager_caption
+msgid "Select library"
+msgstr "Выбрать библиотеку"
+
+#: library_error_reading
+msgid "Error reading project library!"
+msgstr "Ошибка чтения библиотеки проекта!"
+
+#: wizard_next
+msgid "Next >"
+msgstr "Далее >"
+
+#: wizard_prev
+msgid "< Previous"
+msgstr "< Назад"
+
+#: wizard_finish
+msgid "Finish"
+msgstr "Закончить"
+
+#: library_error_creating_icons
+msgid "Error creating library icons!"
+msgstr "Ошибка создания значка библиотеки!"
+
+#: install_title
+msgid "Installation of JClic projects"
+msgstr "Установка проектов JClic"
+
+#: install_info_description
+msgid "Installation of a new JClic project"
+msgstr "Установка нового проекта JClic"
+
+#: install_info_from
+msgid "From:"
+msgstr "От:"
+
+#: wizard_cancel
+msgctxt "wizard_cancel"
+msgid "Cancel"
+msgstr "Отмена"
+
+#: wizard_cancel_tooltip
+msgid "Cancel the operation"
+msgstr "Отменить операцию"
+
+#: wizard_finish_tooltip
+msgid "Finish the operation"
+msgstr "Завершить операцию"
+
+#: wizard_next_tooltip
+msgid "Next step of the operation"
+msgstr "Следующий шаг"
+
+#: wizard_prev_tooltip
+msgid "Previous step of the operation"
+msgstr "Предыдущий шаг"
+
+#: install_select_library
+msgid "Select the library where to install the project:"
+msgstr "Выберите библиотеку, куда установить проект:"
+
+#: install_copy_files
+msgid "File copy"
+msgstr "Копирование файла"
+
+#: install_source
+msgid "Source:"
+msgstr "Источник:"
+
+#: install_dest
+msgid "Destination:"
+msgstr "Назначение:"
+
+#: install_status
+msgid "Status:"
+msgstr "Состояние:"
+
+#: install_start
+msgid "Start the installation"
+msgstr "Начало установки"
+
+#: install_start_tooltip
+msgid "Start the copy of files to your computer"
+msgstr "Начало копирования файлов на ваш компьютер"
+
+#: install_progress_tooltip
+msgid "Progress of the installation"
+msgstr "Состояние установки"
+
+#: install_msg_waiting
+msgid "Waiting for confirmation."
+msgstr "Ожидание подтверждения."
+
+#: install_msg_creating_dirs
+msgid "Creating directories"
+msgstr "Создание папок"
+
+#: install_msg_copying
+msgid "Copying file"
+msgstr "Копирование файла"
+
+#: install_msg_end
+msgid "Finished!"
+msgstr "Завершено!"
+
+#: install_msg_cleanup
+msgid "Performing cleanup..."
+msgstr "Подготовка очистки..."
+
+#: install_msg_cancel
+msgid "Installation cancelled!"
+msgstr "Установка отменена!"
+
+#: install_error
+msgid "Install error!"
+msgstr "Ошибка установки!"
+
+#: install_select_folder
+msgid "Select the folder where to place the project icons:"
+msgstr "Выберите папку для размещения значков проекта:"
+
+#: install_library_folders
+msgid "Library folders:"
+msgstr "Папки библиотек:"
+
+#: install_success_1
+msgid "The project are now installed on your system!"
+msgstr "Проект установлен на вашем компьютере!"
+
+#: install_success_2
+msgid "In order to run it, select its"
+msgstr "Для его запуска, выберите его"
+
+#: install_success_3
+msgid "icon on the project library."
+msgstr "значок в библиотеке проекта."
+
+#: wizard_info
+msgid "Press \"Next\" to start."
+msgstr "Нажмите \"Далее\" для начала."
+
+#: install_step_1
+msgid "1. Selection of JClic library"
+msgstr "1. Выбор библиотеки JClic"
+
+#: install_step_2
+msgid "2. Download files"
+msgstr "2. Загрузка файлов"
+
+#: install_step_3
+msgid "3. Creation of icons"
+msgstr "3. Создание значков"
+
+#: install_step_4
+msgid "Installation finished!"
+msgstr "Установка завершена!"
+
+#: install_info_info
+msgid "You request to install the project:"
+msgstr "Вы просите установить проект"
+
+#: settings_title
+msgid "Settings"
+msgstr "Настройки"
+
+#: library_error_clone
+msgid "Unable to clone library!"
+msgstr "Невозможно клонировать библиотеку!"
+
+#: settings_security
+msgid "Security"
+msgstr "Безопасность"
+
+#: settings_password_protect
+msgid "Protect settings with password"
+msgstr "Защита настроек паролем"
+
+#: settings_new_password
+msgid "New password:"
+msgstr "Новый пароль:"
+
+#: settings_new_password_confirm
+msgid "Confirm new password:"
+msgstr "Повторите новый пароль:"
+
+#: settings_general
+msgid "General"
+msgstr "Общие"
+
+#: settings_look
+msgid "Look & Feel:"
+msgstr "Смотри и Чувствуй (дизайн):"
+
+#: settings_skin
+msgid "Skin:"
+msgstr "Скин:"
+
+#: settings_language
+msgid "Language:"
+msgstr "Язык:"
+
+#: settings_reports
+msgid "Reports"
+msgstr "Отчёты"
+
+#: settings_report_use
+msgid "Write scores to a database"
+msgstr "Запись результатов в базу данных"
+
+#: settings_report_engine
+msgid "Reporter class:"
+msgstr "Класс отчитывающегося:"
+
+#: settings_report_params
+msgid "Parameters:"
+msgstr "Параметры:"
+
+#: settings_media
+msgid "Multimedia"
+msgstr "Мультимедиа"
+
+#: settings_media_enabled
+msgid "Multimedia enabled"
+msgstr "Мультимедиа включена"
+
+#: settings_media_system
+msgid "Multimedia system:"
+msgstr "Мультимедийная система:"
+
+#: settings_media_event_sounds
+msgid "Event sounds enabled"
+msgstr "Звуки событий включены"
+
+#: settings_library
+msgid "Libraries"
+msgstr "Библиотеки"
+
+#: settings_library_autorun
+msgid "Automatically go to libraries when JClic starts"
+msgstr "Автоматически переходить к библиотекам при запуске JClic"
+
+#: m_Tools
+msgid "Tools"
+msgstr "Сервис"
+
+#: m_File_Mnemonic
+msgid "F"
+msgstr "Ф"
+
+#: m_Tools_Mnemonic
+msgctxt "m_Tools_Mnemonic"
+msgid "T"
+msgstr "Е"
+
+#: m_Help_Mnemonic
+msgid "H"
+msgstr "С"
+
+#: m_Activity
+msgid "Activity"
+msgstr "Активность"
+
+#: m_Activity_Mnemonic
+msgid "A"
+msgstr "А"
+
+#: action_openFile_caption
+msgid "Open file..."
+msgstr "Открыть файл..."
+
+#: action_openFile_tooltip
+msgid "Open a JClic project file"
+msgstr "Открыть файл проекта JClic"
+
+#: action_openFile_keys
+msgid "OO"
+msgstr "OO"
+
+#: action_openUrl_caption
+msgid "Open URL..."
+msgstr "Открыть URL..."
+
+#: action_openUrl_tooltip
+msgid "Open a JClic project directly form Internet"
+msgstr "Открыть файл проекта JClic из интернета"
+
+#: action_openUrl_keys
+msgid "UU"
+msgstr "UU"
+
+#: action_exit_caption
+msgid "Exit"
+msgstr "Выход"
+
+#: action_exit_tooltip
+msgid "Close JClic"
+msgstr "Закрыть JClic"
+
+#: action_exit_keys
+msgid "XX"
+msgstr "XX"
+
+#: action_settings_caption
+msgid "Settings..."
+msgstr "Настройки..."
+
+#: action_settings_tooltip
+msgid "Adjust global program settings"
+msgstr "Настройка общих параметров программы"
+
+#: action_settings_keys
+msgctxt "action_settings_keys"
+msgid "T"
+msgstr "Н"
+
+#: action_libraries_tooltip
+msgid "Open or edit a JClic library."
+msgstr "Открыть или редактировать библиотеку JClic."
+
+#: action_libraries_keys
+msgid "LL"
+msgstr "LL"
+
+#: action_helpAbout_tooltip
+msgid "Information about JClic"
+msgstr "Информация о JClic"
+
+#: action_helpAbout_keys
+msgid "AA"
+msgstr "AA"
+
+#: menuElement_err_iconTooLarge
+msgid "This image is too large to be used as an icon!"
+msgstr "Это изображение слишком велико для использования, как значок!"
+
+#: settings_report_tcp
+msgid "Connect to JClic report server:"
+msgstr "Подключить к серверу отчётов JClic"
+
+#: settings_report_jdbc
+msgid "Direct JDBC connection:"
+msgstr "Прямое JDBC соединение:"
+
+#: settings_report_other
+msgid "Other:"
+msgstr "Другое:"
+
+#: settings_report_address
+msgid "Host:"
+msgstr "Узел:"
+
+#: settings_report_port
+msgid "Port:"
+msgstr "Порт:"
+
+#: settings_report_driver
+msgid "Driver:"
+msgstr "Драйвер:"
+
+#: settings_report_url
+msgid "URL:"
+msgstr "Адрес(URL):"
+
+#: settings_report_user
+msgid "User:"
+msgstr "Пользователь:"
+
+#: settings_report_pwd
+msgid "Password:"
+msgstr "Пароль:"
+
+#: settings_report_options
+msgid "Reporter params::"
+msgstr "Параметры отчитывающегося::"
+
+#: settings_report_err_server
+msgid "Bad report server name!"
+msgstr "Неверное имя сервера отчётов!"
+
+#: settings_report_err_port
+msgid "Incorrect port number! Please enter a value between 1000 and 65000."
+msgstr ""
+"Неверный номер порта! Пожалуйста, введите значение между 1000 и 65000."
+
+#: settings_report_err
+msgid "Incorrect report system data!"
+msgstr "Неверные данные системы отчётов!"
+
+#: settings_report_type
+msgid "Reporting engine:"
+msgstr "Система отчётов:"
+
+#: settings_media_jmf
+msgid "Java Media Framework (JMF)"
+msgstr "Java Media Framework (JMF)"
+
+#: settings_media_qt
+msgid "QuickTime"
+msgstr "QuickTime"
+
+#: settings_media_default
+msgid "Auto-detect"
+msgstr "Автоопределение"
+
+#: settings_security_tooltip
+msgid "Security settings"
+msgstr "Настройки безопасности"
+
+#: settings_report_tooltip
+msgid "Report system settings"
+msgstr "Настройки системы отчётов"
+
+#: settings_media_tooltip
+msgid "Multimedia system options"
+msgstr "Параметры системы мультимедиа"
+
+#: settings_general_tooltip
+msgid "Language and aspect settings"
+msgstr "Настройки языка и вида"
+
+#: settings_library_tooltip
+msgid "Library settings and editor"
+msgstr "Настройки библиотеки и редактор"
+
+#: settings_look_tooltip
+msgid "User interface look & feel"
+msgstr "Дизайн интерфейса пользователя"
+
+#: settings_skin_tooltip
+msgid "Selection of the graphic aspect of JClic"
+msgstr "Выбор графического аспекта JClic"
+
+#: settings_language_tooltip
+msgid "Language selection"
+msgstr "Выбор языка"
+
+#: settings_report_use_tooltip
+msgid "Enables/disables the connection to a JClic reports database"
+msgstr "Включить/выключить подключение к базе данных отчётов JClic"
+
+#: settings_report_tcp_tooltip
+msgid "Reporting engine based on a TCP/IP connection"
+msgstr "Механизм отчётов базируется на TCP/IP соединении"
+
+#: settings_report_jdbc_tooltip
+msgid "Reporting engine based on a direct connection to a database"
+msgstr "Механизм отчётов базируется на прямом подключении к базе данных"
+
+#: settings_report_other_tooltip
+msgid "Other reporting engines..."
+msgstr "Прочие механизмы отчётов..."
+
+#: settings_report_address_tooltip
+msgid "Report server name or IP address"
+msgstr "Имя или IP адрес сервера отчётов"
+
+#: settings_report_port_tooltip
+msgid "Port used for connection (default is 5510)"
+msgstr "Порт для подключения (по умолчанию 5510)"
+
+#: edit_file
+msgid "File:"
+msgstr "Файл:"
+
+#: error_launchLibrary
+msgid "Error launching library"
+msgstr "Ошибка запуска библиотеки"
+
+#: install_toSourceFolder
+msgid "Installing to source folder!"
+msgstr "Установка в папку источника!"
+
+#: edit_find_media
+msgid "Find media file..."
+msgstr "Найти медиа файл..."
+
+#: libraryManager_delete_caption
+msgctxt "libraryManager_delete_caption"
+msgid "Delete"
+msgstr "Удалить"
+
+#: libraryManager_delete_tooltip
+msgid "Delete the reference to the selected library"
+msgstr "Удалить ссылку на выделенную библиотеку"
+
+#: libraryManager_delete_confirm
+msgid "Do you really want to delete the reference to the selected library?"
+msgstr "Вы действительно хотите удалить ссылку на выделенную библиотеку?"
+
+#: libraryManager_new_exists
+msgid "This library is already linked to the system."
+msgstr "Эта библиотека уже подключена к системе."
+
+#: edit_find_image_keys
+msgid "F*"
+msgstr "F*"
+
+#: menu_newMenuElement_caption_keys
+msgid "NN"
+msgstr "NN"
+
+#: menu_newMenu_caption_keys
+msgid "MM"
+msgstr "MM"
+
+#: edit_find_file_keys
+msgid "FF"
+msgstr "FF"
+
+#: libraryManager_newLibaryOption
+msgid "Create new project library"
+msgstr "Создать новую библиотеку проекта"
+
+#: libraryManager_connectToExistingOption
+msgid "Add a link to an exisiting project library"
+msgstr "Добавить ссылку на существующую библиотеку проекта"
+
+#: libraryManager_fileOrUrlCaption
+msgid "File or URL\\:"
+msgstr "Файл или  URL\\:"
+
+#: libraryManager_newLibraryTitle
+msgctxt "libraryManager_newLibraryTitle"
+msgid "New project library"
+msgstr "Новая библиотека проекта"
+
+#: libraryManager_warnNoFileSelected
+msgid "Please enter thr URL or file name of the project library\\!"
+msgstr "Пожалуйста, введите URL или имя файла библиотеки проекта\\!"
+
+#: install_launchProject
+msgid "Open the project now"
+msgstr "Открыть проект сейчас"
+
+#: settings_browser
+msgid "Preferred browser\\:"
+msgstr "Предпочитаемый браузер\\:"
+
+#: settings_browser_tooltip
+msgid ""
+"Command used to launch the browser (firefox, iexplore, mozilla, opera...)"
+msgstr "Команда для запуска браузера (firefox, iexplore, mozilla, opera...)"
+
+#: settings_country
+msgid "Country code\\:"
+msgstr "Код страны\\:"
+
+#: settings_country_tooltip
+msgid ""
+"Optional two-letter code corresponding to the country-specific variant of "
+"the language (ex.\\: BR for Brazilian Portuguese)"
+msgstr ""
+"Дополнительный двухсимвольный код, соответствующий варианту языка, "
+"специфичному для страны (напр.\\: BR для Brazilian Portuguese)"
+
+#: settings_variant
+msgid "Variant\\:"
+msgstr "Вариант\\:"
+
+#: settings_variant_tooltip
+msgid "Optional variant code of the language"
+msgstr "Дополнительный вариант кода языка"

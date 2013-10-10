@@ -1,0 +1,340 @@
+# Italian translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2008-05-22 17:20+0000\n"
+"Last-Translator: giomu2 <Unknown>\n"
+"Language-Team: Italian <it@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: ERROR
+msgid "ERROR"
+msgstr "ERRORE"
+
+#: OK
+msgid "OK"
+msgstr "OK"
+
+#: YES
+msgid "Yes"
+msgstr "Sì"
+
+#: NO
+msgid "No"
+msgstr "No"
+
+#: DELETE
+msgid "Delete"
+msgstr "Cancella"
+
+#: PASTE
+msgid "Paste"
+msgstr "Incolla"
+
+#: CUT
+msgid "Cut"
+msgstr "Taglia"
+
+#: COPY
+msgid "Copy"
+msgstr "Copia"
+
+#: FILE_SAVE
+msgid "Save file"
+msgstr "Salva file"
+
+#: CONFIRM
+msgid "Please confirm"
+msgstr "Conferma, per favore"
+
+#: FILE_OPEN
+msgid "Open file"
+msgstr "Apri file"
+
+#: FILE_ERR_BEG_DIR
+msgid "Folder"
+msgstr "Cartella"
+
+#: URL
+msgid "URL:"
+msgstr "URL:"
+
+#: PASSWORD
+msgid "Password:"
+msgstr "Password:"
+
+#: WARNING
+msgid "Warning!"
+msgstr "Attenzione!"
+
+#: FILE_NOT_READABLE
+msgid "Cannot be read!"
+msgstr "Non è possibile leggerlo"
+
+#: FILE_NOT_EXIST
+msgid "Does not exist!"
+msgstr "Non esiste"
+
+#: FILE_READONLY
+msgid "Is read-only. It cannot be overwritted!"
+msgstr "E' in sola lettura. Non può essere sovrascritto!"
+
+#: FILE_OVERWRITE_DIR_PROMPT
+msgctxt "FILE_OVERWRITE_DIR_PROMPT"
+msgid "Do you want to overwrite it?"
+msgstr "Vuoi sovrascriverlo?"
+
+#: FILE_OVERWRITE_PROMPT
+msgctxt "FILE_OVERWRITE_PROMPT"
+msgid "Do you want to overwrite it?"
+msgstr "Vuoi sovrascriverlo?"
+
+#: FILE_EXISTS
+msgid "already exists on your system."
+msgstr "esiste già nel tuo sistema."
+
+#: FILE_DIR_BEG
+msgid "The folder"
+msgstr "La cartella"
+
+#: FILE_BEG
+msgid "The file"
+msgstr "Il file"
+
+#: UNNAMED
+msgid "Unnamed"
+msgstr "Senza nome"
+
+#: FILE_ERR_READING
+msgid "Error reading file"
+msgstr "Errore nella lettura del file"
+
+#: FILE_ERR_SAVING
+msgid "Error saving file"
+msgstr "Si è verificato un errore salvando il file"
+
+#: FILE_FIND
+msgid "Find file"
+msgstr "Trova file"
+
+#: FILE_ERR_READONLY
+msgid "is read-only."
+msgstr "è in sola lettura"
+
+#: FILE_ERR_EXISTS
+msgid "exists. Do you want to overwrite it?"
+msgstr "Esiste già. Vuoi sovrascriverlo?"
+
+#: FILE_ERR_UNREADABLE
+msgid "is unreadable."
+msgstr "non è possibile leggerlo"
+
+#: FILE_ERR_BEG
+msgid "File"
+msgstr "File"
+
+#: LOADING
+msgid "loading..."
+msgstr "caricamento in corso..."
+
+#: FALSE
+msgid "false"
+msgstr "falso"
+
+#: CHECK_SIGNATURE_URL
+msgid "messages/checksignature.html"
+msgstr "messages/checksignature.html"
+
+#: URL_LAUNCH_ERROR
+msgid "Error launching URL"
+msgstr "Errore nel lancio dell'URL"
+
+#: URL_ERROR
+msgid "Error building URL!"
+msgstr "Errore nella creazione dell'URL!"
+
+#: QUESTION
+msgid "Question"
+msgstr "Domanda"
+
+#: PASSWORD_INCORRECT
+msgid "Incorrect password!"
+msgstr "Password errata!"
+
+#: TRUE
+msgid "true"
+msgstr "vero"
+
+#: CANCEL
+msgid "Cancel"
+msgstr "Annulla"
+
+#: FILE_ERR_DELETING
+msgid "Error deleting file"
+msgstr "Errore durante l'eliminazione del file"
+
+#: URL_OPEN
+msgid "Open URL"
+msgstr "Apri URL"
+
+#: FILE_ERR_RESTORING
+msgid "Error restoring file"
+msgstr "Errore nel ripristino del file"
+
+#: WRITING_FILE
+msgid "Writing file..."
+msgstr "File in corso di scrittura"
+
+#: XML_ATTRIBUTE
+msgid "Attribute"
+msgstr "Attributo"
+
+#: XML_VALUE
+msgid "Value"
+msgstr "Valore"
+
+#: XML_NOT_EDITABLE
+msgid "This field is not editable!"
+msgstr "Questo campo non è modificabile"
+
+#: XML_TEXT
+msgid "text"
+msgstr "testo"
+
+#: XML_NEW_ATTRIBUTE
+msgid "Add attribute"
+msgstr "Aggiungi attributo"
+
+#: WORKING
+msgid "Working..."
+msgstr "In esecuzione..."
+
+#: LOADING_FILE
+msgid "Loading file"
+msgstr "File in caricamento"
+
+#: XML_DEL_ATTRIBUTE
+msgid "Delete attribute"
+msgstr "Cancella attributo"
+
+#: XML_ELEMENT
+msgid "Element"
+msgstr "Elemento"
+
+#: XML_NEW_ELEMENT
+msgid "New element"
+msgstr "Nuovo elemento"
+
+#: XML_DEL_ELEMENT
+msgid "Delete element"
+msgstr "Elimina elemento"
+
+#: XML_NAME
+msgid "Name"
+msgstr "Nome"
+
+#: RETRY
+msgid "Retry"
+msgstr "Riprova"
+
+#: IGNORE
+msgid "Ignore"
+msgstr "Ignora"
+
+#: DATE_INCORRECT
+msgid "Date incorrect!"
+msgstr "Data errata!"
+
+#: BAD_NUMBER
+msgid "Incorrect number!"
+msgstr "Numero errato!"
+
+#: NONE
+msgid "None"
+msgstr "Nessuno"
+
+#: COPY_keys
+msgid "CC"
+msgstr "CC"
+
+#: CUT_keys
+msgid "TX"
+msgstr "TX"
+
+#: PASTE_keys
+msgid "PV"
+msgstr "PV"
+
+#: DELETE_keys
+msgid "D#127"
+msgstr "D#127"
+
+#: SELECT_ALL
+msgid "Select all"
+msgstr "Seleziona tutto"
+
+#: SELECT_NONE
+msgid "Clear selection"
+msgstr "Annulla selezione"
+
+#: WIDTH
+msgid "Width:"
+msgstr "Larghezza:"
+
+#: HEIGHT
+msgid "Height:"
+msgstr "Altezza:"
+
+#: BROWSE_FILES
+msgid "Browse files..."
+msgstr "Esplora file..."
+
+#: VERSION
+msgid "version"
+msgstr "versione"
+
+#: ABOUT
+msgid "About..."
+msgstr "Informazioni..."
+
+#: YES_TO_ALL
+msgid "Yes to all"
+msgstr "Sì a tutto"
+
+#: NO_TO_ALL
+msgid "No to all"
+msgstr "No a tutto"
+
+#: SAVE
+msgid "Save"
+msgstr "Salva"
+
+#: OPEN
+msgid "Open"
+msgstr "Apri"
+
+#: FILE_OPEN_TOOLTIP
+msgid "Open the selected file"
+msgstr "Apri il file selezionato"
+
+#: FILE_SAVE_TOOLTIP
+msgid "Save the specified file"
+msgstr "Salva il file specificato"
+
+#: SAVING
+msgid "saving..."
+msgstr "Salvataggio in corso"
+
+#: SAVING_FILE
+msgid "Saving file"
+msgstr "Salvataggio file"

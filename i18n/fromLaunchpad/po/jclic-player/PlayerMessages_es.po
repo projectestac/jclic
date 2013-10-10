@@ -1,0 +1,833 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JClic 0.2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2008-02-11 17:51+0000\n"
+"Last-Translator: Francesc Busquets <francesc@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. # JClic player messages
+#: m_File
+msgid "File"
+msgstr "Archivo"
+
+#: settings_passwordRequired
+msgid "JClic admin password is required in order to perform this operation."
+msgstr ""
+"Para efectuar esta operación hay que introducir la contraseña de "
+"administración de JClic."
+
+#: m_Help
+msgid "Help"
+msgstr "Ayuda"
+
+#: m_Skin
+msgid "Skin"
+msgstr "Apariencia"
+
+#: action_helpAbout_caption
+msgid "About..."
+msgstr "Acerca de..."
+
+#: libraryManager_mainLibraryTitle
+msgid "Main library"
+msgstr "Biblioteca principal"
+
+#: library_badFormat
+msgid ""
+"This JClic file is not a project library!\n"
+"Libraries are a special type of JClic projects."
+msgstr ""
+"Este archivo JClic no es del tipo \"biblioteca de proyectos\".\n"
+"Las bibliotecas son un tipo especial de archivos JClic."
+
+#: library_mainMenu
+msgid "Main menu"
+msgstr "Menú principal"
+
+#: library_newLibraryName
+msgctxt "library_newLibraryName"
+msgid "New project library"
+msgstr "Nueva biblioteca de proyectos"
+
+#: libraryManager_new_prompt
+msgid "Do you want to create a new library or connect to a existing one?"
+msgstr ""
+"¿Desea crear una nueva biblioteca o conectarse a una biblioteca existente?"
+
+#: libraryManager_connectToLibrary
+msgid "Connect"
+msgstr "Conectarse"
+
+#: libraryManager_createNewLibrary
+msgctxt "libraryManager_createNewLibrary"
+msgid "New"
+msgstr "Nueva"
+
+#: libraryManager_new_tooltip
+msgid "Create or connect to a new library"
+msgstr "Crear o conectarse a una nueva biblioteca"
+
+#: libraryManager_new_caption
+msgctxt "libraryManager_new_caption"
+msgid "New"
+msgstr "Nueva"
+
+#: menuElement_dlg_icon_tooltip
+msgid "Button icon"
+msgstr "Imagen que se muestra en el botón"
+
+#: menuElement_dlg_description_tooltip
+msgid "Description of the button, used as a tooltip text."
+msgstr ""
+"Texto flotante que aparecerá cuando se deje el puntero quieto sobre el botón."
+
+#: menuElement_dlg_description
+msgid "Description:"
+msgstr "Descripción:"
+
+#: edit_find_image
+msgid "Find image..."
+msgstr "Buscar imagen..."
+
+#: menuElement_dlg_icon
+msgid "Icon:"
+msgstr "Icono:"
+
+#: edit_find_file
+msgid "Find file..."
+msgstr "Buscar archivo..."
+
+#: menuElement_dlg_project_tooltip
+msgid "Path to JClic project"
+msgstr "Ubicación del proyecto JClic"
+
+#: menuElement_dlg_project
+msgid "Project:"
+msgstr "Proyecto:"
+
+#: menuElement_dlg_text_tooltip
+msgid "Button text"
+msgstr "Texto del botón"
+
+#: edit_text
+msgid "Text:"
+msgstr "Texto:"
+
+#: menu_dlg_name_tooltip
+msgid "Folder name"
+msgstr "Nombre de la carpeta"
+
+#: library_dlg_name_tooltip
+msgid "Library name"
+msgstr "Nombre de la biblioteca"
+
+#: edit_name
+msgid "Name:"
+msgstr "Nombre:"
+
+#: edit_title
+msgid "Title:"
+msgstr "Título:"
+
+#: library_dlg_title
+msgid "Library properties"
+msgstr "Propiedades de la biblioteca"
+
+#: menu_dlg_title
+msgid "Folder properties"
+msgstr "Propiedades de la carpeta"
+
+#: menuElement_dlg_title
+msgid "Button properties"
+msgstr "Propiedades del botón"
+
+#: menu_delete_tooltip
+msgid "Delete current menu"
+msgstr "Eliminar el menú seleccionado"
+
+#: menu_delete_caption
+msgctxt "menu_delete_caption"
+msgid "Delete"
+msgstr "Eliminar"
+
+#: menuElement_delete_tooltip
+msgid "Delete current menu element"
+msgstr "Eliminar el elemento de menú seleccionado"
+
+#: action_libraries_caption
+msgid "Libraries..."
+msgstr "Bibliotecas..."
+
+#: dlg_save_title
+msgid "Save file..."
+msgstr "Guardar archivo..."
+
+#: error_propertiesFile_beg
+msgid "Error opening \""
+msgstr "Error al abrir \""
+
+#: error_propertiesFile_end
+msgid "\". Defaults will be used."
+msgstr "\". Se utilizaran los valores por defecto."
+
+#: menuElement_delete_caption
+msgctxt "menuElement_delete_caption"
+msgid "Delete"
+msgstr "Eliminar"
+
+#: menu_newMenuElement_tooltip
+msgid "Create a new shortcut to a project"
+msgstr "Crear un nuevo botón de proyecto"
+
+#: menu_newMenuName
+msgid "New folder"
+msgstr "Nueva carpeta"
+
+#: menu_newMenu_tooltip
+msgid "Create a new folder for project buttons"
+msgstr "Crear una nueva carpeta de botones de proyecto"
+
+#: menu_newMenu_caption
+msgid "New button's folder"
+msgstr "Nueva carpeta de iconos"
+
+#: menu_newMenuElement_caption
+msgid "New project button"
+msgstr "Nuevo botón de proyecto"
+
+#: menu_newMenuElementName
+msgid "New button"
+msgstr "Nuevo botón"
+
+#: library_cancel_tooltip
+msgid "Cancel changes"
+msgstr "Cancelar las modificaciones"
+
+#: library_cancel_caption
+msgctxt "library_cancel_caption"
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: libraryManager_edit_tooltip
+msgid "Edit selected library"
+msgstr "Editar la biblioteca seleccionada"
+
+#: libraryManager_edit_caption
+msgid "Edit"
+msgstr "Editar"
+
+#: library_select_caption_ok_tooltip
+msgid "Save changes"
+msgstr "Guardar los cambios"
+
+#: library_select_caption_tooltip
+msgid "Choose selected folder"
+msgstr "Elegir la carpeta seleccionada"
+
+#: library_select_caption_ok
+msgid "Ok"
+msgstr "Aceptar"
+
+#: library_select_caption
+msgctxt "library_select_caption"
+msgid "Select"
+msgstr "Seleccionar"
+
+#: library_caption
+msgid "JClic projects library"
+msgstr "Biblioteca de proyectos JClic"
+
+#: libraryManager_select_tooltip
+msgid "Open the selected library"
+msgstr "Abrir la biblioteca seleccionada"
+
+#: libraryManager_cancel_tooltip
+msgctxt "libraryManager_cancel_tooltip"
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: libraryManager_cancel_caption
+msgctxt "libraryManager_cancel_caption"
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: libraryManager_select_caption
+msgctxt "libraryManager_select_caption"
+msgid "Select"
+msgstr "Seleccionar"
+
+#: libraryManager_caption
+msgid "Select library"
+msgstr "Selección de la biblioteca de proyectos"
+
+#: library_error_reading
+msgid "Error reading project library!"
+msgstr "¡Error al leer la biblioteca de proyectos!"
+
+#: wizard_next
+msgid "Next >"
+msgstr "Siguiente >"
+
+#: wizard_prev
+msgid "< Previous"
+msgstr "< Anterior"
+
+#: wizard_finish
+msgid "Finish"
+msgstr "Finalizar"
+
+#: library_error_creating_icons
+msgid "Error creating library icons!"
+msgstr "¡Error al crear el icono en la biblioteca!"
+
+#: install_title
+msgid "Installation of JClic projects"
+msgstr "Instalación de proyectos JClic"
+
+#: install_info_description
+msgid "Installation of a new JClic project"
+msgstr "Instalación de un nuevo proyecto JClic"
+
+#: install_info_from
+msgid "From:"
+msgstr "Desde:"
+
+#: wizard_cancel
+msgctxt "wizard_cancel"
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: wizard_cancel_tooltip
+msgid "Cancel the operation"
+msgstr "Cancelar la operación"
+
+#: wizard_finish_tooltip
+msgid "Finish the operation"
+msgstr "Finalizar la operación"
+
+#: wizard_next_tooltip
+msgid "Next step of the operation"
+msgstr "Siguiente paso de la operación"
+
+#: wizard_prev_tooltip
+msgid "Previous step of the operation"
+msgstr "Paso anterior de la operación"
+
+#: install_select_library
+msgid "Select the library where to install the project:"
+msgstr "Seleccione la biblioteca en la que se instalará el proyecto:"
+
+#: install_copy_files
+msgid "File copy"
+msgstr "Copia de archivos"
+
+#: install_source
+msgid "Source:"
+msgstr "Origen:"
+
+#: install_dest
+msgid "Destination:"
+msgstr "Destino:"
+
+#: install_status
+msgid "Status:"
+msgstr "Estado:"
+
+#: install_start
+msgid "Start the installation"
+msgstr "Iniciar la instalación"
+
+#: install_start_tooltip
+msgid "Start the copy of files to your computer"
+msgstr "Iniciar la copia de archivos a su ordenador"
+
+#: install_progress_tooltip
+msgid "Progress of the installation"
+msgstr "Progreso de la instalación"
+
+#: install_msg_waiting
+msgid "Waiting for confirmation."
+msgstr "Esperando confirmación."
+
+#: install_msg_creating_dirs
+msgid "Creating directories"
+msgstr "Creando carpetas"
+
+#: install_msg_copying
+msgid "Copying file"
+msgstr "Copiando el archivo"
+
+#: install_msg_end
+msgid "Finished!"
+msgstr "¡Acabado!"
+
+#: install_msg_cleanup
+msgid "Performing cleanup..."
+msgstr "Limpiando..."
+
+#: install_msg_cancel
+msgid "Installation cancelled!"
+msgstr "¡Instalación cancelada!"
+
+#: install_error
+msgid "Install error!"
+msgstr "¡Se produjo un error durante la instalación!"
+
+#: install_select_folder
+msgid "Select the folder where to place the project icons:"
+msgstr "Seleccione la carpeta en la que se crearán los iconos del proyecto:"
+
+#: install_library_folders
+msgid "Library folders:"
+msgstr "Carpetas de la biblioteca:"
+
+#: install_success_1
+msgid "The project are now installed on your system!"
+msgstr "El proyecto se instaló correctamente!"
+
+#: install_success_2
+msgid "In order to run it, select its"
+msgstr "Para ponerlo en marcha seleccione su"
+
+#: install_success_3
+msgid "icon on the project library."
+msgstr "icono en la biblioteca de proyectos."
+
+#: wizard_info
+msgid "Press \"Next\" to start."
+msgstr "Haga clic en \"Siguiente\" para empezar."
+
+#: install_step_1
+msgid "1. Selection of JClic library"
+msgstr "1. Selección de la biblioteca"
+
+#: install_step_2
+msgid "2. Download files"
+msgstr "2. Descarga de archivos"
+
+#: install_step_3
+msgid "3. Creation of icons"
+msgstr "3. Creación de iconos"
+
+#: install_step_4
+msgid "Installation finished!"
+msgstr "¡Instalación acabada!"
+
+#: install_info_info
+msgid "You request to install the project:"
+msgstr "Ha solicitado instalar el proyecto:"
+
+#: settings_title
+msgid "Settings"
+msgstr "Configuración"
+
+#: library_error_clone
+msgid "Unable to clone library!"
+msgstr "¡No se ha podido clonar la biblioteca!"
+
+#: settings_security
+msgid "Security"
+msgstr "Seguridad"
+
+#: settings_password_protect
+msgid "Protect settings with password"
+msgstr "Proteger los cambios de configuración con contraseña"
+
+#: settings_new_password
+msgid "New password:"
+msgstr "Nueva contraseña:"
+
+#: settings_new_password_confirm
+msgid "Confirm new password:"
+msgstr "Confirmar nueva contraseña:"
+
+#: settings_general
+msgid "General"
+msgstr "General"
+
+#: settings_look
+msgid "Look & Feel:"
+msgstr "Aspecto:"
+
+#: settings_skin
+msgid "Skin:"
+msgstr "Piel:"
+
+#: settings_language
+msgid "Language:"
+msgstr "Idioma:"
+
+#: settings_reports
+msgid "Reports"
+msgstr "Informes"
+
+#: settings_report_use
+msgid "Write scores to a database"
+msgstr "Guardar los resultados de las actividades en una base de datos"
+
+#: settings_report_engine
+msgid "Reporter class:"
+msgstr "Clase:"
+
+#: settings_report_params
+msgid "Parameters:"
+msgstr "Parámetros:"
+
+#: settings_media
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: settings_media_enabled
+msgid "Multimedia enabled"
+msgstr "Multimedia activado"
+
+#: settings_media_system
+msgid "Multimedia system:"
+msgstr "Sistema multimedia:"
+
+#: settings_media_event_sounds
+msgid "Event sounds enabled"
+msgstr "Sonidos de evento activados"
+
+#: settings_library
+msgid "Libraries"
+msgstr "Bibliotecas"
+
+#: settings_library_autorun
+msgid "Automatically go to libraries when JClic starts"
+msgstr "Mostrar automáticamente la biblioteca al inicio"
+
+#: m_Tools
+msgid "Tools"
+msgstr "Herramientas"
+
+#: m_File_Mnemonic
+msgid "F"
+msgstr "F"
+
+#: m_Tools_Mnemonic
+msgctxt "m_Tools_Mnemonic"
+msgid "T"
+msgstr "H"
+
+#: m_Help_Mnemonic
+msgid "H"
+msgstr "Y"
+
+#: m_Activity
+msgid "Activity"
+msgstr "Actividad"
+
+#: m_Activity_Mnemonic
+msgid "A"
+msgstr "A"
+
+#: action_openFile_caption
+msgid "Open file..."
+msgstr "Abrir el archivo..."
+
+#: action_openFile_tooltip
+msgid "Open a JClic project file"
+msgstr "Abrir un archivo de proyecto JClic"
+
+#: action_openFile_keys
+msgid "OO"
+msgstr "AO"
+
+#: action_openUrl_caption
+msgid "Open URL..."
+msgstr "Abrir una ubicación web..."
+
+#: action_openUrl_tooltip
+msgid "Open a JClic project directly form Internet"
+msgstr "Abrir un proyecto JClic directamente desde Internet"
+
+#: action_openUrl_keys
+msgid "UU"
+msgstr "UU"
+
+#: action_exit_caption
+msgid "Exit"
+msgstr "Salir"
+
+#: action_exit_tooltip
+msgid "Close JClic"
+msgstr "Cerrar el JClic"
+
+#: action_exit_keys
+msgid "XX"
+msgstr "LX"
+
+#: action_settings_caption
+msgid "Settings..."
+msgstr "Configuración..."
+
+#: action_settings_tooltip
+msgid "Adjust global program settings"
+msgstr "Ajustar las opciones globales del programa"
+
+#: action_settings_keys
+msgctxt "action_settings_keys"
+msgid "T"
+msgstr "C"
+
+#: action_libraries_tooltip
+msgid "Open or edit a JClic library."
+msgstr "Abrir o modificar una biblioteca JClic"
+
+#: action_libraries_keys
+msgid "LL"
+msgstr "BB"
+
+#: action_helpAbout_tooltip
+msgid "Information about JClic"
+msgstr "Información sobre el JClic"
+
+#: action_helpAbout_keys
+msgid "AA"
+msgstr "AA"
+
+#: menuElement_err_iconTooLarge
+msgid "This image is too large to be used as an icon!"
+msgstr "¡Esta imagen es demasiado grande para ser utilizada como icono!"
+
+#: settings_report_tcp
+msgid "Connect to JClic report server:"
+msgstr "Conectarse a un servidor de informes JClic:"
+
+#: settings_report_jdbc
+msgid "Direct JDBC connection:"
+msgstr "Conexión directa a una base de datos JDBC:"
+
+#: settings_report_other
+msgid "Other:"
+msgstr "Otros:"
+
+#: settings_report_address
+msgid "Host:"
+msgstr "Servidor:"
+
+#: settings_report_port
+msgid "Port:"
+msgstr "Puerto:"
+
+#: settings_report_driver
+msgid "Driver:"
+msgstr "Controlador:"
+
+#: settings_report_url
+msgid "URL:"
+msgstr "URL:"
+
+#: settings_report_user
+msgid "User:"
+msgstr "Usuario:"
+
+#: settings_report_pwd
+msgid "Password:"
+msgstr "Contraseña:"
+
+#: settings_report_options
+msgid "Reporter params::"
+msgstr "Parámetros:"
+
+#: settings_report_err_server
+msgid "Bad report server name!"
+msgstr "¡El nombre del servidor de informes es incorrecto!"
+
+#: settings_report_err_port
+msgid "Incorrect port number! Please enter a value between 1000 and 65000."
+msgstr ""
+"Valor incorrecto del puerto en el sistema de informes. Por favor, indique un "
+"valor entre 1000 y 65000."
+
+#: settings_report_err
+msgid "Incorrect report system data!"
+msgstr "¡Datos incorrectos para el sistema de informes!"
+
+#: settings_report_type
+msgid "Reporting engine:"
+msgstr "Reporter type:"
+
+#: settings_media_jmf
+msgid "Java Media Framework (JMF)"
+msgstr "Java Media Framework (JMF)"
+
+#: settings_media_qt
+msgid "QuickTime"
+msgstr "QuickTime"
+
+#: settings_media_default
+msgid "Auto-detect"
+msgstr "Detección automática"
+
+#: settings_security_tooltip
+msgid "Security settings"
+msgstr "Opciones de seguridad"
+
+#: settings_report_tooltip
+msgid "Report system settings"
+msgstr "Configuración del sistema de informes"
+
+#: settings_media_tooltip
+msgid "Multimedia system options"
+msgstr "Configuración del sistema multimedia"
+
+#: settings_general_tooltip
+msgid "Language and aspect settings"
+msgstr "Opciones de idioma y aspecto"
+
+#: settings_library_tooltip
+msgid "Library settings and editor"
+msgstr "Configuración y edición de bibliotecas"
+
+#: settings_look_tooltip
+msgid "User interface look & feel"
+msgstr "Aspecto del interfaz de usuario"
+
+#: settings_skin_tooltip
+msgid "Selection of the graphic aspect of JClic"
+msgstr "Selección del diseño gráfico de JClic"
+
+#: settings_language_tooltip
+msgid "Language selection"
+msgstr "Selección del idioma"
+
+#: settings_report_use_tooltip
+msgid "Enables/disables the connection to a JClic reports database"
+msgstr "Activa o desactiva a conexión a una base de datos de informes JClic"
+
+#: settings_report_tcp_tooltip
+msgid "Reporting engine based on a TCP/IP connection"
+msgstr "Motor de informes basado en una conexión TCP/IP"
+
+#: settings_report_jdbc_tooltip
+msgid "Reporting engine based on a direct connection to a database"
+msgstr "Motor de informes basado en una conexión directa a una base de datos"
+
+#: settings_report_other_tooltip
+msgid "Other reporting engines..."
+msgstr "Otros motores de informes..."
+
+#: settings_report_address_tooltip
+msgid "Report server name or IP address"
+msgstr "Nombre o dirección IP del servidor de informes"
+
+#: settings_report_port_tooltip
+msgid "Port used for connection (default is 5510)"
+msgstr "Puerto usado para la conexión (por defecto: 5510)"
+
+#: edit_file
+msgid "File:"
+msgstr "Archivo:"
+
+#: error_launchLibrary
+msgid "Error launching library"
+msgstr "Error al abrir la biblioteca"
+
+#: install_toSourceFolder
+msgid "Installing to source folder!"
+msgstr "¡Instalando en la carpeta origen!"
+
+#: edit_find_media
+msgid "Find media file..."
+msgstr "Buscar recurso..."
+
+#: libraryManager_delete_caption
+msgctxt "libraryManager_delete_caption"
+msgid "Delete"
+msgstr "Suprimir"
+
+#: libraryManager_delete_tooltip
+msgid "Delete the reference to the selected library"
+msgstr "Suprimir la referencia a la biblioteca seleccionada"
+
+#: libraryManager_delete_confirm
+msgid "Do you really want to delete the reference to the selected library?"
+msgstr ""
+"¿Realmente desea suprimir la referencia a la biblioteca seleccionada?"
+
+#: libraryManager_new_exists
+msgid "This library is already linked to the system."
+msgstr "¡Esta biblioteca se encuentra ya conectada al sistema!"
+
+#: edit_find_image_keys
+msgid "F*"
+msgstr "B*"
+
+#: menu_newMenuElement_caption_keys
+msgid "NN"
+msgstr "NN"
+
+#: menu_newMenu_caption_keys
+msgid "MM"
+msgstr "MM"
+
+#: edit_find_file_keys
+msgid "FF"
+msgstr "FF"
+
+#: libraryManager_newLibaryOption
+msgid "Create new project library"
+msgstr "Crear una nueva biblioteca de proyectos"
+
+#: libraryManager_connectToExistingOption
+msgid "Add a link to an exisiting project library"
+msgstr "Añadir un enlace a una biblioteca ya existente"
+
+#: libraryManager_fileOrUrlCaption
+msgid "File or URL\\:"
+msgstr "Archivo o URL\\:"
+
+#: libraryManager_newLibraryTitle
+msgctxt "libraryManager_newLibraryTitle"
+msgid "New project library"
+msgstr "Nueva biblioteca de proyectos"
+
+#: libraryManager_warnNoFileSelected
+msgid "Please enter thr URL or file name of the project library\\!"
+msgstr ""
+"Por favor, escriba el URL o nombre de archivo de la biblioteca de proyectos "
+"a la que desea acceder."
+
+#: install_launchProject
+msgid "Open the project now"
+msgstr "Abrir ahora el proyecto"
+
+#: settings_browser
+msgid "Preferred browser\\:"
+msgstr "Navegador preferido\\:"
+
+#: settings_browser_tooltip
+msgid ""
+"Command used to launch the browser (firefox, iexplore, mozilla, opera...)"
+msgstr ""
+"Orden utilizada para lanzar el navegador (firefox, iexplore, mozilla, "
+"opera...)"
+
+#: settings_country
+msgid "Country code\\:"
+msgstr "Código de país\\:"
+
+#: settings_country_tooltip
+msgid ""
+"Optional two-letter code corresponding to the country-specific variant of "
+"the language (ex.\\: BR for Brazilian Portuguese)"
+msgstr ""
+"Código opcional de dos letras correspondiente a la variante dialectal de un "
+"territorio (ej.\\: BR para portugués del Brasil)"
+
+#: settings_variant
+msgid "Variant\\:"
+msgstr "Variante\\:"
+
+#: settings_variant_tooltip
+msgid "Optional variant code of the language"
+msgstr "Código opcional de variante del idioma"

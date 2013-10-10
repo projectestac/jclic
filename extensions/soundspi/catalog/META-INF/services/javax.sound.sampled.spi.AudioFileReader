@@ -1,0 +1,5 @@
+#  for the javalayer mp3 decoder
+javazoom.spi.mpeg.sampled.file.MpegAudioFileReader
+org.tritonus.sampled.file.mpeg.MpegAudioFileReader
+#  for the vorbis codec
+org.tritonus.sampled.file.jorbis.JorbisAudioFileReader

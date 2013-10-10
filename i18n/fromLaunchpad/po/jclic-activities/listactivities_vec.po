@@ -1,0 +1,171 @@
+# Venetian translation for jclic
+# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2010-05-22 15:58+0000\n"
+"Last-Translator: Fabio <Unknown>\n"
+"Language-Team: Venetian <vec@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: @associations.ComplexAssociation
+msgid ""
+"Complex association|In this activity there are also two sets of information, "
+"but these may have a different number of parts and there may be different "
+"types of relation between them e.g.: one-to-one, various to one, parts "
+"without a relation, etc."
+msgstr ""
+"Sociasion conplèsa|Inte sta atività ghe xé anca do set de inforamsion, ma "
+"cuesti i pol ver un nùmaro de parte difarente e ghe pol ser tipi difarenti "
+"de reƚasion fra de ƚori, ex.: uno-a-uno, parte sensa reƚasion, ect..."
+
+#: @associations.SimpleAssociation
+msgid ""
+"Simple association|There are two sets of information that have the same "
+"number of parts. Each part from the original set corresponds to one, and "
+"only one, part of the image set."
+msgstr ""
+"Sociasion sòlia|Ghe xé do set de informasion che i gà el steso nùmaro de "
+"parte. Ògni parte da 'l set de orìxene ƚa coresponde a una, e nòma che una, "
+"parte de 'l set imàxene."
+
+#: @memory.MemoryGame
+msgid ""
+"Finding pairs|Each of the pieces appear twice, but face down. In each go two "
+"pieces are turned over and are turned back over if they are not the same. "
+"The objective is to find all the pairs."
+msgstr ""
+"Catar pèri|Ognun de i tòchi i vien mostrài do vòlte, ma sotosora. A ògni "
+"turno, se rabalta do tòchi e i torna sotosora se no i xé conpagni. 'L "
+"obietivo el xé de catar tuti i pèri."
+
+#: @panels.Explore
+msgid ""
+"Explore activity|An initial piece of information is shown and, upon clicking "
+"on it, a given piece of information is shown for each element."
+msgstr ""
+"Atività de esplorasion|Se mostra inanso na sčianta de informasion e, co se "
+"clica un elemento, altra informasion ƚa vien mostrada par àgni elemento."
+
+#: @panels.Identify
+msgid ""
+"Identify cells|There is just one set of information and you have to click on "
+"those parts that meet a certain condition."
+msgstr ""
+"Intiva caxèƚe|Ghe xé nòma che un set de informasion e se gà da clicar so "
+"cheƚe parte che ƚe conbina co' na condision precixa."
+
+#: @panels.InformationScreen
+msgid ""
+"Information screen|One set of information is shown and there is the option "
+"of activating the multimedia content for each piece of information."
+msgstr ""
+"Schermada de informasion|Se mostra un set de informasion e ghe xé l'opsion "
+"de ativar el contenudo multimedial par ògni parte de informasion."
+
+#: @puzzles.DoublePuzzle
+msgid ""
+"Double puzzle|Two grids are shown. One contains the disordered information "
+"and the other is empty. The object has to be rearranged in the empty grid by "
+"dragging the pieces one by one."
+msgstr ""
+"Dopio puzzle|Se mostra do grèƚe. Una ƚa gà drento ƚa informasion "
+"dexordenada, e cheƚaltra ƚa xé voda. El ogèto el gà da ser resistemà inte ƚa "
+"grèƚa voda a strasinando i tòchi uno par vòlta."
+
+#: @puzzles.ExchangePuzzle
+msgid ""
+"Exchange puzzle|The information is swapped within the same panel. In each go "
+"two pieces swap position until the object is reordered."
+msgstr ""
+"Puzzle a sostitusion|Ƚa informasion ƚa xé spostada inte 'l steso panèƚo. A "
+"ògni turno do tòchi i se scanbia poxision un co' staltro fin che el ogèto el "
+"xé ordenà"
+
+#: @puzzles.HolePuzzle
+msgid ""
+"Hole puzzle|In the same panel one piece is missing and the others are "
+"shuffled. In each go one of the pieces next to the empty space is moved "
+"until they are back in the original order."
+msgstr ""
+"Puzzle a vodo|Inte 'l steso panèƚo manca un tòco e cheƚaltri i xé smisiài. A "
+"ògni turno un de i tòchi darente el vodo el vien spostà ffinché tuti i xé in "
+"órdene."
+
+#: @text.WrittenAnswer
+msgid ""
+"Written answer|A set of information is shown and the corresponding text for "
+"each of its parts must be written."
+msgstr ""
+"Respòsta scrita|Se mostra un set de informasion e se gà da scrìvar el tèsto "
+"corispondente a ognuna de ƚe so parte."
+
+#: @text.FillInBlanks
+msgid ""
+"Text: Fill-in blanks|The user has to complete certain words, letters and "
+"phrases that have been hidden or camouflaged in a text. The solution of each "
+"of the elements may be set up in different ways: writing in a blank space; "
+"correcting a phrase that contains errors; or selecting from a list of "
+"various possible answers."
+msgstr ""
+"Tèsto: Inpenisi i vodi|'L utente el gà da conpletar de ƚe paròƚe, létare e "
+"fraxe che ƚe xé stàe sconte o imascaràe inte un tèsto. Ƚa soƚusion de ognun "
+"de i elementi ƚa pol ser mesa insenbre in mòdi difarenti: a scrivendo inte "
+"un spasio vodo; a coreexindo na fraxa che ƚa gà indrento erori; o desernindo "
+"da na lista de varie respòste alternadive."
+
+#: @text.Identify
+msgid ""
+"Text: Identify elements|The user has to point out some words, letters, "
+"numbers, symbols or punctuation marks with a click of the mouse."
+msgstr ""
+"Tèsto: Identìfega elementi|'L utente el gà da pontar calche paròƚa, létare, "
+"nùmari, glifi, o segni de puntexadura co' un clik de 'l mouse."
+
+#: @text.Order
+msgid ""
+"Text: Order elements|When designing this activity some of the words or "
+"paragraphs of a text are selected to be shuffled around. The user has to put "
+"them back in order."
+msgstr ""
+"Tèsto: Meti in órdene|Co se dixegna sta atività calcheduna de ƚe paròƚe o "
+"paràgrafi de un tèsto i vien seƚesionài par èsar insenbrài a caxo. El utente "
+"el gà da rimétarli da novo in sèsto."
+
+#: @text.Complete
+msgid ""
+"Text: Complete text|Various parts of a text (letters, words, punctuation "
+"signs, or phrases) are taken out and the user has to complete it."
+msgstr ""
+"Tèsto: Conplèta el tèsto|Varie parte de un tèsto (létare, paròƚe, segni de "
+"pontexadura, o fraxe) i xé cavài fora e el utente el gà da conpletarlo."
+
+#: @textGrid.CrossWord
+msgid ""
+"Crosswords|The word table has to be completed according to its definitions. "
+"The definitions may be text, graphics or sound. The programme automatically "
+"shows the definitions of the two words which cross in the cursor position."
+msgstr ""
+"Paròƚe in croxe|Ƚa tavèƚa de paròƚe ƚa gà da ser conpletada drio ƚe so "
+"pròpie definision. Ƚe definision ƚe pol èsar tèsti, gràfeghe o sonòri. El "
+"programa el mostra da so pòsta ƚe definision de ƚe do paròƚe che ƚe se "
+"incroxa inte ƚa poxision de 'l cursor."
+
+#: @textGrid.WordSearch
+msgid ""
+"Word search|The hidden words have to be found in a grid of letters. The "
+"neutral cells in the grid (those with no word) are completed with characters "
+"chosen at random."
+msgstr ""
+"Serca de paròƚe|Ƚe paròƚe sconte ƚe gà da ser catàe inte na grèƚa de létare. "
+"Ƚe caxèƚe neutraƚi inte ƚa grèƚa (cueƚe sensa paròƚe) ƚe vien conpletàe co' "
+"caràteri a caxo."

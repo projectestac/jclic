@@ -1,0 +1,802 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JClic 0.2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-03-27 00:34+0200\n"
+"PO-Revision-Date: 2009-02-25 12:17+0000\n"
+"Last-Translator: Alexandre R Soares <Unknown>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. #JClic main messages
+#: label_time
+msgid "time"
+msgstr "tempo"
+
+#: label_actions
+msgid "tries"
+msgstr "tentativas"
+
+#: label_score
+msgid "score"
+msgstr "acertos"
+
+#: Skin
+msgid "Skin"
+msgstr "Aspecto"
+
+#: action_next_caption
+msgid "Next"
+msgstr "Próximo"
+
+#: action_next_tooltip
+msgid "Next activity"
+msgstr "atividade seguinte"
+
+#: action_prev_caption
+msgid "Previous"
+msgstr "Anterior"
+
+#: action_prev_tooltip
+msgid "Previous activity"
+msgstr "atividade anterior"
+
+#: action_reset_caption
+msgid "Restart"
+msgstr "Reiniciar"
+
+#: action_reset_tooltip
+msgid "Restart activity"
+msgstr "Reiniciar a atividade"
+
+#: action_info_caption
+msgid "Information"
+msgstr "Informação"
+
+#: about_window_lb_project
+msgid "Project"
+msgstr "projeto"
+
+#: about_window_lb_languages
+msgid "languages"
+msgstr "Idiomas"
+
+#: about_window_lb_language
+msgid "language"
+msgstr "Idioma"
+
+#: about_window_close_button
+msgctxt "about_window_close_button"
+msgid "Return"
+msgstr "Voltar"
+
+#: about_window_caption
+msgid "About"
+msgstr "Sobre..."
+
+#: action_about_tooltip
+msgid "User reports"
+msgstr "relatórios de usuário"
+
+#: about_window_lb_report
+msgid "Report"
+msgstr "Relatórios"
+
+#: about_window_browser_button
+msgid "View in browser"
+msgstr "Ver no navegador"
+
+#: report_no_activities
+msgid "No activities reported!"
+msgstr "Nenhuma atividade registrada!"
+
+#: report_system_standard
+msgid "Report not registered in any DB"
+msgstr "O relatório não está registrando em nenhuma base de dados"
+
+#: report_lb_time
+msgid "Time"
+msgstr "Tempo"
+
+#: msg_error_loading_sequence
+msgid "Error loading sequence"
+msgstr "Erro ao carregar a seqüência"
+
+#: media_qt_error_initializing
+msgid "Error initializing QuickTime!"
+msgstr "Erro ao inicializar QuickTime!"
+
+#: media_check_url
+msgid "messages/checkmedia.html"
+msgstr "messages/checkmedia_pt_BR.html"
+
+#: filesystem_openURL
+msgid "Open URL..."
+msgstr "Abrir URL..."
+
+#: filesystem_openFile
+msgid "Open file..."
+msgstr "Abrir arquivo..."
+
+#: filesystem_enterURL
+msgid "Please enter the URL to the resource to be loaded."
+msgstr "Escreva a URL do recurso que deseja acessar."
+
+#: msg_error_executing_external
+msgid "Error executing the command:"
+msgstr "Erro ao executar o comando:"
+
+#: editor_moveDown_tooltip
+msgid "Move the selected element down"
+msgstr "Mover para baixo o elemento selecionado"
+
+#: editor_moveUp_tooltip
+msgid "Move the selected element up"
+msgstr "Mover para cima o elemento selecionado"
+
+#: editor_moveDown
+msgid "Move down"
+msgstr "Mover para baixo"
+
+#: editor_moveUp
+msgid "Move up"
+msgstr "Mover para cima"
+
+#: filefilter_all_images
+msgid "Image files (*.gif, *.jpg, *.png, *.bmp, *.ico)"
+msgstr "Imagens (*.gif, *.jpg, *.png)"
+
+#: filefilter_png
+msgid "PNG images"
+msgstr "Imagens PNG"
+
+#: filefilter_jpg
+msgid "JPG images"
+msgstr "Imagens JPG"
+
+#: filefilter_gif
+msgid "GIF images"
+msgstr "Imagens GIF"
+
+#: filesystem_saveURLerror
+msgid "URL-based files are read-only."
+msgstr "Os arquivos baseados na URL são de leitura apenas."
+
+#: filefilter_all_clic
+msgid "Clic 3.0 packages (*.pac, *.pcc)"
+msgstr "Pacotes Clic 3.0 (*.pac, *.pcc)"
+
+#: filefilter_all
+msgid "All files"
+msgstr "Todos os arquivos"
+
+#: filefilter_all_jclic_clic
+msgid "JClic and Clic 3.0 projects (*.jclic, *.jclic.zip, *.pac, *.pcc)"
+msgstr "projetos JClic e Clic 3.0 (*.jclic, *.jclic.zip, *.pac, *.pcc)"
+
+#: filefilter_all_jclic
+msgid "JClic projects (*.jclic, *.jclic.zip)"
+msgstr "projetos JClic (*.jclic, *.jclic.zip)"
+
+#: filefilter_pcc
+msgid "Clic 3.0 compact packages (*.pcc)"
+msgstr "Pacotes compactos Clic 3.0 (*.pcc)"
+
+#: filefilter_pac
+msgid "Clic 3.0 open packages (*.pac)"
+msgstr "Pacotes abertos Clic 3.0 (*.pac)"
+
+#: filefilter_jclic_zip
+msgid "JClic compressed projects (*.jclic.zip)"
+msgstr "projetos JClic comprimidos (*.jclic.zip)"
+
+#: filefilter_jclic
+msgid "JClic projects (*.jclic)"
+msgstr "projetos JClic (*.jclic)"
+
+#: about_window_lb_mediaSystem
+msgid "Multimedia system"
+msgstr "Sistema multimeio"
+
+#: about_window_lb_level
+msgid "Level"
+msgstr "Nível"
+
+#: about_window_lb_area
+msgid "Area"
+msgstr "Área"
+
+#: report_num_actions
+msgid "Actions done:"
+msgstr "Ações efetuadas:"
+
+#: report_project
+msgid "Project:"
+msgstr "projeto:"
+
+#: report_lb_totals
+msgid "Total:"
+msgstr "Total:"
+
+#: report_num_projects
+msgid "Projects:"
+msgstr "projetos:"
+
+#: report_session
+msgid "Session:"
+msgstr "Sessão:"
+
+#: msg_warn_no_exec_in_applets
+msgid ""
+"For security reasons, execution of external programs is disabled in JClic "
+"applets."
+msgstr ""
+"Por razões de segurança a chamada de programas externos está desabilitada "
+"nos applets JClic."
+
+#: msg_error_starting_activity
+msgid "Error starting activity!"
+msgstr "Erro ao iniciar a atividade!"
+
+#: msg_error_loading_project
+msgid "Error loading project"
+msgstr "Erro ao carregar o projeto"
+
+#: msg_error_playing_media
+msgid "Error playing media!"
+msgstr "Erro ao executar a mídia!"
+
+#: msg_activity_finished
+msgid "Activity finished!"
+msgstr "atividade terminada!"
+
+#: msg_playing_media
+msgid "Playing media"
+msgstr "Interpretando mídia"
+
+#: msg_activity_running
+msgid "Activity running"
+msgstr "atividade em andamento"
+
+#: msg_activity_ready
+msgid "Activity ready"
+msgstr "atividade pronta"
+
+#: msg_initializing
+msgid "Initializing..."
+msgstr "A inicializar..."
+
+#: msg_preparing_media
+msgid "Preparing media"
+msgstr "Preparando mídia"
+
+#: msg_error_loading_activity
+msgid "Error loading activity"
+msgstr "Erro ao carregar a atividade"
+
+#: msg_loading_activity
+msgid "Loading activity"
+msgstr "A carregar atividade"
+
+#: msg_loading_project
+msgid "Loading project..."
+msgstr "A carregar projeto..."
+
+#: msg_ready
+msgid "Ready"
+msgstr "Pronto"
+
+#: err_reading_data
+msgid "Error loading file"
+msgstr "Erro ao ler o arquivo"
+
+#: err_file_save
+msgid "Error saving file!"
+msgstr "Erro ao salvar o arquivo!"
+
+#: err_file_open
+msgid "Error opening file!"
+msgstr "Erro ao abrir o arquivo!"
+
+#: report_started
+msgid "Session started:"
+msgstr "Início da sessão:"
+
+#: report_lb_score
+msgid "Score"
+msgstr "Pontuação"
+
+#: report_lb_actions
+msgid "Actions"
+msgstr "Ações"
+
+#: report_lb_solved
+msgid "Ok"
+msgstr "Correta"
+
+#: report_lb_activity
+msgctxt "report_lb_activity"
+msgid "Activity"
+msgstr "atividade"
+
+#: report_lb_sequence
+msgid "Sequence"
+msgstr "Sequência"
+
+#: report_global_score
+msgid "Global score:"
+msgstr "Pontuação geral:"
+
+#: report_total_time
+msgid "Total time on activities:"
+msgstr "Tempo total das atividades:"
+
+#: report_num_activities_solved
+msgid "Activities ok:"
+msgstr "atividades corretas:"
+
+#: report_num_activities
+msgid "Activities done:"
+msgstr "atividades realizadas:"
+
+#: report_num_sequences
+msgid "Sequences:"
+msgstr "Sequências:"
+
+#: report_system
+msgid "Report system:"
+msgstr "Sistema de relatórios:"
+
+#: report_user
+msgid "User:"
+msgstr "Usuário:"
+
+#: report_not_finished
+msgid "Activity not finished"
+msgstr "atividade ainda não acabada"
+
+#: action_info_tooltip
+msgid "Additional information"
+msgstr "Informação adicional"
+
+#: action_help_caption
+msgid "Help"
+msgstr "Ajuda"
+
+#: action_help_tooltip
+msgid "Help about this activity"
+msgstr "Ajuda sobre a atividade"
+
+#: action_audio_caption
+msgid "Sounds"
+msgstr "Sons"
+
+#: action_audio_tooltip
+msgid "Enable/disable sounds"
+msgstr "Ativar/desativar sons"
+
+#: about_window_lb_system
+msgid "System"
+msgstr "Sistema"
+
+#: about_window_lb_total_mem
+msgid "Total memory"
+msgstr "Memória total"
+
+#: about_window_lb_free_mem
+msgid "Free memory"
+msgstr "Memória livre"
+
+#: about_window_lb_java_home
+msgid "Java home"
+msgstr "Local do Java"
+
+#: about_window_lb_java_vm
+msgid "Java virtual machine"
+msgstr "Máquina virtual Java"
+
+#: about_window_lb_java_version
+msgid "Java version"
+msgstr "Versão Java"
+
+#: about_window_lb_os
+msgid "Operating system"
+msgstr "Sistema operacional"
+
+#: about_window_lb_version
+msgid "Version"
+msgstr "Versão"
+
+#: about_window_lb_descriptors
+msgid "Descriptors"
+msgstr "Descritores"
+
+#: about_window_lb_description
+msgid "Description"
+msgstr "Descrição"
+
+#: about_window_lb_history
+msgid "History"
+msgstr "Revisões"
+
+#: about_window_lb_organizations
+msgid "Organizations"
+msgstr "Organizações"
+
+#: about_window_lb_organization
+msgid "Organization"
+msgstr "Organização"
+
+#: about_window_lb_authors
+msgid "Authors"
+msgstr "Autores/as"
+
+#: about_window_lb_author
+msgid "Author"
+msgstr "Autor/a"
+
+#: about_window_lb_activity
+msgctxt "about_window_lb_activity"
+msgid "Activity"
+msgstr "atividade"
+
+#: help_window_close_button
+msgid "Return to activity"
+msgstr "Voltar à atividade"
+
+#: help_window_caption
+msgid "Help window"
+msgstr "Janela de ajuda"
+
+#: action_about_caption
+msgid "Reports"
+msgstr "relatórios"
+
+#: action_about_keys
+msgid "RR"
+msgstr "II"
+
+#: action_audio_keys
+msgid "SS"
+msgstr "OS"
+
+#: action_help_keys
+msgid "HH"
+msgstr "YY"
+
+#: action_info_keys
+msgid "II"
+msgstr "NN"
+
+#: action_next_keys
+msgid "N*"
+msgstr "S*"
+
+#: action_prev_keys
+msgid "P*"
+msgstr "A*"
+
+#: action_reset_keys
+msgid "R*"
+msgstr "R*"
+
+#: filefilter_install
+msgid "JClic project installers (*.jclic.inst)"
+msgstr "Instaladores de projetos JClic (*.jclic.inst)"
+
+#: report_err_no_users
+msgid "No users defined in the reports database!"
+msgstr "Não há nenhum usuário definido na base de dados de relatórios."
+
+#: report_err_no_users_in_group
+msgid "No users defined for this group in the reports database!"
+msgstr ""
+"Não há nenhum usuário definido para este grupo na base de dados de "
+"relatórios!"
+
+#: report_new_user
+msgid "New user..."
+msgstr "Novo usuário..."
+
+#: report_new_user_tooltip
+msgid "Create a new user in the reports database"
+msgstr "Criar um novo usuário na base de dados de relatórios"
+
+#: report_err_creating_user
+msgid "Error creating new user!"
+msgstr "Erro ao criar o novo usuário!"
+
+#: report_select_user
+msgid "User identification for the reports database"
+msgstr "Identificação de usuário para a base de dados de relatórios"
+
+#: report_userlist_title
+msgid "Please select your name:"
+msgstr "Selecione seu nome:"
+
+#: report_ident_user
+msgid "User identification"
+msgstr "Identificação de usuário"
+
+#: report_name_prompt
+msgid "Name:"
+msgstr "Nome:"
+
+#: report_id_prompt
+msgid "Login:"
+msgstr "Identificador:"
+
+#: report_pw_prompt
+msgid "Password:"
+msgstr "Senha:"
+
+#: report_pw_prompt_confirm
+msgid "Confirm password:"
+msgstr "Confirmar senha:"
+
+#: report_new_user_data
+msgid "Creation of a new user:"
+msgstr "Criação de um novo usuário:"
+
+#: report_err_bad_data
+msgid "Incorrect data!"
+msgstr "Dados incorretos!"
+
+#: report_generic_group_name
+msgid "Generic"
+msgstr "Genérico"
+
+#: report_new_group
+msgid "Create a new group..."
+msgstr "Criar um novo grupo..."
+
+#: report_err_creating_group
+msgid "Error creating the new group!"
+msgstr "Erro ao criar o novo grupo!"
+
+#: report_grouplist_title
+msgid "Please select your group:"
+msgstr "Selecione seu grupo:"
+
+#: report_new_group_data
+msgid "Creation of a new users group:"
+msgstr "Criação de um novo grupo de usuários:"
+
+#: report_err_invalid_user
+msgid "Missing user ID or incorrect password."
+msgstr "Usuário inexistente ou senha incorreta."
+
+#: report_user_has_pwd
+msgid "This account is password-protected."
+msgstr "A conta deste usuário está protegida por senha."
+
+#: report_err_init
+msgid "Error initializing report system."
+msgstr "Erro ao inicializar o sistema de relatórios."
+
+#: report_not_connected
+msgid "not connected"
+msgstr "não conectado"
+
+#: report_err_creating
+msgid "Error creating reports agent"
+msgstr "Erro ao criar o agente de relatórios"
+
+#: action_return_caption
+msgctxt "action_return_caption"
+msgid "Return"
+msgstr "Voltar"
+
+#: action_return_tooltip
+msgid "Return to the last menu"
+msgstr "Voltar ao último menu"
+
+#: action_return_keys
+msgid "T*"
+msgstr "V*"
+
+#: filefilter_all_sounds
+msgid "Sounds (*.wav, *.mp3, *.ogg, *.au, *.aiff)"
+msgstr "Sons (*.wav, *.mp3, *.ogg, *.au, *.aiff)"
+
+#: filefilter_midi
+msgid "MIDI files (*.mid)"
+msgstr "Arquivos MIDI (*.mid)"
+
+#: filefilter_all_video
+msgid "Video files (*.avi, *.mov, *.mpeg)"
+msgstr "Video (*.avi, *.mov, *.mpeg)"
+
+#: filefilter_all_anim
+msgid "Flash 2.0 files (*.swf)"
+msgstr "Arquivos Flash 2.0 (*.swf)"
+
+#: filefilter_skins
+msgid "Skins (*.xml)"
+msgstr "Entornos visuais (*.xml)"
+
+#: filefilter_all_media
+msgid "All media files"
+msgstr "Todos os recursos"
+
+#: filesystem_copyToRoot_1
+msgid "The file"
+msgstr "O arquivo"
+
+#: filesystem_copyToRoot_2
+msgid "is out of the current project's folder."
+msgstr "se encontra numa pasta diferente do projeto atual."
+
+#: filesystem_copyToRoot_3
+msgid "It's advisable to have all the files in the same folder."
+msgstr "Recomenda-se ter todos os arquivos na mesma pasta."
+
+#: filesystem_copyToRoot_4
+msgid "Do you want to copy the selected file to the project's folder?"
+msgstr "Deseja copiar o arquivo seleccionado para a pasta do projeto?"
+
+#: filesystem_copyFile
+msgid "Copying file"
+msgstr "Copiando o arquivo"
+
+#: msg_loading
+msgid "Loading"
+msgstr "Carregando"
+
+#: report_err_bad_id
+msgid "Bad identifier!"
+msgstr "Identificador incorreto!"
+
+#: report_err_duplicate_id
+msgid "This identifier already exists in the database!"
+msgstr "Este identificador já existe na base de dados!"
+
+#: report_err_bad_name
+msgid "Bad name!"
+msgstr "Nome incorreto!"
+
+#: report_err_bad_pw
+msgid "Passwords don't match!"
+msgstr "As senhas não coincidem!"
+
+#: report_err_connect
+msgid "Error connecting to the reports database!"
+msgstr "Erro ao conectar com a base de dados de relatórios!"
+
+#: test_alert_exit
+msgid "EXIT: At this point, the program will exit."
+msgstr "SAIR: Neste ponto o programa seria fechado."
+
+#: test_alert_jump_to
+msgid "At this point the program will jump to the project:"
+msgstr "Neste ponto, saltaria ao projeto:"
+
+#: ftype_image
+msgid "Image"
+msgstr "Imagem"
+
+#: ftype_audio
+msgid "Digital audio"
+msgstr "Som digital"
+
+#: ftype_midi
+msgid "MIDI file"
+msgstr "Arquivo MIDI"
+
+#: ftype_xml
+msgid "XML file"
+msgstr "Arquivo XML"
+
+#: ftype_anim
+msgid "Animation"
+msgstr "Animação"
+
+#: ftype_video
+msgid "Digital video"
+msgstr "Video digital"
+
+#: ftype_font
+msgid "TrueType font"
+msgstr "Tipo de letra TrueType"
+
+#: ftype_jclic
+msgid "JClic project"
+msgstr "projeto JClic"
+
+#: ftype_inst
+msgid "JClic project installer script"
+msgstr "Script de instalação de projetos JClic"
+
+#: ftype_unknown
+msgid "Unknown"
+msgstr "Desconhecido"
+
+#: ftype_animated
+msgid "animated"
+msgstr "animada"
+
+#: filefilter_fonts
+msgid "Fonts (*.ttf)"
+msgstr "Tipos de letra (*.ttf)"
+
+#: editor_moveUp_keys
+msgid "U#38"
+msgstr "R#38"
+
+#: editor_moveDown_keys
+msgid "W#40"
+msgstr "B#40"
+
+#: filefilter_all_html
+msgid "HTML documents (*.htm, *.html)"
+msgstr "Documentos HTML (*.htm, *.html)"
+
+#: about_creditsDoc
+msgid "about/credits.html"
+msgstr "about/credits_pt_BR.html"
+
+#: about_licenseDoc
+msgid "about/license.html"
+msgstr "about/license_pt_BR.html"
+
+#: about_sponsorsCaption
+msgid "With the support of:"
+msgstr "Com o suporte de:"
+
+#: about_window_systemInfo
+msgid "System information"
+msgstr "Informação do sistema"
+
+#: about_window_projectInfo
+msgid "Current project info"
+msgstr "Informação do projeto atual"
+
+#: about_window_reportInfo
+msgid "Current session results"
+msgstr "Resultados da sessão atual"
+
+#: about_otherCreditsCaption
+msgid "This product includes software developed by:"
+msgstr "Este producto inclui software desenvolvido por:"
+
+#: msg_saving_project
+msgid "Saving project..."
+msgstr "Salvando projeto..."
+
+#: filefilter_text
+msgid "Text files (*.txt)"
+msgstr "Documentos de texto (*.txt)"
+
+#. #Translation credits displayed on the about window, in HTML format
+#: html_translation_credits
+msgid "English version, by The JClic team"
+msgstr ""
+"Brazilian Portuguese version, by The JClic team contributors (<a "
+"href=\"http://sites.google.com/site/boatecp/jclic\">http://sites.google.com/s"
+"ite/boatecp/jclic</a>)"
+
+#. #Abstract of the GPL license, version 2.0, as shown on the About window
+#: html_gpl_license
+msgid ""
+"This program is free software; you can redistribute it and/or  modify it "
+"under the terms of the GNU General Public License  as published by the Free "
+"Software Foundation; either version 2  of the License, or (at your option) "
+"any later version.<br>&nbsp;<BR>This program is distributed in the hope that "
+"it will be useful,  but WITHOUT ANY WARRANTY; without even the implied "
+"warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the  "
+"<a href\\=\"http\\://www.gnu.org/copyleft/gpl.html\">GNU General Public "
+"License</a>  for more details."
+msgstr ""
+"Este programa é software livre (\"free software\"); você pode redistribuí-lo "
+"e/ou modificá-lo de acordo com os termos da Licença Pública Geral GNU como "
+"publicada pela Free Software Foundation; tanto segundo a versão 2 dessa "
+"licença quanto (por sua opção) por uma versão posterior.<br>&nbsp;<BR>Este "
+"programa é distribuído na expectativa de ser útil, mas SEM QUALQUER "
+"GARANTIA; sem mesmo a garantia implícita de COMERCIALIZAÇÃO ou de ADEQUAÇÃO "
+"A QUALQUER PROPÓSITO EM PARTICULAR. Consulte <a href\\=\"http\\"
+"://www.gnu.org/copyleft/gpl.html\">GNU General Public License</a> para obter "
+"mais detalhes."

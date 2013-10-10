@@ -1,0 +1,9 @@
+# for the javalayer mp3 decoder
+javazoom.spi.mpeg.sampled.convert.MpegFormatConversionProvider
+# for the javalayer mp3 decoder
+# and the lame mp3 encoder
+org.tritonus.sampled.convert.javalayer.MpegFormatConversionProvider
+org.tritonus.sampled.convert.lame.Mp3LameFormatConversionProvider
+# for the jorbis decoder
+org.tritonus.sampled.convert.jorbis.JorbisFormatConversionProvider
+

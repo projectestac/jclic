@@ -1,0 +1,178 @@
+# Greek translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2008-04-09 11:38+0000\n"
+"Last-Translator: Yannis Kaskamanidis <ttnfy17@yahoo.gr>\n"
+"Language-Team: Greek <el@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: @associations.ComplexAssociation
+msgid ""
+"Complex association|In this activity there are also two sets of information, "
+"but these may have a different number of parts and there may be different "
+"types of relation between them e.g.: one-to-one, various to one, parts "
+"without a relation, etc."
+msgstr ""
+"Σύνθετη σχέση|Σε αυτή τη δραστηριότητα υπάρχουν δύο σύνολα πληροφοριών, αλλά "
+"ενδέχεται να έχουν διαφορετικό αριθμό τμημάτων ή να σχετίζονται με "
+"διαφορετικούς τύπους σχέσεων, για παράδειγμα: ένα προς ένα, πολλά προς ένα, "
+"τμήματα χωρίς σχέσεις, κλπ."
+
+#: @associations.SimpleAssociation
+msgid ""
+"Simple association|There are two sets of information that have the same "
+"number of parts. Each part from the original set corresponds to one, and "
+"only one, part of the image set."
+msgstr ""
+"Απλή σχέση|Υπάρχουν δύο σύνολα πληροφοριών που έχουν τον ίδιο αριθμό "
+"τμημάτων. Κάθε τμήμα από το αρχικό σύνολο αντιστοιχεί σε ένα, και μόνον ένα, "
+"τμήμα του άλλου συνόλου."
+
+#: @memory.MemoryGame
+msgid ""
+"Finding pairs|Each of the pieces appear twice, but face down. In each go two "
+"pieces are turned over and are turned back over if they are not the same. "
+"The objective is to find all the pairs."
+msgstr ""
+"Εύρεση ζευγών|Κάθε ένα από το κομμάτια εμφανίζεται δύο φορές, αλλά γυρισμένο "
+"από την πίσω όψη. Σε κάθε βήμα δύο κομμάτια είναι δυνατόν να "
+"αναποδογυριστούν, αλλά αν δεν είναι τα ίδια επιστρέφουν στην αρχική τους "
+"θέση."
+
+#: @panels.Explore
+msgid ""
+"Explore activity|An initial piece of information is shown and, upon clicking "
+"on it, a given piece of information is shown for each element."
+msgstr ""
+"Δραστηριότητα εξερεύνησης| Εμφανίζεται ένα αρχικό τμήμα πληροφορίας και αν "
+"κάνουμε κλικ σε αυτό εμφανίζεται ένα τμήμα δοσμένης πληροφορίας για κάθε "
+"στοιχείο."
+
+#: @panels.Identify
+msgid ""
+"Identify cells|There is just one set of information and you have to click on "
+"those parts that meet a certain condition."
+msgstr ""
+"Ταύτιση κελιών|Υπάρχει μόνο ένα σύνολο πληροφοριών, όπου πρέπει να γίνει "
+"κλικ σε κάθε ένα τμήμα του συνόλου ώστε να αναδιαταχθούν όλα τα τμήματα στη "
+"σωστή τους θέση."
+
+#: @panels.InformationScreen
+msgid ""
+"Information screen|One set of information is shown and there is the option "
+"of activating the multimedia content for each piece of information."
+msgstr ""
+"Πληροφορίες οθόνης|Εμφανίζεται ένα συνολο πληροφοριών, όπου υπάρχει η "
+"δυνατότητα ενεργοποίησης πολυμεσικού περιεχομένου για κάθε τμήμα της "
+"πληροφορίας."
+
+#: @puzzles.DoublePuzzle
+msgid ""
+"Double puzzle|Two grids are shown. One contains the disordered information "
+"and the other is empty. The object has to be rearranged in the empty grid by "
+"dragging the pieces one by one."
+msgstr ""
+"Διπλό παζλ|Εμφανίζονται δύο πλέγματα. Το ένα περιέχει τα τμήματα της "
+"πληροφορίας ανακατεμένα, ενώ το άλλο είναι άδειο. Σκοπός είναι η αναδιάταξη "
+"των τμημάτων στο άδειο πλέγμα με μετακίνησή τους σε αυτό."
+
+#: @puzzles.ExchangePuzzle
+msgid ""
+"Exchange puzzle|The information is swapped within the same panel. In each go "
+"two pieces swap position until the object is reordered."
+msgstr ""
+"Παζλ ανταλλαγής|Τα τμήματα της πληροφορίας είναι ανακατωμένα στο ίδιο "
+"πλαίσιο. Σε κάθε βήμα, δύο τμήματα ανταλλάσσουν τις θέσεις τους μέχρι να "
+"βρεθεί η σωστή τους θέση."
+
+#: @puzzles.HolePuzzle
+msgid ""
+"Hole puzzle|In the same panel one piece is missing and the others are "
+"shuffled. In each go one of the pieces next to the empty space is moved "
+"until they are back in the original order."
+msgstr ""
+"Παζλ με ένα κενό|Μέσα στο πλαίσιο της πληροφορίας λείπει ένα τμήμα της, ενώ "
+"τα άλλα είναι ανακατωμένα. Σε κάθε βήμα ένα από τα κομμάτια που βρίσκονται "
+"γύρω από το κενό μετακινείται, μέχρι να βρεθεί η σωστή θέση όλων των "
+"τμημάτων."
+
+#: @text.WrittenAnswer
+msgid ""
+"Written answer|A set of information is shown and the corresponding text for "
+"each of its parts must be written."
+msgstr ""
+"Γραπτή απάντηση|Εμφανίζεται ένα σύνολο πληροφοριών και για κάθε τμήμα πρέπει "
+"να δοθεί η αντίστοιχη γραπτή απάντηση."
+
+#: @text.FillInBlanks
+msgid ""
+"Text: Fill-in blanks|The user has to complete certain words, letters and "
+"phrases that have been hidden or camouflaged in a text. The solution of each "
+"of the elements may be set up in different ways: writing in a blank space; "
+"correcting a phrase that contains errors; or selecting from a list of "
+"various possible answers."
+msgstr ""
+"Κείμενο: συμπλήρωση κενών|Ο χρήστης πρέπει να συμπληρώσει ορισμένες λέξεις, "
+"γράμματα ή φράσεις που λείπουν ή είναι παραλλαγμένες σε ένα κείμενο. Η λύση "
+"για κάθε ένα στοιχείο μπορεί να οριστεί με διαφορετικούς τρόπους: με γράψιμο "
+"σε ένα κενό διάστημα, διόρθωση μιας φράσης που περιέχει λάθη, επιλογή από "
+"μια λίστα με πιθανές απαντήσεις."
+
+#: @text.Identify
+msgid ""
+"Text: Identify elements|The user has to point out some words, letters, "
+"numbers, symbols or punctuation marks with a click of the mouse."
+msgstr ""
+"Κείμενο: ταυτοποίηση στοιχείων|Ο χρήστης πρέπει να δείξει με κλικ του "
+"ποντικιoύ λέξεις, γράμματα, αριθμούς ή σημεία στίξης."
+
+#: @text.Order
+msgid ""
+"Text: Order elements|When designing this activity some of the words or "
+"paragraphs of a text are selected to be shuffled around. The user has to put "
+"them back in order."
+msgstr ""
+"Κείμενο: διάταξη στοιχείων|Κατά το σχεδιασμό αυτής της δραστηριότητας "
+"μερικές λέξεις ή παράγραφοι του κειμένου επιλέχθηκαν να είναι ανακατεμένες. "
+"Ο χρήστης πρέπει να τις βάλει στη σωστή σειρά."
+
+#: @text.Complete
+msgid ""
+"Text: Complete text|Various parts of a text (letters, words, punctuation "
+"signs, or phrases) are taken out and the user has to complete it."
+msgstr ""
+"Κείμενο: συμπλήρωση κειμένου| Τμήματα ενός κειμένου (γράμματα, λέξεις, "
+"σημεία στίξης, φράσεις) έχουν εξαιρεθεί και ο χρήστης πρέπει να τα "
+"συμπληρώσει."
+
+#: @textGrid.CrossWord
+msgid ""
+"Crosswords|The word table has to be completed according to its definitions. "
+"The definitions may be text, graphics or sound. The programme automatically "
+"shows the definitions of the two words which cross in the cursor position."
+msgstr ""
+"Σταυρόλεξα|Το σταυρόλεξο πρέπει να συμπληρωθεί σύμφωνα με τους ορισμούς των "
+"λέξεων. Οι ορισμοί μπορεί να είναι κείμενο, γραφικό ή ήχος. Το πρόγραμμα "
+"δείχνει αυτόματα τους ορισμούς των δυο λέξεων που τέμνονται στο σημείο που "
+"βρίσκεται ο κέρσορας."
+
+#: @textGrid.WordSearch
+msgid ""
+"Word search|The hidden words have to be found in a grid of letters. The "
+"neutral cells in the grid (those with no word) are completed with characters "
+"chosen at random."
+msgstr ""
+"Αναζήτηση λέξεων|Οι λέξεις πρέπει να βρεθούν στο πλέγμα των γραμμάτων. Τα "
+"ουδέτερα κελιά του πλέγματος (αυτά που δεν έχουν λέξεις) συμπληρώνονται με "
+"τυχαίους χαρακτήρες."

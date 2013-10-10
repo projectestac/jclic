@@ -1,0 +1,340 @@
+# Greek translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2008-02-18 19:52+0000\n"
+"Last-Translator: Yannis Kaskamanidis <ttnfy17@yahoo.gr>\n"
+"Language-Team: Greek <el@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: ERROR
+msgid "ERROR"
+msgstr "ΣΦΑΛΜΑ"
+
+#: OK
+msgid "OK"
+msgstr "Εντάξει"
+
+#: YES
+msgid "Yes"
+msgstr "Ναι"
+
+#: NO
+msgid "No"
+msgstr "Όχι"
+
+#: DELETE
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: PASTE
+msgid "Paste"
+msgstr "Επικόλληση"
+
+#: CUT
+msgid "Cut"
+msgstr "Αποκοπή"
+
+#: COPY
+msgid "Copy"
+msgstr "Αντιγραφή"
+
+#: FILE_SAVE
+msgid "Save file"
+msgstr "Αποθήκευση αρχείου"
+
+#: CONFIRM
+msgid "Please confirm"
+msgstr "Παρακαλώ επιβεβαιώστε"
+
+#: FILE_OPEN
+msgid "Open file"
+msgstr "Άνοιγμα αρχείου"
+
+#: FILE_ERR_BEG_DIR
+msgid "Folder"
+msgstr "Φάκελος"
+
+#: URL
+msgid "URL:"
+msgstr "URL:"
+
+#: PASSWORD
+msgid "Password:"
+msgstr "Κωδικός πρόσβασης:"
+
+#: WARNING
+msgid "Warning!"
+msgstr "Προειδοποίηση!"
+
+#: FILE_NOT_READABLE
+msgid "Cannot be read!"
+msgstr "Αδύνατη η ανάγνωσή του!"
+
+#: FILE_NOT_EXIST
+msgid "Does not exist!"
+msgstr "Δεν υπάρχει!"
+
+#: FILE_READONLY
+msgid "Is read-only. It cannot be overwritted!"
+msgstr "Είναι μόνο για ανάγνωση. Αδύνατη η αντικατάστασή του!"
+
+#: FILE_OVERWRITE_DIR_PROMPT
+msgctxt "FILE_OVERWRITE_DIR_PROMPT"
+msgid "Do you want to overwrite it?"
+msgstr "Θέλετε να το αντικαταστήσετε;"
+
+#: FILE_OVERWRITE_PROMPT
+msgctxt "FILE_OVERWRITE_PROMPT"
+msgid "Do you want to overwrite it?"
+msgstr "Θέλετε να το αντικαταστήσετε;"
+
+#: FILE_EXISTS
+msgid "already exists on your system."
+msgstr "υπάρχει ήδη στο σύστημά σας."
+
+#: FILE_DIR_BEG
+msgid "The folder"
+msgstr "Ο φάκελος"
+
+#: FILE_BEG
+msgid "The file"
+msgstr "Το αρχείο"
+
+#: UNNAMED
+msgid "Unnamed"
+msgstr "Ανώνυμο"
+
+#: FILE_ERR_READING
+msgid "Error reading file"
+msgstr "Σφάλμα ανάγνωσης αρχείου"
+
+#: FILE_ERR_SAVING
+msgid "Error saving file"
+msgstr "Σφάλμα κατά την αποθήκευση του αρχείου"
+
+#: FILE_FIND
+msgid "Find file"
+msgstr "Εύρεση αρχείου"
+
+#: FILE_ERR_READONLY
+msgid "is read-only."
+msgstr "είναι μόνο για ανάγνωση."
+
+#: FILE_ERR_EXISTS
+msgid "exists. Do you want to overwrite it?"
+msgstr "υπάρχει. Θέλετε να το αντικαταστήσετε;"
+
+#: FILE_ERR_UNREADABLE
+msgid "is unreadable."
+msgstr "είναι μη αναγνώσιμο."
+
+#: FILE_ERR_BEG
+msgid "File"
+msgstr "Αρχείο"
+
+#: LOADING
+msgid "loading..."
+msgstr "φόρτωση..."
+
+#: FALSE
+msgid "false"
+msgstr "ψευδές"
+
+#: CHECK_SIGNATURE_URL
+msgid "messages/checksignature.html"
+msgstr "messages/checksignature.html"
+
+#: URL_LAUNCH_ERROR
+msgid "Error launching URL"
+msgstr "Σφάλμα φόρτωσης URL"
+
+#: URL_ERROR
+msgid "Error building URL!"
+msgstr "Σφάλμα δημιουργίας URL!"
+
+#: QUESTION
+msgid "Question"
+msgstr "Ερώτηση"
+
+#: PASSWORD_INCORRECT
+msgid "Incorrect password!"
+msgstr "Λανθασμένος κωδικός πρόσβασης!"
+
+#: TRUE
+msgid "true"
+msgstr "αληθές"
+
+#: CANCEL
+msgid "Cancel"
+msgstr "Άκυρο"
+
+#: FILE_ERR_DELETING
+msgid "Error deleting file"
+msgstr "Σφάλμα κατά τη διαγραφή του αρχείου"
+
+#: URL_OPEN
+msgid "Open URL"
+msgstr "Άνοιγμα URL"
+
+#: FILE_ERR_RESTORING
+msgid "Error restoring file"
+msgstr "Σφάλμα κατά την αποκατάσταση του αρχείου"
+
+#: WRITING_FILE
+msgid "Writing file..."
+msgstr "Εγγραφή αρχείου..."
+
+#: XML_ATTRIBUTE
+msgid "Attribute"
+msgstr "Χαρακτηριστικό"
+
+#: XML_VALUE
+msgid "Value"
+msgstr "Τιμή"
+
+#: XML_NOT_EDITABLE
+msgid "This field is not editable!"
+msgstr "Αυτό το πεδίο δεν είναι επεξεργάσιμο!"
+
+#: XML_TEXT
+msgid "text"
+msgstr "κείμενο"
+
+#: XML_NEW_ATTRIBUTE
+msgid "Add attribute"
+msgstr "Προσθήκη χαρακτηριστικού"
+
+#: WORKING
+msgid "Working..."
+msgstr "Εργασία..."
+
+#: LOADING_FILE
+msgid "Loading file"
+msgstr "Φόρτωση αρχείου"
+
+#: XML_DEL_ATTRIBUTE
+msgid "Delete attribute"
+msgstr "Διαγραφή χαρακτηριστικού"
+
+#: XML_ELEMENT
+msgid "Element"
+msgstr "Στοιχείο"
+
+#: XML_NEW_ELEMENT
+msgid "New element"
+msgstr "Νέο στοιχείο"
+
+#: XML_DEL_ELEMENT
+msgid "Delete element"
+msgstr "Διαγραφή στοιχείου"
+
+#: XML_NAME
+msgid "Name"
+msgstr "Όνομα"
+
+#: RETRY
+msgid "Retry"
+msgstr "Επανάληψη"
+
+#: IGNORE
+msgid "Ignore"
+msgstr "Παράβλεψη"
+
+#: DATE_INCORRECT
+msgid "Date incorrect!"
+msgstr "Λανθασμένα δεδομένα!"
+
+#: BAD_NUMBER
+msgid "Incorrect number!"
+msgstr "Λανθασμένος αριθμός!"
+
+#: NONE
+msgid "None"
+msgstr "Κανένα"
+
+#: COPY_keys
+msgid "CC"
+msgstr "Κοινοποίηση"
+
+#: CUT_keys
+msgid "TX"
+msgstr "TX"
+
+#: PASTE_keys
+msgid "PV"
+msgstr "PV"
+
+#: DELETE_keys
+msgid "D#127"
+msgstr "D#127"
+
+#: SELECT_ALL
+msgid "Select all"
+msgstr "Επιλογή όλων"
+
+#: SELECT_NONE
+msgid "Clear selection"
+msgstr "Καθαρισμός επιλογής"
+
+#: WIDTH
+msgid "Width:"
+msgstr "Πλάτος:"
+
+#: HEIGHT
+msgid "Height:"
+msgstr "Ύψος:"
+
+#: BROWSE_FILES
+msgid "Browse files..."
+msgstr "Περιήγηση αρχείων..."
+
+#: VERSION
+msgid "version"
+msgstr "έκδοση"
+
+#: ABOUT
+msgid "About..."
+msgstr "Σχετικά..."
+
+#: YES_TO_ALL
+msgid "Yes to all"
+msgstr "Ναι σε όλα"
+
+#: NO_TO_ALL
+msgid "No to all"
+msgstr "Όχι σε όλα"
+
+#: SAVE
+msgid "Save"
+msgstr "Αποθήκευση"
+
+#: OPEN
+msgid "Open"
+msgstr "Άνοιγμα"
+
+#: FILE_OPEN_TOOLTIP
+msgid "Open the selected file"
+msgstr "Άνοιγμα επιλεγμένου αρχείου"
+
+#: FILE_SAVE_TOOLTIP
+msgid "Save the specified file"
+msgstr "Αποθήκευση καθορισμένου αρχείου"
+
+#: SAVING
+msgid "saving..."
+msgstr "αποθήκευσ..."
+
+#: SAVING_FILE
+msgid "Saving file"
+msgstr "Αποθήκευση αρχείου"

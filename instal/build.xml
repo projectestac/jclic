@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<project name="BuildJClicInstallers" basedir=".." default="all">
+
+  <!-- =================================================================== -->
+  <!-- INIT                                                                -->
+  <!-- =================================================================== -->
+  <target name="init">  
+
+    <!-- Variables -->
+    <property file="${user.home}/.ant-global.properties" />
+    <property file="project.properties" />
+    <property name="version"        value="${JCLIC_VERSION}" />
+    <property name="prefix"         value="jclic-${version}" />
+    
+    <property name="dist.dir"       location="dist" />
+    <property name="instal.dir"     location="instal" />
+    <property name="signed.dir"     location="${dist.dir}/jclic" />
+        
+    <echo message="---------------------"/>
+    <echo message="JClic ZIP build"/>
+    <echo message="---------------------"/>
+    
+    <!-- Create dirs -->
+    <mkdir dir="${instal.dir}"/>
+    <mkdir dir="${signed.dir}"/>
+    
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- MAIN                                                                -->
+  <!-- =================================================================== -->
+  <target name="all" 
+          depends="buildZip,buildExe" 
+          description="Build everything.">
+
+    <echo message="*** JClic installers successfully created!"/>
+
+  </target>
+
+  
+  <!-- =================================================================== -->
+  <!-- BUILDZIP                                                            -->
+  <!-- =================================================================== -->
+  <target name="buildZip" 
+          depends="init">
+    <zip destfile="${instal.dir}/${prefix}.zip">
+      <zipfileset dir="." includes="COPYING.txt" prefix="${prefix}" />
+      <zipfileset dir="." includes="CHANGES.txt" prefix="${prefix}" />
+      <zipfileset dir="." includes="CREDITS.txt" prefix="${prefix}" />
+      <zipfileset dir="." includes="HACKING.txt" prefix="${prefix}" />
+      <zipfileset dir="." includes="INSTALL.txt" prefix="${prefix}" />
+      
+      <zipfileset dir="${signed.dir}" includes="readme.txt" prefix="${prefix}" />
+      <zipfileset dir="${signed.dir}" includes="llegiume.txt" prefix="${prefix}" />
+      <zipfileset dir="${signed.dir}" includes="leeme.txt" prefix="${prefix}" />
+    
+      <zipfileset dir="${signed.dir}" includes="jclic.jar" prefix="${prefix}" />
+      <zipfileset dir="${signed.dir}" includes="jclicauthor.jar" prefix="${prefix}" />
+      <zipfileset dir="${signed.dir}" includes="jclicplugin.js" prefix="${prefix}" />
+      <zipfileset dir="${signed.dir}" includes="launchApplet.js" prefix="${prefix}" />
+      
+      <zipfileset dir="${signed.dir}" includes="jclicreports.jar" prefix="${prefix}" />
+      
+      <zipfileset dir="${signed.dir}" includes="edu/xtec/resources/skins/*.*" prefix="${prefix}" />
+      <zipfileset dir="${signed.dir}" includes="icons/*.*" prefix="${prefix}" />
+      
+    </zip>    
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- BUILDEXE                                                            -->
+  <!-- =================================================================== -->
+  <target name="buildExe" 
+          depends="init">
+          
+	<!-- Windows installer must be compiled with NSIS-Unicode (http://www.scratchpaper.com/) -->
+        <!-- nsis.dir must be defined in {home}/.ant-global.properties -->
+        <!-- In Linux, "wine" is used to call a windows version of NSIS-Unicode -->
+
+	<exec os="Windows" dir="${instal.dir}" executable="${nsis.dir}/makensis.exe" output="${instal.dir}/nsis.log">
+	  <arg line="/V4 /DPRODUCT_VERSION=${version} setup.nsi"/>
+	</exec>
+
+	<exec os="Linux" dir="${instal.dir}" executable="wine" output="${instal.dir}/nsis.log">
+	  <arg line="${nsis.dir}/makensis.exe"/>
+	  <arg line="/V4 /DPRODUCT_VERSION=${version} setup.nsi"/>
+	</exec>
+
+  </target>
+
+</project>

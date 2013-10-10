@@ -1,0 +1,801 @@
+# Turkish translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-03-27 00:34+0200\n"
+"PO-Revision-Date: 2009-03-12 09:08+0000\n"
+"Last-Translator: Ahmet YAVUZ <Unknown>\n"
+"Language-Team: Turkish <tr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. #JClic main messages
+#: label_time
+msgid "time"
+msgstr "zaman"
+
+#: label_actions
+msgid "tries"
+msgstr "Denemeler"
+
+#: label_score
+msgid "score"
+msgstr "sonuç"
+
+#: Skin
+msgid "Skin"
+msgstr "Görünüm"
+
+#: action_next_caption
+msgid "Next"
+msgstr "Sonraki"
+
+#: action_next_tooltip
+msgid "Next activity"
+msgstr "Bir sonraki etkinlik"
+
+#: action_prev_caption
+msgid "Previous"
+msgstr "Önceki"
+
+#: action_prev_tooltip
+msgid "Previous activity"
+msgstr "Bir önceki etkinlik"
+
+#: action_reset_caption
+msgid "Restart"
+msgstr "Yeniden Başla"
+
+#: action_reset_tooltip
+msgid "Restart activity"
+msgstr "Etkinliği tekrar başlat"
+
+#: action_info_caption
+msgid "Information"
+msgstr "Bilgi"
+
+#: about_window_lb_project
+msgid "Project"
+msgstr "Proje"
+
+#: about_window_lb_languages
+msgid "languages"
+msgstr "Diller"
+
+#: about_window_lb_language
+msgid "language"
+msgstr "dil"
+
+#: about_window_close_button
+msgctxt "about_window_close_button"
+msgid "Return"
+msgstr "Geri"
+
+#: about_window_caption
+msgid "About"
+msgstr "Hakkında"
+
+#: action_about_tooltip
+msgid "User reports"
+msgstr "Kullanıcı raporları"
+
+#: about_window_lb_report
+msgid "Report"
+msgstr "Rapor"
+
+#: about_window_browser_button
+msgid "View in browser"
+msgstr "Tarayıcıda gör"
+
+#: report_no_activities
+msgid "No activities reported!"
+msgstr "Etkinlik raporu yok!"
+
+#: report_system_standard
+msgid "Report not registered in any DB"
+msgstr "Rapor herhangi bir veritabanında kaydedilmedi"
+
+#: report_lb_time
+msgid "Time"
+msgstr "Zaman"
+
+#: msg_error_loading_sequence
+msgid "Error loading sequence"
+msgstr "Etkinlik dizisi yüklenirken hata oluştu"
+
+#: media_qt_error_initializing
+msgid "Error initializing QuickTime!"
+msgstr "QuickTime başlatılamıyor!"
+
+#: media_check_url
+msgid "messages/checkmedia.html"
+msgstr "messages/checkmedia.html"
+
+#: filesystem_openURL
+msgid "Open URL..."
+msgstr "URL Aç..."
+
+#: filesystem_openFile
+msgid "Open file..."
+msgstr "Dosya aç..."
+
+#: filesystem_enterURL
+msgid "Please enter the URL to the resource to be loaded."
+msgstr "Yüklenecek URL'yi giriniz."
+
+#: msg_error_executing_external
+msgid "Error executing the command:"
+msgstr "Komut çalıştırılamadı:"
+
+#: editor_moveDown_tooltip
+msgid "Move the selected element down"
+msgstr "Seçilen öğeyi aşağıya kaydır"
+
+#: editor_moveUp_tooltip
+msgid "Move the selected element up"
+msgstr "Seçilen öğeyi yukarıya kaydır"
+
+#: editor_moveDown
+msgid "Move down"
+msgstr "Aşağı Kaydır"
+
+#: editor_moveUp
+msgid "Move up"
+msgstr "Yukarı kaydır"
+
+#: filefilter_all_images
+msgid "Image files (*.gif, *.jpg, *.png, *.bmp, *.ico)"
+msgstr "Resim dosyaları *.gif, *.jpg, *.png, *.bmp, *.ico)"
+
+#: filefilter_png
+msgid "PNG images"
+msgstr "PNG resim dosyası"
+
+#: filefilter_jpg
+msgid "JPG images"
+msgstr "JPG resim dosyası"
+
+#: filefilter_gif
+msgid "GIF images"
+msgstr "GIF resim dosyası"
+
+#: filesystem_saveURLerror
+msgid "URL-based files are read-only."
+msgstr "Salt okunur URL dosyaları"
+
+#: filefilter_all_clic
+msgid "Clic 3.0 packages (*.pac, *.pcc)"
+msgstr "Clic 3.0 paketi (*.pac, *.pcc)"
+
+#: filefilter_all
+msgid "All files"
+msgstr "Tüm dosyalar"
+
+#: filefilter_all_jclic_clic
+msgid "JClic and Clic 3.0 projects (*.jclic, *.jclic.zip, *.pac, *.pcc)"
+msgstr "JClic ve Clic 3.0 projeleri (*.jclic, *.jclic.zip, *.pac, *.pcc)"
+
+#: filefilter_all_jclic
+msgid "JClic projects (*.jclic, *.jclic.zip)"
+msgstr "JClic projeleri(*.jclic, *.jclic.zip)"
+
+#: filefilter_pcc
+msgid "Clic 3.0 compact packages (*.pcc)"
+msgstr "Clic 3.0 kompakt paket (*.pcc)"
+
+#: filefilter_pac
+msgid "Clic 3.0 open packages (*.pac)"
+msgstr "Clic 3.0 open packages (*.pac)"
+
+#: filefilter_jclic_zip
+msgid "JClic compressed projects (*.jclic.zip)"
+msgstr "JClic sıkıştırılmış projeleri (*.jclic.zip)"
+
+#: filefilter_jclic
+msgid "JClic projects (*.jclic)"
+msgstr "JClic projeleri (*.jclic)"
+
+#: about_window_lb_mediaSystem
+msgid "Multimedia system"
+msgstr "Çoklu ortam sistemi"
+
+#: about_window_lb_level
+msgid "Level"
+msgstr "Seviye"
+
+#: about_window_lb_area
+msgid "Area"
+msgstr "Alan"
+
+#: report_num_actions
+msgid "Actions done:"
+msgstr "Eylem gerçekleştiriliyor:"
+
+#: report_project
+msgid "Project:"
+msgstr "Proje:"
+
+#: report_lb_totals
+msgid "Total:"
+msgstr "Toplam:"
+
+#: report_num_projects
+msgid "Projects:"
+msgstr "Projeler:"
+
+#: report_session
+msgid "Session:"
+msgstr "Oturum:"
+
+#: msg_warn_no_exec_in_applets
+msgid ""
+"For security reasons, execution of external programs is disabled in JClic "
+"applets."
+msgstr "Güvenlik nedeniyle dış programlar JClic içerisinde çalıştırılmıyor."
+
+#: msg_error_starting_activity
+msgid "Error starting activity!"
+msgstr "Etkinlik başlatılamıyor!"
+
+#: msg_error_loading_project
+msgid "Error loading project"
+msgstr "Proje yüklenemiyor"
+
+#: msg_error_playing_media
+msgid "Error playing media!"
+msgstr "Çoklu ortam oynatma hatası!"
+
+#: msg_activity_finished
+msgid "Activity finished!"
+msgstr "Etkinlik tamamlandı!"
+
+#: msg_playing_media
+msgid "Playing media"
+msgstr "Çoklu ortam oynatılıyor"
+
+#: msg_activity_running
+msgid "Activity running"
+msgstr "Etkinlik başlatıldı"
+
+#: msg_activity_ready
+msgid "Activity ready"
+msgstr "Etkinlik hazır"
+
+#: msg_initializing
+msgid "Initializing..."
+msgstr "Başlatılıyor..."
+
+#: msg_preparing_media
+msgid "Preparing media"
+msgstr "Çoklu ortam hazırlanıyor"
+
+#: msg_error_loading_activity
+msgid "Error loading activity"
+msgstr "Etkinlik yükleme hatası"
+
+#: msg_loading_activity
+msgid "Loading activity"
+msgstr "Etkinlik yükleniyor"
+
+#: msg_loading_project
+msgid "Loading project..."
+msgstr "Proje yükleniyor..."
+
+#: msg_ready
+msgid "Ready"
+msgstr "Hazır"
+
+#: err_reading_data
+msgid "Error loading file"
+msgstr "Dosya yükleme hatası"
+
+#: err_file_save
+msgid "Error saving file!"
+msgstr "Dosya kaydetme hatası!"
+
+#: err_file_open
+msgid "Error opening file!"
+msgstr "Dosya açılamıyor!"
+
+#: report_started
+msgid "Session started:"
+msgstr "Oturum başlatıldı"
+
+#: report_lb_score
+msgid "Score"
+msgstr "Skor"
+
+#: report_lb_actions
+msgid "Actions"
+msgstr "Eylemler"
+
+#: report_lb_solved
+msgid "Ok"
+msgstr "Tamam"
+
+#: report_lb_activity
+msgctxt "report_lb_activity"
+msgid "Activity"
+msgstr "Etkinlik"
+
+#: report_lb_sequence
+msgid "Sequence"
+msgstr "Etkinlik dizisi"
+
+#: report_global_score
+msgid "Global score:"
+msgstr "Genel sonuç:"
+
+#: report_total_time
+msgid "Total time on activities:"
+msgstr "Etkinlikde geçirilen toplam zaman:"
+
+#: report_num_activities_solved
+msgid "Activities ok:"
+msgstr "Etkinlikler tamam:"
+
+#: report_num_activities
+msgid "Activities done:"
+msgstr "Etkinlikler başlatılıyor:"
+
+#: report_num_sequences
+msgid "Sequences:"
+msgstr "Etkinlik dizisi"
+
+#: report_system
+msgid "Report system:"
+msgstr "Sistem raporu:"
+
+#: report_user
+msgid "User:"
+msgstr "Kullanıcı:"
+
+#: report_not_finished
+msgid "Activity not finished"
+msgstr "Etkinlik tamamlanmadı"
+
+#: action_info_tooltip
+msgid "Additional information"
+msgstr "Ek bilgi"
+
+#: action_help_caption
+msgid "Help"
+msgstr "Yardım"
+
+#: action_help_tooltip
+msgid "Help about this activity"
+msgstr "Bu etkinlik hakkında yardım"
+
+#: action_audio_caption
+msgid "Sounds"
+msgstr "Sesler"
+
+#: action_audio_tooltip
+msgid "Enable/disable sounds"
+msgstr "Ses aç/kapa"
+
+#: about_window_lb_system
+msgid "System"
+msgstr "Sistem"
+
+#: about_window_lb_total_mem
+msgid "Total memory"
+msgstr "Toplam bellek"
+
+#: about_window_lb_free_mem
+msgid "Free memory"
+msgstr "Boş bellek"
+
+#: about_window_lb_java_home
+msgid "Java home"
+msgstr "Java anasayfa"
+
+#: about_window_lb_java_vm
+msgid "Java virtual machine"
+msgstr "Java sanal makine"
+
+#: about_window_lb_java_version
+msgid "Java version"
+msgstr "Java sürüm"
+
+#: about_window_lb_os
+msgid "Operating system"
+msgstr "İşletim sistemi"
+
+#: about_window_lb_version
+msgid "Version"
+msgstr "Sürüm"
+
+#: about_window_lb_descriptors
+msgid "Descriptors"
+msgstr "Açıklayıcılar"
+
+#: about_window_lb_description
+msgid "Description"
+msgstr "Açıklama"
+
+#: about_window_lb_history
+msgid "History"
+msgstr "Geçmiş"
+
+#: about_window_lb_organizations
+msgid "Organizations"
+msgstr "Kurumlar"
+
+#: about_window_lb_organization
+msgid "Organization"
+msgstr "Kurum"
+
+#: about_window_lb_authors
+msgid "Authors"
+msgstr "Yazarlar"
+
+#: about_window_lb_author
+msgid "Author"
+msgstr "Yazar"
+
+#: about_window_lb_activity
+msgctxt "about_window_lb_activity"
+msgid "Activity"
+msgstr "Etkinlik"
+
+#: help_window_close_button
+msgid "Return to activity"
+msgstr "Etkinliğe geri dön"
+
+#: help_window_caption
+msgid "Help window"
+msgstr "Yardım penceresi"
+
+#: action_about_caption
+msgid "Reports"
+msgstr "Raporlar"
+
+#: action_about_keys
+msgid "RR"
+msgstr "RR"
+
+#: action_audio_keys
+msgid "SS"
+msgstr "SS"
+
+#: action_help_keys
+msgid "HH"
+msgstr "HT"
+
+#: action_info_keys
+msgid "II"
+msgstr "II"
+
+#: action_next_keys
+msgid "N*"
+msgstr "N*"
+
+#: action_prev_keys
+msgid "P*"
+msgstr "P*"
+
+#: action_reset_keys
+msgid "R*"
+msgstr "R*"
+
+#: filefilter_install
+msgid "JClic project installers (*.jclic.inst)"
+msgstr "JClic proje kurucusu (*.jclic.inst)"
+
+#: report_err_no_users
+msgid "No users defined in the reports database!"
+msgstr "Rapor veritabanında kullanıcılar tanımlanmadı!"
+
+#: report_err_no_users_in_group
+msgid "No users defined for this group in the reports database!"
+msgstr "Rapor veritabanında bu grup için kullanıcılar tanımlanmadı!"
+
+#: report_new_user
+msgid "New user..."
+msgstr "Yeni kullanıcı..."
+
+#: report_new_user_tooltip
+msgid "Create a new user in the reports database"
+msgstr "Rapor veritabanında yeni kullanıcı oluştur"
+
+#: report_err_creating_user
+msgid "Error creating new user!"
+msgstr "Yeni kullanıcı oluşturma hatası"
+
+#: report_select_user
+msgid "User identification for the reports database"
+msgstr "Veri tabanı raporları için kullanıcı tanımlanması"
+
+#: report_userlist_title
+msgid "Please select your name:"
+msgstr "Lütfen isminizi seçiniz:"
+
+#: report_ident_user
+msgid "User identification"
+msgstr "Kullanıcı kimliği"
+
+#: report_name_prompt
+msgid "Name:"
+msgstr "İsim:"
+
+#: report_id_prompt
+msgid "Login:"
+msgstr "Giriş:"
+
+#: report_pw_prompt
+msgid "Password:"
+msgstr "Şifre"
+
+#: report_pw_prompt_confirm
+msgid "Confirm password:"
+msgstr "Şifreyi onaylayınız:"
+
+#: report_new_user_data
+msgid "Creation of a new user:"
+msgstr "Yeni kullanıcı oluşturma"
+
+#: report_err_bad_data
+msgid "Incorrect data!"
+msgstr "Hatalı veri!"
+
+#: report_generic_group_name
+msgid "Generic"
+msgstr "Genel"
+
+#: report_new_group
+msgid "Create a new group..."
+msgstr "Yeni grup oluştur..."
+
+#: report_err_creating_group
+msgid "Error creating the new group!"
+msgstr "yeni grup oluştururken hata meydana geldi!"
+
+#: report_grouplist_title
+msgid "Please select your group:"
+msgstr "Lütfen grubunuzu seçiniz:"
+
+#: report_new_group_data
+msgid "Creation of a new users group:"
+msgstr "Yeni kullanıcılar grubu oluştur"
+
+#: report_err_invalid_user
+msgid "Missing user ID or incorrect password."
+msgstr "Böyle bir kullanıcı yok veya hatalı şifre."
+
+#: report_user_has_pwd
+msgid "This account is password-protected."
+msgstr "Bu hesap şifreyle korunmaktadır."
+
+#: report_err_init
+msgid "Error initializing report system."
+msgstr "Rapor sistemi başlatılırken hata oluştu."
+
+#: report_not_connected
+msgid "not connected"
+msgstr "bağlı değil"
+
+#: report_err_creating
+msgid "Error creating reports agent"
+msgstr "Rapor oluşturulurken hata oluştu"
+
+#: action_return_caption
+msgctxt "action_return_caption"
+msgid "Return"
+msgstr "Geri"
+
+#: action_return_tooltip
+msgid "Return to the last menu"
+msgstr "Son menüye geri dön"
+
+#: action_return_keys
+msgid "T*"
+msgstr "T*"
+
+#: filefilter_all_sounds
+msgid "Sounds (*.wav, *.mp3, *.ogg, *.au, *.aiff)"
+msgstr "Sesler (*.wav, *.mp3, *.ogg, *.au, *.aiff)"
+
+#: filefilter_midi
+msgid "MIDI files (*.mid)"
+msgstr "MIDI dosyaları (*.mid)"
+
+#: filefilter_all_video
+msgid "Video files (*.avi, *.mov, *.mpeg)"
+msgstr "Video dosyaları (*.avi, *.mov, *.mpeg)"
+
+#: filefilter_all_anim
+msgid "Flash 2.0 files (*.swf)"
+msgstr "Flash 2.0 dosyaları (*.swf)"
+
+#: filefilter_skins
+msgid "Skins (*.xml)"
+msgstr "Dış görünümler (*.xml)"
+
+#: filefilter_all_media
+msgid "All media files"
+msgstr "Tüm ortam dosyaları"
+
+#: filesystem_copyToRoot_1
+msgid "The file"
+msgstr "Dosya"
+
+#: filesystem_copyToRoot_2
+msgid "is out of the current project's folder."
+msgstr "Geçerli proje klasörünün dışında"
+
+#: filesystem_copyToRoot_3
+msgid "It's advisable to have all the files in the same folder."
+msgstr "Tüm dosyaların aynı klasörde olması önerilir"
+
+#: filesystem_copyToRoot_4
+msgid "Do you want to copy the selected file to the project's folder?"
+msgstr "Seçili dosyaları proje klasörüne kopyalamak istiyormusunuz?"
+
+#: filesystem_copyFile
+msgid "Copying file"
+msgstr "Dosya kopyalanıyor"
+
+#: msg_loading
+msgid "Loading"
+msgstr "Yükleniyor"
+
+#: report_err_bad_id
+msgid "Bad identifier!"
+msgstr "Hatalı kullanıcı!"
+
+#: report_err_duplicate_id
+msgid "This identifier already exists in the database!"
+msgstr "Veri tabanında mevcut!"
+
+#: report_err_bad_name
+msgid "Bad name!"
+msgstr "İsim hatalı!"
+
+#: report_err_bad_pw
+msgid "Passwords don't match!"
+msgstr "Şifre kullanıcı adına karşılık gelmiyor!"
+
+#: report_err_connect
+msgid "Error connecting to the reports database!"
+msgstr "Rapor veritabanına bağlanma hatası!"
+
+#: test_alert_exit
+msgid "EXIT: At this point, the program will exit."
+msgstr "ÇIK: Bu noktada program kapatılacaktır."
+
+#: test_alert_jump_to
+msgid "At this point the program will jump to the project:"
+msgstr "Bu noktada program projeye geçiş yapacaktır:"
+
+#: ftype_image
+msgid "Image"
+msgstr "Resim"
+
+#: ftype_audio
+msgid "Digital audio"
+msgstr "Dijital ses"
+
+#: ftype_midi
+msgid "MIDI file"
+msgstr "Midi dosyası"
+
+#: ftype_xml
+msgid "XML file"
+msgstr "XML dosyası"
+
+#: ftype_anim
+msgid "Animation"
+msgstr "Canlandırma"
+
+#: ftype_video
+msgid "Digital video"
+msgstr "Dijital video"
+
+#: ftype_font
+msgid "TrueType font"
+msgstr "TrueType yazıtipi"
+
+#: ftype_jclic
+msgid "JClic project"
+msgstr "JClic projesi"
+
+#: ftype_inst
+msgid "JClic project installer script"
+msgstr "JClic proje kurulum skripti"
+
+#: ftype_unknown
+msgid "Unknown"
+msgstr "Bilinmeyen"
+
+#: ftype_animated
+msgid "animated"
+msgstr "canlandırıldı"
+
+#: filefilter_fonts
+msgid "Fonts (*.ttf)"
+msgstr "Yazıtipleri (*.ttf)"
+
+#: editor_moveUp_keys
+msgid "U#38"
+msgstr "U#38"
+
+#: editor_moveDown_keys
+msgid "W#40"
+msgstr "W#40"
+
+#: filefilter_all_html
+msgid "HTML documents (*.htm, *.html)"
+msgstr "HTML belgeleri (*.htm, *.html)"
+
+#: about_creditsDoc
+msgid "about/credits.html"
+msgstr "hakkında/katkıda bulunanlar.html"
+
+#: about_licenseDoc
+msgid "about/license.html"
+msgstr "hakkında/lisans.html"
+
+#: about_sponsorsCaption
+msgid "With the support of:"
+msgstr "Katkıda bulunanlar:"
+
+#: about_window_systemInfo
+msgid "System information"
+msgstr "Sistem bilgisi"
+
+#: about_window_projectInfo
+msgid "Current project info"
+msgstr "Geçerli proje bilgisi"
+
+#: about_window_reportInfo
+msgid "Current session results"
+msgstr "Geçerli oturum sonuçları"
+
+#: about_otherCreditsCaption
+msgid "This product includes software developed by:"
+msgstr ""
+"Bu ürün aşağıdaki kişiler veya kurumlar tarafından geliştirilen yazılımları "
+"içermektedir:"
+
+#: msg_saving_project
+msgid "Saving project..."
+msgstr "Proje kaydediliyor..."
+
+#: filefilter_text
+msgid "Text files (*.txt)"
+msgstr "Metin dosyaları *.txt)"
+
+#. #Translation credits displayed on the about window, in HTML format
+#: html_translation_credits
+msgid "English version, by The JClic team"
+msgstr "Turkish version by Ahmet YAVUZ"
+
+#. #Abstract of the GPL license, version 2.0, as shown on the About window
+#: html_gpl_license
+msgid ""
+"This program is free software; you can redistribute it and/or  modify it "
+"under the terms of the GNU General Public License  as published by the Free "
+"Software Foundation; either version 2  of the License, or (at your option) "
+"any later version.<br>&nbsp;<BR>This program is distributed in the hope that "
+"it will be useful,  but WITHOUT ANY WARRANTY; without even the implied "
+"warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the  "
+"<a href\\=\"http\\://www.gnu.org/copyleft/gpl.html\">GNU General Public "
+"License</a>  for more details."
+msgstr ""
+"This program is free software; you can redistribute it and/or modify it "
+"under the terms of the GNU General Public License as published by the Free "
+"Software Foundation; either version 2 of the License, or (at your option) "
+"any later version.<br>&nbsp;<BR>This program is distributed in the hope that "
+"it will be useful, but WITHOUT ANY WARRANTY; without even the implied "
+"warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the <a "
+"href\\=\"http\\://www.gnu.org/copyleft/gpl.html\">GNU General Public "
+"License</a> for more details."

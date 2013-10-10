@@ -1,0 +1,70 @@
+JClic internationalization README
+
+INTRODUCTION
+
+JClic, as many Java apps, uses the Java Internationalization API [1] to display 
+text expressions in different languages. This API uses files with extension 
+".properties" to store the messages.
+
+Due to its modular design, JClic makes use of 10 different ".properties" files, 
+located in deep path levels on the "src" directory, like:
+"src/core/edu/xtec/resources/messages/JClicMessages.properties". This makes
+complicated to start a new translation and maintain it in successive releases.
+
+Launchpad Translations [2] (formerly known as Rosetta) is a web-base translation
+system integrated in the Launchpad free software development platform. It's very
+useful and easy to use for translators, because tracks all changes and allows to
+reuse expressions already translated in other projects.
+
+Launchpad Translations are based on the GNU gettext system [3]. This system makes use
+of files with extension ".po" to store messages. ".po" files have different format 
+and coding conventions than ".properties".
+
+The utilities in this section allow to convert the original ".properties" files 
+located in the src directory of JClic into ".po" files, in order to make possible the
+use of Lanunchpad Translations, and implement also the inverse path converting the 
+".po" files returned by Launchpad to ".properties".
+
+SYSTEM REQUIREMENTS
+
+- Apache Ant 1.6 or later
+- tar command available
+- po2prop and prop2po utilities from Translate toolkit
+  (http://translate.sourceforge.net/wiki/toolkit/index)
+
+PREPARING THE APACHE ANT EXTENSIONS
+
+Start compiling the Ant extensions located in i18n/customAntTasks. Go to this directory
+and call "ant" without parameters. This will generate a file named "transToolsAntTasks.jar"
+
+Register this file as an Ant extension. See Apache Ant documentation for more information
+about how to achieve:
+http://ant.apache.org/manual/using.html#external-tasks
+
+PREPARING .po FILES FROM .properties
+
+Go to i18n/toLaunchpad and call "ant". This will generate the "po" directory with subdirectories
+for all JClic modules. The .po and.pot files will be placed into this directories.
+
+RECOVERING .po FILES FROM LAUNCHPAD
+
+Request the JClic translations in Launchpad. It will give you a file called "launchpad-export.tar,gz".
+Place this file into the directory i18n/fromLaunchpad, go to this directory and launch "ant". This
+will extract the returned ".po" files and, if they are different from the existing ones, they will be
+converted to .properties and copyied into the "src" directory.
+
+You can also place individual .po files into i18n/fromLaunchpad/po and call "ant" to complete the
+conversion process. Note that .po files returned from Launchpad can have different names than the
+expected by JClic. For example, jclicmessages-ca.po must be translated to JClicMessages_ca.po.
+
+
+
+
+
+
+
+
+
+1: http://java.sun.com/javase/technologies/core/basic/intl/
+2: https://launchpad.net/rosetta
+3: http://www.gnu.org/software/gettext/

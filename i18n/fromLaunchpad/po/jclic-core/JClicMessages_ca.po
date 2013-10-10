@@ -1,0 +1,800 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JClic 0.2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-03-27 00:34+0200\n"
+"PO-Revision-Date: 2010-01-22 17:51+0000\n"
+"Last-Translator: Francesc Busquets <francesc@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. #JClic main messages
+#: label_time
+msgid "time"
+msgstr "temps"
+
+#: label_actions
+msgid "tries"
+msgstr "intents"
+
+#: label_score
+msgid "score"
+msgstr "encerts"
+
+#: Skin
+msgid "Skin"
+msgstr "Entorn visual"
+
+#: action_next_caption
+msgid "Next"
+msgstr "Següent"
+
+#: action_next_tooltip
+msgid "Next activity"
+msgstr "Activitat següent"
+
+#: action_prev_caption
+msgid "Previous"
+msgstr "Anterior"
+
+#: action_prev_tooltip
+msgid "Previous activity"
+msgstr "Activitat anterior"
+
+#: action_reset_caption
+msgid "Restart"
+msgstr "Reinicia"
+
+#: action_reset_tooltip
+msgid "Restart activity"
+msgstr "Reinicia l'activitat"
+
+#: action_info_caption
+msgid "Information"
+msgstr "Informació"
+
+#: about_window_lb_project
+msgid "Project"
+msgstr "Projecte"
+
+#: about_window_lb_languages
+msgid "languages"
+msgstr "Idiomes"
+
+#: about_window_lb_language
+msgid "language"
+msgstr "Idioma"
+
+#: about_window_close_button
+msgctxt "about_window_close_button"
+msgid "Return"
+msgstr "Torna"
+
+#: about_window_caption
+msgid "About"
+msgstr "Quant a..."
+
+#: action_about_tooltip
+msgid "User reports"
+msgstr "Informes d'usuari"
+
+#: about_window_lb_report
+msgid "Report"
+msgstr "Informes"
+
+#: about_window_browser_button
+msgid "View in browser"
+msgstr "Veure-ho en el navegador"
+
+#: report_no_activities
+msgid "No activities reported!"
+msgstr "No hi ha cap activitat reportada!"
+
+#: report_system_standard
+msgid "Report not registered in any DB"
+msgstr "L'informe no s'està enregistrant en cap base de dades"
+
+#: report_lb_time
+msgid "Time"
+msgstr "Temps"
+
+#: msg_error_loading_sequence
+msgid "Error loading sequence"
+msgstr "Error en carregar la seqüència"
+
+#: media_qt_error_initializing
+msgid "Error initializing QuickTime!"
+msgstr "Error en inicialitzar el QuickTime!"
+
+#: media_check_url
+msgid "messages/checkmedia.html"
+msgstr "messages/checkmedia_ca.html"
+
+#: filesystem_openURL
+msgid "Open URL..."
+msgstr "Obre una ubicació web..."
+
+#: filesystem_openFile
+msgid "Open file..."
+msgstr "Obre el fitxer..."
+
+#: filesystem_enterURL
+msgid "Please enter the URL to the resource to be loaded."
+msgstr "Escriviu l'URL del recurs al qual voleu accedir."
+
+#: msg_error_executing_external
+msgid "Error executing the command:"
+msgstr "Error en executar l'ordre:"
+
+#: editor_moveDown_tooltip
+msgid "Move the selected element down"
+msgstr "Mou l'element seleccionat avall"
+
+#: editor_moveUp_tooltip
+msgid "Move the selected element up"
+msgstr "Mou l'element seleccionat amunt"
+
+#: editor_moveDown
+msgid "Move down"
+msgstr "Mou avall"
+
+#: editor_moveUp
+msgid "Move up"
+msgstr "Mou amunt"
+
+#: filefilter_all_images
+msgid "Image files (*.gif, *.jpg, *.png, *.bmp, *.ico)"
+msgstr "Imatges (*.gif, *.jpg, *.png, *.bmp, *.ico)"
+
+#: filefilter_png
+msgid "PNG images"
+msgstr "Imatges PNG"
+
+#: filefilter_jpg
+msgid "JPG images"
+msgstr "Imatges JPG"
+
+#: filefilter_gif
+msgid "GIF images"
+msgstr "Imatges GIF"
+
+#: filesystem_saveURLerror
+msgid "URL-based files are read-only."
+msgstr "Els fitxers obtinguts d'un URL són només de lectura."
+
+#: filefilter_all_clic
+msgid "Clic 3.0 packages (*.pac, *.pcc)"
+msgstr "Paquets Clic 3.0 (*.pac, *.pcc)"
+
+#: filefilter_all
+msgid "All files"
+msgstr "Tots els fitxers"
+
+#: filefilter_all_jclic_clic
+msgid "JClic and Clic 3.0 projects (*.jclic, *.jclic.zip, *.pac, *.pcc)"
+msgstr "Projectes JClic i Clic 3.0 (*.jclic, *.jclic.zip, *.pac, *.pcc)"
+
+#: filefilter_all_jclic
+msgid "JClic projects (*.jclic, *.jclic.zip)"
+msgstr "Projectes JClic (*.jclic, *.jclic.zip)"
+
+#: filefilter_pcc
+msgid "Clic 3.0 compact packages (*.pcc)"
+msgstr "Paquets compactes Clic 3.0 (*.pcc)"
+
+#: filefilter_pac
+msgid "Clic 3.0 open packages (*.pac)"
+msgstr "Paquets oberts Clic 3.0 (*.pac)"
+
+#: filefilter_jclic_zip
+msgid "JClic compressed projects (*.jclic.zip)"
+msgstr "Projectes JClic comprimits (*.jclic.zip)"
+
+#: filefilter_jclic
+msgid "JClic projects (*.jclic)"
+msgstr "Projectes JClic (*.jclic)"
+
+#: about_window_lb_mediaSystem
+msgid "Multimedia system"
+msgstr "Sistema multimèdia"
+
+#: about_window_lb_level
+msgid "Level"
+msgstr "Nivell"
+
+#: about_window_lb_area
+msgid "Area"
+msgstr "Àrea"
+
+#: report_num_actions
+msgid "Actions done:"
+msgstr "Accions fetes:"
+
+#: report_project
+msgid "Project:"
+msgstr "Projecte:"
+
+#: report_lb_totals
+msgid "Total:"
+msgstr "Totals:"
+
+#: report_num_projects
+msgid "Projects:"
+msgstr "Projectes:"
+
+#: report_session
+msgid "Session:"
+msgstr "Sessió:"
+
+#: msg_warn_no_exec_in_applets
+msgid ""
+"For security reasons, execution of external programs is disabled in JClic "
+"applets."
+msgstr ""
+"Per raons de seguretat l'execució de programes externs està deshabilitada en "
+"els applets JClic."
+
+#: msg_error_starting_activity
+msgid "Error starting activity!"
+msgstr "Error en iniciar l'activitat!"
+
+#: msg_error_loading_project
+msgid "Error loading project"
+msgstr "Error en carregar el projecte"
+
+#: msg_error_playing_media
+msgid "Error playing media!"
+msgstr "Error del recurs multimèdia!"
+
+#: msg_activity_finished
+msgid "Activity finished!"
+msgstr "Activitat acabada!"
+
+#: msg_playing_media
+msgid "Playing media"
+msgstr "Interpretant multimèdia"
+
+#: msg_activity_running
+msgid "Activity running"
+msgstr "Activitat en marxa"
+
+#: msg_activity_ready
+msgid "Activity ready"
+msgstr "Activitat preparada"
+
+#: msg_initializing
+msgid "Initializing..."
+msgstr "Inicialitzant..."
+
+#: msg_preparing_media
+msgid "Preparing media"
+msgstr "Preparant multimèdia"
+
+#: msg_error_loading_activity
+msgid "Error loading activity"
+msgstr "Error en carregar l'activitat"
+
+#: msg_loading_activity
+msgid "Loading activity"
+msgstr "Carregant l'activitat..."
+
+#: msg_loading_project
+msgid "Loading project..."
+msgstr "Carregant el projecte..."
+
+#: msg_ready
+msgid "Ready"
+msgstr "Fet"
+
+#: err_reading_data
+msgid "Error loading file"
+msgstr "Error en llegir el fitxer"
+
+#: err_file_save
+msgid "Error saving file!"
+msgstr "Error en desar el fitxer!"
+
+#: err_file_open
+msgid "Error opening file!"
+msgstr "Error en obrir el fitxer!"
+
+#: report_started
+msgid "Session started:"
+msgstr "Inici de sessió:"
+
+#: report_lb_score
+msgid "Score"
+msgstr "Puntuació"
+
+#: report_lb_actions
+msgid "Actions"
+msgstr "Accions"
+
+#: report_lb_solved
+msgid "Ok"
+msgstr "Correcta"
+
+#: report_lb_activity
+msgctxt "report_lb_activity"
+msgid "Activity"
+msgstr "Activitat"
+
+#: report_lb_sequence
+msgid "Sequence"
+msgstr "Seqüència"
+
+#: report_global_score
+msgid "Global score:"
+msgstr "Puntuació global:"
+
+#: report_total_time
+msgid "Total time on activities:"
+msgstr "Temps total en activitats:"
+
+#: report_num_activities_solved
+msgid "Activities ok:"
+msgstr "Activitats correctes:"
+
+#: report_num_activities
+msgid "Activities done:"
+msgstr "Activitats realitzades:"
+
+#: report_num_sequences
+msgid "Sequences:"
+msgstr "Seqüències:"
+
+#: report_system
+msgid "Report system:"
+msgstr "Sistema d'informes:"
+
+#: report_user
+msgid "User:"
+msgstr "Usuari:"
+
+#: report_not_finished
+msgid "Activity not finished"
+msgstr "Activitat encara no acabada"
+
+#: action_info_tooltip
+msgid "Additional information"
+msgstr "Informació addicional"
+
+#: action_help_caption
+msgid "Help"
+msgstr "Ajuda"
+
+#: action_help_tooltip
+msgid "Help about this activity"
+msgstr "Ajuda sobre l'activitat"
+
+#: action_audio_caption
+msgid "Sounds"
+msgstr "Sons"
+
+#: action_audio_tooltip
+msgid "Enable/disable sounds"
+msgstr "Activar/desactivar els sons"
+
+#: about_window_lb_system
+msgid "System"
+msgstr "Sistema"
+
+#: about_window_lb_total_mem
+msgid "Total memory"
+msgstr "Memòria total"
+
+#: about_window_lb_free_mem
+msgid "Free memory"
+msgstr "Memòria lliure"
+
+#: about_window_lb_java_home
+msgid "Java home"
+msgstr "Ubicació de Java"
+
+#: about_window_lb_java_vm
+msgid "Java virtual machine"
+msgstr "Màquina virtual Java"
+
+#: about_window_lb_java_version
+msgid "Java version"
+msgstr "Versió de Java"
+
+#: about_window_lb_os
+msgid "Operating system"
+msgstr "Sistema operatiu"
+
+#: about_window_lb_version
+msgid "Version"
+msgstr "Versió"
+
+#: about_window_lb_descriptors
+msgid "Descriptors"
+msgstr "Descriptors"
+
+#: about_window_lb_description
+msgid "Description"
+msgstr "Descripció"
+
+#: about_window_lb_history
+msgid "History"
+msgstr "Revisions"
+
+#: about_window_lb_organizations
+msgid "Organizations"
+msgstr "Organitzacions"
+
+#: about_window_lb_organization
+msgid "Organization"
+msgstr "Organització"
+
+#: about_window_lb_authors
+msgid "Authors"
+msgstr "Autors/es"
+
+#: about_window_lb_author
+msgid "Author"
+msgstr "Autor/a"
+
+#: about_window_lb_activity
+msgctxt "about_window_lb_activity"
+msgid "Activity"
+msgstr "Activitat"
+
+#: help_window_close_button
+msgid "Return to activity"
+msgstr "Torna a l'activitat"
+
+#: help_window_caption
+msgid "Help window"
+msgstr "Finestra d'ajuda"
+
+#: action_about_caption
+msgid "Reports"
+msgstr "Informes"
+
+#: action_about_keys
+msgid "RR"
+msgstr "II"
+
+#: action_audio_keys
+msgid "SS"
+msgstr "OS"
+
+#: action_help_keys
+msgid "HH"
+msgstr "JJ"
+
+#: action_info_keys
+msgid "II"
+msgstr "NN"
+
+#: action_next_keys
+msgid "N*"
+msgstr "S*"
+
+#: action_prev_keys
+msgid "P*"
+msgstr "A*"
+
+#: action_reset_keys
+msgid "R*"
+msgstr "R*"
+
+#: filefilter_install
+msgid "JClic project installers (*.jclic.inst)"
+msgstr "Instal·ladors de projectes JClic (*.jclic.inst)"
+
+#: report_err_no_users
+msgid "No users defined in the reports database!"
+msgstr "No hi ha cap usuari definit a la base de dades d'informes!"
+
+#: report_err_no_users_in_group
+msgid "No users defined for this group in the reports database!"
+msgstr ""
+"No hi ha cap usuari definit en aquest grup a la base de dades d'informes!"
+
+#: report_new_user
+msgid "New user..."
+msgstr "Usuari nou..."
+
+#: report_new_user_tooltip
+msgid "Create a new user in the reports database"
+msgstr "Crea un nou usuari a la base de dades d'informes"
+
+#: report_err_creating_user
+msgid "Error creating new user!"
+msgstr "Error en crear el nou usuari!"
+
+#: report_select_user
+msgid "User identification for the reports database"
+msgstr "Identificació d'usuari per la base de dades d'informes"
+
+#: report_userlist_title
+msgid "Please select your name:"
+msgstr "Seleccioneu el vostre nom:"
+
+#: report_ident_user
+msgid "User identification"
+msgstr "Identificació d'usuari"
+
+#: report_name_prompt
+msgid "Name:"
+msgstr "Nom:"
+
+#: report_id_prompt
+msgid "Login:"
+msgstr "Identificador:"
+
+#: report_pw_prompt
+msgid "Password:"
+msgstr "Contrasenya:"
+
+#: report_pw_prompt_confirm
+msgid "Confirm password:"
+msgstr "Confirmació de la contrasenya:"
+
+#: report_new_user_data
+msgid "Creation of a new user:"
+msgstr "Creació d'un nou usuari"
+
+#: report_err_bad_data
+msgid "Incorrect data!"
+msgstr "Dades incorrectes!"
+
+#: report_generic_group_name
+msgid "Generic"
+msgstr "Genèric"
+
+#: report_new_group
+msgid "Create a new group..."
+msgstr "Crea un nou grup..."
+
+#: report_err_creating_group
+msgid "Error creating the new group!"
+msgstr "Error en crear el nou grup!"
+
+#: report_grouplist_title
+msgid "Please select your group:"
+msgstr "Seleccioneu el vostre grup:"
+
+#: report_new_group_data
+msgid "Creation of a new users group:"
+msgstr "Creació d'un nou grup d'usuaris:"
+
+#: report_err_invalid_user
+msgid "Missing user ID or incorrect password."
+msgstr "Usuari inexistent o contrasenya incorrecta."
+
+#: report_user_has_pwd
+msgid "This account is password-protected."
+msgstr "El compte d'aquest usuari està protegit per contrasenya."
+
+#: report_err_init
+msgid "Error initializing report system."
+msgstr "Error en inicialitzar el sistema d'informes."
+
+#: report_not_connected
+msgid "not connected"
+msgstr "no connectat"
+
+#: report_err_creating
+msgid "Error creating reports agent"
+msgstr "Error en crear l'agent d'informes"
+
+#: action_return_caption
+msgctxt "action_return_caption"
+msgid "Return"
+msgstr "Torna"
+
+#: action_return_tooltip
+msgid "Return to the last menu"
+msgstr "Torna al darrer menú"
+
+#: action_return_keys
+msgid "T*"
+msgstr "T*"
+
+#: filefilter_all_sounds
+msgid "Sounds (*.wav, *.mp3, *.ogg, *.au, *.aiff)"
+msgstr "Sons (*.wav, *.mp3, *.au, *.aiff)"
+
+#: filefilter_midi
+msgid "MIDI files (*.mid)"
+msgstr "Fitxers MIDI (*.mid)"
+
+#: filefilter_all_video
+msgid "Video files (*.avi, *.mov, *.mpeg)"
+msgstr "Video (*.avi, *.mov, *.mpeg)"
+
+#: filefilter_all_anim
+msgid "Flash 2.0 files (*.swf)"
+msgstr "Fitxers Flash 2.0 (*.swf)"
+
+#: filefilter_skins
+msgid "Skins (*.xml)"
+msgstr "Entorns visuals (*.xml)"
+
+#: filefilter_all_media
+msgid "All media files"
+msgstr "Tots els recursos"
+
+#: filesystem_copyToRoot_1
+msgid "The file"
+msgstr "El fitxer"
+
+#: filesystem_copyToRoot_2
+msgid "is out of the current project's folder."
+msgstr "es troba en una carpeta diferent a la de l'actual projecte."
+
+#: filesystem_copyToRoot_3
+msgid "It's advisable to have all the files in the same folder."
+msgstr "Es recomana tenir tots els fitxers en la mateixa carpeta."
+
+#: filesystem_copyToRoot_4
+msgid "Do you want to copy the selected file to the project's folder?"
+msgstr "Voleu copiar el fitxer seleccionat a la carpeta del projecte?"
+
+#: filesystem_copyFile
+msgid "Copying file"
+msgstr "Copiant el fitxer"
+
+#: msg_loading
+msgid "Loading"
+msgstr "Carregant"
+
+#: report_err_bad_id
+msgid "Bad identifier!"
+msgstr "Identificador incorrecte!"
+
+#: report_err_duplicate_id
+msgid "This identifier already exists in the database!"
+msgstr "Aquest identificador ja existeix a la base de dades!"
+
+#: report_err_bad_name
+msgid "Bad name!"
+msgstr "Nom incorrecte!"
+
+#: report_err_bad_pw
+msgid "Passwords don't match!"
+msgstr "Les contrasenyes no coïncideixen!"
+
+#: report_err_connect
+msgid "Error connecting to the reports database!"
+msgstr "Error en connectar amb la base de dades d'informes!"
+
+#: test_alert_exit
+msgid "EXIT: At this point, the program will exit."
+msgstr "EXIT: En aquest punt el JClic es tancaria."
+
+#: test_alert_jump_to
+msgid "At this point the program will jump to the project:"
+msgstr "En aquest punt es produïria un salt al projecte:"
+
+#: ftype_image
+msgid "Image"
+msgstr "Imatge"
+
+#: ftype_audio
+msgid "Digital audio"
+msgstr "So digital"
+
+#: ftype_midi
+msgid "MIDI file"
+msgstr "Fitxer MIDI"
+
+#: ftype_xml
+msgid "XML file"
+msgstr "Fitxer XML"
+
+#: ftype_anim
+msgid "Animation"
+msgstr "Animació"
+
+#: ftype_video
+msgid "Digital video"
+msgstr "Vídeo digital"
+
+#: ftype_font
+msgid "TrueType font"
+msgstr "Tipus de lletra TrueType"
+
+#: ftype_jclic
+msgid "JClic project"
+msgstr "Projecte JClic"
+
+#: ftype_inst
+msgid "JClic project installer script"
+msgstr "Seqüència d'instal·lació de projectes JClic"
+
+#: ftype_unknown
+msgid "Unknown"
+msgstr "Desconegut"
+
+#: ftype_animated
+msgid "animated"
+msgstr "animada"
+
+#: filefilter_fonts
+msgid "Fonts (*.ttf)"
+msgstr "Tipus de lletra (*.ttf)"
+
+#: editor_moveUp_keys
+msgid "U#38"
+msgstr "U#38"
+
+#: editor_moveDown_keys
+msgid "W#40"
+msgstr "V#40"
+
+#: filefilter_all_html
+msgid "HTML documents (*.htm, *.html)"
+msgstr "Documents HTML (*.htm, *.html)"
+
+#: about_creditsDoc
+msgid "about/credits.html"
+msgstr "about/credits_ca.html"
+
+#: about_licenseDoc
+msgid "about/license.html"
+msgstr "about/license_ca.html"
+
+#: about_sponsorsCaption
+msgid "With the support of:"
+msgstr "Amb el suport de:"
+
+#: about_window_systemInfo
+msgid "System information"
+msgstr "Informació del sistema"
+
+#: about_window_projectInfo
+msgid "Current project info"
+msgstr "Informació del projecte actual"
+
+#: about_window_reportInfo
+msgid "Current session results"
+msgstr "Resultats de la sessió actual"
+
+#: about_otherCreditsCaption
+msgid "This product includes software developed by:"
+msgstr "Aquest producte inclou programari desenvolupat per:"
+
+#: msg_saving_project
+msgid "Saving project..."
+msgstr "Desant el projecte..."
+
+#: filefilter_text
+msgid "Text files (*.txt)"
+msgstr "Fitxers de text (*.txt)"
+
+#. #Translation credits displayed on the about window, in HTML format
+#: html_translation_credits
+msgid "English version, by The JClic team"
+msgstr "Versió en català, per l'Equip Clic"
+
+#. #Abstract of the GPL license, version 2.0, as shown on the About window
+#: html_gpl_license
+msgid ""
+"This program is free software; you can redistribute it and/or  modify it "
+"under the terms of the GNU General Public License  as published by the Free "
+"Software Foundation; either version 2  of the License, or (at your option) "
+"any later version.<br>&nbsp;<BR>This program is distributed in the hope that "
+"it will be useful,  but WITHOUT ANY WARRANTY; without even the implied "
+"warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the  "
+"<a href\\=\"http\\://www.gnu.org/copyleft/gpl.html\">GNU General Public "
+"License</a>  for more details."
+msgstr ""
+"Aquest programa &eacute;s lliure. Podeu distribuir-lo i/o modificar-lo "
+"conforme a les disposicions de la Llic&egrave;ncia P&uacute;blica General de "
+"GNU (GPL), publicada per la Free Software Foundation, ja sigui la "
+"versi&oacute; 2 de la llic&egrave;ncia o qualsevol versi&oacute; "
+"posterior.<br>&nbsp;<BR>Aquest programa es distribueix amb la "
+"intenci&oacute; de resultar &uacute;til, per&ograve; SENSE CAP GARANTIA, "
+"fins i tot sense la garantia impl&iacute;cita de COMERCIABILITAT o "
+"CONVENI&Egrave;NCIA PER A UN PROP&Ograve;SIT PARTICULAR. Per a m&eacute;s "
+"detalls, vegeu la <a "
+"href=\"http://www.gnu.org/copyleft/gpl.html\">Llic&egrave;ncia "
+"P&uacute;blica General de GNU</a>."

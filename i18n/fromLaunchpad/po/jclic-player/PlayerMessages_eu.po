@@ -1,0 +1,833 @@
+# Basque translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2009-02-18 16:25+0000\n"
+"Last-Translator: Pedro Lonbide <zuzen@santurtzieus.com>\n"
+"Language-Team: Basque <eu@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. # JClic player messages
+#: m_File
+msgid "File"
+msgstr "Fitxategia"
+
+#: settings_passwordRequired
+msgid "JClic admin password is required in order to perform this operation."
+msgstr "JClic kudeatzaile-pasahitza behar da ekintza hau burutzeko."
+
+#: m_Help
+msgid "Help"
+msgstr "Laguntza"
+
+#: m_Skin
+msgid "Skin"
+msgstr "Itxura"
+
+#: action_helpAbout_caption
+msgid "About..."
+msgstr "Honi buruz..."
+
+#: libraryManager_mainLibraryTitle
+msgid "Main library"
+msgstr "Liburutegi nagusia"
+
+#: library_badFormat
+msgid ""
+"This JClic file is not a project library!\n"
+"Libraries are a special type of JClic projects."
+msgstr ""
+"JClic fitxategi hau ez da proiektu-liburutegia!\n"
+"Liburutegiak JClic proiektu-mota berezia dira."
+
+#: library_mainMenu
+msgid "Main menu"
+msgstr "Menu nagusia"
+
+#: library_newLibraryName
+msgctxt "library_newLibraryName"
+msgid "New project library"
+msgstr "Proiektu-liburutegi berria"
+
+#: libraryManager_new_prompt
+msgid "Do you want to create a new library or connect to a existing one?"
+msgstr ""
+"Liburutegi berria sortu nahi duzu edo lehendik dagoen batera konektatu?"
+
+#: libraryManager_connectToLibrary
+msgid "Connect"
+msgstr "Konektatu"
+
+#: libraryManager_createNewLibrary
+msgctxt "libraryManager_createNewLibrary"
+msgid "New"
+msgstr "Berria"
+
+#: libraryManager_new_tooltip
+msgid "Create or connect to a new library"
+msgstr "Liburutegi berria sortu edo konektatu"
+
+#: libraryManager_new_caption
+msgctxt "libraryManager_new_caption"
+msgid "New"
+msgstr "Berria"
+
+#: menuElement_dlg_icon_tooltip
+msgid "Button icon"
+msgstr "Botoiaren irudia"
+
+#: menuElement_dlg_description_tooltip
+msgid "Description of the button, used as a tooltip text."
+msgstr "Punteroa botoiaren gainean geldituta agertuko den testua."
+
+#: menuElement_dlg_description
+msgid "Description:"
+msgstr "Deskribapena:"
+
+#: edit_find_image
+msgid "Find image..."
+msgstr "Bilatu irudia..."
+
+#: menuElement_dlg_icon
+msgid "Icon:"
+msgstr "Ikonoa:"
+
+#: edit_find_file
+msgid "Find file..."
+msgstr "Bilatu fitxategia..."
+
+#: menuElement_dlg_project_tooltip
+msgid "Path to JClic project"
+msgstr "JClic proiektuaren kokapena"
+
+#: menuElement_dlg_project
+msgid "Project:"
+msgstr "Proiektua:"
+
+#: menuElement_dlg_text_tooltip
+msgid "Button text"
+msgstr "Botoiaren testua"
+
+#: edit_text
+msgid "Text:"
+msgstr "Testua:"
+
+#: menu_dlg_name_tooltip
+msgid "Folder name"
+msgstr "Direktorioaren izena"
+
+#: library_dlg_name_tooltip
+msgid "Library name"
+msgstr "Liburutegiaren izena"
+
+#: edit_name
+msgid "Name:"
+msgstr "Izena:"
+
+#: edit_title
+msgid "Title:"
+msgstr "Izenburua:"
+
+#: library_dlg_title
+msgid "Library properties"
+msgstr "Liburutegiaren propietateak"
+
+#: menu_dlg_title
+msgid "Folder properties"
+msgstr "Direktorioaren propietateak"
+
+#: menuElement_dlg_title
+msgid "Button properties"
+msgstr "Botoiaren propietateak"
+
+#: menu_delete_tooltip
+msgid "Delete current menu"
+msgstr "Ezabatu oraingo menua"
+
+#: menu_delete_caption
+msgctxt "menu_delete_caption"
+msgid "Delete"
+msgstr "Ezabatu"
+
+#: menuElement_delete_tooltip
+msgid "Delete current menu element"
+msgstr "Ezabatu oraingo menuaren elementua"
+
+#: action_libraries_caption
+msgid "Libraries..."
+msgstr "Liburutegiak..."
+
+#: dlg_save_title
+msgid "Save file..."
+msgstr "Gorde fitxategia..."
+
+#: error_propertiesFile_beg
+msgid "Error opening \""
+msgstr "Errorea zabaltzean \""
+
+#: error_propertiesFile_end
+msgid "\". Defaults will be used."
+msgstr "\". Berezko baloreak erabiliko dira."
+
+#: menuElement_delete_caption
+msgctxt "menuElement_delete_caption"
+msgid "Delete"
+msgstr "Ezabatu"
+
+#: menu_newMenuElement_tooltip
+msgid "Create a new shortcut to a project"
+msgstr "Proiekturako sarbide zuzen berria sortu"
+
+#: menu_newMenuName
+msgid "New folder"
+msgstr "Karpeta berria"
+
+#: menu_newMenu_tooltip
+msgid "Create a new folder for project buttons"
+msgstr "Proiektu-botoierako karpeta berria sortu"
+
+#: menu_newMenu_caption
+msgid "New button's folder"
+msgstr "Ikono-karpeta berria"
+
+#: menu_newMenuElement_caption
+msgid "New project button"
+msgstr "Proiektu-botoi berria"
+
+#: menu_newMenuElementName
+msgid "New button"
+msgstr "Botoi berria"
+
+#: library_cancel_tooltip
+msgid "Cancel changes"
+msgstr "Utzi aldaketak"
+
+#: library_cancel_caption
+msgctxt "library_cancel_caption"
+msgid "Cancel"
+msgstr "Utzi"
+
+#: libraryManager_edit_tooltip
+msgid "Edit selected library"
+msgstr "Editatu aukeratutako liburutegia"
+
+#: libraryManager_edit_caption
+msgid "Edit"
+msgstr "Editatu"
+
+#: library_select_caption_ok_tooltip
+msgid "Save changes"
+msgstr "Aldaketak gorde"
+
+#: library_select_caption_tooltip
+msgid "Choose selected folder"
+msgstr "Aukeratu adierazitako direktorioa"
+
+#: library_select_caption_ok
+msgid "Ok"
+msgstr "Ados"
+
+#: library_select_caption
+msgctxt "library_select_caption"
+msgid "Select"
+msgstr "Aukeratu"
+
+#: library_caption
+msgid "JClic projects library"
+msgstr "JClic proiektuen liburutegia"
+
+#: libraryManager_select_tooltip
+msgid "Open the selected library"
+msgstr "Zabaldu aukeratutako liburutegia"
+
+#: libraryManager_cancel_tooltip
+msgctxt "libraryManager_cancel_tooltip"
+msgid "Cancel"
+msgstr "Utzi"
+
+#: libraryManager_cancel_caption
+msgctxt "libraryManager_cancel_caption"
+msgid "Cancel"
+msgstr "Utzi"
+
+#: libraryManager_select_caption
+msgctxt "libraryManager_select_caption"
+msgid "Select"
+msgstr "Aukeratu"
+
+#: libraryManager_caption
+msgid "Select library"
+msgstr "Aukeratu liburutegia"
+
+#: library_error_reading
+msgid "Error reading project library!"
+msgstr "Errorea proiektuen liburutegia irakurtzean!"
+
+#: wizard_next
+msgid "Next >"
+msgstr "Hurrengoa >"
+
+#: wizard_prev
+msgid "< Previous"
+msgstr "< Aurrekoa"
+
+#: wizard_finish
+msgid "Finish"
+msgstr "Amaitu"
+
+#: library_error_creating_icons
+msgid "Error creating library icons!"
+msgstr "Errorea liburutegi-ikonoak sortzean!"
+
+#: install_title
+msgid "Installation of JClic projects"
+msgstr "JClic proiektuen instalazioa"
+
+#: install_info_description
+msgid "Installation of a new JClic project"
+msgstr "JClic proiektu berriaren instalazioa"
+
+#: install_info_from
+msgid "From:"
+msgstr "Hemendik:"
+
+#: wizard_cancel
+msgctxt "wizard_cancel"
+msgid "Cancel"
+msgstr "Utzi"
+
+#: wizard_cancel_tooltip
+msgid "Cancel the operation"
+msgstr "Utzi eragiketa"
+
+#: wizard_finish_tooltip
+msgid "Finish the operation"
+msgstr "Amaitu eragiketa"
+
+#: wizard_next_tooltip
+msgid "Next step of the operation"
+msgstr "Eragiketaren hurrengo pausua"
+
+#: wizard_prev_tooltip
+msgid "Previous step of the operation"
+msgstr "Eragiketaren aurreko pausua"
+
+#: install_select_library
+msgid "Select the library where to install the project:"
+msgstr "Aukera ezazu zein liburutegitan instalatuko den proiektua:"
+
+#: install_copy_files
+msgid "File copy"
+msgstr "Fitxategia kopiatu"
+
+#: install_source
+msgid "Source:"
+msgstr "Iturburua:"
+
+#: install_dest
+msgid "Destination:"
+msgstr "Helburua:"
+
+#: install_status
+msgid "Status:"
+msgstr "Egoera:"
+
+#: install_start
+msgid "Start the installation"
+msgstr "Hasi instalazioa"
+
+#: install_start_tooltip
+msgid "Start the copy of files to your computer"
+msgstr "Hasi kopiatzen fitxategiak zure ordenagailuan"
+
+#: install_progress_tooltip
+msgid "Progress of the installation"
+msgstr "Instalazioaren aurrerapena"
+
+#: install_msg_waiting
+msgid "Waiting for confirmation."
+msgstr "Baieztapenaren zain."
+
+#: install_msg_creating_dirs
+msgid "Creating directories"
+msgstr "Direktorioak sortzen"
+
+#: install_msg_copying
+msgid "Copying file"
+msgstr "Fitxategia kopiatzen"
+
+#: install_msg_end
+msgid "Finished!"
+msgstr "Amaituta!"
+
+#: install_msg_cleanup
+msgid "Performing cleanup..."
+msgstr "Garbitzen..."
+
+#: install_msg_cancel
+msgid "Installation cancelled!"
+msgstr "Instalazioa bertan behera utzita!"
+
+#: install_error
+msgid "Install error!"
+msgstr "Errorea instalatzean!"
+
+#: install_select_folder
+msgid "Select the folder where to place the project icons:"
+msgstr "Aukera ezazu zein karpetatan sortuko diren proiektuaren ikonoak:"
+
+#: install_library_folders
+msgid "Library folders:"
+msgstr "Liburutegiaren karpetak:"
+
+#: install_success_1
+msgid "The project are now installed on your system!"
+msgstr "Proiektua instalatuta dago orain zure sisteman!"
+
+#: install_success_2
+msgid "In order to run it, select its"
+msgstr "Martxan jartzeko, aukera ezazu"
+
+#: install_success_3
+msgid "icon on the project library."
+msgstr "ikonoa proiektuen liburutegian."
+
+#: wizard_info
+msgid "Press \"Next\" to start."
+msgstr "Sakatu \"Hurrengoa\"ri hasteko."
+
+#: install_step_1
+msgid "1. Selection of JClic library"
+msgstr "1. Aukeratu JClic liburutegia"
+
+#: install_step_2
+msgid "2. Download files"
+msgstr "2. Deskargatu fitxategiak"
+
+#: install_step_3
+msgid "3. Creation of icons"
+msgstr "3. Ikonoak sortu"
+
+#: install_step_4
+msgid "Installation finished!"
+msgstr "Instalazioa amaituta!"
+
+#: install_info_info
+msgid "You request to install the project:"
+msgstr "Proiektua instalatzea eskatu duzu:"
+
+#: settings_title
+msgid "Settings"
+msgstr "Ezarpenak"
+
+#: library_error_clone
+msgid "Unable to clone library!"
+msgstr "Ezin da liburutegia klonatu!"
+
+#: settings_security
+msgid "Security"
+msgstr "Segurtasuna"
+
+#: settings_password_protect
+msgid "Protect settings with password"
+msgstr "Babestu pasahitzez ezarpenak"
+
+#: settings_new_password
+msgid "New password:"
+msgstr "Pasahitz berria:"
+
+#: settings_new_password_confirm
+msgid "Confirm new password:"
+msgstr "Konfirmatu pasahitz berria:"
+
+#: settings_general
+msgid "General"
+msgstr "Orokorra"
+
+#: settings_look
+msgid "Look & Feel:"
+msgstr "Itxura:"
+
+#: settings_skin
+msgid "Skin:"
+msgstr "Azala:"
+
+#: settings_language
+msgid "Language:"
+msgstr "Hizkuntza:"
+
+#: settings_reports
+msgid "Reports"
+msgstr "Txostenak"
+
+#: settings_report_use
+msgid "Write scores to a database"
+msgstr "Jardueren puntuazioak datu-basean gorde"
+
+#: settings_report_engine
+msgid "Reporter class:"
+msgstr "Mota:"
+
+#: settings_report_params
+msgid "Parameters:"
+msgstr "Parametroak:"
+
+#: settings_media
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: settings_media_enabled
+msgid "Multimedia enabled"
+msgstr "Multimedia gaituta"
+
+#: settings_media_system
+msgid "Multimedia system:"
+msgstr "Multimedia sistema:"
+
+#: settings_media_event_sounds
+msgid "Event sounds enabled"
+msgstr "Ekintza-soinuak gaituta"
+
+#: settings_library
+msgid "Libraries"
+msgstr "Liburutegiak"
+
+#: settings_library_autorun
+msgid "Automatically go to libraries when JClic starts"
+msgstr "Jo automatikoki liburutegietara JClic hastean"
+
+#: m_Tools
+msgid "Tools"
+msgstr "Tresnak"
+
+#: m_File_Mnemonic
+msgid "F"
+msgstr "F"
+
+#: m_Tools_Mnemonic
+msgctxt "m_Tools_Mnemonic"
+msgid "T"
+msgstr "T"
+
+#: m_Help_Mnemonic
+msgid "H"
+msgstr "L"
+
+#: m_Activity
+msgid "Activity"
+msgstr "Jarduera"
+
+#: m_Activity_Mnemonic
+msgid "A"
+msgstr "A"
+
+#: action_openFile_caption
+msgid "Open file..."
+msgstr "Ireki fitxategia..."
+
+#: action_openFile_tooltip
+msgid "Open a JClic project file"
+msgstr "Ireki JClic proiektuko fitxategi bat"
+
+#: action_openFile_keys
+msgid "OO"
+msgstr "IF"
+
+#: action_openUrl_caption
+msgid "Open URL..."
+msgstr "Ireki URL-a..."
+
+#: action_openUrl_tooltip
+msgid "Open a JClic project directly form Internet"
+msgstr "Ireki JClic proiektu bat zuzenean Internetetik"
+
+#: action_openUrl_keys
+msgid "UU"
+msgstr "UU"
+
+#: action_exit_caption
+msgid "Exit"
+msgstr "Irten"
+
+#: action_exit_tooltip
+msgid "Close JClic"
+msgstr "Itxi JClic"
+
+#: action_exit_keys
+msgid "XX"
+msgstr "II"
+
+#: action_settings_caption
+msgid "Settings..."
+msgstr "Ezarpenak..."
+
+#: action_settings_tooltip
+msgid "Adjust global program settings"
+msgstr "Programaren ezarpen orokorrak doitu"
+
+#: action_settings_keys
+msgctxt "action_settings_keys"
+msgid "T"
+msgstr "E"
+
+#: action_libraries_tooltip
+msgid "Open or edit a JClic library."
+msgstr "Zabaldu edo editatu JClic liburutegia"
+
+#: action_libraries_keys
+msgid "LL"
+msgstr "BB"
+
+#: action_helpAbout_tooltip
+msgid "Information about JClic"
+msgstr "JClic-i buruzko informazioa"
+
+#: action_helpAbout_keys
+msgid "AA"
+msgstr "ZB"
+
+#: menuElement_err_iconTooLarge
+msgid "This image is too large to be used as an icon!"
+msgstr "Irudia handiegia da ikono batean erabiltzeko!"
+
+#: settings_report_tcp
+msgid "Connect to JClic report server:"
+msgstr "Konektatu Jclic txostenen zerbitzarira:"
+
+#: settings_report_jdbc
+msgid "Direct JDBC connection:"
+msgstr "JDBC lotura zuzena:"
+
+#: settings_report_other
+msgid "Other:"
+msgstr "Bestelakoa:"
+
+#: settings_report_address
+msgid "Host:"
+msgstr "Ostalaria:"
+
+#: settings_report_port
+msgid "Port:"
+msgstr "Ataka:"
+
+#: settings_report_driver
+msgid "Driver:"
+msgstr "Kontrolatzailea:"
+
+#: settings_report_url
+msgid "URL:"
+msgstr "URL-a:"
+
+#: settings_report_user
+msgid "User:"
+msgstr "Erabiltzailea:"
+
+#: settings_report_pwd
+msgid "Password:"
+msgstr "Pasahitza:"
+
+#: settings_report_options
+msgid "Reporter params::"
+msgstr "Parametroak:"
+
+#: settings_report_err_server
+msgid "Bad report server name!"
+msgstr "Okerreko txosten-zerbitzariaren izena!"
+
+#: settings_report_err_port
+msgid "Incorrect port number! Please enter a value between 1000 and 65000."
+msgstr ""
+"Ataka zenbaki ezegokia! Mesedez, sartu 1000 eta 65000 arteko balore bat."
+
+#: settings_report_err
+msgid "Incorrect report system data!"
+msgstr "Txosten-sistemaren datu okerra!"
+
+#: settings_report_type
+msgid "Reporting engine:"
+msgstr "Txosten sortzaile mota:"
+
+#: settings_media_jmf
+msgid "Java Media Framework (JMF)"
+msgstr "Java Media Framework (JMF)"
+
+#: settings_media_qt
+msgid "QuickTime"
+msgstr "QuickTime"
+
+#: settings_media_default
+msgid "Auto-detect"
+msgstr "Auto-atzeman"
+
+#: settings_security_tooltip
+msgid "Security settings"
+msgstr "Segurtasun-ezarpenak"
+
+#: settings_report_tooltip
+msgid "Report system settings"
+msgstr "Txostenen sistemaren ezarpenak"
+
+#: settings_media_tooltip
+msgid "Multimedia system options"
+msgstr "Multimedia-sistemaren ezarpenak"
+
+#: settings_general_tooltip
+msgid "Language and aspect settings"
+msgstr "Itxura eta hizkuntza-ezarpenak"
+
+#: settings_library_tooltip
+msgid "Library settings and editor"
+msgstr "Liburutegiaren ezarpenak eta editorea"
+
+#: settings_look_tooltip
+msgid "User interface look & feel"
+msgstr "Erabiltzailearen interfazaren itxura"
+
+#: settings_skin_tooltip
+msgid "Selection of the graphic aspect of JClic"
+msgstr "JClic-en itxura grafikoaren aukeraketa"
+
+#: settings_language_tooltip
+msgid "Language selection"
+msgstr "Hizkuntza aukeraketa"
+
+#: settings_report_use_tooltip
+msgid "Enables/disables the connection to a JClic reports database"
+msgstr "JClic txosten datu-basearekiko konexioa gaitu/ezgaitu"
+
+#: settings_report_tcp_tooltip
+msgid "Reporting engine based on a TCP/IP connection"
+msgstr "TCP/IP konexio batean oinarritutako txosten-motorea"
+
+#: settings_report_jdbc_tooltip
+msgid "Reporting engine based on a direct connection to a database"
+msgstr "Datu-baseetarako konexio zuzen batean oinarritutako txosten-motorea"
+
+#: settings_report_other_tooltip
+msgid "Other reporting engines..."
+msgstr "Bestelako txosten-motoreak..."
+
+#: settings_report_address_tooltip
+msgid "Report server name or IP address"
+msgstr "Txosten-zerbitzariaren izena edo IP helbidea"
+
+#: settings_report_port_tooltip
+msgid "Port used for connection (default is 5510)"
+msgstr "Konexiorako erabilitako ataka (berezkoa 5510)"
+
+#: edit_file
+msgid "File:"
+msgstr "Fitxategia:"
+
+#: error_launchLibrary
+msgid "Error launching library"
+msgstr "Errorea biltegia irekitzean"
+
+#: install_toSourceFolder
+msgid "Installing to source folder!"
+msgstr "Jatorrizko karpetan instalatzen!"
+
+#: edit_find_media
+msgid "Find media file..."
+msgstr "Bilatu media-fitxategia..."
+
+#: libraryManager_delete_caption
+msgctxt "libraryManager_delete_caption"
+msgid "Delete"
+msgstr "Ezabatu"
+
+#: libraryManager_delete_tooltip
+msgid "Delete the reference to the selected library"
+msgstr "Ezabatu aukeratutako liburutegirako erreferentzia"
+
+#: libraryManager_delete_confirm
+msgid "Do you really want to delete the reference to the selected library?"
+msgstr ""
+"Benetan ezabatu nahi al duzu aukeratutako liburutegirako erreferentzia?"
+
+#: libraryManager_new_exists
+msgid "This library is already linked to the system."
+msgstr "Biltegi hau dagoeneko sistemarekin estekatuta dago."
+
+#: edit_find_image_keys
+msgid "F*"
+msgstr "F*"
+
+#: menu_newMenuElement_caption_keys
+msgid "NN"
+msgstr "BB"
+
+#: menu_newMenu_caption_keys
+msgid "MM"
+msgstr "MM"
+
+#: edit_find_file_keys
+msgid "FF"
+msgstr "FF"
+
+#: libraryManager_newLibaryOption
+msgid "Create new project library"
+msgstr "Sortu proiektu-liburutegi berria"
+
+#: libraryManager_connectToExistingOption
+msgid "Add a link to an exisiting project library"
+msgstr "Gehitu aldez aurretik dagoen proiektu-biltegi baterako esteka"
+
+#: libraryManager_fileOrUrlCaption
+msgid "File or URL\\:"
+msgstr "Fitxategia edo URL-a\\:"
+
+#: libraryManager_newLibraryTitle
+msgctxt "libraryManager_newLibraryTitle"
+msgid "New project library"
+msgstr "Proiektu-liburutegi berria"
+
+#: libraryManager_warnNoFileSelected
+msgid "Please enter thr URL or file name of the project library\\!"
+msgstr ""
+"Mesedez, sartu proiektuaren biltegiaren URL-a edo fitxategiaren izena\\!"
+
+#: install_launchProject
+msgid "Open the project now"
+msgstr "Ireki proiektua orain"
+
+#: settings_browser
+msgid "Preferred browser\\:"
+msgstr "Lehenetsitako nabigatzailea\\:"
+
+#: settings_browser_tooltip
+msgid ""
+"Command used to launch the browser (firefox, iexplore, mozilla, opera...)"
+msgstr ""
+"Nabigatzailea abiarazteko erabilitako agindua (firefox, iexplore, mozilla, "
+"opera...)"
+
+#: settings_country
+msgid "Country code\\:"
+msgstr "Estatu-kodea\\:"
+
+#: settings_country_tooltip
+msgid ""
+"Optional two-letter code corresponding to the country-specific variant of "
+"the language (ex.\\: BR for Brazilian Portuguese)"
+msgstr ""
+"Bi hizkiz osatutako aukerako kodea, herrialde zehatzeko hizkuntzaren "
+"aldagaiari dagokiona (adi.\\: FR Frantziako Euskararako)"
+
+#: settings_variant
+msgid "Variant\\:"
+msgstr "Hizkuntza-aldaera\\:"
+
+#: settings_variant_tooltip
+msgid "Optional variant code of the language"
+msgstr "Hizkuntza-aldaeraren aukerako kodea"

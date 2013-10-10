@@ -1,0 +1,313 @@
+# Brazilian Portuguese translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2010-01-17 20:39+0000\n"
+"Last-Translator: Alexandre R Soares <Unknown>\n"
+"Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: error_serverCannotStart
+msgid "Unable to start server!"
+msgstr "Não foi possível iniciar o servidor!"
+
+#: error_incorrectData
+msgid "Incorrect data!"
+msgstr "Dados incorretos!"
+
+#: column_IP_title
+msgid "IP"
+msgstr "IP"
+
+#: column_port_title
+msgid "Port"
+msgstr "Porta"
+
+#: column_started_title
+msgid "Started"
+msgstr "Iniciado"
+
+#: column_lastMessage_title
+msgid "Last message"
+msgstr "Última mensagem"
+
+#: column_IP_tooltip
+msgid "Client IP address"
+msgstr "Endereço IP do cliente"
+
+#: column_port_tooltip
+msgid "Local port used in this connection"
+msgstr "Porta local usada nessa conexão"
+
+#: column_started_tooltip
+msgid "Date and time at witch the connection was started"
+msgstr "Date e hora em que a conexão iniciou-se"
+
+#: column_lastMessage_tooltip
+msgid "Header of the last received message"
+msgstr "Cabeçalho da última mensagem recebida"
+
+#: error_propertiesFile_beg
+msgid "Unable to load the properties file \""
+msgstr "Não foi possível abrir o arquivo de propriedades \""
+
+#: error_propertiesFile_end
+msgid "\" Using default settings."
+msgstr "\" Usando configurações padrões."
+
+#: form_title
+msgid "JClic reports server"
+msgstr "Servidor de relatórios do JClic"
+
+#: form_connections_title
+msgid "Connections:"
+msgstr "Conexões:"
+
+#: form_messages_title
+msgid "System messages:"
+msgstr "Mensagens do sistema:"
+
+#: form_settings_title
+msgid "Settings:"
+msgstr "Configurações:"
+
+#: form_connections_close
+msgid "Close connection"
+msgstr "Fechar conexão"
+
+#: form_connections_close_tooltip
+msgid "Close the selected connection"
+msgstr "Fechar a conexão selecionada"
+
+#: form_settings_driver
+msgctxt "form_settings_driver"
+msgid "Driver:"
+msgstr "Controlador (Driver):"
+
+#: form_settings_driver_tooltip
+msgid "JDBC driver to use for connect to the database"
+msgstr "Driver JDBC a usar para conectar-se ao banco de dados"
+
+#: form_settings_database
+msgid "Database:"
+msgstr "Banco de dados:"
+
+#: form_settings_database_tooltip
+msgid "Name of the reports database"
+msgstr "Nome do banco de dados de relatórios"
+
+#: form_settings_port
+msgctxt "form_settings_port"
+msgid "Port:"
+msgstr "Porta:"
+
+#: form_settings_port_tooltip
+msgid "TCP port where the server will listen for connections"
+msgstr "Porta TCP onde o servidor escutará as conexões"
+
+#: form_settings_password_tooltip
+msgid "System DB password"
+msgstr "Senha para o Sistema de BD"
+
+#: form_settings_password
+msgctxt "form_settings_password"
+msgid "Password:"
+msgstr "Senha:"
+
+#: form_settings_user_tooltip
+msgid "System DB user name"
+msgstr "Nome de usuário para o Sistema de BD"
+
+#: form_settings_user
+msgid "User:"
+msgstr "Usuário:"
+
+#: ERROR
+msgid "ERROR"
+msgstr "ERRO"
+
+#: form_settings_timeout
+msgctxt "form_settings_timeout"
+msgid "Timeout:"
+msgstr "Tempo limite:"
+
+#: form_settings_timeout_tooltip
+msgid "Maximum inactivity seconds allowed to connections"
+msgstr "Tempo máximo de inatividade permitido para conexões"
+
+#: form_btn_start
+msgid "Start"
+msgstr "Iniciar"
+
+#: form_btn_stop
+msgid "Stop"
+msgstr "Parar"
+
+#: form_btn_exit
+msgid "Exit"
+msgstr "Sair"
+
+#: form_btn_exit_tooltip
+msgid "Stop server and shutdown program"
+msgstr "Parar o servidor e encerrar o programa"
+
+#: form_btn_stop_tooltip
+msgid "Close all connections and stop server"
+msgstr "Encerrar todas as conexões e parar o servidor"
+
+#: form_btn_start_tooltip
+msgid "Begin listening for clients"
+msgstr "Iniciar a escuta de clientes"
+
+#: form_messages_verbose
+msgid "Verbose"
+msgstr "Mostrar informação ampliada"
+
+#: form_messages_verbose_tooltip
+msgid "Display all messages"
+msgstr "Mostrar todas as mensagens"
+
+#: form_messages_copy
+msgid "Copy to clipboard"
+msgstr "Copiar para a área de transferência"
+
+#: form_messages_copy_tooltip
+msgid "Copy the console output to clipboard"
+msgstr "Copiar para a memória o conteúdo do console"
+
+#: form_messages_clear
+msgid "Clear"
+msgstr "Limpar"
+
+#: form_messages_clear_tooltip
+msgid "Clears the console output"
+msgstr "Limpa a saída do console"
+
+#: error_DB
+msgid "Requested action could not be completed"
+msgstr "Não foi possível completar a ação solicitada"
+
+#: settings_title
+msgid "JClic reports server settings"
+msgstr "Configurações do servidor de relatórios do JClic"
+
+#: settings_options_title
+msgid "Options"
+msgstr "Opções"
+
+#: settings_options_language
+msgid "Language:"
+msgstr "Idioma:"
+
+#: settings_options_look
+msgid "Look & feel:"
+msgstr "Aspecto:"
+
+#: settings_db_title
+msgid "Database"
+msgstr "Banco de dados"
+
+#: settings_db_driver
+msgctxt "settings_db_driver"
+msgid "Driver:"
+msgstr "Controlador (Driver):"
+
+#: settings_options_tooltips
+msgid "Tooltips"
+msgstr "Dicas de ferramenta"
+
+#: settings_db_url
+msgid "URL:"
+msgstr "URL:"
+
+#: settings_db_usr
+msgid "DB user:"
+msgstr "Usuário do BD"
+
+#: settings_db_pwd
+msgctxt "settings_db_pwd"
+msgid "Password:"
+msgstr "Senha:"
+
+#: settings_server_title
+msgid "Reports server"
+msgstr "Servidor de relatórios"
+
+#: settings_server_timeout
+msgctxt "settings_server_timeout"
+msgid "Timeout:"
+msgstr "Tempo limite:"
+
+#: settings_server_port
+msgctxt "settings_server_port"
+msgid "Port:"
+msgstr "Porta:"
+
+#: settings_server_autostart
+msgid "Autostart"
+msgstr "Início automático"
+
+#: settings_web_title
+msgid "Web server"
+msgstr "Servidor web"
+
+#: settings_server_logFile
+msgid "Write logs to file:"
+msgstr "Registrar (logs) no arquivo:"
+
+#: settings_button
+msgid "Settings..."
+msgstr "Configurações..."
+
+#: error_writting_settings
+msgid "Error writting settings file!"
+msgstr "Erro ao registrar configurações no arquivo!"
+
+#: form_btn_show
+msgid "launch browser..."
+msgstr "iniciar navegador..."
+
+#: error_starting_browser
+msgid "Error launching browser!"
+msgstr "Erro ao iniciar navegador!"
+
+#: error_opening_logs
+msgid "Error opening log files!"
+msgstr "erro ao abrir arquivos de log!"
+
+#: settings_file
+msgid "File..."
+msgstr "Arquivo..."
+
+#: settings_tablePrefix
+msgid "Table names prefix:"
+msgstr "Tabela de prefixo de nomes"
+
+#: settings_createTables
+msgid "Create tables if not exist"
+msgstr "Criar tabelas se não houver"
+
+#: settings_session_lifetime
+msgid "Session lifetime (minutes)\\:"
+msgstr "Duração máxima de uma sessão inativa (minutos)\\\\:"
+
+#: settings_browser
+msgid "Preferred browser\\:"
+msgstr "Navegador preferido\\:"
+
+#: settings_browser_tooltip
+msgid ""
+"Command used to launch the browser (firefox, iexplore, mozilla, opera...)"
+msgstr ""
+"Comando usado para iniciar o navegador (firefox, iexplorer, mozilla, "
+"opera...)"

@@ -1,0 +1,171 @@
+# Basque translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2009-02-18 15:55+0000\n"
+"Last-Translator: Pedro Lonbide <zuzen@santurtzieus.com>\n"
+"Language-Team: Basque <eu@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: @associations.ComplexAssociation
+msgid ""
+"Complex association|In this activity there are also two sets of information, "
+"but these may have a different number of parts and there may be different "
+"types of relation between them e.g.: one-to-one, various to one, parts "
+"without a relation, etc."
+msgstr ""
+"Elkarketa berezia|Honek ere bi informazio multzo ditu baina zati kopuru "
+"ezberdina izan dezakete eta zatien harteko lotura ere ezberdina izan "
+"daiteke: lehenengoko bati bigarreneko bakarra, lehenengoko bati bigarreneko "
+"hainbat, loturarik gabeak, e.a."
+
+#: @associations.SimpleAssociation
+msgid ""
+"Simple association|There are two sets of information that have the same "
+"number of parts. Each part from the original set corresponds to one, and "
+"only one, part of the image set."
+msgstr ""
+"Elkarketa arrunta|Zati kopuru bera duten bi informazio multzo daude. "
+"Lehenengoaren zati bakoitzari bigarrenaren zati bakarra dagokio eta ez "
+"gehiago."
+
+#: @memory.MemoryGame
+msgid ""
+"Finding pairs|Each of the pieces appear twice, but face down. In each go two "
+"pieces are turned over and are turned back over if they are not the same. "
+"The objective is to find all the pairs."
+msgstr ""
+"Bikoteak egin| Zati bakoitza bi aldiz agertuko da buruz behera. Bakoitzean "
+"bi zati giratuko dira gora eta berriz ere buruz bera jarriko dira ez badute "
+"bikotea osatzen. Helburua bikote guztiak aurkitzea da."
+
+#: @panels.Explore
+msgid ""
+"Explore activity|An initial piece of information is shown and, upon clicking "
+"on it, a given piece of information is shown for each element."
+msgstr ""
+"Ikertu-jarduera| Informazioaren lehen zatia ematen da eta horretan sakatuta "
+"elementu bakoitzerako informazio zati zehatz bat erakusten da."
+
+#: @panels.Identify
+msgid ""
+"Identify cells|There is just one set of information and you have to click on "
+"those parts that meet a certain condition."
+msgstr ""
+"Identifikazu atalak| Informazio atal batzuk daude eta berauetan sakatuta "
+"adierazi behar duzu zeintzuk betetzen duten baldintza zehatz bat."
+
+#: @panels.InformationScreen
+msgid ""
+"Information screen|One set of information is shown and there is the option "
+"of activating the multimedia content for each piece of information."
+msgstr ""
+"Informazioa pantailan| Informazio atal batzuk daude eta aukera dago atal "
+"bakoitzerako multimedia edukia aktibatzeko bertan sakatuta."
+
+#: @puzzles.DoublePuzzle
+msgid ""
+"Double puzzle|Two grids are shown. One contains the disordered information "
+"and the other is empty. The object has to be rearranged in the empty grid by "
+"dragging the pieces one by one."
+msgstr ""
+"Puzzle bikoitza| Bi taula erakusten dira. Lehenengoak informazioa nahastuta "
+"du eta bigarrena hutsik dago. Helburua hutsik dagoen taula osatzea da "
+"lehenengoko piezak banan banan arrastaka eramanda."
+
+#: @puzzles.ExchangePuzzle
+msgid ""
+"Exchange puzzle|The information is swapped within the same panel. In each go "
+"two pieces swap position until the object is reordered."
+msgstr ""
+"Zatiak ordenatu|Informazioa nahastuta dago panel berean. Saiakera bakoitzean "
+"bi zati mugituko dira guztiak ordenatuta geratu arte."
+
+#: @puzzles.HolePuzzle
+msgid ""
+"Hole puzzle|In the same panel one piece is missing and the others are "
+"shuffled. In each go one of the pieces next to the empty space is moved "
+"until they are back in the original order."
+msgstr ""
+"Puzzle mugikorra|Panel batean informazio-piezak nahastuta daude eta bat "
+"kanpoan dago gainera. Piezak hutsik dagoen tartea erabilita mugitu egin "
+"behar dira bere posiziora eramateko eta kanpoan dagoen piezarentzat bere "
+"lekua libre uzteko."
+
+#: @text.WrittenAnswer
+msgid ""
+"Written answer|A set of information is shown and the corresponding text for "
+"each of its parts must be written."
+msgstr ""
+"Idatzi erantzuna|Informazio atalak erakusten dira eta horiei dagokien testua "
+"idatzi egin behar da."
+
+#: @text.FillInBlanks
+msgid ""
+"Text: Fill-in blanks|The user has to complete certain words, letters and "
+"phrases that have been hidden or camouflaged in a text. The solution of each "
+"of the elements may be set up in different ways: writing in a blank space; "
+"correcting a phrase that contains errors; or selecting from a list of "
+"various possible answers."
+msgstr ""
+"Testua: hutsuneak bete|Erabiltzaileak testuan ezkutatu edo kamuflatu diren "
+"hitzak, letrak edo esaldiak osatu behar ditu. Elementu bakoitzaren soluzioa "
+"era ezberdinetan eman daiteke: hutsunea bete, akatsak dituen esaldia zuzendu "
+"edo erantzun multzo batetik aukeratu."
+
+#: @text.Identify
+msgid ""
+"Text: Identify elements|The user has to point out some words, letters, "
+"numbers, symbols or punctuation marks with a click of the mouse."
+msgstr ""
+"Testua: Identifikatu elementuak|Erabiltzaileak hitzak, hizkiak, zenbakiak, "
+"sinboloak edo puntuazio-markak identifikatu behar ditu saguarekin markatuta."
+
+#: @text.Order
+msgid ""
+"Text: Order elements|When designing this activity some of the words or "
+"paragraphs of a text are selected to be shuffled around. The user has to put "
+"them back in order."
+msgstr ""
+"Testua: Elementuak ordenatu|Jarduera hau diseinatzean, hainbat hitz edo "
+"paragrafo aukeratzen dira testutik eta nahastu egiten dira bertan. "
+"Erabiltzaileak berriz ere bere lekura eraman beharko ditu."
+
+#: @text.Complete
+msgid ""
+"Text: Complete text|Various parts of a text (letters, words, punctuation "
+"signs, or phrases) are taken out and the user has to complete it."
+msgstr ""
+"Testua: Testua osatu|Testuaren hainbat zati (hizkiak, hitzak, puntuazio-"
+"markak edo esaldiak) testutik ateratzen dira eta erabiltzaileak osatu egin "
+"behar du."
+
+#: @textGrid.CrossWord
+msgid ""
+"Crosswords|The word table has to be completed according to its definitions. "
+"The definitions may be text, graphics or sound. The programme automatically "
+"shows the definitions of the two words which cross in the cursor position."
+msgstr ""
+"Hitz gurutzatuak|Hitzen taula definizioen bitartez osatu behar da. "
+"Definizioa testua, grafikoa edo soinu bidezkoa izan daiteke. Programak "
+"automatikoki erakusten ditu kurtsorearen kokapenean gurutzatzen diren bi "
+"hitzen definizioak."
+
+#: @textGrid.WordSearch
+msgid ""
+"Word search|The hidden words have to be found in a grid of letters. The "
+"neutral cells in the grid (those with no word) are completed with characters "
+"chosen at random."
+msgstr ""
+"Bilatu hitza|Ezkutuko hitzak letra taula batean daude. Taulako laukitxoetan "
+"dauden hizki neutralak (hitzarenak ez direnak) ausaz aukeratuko dira."

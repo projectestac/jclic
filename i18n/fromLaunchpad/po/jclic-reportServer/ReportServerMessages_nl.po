@@ -1,0 +1,314 @@
+# Dutch translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2008-08-11 13:05+0000\n"
+"Last-Translator: mente <cementof@gmail.com>\n"
+"Language-Team: Dutch <nl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: error_serverCannotStart
+msgid "Unable to start server!"
+msgstr "Kan de server niet starten!"
+
+#: error_incorrectData
+msgid "Incorrect data!"
+msgstr "Verkeerde gegevens!"
+
+#: column_IP_title
+msgid "IP"
+msgstr "IP"
+
+#: column_port_title
+msgid "Port"
+msgstr "Poort"
+
+#: column_started_title
+msgid "Started"
+msgstr "Gestart"
+
+#: column_lastMessage_title
+msgid "Last message"
+msgstr "Laatste bericht"
+
+#: column_IP_tooltip
+msgid "Client IP address"
+msgstr "Client IP address"
+
+#: column_port_tooltip
+msgid "Local port used in this connection"
+msgstr "Local port van deze verbinding"
+
+#: column_started_tooltip
+msgid "Date and time at witch the connection was started"
+msgstr "Datum en tijd van de start van de verbinding"
+
+#: column_lastMessage_tooltip
+msgid "Header of the last received message"
+msgstr "Begincodes van het laatst ontvangen bericht"
+
+#: error_propertiesFile_beg
+msgid "Unable to load the properties file \""
+msgstr "Het eigenschapbestand kan niet geladen worden \""
+
+#: error_propertiesFile_end
+msgid "\" Using default settings."
+msgstr "\" Gebruik standaard waarden."
+
+#: form_title
+msgid "JClic reports server"
+msgstr "JClic rapporten server"
+
+#: form_connections_title
+msgid "Connections:"
+msgstr "Verbindingen"
+
+#: form_messages_title
+msgid "System messages:"
+msgstr "Systeem berichten:"
+
+#: form_settings_title
+msgid "Settings:"
+msgstr "Instellingen:"
+
+#: form_connections_close
+msgid "Close connection"
+msgstr "Verbinding sluiten"
+
+#: form_connections_close_tooltip
+msgid "Close the selected connection"
+msgstr "Gekozen verbinding sluiten"
+
+#: form_settings_driver
+msgctxt "form_settings_driver"
+msgid "Driver:"
+msgstr "Stuurprogramma:"
+
+#: form_settings_driver_tooltip
+msgid "JDBC driver to use for connect to the database"
+msgstr ""
+"JDBC stuurprogramma dat gebruikt wordt om verbinding te maken met de database"
+
+#: form_settings_database
+msgid "Database:"
+msgstr "Database:"
+
+#: form_settings_database_tooltip
+msgid "Name of the reports database"
+msgstr "Naam van de rapporten database"
+
+#: form_settings_port
+msgctxt "form_settings_port"
+msgid "Port:"
+msgstr "Poort:"
+
+#: form_settings_port_tooltip
+msgid "TCP port where the server will listen for connections"
+msgstr "TCP poort waar de server de verbinding zoekt"
+
+#: form_settings_password_tooltip
+msgid "System DB password"
+msgstr "Systeem DB wachtwoord"
+
+#: form_settings_password
+msgctxt "form_settings_password"
+msgid "Password:"
+msgstr "Wachtwoord:"
+
+#: form_settings_user_tooltip
+msgid "System DB user name"
+msgstr "Systeem DB gebruikersnaam"
+
+#: form_settings_user
+msgid "User:"
+msgstr "Gebruiker:"
+
+#: ERROR
+msgid "ERROR"
+msgstr "FOUT"
+
+#: form_settings_timeout
+msgctxt "form_settings_timeout"
+msgid "Timeout:"
+msgstr "Wachttijd:"
+
+#: form_settings_timeout_tooltip
+msgid "Maximum inactivity seconds allowed to connections"
+msgstr ""
+"Maximum aantal seconden zonder activiteit bij verbinding(Maximum inactivity "
+"seconds allowed to connections)"
+
+#: form_btn_start
+msgid "Start"
+msgstr "Begin"
+
+#: form_btn_stop
+msgid "Stop"
+msgstr "Stoppen"
+
+#: form_btn_exit
+msgid "Exit"
+msgstr "Afsluiten"
+
+#: form_btn_exit_tooltip
+msgid "Stop server and shutdown program"
+msgstr "Server afsluiten en programma afsluiten"
+
+#: form_btn_stop_tooltip
+msgid "Close all connections and stop server"
+msgstr "Sluit alle verbindingen af en stop de server"
+
+#: form_btn_start_tooltip
+msgid "Begin listening for clients"
+msgstr "Begin te luisteren naar clients"
+
+#: form_messages_verbose
+msgid "Verbose"
+msgstr "Met uitleg"
+
+#: form_messages_verbose_tooltip
+msgid "Display all messages"
+msgstr "Toon alle berichten"
+
+#: form_messages_copy
+msgid "Copy to clipboard"
+msgstr "Kopiëren naar klembord"
+
+#: form_messages_copy_tooltip
+msgid "Copy the console output to clipboard"
+msgstr "Kopieer de console output naar clipboard"
+
+#: form_messages_clear
+msgid "Clear"
+msgstr "Wissen"
+
+#: form_messages_clear_tooltip
+msgid "Clears the console output"
+msgstr "Wissen van de console output"
+
+#: error_DB
+msgid "Requested action could not be completed"
+msgstr "Requested action could not be completed"
+
+#: settings_title
+msgid "JClic reports server settings"
+msgstr "JClic rapporten server instellingen"
+
+#: settings_options_title
+msgid "Options"
+msgstr "Opties"
+
+#: settings_options_language
+msgid "Language:"
+msgstr "Taal:"
+
+#: settings_options_look
+msgid "Look & feel:"
+msgstr "Look & feel:"
+
+#: settings_db_title
+msgid "Database"
+msgstr "Database"
+
+#: settings_db_driver
+msgctxt "settings_db_driver"
+msgid "Driver:"
+msgstr "Stuurprogramma:"
+
+#: settings_options_tooltips
+msgid "Tooltips"
+msgstr "Hulpballonnen"
+
+#: settings_db_url
+msgid "URL:"
+msgstr "URL:"
+
+#: settings_db_usr
+msgid "DB user:"
+msgstr "DB user:"
+
+#: settings_db_pwd
+msgctxt "settings_db_pwd"
+msgid "Password:"
+msgstr "Wachtwoord:"
+
+#: settings_server_title
+msgid "Reports server"
+msgstr "Rapporten server"
+
+#: settings_server_timeout
+msgctxt "settings_server_timeout"
+msgid "Timeout:"
+msgstr "Timeout:"
+
+#: settings_server_port
+msgctxt "settings_server_port"
+msgid "Port:"
+msgstr "Poort:"
+
+#: settings_server_autostart
+msgid "Autostart"
+msgstr "Automatisch starten"
+
+#: settings_web_title
+msgid "Web server"
+msgstr "Web-server"
+
+#: settings_server_logFile
+msgid "Write logs to file:"
+msgstr "Schrijf logs naar bestand:"
+
+#: settings_button
+msgid "Settings..."
+msgstr "Instellingen..."
+
+#: error_writting_settings
+msgid "Error writting settings file!"
+msgstr "Fout bij schrijven instellingen bestand!"
+
+#: form_btn_show
+msgid "launch browser..."
+msgstr "opstarten van browser..."
+
+#: error_starting_browser
+msgid "Error launching browser!"
+msgstr "Fout bij starten browser!"
+
+#: error_opening_logs
+msgid "Error opening log files!"
+msgstr "Fout bij openen log bestanden!"
+
+#: settings_file
+msgid "File..."
+msgstr "Bestand..."
+
+#: settings_tablePrefix
+msgid "Table names prefix:"
+msgstr "Table names prefix:"
+
+#: settings_createTables
+msgid "Create tables if not exist"
+msgstr "Maak tabellen indien ze niet bestaan"
+
+#: settings_session_lifetime
+msgid "Session lifetime (minutes)\\:"
+msgstr "Session lifetime (minutes)\\:"
+
+#: settings_browser
+msgid "Preferred browser\\:"
+msgstr "Voorkeur browser\\:"
+
+#: settings_browser_tooltip
+msgid ""
+"Command used to launch the browser (firefox, iexplore, mozilla, opera...)"
+msgstr "Commando om browser te starten(firefox, iexplore, mozilla, opera...)"

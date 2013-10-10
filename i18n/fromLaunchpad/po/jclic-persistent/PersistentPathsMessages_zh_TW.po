@@ -1,0 +1,40 @@
+# Chinese (Traditional) translation for jclic
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2012-03-12 17:41+0000\n"
+"Last-Translator: xatierlike <xatierlike@gmail.com>\n"
+"Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: cl_alert
+msgid ""
+"You are running \"$\" for first time in this computer.\n"
+"Please enter a folder name where to store\n"
+"the data files and program settings."
+msgstr ""
+"你正第一次在這台電腦上執行\"$\"\n"
+"請進入想要儲存資料與程式設定\n"
+"的資料夾"
+
+#: cl_err_unableToCreateDir
+msgid ""
+"Unable to create this folder!\n"
+"Please enter a valid location where you have administrative rights."
+msgstr ""
+"無法建立資料夾！\n"
+"請輸入您有管理權限的合法路進"
+
+#: cl_prompt_title
+msgid "Installation directory"
+msgstr "安裝資料夾"

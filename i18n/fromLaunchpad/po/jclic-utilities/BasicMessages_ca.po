@@ -1,0 +1,335 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JClic 0.2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2008-02-18 16:02+0000\n"
+"Last-Translator: Francesc Busquets <francesc@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: ERROR
+msgid "ERROR"
+msgstr "ERROR"
+
+#: OK
+msgid "OK"
+msgstr "D'acord"
+
+#: YES
+msgid "Yes"
+msgstr "Sí"
+
+#: NO
+msgid "No"
+msgstr "No"
+
+#: DELETE
+msgid "Delete"
+msgstr "Elimina"
+
+#: PASTE
+msgid "Paste"
+msgstr "Enganxa"
+
+#: CUT
+msgid "Cut"
+msgstr "Retalla"
+
+#: COPY
+msgid "Copy"
+msgstr "Copia"
+
+#: FILE_SAVE
+msgid "Save file"
+msgstr "Desa el fitxer"
+
+#: CONFIRM
+msgid "Please confirm"
+msgstr "Confirma l'operació"
+
+#: FILE_OPEN
+msgid "Open file"
+msgstr "Obre el fitxer"
+
+#: FILE_ERR_BEG_DIR
+msgid "Folder"
+msgstr "La carpeta"
+
+#: URL
+msgid "URL:"
+msgstr "URL:"
+
+#: PASSWORD
+msgid "Password:"
+msgstr "Contrasenya:"
+
+#: WARNING
+msgid "Warning!"
+msgstr "Atenció!"
+
+#: FILE_NOT_READABLE
+msgid "Cannot be read!"
+msgstr "No es pot llegir!"
+
+#: FILE_NOT_EXIST
+msgid "Does not exist!"
+msgstr "No existeix!"
+
+#: FILE_READONLY
+msgid "Is read-only. It cannot be overwritted!"
+msgstr "És de només lectura i no pot ser reemplaçat."
+
+#: FILE_OVERWRITE_DIR_PROMPT
+msgctxt "FILE_OVERWRITE_DIR_PROMPT"
+msgid "Do you want to overwrite it?"
+msgstr "Voleu reemplaçar-la?"
+
+#: FILE_OVERWRITE_PROMPT
+msgctxt "FILE_OVERWRITE_PROMPT"
+msgid "Do you want to overwrite it?"
+msgstr "Voleu reemplaçar-lo?"
+
+#: FILE_EXISTS
+msgid "already exists on your system."
+msgstr "ja es troba al vostre ordinador."
+
+#: FILE_DIR_BEG
+msgid "The folder"
+msgstr "La carpeta"
+
+#: FILE_BEG
+msgid "The file"
+msgstr "El fitxer"
+
+#: UNNAMED
+msgid "Unnamed"
+msgstr "Sense nom"
+
+#: FILE_ERR_READING
+msgid "Error reading file"
+msgstr "Error en llegir el fitxer"
+
+#: FILE_ERR_SAVING
+msgid "Error saving file"
+msgstr "Error en desar el fitxer"
+
+#: FILE_FIND
+msgid "Find file"
+msgstr "Cerca d'un fitxer"
+
+#: FILE_ERR_READONLY
+msgid "is read-only."
+msgstr "és de només lectura."
+
+#: FILE_ERR_EXISTS
+msgid "exists. Do you want to overwrite it?"
+msgstr "ja existeix. Voleu sobreescriure'l?"
+
+#: FILE_ERR_UNREADABLE
+msgid "is unreadable."
+msgstr "no es pot llegir."
+
+#: FILE_ERR_BEG
+msgid "File"
+msgstr "El fitxer"
+
+#: LOADING
+msgid "loading..."
+msgstr "carregant el programa..."
+
+#: FALSE
+msgid "false"
+msgstr "fals"
+
+#: CHECK_SIGNATURE_URL
+msgid "messages/checksignature.html"
+msgstr "messages/checksignature_ca.html"
+
+#: URL_LAUNCH_ERROR
+msgid "Error launching URL"
+msgstr "Error en invocar l'URL!"
+
+#: URL_ERROR
+msgid "Error building URL!"
+msgstr "Error en construir l'URL!"
+
+#: QUESTION
+msgid "Question"
+msgstr "Pregunta"
+
+#: PASSWORD_INCORRECT
+msgid "Incorrect password!"
+msgstr "Contrasenya incorrecta!"
+
+#: TRUE
+msgid "true"
+msgstr "cert"
+
+#: CANCEL
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: FILE_ERR_DELETING
+msgid "Error deleting file"
+msgstr "Error en esborrar el fitxer"
+
+#: URL_OPEN
+msgid "Open URL"
+msgstr "Obre URL"
+
+#: FILE_ERR_RESTORING
+msgid "Error restoring file"
+msgstr "Error en restaurar el fitxer"
+
+#: WRITING_FILE
+msgid "Writing file..."
+msgstr "Escrivint fitxer..."
+
+#: XML_ATTRIBUTE
+msgid "Attribute"
+msgstr "Atribut"
+
+#: XML_VALUE
+msgid "Value"
+msgstr "Valor"
+
+#: XML_NOT_EDITABLE
+msgid "This field is not editable!"
+msgstr "Aquest camp no és editable!"
+
+#: XML_TEXT
+msgid "text"
+msgstr "text"
+
+#: XML_NEW_ATTRIBUTE
+msgid "Add attribute"
+msgstr "Afegeix un nou atribut"
+
+#: WORKING
+msgid "Working..."
+msgstr "Treballant..."
+
+#: LOADING_FILE
+msgid "Loading file"
+msgstr "Llegint el fitxer"
+
+#: XML_DEL_ATTRIBUTE
+msgid "Delete attribute"
+msgstr "Suprimeix l'atribut"
+
+#: XML_ELEMENT
+msgid "Element"
+msgstr "Element"
+
+#: XML_NEW_ELEMENT
+msgid "New element"
+msgstr "Nou element"
+
+#: XML_DEL_ELEMENT
+msgid "Delete element"
+msgstr "Elimina l'element"
+
+#: XML_NAME
+msgid "Name"
+msgstr "Nom"
+
+#: RETRY
+msgid "Retry"
+msgstr "Reintenta"
+
+#: IGNORE
+msgid "Ignore"
+msgstr "Ignora"
+
+#: DATE_INCORRECT
+msgid "Date incorrect!"
+msgstr "Data incorrecta!"
+
+#: BAD_NUMBER
+msgid "Incorrect number!"
+msgstr "Nombre incorrecte!"
+
+#: NONE
+msgid "None"
+msgstr "Cap"
+
+#: COPY_keys
+msgid "CC"
+msgstr "CC"
+
+#: CUT_keys
+msgid "TX"
+msgstr "TX"
+
+#: PASTE_keys
+msgid "PV"
+msgstr "NV"
+
+#: DELETE_keys
+msgid "D#127"
+msgstr "E#127"
+
+#: SELECT_ALL
+msgid "Select all"
+msgstr "Selecciona-ho tot"
+
+#: SELECT_NONE
+msgid "Clear selection"
+msgstr "Desfés la selecció"
+
+#: WIDTH
+msgid "Width:"
+msgstr "Amplada:"
+
+#: HEIGHT
+msgid "Height:"
+msgstr "Alçada:"
+
+#: BROWSE_FILES
+msgid "Browse files..."
+msgstr "Cerca el fitxer..."
+
+#: VERSION
+msgid "version"
+msgstr "versió"
+
+#: ABOUT
+msgid "About..."
+msgstr "Quant a..."
+
+#: YES_TO_ALL
+msgid "Yes to all"
+msgstr "Sí a tots"
+
+#: NO_TO_ALL
+msgid "No to all"
+msgstr "No a tots"
+
+#: SAVE
+msgid "Save"
+msgstr "Desa"
+
+#: OPEN
+msgid "Open"
+msgstr "Obre"
+
+#: FILE_OPEN_TOOLTIP
+msgid "Open the selected file"
+msgstr "Obre el fitxer seleccionat"
+
+#: FILE_SAVE_TOOLTIP
+msgid "Save the specified file"
+msgstr "Desa el fitxer especificat"
+
+#: SAVING
+msgid "saving..."
+msgstr "desant..."
+
+#: SAVING_FILE
+msgid "Saving file"
+msgstr "Desant el fitxer"

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp codebase="http://clic.xtec.cat/jnlp/jclic/" codebase-absolute="http://clic.xtec.cat/jnlp/jclic/" href="author.jnlp" spec="1.0+">
+  <information>
+    <title>JClic author</title>
+    <vendor>XTEC</vendor>
+    <homepage href="http://clic.xtec.cat"/>
+    <description>JClic author</description> 
+    <description kind="short">JClic authoring and editing tool</description>
+    <description kind="tooltip">JClic authoring and editing tool</description> 
+    <icon height="32" href="author_32x32.gif" width="32"/>
+    <icon href="splash_author.gif" kind="splash"/>
+    <icon height="64" href="author_64x64.gif" width="64"/>
+    <offline-allowed/>
+    <shortcut online="false">
+      <desktop/>
+      <menu submenu="JClic"/>
+    </shortcut>    
+  </information>
+  <security>
+    <all-permissions/>
+  </security>
+  <resources>
+    <j2se version="1.5+" max-heap-size="128m"/>
+    <jar href="jclicauthor.jar" main="true" version="1.2.3.2"/>
+    <jar href="jclic.jar" version="1.2.3.2"/>
+  </resources>
+  <application-desc/>
+</jnlp>

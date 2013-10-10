@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+    Typical usage:
+
+    <?xml version="1.0"?>
+
+    <!DOCTYPE skin SYSTEM "skin.dtd">
+
+    <skin>
+    ...
+    </skin>
+-->
+
+  <!ELEMENT skin (dimension,color?,rectangle+,slicer,statusBar?,buttons?,counters?,progressBar?,progressAnimation?)>
+  <!ATTLIST skin
+    name ID #REQUIRED
+    class CDATA #REQUIRED
+    image CDATA #REQUIRED
+  >
+
+  <!ELEMENT dimension EMPTY>
+  <!ATTLIST dimension
+    id ID #IMPLIED
+    width CDATA "0"
+    height CDATA "0"
+  >
+
+  <!ELEMENT color (point*)>
+  <!ATTLIST color
+    id CDATA #IMPLIED
+    value CDATA "black"
+  >
+
+  <!ELEMENT rectangle EMPTY>
+  <!ATTLIST rectangle
+    id CDATA #IMPLIED
+    height CDATA #IMPLIED
+    width CDATA #IMPLIED
+    top CDATA #IMPLIED
+    left CDATA #IMPLIED
+  >
+  
+  <!ELEMENT slicer EMPTY>
+  <!ATTLIST slicer
+    bottom CDATA "0"
+    right CDATA "0"
+    top CDATA "0"
+    left CDATA "0"
+  >
+
+  <!ELEMENT statusBar (style?,msgArea*)>
+
+  <!ELEMENT style (font?,color*)>
+  <!ATTLIST style
+    margin CDATA #IMPLIED
+  >
+
+  <!ELEMENT font EMPTY>
+  <!ATTLIST font
+    id CDATA #IMPLIED
+    bold (true|false) "false"
+    italic (true|false) "false"
+    size CDATA "12"
+    family CDATA "System"
+  >
+
+  <!ELEMENT msgArea (rectangle,alignment?)>
+  <!ATTLIST msgArea
+    id CDATA #REQUIRED
+  >
+
+  <!ELEMENT alignment EMPTY>
+  <!ATTLIST alignment
+    hAlign (left|center|right) "center"
+    vAlign (top|center|bottom) "center"
+  >
+
+  <!ELEMENT buttons (settings?,button*)>
+  
+  <!ELEMENT settings (dimension*,offset*)>
+  
+  <!ELEMENT offset EMPTY>
+  <!ATTLIST offset
+    id (active|over|disabled) #REQUIRED
+    right CDATA "0"
+    down CDATA "0"
+  >
+
+  <!ELEMENT button (settings?,point+)>
+  <!ATTLIST button
+    id (prev|next|reset|help|info|about|audio) #REQUIRED
+    toggle (true|false) "false"
+  >
+
+  <!ELEMENT counters (settings?,style?,digits+,counter+)>
+
+  <!ELEMENT digits (dimension,point)>
+  <!ATTLIST digits
+    align (down|right) #REQUIRED
+  >
+
+  <!ELEMENT counter (point+)>
+  <!ATTLIST counter
+    id (score|actions|time) #REQUIRED
+  >
+
+  <!ELEMENT point EMPTY>
+  <!ATTLIST point
+    id (counter|label|pos|source) #REQUIRED
+    top CDATA "0"
+    left CDATA "0"
+  >
+
+  <!ELEMENT progressBar (rectangle,style?)>
+  <!ATTLIST progressBar
+    autoHide (true|false) "false"
+    border (true|false) "false"
+    showPercent (true|false) "false"
+  >
+
+  <!ELEMENT progressAnimation (dimension,point+)>
+  <!ATTLIST progressAnimation
+    frames CDATA "1"
+    direction (left|right|top|bottom) #REQUIRED
+    delay CDATA "100"
+    step CDATA #REQUIRED
+    autoHide (true|false) "false"
+  >
+
+
+

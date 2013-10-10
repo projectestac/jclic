@@ -1,0 +1,340 @@
+# Traditional Chinese translation for jclic
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2012-03-20 10:48+0000\n"
+"Last-Translator: Cho Chin-Ping <aegenius0615@yahoo.com.tw>\n"
+"Language-Team: Traditional Chinese <zh_TW@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: ERROR
+msgid "ERROR"
+msgstr "錯誤"
+
+#: OK
+msgid "OK"
+msgstr "確定"
+
+#: YES
+msgid "Yes"
+msgstr "是"
+
+#: NO
+msgid "No"
+msgstr "否"
+
+#: DELETE
+msgid "Delete"
+msgstr "刪除"
+
+#: PASTE
+msgid "Paste"
+msgstr "貼上"
+
+#: CUT
+msgid "Cut"
+msgstr "剪下"
+
+#: COPY
+msgid "Copy"
+msgstr "複製"
+
+#: FILE_SAVE
+msgid "Save file"
+msgstr "儲存檔案"
+
+#: CONFIRM
+msgid "Please confirm"
+msgstr "請確認"
+
+#: FILE_OPEN
+msgid "Open file"
+msgstr "開啟檔案"
+
+#: FILE_ERR_BEG_DIR
+msgid "Folder"
+msgstr "資料夾"
+
+#: URL
+msgid "URL:"
+msgstr "網址："
+
+#: PASSWORD
+msgid "Password:"
+msgstr "密碼："
+
+#: WARNING
+msgid "Warning!"
+msgstr "警告！"
+
+#: FILE_NOT_READABLE
+msgid "Cannot be read!"
+msgstr "無法讀取！"
+
+#: FILE_NOT_EXIST
+msgid "Does not exist!"
+msgstr "不存在！"
+
+#: FILE_READONLY
+msgid "Is read-only. It cannot be overwritted!"
+msgstr "唯讀。無法覆寫！"
+
+#: FILE_OVERWRITE_DIR_PROMPT
+msgctxt "FILE_OVERWRITE_DIR_PROMPT"
+msgid "Do you want to overwrite it?"
+msgstr "要覆寫嗎？"
+
+#: FILE_OVERWRITE_PROMPT
+msgctxt "FILE_OVERWRITE_PROMPT"
+msgid "Do you want to overwrite it?"
+msgstr "要覆寫嗎？"
+
+#: FILE_EXISTS
+msgid "already exists on your system."
+msgstr "已經存在您的系統中。"
+
+#: FILE_DIR_BEG
+msgid "The folder"
+msgstr "資料夾"
+
+#: FILE_BEG
+msgid "The file"
+msgstr "檔案"
+
+#: UNNAMED
+msgid "Unnamed"
+msgstr "未命名"
+
+#: FILE_ERR_READING
+msgid "Error reading file"
+msgstr "讀取檔案錯誤"
+
+#: FILE_ERR_SAVING
+msgid "Error saving file"
+msgstr "儲存檔案錯誤"
+
+#: FILE_FIND
+msgid "Find file"
+msgstr "尋找檔案"
+
+#: FILE_ERR_READONLY
+msgid "is read-only."
+msgstr "唯讀"
+
+#: FILE_ERR_EXISTS
+msgid "exists. Do you want to overwrite it?"
+msgstr "檔案已經存在，要覆寫嗎？"
+
+#: FILE_ERR_UNREADABLE
+msgid "is unreadable."
+msgstr "無法讀取。"
+
+#: FILE_ERR_BEG
+msgid "File"
+msgstr "檔案"
+
+#: LOADING
+msgid "loading..."
+msgstr "載入中..."
+
+#: FALSE
+msgid "false"
+msgstr "假"
+
+#: CHECK_SIGNATURE_URL
+msgid "messages/checksignature.html"
+msgstr "messages/checksignature.html"
+
+#: URL_LAUNCH_ERROR
+msgid "Error launching URL"
+msgstr "URL錯誤"
+
+#: URL_ERROR
+msgid "Error building URL!"
+msgstr "建立的URL錯誤"
+
+#: QUESTION
+msgid "Question"
+msgstr "問題"
+
+#: PASSWORD_INCORRECT
+msgid "Incorrect password!"
+msgstr "密碼不正確"
+
+#: TRUE
+msgid "true"
+msgstr "真"
+
+#: CANCEL
+msgid "Cancel"
+msgstr "取消"
+
+#: FILE_ERR_DELETING
+msgid "Error deleting file"
+msgstr "刪除檔案錯誤"
+
+#: URL_OPEN
+msgid "Open URL"
+msgstr "開啟網址"
+
+#: FILE_ERR_RESTORING
+msgid "Error restoring file"
+msgstr "還原檔案錯誤"
+
+#: WRITING_FILE
+msgid "Writing file..."
+msgstr "寫入檔案中..."
+
+#: XML_ATTRIBUTE
+msgid "Attribute"
+msgstr "屬性"
+
+#: XML_VALUE
+msgid "Value"
+msgstr "值"
+
+#: XML_NOT_EDITABLE
+msgid "This field is not editable!"
+msgstr "這個欄位無法編輯！"
+
+#: XML_TEXT
+msgid "text"
+msgstr "文字"
+
+#: XML_NEW_ATTRIBUTE
+msgid "Add attribute"
+msgstr "新增屬性"
+
+#: WORKING
+msgid "Working..."
+msgstr "工作中..."
+
+#: LOADING_FILE
+msgid "Loading file"
+msgstr "檔案載入中"
+
+#: XML_DEL_ATTRIBUTE
+msgid "Delete attribute"
+msgstr "刪除屬性"
+
+#: XML_ELEMENT
+msgid "Element"
+msgstr "元件"
+
+#: XML_NEW_ELEMENT
+msgid "New element"
+msgstr "新元件"
+
+#: XML_DEL_ELEMENT
+msgid "Delete element"
+msgstr "刪除元件"
+
+#: XML_NAME
+msgid "Name"
+msgstr "名稱"
+
+#: RETRY
+msgid "Retry"
+msgstr "重試"
+
+#: IGNORE
+msgid "Ignore"
+msgstr "略過"
+
+#: DATE_INCORRECT
+msgid "Date incorrect!"
+msgstr "日期不正確！"
+
+#: BAD_NUMBER
+msgid "Incorrect number!"
+msgstr "不正確的數字！"
+
+#: NONE
+msgid "None"
+msgstr "沒有"
+
+#: COPY_keys
+msgid "CC"
+msgstr "副本"
+
+#: CUT_keys
+msgid "TX"
+msgstr "傳送"
+
+#: PASTE_keys
+msgid "PV"
+msgstr "PV"
+
+#: DELETE_keys
+msgid "D#127"
+msgstr "D#127"
+
+#: SELECT_ALL
+msgid "Select all"
+msgstr "全部選取"
+
+#: SELECT_NONE
+msgid "Clear selection"
+msgstr "清除選取"
+
+#: WIDTH
+msgid "Width:"
+msgstr "寬："
+
+#: HEIGHT
+msgid "Height:"
+msgstr "高："
+
+#: BROWSE_FILES
+msgid "Browse files..."
+msgstr "瀏覽檔案..."
+
+#: VERSION
+msgid "version"
+msgstr "版本"
+
+#: ABOUT
+msgid "About..."
+msgstr "關於..."
+
+#: YES_TO_ALL
+msgid "Yes to all"
+msgstr "全部皆是"
+
+#: NO_TO_ALL
+msgid "No to all"
+msgstr "全部皆否"
+
+#: SAVE
+msgid "Save"
+msgstr "儲存"
+
+#: OPEN
+msgid "Open"
+msgstr "開啟"
+
+#: FILE_OPEN_TOOLTIP
+msgid "Open the selected file"
+msgstr "開啟選取的檔案"
+
+#: FILE_SAVE_TOOLTIP
+msgid "Save the specified file"
+msgstr "儲存指定的檔案"
+
+#: SAVING
+msgid "saving..."
+msgstr "儲存中..."
+
+#: SAVING_FILE
+msgid "Saving file"
+msgstr "正在儲存檔案"

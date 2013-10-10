@@ -1,0 +1,3478 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JClic 0.2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-01-13 23:10+0200\n"
+"PO-Revision-Date: 2010-01-17 17:52+0000\n"
+"Last-Translator: Rui Fernandes <ruiefe@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. #JClic Author messages
+#: edit_act_description_block
+msgctxt "edit_act_description_block"
+msgid "Description"
+msgstr "Descrição"
+
+#: edit_act_name_tooltip
+msgid "Name of the activity"
+msgstr "Nome da actividade"
+
+#: edit_act_name
+msgctxt "edit_act_name"
+msgid "Name:"
+msgstr "Nome:"
+
+#: edit_act_description_tooltip
+msgid "Description of the activity"
+msgstr "Descrição da actividade"
+
+#: edit_act_reports_block
+msgctxt "edit_act_reports_block"
+msgid "Reports"
+msgstr "Relatórios"
+
+#: edit_act_includeInReports
+msgid "Include this activity in reports"
+msgstr "Incluir esta actividade nos relatórios"
+
+#: edit_act_includeInReports_tooltip
+msgid "Include the results of this activity in users' reports"
+msgstr "Incluir os resultados desta actividade nos relatórios de utilizador"
+
+#: edit_act_code
+msgid "Code:"
+msgstr "Código:"
+
+#: edit_act_code_tooltip
+msgid "Optional code used to group and search in the reports database."
+msgstr ""
+"Código opcional utilizado para agrupar e filtrar na base de dados de "
+"relatórios."
+
+#: edit_act_reportActions
+msgid "Report user actions"
+msgstr "Registar também as acções"
+
+#: edit_act_reportActions_tooltip
+msgid "Register the details of all the actions performed by users"
+msgstr ""
+"Registar pormenores de todas as acções efectuadas pelos utilizadores."
+
+#: edit_act_counters_block
+msgctxt "edit_act_counters_block"
+msgid "Counters"
+msgstr "Contadores"
+
+#: edit_act_timeCounter
+msgctxt "edit_act_timeCounter"
+msgid "Time counter"
+msgstr "Contador de tempo"
+
+#: edit_act_timeCounter_tooltip
+msgid "Show/hide the time conter"
+msgstr "Mostrar ou ocultar contador de tempo."
+
+#: edit_act_actionsCounter
+msgctxt "edit_act_actionsCounter"
+msgid "Tries counter"
+msgstr "Contador de tentativas"
+
+#: edit_act_actionsCounter_tooltip
+msgid "Show/hide the tries counter"
+msgstr "Mostrar ou ocultar contador de tentativas."
+
+#: edit_act_scoreCounter
+msgctxt "edit_act_scoreCounter"
+msgid "Score counter"
+msgstr "Contador de acertos"
+
+#: edit_act_scoreCounter_tooltip
+msgid "Show/hide the score counter."
+msgstr "Mostrar ou ocultar contador de acertos."
+
+#: edit_act_maxTime
+msgid "Max time:"
+msgstr "Tempo máximo:"
+
+#: edit_act_maxTime_tooltip
+msgid ""
+"Maximum time to to solve the activity, in seconds, or 0 for unlimited time."
+msgstr ""
+"Tempo máximo permitido para resolver a actividade, em segundos. O zero "
+"significa tempo ilimitado."
+
+#: edit_act_countdown
+msgid "Countdown"
+msgstr "Contagem regressiva"
+
+#: edit_act_countdown_tooltip
+msgid "The counter starts at máximum value, decreasing to 0."
+msgstr "O contador inicia no valor máximo, decrescendo até zero."
+
+#: edit_act_maxActions
+msgid "Max tries:"
+msgstr "Tentativas máx.:"
+
+#: edit_act_maxActions_tooltip
+msgid "Maximum number of tries allowed, or 0 for unlimited tries."
+msgstr "Número máximo de tentativas permitidas, ou zero para ilimitado."
+
+#: edit_act_buttons_block
+msgctxt "edit_act_buttons_block"
+msgid "Buttons"
+msgstr "Botões"
+
+#: edit_act_helpBtn
+msgid "Help"
+msgstr "Ajuda"
+
+#: edit_act_helpBtn_tooltip
+msgid "Show/hide help button"
+msgstr "Mostrar ou ocultar o botão de ajuda"
+
+#: edit_act_helpBtn_solution
+msgid "Show solution"
+msgstr "Mostrar a solução"
+
+#: edit_act_helpBtn_msg
+msgid "Show this message:"
+msgstr "Mostrar esta mensagem:"
+
+#: edit_act_infoBtn
+msgid "Information"
+msgstr "Informação"
+
+#: edit_act_infoBtn_tooltip
+msgid "Show/Hide the button of information"
+msgstr "Mostrar ou ocultar o botão de informação"
+
+#: edit_act_infoBtn_url
+msgid "Show this URL:"
+msgstr "Mostrar esta URL:"
+
+#: edit_act_infoBtn_cmd
+msgid "Execute this command:"
+msgstr "Executar o comando:"
+
+#: edit_act_infoBtn_url_tooltip
+msgid "Web site address to show when click on the info button"
+msgstr "Endereço web a mostrar ao clicar no botão de informação."
+
+#: edit_act_infoBtn_cmd_tooltip
+msgid "Command line to be executed on click to the info button."
+msgstr "Linha de comandos a executar ao clicar no botão de informação."
+
+#: edit_act_mainWindow
+msgid "Main window:"
+msgstr "Janela principal:"
+
+#: edit_act_gameWindow
+msgid "Game window:"
+msgstr "Janela de jogo:"
+
+#: edit_act_margin
+msgid "Margin:"
+msgstr "Margem:"
+
+#: edit_act_margin_tooltip
+msgid "Horizontal and vertical spacing between visual objects."
+msgstr "Espaço vertical e horizontal entre objectos visuais."
+
+#: edit_act_bgColor
+msgctxt "edit_act_bgColor"
+msgid "Background color:"
+msgstr "Cor de fundo:"
+
+#: edit_act_bgColor_tooltip
+msgid "Change the background color."
+msgstr "Mudar cor de fundo."
+
+#: edit_gradient_startColor
+msgid "Start color:"
+msgstr "Cor inicial:"
+
+#: edit_gradient_endColor
+msgid "End color:"
+msgstr "Cor final:"
+
+#: edit_gradient_startColor_tooltip
+msgid "Selection of the start color"
+msgstr "Selecção da cor inicial"
+
+#: edit_gradient_endColor_tooltip
+msgid "Selection of the end color"
+msgstr "Selecção da cor final"
+
+#: edit_gradient_cycles
+msgid "Cycles:"
+msgstr "Ciclos:"
+
+#: edit_gradient_cycles_tooltip
+msgid "Number of repetitions of the gradient over the paint surface"
+msgstr "Número de repetições do gradiente sobre a superfície a pintar."
+
+#: edit_gradient_orientation
+msgid "Orientation:"
+msgstr "Orientação:"
+
+#: edit_gradient_orientation_tooltip
+msgid "Gradient's orientation, measured in degrees over the horizontal"
+msgstr "Orientação do gradiente, medida em graus sobre a horizontal."
+
+#: edit_act_gradient
+msgid "Gradient:"
+msgstr "Gradiente:"
+
+#: edit_act_gradient_tooltip
+msgid "Use gradient of colours"
+msgstr "Utilizar um gradiente de cores"
+
+#: edit_color_opacity
+msgid "Opacity"
+msgstr "Opacidade"
+
+#: edit_color_opacity_tooltip
+msgid "Set the color's alpha channel (opacity) value."
+msgstr "Ajusta o valor do canal alfa (opacidade) da cor."
+
+#: edit_gradient_title
+msgctxt "edit_gradient_title"
+msgid "Gradient"
+msgstr "Gradiente"
+
+#: edit_gradient_default
+msgid "Use default values (null gradient)"
+msgstr "Utilizar os valores padrão (gradiente nulo)"
+
+#: edit_act_image
+msgid "Image:"
+msgstr "Imagem:"
+
+#: edit_act_descriptionTab
+msgctxt "edit_act_descriptionTab"
+msgid "Description"
+msgstr "Descrição"
+
+#: edit_act_descriptionTab_tooltip
+msgid "Name and description"
+msgstr "Nome e descrição"
+
+#: edit_act_tiledBgImg
+msgid "Tiled"
+msgstr "Em mosaico"
+
+#: edit_act_tiledBgImg_tooltip
+msgid ""
+"Paint all the surface with the image, repeating it along the X and Y axis as "
+"needed."
+msgstr ""
+"Pinta toda a superfície com a imagem, repetindo-a ao longo dos eixos X e Y."
+
+#: edit_act_preview
+msgctxt "edit_act_preview"
+msgid "Preview:"
+msgstr "Previsualizar:"
+
+#: edit_act_border
+msgctxt "edit_act_border"
+msgid "Border"
+msgstr "Limite"
+
+#: edit_act_border_tooltip
+msgid "Draw a line border arround the window"
+msgstr "Desenhar limite da janela"
+
+#: edit_act_transparent
+msgid "Transparent"
+msgstr "Transparente"
+
+#: edit_act_transparent_tooltip
+msgid "Window has transparent background"
+msgstr "A janela tem fundo transparente"
+
+#: edit_act_width
+msgctxt "edit_act_width"
+msgid "Width:"
+msgstr "Largura:"
+
+#: edit_act_height
+msgctxt "edit_act_height"
+msgid "Height:"
+msgstr "Altura:"
+
+#: edit_act_width_tooltip
+msgid "Width of the object, measured in pixels"
+msgstr "Largura do objecto, em píxeis"
+
+#: edit_act_height_tooltip
+msgid "Height of the object, measured in pixels"
+msgstr "Altura do objecto, em píxeis"
+
+#: edit_act_centered
+msgctxt "edit_act_centered"
+msgid "Centered"
+msgstr "Centrada"
+
+#: edit_act_centered_tooltip
+msgid "The object will be centered over the main window"
+msgstr "Objecto centrado em relação à janela principal"
+
+#: edit_act_x
+msgctxt "edit_act_x"
+msgid "X:"
+msgstr "X:"
+
+#: edit_act_x_tooltip
+msgid "Absolute horizontal location"
+msgstr "Posição horizontal absoluta"
+
+#: edit_act_y
+msgctxt "edit_act_y"
+msgid "Y:"
+msgstr "Y:"
+
+#: edit_act_y_tooltip
+msgid "Absolute vertical location"
+msgstr "Posição vertical absoluta"
+
+#: edit_act_ui_block
+msgctxt "edit_act_ui_block"
+msgid "User interface"
+msgstr "Interface de utilizador"
+
+#: edit_act_image_tooltip
+msgid "Select an image"
+msgstr "Seleccionar uma imagem"
+
+#: edit_act_text
+msgid "Text:"
+msgstr "Texto:"
+
+#: edit_act_text_tooltip
+msgid "Text to be shown inside this object"
+msgstr "Texto a mostrar para este objecto"
+
+#: edit_font_face
+msgid "Typeface:"
+msgstr "Tipo:"
+
+#: edit_font_size
+msgid "Size:"
+msgstr "Tamanho:"
+
+#: edit_font_bold
+msgid "Bold"
+msgstr "Negrito"
+
+#: edit_font_italic
+msgid "Italic"
+msgstr "Itálico"
+
+#: edit_font_underline
+msgid "Underline"
+msgstr "Sublinhado"
+
+#: edit_font_style
+msgctxt "edit_font_style"
+msgid "Style:"
+msgstr "Estilo:"
+
+#: edit_cell_title
+msgid "Cell contents"
+msgstr "Conteúdo da célula"
+
+#: edit_act_messages
+msgctxt "edit_act_messages"
+msgid "Messages"
+msgstr "Mensagens"
+
+#: edit_act_msg_initial
+msgid "Initial message:"
+msgstr "Mensagem inicial:"
+
+#: edit_act_msg_final
+msgid "Final message:"
+msgstr "Mensagem final:"
+
+#: edit_act_msg_prev
+msgid "Previous message:"
+msgstr "Mensagem anterior:"
+
+#: edit_act_msg_error
+msgid "Error message:"
+msgstr "Mensagem de erro:"
+
+#: edit_act_msg_initial_tooltip
+msgid "Message to be shown when the activity starts"
+msgstr "Mensagem a mostrar ao iniciar a actividade"
+
+#: edit_act_msg_final_tooltip
+msgid "Message to be shown when the activity is finished"
+msgstr "Mensagem a mostrar ao terminar a actividade"
+
+#: edit_act_msg_error_tooltip
+msgid "Message to be shown when the activity ends with errors"
+msgstr "Mensagem a mostrar ao terminar a actividade com erros"
+
+#: edit_act_msg_prev_tooltip
+msgid ""
+"Message to be shown prior to the start of the activity (only in certain "
+"types of activities)"
+msgstr ""
+"Mensagem a mostrar antes de iniciar (disponível nalgumas actividades)"
+
+#: edit_align
+msgid "Align:"
+msgstr "Alinhamento:"
+
+#: edit_act_textColor
+msgid "Text color:"
+msgstr "Cor do texto:"
+
+#: edit_act_textColor_tooltip
+msgid "Color used to draw text"
+msgstr "Cor utilizada pelo texto"
+
+#: edit_act_shadowColor
+msgid "Shadow color:"
+msgstr "Cor da sombra:"
+
+#: edit_act_shadowColor_tooltip
+msgid "Color used for drawing the text's shadow, when appliable"
+msgstr "Cor da sombra do texto, se houver."
+
+#: edit_act_shadow
+msgid "Shadow"
+msgstr "Sombra"
+
+#: edit_act_shadow_tooltip
+msgid "Draw text with shadow"
+msgstr "Desenhar texto com sombra"
+
+#: edit_act_borderColor
+msgid "Border color:"
+msgstr "Cor do limite:"
+
+#: edit_act_borderColor_tooltip
+msgid "Color used to draw the cell's border"
+msgstr "Cor do limite da célula"
+
+#: edit_act_inactiveColor
+msgid "Inactive state color:"
+msgstr "Cor de estado inactivo:"
+
+#: edit_act_inactiveColor_tooltip
+msgid "Color used when the cell is disabled"
+msgstr "Cor para célula desactivada"
+
+#: edit_act_altColor
+msgid "Alternative color:"
+msgstr "Cor alternativa:"
+
+#: edit_act_altColor_tooltip
+msgid "Color used to draw the alternative content in solved cells."
+msgstr "Cor para conteúdo alternativo das células solucionadas."
+
+#: edit_cell_marked
+msgid "Marked"
+msgstr "Marcada"
+
+#: edit_cell_disabled
+msgid "Disabled"
+msgstr "Desactivada"
+
+#: edit_cell_alt
+msgid "Alternative"
+msgstr "Alternativa"
+
+#: edit_cell_textMargin
+msgid "Internal margin:"
+msgstr "Margem interna:"
+
+#: edit_cell_textMargin_tooltip
+msgid "Amount of space between cell's border and text."
+msgstr "Espaço entre limites da célula e texto."
+
+#: edit_cell_borderWidth
+msgid "Border width:"
+msgstr "Espessura do limite:"
+
+#: edit_cell_borderWidth_tooltip
+msgid "Width of the stroke used to draw the standard border"
+msgstr "Espessura do limite."
+
+#: edit_cell_markerWidth
+msgid "Marker width:"
+msgstr "Espessura do marcador:"
+
+#: edit_cell_markerWidth_tooltip
+msgid ""
+"Width of the stroke used to draw the border when the cell is marked or "
+"selected"
+msgstr "Espessura do limite de uma célula marcada ou seleccionada."
+
+#: edit_cell_alt_tooltip
+msgid "Preview in \"alternative\" state"
+msgstr "Previsualizar no estado \"alternativo\""
+
+#: edit_cell_disabled_tooltip
+msgid "Preview in \"disabled\" state"
+msgstr "Previsualizar no estado \"desactivado\""
+
+#: edit_cell_marked_tooltip
+msgid "Preview in \"marked\" state"
+msgstr "Previsualizar no estado \"marcado\""
+
+#: edit_act_testAction
+msgid "Preview activity"
+msgstr "Mostrar actividade"
+
+#: edit_act_testAction_tooltip
+msgid "Preview and test the activity"
+msgstr "Testar o funcionamento da actividade"
+
+#: edit_act_panels_description
+msgctxt "edit_act_panels_description"
+msgid "Description"
+msgstr "Descrição"
+
+#: edit_act_panels_description_tooltip
+msgid "Title and description of the activity"
+msgstr "Título e descrição da actividade"
+
+#: edit_act_panels_options
+msgid "Options"
+msgstr "Opções"
+
+#: edit_act_panels_options_tooltip
+msgid "Options of the activity"
+msgstr "Opções da actividade"
+
+#: edit_act_panels_frame
+msgctxt "edit_act_panels_frame"
+msgid "Window"
+msgstr "Janela"
+
+#: edit_act_panels_frame_tooltip
+msgid "Aspect, size and position of the activity window"
+msgstr "Aspecto, tamanho e posição da janela durante a actividade"
+
+#: edit_act_panels_messages
+msgctxt "edit_act_panels_messages"
+msgid "Messages"
+msgstr "Mensagens"
+
+#: edit_act_panels_messages_tooltip
+msgid "Content of the activity messages"
+msgstr "Conteúdo das mensagens da actividade"
+
+#: edit_act_panels_panel
+msgid "Panel"
+msgstr "Painel"
+
+#: edit_act_panels_panel_tooltip
+msgid "Contents of the panel"
+msgstr "Conteúdo do painel"
+
+#: edit_style_title
+msgctxt "edit_style_title"
+msgid "Style"
+msgstr "Estilo"
+
+#: edit_style_tooltip
+msgid "Set the cells color, font and size"
+msgstr "Ajustar a cor, tipo e tamanho de letra das células"
+
+#: edit_act_style
+msgctxt "edit_act_style"
+msgid "Style:"
+msgstr "Estilo:"
+
+#: edit_act_overlap
+msgid "Avoid text overlap image"
+msgstr "Evitar sobreposição imagem/texto"
+
+#: edit_act_overlap_tooltip
+msgid "Try to avoid text overlapping over image"
+msgstr "Tentar evitar sobreposição texto/imagem"
+
+#: edit_media_exists_1
+msgid "The file"
+msgstr "O ficheiro"
+
+#: edit_media_exists_2
+msgid "already exists in the media library!"
+msgstr "já está na mediateca!"
+
+#: edit_act_shaper
+msgid "Shaper:"
+msgstr "Recorte:"
+
+#: edit_act_shaper_err
+msgid "Shaper error:"
+msgstr "Erro no gerador de formas:"
+
+#: edit_act_num_cols
+msgid "Columns:"
+msgstr "Colunas:"
+
+#: edit_act_num_rows
+msgid "Rows:"
+msgstr "Linhas:"
+
+#: edit_act_toothHeightFactor
+msgid "Tooth height:"
+msgstr "Altura dos dentes:"
+
+#: edit_act_toothWidthFactor
+msgid "Tooth width:"
+msgstr "Largura dos dentes:"
+
+#: edit_act_toothRandom
+msgid "Random distribution"
+msgstr "Distribuição aleatória"
+
+#: edit_act_shaper_properties
+msgid "Shaper properties"
+msgstr "Propriedades do gerador de formas"
+
+#: edit_act_panels_text
+msgid "Text"
+msgstr "Texto"
+
+#: edit_act_panels_text_tooltip
+msgid "Text of the activity"
+msgstr "Texto da actividade"
+
+#: action_saveFile_caption
+msgid "Save..."
+msgstr "Guardar..."
+
+#: action_saveFile_keys
+msgctxt "action_saveFile_keys"
+msgid "SS"
+msgstr "GG"
+
+#: action_saveFile_tooltip
+msgid "Save the current project"
+msgstr "Guardar o projecto"
+
+#: action_docTree_caption
+msgid "Document tree..."
+msgstr "Árvore do documento..."
+
+#: action_docTree_keys
+msgid "T*"
+msgstr "A*"
+
+#: action_docTree_tooltip
+msgid "Show the project's document as a tree"
+msgstr "Mostrar o documento do projecto em forma de árvore"
+
+#: edit_docTree_title
+msgid "Document tree"
+msgstr "Árvore do documento"
+
+#: edit_media_referencedBy
+msgid "Referenced by:"
+msgstr "Em uso por:"
+
+#: msg_prompt_loadReferences
+msgid ""
+"<html><font face=\"dialog\" size=\"2\"><B>Warning:</B><P>This project "
+"connects with other projects.<BR>Do you want to explore the links and to "
+"load all the related files?<P>(It's advisable to answer <B>YES</B> when "
+"importing Clic 3.0 activities)</font></html>"
+msgstr ""
+"<html><font face=\"dialog\" size=\"8pt\"><B>Atenção:</B><P>Este projecto "
+"está ligado a outros projectos.<BR>Deseja explorá-los e carregar todos os "
+"arquivos relacionados?<P>(Recomenda-se responder <B>SIM</B> ao importar um "
+"pacote de actividades Clic 3.0)</font></html>"
+
+#: edit_mc_type
+msgctxt "edit_mc_type"
+msgid "Type:"
+msgstr "Tipo:"
+
+#: edit_mc_type_unknown
+msgid "Unknown"
+msgstr "Desconhecido"
+
+#: edit_mc_type_sound
+msgid "Play sound"
+msgstr "Reproduzir som"
+
+#: edit_mc_type_video
+msgid "Play video"
+msgstr "Reproduzir vídeo"
+
+#: edit_mc_type_midi
+msgid "Play MIDI"
+msgstr "Reproduzir MIDI"
+
+#: edit_mc_type_cdaudio
+msgid "Play CD audio"
+msgstr "Reproduzir CD áudio"
+
+#: edit_mc_type_record
+msgid "Record sound"
+msgstr "Gravar som"
+
+#: edit_mc_type_play_recorded
+msgid "Play recorded sound"
+msgstr "Reproduzir gravação"
+
+#: edit_mc_type_run_activity
+msgid "Go to activity"
+msgstr "Ir para actividade"
+
+#: edit_mc_type_run_sequence
+msgid "Go to sequence"
+msgstr "Ir para sequência"
+
+#: edit_mc_type_run_external
+msgid "Run program"
+msgstr "Executar programa"
+
+#: edit_mc_type_url
+msgid "Show URL"
+msgstr "Mostrar URL"
+
+#: edit_mc_type_exit
+msgid "End"
+msgstr "Terminar"
+
+#: edit_mc_type_return
+msgctxt "edit_mc_type_return"
+msgid "Return"
+msgstr "Voltar"
+
+#: edit_mc_level
+msgid "Priority level:"
+msgstr "Nível de prioridade:"
+
+#: edit_mc_file
+msgid "File:"
+msgstr "Ficheiro:"
+
+#: edit_mc_externalParam
+msgid "Parameters:"
+msgstr "Parâmetros:"
+
+#: edit_mc_from
+msgctxt "edit_mc_from"
+msgid "From:"
+msgstr "De:"
+
+#: edit_mc_to
+msgctxt "edit_mc_to"
+msgid "To:"
+msgstr "Até:"
+
+#: edit_mc_length
+msgctxt "edit_mc_length"
+msgid "Max. length:"
+msgstr "Duração máx.:"
+
+#: edit_mc_recBuffer
+msgid "Record tape:"
+msgstr "Buffer de gravação:"
+
+#: edit_mc_stretch
+msgid "Stretch size"
+msgstr "Comprimir se não couber"
+
+#: edit_mc_location
+msgctxt "edit_mc_location"
+msgid "Location:"
+msgstr "Posição:"
+
+#: edit_mc_location_x
+msgctxt "edit_mc_location_x"
+msgid "X:"
+msgstr "X:"
+
+#: edit_mc_location_y
+msgctxt "edit_mc_location_y"
+msgid "Y:"
+msgstr "Y:"
+
+#: edit_mc_location_from
+msgctxt "edit_mc_location_from"
+msgid "From:"
+msgstr "De:"
+
+#: edit_mc_location_from_box
+msgid "Cell"
+msgstr "Célula"
+
+#: edit_mc_location_from_window
+msgctxt "edit_mc_location_from_window"
+msgid "Window"
+msgstr "Janela"
+
+#: edit_mc_location_from_frame
+msgid "Frame"
+msgstr "Moldura"
+
+#: edit_mc_loop
+msgid "Loop playback"
+msgstr "Repetir indefinidamente"
+
+#: edit_mc_autostart
+msgid "Auto start"
+msgstr "Arranque automático"
+
+#: edit_mc_catchmouse
+msgid "Catch mouse"
+msgstr "Capturar rato"
+
+#: edit_mc_title
+msgid "Multimedia and active content"
+msgstr "Conteúdo activo e multimédia"
+
+#: edit_mc_label
+msgid "Active content:"
+msgstr "Conteúdo activo:"
+
+#: edit_media_dlg_title
+msgid "Multimedia object selection"
+msgstr "Selecção do objecto multimédia"
+
+#: edit_media_title
+msgctxt "edit_media_title"
+msgid "Media library"
+msgstr "Biblioteca de recursos"
+
+#: edit_mc_pos_cell
+msgid "Centered over cell"
+msgstr "Centrado na célula"
+
+#: edit_mc_pos_window
+msgid "Centered over window"
+msgstr "Centrado na janela"
+
+#: edit_mc_pos_absolute
+msgid "Specify position:"
+msgstr "Especificar posição:"
+
+#: edit_tree_badFormat
+msgid "Incorrect tree structure or data!"
+msgstr "Estrutura ou dados da árvore incorrectos."
+
+#: edit_act_panels_controls
+msgid "Controls"
+msgstr "Controlos"
+
+#: edit_act_panels_controls_tooltip
+msgid "Options for buttons and counters"
+msgstr "Opções de botões e contadores"
+
+#: edit_act_class
+msgctxt "edit_act_class"
+msgid "Type:"
+msgstr "Tipo:"
+
+#: edit_act_gridLayout
+msgid "Grid layout:"
+msgstr "Distribuição dos painéis:"
+
+#: edit_act_gridLayout_tooltip
+msgid "Relative postion of the panels A and B."
+msgstr "Posição relativa dos painéis A e B."
+
+#: edit_act_inverseResolution
+msgid "Inverse resolution"
+msgstr "Resolução inversa"
+
+#: edit_act_inverseResolution_tooltip
+msgid ""
+"The activity is solved when all assigned elements of \"B\" are matched."
+msgstr ""
+"Actividade resolvida quando todos os elementos de \"B\" estiverem "
+"emparelhados."
+
+#: edit_act_showAllArrows
+msgid "Show all arrows"
+msgstr "Mostrar todas as setas"
+
+#: edit_act_alt
+msgid "Alternative content:"
+msgstr "Conteúdo alternativo:"
+
+#: edit_act_alt_tooltip
+msgid "Content shown in solved cells and non-assigned cells."
+msgstr "Conteúdo a mostrar nas células resolvidas ou não realizadas."
+
+#: edit_act_alt_toggle
+msgid "ALT"
+msgstr "ALT"
+
+#: edit_act_alt_toggle_tooltip
+msgid "Edit the alternative content"
+msgstr "Editar o conteúdo alternativo"
+
+#: edit_act_grid
+msgid "Grid"
+msgstr "Grelha"
+
+#: edit_act_grid_A
+msgid "Grid A"
+msgstr "Grelha A"
+
+#: edit_act_grid_B
+msgid "Grid B"
+msgstr "Grelha B"
+
+#: edit_act_grid_layout
+msgid "Layout"
+msgstr "Distribuição"
+
+#: edit_act_grid_relationship
+msgid "Relationship"
+msgstr "Relações"
+
+#: edit_seq_activity_header
+msgid "activity"
+msgstr "actividade"
+
+#: edit_seq_tag_header
+msgid "tag"
+msgstr "etiqueta"
+
+#: edit_seq_jump_header
+msgid "jump to"
+msgstr "saltar para"
+
+#: edit_seq_activity
+msgctxt "edit_seq_activity"
+msgid "Activity:"
+msgstr "Actividade:"
+
+#: edit_seq_tag
+msgctxt "edit_seq_tag"
+msgid "Label:"
+msgstr "Rótulo:"
+
+#: edit_seq_description
+msgctxt "edit_seq_description"
+msgid "Description:"
+msgstr "Descrição:"
+
+#: edit_seq_auto
+msgid "Move on automatically"
+msgstr "Avanço automático"
+
+#: edit_seq_delay
+msgid "Delay:"
+msgstr "Atraso:"
+
+#: edit_seq_action_fwd
+msgid "Go forward"
+msgstr "Avançar"
+
+#: edit_seq_action_back
+msgid "Go bak"
+msgstr "Retroceder"
+
+#: edit_seq_action_jump
+msgid "Jump to..."
+msgstr "Ir para..."
+
+#: edit_seq_action_stop
+msgid "Stop"
+msgstr "Parar"
+
+#: edit_seq_action_return
+msgctxt "edit_seq_action_return"
+msgid "Return"
+msgstr "Voltar"
+
+#: edit_seq_action_exit
+msgid "Exit JClic"
+msgstr "Sair do JClic"
+
+#: edit_seq_arrow_fwd
+msgid "Forward arrow:"
+msgstr "Seta \"seguir\":"
+
+#: edit_seq_arrow_back
+msgid "Back arrow:"
+msgstr "Seta \"voltar\":"
+
+#: edit_seq_action
+msgid "Action:"
+msgstr "Acção:"
+
+#: edit_seq_button_enabled
+msgid "Show button"
+msgstr "Mostrar botão"
+
+#: edit_seq_project
+msgid "JClic Project:"
+msgstr "Projecto JClic:"
+
+#: edit_act_absolute
+msgid "Absolute position"
+msgstr "Posição absoluta"
+
+#: edit_act_absolute_tooltip
+msgid "The object will be placed at the specified X and Y co-ordinates"
+msgstr "O objecto será colocado nas coordenadas X e Y especificadas"
+
+#: edit_act_location
+msgctxt "edit_act_location"
+msgid "Location:"
+msgstr "Posição:"
+
+#: edit_seq_newElement
+msgid "New sequence element..."
+msgstr "Novo elemento da sequência..."
+
+#: edit_seq_newElement_tooltip
+msgid "Insert a new element into the activity sequence"
+msgstr "Inserir um novo elemento na sequência de actividades"
+
+#: edit_seq_newElement_msg
+msgid "Please select an activity for the new sequence element."
+msgstr "Seleccione uma actividade para o novo elemento da sequência."
+
+#: edit_seq_newElement_error_noAct
+msgid "Cannot create a new sequence element without activity!"
+msgstr ""
+"Não é possível criar um novo elemento de sequência sem indicar a actividade!"
+
+#: edit_seq_newElement_error_emptyList
+msgid ""
+"This project has no activities! Unable to create sequence elements in an "
+"empty project."
+msgstr ""
+"Neste projecto não há nenhuma actividade. Não é possível criar elementos de "
+"sequência num projecto vazio."
+
+#: edit_seq_jump_msg
+msgid "Jump target:"
+msgstr "Destino do salto:"
+
+#: edit_seq_jump_title
+msgid "Jump target"
+msgstr "Destino do salto"
+
+#: edit_act_newActivity_tooltip
+msgid "Add a new activity to project"
+msgstr "Adicionar uma nova actividade ao projecto"
+
+#: edit_act_prompt_class
+msgid "Type of activity:"
+msgstr "Tipo de actividade:"
+
+#: edit_act_prompt_name
+msgctxt "edit_act_prompt_name"
+msgid "Name:"
+msgstr "Nome:"
+
+#: edit_act_newActivity_msg
+msgid "Please select the type of activity to create and give it a name:"
+msgstr "Seleccione o tipo de actividade a criar e dê-lhe um nome:"
+
+#: edit_act_newActivity_error_noAct
+msgid "You must select an activity type!"
+msgstr "Deve seleccionar um tipo de actividade!"
+
+#: edit_act_newActivity_error_noName
+msgid "You must especify a name for the activity!"
+msgstr "Deve indicar um nome para a actividade!"
+
+#: edit_act_newActivity_error_creating
+msgid "Unable to create activity!"
+msgstr "Não foi possível criar a actividade!"
+
+#: edit_act_newActivity_class
+msgid "Java class name:"
+msgstr "Classe Java:"
+
+#: edit_text_act_format
+msgid "Format"
+msgstr "Formato"
+
+#: edit_text_act_answer
+msgid "Answer"
+msgstr "Resposta"
+
+#: edit_text_act_popup
+msgid "Pop up"
+msgstr "Janela emergente (\"pop up\")"
+
+#: edit_text_act_answer_label
+msgid "Valid answers:"
+msgstr "Respostas válidas:"
+
+#: edit_list_newElement_tooltip
+msgid "Add a new list element"
+msgstr "Adicionar um novo elemento à lista"
+
+#: edit_list_editElement_tooltip
+msgid "Edit the selected list element"
+msgstr "Modificar o elemento seleccionado"
+
+#: edit_list_deleteElement_tooltip
+msgid "Delete the selected list element"
+msgstr "Eliminar o elemento seleccionado da lista"
+
+#: edit_list_upBtn_tooltip
+msgid "Move up"
+msgstr "Mover para cima"
+
+#: edit_list_downBtn_tooltip
+msgid "Move down"
+msgstr "Mover para baixo"
+
+#: edit_list_newValue
+msgid "New text:"
+msgstr "Novo texto:"
+
+#: edit_list_addElement
+msgid "Add new list element"
+msgstr "Adicionar um novo elemento de texto"
+
+#: edit_list_modifyValue
+msgid "Modify selected text"
+msgstr "Modificação do texto seleccionado"
+
+#: edit_text_act_target
+msgid "Target"
+msgstr "Incógnita"
+
+#: edit_text_act_maxLen
+msgctxt "edit_text_act_maxLen"
+msgid "Max. length:"
+msgstr "Comprimento máx.:"
+
+#: edit_text_act_maxLen_tooltip
+msgid "Maximum amount of characters in the answer."
+msgstr "Número máximo de caracteres permitidos na resposta."
+
+#: edit_text_act_fillingChar
+msgid "Filling character"
+msgstr "Carácter de preenchimento"
+
+#: edit_text_act_fillingChar_tooltip
+msgid "Character used to indicate the blank"
+msgstr "Carácter utilizado para indicar a incógnita"
+
+#: edit_text_act_iniLen
+msgid "Initial length:"
+msgstr "Comprimento inicial:"
+
+#: edit_text_act_iniLen_tooltip
+msgid ""
+"Number of filling chars that will be displayed at the beginning of the "
+"activity."
+msgstr ""
+"Número de caracteres de preenchimento a mostrar ao iniciar a actividade."
+
+#: edit_text_act_iniText
+msgid "Initial text:"
+msgstr "Texto inicial:"
+
+#: edit_text_act_iniText_tooltip
+msgid "Text displayed in the blank at the beggining of the activity."
+msgstr "Texto a mostrar ao iniciar a actividade."
+
+#: edit_text_act_list
+msgid "Show a list of options:"
+msgstr "Mostrar uma lista de opções:"
+
+#: edit_text_act_list_tooltip
+msgid "Display a list of options from which the user must select one."
+msgstr "O utilizador deve escolher uma opção numa lista."
+
+#: edit_text_act_check_title
+msgid "Correction options"
+msgstr "Opções de avaliação"
+
+#: edit_text_act_popup_no
+msgid "No pop up"
+msgstr "Sem janela emergente (\"pop up\")"
+
+#: edit_text_act_popup_always
+msgid "Pop up automatically"
+msgstr "Aparição automática"
+
+#: edit_text_act_popup_onError
+msgid "Pop up in errors"
+msgstr "Aparição em erros"
+
+#: edit_text_act_popup_onDemand
+msgid "Pop up with F1"
+msgstr "Aparição com F1"
+
+#: edit_text_act_popup_type
+msgctxt "edit_text_act_popup_type"
+msgid "Type:"
+msgstr "Tipo:"
+
+#: edit_text_act_popup_delay
+msgid "Pop up delay:"
+msgstr "Atraso na aparição:"
+
+#: edit_text_act_popup_maxTime
+msgctxt "edit_text_act_popup_maxTime"
+msgid "Max. time:"
+msgstr "Tempo máximo:"
+
+#: edit_text_act_popup_onlyPlay
+msgid "Sound only"
+msgstr "Apenas som"
+
+#: edit_text_act_err_noSelection
+msgid ""
+"You must select a fragment of text in order to create a new text target!"
+msgstr "Para criar uma nova incógnita,  seleccione um fragmento de texto."
+
+#: edit_text_act_err_badCharInSelection
+msgid "Target text cannot include paragraph returns nor tabs."
+msgstr "O texto das incógnitas não pode incluir parágrafos nem tabulações."
+
+#: edit_text_act_err_nestedTargets
+msgid "Targets cannot nest!"
+msgstr "As incógnitas não podem sobrepor-se"
+
+#: edit_text_act_err_cellInTarget
+msgid "Targets cannot contain cells!"
+msgstr "As incógnitas não podem conter células!"
+
+#: edit_text_act_pageBgColor
+msgid "Paper colour:"
+msgstr "Cor do papel:"
+
+#: edit_text_act_editStylesBtn
+msgid "Edit document styles..."
+msgstr "Editar os estilos do documento..."
+
+#: edit_text_act_mainStyle
+msgid "Main style:"
+msgstr "Estilo principal:"
+
+#: edit_text_act_tabSpc
+msgid "Tab space:"
+msgstr "Espaçamento de tabulação:"
+
+#: edit_text_act_tabSize
+msgid "Spaces between tab marks:"
+msgstr "Espaços entre marcas de tabulação:"
+
+#: edit_text_act_colors
+msgid "Colors:"
+msgstr "Cores:"
+
+#: edit_text_act_targetStyle
+msgid "Target colors:"
+msgstr "Cores das incógnitas:"
+
+#: edit_text_act_errorStyle
+msgid "Error colors:"
+msgstr "Cores de erro:"
+
+#: edit_text_act_preview
+msgctxt "edit_text_act_preview"
+msgid "Preview:"
+msgstr "Previsualizar:"
+
+#: edit_text_act_styleSample_default_start
+msgid "Standard text"
+msgstr "Texto normal"
+
+#: edit_text_act_styleSample_target
+msgid "target"
+msgstr "incógnita"
+
+#: edit_text_act_styleSample_error
+msgid "error"
+msgstr "erro"
+
+#: edit_text_act_styleSample_default_fill
+msgid "standard text"
+msgstr "texto normal"
+
+#: edit_text_act_styleSample_default_end
+msgid "standard text."
+msgstr "texto normal."
+
+#: edit_text_act_warnDeleteTarget
+msgid ""
+"Warning: This action will supress the currently selected target. Do you want "
+"to proceed?"
+msgstr ""
+"Atenção: esta acção suprimirá a incógnita seleccionada. Tem a certeza de que "
+"deseja suprimi-la?"
+
+#: edit_text_act_prevScreen_title
+msgid "Previous screen..."
+msgstr "Ecrã anterior"
+
+#: edit_text_act_prevScreen_no
+msgid "Don't display any text before starting the activity"
+msgstr "Não mostrar texto antes de iniciar a actividade"
+
+#: edit_text_act_prevScreen_original
+msgid "Display the complete text of the exercise"
+msgstr "Mostrar o texto completo do exercício"
+
+#: edit_text_act_prevScreen_special
+msgid "Display this text:"
+msgstr "Mostrar este texto:"
+
+#: edit_text_act_prevScreen_time
+msgctxt "edit_text_act_prevScreen_time"
+msgid "Max. time:"
+msgstr "Tempo máximo:"
+
+#: edit_text_act_edit_target
+msgid "Target..."
+msgstr "Incógnita..."
+
+#: edit_text_act_checkButton_show
+msgid "Show correction button"
+msgstr "Mostrar botão de avaliação"
+
+#: edit_text_act_checkButtonText
+msgid "Button text:"
+msgstr "Texto do botão:"
+
+#: edit_text_act_checkCase
+msgid "Match case"
+msgstr "Verificar maiúsculas / minúsculas"
+
+#: edit_text_act_checkAccents
+msgid "Consider accents and special characters"
+msgstr "Considerar acentos e caracteres especiais"
+
+#: edit_text_act_checkPunct
+msgid "Consider punctuation marks"
+msgstr "Considerar os sinais de pontuação"
+
+#: edit_text_act_checkDoubleSpc
+msgid "Allow repeated spaces"
+msgstr "Permitir espaços repetidos"
+
+#: edit_text_act_checkOptions
+msgid "Criteria"
+msgstr "Critérios"
+
+#: edit_text_act_checkAutoJump
+msgid "Move on to next target when filled in"
+msgstr "Saltar automaticamente para incógnita seguinte"
+
+#: edit_text_act_checkForceOk
+msgid "Move only after correct guess"
+msgstr "Avançar apenas se responder correctamente"
+
+#: edit_text_act_checkDetail
+msgid "Indicate mistakes letter by letter"
+msgstr "Indicar erros letra a letra"
+
+#: edit_text_act_checkDetail_params
+msgid "Analysis algorithm parameters:"
+msgstr "Parâmetros do algoritmo de análise:"
+
+#: edit_text_act_checkDetail_steps
+msgid "Steps:"
+msgstr "Passos:"
+
+#: edit_text_act_checkDetail_field
+msgid "Exploration field:"
+msgstr "Campo de exploração:"
+
+#: edit_text_act_defaultCheckButtonText
+msgid "Check"
+msgstr "Verificação"
+
+#: edit_text_act_advancedCorrectionOptions
+msgid "Answer analysis"
+msgstr "Análise das respostas"
+
+#: edit_text_act_check_bt
+msgid "Correction..."
+msgstr "Avaliação..."
+
+#: edit_text_act_checkButton
+msgid "Correction button"
+msgstr "Botão de avaliação"
+
+#: edit_text_act_checkProgress
+msgid "Progress"
+msgstr "Progresso"
+
+#: edit_text_act_typeBtn
+msgid "Type..."
+msgstr "Tipo..."
+
+#: edit_text_act_orderParagraphs
+msgid "Order paragraphs"
+msgstr "Ordenar parágrafos"
+
+#: edit_text_act_orderWords
+msgid "Order words"
+msgstr "Ordenar palavras"
+
+#: edit_text_act_order_amongstPar
+msgid "Shuffle words amongst paragraphs"
+msgstr "Misturar palavras entre parágrafos"
+
+#: edit_text_act_type_title
+msgid "Activity type"
+msgstr "Tipo de actividade"
+
+#: edit_text_act_warnChangeType
+msgid ""
+"This action will clear all the existing targets. Do you want to proceed?"
+msgstr ""
+"Esta acção suprimirá todas as incógnitas. Tem a certeza de que deseja "
+"suprimi-las?"
+
+#: edit_text_act_identWords
+msgid "Identify words"
+msgstr "Identificar palavras"
+
+#: edit_text_act_identChars
+msgid "Identify characters"
+msgstr "Identificar caracteres"
+
+#: edit_media_change_name
+msgid "Change name..."
+msgstr "Renomear..."
+
+#: edit_media_change_file
+msgid "Change file..."
+msgstr "Mudar ficheiro..."
+
+#: edit_media_includeInZip
+msgid "Save into ZIP file"
+msgstr "Guardar em ficheiro ZIP"
+
+#: edit_media_type
+msgid "Media type:"
+msgstr "Tipo de recurso:"
+
+#: edit_media_size
+msgid "File size:"
+msgstr "Tamanho do ficheiro:"
+
+#: edit_media_show_type
+msgid "Files of type:"
+msgstr "Tipo de ficheiros:"
+
+#: edit_media_preview
+msgid "Preview media"
+msgstr "Visualizar objecto"
+
+#: edit_media_preview_tooltip
+msgid "Preview media resource"
+msgstr "Previsualização do recurso multimédia"
+
+#: edit_media_rename
+msgid "Change resource name"
+msgstr "Mudar o nome do recurso"
+
+#: edit_media_rename_title
+msgid "Rename"
+msgstr "Renomear"
+
+#: edit_media_rename_prompt
+msgid "New name:"
+msgstr "Novo nome:"
+
+#: edit_media_rename_invalid
+msgid "Invalid resource name!"
+msgstr "Nome de recurso inválido!"
+
+#: edit_media_rename_exists
+msgid ""
+"There is another resource with this name! Each resource must have a unique "
+"name."
+msgstr ""
+"Já existe outro recurso com este nome. Os recursos devem ter um nome único "
+"no projecto."
+
+#: edit_media_chfile_invalid
+msgid "Invalid file!"
+msgstr "Ficheiro incorrecto"
+
+#: err_media_chfile_different
+msgid "File must be of same type"
+msgstr "Ficheiro deve ser do mesmo tipo"
+
+#: edit_media_font_error
+msgid "Unable to load font!"
+msgstr "Não foi possível carregar o tipo de letra."
+
+#: edit_media_save_file
+msgid "Save file (extract from ZIP)"
+msgstr "Guardar o ficheiro (extraí-lo do ZIP)"
+
+#: edit_media_refresh_file
+msgid "Update media content from file"
+msgstr "Actualizar o conteúdo a partir do ficheiro"
+
+#: edit_media_warn_zipFileNotExternal
+msgid ""
+"This is not a \"real\" file, but a object located into a ZIP container. In "
+"order to use this feature, a file with the same name must be present in the "
+"folder where the ZIP file is located."
+msgstr ""
+"Não é um ficheiro \"real\", é um objecto dentro de um ficheiro ZIP. Para "
+"utilizar esta função, é necessário que exista um ficheiro com o mesmo nome "
+"na pasta onde está o ficheiro ZIP."
+
+#: edit_activities
+msgctxt "edit_activities"
+msgid "Activities"
+msgstr "Actividades"
+
+#: edit_sequences
+msgctxt "edit_sequences"
+msgid "Sequences"
+msgstr "Sequências"
+
+#: edit_media
+msgctxt "edit_media"
+msgid "Media library"
+msgstr "Biblioteca de recursos"
+
+#: edit_media_tooltip
+msgid "Manage images and other media files used in the project"
+msgstr "Gestão de imagens e outros recursos utilizados no projecto."
+
+#: edit_activities_tooltip
+msgid "Create and edit project activities"
+msgstr "Criação e edição das actividades do projecto"
+
+#: edit_sequences_tooltip
+msgid "Edit and create sequences of activities"
+msgstr "Criação e edição de sequências de actividades"
+
+#: edit_project_title
+msgctxt "edit_project_title"
+msgid "Title:"
+msgstr "Título:"
+
+#: edit_project_title_tooltip
+msgid "Project's title"
+msgstr "Título do projecto"
+
+#: edit_project
+msgctxt "edit_project"
+msgid "Project"
+msgstr "Projecto"
+
+#: edit_project_tooltip
+msgid "Edit project properties"
+msgstr "Edição das propriedades do projecto"
+
+#: edit_project_description
+msgctxt "edit_project_description"
+msgid "Description:"
+msgstr "Descrição:"
+
+#: edit_project_description_tooltip
+msgid "General description of the project"
+msgstr "Descrição geral do projecto"
+
+#: edit_project_area
+msgid "Areas:"
+msgstr "Áreas:"
+
+#: edit_project_area_tooltip
+msgid "Curricular areas of the project"
+msgstr "Áreas curriculares a que se destina o projecto"
+
+#: edit_project_level
+msgid "Levels:"
+msgstr "Níveis:"
+
+#: edit_project_level_tooltip
+msgid "Educational levels of the project"
+msgstr "Níveis e ciclos educativos a que se destina o projecto"
+
+#: edit_project_descriptors
+msgid "Descriptors:"
+msgstr "Descritores:"
+
+#: edit_project_descriptors_tooltip
+msgid "Descriptors of the project (separed with comma)"
+msgstr "Descritores do projecto (separados por vírgulas)"
+
+#: edit_project_languages
+msgid "Languages:"
+msgstr "Idiomas:"
+
+#: edit_project_languages_tooltip
+msgid "Languages used in the project"
+msgstr "Idiomas utilizados no projecto"
+
+#: edit_project_languages_modify
+msgid "Change the selected language"
+msgstr "Mudar idioma seleccionado"
+
+#: edit_project_languages_add
+msgid "Add language"
+msgstr "Adicionar idioma"
+
+#: edit_project_languages_select
+msgid "ISO-639 language codes:"
+msgstr "Códigos de idioma ISO-639:"
+
+#: edit_project_authors
+msgctxt "edit_project_authors"
+msgid "Authors:"
+msgstr "Autores:"
+
+#: edit_project_authors_tooltip
+msgid "People involved in the creation of the project"
+msgstr "Pessoas que participaram na criação do projecto"
+
+#: edit_project_author_name
+msgctxt "edit_project_author_name"
+msgid "Name:"
+msgstr "Nome:"
+
+#: edit_project_author_mail
+msgctxt "edit_project_author_mail"
+msgid "e-mail:"
+msgstr "Correio electrónico:"
+
+#: edit_project_author_rol
+msgid "Rol:"
+msgstr "Função:"
+
+#: edit_project_author_organization
+msgid "Organization:"
+msgstr "Organização:"
+
+#: edit_project_author_comments
+msgctxt "edit_project_author_comments"
+msgid "Comments:"
+msgstr "Comentários:"
+
+#: edit_project_author_url
+msgctxt "edit_project_author_url"
+msgid "URL:"
+msgstr "URL:"
+
+#: edit_project_author_name_tooltip
+msgid "Author's name (required)"
+msgstr "Nome do autor (obrigatório)"
+
+#: edit_project_author_mail_tooltip
+msgid "Author's e-mail (optional)"
+msgstr "Endereço de correio electrónico do autor (opcional)"
+
+#: edit_project_author_rol_tooltip
+msgid ""
+"Person's rol in the project: author, collaborator, drawings, sounds... "
+"(optional)"
+msgstr ""
+"Função da pessoa no projecto: autor, colaborador, desenhos, sons... "
+"(opcional)"
+
+#: edit_project_author_organization_tooltip
+msgid "School, university, association... (optional)"
+msgstr "Escola, universidade, associação... (opcional)"
+
+#: edit_project_author_url_tooltip
+msgid "Personal web page (optional)"
+msgstr "Página web pessoal (opcional)"
+
+#: edit_project_author_comments_tooltip
+msgid "Field for other information (optional)"
+msgstr "Outras características (opcional)"
+
+#: edit_project_author_info
+msgid "Author info:"
+msgstr "Dados do autor:"
+
+#: edit_project_author_add
+msgid "Add author to list"
+msgstr "Adicionar um autor à lista"
+
+#: edit_project_author_edit
+msgid "Edit author info"
+msgstr "Modificação dos dados do autor"
+
+#: edit_project_org_name
+msgctxt "edit_project_org_name"
+msgid "Name:"
+msgstr "Nome:"
+
+#: edit_project_org_name_tooltip
+msgid "School name"
+msgstr "Nome da escola"
+
+#: edit_project_org_mail
+msgctxt "edit_project_org_mail"
+msgid "e-mail:"
+msgstr "Correio electrónico:"
+
+#: edit_project_org_mail_tooltip
+msgid "e-mail address of the school"
+msgstr "Endereço de correio electrónico da escola"
+
+#: edit_project_org_url
+msgctxt "edit_project_org_url"
+msgid "URL:"
+msgstr "URL:"
+
+#: edit_project_org_url_tooltip
+msgid "School website"
+msgstr "Endereço web da escola"
+
+#: edit_project_org_address
+msgid "Address:"
+msgstr "Endereço:"
+
+#: edit_project_org_address_tooltip
+msgid "Snail-mail address"
+msgstr "Endereço postal da escola"
+
+#: edit_project_org_pc
+msgid "PC:"
+msgstr "CP:"
+
+#: edit_project_org_pc_tooltip
+msgid "Postal code"
+msgstr "Código postal"
+
+#: edit_project_org_city
+msgid "City:"
+msgstr "Localidade:"
+
+#: edit_project_org_city_tooltip
+msgid "School city"
+msgstr "Localidade da escola"
+
+#: edit_project_org_country
+msgid "Country:"
+msgstr "País:"
+
+#: edit_project_org_state
+msgid "State:"
+msgstr "Estado:"
+
+#: edit_project_org_comments
+msgctxt "edit_project_org_comments"
+msgid "Comments:"
+msgstr "Comentários:"
+
+#: edit_project_org
+msgid "School/s:"
+msgstr "Centro/s:"
+
+#: edit_project_org_tooltip
+msgid "School or other institution involved in the project"
+msgstr "Escolas e outras instituições que participaram no projecto"
+
+#: edit_project_org_info
+msgid "Organization info:"
+msgstr "dados da organização:"
+
+#: edit_project_org_add
+msgid "Add organization"
+msgstr "Adicionar uma nova organização"
+
+#: edit_project_org_edit
+msgid "Edit organization data"
+msgstr "Modificar os dados da organização"
+
+#: edit_project_org_country_tooltip
+msgid "Country, federation, union..."
+msgstr "Estado, país, federação..."
+
+#: edit_project_org_state_tooltip
+msgid "Federal state, community, region..."
+msgstr "Estado federal, nacionalidade, comunidade, região..."
+
+#: edit_project_org_comments_tooltip
+msgid "Other info..."
+msgstr "Outros dados..."
+
+#: edit_project_rev_date
+msgid "Date:"
+msgstr "Data:"
+
+#: edit_project_rev_date_tooltip
+msgid "Date of the revision"
+msgstr "Data da revisão"
+
+#: edit_project_rev_authors
+msgctxt "edit_project_rev_authors"
+msgid "Authors:"
+msgstr "Autores:"
+
+#: edit_project_rev_authors_tooltip
+msgid "Authors of the revision"
+msgstr "Autores da revisão"
+
+#: edit_project_rev_description
+msgctxt "edit_project_rev_description"
+msgid "Description:"
+msgstr "Descrição:"
+
+#: edit_project_rev_description_tooltip
+msgid "Brief description of the changes made"
+msgstr "Breve descrição das alterações"
+
+#: edit_project_rev_comments
+msgctxt "edit_project_rev_comments"
+msgid "Comments:"
+msgstr "Comentários:"
+
+#: edit_project_rev_comments_tooltip
+msgid "Other relevant info"
+msgstr "Informação adicional"
+
+#: edit_project_rev
+msgid "Revisions:"
+msgstr "Revisões:"
+
+#: edit_project_rev_tooltip
+msgid "History of main modifications made to the project"
+msgstr "Registo das principais modificações efectuadas no projecto"
+
+#: edit_project_rev_add
+msgid "Add revision record"
+msgstr "Adicionar um registo de revisão"
+
+#: edit_project_rev_edit
+msgid "Edit revision record"
+msgstr "Edição dos dados da revisão"
+
+#: edit_project_rev_info
+msgid "Revision data"
+msgstr "Características da revisão"
+
+#: edit_media_objects
+msgid "objects"
+msgstr "objectos"
+
+#: edit_media_object
+msgid "object"
+msgstr "objecto"
+
+#: edit_evsounds_start
+msgid "Start of activity:"
+msgstr "Início de actividade:"
+
+#: edit_evsounds_click
+msgid "Click on object:"
+msgstr "Clicar num objecto:"
+
+#: edit_evsounds_actionError
+msgid "Erroneous action:"
+msgstr "Acção errada:"
+
+#: edit_evsounds_actionOk
+msgid "Correct action:"
+msgstr "Acção correcta:"
+
+#: edit_evsounds_finishedError
+msgid "Activity finished with errors:"
+msgstr "Actividade terminada com erros:"
+
+#: edit_evsounds_finishedOk
+msgid "Activity finished OK:"
+msgstr "Actividade correctamente terminada:"
+
+#: edit_project_rev_err_nodesc
+msgid "Error: The description field cannot be leaved blank!"
+msgstr "Erro: A descrição deve ser preenchida"
+
+#: edit_evsounds_dlg_title
+msgid "Edit event sounds"
+msgstr "Edição dos sons de evento"
+
+#: edit_project_evsounds
+msgctxt "edit_project_evsounds"
+msgid "Event sounds:"
+msgstr "Sons de evento:"
+
+#: edit_project_evsounds_tooltip
+msgctxt "edit_project_evsounds_tooltip"
+msgid "Set specific sounds for each JClic event"
+msgstr "Definir sons específicos para cada evento de JClic"
+
+#: edit_act_evsounds
+msgctxt "edit_act_evsounds"
+msgid "Event sounds:"
+msgstr "Sons de evento:"
+
+#: edit_act_evsounds_tooltip
+msgctxt "edit_act_evsounds_tooltip"
+msgid "Set specific sounds for each JClic event"
+msgstr "Definir sons específicos para cada evento de JClic"
+
+#: edit_evsounds_default
+msgid "default sound"
+msgstr "som padrão"
+
+#: edit_evsounds_disabled
+msgid "disabled"
+msgstr "desactivado"
+
+#: edit_evsounds_chk_tooltip
+msgid "Enable or disable the sound for this event"
+msgstr "Activa/desactiva o som para este evento"
+
+#: edit_evsounds_select_tooltip
+msgid ""
+"Click to select a sound for this event, or uncheck to use the default sound"
+msgstr ""
+"Clique para seleccionar o som ligado a este evento, ou desmarque para "
+"utilizar o som padrão"
+
+#: action_newProject_caption
+msgid "New project..."
+msgstr "Novo projecto..."
+
+#: action_newProject_keys
+msgid "NN"
+msgstr "NN"
+
+#: action_newProject_tooltip
+msgid "Create a new JClic project"
+msgstr "Criar um novo projecto JClic"
+
+#: edit_arith_op_from
+msgctxt "edit_arith_op_from"
+msgid "From:"
+msgstr "De:"
+
+#: edit_arith_op_from_tooltip
+msgid "Minimum value of the operator"
+msgstr "Valor mínimo do operando"
+
+#: edit_arith_op_to
+msgctxt "edit_arith_op_to"
+msgid "To:"
+msgstr "Até:"
+
+#: edit_arith_op_to_tooltip
+msgid "Maximum value of the operator"
+msgstr "Valor máximo do operando"
+
+#: edit_arith_op_with
+msgid "With:"
+msgstr "Com:"
+
+#: edit_arith_op_with_tooltip
+msgid "If checked, the operator can also have this value"
+msgstr "Se seleccionado, o operando pode ter também este valor"
+
+#: edit_arith_op_fromList
+msgid "One from the list:"
+msgstr "Um da lista:"
+
+#: edit_arith_op_fromList_tooltip
+msgid "List of possible values for the operator"
+msgstr "Lista de possíveis valores do operando"
+
+#: edit_arith_op_decimals
+msgid "Decimals:"
+msgstr "Decimais:"
+
+#: edit_arith_op_decimals_tooltip
+msgid "Number of decimals of the operand"
+msgstr "Número de decimais do operando"
+
+#: edit_arith_op_dec0
+msgid "# (integer)"
+msgstr "# (inteiro)"
+
+#: edit_arith_op_dec1
+msgid "#.#"
+msgstr "#,#"
+
+#: edit_arith_op_dec2
+msgid "#.##"
+msgstr "#,##"
+
+#: edit_arith_firstOp
+msgid "First operand"
+msgstr "Primeiro operando"
+
+#: edit_arith_secondOp
+msgid "Second operand"
+msgstr "Segundo operando"
+
+#: edit_arith_title
+msgid "Arith2 for JClic"
+msgstr "Arith2 para JClic"
+
+#: edit_arith_operations
+msgid "Operations:"
+msgstr "Operações:"
+
+#: edit_arith_operations_tooltip
+msgid "Select the kind of operations to be performed"
+msgstr "Selecciona o tipo de operações a efectuar"
+
+#: edit_arith_operations_plus
+msgid "Plus"
+msgstr "Somar"
+
+#: edit_arith_operations_minus
+msgid "Minus"
+msgstr "Subtrair"
+
+#: edit_arith_operations_multiply
+msgid "Multiply"
+msgstr "Multiplicar"
+
+#: edit_arith_operations_divide
+msgid "Divide"
+msgstr "Dividir"
+
+#: edit_arith_unknown
+msgid "Unknown:"
+msgstr "Incógnita:"
+
+#: edit_arith_unknown_tooltip
+msgid "Select the item that will act as a unknown"
+msgstr "Selecciona o elemento que funcionará como incógnita"
+
+#: edit_arith_unknown_aobx
+msgid "The result is the unknown"
+msgstr "A incógnita é o resultado"
+
+#: edit_arith_unknown_aoxr
+msgid "The second operator is the unknown"
+msgstr "A incógnita é o segundo operando"
+
+#: edit_arith_unknown_xobr
+msgid "The first operator is the unknown"
+msgstr "O primeiro operando é a incógnita"
+
+#: edit_arith_unknown_axbr
+msgid "The operation is the unknown"
+msgstr "A operação é a incógnita"
+
+#: edit_arith_unknown_invert
+msgid "Write the result at the beggining of the expression"
+msgstr "Escrever a expressão começando pelo resultado"
+
+#: edit_arith_result
+msgid "Result:"
+msgstr "Resultado:"
+
+#: edit_arith_result_notCarry
+msgid "Do not carry"
+msgstr "Sem transporte"
+
+#: edit_arith_result_random
+msgid "Random"
+msgstr "Aleatório"
+
+#: edit_arith_result_asc
+msgid "Ascending"
+msgstr "Ascendente"
+
+#: edit_arith_result_order
+msgid "Order by result:"
+msgstr "Ordenar por resultado:"
+
+#: edit_arith_result_desc
+msgid "Descending"
+msgstr "Descendente"
+
+#: edit_arith_result_avoidDup
+msgid "Avoid duplicates"
+msgstr "Evitar duplicados"
+
+#: edit_arith_cond
+msgid "Conditions:"
+msgstr "Condições:"
+
+#: edit_arith_cond_ind
+msgid "Indifferent"
+msgstr "Indiferente"
+
+#: edit_arith_cond_agb
+msgid "The first operator must be greather than the second one"
+msgstr "O primeiro operando deve ser maior que o segundo"
+
+#: edit_arith_cond_alb
+msgid "The first operator must be lesser than the second one"
+msgstr "O primeiro operando deve ser menor que o segundo"
+
+#: edit_arith_cond_tooltip
+msgid "Other conditions"
+msgstr "Outras condições"
+
+#: edit_autocp
+msgid "Automatic content generator:"
+msgstr "Gerador automático de conteúdo:"
+
+#: edit_autocp_tooltip
+msgid "Select the type of automatic content generator for this activity."
+msgstr ""
+"Selecção do tipo de gerador automático de conteúdo para esta actividade."
+
+#: edit_autocp_block
+msgid "Content generator"
+msgstr "Gerador de conteúdo"
+
+#: edit_autocp_btn
+msgid "Settings..."
+msgstr "Definições..."
+
+#: edit_autocp_btn_tooltip
+msgid "Configure the content provider settings"
+msgstr "Configuração dos parâmetros do gerador de conteúdo"
+
+#: edit_data
+msgid "Edit data"
+msgstr "Edição de dados"
+
+#: edit_act
+msgid "Activity edit"
+msgstr "Edição da actividade"
+
+#: edit_acp
+msgid "Content provider edit"
+msgstr "Edição do gerador de conteúdo"
+
+#: edit_acp_err_creating
+msgid "Error creating the content provider!"
+msgstr "Erro ao criar o gerador de conteúdo"
+
+#: edit_project_author_group
+msgid "Creation"
+msgstr "Criação"
+
+#: edit_project_description_block
+msgctxt "edit_project_description_block"
+msgid "Description"
+msgstr "Descrição"
+
+#: edit_project_ui_block
+msgctxt "edit_project_ui_block"
+msgid "User interface"
+msgstr "Interface de utilizador"
+
+#: edit_act_description
+msgctxt "edit_act_description"
+msgid "Description:"
+msgstr "Descrição:"
+
+#: m_Edit
+msgid "Edit"
+msgstr "Edição"
+
+#: m_Edit_Mnemonic
+msgid "E"
+msgstr "E"
+
+#: edit_media_preview_keys
+msgid "P*"
+msgstr "V*"
+
+#: edit_act_newActivity
+msgid "New activity..."
+msgstr "Nova actividade..."
+
+#: edit_act_newActivity_keys
+msgid "A*"
+msgstr "A*"
+
+#: edit_act_testAction_keys
+msgid "P#10"
+msgstr "M#10"
+
+#: edit_seq_newElement_keys
+msgid "S*"
+msgstr "S*"
+
+#: m_Insert
+msgid "Insert"
+msgstr "Inserir"
+
+#: m_Insert_Mnemonic
+msgid "I"
+msgstr "I"
+
+#: m_View
+msgid "View"
+msgstr "Ver"
+
+#: m_View_Mnemonic
+msgid "V"
+msgstr "V"
+
+#: action_editProject_caption
+msgctxt "action_editProject_caption"
+msgid "Project"
+msgstr "Projecto"
+
+#: action_editProject_keys
+msgid "PP"
+msgstr "PP"
+
+#: action_editProject_tooltip
+msgid "Edit project settings"
+msgstr "Editar as propriedades do projecto"
+
+#: action_editMedia_caption
+msgid "Media"
+msgstr "Mediateca"
+
+#: action_editMedia_keys
+msgid "MM"
+msgstr "MM"
+
+#: action_editMedia_tooltip
+msgid "Edit the project's multimedia library"
+msgstr "Edição da biblioteca multimédia do projecto"
+
+#: action_editActivities_caption
+msgctxt "action_editActivities_caption"
+msgid "Activities"
+msgstr "Actividades"
+
+#: action_editActivities_keys
+msgctxt "action_editActivities_keys"
+msgid "AA"
+msgstr "AA"
+
+#: action_editActivities_tooltip
+msgid "Edit the activities"
+msgstr "Edição das actividades"
+
+#: action_editSeq_caption
+msgctxt "action_editSeq_caption"
+msgid "Sequences"
+msgstr "Sequências"
+
+#: action_editSeq_keys
+msgctxt "action_editSeq_keys"
+msgid "SS"
+msgstr "SS"
+
+#: action_editSeq_tooltip
+msgid "Edit the sequences of activities"
+msgstr "Edição das sequências de actividades"
+
+#: warn_project_modified
+msgid "Current project has been modified. Do you want to save the changes?"
+msgstr "O projecto actual foi modificado. Deseja guardar as alterações?"
+
+#: edit_project_descriptors_block
+msgid "Descriptors"
+msgstr "Descritores"
+
+#: edit_media_new
+msgid "New media object..."
+msgstr "Novo objecto multimédia..."
+
+#: edit_media_new_tooltip
+msgid "Add a new image or multimedia object to the library"
+msgstr "Adicionar uma imagem ou um objecto multimédia à mediateca"
+
+#: edit_media_new_keys
+msgid "M*"
+msgstr "M*"
+
+#: edit_seq_threshold
+msgid "Score threshold:"
+msgstr "Limite de pontuação:"
+
+#: edit_seq_threshold_tooltip_up
+msgid "Take this way when the global score is equal to or higher than..."
+msgstr ""
+"Seguir este caminho quando a pontuação global for maior ou igual a..."
+
+#: edit_seq_time
+msgid "Time threshold:"
+msgstr "Limite de tempo:"
+
+#: edit_seq_time_tooltip_up
+msgid ""
+"In order to take this way, the time spent on the activities must be less "
+"than..."
+msgstr ""
+"Para seguir este caminho é necessário ter realizado as actividades num tempo "
+"inferior a..."
+
+#: edit_seq_threshold_tooltip_down
+msgid "Take this way when the global score is lower than..."
+msgstr "Siga este caminho sempre que a pontuação global for inferior a..."
+
+#: edit_seq_time_tooltip_down
+msgid "Take this way when the time spent on the activities is more than..."
+msgstr ""
+"Seguir este caminho sempre que o tempo decorrido nas actividades for "
+"superior a..."
+
+#: edit_seq_condJump
+msgid "Conditional jumps"
+msgstr "Saltos condicionais"
+
+#: edit_seq_condJump_tooltip
+msgid "Set special jumps to be executed only under specific condicions"
+msgstr "Indicar saltos a executar apenas se ocorrerem determinadas condições"
+
+#: edit_seq_condJump_upper_tooltip
+msgid "Set conditions to jump to an upper level"
+msgstr "Indicar as condições para saltar para um nível superior"
+
+#: edit_seq_condJump_lower
+msgid "Lower jump:"
+msgstr "Salto inferior:"
+
+#: edit_seq_condJump_upper
+msgid "Upper jump:"
+msgstr "Salto superior:"
+
+#: edit_seq_condJump_lower_tooltip
+msgid "Set conditions to jump to an lower level"
+msgstr "Indicar as condições para saltar para um nível inferior"
+
+#: edit_seq_action_tooltip_fw
+msgid "Action assigned to the \"next\" button"
+msgstr "Acção atribuída ao botão \"Seguinte\""
+
+#: edit_seq_action_tooltip_bk
+msgid "Action assigned to the \"previous\" button"
+msgstr "Acção atribuída ao botão \"Anterior\""
+
+#: edit_seq_jump_tooltip
+msgid "Set the jump target"
+msgstr "Indicar o destino do salto"
+
+#: edit_seq_action_tooltip
+msgid "Action to be done"
+msgstr "Acção a realizar"
+
+#: edit_seq_activity_tooltip
+msgid "Activity assigned to this sequence element"
+msgstr "Actividade atribuída a este elemento da sequência"
+
+#: edit_seq_tag_tooltip
+msgid "Tag used to reference this sequence element (optional field)"
+msgstr ""
+"Etiqueta utilizada para referir-se a este elemento de sequência (opcional)"
+
+#: edit_seq_description_tooltip
+msgid "Description of the sequence element (optional field)"
+msgstr "Descrição do elemento de sequência (opcional)"
+
+#: edit_seq_button_enabled_tooltip
+msgid "Enable or disable the arrow button"
+msgstr "Activar/desactivar o botão de mudança de actividade"
+
+#: edit_seq_auto_tooltip
+msgid "Move on automatically when the activity finishes"
+msgstr "Avançar automaticamente ao terminar a actividade"
+
+#: edit_seq_delay_tooltip
+msgid "Seconds to wait before to do the automatic move"
+msgstr "Segundos de espera antes de realizar o avanço automático"
+
+#: edit_color_dlgTitle
+msgid "Select color"
+msgstr "Seleccionar cor"
+
+#: edit_media_renaming
+msgid "Please wait while the resource is being renamed..."
+msgstr "Por favor, espere enquanto se altera o nome do recurso..."
+
+#: edit_act_cell_width
+msgctxt "edit_act_cell_width"
+msgid "Width:"
+msgstr "Largura:"
+
+#: edit_act_cell_width_tooltip
+msgid "Cell width (in pixels)"
+msgstr "Largura das células (em píxeis)"
+
+#: edit_act_cell_height
+msgctxt "edit_act_cell_height"
+msgid "Height:"
+msgstr "Altura:"
+
+#: edit_act_cell_height_tooltip
+msgid "Cell height (in pixels)"
+msgstr "Altura das células (em píxeis)"
+
+#: edit_act_hiddenWords
+msgid "Hidden words:"
+msgstr "Palavras escondidas:"
+
+#: edit_act_hiddenWords_tooltip
+msgid "List of the hidden words placed in the panel"
+msgstr "Lista das palavras escondidas no painel"
+
+#: edit_act_wordSearch_panelB
+msgid "Use panel B"
+msgstr "Utilizar o painel B"
+
+#: edit_act_wordSearch_panelB_tooltip
+msgid "The contents of a second panel will be displayed as words are found"
+msgstr ""
+"Usar um segundo painel, que surge à medida que as palavras são encontradas"
+
+#: edit_act_shaper_tooltip
+msgid "Select the shaper type to be used in the panel"
+msgstr "Selecção do tipo de gerador de formas do painel"
+
+#: edit_act_num_cols_tooltip
+msgid "Number of columns of  the panel"
+msgstr "Número de colunas do painel"
+
+#: edit_act_num_rows_tooltip
+msgid "Number of rows of  the panel"
+msgstr "Número de filas do painel"
+
+#: edit_act_wildTransparent
+msgid "Transparent delimiters"
+msgstr "Separadores transparentes"
+
+#: edit_act_wildTransparent_tooltip
+msgid "Treat the delimiters (black boxes) as transparent holes"
+msgstr "Exibir os separadores (quadros negros) como buracos transparentes"
+
+#: edit_act_behavior_scramble_times
+msgid "Mixes\\:"
+msgstr "Misturas\\:"
+
+#: edit_act_behavior_scramble_times_tooltip
+msgid "Number of times to shuffle"
+msgstr "Número de vezes a misturar as peças"
+
+#: edit_act_copy_title
+msgid "Copy attributtes to..."
+msgstr "Copiar atributos para..."
+
+#: edit_act_copy_attributes
+msgid "Attributes"
+msgstr "Atributos:"
+
+#: edit_act_copy_dest
+msgid "Apply to:"
+msgstr "Aplicar a:"
+
+#: edit_act_copy_style_main
+msgid "Main window"
+msgstr "Janela principal"
+
+#: edit_act_copy_style_play
+msgid "Play window"
+msgstr "Janela de jogo"
+
+#: edit_act_copy_activities
+msgid "Activities to be modified:"
+msgstr "Actividades a modificar:"
+
+#: edit_act_copyAttributes
+msgid "Copy attributes"
+msgstr "Copiar atributos"
+
+#: edit_act_copyAttributes_keys
+msgid "T"
+msgstr "F"
+
+#: edit_act_copyAttributes_tooltip
+msgid "Copy current activity attributes to other activities"
+msgstr "Copiar atributos da actividade actual para outras actividades"
+
+#: edit_new_project_name
+msgid "Project name:"
+msgstr "Nome do projecto:"
+
+#: edit_new_project_name_tooltip
+msgid "Short, descriptive name of the project"
+msgstr "Nome curto e descritivo do projecto"
+
+#: edit_new_project_filename
+msgctxt "edit_new_project_filename"
+msgid "File name:"
+msgstr "Nome do ficheiro:"
+
+#: edit_new_project_filename_tooltip
+msgid "Name of the project file, without extension"
+msgstr "Nome do ficheiro do projecto (sem extensão)"
+
+#: edit_new_project_folder
+msgctxt "edit_new_project_folder"
+msgid "Folder:"
+msgstr "Pasta:"
+
+#: edit_new_project_folder_tooltip
+msgid "Name of the folder where the project will be stored"
+msgstr "Nome da pasta em que se guardará o projecto"
+
+#: edit_new_project_folder_browse
+msgctxt "edit_new_project_folder_browse"
+msgid "Browse..."
+msgstr "Procurar..."
+
+#: edit_new_project_title
+msgid "Create new JClic project"
+msgstr "Criação de um novo projecto JClic"
+
+#: edit_new_project_err_empty
+msgid "Error: Project, file and folder must have valid, non-empty names."
+msgstr ""
+"Erro: Tanto o projecto como o ficheiro e a pasta devem ter nomes válidos."
+
+#: edit_new_project_warning_noEmptyFolder
+msgid ""
+"This folder already contains another Clic 3.0 or JClic project. In order to "
+"avoid confusions, is preferable to maintain each project in a separate "
+"folder, but that isn't a strict rule. Do you really want to create the new "
+"project in this folder?"
+msgstr ""
+"Nesta pasta já existe outro projecto Clic3.0 ou JClic. Para evitar "
+"confusões, recomenda-se manter cada projecto numa pasta independente, ainda "
+"que não seja um requisito imprescindível. Deseja criar o novo projecto nesta "
+"pasta?"
+
+#: edit_new_project_err_folderCreation
+msgid "Error: Unable to create the specified folder!"
+msgstr "Erro: não foi possível criar a pasta (directoria)!"
+
+#: edit_act_copy_err_noSelection
+msgid ""
+"Error: No activity selected! In order to use this function you must select "
+"in the list the activity or activities to wich the indicated attributes will "
+"be applied."
+msgstr ""
+"Erro: Não foi seleccionada nenhuma actividade. Para utilizar esta função, "
+"deve seleccionar na lista a actividade ou actividades às quais serão "
+"aplicados os atributos indicados."
+
+#: edit_act_copy_action_prefix
+msgid "Copying attributes to:"
+msgstr "A copiar atributos para:"
+
+#: edit_act_copy_margin
+msgid "Margin"
+msgstr "Margem"
+
+#: edit_act_copy_bgColor
+msgid "Background color"
+msgstr "Cor de fundo"
+
+#: edit_act_copy_gradient
+msgctxt "edit_act_copy_gradient"
+msgid "Gradient"
+msgstr "Gradiente"
+
+#: edit_act_copy_bgImage
+msgid "Background image"
+msgstr "Imagem de fundo"
+
+#: edit_act_copy_border
+msgctxt "edit_act_copy_border"
+msgid "Border"
+msgstr "Limite"
+
+#: edit_act_copy_transparentBg
+msgid "Transparent background"
+msgstr "Fundo transparente"
+
+#: edit_act_copy_position
+msgid "Position"
+msgstr "Posição"
+
+#: edit_act_copy_messages
+msgctxt "edit_act_copy_messages"
+msgid "Messages"
+msgstr "Mensagens"
+
+#: edit_act_copy_messages_ini
+msgid "Style of initial message"
+msgstr "Estilo da mensagem inicial"
+
+#: edit_act_copy_messages_end
+msgid "Style of end message"
+msgstr "Estilo da mensagem final"
+
+#: edit_act_copy_messages_err
+msgid "Style of error message"
+msgstr "Estilo da mensagem de erro"
+
+#: edit_act_copy_reports
+msgctxt "edit_act_copy_reports"
+msgid "Reports"
+msgstr "Relatórios"
+
+#: edit_act_copy_rep_include
+msgid "Include activity in reports"
+msgstr "Incluir a actividade nos relatórios"
+
+#: edit_act_copy_rep_actions
+msgid "Record actions"
+msgstr "Registar acções"
+
+#: edit_act_copy_interface
+msgctxt "edit_act_copy_interface"
+msgid "User interface"
+msgstr "Interface de utilizador"
+
+#: edit_act_copy_skin
+msgid "Skin"
+msgstr "Aspecto"
+
+#: edit_act_copy_evSounds
+msgid "Event sounds"
+msgstr "Sons de evento"
+
+#: edit_act_copy_counters
+msgctxt "edit_act_copy_counters"
+msgid "Counters"
+msgstr "Contadores"
+
+#: edit_act_copy_cTime
+msgctxt "edit_act_copy_cTime"
+msgid "Time counter"
+msgstr "Contador de tempo"
+
+#: edit_act_copy_maxTime
+msgid "Max. time"
+msgstr "Tempo máximo"
+
+#: edit_act_copy_cTries
+msgctxt "edit_act_copy_cTries"
+msgid "Tries counter"
+msgstr "Contador de tentativas"
+
+#: edit_act_copy_maxTries
+msgid "Max. tries"
+msgstr "Número máximo de tentativas"
+
+#: edit_act_copy_cScore
+msgctxt "edit_act_copy_cScore"
+msgid "Score counter"
+msgstr "Contador de acertos"
+
+#: edit_act_copy_scramble
+msgid "Times to scramble"
+msgstr "Número de vezes a baralhar"
+
+#: edit_act_copy_buttons
+msgctxt "edit_act_copy_buttons"
+msgid "Buttons"
+msgstr "Botões"
+
+#: edit_act_copy_btnHelp
+msgid "Help button"
+msgstr "Botão de ajuda"
+
+#: edit_act_copy_btnInfo
+msgid "Information button"
+msgstr "Botão de informação"
+
+#: edit_act_copy_grids
+msgid "Grids"
+msgstr "Painéis"
+
+#: edit_act_copy_gridA
+msgid "Style of grid A"
+msgstr "Estilo do painel A"
+
+#: edit_act_copy_gridB
+msgid "Style of grid B"
+msgstr "Estilo do painel B"
+
+#: edit_act_copy_textGrid
+msgid "Style of text grids"
+msgstr "Estilo dos painéis de texto"
+
+#: edit_act_copy_text
+msgid "Text activities"
+msgstr "Actividades de texto"
+
+#: edit_act_copy_fontFace
+msgid "Font face"
+msgstr "Tipo de letra"
+
+#: edit_act_copy_fontSize
+msgid "Font size"
+msgstr "Tamanho de letra"
+
+#: edit_act_copy_fontStyle
+msgid "Font style"
+msgstr "Estilo de letra"
+
+#: edit_act_copy_textColour
+msgid "Main text colour"
+msgstr "Cor do texto principal"
+
+#: edit_act_copy_textTargetColour
+msgctxt "edit_act_copy_textTargetColour"
+msgid "Select the JClic project of which the activities will be imported"
+msgstr "Escolha o projecto JClic do qual as actividades serão importadas"
+
+#: edit_act_copy_textErrorColour
+msgid "Errors colour"
+msgstr "Cor dos erros"
+
+#: edit_act_copy_tabSpace
+msgid "Tab space"
+msgstr "Espaço entre tabulações"
+
+#: edit_act_copy_messages_prev
+msgid "Style of previous message"
+msgstr "Estilo da mensagem anterior"
+
+#: edit_act_changeType
+msgid "Change activity type"
+msgstr "Mudar o tipo de actividade"
+
+#: edit_act_newActivity_class_tooltip
+msgid ""
+"Full name of the class to be used to build the activity (advanced users "
+"only!)"
+msgstr ""
+"Nome completo da classe que se utilizará para construir a actividade "
+"(utilizadores avançados!)"
+
+#: edit_act_newActivity_other
+msgid "Other..."
+msgstr "Outras..."
+
+#: edit_act_newActivity_info
+msgid ""
+"Advanced users can also create unregistered types of JClic activities. Just "
+"write below the full class name, prefixed by the package (like "
+"\"com.acme.activities.FooActivity\"). Activity classes must extend "
+"<b>edu.xtec.jclic.Activity</b>, and must be accessibles to the JVM "
+"classloader."
+msgstr ""
+"Os utilizadores avançados podem criar outros tipos de actividades JClic não "
+"registadas. Escreva abaixo o nome completo da classe, precedida pelo do "
+"pacote (por exemplo: \"com.acme.activities.FooActivity\"). As novas "
+"actividades devem expandir edu.xtec.jclic.Activity, e devem ser accessíveis "
+"ao carregador de classes da máquina virtual de Java."
+
+#: edit_act_newActivity_name
+msgid "Name of the activity:"
+msgstr "Nome da actividade"
+
+#: edit_act_newActivity_name_tooltip
+msgid "Each activity must have a name unique in the project"
+msgstr "Cada actividade deve ter um nome único no projecto"
+
+#: edit_act_changeType_warning
+msgid ""
+"<html><p style=\"font-family:Helvetica; font-size:10px;\"><b>Warning:</b> "
+"Changing the type of activity can cause lost of some of the current activity "
+"attributes and objects. Use it with care!</p><p>&nbsp;</p></html>"
+msgstr ""
+"<html><p style=\"font-family:Helvetica; font-size:10px;\"><b>Atenção:</b> "
+"Mudar o tipo de actividade pode causar a perda de atributos e objectos da "
+"actividade actual. Utilize esta função com cuidado!</p><p>&nbsp;</p></html>"
+
+#: applet_codebase
+msgid "Location of JClic code:"
+msgstr "Localização do código JClic:"
+
+#: applet_codebase_tooltip
+msgid "URL pointing to a folder with the JClic program files and scripts"
+msgstr "URL que aponta para uma pasta com os ficheiros e scripts do JClic"
+
+#: applet_prev_text
+msgid "HTML code before:"
+msgstr "Código HTML prévio:"
+
+#. #Text to be displayed below the applet. HTM code allowed.
+#: applet_prev_text_tooltip
+msgid "Text or HTML code to be placed before the applet"
+msgstr "Texto ou código HTML que aparecerá antes do applet"
+
+#: applet_post_text
+msgid "HTML code after:"
+msgstr "Código HTML posterior:"
+
+#: applet_post_text_tooltip
+msgid "Text or HTML code to be placed after the applet"
+msgstr "Texto ou código HTML que aparecerá depois do applet"
+
+#: applet_size
+msgid "Applet size:"
+msgstr "Tamanho do applet:"
+
+#: applet_size_tooltip
+msgid "Width and height of the applet, in absolute or percentage values."
+msgstr "Largura e altura do applet, em valores absolutos ou percentuais."
+
+#: applet_page_title
+msgid "Page title:"
+msgstr "Título da página:"
+
+#: applet_page_title_tooltip
+msgid "Text to be shown at the top of the browser window"
+msgstr "Texto a mostrar na parte superior da janela do navegador"
+
+#: applet_created_info
+msgid "The web page \"%s\" has been created successfully."
+msgstr "A página web \"%s\" foi criada com êxito."
+
+#: applet_created_prompt
+msgid "Do you want to open it now with the browser?"
+msgstr "Deseja abri-la agora com o navegador?"
+
+#: action_createHTML_caption
+msgid "Create web page..."
+msgstr "Criar página web..."
+
+#: applet_create_title
+msgid "Creation of an HTML page with a JClic applet"
+msgstr "Criação de uma página HTML com um applet JClic"
+
+#: action_createHTML_tooltip
+msgid "Create a HTML page with an applet containing the current project"
+msgstr ""
+"Criação de uma página HTML com um applet que contem o projecto actual."
+
+#: applet_filename
+msgctxt "applet_filename"
+msgid "File name:"
+msgstr "Nome do arquivo:"
+
+#: applet_filename_tooltip
+msgid "Name of the HTML file to be created"
+msgstr "Nome do arquivo HTML a criar"
+
+#: action_createHTML_keys
+msgid "H*"
+msgstr "H*"
+
+#: settings_applet
+msgid "Applet"
+msgstr "Applet"
+
+#: settings_applet_tooltip
+msgid "Default values used in web page creation"
+msgstr "Valores padrão usados na criação de páginas web"
+
+#: applet_bgcolor
+msgctxt "applet_bgcolor"
+msgid "Background color:"
+msgstr "Cor de fundo:"
+
+#: applet_bgcolor_tooltip
+msgid "HTML page background color"
+msgstr "Cor de fundo da página web"
+
+#: applet_centered
+msgctxt "applet_centered"
+msgid "Centered"
+msgstr "Centrado"
+
+#: applet_centered_tooltip
+msgid "Place the applet horizontally centered"
+msgstr "Applet centrado horizontalmente"
+
+#: applet_width_tooltip
+msgid "Applet width (absolute or percentage)"
+msgstr "Largura do applet (em valor absoluto ou percentual)"
+
+#: applet_height_tooltip
+msgid "Applet height (absolute or percentage)"
+msgstr "Altura do applet (em valor absoluto ou percentual)"
+
+#: applet_exitUrl
+msgid "On exit, go to:"
+msgstr "Ao sair, ir para:"
+
+#: applet_exitUrl_tooltip
+msgid "URL where to redirect the navigation on JClic exit"
+msgstr "URL a visitar após sair do JClic"
+
+#: applet_infoFrame
+msgid "Info frame name:"
+msgstr "Quadro de informação:"
+
+#: applet_infoFrame_tooltip
+msgid ""
+"Name of the frame used to show the content related to the \"info\" button"
+msgstr ""
+"Nome do quadro usado para mostrar o conteúdo relacionado com o botão de "
+"informação."
+
+#: action_createInstaller_caption
+msgid "Create project installer..."
+msgstr "Criar instalador do projecto..."
+
+#: action_createInstaller_keys
+msgctxt "action_createInstaller_keys"
+msgid "I*"
+msgstr "I*"
+
+#: action_createInstaller_tooltip
+msgid "Create a project installer script for JClic player"
+msgstr "Criação de um ficheiro de instalação do projecto para JClic player"
+
+#: installer_caption
+msgid "Edit project installer script"
+msgstr "Edição do ficheiro de instalação do projecto"
+
+#: installer_title
+msgctxt "installer_title"
+msgid "Title:"
+msgstr "Título:"
+
+#: installer_title_tooltip
+msgid "Project title, to be shown on the installer wizard"
+msgstr "Título do projecto a mostrar no assistente de instalação"
+
+#: installer_authors
+msgid "Autors:"
+msgstr "Autores:"
+
+#: installer_authors_tooltip
+msgid "Author/s of the project (short text)"
+msgstr "Autores do projecto (texto curto)"
+
+#: installer_folder
+msgctxt "installer_folder"
+msgid "Folder:"
+msgstr "Pasta:"
+
+#: installer_folder_tooltip
+msgid "Folder name to be suggested by the installer wizard"
+msgstr "Nome da pasta a sugerir pelo assistente de instalação"
+
+#: installer_files
+msgid "Files to be copied:"
+msgstr "Ficheiros a copiar:"
+
+#: installer_files_tooltip
+msgid "Files to be copied by the installer"
+msgstr "Ficheiros copiados durante a instalação"
+
+#: installer_files_available
+msgid "Available files"
+msgstr "Ficheiros disponíveis"
+
+#: installer_files_selected
+msgid "Selected files"
+msgstr "Ficheiros seleccionados"
+
+#: installer_files_add
+msgid ">> add >>"
+msgstr ">> adicionar >>"
+
+#: installer_files_add_tooltip
+msgid "Add selected file to the list"
+msgstr "Adicionar o ficheiro seleccionado à lista"
+
+#: installer_files_remove
+msgid "<< remove <<"
+msgstr "<< remover <<"
+
+#: installer_files_remove_tooltip
+msgid "Remove selected file from the list"
+msgstr "Remover da lista o ficheiro seleccionado"
+
+#: installer_button
+msgid "Launch button"
+msgstr "Botão de activação"
+
+#: installer_button_tooltip
+msgid "Properties of the button to be shown in the project library"
+msgstr "Propriedades do botão a mostrar na biblioteca de projectos"
+
+#: installer_button_project
+msgid "Main project:"
+msgstr "Projecto principal:"
+
+#: installer_button_project_tooltip
+msgid "JClic project to be launched by the button"
+msgstr "Projecto JClic associado ao botão"
+
+#: installer_button_text
+msgctxt "installer_button_text"
+msgid "Label:"
+msgstr "Etiqueta:"
+
+#: installer_button_text_tooltip
+msgid "Short text label, to be shown inside the button"
+msgstr "Breve etiqueta de texto, que aparecerá dentro do botão"
+
+#: installer_button_icon
+msgid "Icon:"
+msgstr "Ícone:"
+
+#: installer_button_icon_tooltip
+msgid ""
+"Picture to be used as button icon. Leave blank to use the default JClic icon."
+msgstr ""
+"Imagem a usar como ícone do botão. Deixar em branco para usar o ícone padrão "
+"do JClic."
+
+#: installer_button_description
+msgctxt "installer_button_description"
+msgid "Description"
+msgstr "Descrição"
+
+#: installer_button_description_tooltip
+msgid "Tooltip to be shown by the button"
+msgstr "Texto de ajuda a mostrar pelo botão"
+
+#: installer_error_noTitle
+msgid "Error: Missing project title"
+msgstr "Erro: Falta o título do projecto"
+
+#: installer_error_noBaseFolder
+msgid "Error: Missing folder name"
+msgstr "Erro: Falta o nome da pasta de instalação do projecto"
+
+#: installer_error_noFilesSelected
+msgid "Error: No files selected"
+msgstr "Erro: Nãio foi seleccionado nenhum ficheiro"
+
+#: installer_error_noButtonText
+msgid "Error: Missing launch button text label"
+msgstr "Erro: Falta texto do botão de activação"
+
+#: installer_error_projectNotInFiles
+msgid ""
+"Error: The project assigned to the launch button is not in the list of files "
+"to be copied"
+msgstr ""
+"Erro: O projecto associado ao botão de activação não faz da lista de "
+"ficheiros a copiar"
+
+#: applet_page_full
+msgid "Full-page applet"
+msgstr "O applet ocupa toda a página"
+
+#: applet_page_mixed
+msgid "Applet with specific dimensions"
+msgstr "O applet tem dimensões específicas"
+
+#: edit_text_align_left
+msgid "Align text left"
+msgstr "Alinhar o texto à esquerda"
+
+#: edit_text_align_center
+msgid "Center text"
+msgstr "Centrar texto"
+
+#: edit_text_align_right
+msgid "Align text right"
+msgstr "Alinhar à direita"
+
+#: edit_text_act_target_toggle
+msgid "Create or remove target"
+msgstr "Criar uma incógnita ou suprimi-la"
+
+#: edit_text_act_insertCell
+msgid "Insert a cell"
+msgstr "Inserir uma célula"
+
+#: edit_text_act_content
+msgid "Content"
+msgstr "Conteúdo"
+
+#: edit_text_act_style
+msgctxt "edit_text_act_style"
+msgid "Style"
+msgstr "Estilo"
+
+#: edit_cell_size
+msgid "Cell size:"
+msgstr "Dimensões:"
+
+#: edit_project_orphanActivities
+msgid ""
+"The following activities never appear in any of the project's activity "
+"sequences, so they never will be displayed:"
+msgstr ""
+"As actividades seguintes não aparecem em nenhuma sequência de actividades do "
+"projecto. Não serão mostradas:"
+
+#: edit_project_orphanMedia
+msgid "The following media objects are not used directly in any activity:"
+msgstr ""
+"Os seguintes objectos da mediateca não são utilizados directamente em "
+"nenhuma actividade:"
+
+#: edit_project_orphanActivities_prompt
+msgid "Do you want to add them at the end of the last activity sequence?"
+msgstr "Deseja adicioná-los ao final da última sequência de actividades?"
+
+#: edit_project_orphanMedia_prompt
+msgid "Do you want to remove them?"
+msgstr "Deseja eliminá-los?"
+
+#: edit_project_orphanMedia_title
+msgid "Removal of unused media objects"
+msgstr "Remoção de objectos multimédia não utilizados"
+
+#: edit_project_orphanActivities_title
+msgid "Orphan activities"
+msgstr "Actividades órfãs"
+
+#: edit_media_refreshAll
+msgid "Update all media content"
+msgstr "Actualizar o conteúdo de todos os recursos"
+
+#: edit_media_refreshAll_tooltip
+msgid "Update all media objects reloading its files"
+msgstr "Actualizar todos os recursos voltando a carregar os ficheiros"
+
+#: edit_media_refreshAll_keys
+msgid "R*"
+msgstr "R*"
+
+#: edit_media_refreshAll_working
+msgid "Updating media..."
+msgstr "A actualizar recursos..."
+
+#: edit_media_exportAll
+msgid "Export all media"
+msgstr "Exportar todos os recursos"
+
+#: edit_media_exportAll_tooltip
+msgid "Save to files the content of all media elements"
+msgstr "Gravar em ficheiros o conteúdo de todos os recursos"
+
+#: edit_media_exportAll_keys
+msgid "X*"
+msgstr "X*"
+
+#: edit_shape_select
+msgid "Select"
+msgstr "Seleccionar"
+
+#: edit_shape_addPoint
+msgid "Add point"
+msgstr "Adicionar ponto"
+
+#: edit_shape_deletePoint
+msgid "Delete"
+msgstr "Eliminar"
+
+#: edit_shape_drawRect
+msgid "Draw rectangle"
+msgstr "Desenhar um rectângulo"
+
+#: edit_shape_drawEllipse
+msgid "Draw ellipse"
+msgstr "Desenhar uma elipse"
+
+#: edit_shape_drawPoly
+msgid "Draw polygon"
+msgstr "Desenhar um polígono"
+
+#: edit_shape_toLine
+msgid "Convert to line"
+msgstr "Converter em linha"
+
+#: edit_shape_toBezier
+msgid "Convert to Bézier curve"
+msgstr "Converter em curva de Bézier"
+
+#: edit_shape_toQuad
+msgid "Convert to quadratic curve"
+msgstr "Converter em quádrica"
+
+#: edit_shape_rLeft
+msgid "Rotate left"
+msgstr "Girar para esquerda"
+
+#: edit_shape_rRight
+msgid "Rotate right"
+msgstr "Girar para direita"
+
+#: edit_shape_expand
+msgid "Expand"
+msgstr "Expandir"
+
+#: edit_shape_contract
+msgid "Contract"
+msgstr "Contrair"
+
+#: edit_shape_zoomIn
+msgid "Zoom in"
+msgstr "Aproximar"
+
+#: edit_shape_zoomOut
+msgid "Zoom out"
+msgstr "Afastar"
+
+#: edit_shape_aproxPoints
+msgid "Join nearest points"
+msgstr "Juntar pontos próximos"
+
+#: edit_shape_showPoints
+msgid "Show points"
+msgstr "Mostrar pontos"
+
+#: edit_shape_showPoints_tooltip
+msgid "Show/Hide the points"
+msgstr "Mostrar/Ocultar pontos"
+
+#: edit_shape_gridSize
+msgid "Grid size:"
+msgstr "Tamanho da grelha:"
+
+#: edit_shape_hideGrid
+msgid "Show / Hide grid"
+msgstr "Mostrar/Ocultar grelha"
+
+#: edit_shape_magnetRadius
+msgid "Magnet radius:"
+msgstr "Raio do imán:"
+
+#: edit_shape_elements
+msgid "Defined elements"
+msgstr "Elementos definidos"
+
+#: edit_shape_elemName
+msgid "Name of the selected element"
+msgstr "Nome do elemento seleccionado"
+
+#: edit_shape_magnetRadius_tooltip
+msgid "Action radius of the magnet, when enabled"
+msgstr "Raio de acção do íman, quando está activado"
+
+#: edit_shape_gridSize_tooltip
+msgid "Size of the grid"
+msgstr "Tamanho da grelha"
+
+#: edit_mc_activity
+msgctxt "edit_mc_activity"
+msgid "Activity:"
+msgstr "Actividade:"
+
+#: edit_mc_sequence
+msgid "Sequence:"
+msgstr "Sequência:"
+
+#: edit_mc_url
+msgctxt "edit_mc_url"
+msgid "URL:"
+msgstr "URL:"
+
+#: edit_mc_project
+msgid "Project:"
+msgstr "Projecto:"
+
+#: edit_mc_activity_selection
+msgid "Choose activity"
+msgstr "Selecção da actividade"
+
+#: edit_mc_sequence_selection
+msgid "Choose sequence"
+msgstr "Selecção da sequência"
+
+#: edit_mc_err_nullContent
+msgid "Insufficient data!"
+msgstr "Dados insuficientes!"
+
+#: edit_act_arrowColor
+msgid "Arrow color:"
+msgstr "Cor das setas:"
+
+#: edit_act_arrowColor_tooltip
+msgid ""
+"Color used by the editor to draw the arrows (not exactly, because an XOR bit "
+"mask is used)"
+msgstr ""
+"Cor utilizada pelo editor ao desenhar as setas (não exactamente, já que "
+"utiliza uma máscara XOR de bits)"
+
+#: edit_act_editActivity
+msgid "Edit..."
+msgstr "Editar..."
+
+#: edit_act_editActivity_tooltip
+msgid "Edit the selected activity"
+msgstr "Editar a actividade seleccionada"
+
+#: action_saveFileAs_caption
+msgid "Save as..."
+msgstr "Guardar como..."
+
+#: action_saveFileAs_keys
+msgctxt "action_saveFileAs_keys"
+msgid "AA"
+msgstr "AA"
+
+#: action_saveFileAs_tooltip
+msgid "Save the current project with a different name"
+msgstr "Guardar o projecto com um nome diferente"
+
+#: edit_act_behavior_block
+msgctxt "edit_act_behavior_block"
+msgid "Behavior"
+msgstr "Comportamento"
+
+#: edit_act_behavior
+msgctxt "edit_act_behavior"
+msgid "Behavior"
+msgstr "Comportamento"
+
+#: edit_act_behavior_drag
+msgid "Drag objects"
+msgstr "Arrastar"
+
+#: edit_act_behavior_drag_tooltip
+msgid "Drag objects instead of use a connection line"
+msgstr "Arrastar células em vez de usar linha de conexão"
+
+#: edit_act_behavior_order
+msgid "Check solving order"
+msgstr "Marcar ordem de resolução"
+
+#: edit_act_behavior_order_tooltip
+msgid "Cells must be solved in order"
+msgstr "Células deverão ser resolvidas por ordem"
+
+#: edit_act_scramble
+msgid "Scramble"
+msgstr "Misturar"
+
+#: action_importActivities_caption
+msgid "Import activities..."
+msgstr "Importar actividades..."
+
+#: action_importActivities_keys
+msgctxt "action_importActivities_keys"
+msgid "I*"
+msgstr "I*"
+
+#: action_importActivities_tooltip
+msgid "Import activities from another project"
+msgstr "Importar actividades de outro projecto"
+
+#: import_warn_samefile
+msgid ""
+"The selected file corresponds to the current project. Activities can be "
+"imported only between different projects. Please select another project file."
+msgstr ""
+"O ficheiro que foi seleccionado corresponde ao projecto actual. Só pode "
+"importar actividades entre projectos diferentes. Por favor, escolha outro "
+"projecto."
+
+#: import_selectActivities
+msgid "Select one or more activities to import into the current project\\:"
+msgstr ""
+"Seleccione uma ou mais actividades a importar para o projecto actual\\:"
+
+#: import_importing
+msgid "Importing..."
+msgstr "A importar..."
+
+#: import_checkdep
+msgid "Checking dependencies..."
+msgstr "A verificar dependências..."
+
+#: import_impmedia
+msgid "Importing media\\:"
+msgstr "Importar recursos\\:"
+
+#: import_impact
+msgid "Importing activity\\:"
+msgstr "Importar actividade\\:"
+
+#: import_selectProject
+msgctxt "import_selectProject"
+msgid "Select the JClic project of which the activities will be imported"
+msgstr "Escolha o projecto JClic do qual as actividades serão importadas"
+
+#: edit_tagRep_tags
+msgid "Tag marks"
+msgstr "Marcas"
+
+#: edit_tagRep_tagStart
+msgid "Start mark\\:"
+msgstr "Marcas de início"
+
+#: edit_tagRep_tagStart_tooltip
+msgid "Mark used at the beginning of tags"
+msgstr "Marca que indica início de etiqueta"
+
+#: edit_tagRep_tagEnd
+msgid "End mark\\:"
+msgstr "Marca final\\:"
+
+#: edit_tagRep_tagEnd_tooltip
+msgid "Mark used at the end of tags"
+msgstr "Marca que indica final de etiqueta"
+
+#: edit_tagRep_file
+msgid "File"
+msgstr "Ficheiro"
+
+#: edit_tagRep_fileName
+msgid "File or URL\\:"
+msgstr "Ficheiro ou URL\\:"
+
+#: edit_tagRep_fileName_tooltip
+msgid "Name or URL of the file containing the values that will replace tags"
+msgstr "Nome ou URL do ficheiro com os valores que substituirão as etiquetas"
+
+#: edit_tagRep_charset
+msgid "Charset\\:"
+msgstr "Codificação de caracteres\\:"
+
+#: edit_tagRep_charset_tooltip
+msgid "Character encoding used in the file"
+msgstr "Codificação de caracteres usada no ficheiro"
+
+#: edit_tagRep_browseFile
+msgctxt "edit_tagRep_browseFile"
+msgid "Browse..."
+msgstr "Procurar..."
+
+#: edit_tagRep_browseFile_tooltip
+msgid "Browse the filesystem"
+msgstr "Procurar no sistema de ficheiros"
+
+#: edit_tagRep_title
+msgid "Tag replacing"
+msgstr "Substituir etiqueta"
+
+#: edit_text_act_clearStylesBtn
+msgid "Clear text styles..."
+msgstr "Eliminar estilos de texto"
+
+#: edit_text_act_clearStylesPrompt
+msgid ""
+"Warning\\: This action will clear the specific character attributes applied "
+"to the document, setting it back to its main style. This action cannot be "
+"undone. Do you want to do it?"
+msgstr ""
+"Atenção\\: Esta acção eliminará os atributos de texto do documento, "
+"aplicando o estilo predefinido. Esta acção não pode ser desfeita. Quer "
+"eliminar os atributos de texto?"
+
+#: img_max_size
+msgid "Maximum size of images:"
+msgstr "Tamanho máximo das imagens"
+
+#: img_max_width_tooltip
+msgid "Maximum width of images imported into the media library."
+msgstr "Largura máxima das imagens importadas para biblioteca de media."
+
+#: img_max_height_tooltip
+msgid "Maximum height of images imported into the media library."
+msgstr "Altura máxima das imagens importadas para biblioteca de media."
+
+#: img_resize_prompt
+msgid ""
+"The image \"%s\" has a size of %s pixels. This exceeds the maximum allowed "
+"by JClic Author (%s). Do you want to resize it?"
+msgstr ""
+"A imagem \"%s\" tem %s pixeis. Excede o máximo permitido pelo JClic Author "
+"(%s). Quer redimensioná-la?"

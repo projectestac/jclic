@@ -1,0 +1,595 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: JClic 0.2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2012-08-01 14:52+0000\n"
+"Last-Translator: Daniel Winzen <d@winzen4.de>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: login_pwd
+msgid "Password:"
+msgstr "Passwort:"
+
+#: login_desc
+msgid ""
+"You need to provide a valid password in order to access the reports database."
+msgstr ""
+"Sie benötigen ein gültiges Passwort, um auf die Datenbank zugreifen zu "
+"können."
+
+#: login_title
+msgid "Login"
+msgstr "Login"
+
+#: submit
+msgid "Submit..."
+msgstr "Absenden..."
+
+#: login_incorrect
+msgid "Incorrect password!"
+msgstr "Falsches Passwort!"
+
+#: main_title
+msgid "Main menu"
+msgstr "Hauptmenü"
+
+#: users_admin_title
+msgid "Users and groups admin"
+msgstr "Benutzer- und Gruppenverwaltung"
+
+#: group_report_title
+msgid "Group reports"
+msgstr "Berichte für Gruppe"
+
+#: user_report_title
+msgid "User reports"
+msgstr "Benutzerberichte"
+
+#: act_report_title
+msgid "Activity reports"
+msgstr "Übungsberichte"
+
+#: db_admin_title
+msgid "Database admin"
+msgstr "Datenbankverwaltung"
+
+#: db_admin_settings_error
+msgid "Unable to set the new database values!"
+msgstr "Neue Werte für Datenbank konnten nicht übernommen werden!"
+
+#: db_admin_param_agc
+msgid "Allow users to create new groups"
+msgstr "Benutzer dürfen neue Gruppen anlegen"
+
+#: db_admin_param_auc
+msgid "Allow users to create new users"
+msgstr "Benutzer dürfen neue User anlegen"
+
+#: db_admin_param_shgl
+msgid "Select group in a list"
+msgstr "Gruppe aus Liste auswählen"
+
+#: db_admin_param_shul
+msgid "Select user name in a list"
+msgstr "Benutzername aus Liste auswählen"
+
+#: db_admin_param_ut
+msgid "Database has tables of users and groups"
+msgstr "Datenbank beinhaltet Tabellen der Benutzer und Benutzergruppen"
+
+#: db_admin_edit_btn
+msgid "Edit settings..."
+msgstr "Einstellungen bearbeiten..."
+
+#: db_admin_pw_edit_btn
+msgid "Set password..."
+msgstr "Passwort festlegen..."
+
+#: title
+msgid "Title"
+msgstr "Titel"
+
+#: db_admin_edit_title
+msgid "Edit database settings"
+msgstr "Einstellungen für Datenbank bearbeiten"
+
+#: db_admin_pw_edit_title
+msgid "Change system password"
+msgstr "Passwort für System ändern"
+
+#: db_admin_pw_newPwd
+msgid "New password"
+msgstr "Neues Passwort"
+
+#: db_admin_pw_verifyPwd
+msgid "Retype password"
+msgstr "Passwort wiederholen"
+
+#: db_admin_pw_noFit
+msgid "Password fields don't fit!"
+msgstr "Falsches Passwort!"
+
+#: report_group
+msgid "Group:"
+msgstr "Gruppe:"
+
+#: report_user
+msgid "User:"
+msgstr "Benutzer:"
+
+#: report_project
+msgid "Project:"
+msgstr "Projekt:"
+
+#: report_all_projects
+msgid "All projects"
+msgstr "Alle Projekte"
+
+#: report_key
+msgid "Key:"
+msgstr "Schlüssel:"
+
+#: report_code
+msgid "Code:"
+msgstr "Code:"
+
+#: report_context
+msgid "Context:"
+msgstr "Context:"
+
+#: report_from
+msgid "From:"
+msgstr "Von:"
+
+#: month_1
+msgid "january"
+msgstr "Jänner"
+
+#: month_2
+msgid "february"
+msgstr "Feber"
+
+#: month_3
+msgid "march"
+msgstr "März"
+
+#: month_4
+msgid "april"
+msgstr "April"
+
+#: month_5
+msgid "may"
+msgstr "Mai"
+
+#: month_6
+msgid "june"
+msgstr "Juni"
+
+#: month_7
+msgid "july"
+msgstr "Juli"
+
+#: month_8
+msgid "august"
+msgstr "August"
+
+#: month_9
+msgid "september"
+msgstr "September"
+
+#: month_10
+msgid "october"
+msgstr "Oktober"
+
+#: month_11
+msgid "november"
+msgstr "November"
+
+#: month_12
+msgid "december"
+msgstr "Detember"
+
+#: report_to
+msgid "To:"
+msgstr "Bis:"
+
+#: report_global_precision
+msgid "Global precision"
+msgstr "Gesamtpunkte"
+
+#: report_solved_activities
+msgid "Solved activities"
+msgstr "Richtig gelöste Übungen"
+
+#: report_user_evolution
+msgid "User evolution"
+msgstr "Benutzerfortschritt"
+
+#: report_group_evolution
+msgid "Group evolution"
+msgstr "Fortschritt der Gruppe"
+
+#: report_project_evolution
+msgid "Project evolution"
+msgstr "Projektfortschritt"
+
+#: report_result_distribution
+msgid "Result distribution"
+msgstr "Ergebnisverteilung"
+
+#: report_no_data
+msgid "NO DATA"
+msgstr "KEINE DATEN"
+
+#: report_users
+msgid "Users:"
+msgstr "Benutzer:"
+
+#: report_sessions
+msgctxt "report_sessions"
+msgid "Sessions:"
+msgstr "Sitzungen:"
+
+#: report_projects
+msgid "Projects:"
+msgstr "Projekte:"
+
+#: report_actDone
+msgid "Activities done:"
+msgstr "Abgeschlossene Übungen:"
+
+#: report_actSolved
+msgid "Activities solved:"
+msgstr "Richtig gelöste Übungen:"
+
+#: report_totalTime
+msgid "Total time:"
+msgstr "Gesamtzeit:"
+
+#: report_globalPrec
+msgid "Global score:"
+msgstr "Gesamtpunktestand:"
+
+#: report_globalSummary
+msgid "Global summary"
+msgstr "Gesamtergebnis"
+
+#: report_header_date
+msgid "date"
+msgstr "Datum"
+
+#: report_session_list
+msgctxt "report_session_list"
+msgid "Sessions:"
+msgstr "Sitzungen:"
+
+#: report_header_user
+msgid "user"
+msgstr "Benutzer"
+
+#: report_header_project
+msgid "project"
+msgstr "Projekt"
+
+#: report_header_numActs
+msgid "activities"
+msgstr "Übungen"
+
+#: report_header_actsSolved
+msgid "acts. solved"
+msgstr "Richtig gelöste Übungen"
+
+#: report_header_time
+msgid "time"
+msgstr "Zeit"
+
+#: report_header_prec
+msgid "score"
+msgstr "Punktestand"
+
+#: report_session_detail_show
+msgid "show session details"
+msgstr "Details der Sitzung anzeigen"
+
+#: report_session_detail_title
+msgid "Activities done in session"
+msgstr "In der Sitzung durchgfeführte Übungen"
+
+#: report_header_activity
+msgid "activity"
+msgstr "Übung"
+
+#: report_header_actions
+msgid "actions"
+msgstr "Aktionen"
+
+#: report_header_score
+msgid "corrects"
+msgstr "Richtige"
+
+#: report_header_solved
+msgid "ok"
+msgstr "OK"
+
+#: Y
+msgctxt "Y"
+msgid "Y"
+msgstr "J"
+
+#: N
+msgctxt "N"
+msgid "N"
+msgstr "N"
+
+#: report_session_detail_hide
+msgid "hide session details"
+msgstr "Details der Sitzung nicht anzeigen"
+
+#: report_header_sessions
+msgid "sessions"
+msgstr "Sitzungen"
+
+#: report_all_activities
+msgid "All activities"
+msgstr "Alle Übungen"
+
+#: report_activity
+msgid "Activity:"
+msgstr "Übung:"
+
+#: report_many
+msgid "several"
+msgstr "mehrere"
+
+#: report_n_users
+msgid "users"
+msgstr "Benutzer"
+
+#: group_admin_title
+msgid "Groups administration"
+msgstr "Gruppenverwaltung"
+
+#: group_admin_new_button
+msgid "New group..."
+msgstr "Neue Gruppe …"
+
+#: group_admin_groups
+msgid "Groups"
+msgstr "Gruppen"
+
+#: report_actions
+msgid "Actions"
+msgstr "Aktionen"
+
+#: group_admin_edit_button
+msgctxt "group_admin_edit_button"
+msgid "Edit..."
+msgstr "Bearbeiten..."
+
+#: user_admin_title
+msgid "User admin"
+msgstr "Benutzerverwaltung"
+
+#: group_admin_delete_button
+msgctxt "group_admin_delete_button"
+msgid "Delete..."
+msgstr "Löschen..."
+
+#: group_admin_clear_button
+msgctxt "group_admin_clear_button"
+msgid "Clear reports..."
+msgstr "Berichte löschen..."
+
+#: group_admin_properties
+msgid "Group properties"
+msgstr "Gruppeneigenschaften"
+
+#: group_admin_name
+msgctxt "group_admin_name"
+msgid "Name:"
+msgstr "Name:"
+
+#: group_admin_id
+msgctxt "group_admin_id"
+msgid "Identifier:"
+msgstr "Benutzername:"
+
+#: group_admin_icon
+msgctxt "group_admin_icon"
+msgid "Icon:"
+msgstr "Symbol:"
+
+#: error
+msgid "ERROR"
+msgstr "ERROR"
+
+#: return
+msgid "return..."
+msgstr "zurück..."
+
+#: group_admin_users
+msgid "Users"
+msgstr "Benutzer"
+
+#: group_admin_no_users
+msgid "This group has no users."
+msgstr "Keine Benutzer in dieser Gruppe vorhanden."
+
+#: group_admin_create_user_button
+msgid "Create a new user..."
+msgstr "Einen neuen Benutzer erstellen..."
+
+#: cancel
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: group_admin_invalid_name
+msgid "Incorrect group name!"
+msgstr "Falscher Gruppenname!"
+
+#: group_admin_invalid_id
+msgid "Incorrect group identifier!"
+msgstr "Falscher Gruppenname!"
+
+#: group_admin_id_already_exists
+msgid "There is another group with the same identifier in the database!"
+msgstr ""
+"Es wurde bereits eine andere Gruppe mit gleichem Namen in die Datenbank "
+"eingetragen!"
+
+#: group_admin_delete_group
+msgid "Delete group"
+msgstr "Gruppe löschen"
+
+#: report_areyousure
+msgid "Are you sure?"
+msgstr "Sind Sie sicher?"
+
+#: YES
+msgid "Yes"
+msgstr "Ja"
+
+#: NOT
+msgid "Not"
+msgstr "Nein"
+
+#: group_admin_delete_group_explain
+msgid ""
+"This operation will also delete on the database all users of this group. All "
+"data of these users will be lost."
+msgstr ""
+"Dieser Vorgang löscht alle User der ausgewählten Gruppe aus der Datenbank. "
+"Alle Daten der ausgewählten User werden gelöscht."
+
+#: db_error
+msgid "Unable to complete the task."
+msgstr "Vorgang konnte nicht durchgeführt werden."
+
+#: group_admin_clear_group
+msgid "Clear report data of group"
+msgstr "Daten der Gruppe löschen"
+
+#: group_admin_clear_group_explain
+msgid ""
+"This operation will clear all the reports of the activities done by the "
+"members of this group between the specified dates."
+msgstr ""
+"Dieser Vorgang löscht alle Übungsberichte für die Mitglieder der "
+"ausgewählten Gruppe im angegebenen Zeitraum aus der Datenbank."
+
+#: db_clear_reports_date
+msgid "Clear report data"
+msgstr "Daten löschen"
+
+#: user_admin_invalid_name
+msgid "Invalid user name."
+msgstr "Ungültiger Benutzername."
+
+#: user_admin_invalid_id
+msgid "Invalid user identifier"
+msgstr "Ungültiger Benutzername"
+
+#: user_admin_id_already_exists
+msgid "There is another user with the same identifier in the database!"
+msgstr "Benutzername wird bereits von einem anderen Benutzer verwendet!"
+
+#: user_admin_user_deleted
+msgid "The user was successfully deleted from the database."
+msgstr "Benutzer erfolgreich aus der Datenbank gelöscht."
+
+#: user_admin_id
+msgctxt "user_admin_id"
+msgid "Identifier:"
+msgstr "Benutzername:"
+
+#: user_admin_name
+msgctxt "user_admin_name"
+msgid "Name:"
+msgstr "Name:"
+
+#: user_admin_icon
+msgctxt "user_admin_icon"
+msgid "Icon:"
+msgstr "Symbol:"
+
+#: user_admin_edit_button
+msgctxt "user_admin_edit_button"
+msgid "Edit..."
+msgstr "Bearbeiten..."
+
+#: user_admin_delete_button
+msgctxt "user_admin_delete_button"
+msgid "Delete..."
+msgstr "Löschen..."
+
+#: user_admin_clear_button
+msgctxt "user_admin_clear_button"
+msgid "Clear reports..."
+msgstr "Berichte löschen..."
+
+#: user_admin_delete_user
+msgid "Delete user"
+msgstr "Benutzer löschen"
+
+#: user_admin_delete_user_explain
+msgid ""
+"This operation will delete this user and his reports from the database."
+msgstr ""
+"Dieser Vorgang löscht den ausgewählten Benutzer und alle dazugehörigen "
+"Berichte aus der Datenbank."
+
+#: user_admin_clear_user
+msgid "Clear report data of user"
+msgstr "Benutzerdaten löschen"
+
+#: user_admin_clear_user_explain
+msgid ""
+"This operation will clear all the reports of the activities done by this "
+"user between the specified dates."
+msgstr ""
+"Dieser Vorgang löscht alle Ergebnisse des ausgewählten Benutzers innerhalb "
+"des angegebenen Zeitraums aus der Datenbank."
+
+#: success
+msgid "Operation successful"
+msgstr "Vorgang erfolgreich abgeschlossen"
+
+#: bad_data
+msgid "Bad data!"
+msgstr "Falsche Eingabe!"
+
+#: db_admin_param_lap
+msgid "Time between connections (seconds)\\:"
+msgstr "Zeitabstand zwischen Verbindungen (in Sekunden):"
+
+#: jclic_reports
+msgid "JClic reports"
+msgstr "JClic Reports"
+
+#: YES_SHORT
+msgctxt "YES_SHORT"
+msgid "Y"
+msgstr "J"
+
+#: NOT_SHORT
+msgctxt "NOT_SHORT"
+msgid "N"
+msgstr "N"
+
+#: user_admin_pw_prompt
+msgid "Password\\:"
+msgstr "Passwort\\:"
+
+#: user_admin_pw_prompt_confirm
+msgid "Confirm password\\:"
+msgstr "Passwort bestätigen\\:"
+
+#: user_admin_err_bad_pw
+msgid "Passwords don't match\\!"
+msgstr "Falsches Passwort\\!\\!"

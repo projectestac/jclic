@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+
+<project name="JClicTranslationsToLaunchpad" basedir="." default="main">
+
+  <!-- =================================================================== -->
+  <!-- INIT                                                                -->
+  <!-- =================================================================== -->
+  <target name="init">  
+
+    <!-- Variables -->
+    <property file="${user.home}/.ant-global.properties" />
+    <property file="../../project.properties" />
+    <property name="project.name"        value="JClic" />
+
+    <property name="jclic.src.dir"       value="../../src" />
+    <property name="po.dir"              value="po" />
+
+    <property name="resources.path"      value="edu/xtec/resources" />
+    <property name="messages.path"       value="${resources.path}/messages" />
+
+
+    <!-- Patterns -->
+    <patternset id="htmls" >
+      <include name="**/*.html"/>
+    </patternset>    
+    <patternset id="langHtmls" >
+      <include name="**/*_*.html"/>
+    </patternset>    
+
+    <patternset id="props" >
+      <include name="**/*.properties"/>
+    </patternset>
+    <patternset id="langProps" >
+      <include name="**/*_*.properties"/>
+    </patternset>
+
+    <patternset id="pos" >
+      <include name="**/*.po"/>
+    </patternset>
+
+    <taskdef name="prop2po" classname="edu.xtec.ant.Prop2Po"/>  
+
+    <echo message="----------------------------------"/>
+    <echo message="Export of .properties to .po files"/>
+    <echo message="----------------------------------"/>
+
+    <mkdir dir="${po.dir}"/>
+        
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- MAIN                                                                -->
+  <!-- =================================================================== -->
+  <target name="main"
+          description="Create PO files form source"
+          depends="init,prepareAuthor,prepareCore,prepareExtra,preparePlayer,prepareUtilities,prepareReports">
+
+    <replace dir="${po.dir}" token="${basedir}/" />
+    <replace dir="${po.dir}" 
+             token="Project-Id-Version: PACKAGE VERSION\n" 
+             value="Project-Id-Version: ${project.name} ${JCLIC_VERSION}\n"/>
+
+    <echo message="*** .po files created from ${jclic.src.dir}"/>
+
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- PREPARE AUTHOR                                                      -->
+  <!-- =================================================================== -->
+  <target name="prepareAuthor"
+          description="Create PO files for JClicAuthor"
+          depends="init">
+
+    <mkdir dir="${po.dir}/jclic-author"/>
+
+    <prop2po destDir="${po.dir}/jclic-author" 
+             templateFile="${jclic.src.dir}/author/${messages.path}/AuthorMessages.properties"
+             makePot="true"
+             preserveTimestamps="true"
+             inputFile="${jclic.src.dir}/author/${messages.path}/AuthorMessages.properties"/>
+
+    <prop2po destDir="${po.dir}/jclic-author" 
+             templateFile="${jclic.src.dir}/author/${messages.path}/AuthorMessages.properties"
+             preserveTimestamps="true">
+        <fileset dir="${jclic.src.dir}/author/${messages.path}" >
+          <patternset refid="langProps" />
+        </fileset>
+    </prop2po>
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- PREPARE CORE                                                          -->
+  <!-- =================================================================== -->
+  <target name="prepareCore"
+          description="Create PO files for JClic core"
+          depends="init">
+
+    <mkdir dir="${po.dir}/jclic-core"/>
+
+    <prop2po destDir="${po.dir}/jclic-core" 
+             templateFile="${jclic.src.dir}/core/${messages.path}/JClicMessages.properties"
+             makePot="true"
+             preserveTimestamps="true"
+             inputFile="${jclic.src.dir}/core/${messages.path}/JClicMessages.properties"/>
+
+    <prop2po destDir="${po.dir}/jclic-core" 
+             templateFile="${jclic.src.dir}/core/${messages.path}/JClicMessages.properties"
+             preserveTimestamps="true">
+        <fileset dir="${jclic.src.dir}/core/${messages.path}" >
+          <patternset refid="langProps" />
+        </fileset>
+    </prop2po>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- PREPARE EXTRA                                                          -->
+  <!-- =================================================================== -->
+  <target name="prepareExtra"
+          description="Create PO files for JClic extra resources"
+          depends="init">
+
+    <mkdir dir="${po.dir}/jclic-activities"/>
+    <prop2po destDir="${po.dir}/jclic-activities" 
+             templateFile="${jclic.src.dir}/extra/${resources.path}/activities/listactivities.properties"
+             makePot="true"
+             preserveTimestamps="true"
+             inputFile="${jclic.src.dir}/extra/${resources.path}/activities/listactivities.properties"/>
+
+    <prop2po destDir="${po.dir}/jclic-activities" 
+             templateFile="${jclic.src.dir}/extra/${resources.path}/activities/listactivities.properties"
+             preserveTimestamps="true">
+        <fileset dir="${jclic.src.dir}/extra/${resources.path}/activities" >
+          <patternset refid="langProps" />
+        </fileset>
+    </prop2po>
+
+    <mkdir dir="${po.dir}/jclic-automation"/>
+    <prop2po destDir="${po.dir}/jclic-automation" 
+             templateFile="${jclic.src.dir}/extra/${resources.path}/automation/contentproviders.properties"
+             makePot="true"
+             preserveTimestamps="true"
+             inputFile="${jclic.src.dir}/extra/${resources.path}/automation/contentproviders.properties"/>
+
+    <prop2po destDir="${po.dir}/jclic-automation" 
+             templateFile="${jclic.src.dir}/extra/${resources.path}/automation/contentproviders.properties"
+             preserveTimestamps="true">
+        <fileset dir="${jclic.src.dir}/extra/${resources.path}/automation" >
+          <patternset refid="langProps" />
+        </fileset>
+    </prop2po>
+
+    <mkdir dir="${po.dir}/jclic-shapers"/>
+    <prop2po destDir="${po.dir}/jclic-shapers" 
+             templateFile="${jclic.src.dir}/extra/${resources.path}/shapers/listshapers.properties"
+             makePot="true"
+             preserveTimestamps="true"
+             inputFile="${jclic.src.dir}/extra/${resources.path}/shapers/listshapers.properties"/>
+
+    <prop2po destDir="${po.dir}/jclic-shapers" 
+             templateFile="${jclic.src.dir}/extra/${resources.path}/shapers/listshapers.properties"
+             preserveTimestamps="true">
+        <fileset dir="${jclic.src.dir}/extra/${resources.path}/shapers" >
+          <patternset refid="langProps" />
+        </fileset>
+    </prop2po>
+
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- PREPARE PLAYER                                                          -->
+  <!-- =================================================================== -->
+  <target name="preparePlayer"
+          description="Create PO files for JClic Player"
+          depends="init">
+
+    <mkdir dir="${po.dir}/jclic-player"/>
+
+    <prop2po destDir="${po.dir}/jclic-player" 
+             templateFile="${jclic.src.dir}/player/${messages.path}/PlayerMessages.properties"
+             makePot="true"
+             preserveTimestamps="true"
+             inputFile="${jclic.src.dir}/player/${messages.path}/PlayerMessages.properties"/>
+
+    <prop2po destDir="${po.dir}/jclic-player" 
+             templateFile="${jclic.src.dir}/player/${messages.path}/PlayerMessages.properties"
+             preserveTimestamps="true">
+        <fileset dir="${jclic.src.dir}/player/${messages.path}" >
+          <patternset refid="langProps" />
+        </fileset>
+    </prop2po>    
+    
+    <mkdir dir="${po.dir}/jclic-accessibility"/>
+    <prop2po destDir="${po.dir}/jclic-accessibility" 
+             templateFile="${jclic.src.dir}/player/${messages.path}/AccessibilityMessages.properties"
+             makePot="true"
+             preserveTimestamps="true"
+             inputFile="${jclic.src.dir}/player/${messages.path}/AccessibilityMessages.properties"/>
+
+    <prop2po destDir="${po.dir}/jclic-accessibility" 
+             templateFile="${jclic.src.dir}/player/${messages.path}/AccessibilityMessages.properties"
+             preserveTimestamps="true">
+        <fileset dir="${jclic.src.dir}/player/${messages.path}" >
+          <include name="**/AccessibilityMessages_*.properties"/>
+        </fileset>
+    </prop2po>    
+        
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- PREPARE UTILITIES                                                          -->
+  <!-- =================================================================== -->
+  <target name="prepareUtilities"
+          description="Create PO files for JClic utilities"
+          depends="init">
+
+    <mkdir dir="${po.dir}/jclic-utilities"/>
+    <prop2po destDir="${po.dir}/jclic-utilities" 
+             templateFile="${jclic.src.dir}/utilities/${messages.path}/BasicMessages.properties"
+             makePot="true"
+             preserveTimestamps="true"
+             inputFile="${jclic.src.dir}/utilities/${messages.path}/BasicMessages.properties"/>
+
+    <prop2po destDir="${po.dir}/jclic-utilities" 
+             templateFile="${jclic.src.dir}/utilities/${messages.path}/BasicMessages.properties"
+             preserveTimestamps="true">
+        <fileset dir="${jclic.src.dir}/utilities/${messages.path}" >
+          <include name="**/BasicMessages_*.properties"/>
+        </fileset>
+    </prop2po>
+
+    <mkdir dir="${po.dir}/jclic-persistent"/>
+    <prop2po destDir="${po.dir}/jclic-persistent" 
+             templateFile="${jclic.src.dir}/utilities/${messages.path}/PersistentPathsMessages.properties"
+             makePot="true"
+             preserveTimestamps="true"
+             inputFile="${jclic.src.dir}/utilities/${messages.path}/PersistentPathsMessages.properties"/>
+
+    <prop2po destDir="${po.dir}/jclic-persistent" 
+             templateFile="${jclic.src.dir}/utilities/${messages.path}/PersistentPathsMessages.properties"
+             preserveTimestamps="true">
+        <fileset dir="${jclic.src.dir}/utilities/${messages.path}" >
+          <include name="**/PersistentPathsMessages_*.properties"/>
+        </fileset>
+    </prop2po>
+    
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- PREPARE REPORTS                                                     -->
+  <!-- =================================================================== -->
+  <target name="prepareReports"
+          description="Create PO files for JClic reports"
+          depends="init">
+
+    <mkdir dir="${po.dir}/jclic-reportServer"/>
+    <prop2po destDir="${po.dir}/jclic-reportServer" 
+             templateFile="${jclic.src.dir}/report/reportServer/${messages.path}/ReportServerMessages.properties"
+             makePot="true"
+             preserveTimestamps="true"
+             inputFile="${jclic.src.dir}/report/reportServer/${messages.path}/ReportServerMessages.properties"/>
+
+    <prop2po destDir="${po.dir}/jclic-reportServer" 
+             templateFile="${jclic.src.dir}/report/reportServer/${messages.path}/ReportServerMessages.properties"
+             preserveTimestamps="true">
+        <fileset dir="${jclic.src.dir}/report/reportServer/${messages.path}" >
+          <patternset refid="langProps" />
+        </fileset>
+    </prop2po>
+
+    <mkdir dir="${po.dir}/jclic-reportServlets"/>
+    <prop2po destDir="${po.dir}/jclic-reportServlets" 
+             templateFile="${jclic.src.dir}/report/reportServlets/${messages.path}/reportMessages.properties"
+             makePot="true"
+             preserveTimestamps="true"
+             inputFile="${jclic.src.dir}/report/reportServlets/${messages.path}/reportMessages.properties"/>
+
+    <prop2po destDir="${po.dir}/jclic-reportServlets" 
+             templateFile="${jclic.src.dir}/report/reportServlets/${messages.path}/reportMessages.properties"
+             preserveTimestamps="true">
+        <fileset dir="${jclic.src.dir}/report/reportServlets/${messages.path}" >
+          <patternset refid="langProps" />
+        </fileset>
+    </prop2po>
+
+  </target>
+      
+</project>

@@ -1,0 +1,802 @@
+# Russian translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-03-27 00:34+0200\n"
+"PO-Revision-Date: 2009-11-15 20:19+0000\n"
+"Last-Translator: Serafim Nenarokov <Unknown>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. #JClic main messages
+#: label_time
+msgid "time"
+msgstr "время"
+
+#: label_actions
+msgid "tries"
+msgstr "попытки"
+
+#: label_score
+msgid "score"
+msgstr "счёт"
+
+#: Skin
+msgid "Skin"
+msgstr "Оформление"
+
+#: action_next_caption
+msgid "Next"
+msgstr "Следующий"
+
+#: action_next_tooltip
+msgid "Next activity"
+msgstr "Следующее действие"
+
+#: action_prev_caption
+msgid "Previous"
+msgstr "Предыдущий"
+
+#: action_prev_tooltip
+msgid "Previous activity"
+msgstr "Предыдущее действие"
+
+#: action_reset_caption
+msgid "Restart"
+msgstr "Перезапустить"
+
+#: action_reset_tooltip
+msgid "Restart activity"
+msgstr "Перезапуск действия"
+
+#: action_info_caption
+msgid "Information"
+msgstr "Информация"
+
+#: about_window_lb_project
+msgid "Project"
+msgstr "Проект"
+
+#: about_window_lb_languages
+msgid "languages"
+msgstr "языки"
+
+#: about_window_lb_language
+msgid "language"
+msgstr "язык"
+
+#: about_window_close_button
+msgctxt "about_window_close_button"
+msgid "Return"
+msgstr "Вернуться"
+
+#: about_window_caption
+msgid "About"
+msgstr "О программе"
+
+#: action_about_tooltip
+msgid "User reports"
+msgstr "Отчёты пользователя"
+
+#: about_window_lb_report
+msgid "Report"
+msgstr "Отчет"
+
+#: about_window_browser_button
+msgid "View in browser"
+msgstr "Посмотреть в браузере"
+
+#: report_no_activities
+msgid "No activities reported!"
+msgstr "Нет сообщенных действий!"
+
+#: report_system_standard
+msgid "Report not registered in any DB"
+msgstr "Отчёт не зарегистрирован в БД"
+
+#: report_lb_time
+msgid "Time"
+msgstr "Время"
+
+#: msg_error_loading_sequence
+msgid "Error loading sequence"
+msgstr "Ошибка загрузки последовательности"
+
+#: media_qt_error_initializing
+msgid "Error initializing QuickTime!"
+msgstr "Ошибка инициализации QuickTime!"
+
+#: media_check_url
+msgid "messages/checkmedia.html"
+msgstr "messages/checkmedia.html"
+
+#: filesystem_openURL
+msgid "Open URL..."
+msgstr "Открыть URL..."
+
+#: filesystem_openFile
+msgid "Open file..."
+msgstr "Открыть файл..."
+
+#: filesystem_enterURL
+msgid "Please enter the URL to the resource to be loaded."
+msgstr "Пожалуйста, введите URL ресурса для загрузки."
+
+#: msg_error_executing_external
+msgid "Error executing the command:"
+msgstr "Ошибка выполнения команды:"
+
+#: editor_moveDown_tooltip
+msgid "Move the selected element down"
+msgstr "Переместить выделенный элемент вниз"
+
+#: editor_moveUp_tooltip
+msgid "Move the selected element up"
+msgstr "Переместить выделенный элемент вверх"
+
+#: editor_moveDown
+msgid "Move down"
+msgstr "Переместить вниз"
+
+#: editor_moveUp
+msgid "Move up"
+msgstr "Переместить вверх"
+
+#: filefilter_all_images
+msgid "Image files (*.gif, *.jpg, *.png, *.bmp, *.ico)"
+msgstr "Файлы изображений (*.gif, *.jpg, *.png, *.bmp, *.ico)"
+
+#: filefilter_png
+msgid "PNG images"
+msgstr "PNG изображения"
+
+#: filefilter_jpg
+msgid "JPG images"
+msgstr "JPG изображения"
+
+#: filefilter_gif
+msgid "GIF images"
+msgstr "GIF изображения"
+
+#: filesystem_saveURLerror
+msgid "URL-based files are read-only."
+msgstr "URL-файлы доступны только для чтения."
+
+#: filefilter_all_clic
+msgid "Clic 3.0 packages (*.pac, *.pcc)"
+msgstr "Пакеты Clic 3.0 (*.pac, *.pcc)"
+
+#: filefilter_all
+msgid "All files"
+msgstr "Все файлы"
+
+#: filefilter_all_jclic_clic
+msgid "JClic and Clic 3.0 projects (*.jclic, *.jclic.zip, *.pac, *.pcc)"
+msgstr "Проекты JClic и Clic 3.0 (*.jclic, *.jclic.zip, *.pac, *.pcc)"
+
+#: filefilter_all_jclic
+msgid "JClic projects (*.jclic, *.jclic.zip)"
+msgstr "Проекты JClic (*.jclic, *.jclic.zip)"
+
+#: filefilter_pcc
+msgid "Clic 3.0 compact packages (*.pcc)"
+msgstr "Сжатые пакеты Clic 3.0 (*.pcc)"
+
+#: filefilter_pac
+msgid "Clic 3.0 open packages (*.pac)"
+msgstr "Открытые проекты Clic 3.0 (*.pac)"
+
+#: filefilter_jclic_zip
+msgid "JClic compressed projects (*.jclic.zip)"
+msgstr "Сжатые пакеты JClic (*.jclic.zip)"
+
+#: filefilter_jclic
+msgid "JClic projects (*.jclic)"
+msgstr "Проекты JClic (*.jclic)"
+
+#: about_window_lb_mediaSystem
+msgid "Multimedia system"
+msgstr "Мультимедиа система"
+
+#: about_window_lb_level
+msgid "Level"
+msgstr "Уровень"
+
+#: about_window_lb_area
+msgid "Area"
+msgstr "Область"
+
+#: report_num_actions
+msgid "Actions done:"
+msgstr "Завершено действий:"
+
+#: report_project
+msgid "Project:"
+msgstr "Проект:"
+
+#: report_lb_totals
+msgid "Total:"
+msgstr "Итого:"
+
+#: report_num_projects
+msgid "Projects:"
+msgstr "Проекты:"
+
+#: report_session
+msgid "Session:"
+msgstr "Сессия:"
+
+#: msg_warn_no_exec_in_applets
+msgid ""
+"For security reasons, execution of external programs is disabled in JClic "
+"applets."
+msgstr ""
+"В целях безопасности, выполнение внешних программ запрещено в апплетах JClic."
+
+#: msg_error_starting_activity
+msgid "Error starting activity!"
+msgstr "Ошибка начала действия!"
+
+#: msg_error_loading_project
+msgid "Error loading project"
+msgstr "Ошибка загрузки проекта"
+
+#: msg_error_playing_media
+msgid "Error playing media!"
+msgstr "Ошибка проигрывания медиа!"
+
+#: msg_activity_finished
+msgid "Activity finished!"
+msgstr "Действие завершено!"
+
+#: msg_playing_media
+msgid "Playing media"
+msgstr "Проигрывание медиа"
+
+#: msg_activity_running
+msgid "Activity running"
+msgstr "Действие выполняется"
+
+#: msg_activity_ready
+msgid "Activity ready"
+msgstr "Действие готово"
+
+#: msg_initializing
+msgid "Initializing..."
+msgstr "Инициализация..."
+
+#: msg_preparing_media
+msgid "Preparing media"
+msgstr "Подготовка медиа"
+
+#: msg_error_loading_activity
+msgid "Error loading activity"
+msgstr "Ошибка загрузки действия"
+
+#: msg_loading_activity
+msgid "Loading activity"
+msgstr "Загрузка действия"
+
+#: msg_loading_project
+msgid "Loading project..."
+msgstr "Загрузка проекта..."
+
+#: msg_ready
+msgid "Ready"
+msgstr "Готово"
+
+#: err_reading_data
+msgid "Error loading file"
+msgstr "Ошибка загрузки файла"
+
+#: err_file_save
+msgid "Error saving file!"
+msgstr "Ошибка сохранения файла!"
+
+#: err_file_open
+msgid "Error opening file!"
+msgstr "Ошибка открытия файла!"
+
+#: report_started
+msgid "Session started:"
+msgstr "Сессия начата:"
+
+#: report_lb_score
+msgid "Score"
+msgstr "Счёт"
+
+#: report_lb_actions
+msgid "Actions"
+msgstr "Действия"
+
+#: report_lb_solved
+msgid "Ok"
+msgstr "Ok"
+
+#: report_lb_activity
+msgctxt "report_lb_activity"
+msgid "Activity"
+msgstr "Активность"
+
+#: report_lb_sequence
+msgid "Sequence"
+msgstr "Последовательность"
+
+#: report_global_score
+msgid "Global score:"
+msgstr "Общий счёт:"
+
+#: report_total_time
+msgid "Total time on activities:"
+msgstr "Общее время активности:"
+
+#: report_num_activities_solved
+msgid "Activities ok:"
+msgstr "Действия в порядке:"
+
+#: report_num_activities
+msgid "Activities done:"
+msgstr "Совершенные действия:"
+
+#: report_num_sequences
+msgid "Sequences:"
+msgstr "Последовательности:"
+
+#: report_system
+msgid "Report system:"
+msgstr "Система отчётов:"
+
+#: report_user
+msgid "User:"
+msgstr "Пользователь:"
+
+#: report_not_finished
+msgid "Activity not finished"
+msgstr "Действие не завершено"
+
+#: action_info_tooltip
+msgid "Additional information"
+msgstr "Дополнительная информация"
+
+#: action_help_caption
+msgid "Help"
+msgstr "Справка"
+
+#: action_help_tooltip
+msgid "Help about this activity"
+msgstr "Помощь по этому действию"
+
+#: action_audio_caption
+msgid "Sounds"
+msgstr "Звуки"
+
+#: action_audio_tooltip
+msgid "Enable/disable sounds"
+msgstr "Включить/выключить звуки"
+
+#: about_window_lb_system
+msgid "System"
+msgstr "Система"
+
+#: about_window_lb_total_mem
+msgid "Total memory"
+msgstr "Всего памяти"
+
+#: about_window_lb_free_mem
+msgid "Free memory"
+msgstr "Свободная память"
+
+#: about_window_lb_java_home
+msgid "Java home"
+msgstr "Java home"
+
+#: about_window_lb_java_vm
+msgid "Java virtual machine"
+msgstr "Виртуальная машина Java"
+
+#: about_window_lb_java_version
+msgid "Java version"
+msgstr "Версия Java"
+
+#: about_window_lb_os
+msgid "Operating system"
+msgstr "Операционная система"
+
+#: about_window_lb_version
+msgid "Version"
+msgstr "Версия"
+
+#: about_window_lb_descriptors
+msgid "Descriptors"
+msgstr "Дескрипторы"
+
+#: about_window_lb_description
+msgid "Description"
+msgstr "Описание"
+
+#: about_window_lb_history
+msgid "History"
+msgstr "История"
+
+#: about_window_lb_organizations
+msgid "Organizations"
+msgstr "Организации"
+
+#: about_window_lb_organization
+msgid "Organization"
+msgstr "Организация"
+
+#: about_window_lb_authors
+msgid "Authors"
+msgstr "Авторы"
+
+#: about_window_lb_author
+msgid "Author"
+msgstr "Автор"
+
+#: about_window_lb_activity
+msgctxt "about_window_lb_activity"
+msgid "Activity"
+msgstr "Активность"
+
+#: help_window_close_button
+msgid "Return to activity"
+msgstr "Возврат к действию"
+
+#: help_window_caption
+msgid "Help window"
+msgstr "Окно справки"
+
+#: action_about_caption
+msgid "Reports"
+msgstr "Отчёты"
+
+#: action_about_keys
+msgid "RR"
+msgstr "RR"
+
+#: action_audio_keys
+msgid "SS"
+msgstr "SS"
+
+#: action_help_keys
+msgid "HH"
+msgstr "HH"
+
+#: action_info_keys
+msgid "II"
+msgstr "II"
+
+#: action_next_keys
+msgid "N*"
+msgstr "N*"
+
+#: action_prev_keys
+msgid "P*"
+msgstr "P*"
+
+#: action_reset_keys
+msgid "R*"
+msgstr "R*"
+
+#: filefilter_install
+msgid "JClic project installers (*.jclic.inst)"
+msgstr "Установочные файлы проектов JClic (*.jclic.inst)"
+
+#: report_err_no_users
+msgid "No users defined in the reports database!"
+msgstr "Пользователи не определены в базе данных отчётов!"
+
+#: report_err_no_users_in_group
+msgid "No users defined for this group in the reports database!"
+msgstr "Пользователи не определены для этой группы в базе данных отчётов!"
+
+#: report_new_user
+msgid "New user..."
+msgstr "Новый пользователь..."
+
+#: report_new_user_tooltip
+msgid "Create a new user in the reports database"
+msgstr "Создать нового пользователя в базе данных отчётов"
+
+#: report_err_creating_user
+msgid "Error creating new user!"
+msgstr "Ошибка создания нового пользователя!"
+
+#: report_select_user
+msgid "User identification for the reports database"
+msgstr "Идентификация пользователя для базы данных отчётов"
+
+#: report_userlist_title
+msgid "Please select your name:"
+msgstr "Пожалуйста, выберите ваше имя:"
+
+#: report_ident_user
+msgid "User identification"
+msgstr "Идентификация пользователя"
+
+#: report_name_prompt
+msgid "Name:"
+msgstr "Имя:"
+
+#: report_id_prompt
+msgid "Login:"
+msgstr "Логин:"
+
+#: report_pw_prompt
+msgid "Password:"
+msgstr "Пароль:"
+
+#: report_pw_prompt_confirm
+msgid "Confirm password:"
+msgstr "Подтверждение пароля:"
+
+#: report_new_user_data
+msgid "Creation of a new user:"
+msgstr "Создание нового пользователя:"
+
+#: report_err_bad_data
+msgid "Incorrect data!"
+msgstr "Неверные данные!"
+
+#: report_generic_group_name
+msgid "Generic"
+msgstr "Родовой"
+
+#: report_new_group
+msgid "Create a new group..."
+msgstr "Создать новую группу..."
+
+#: report_err_creating_group
+msgid "Error creating the new group!"
+msgstr "Ошибка создания новой группы!"
+
+#: report_grouplist_title
+msgid "Please select your group:"
+msgstr "Пожалуйста, выберите Вашу группу:"
+
+#: report_new_group_data
+msgid "Creation of a new users group:"
+msgstr "Создание новой группы пользователей"
+
+#: report_err_invalid_user
+msgid "Missing user ID or incorrect password."
+msgstr "ID пользователя отсутствует или пароль неверный."
+
+#: report_user_has_pwd
+msgid "This account is password-protected."
+msgstr "Этот аккаунт защищен паролем."
+
+#: report_err_init
+msgid "Error initializing report system."
+msgstr "Ошибка инициализации системы отчетов."
+
+#: report_not_connected
+msgid "not connected"
+msgstr "не соединено."
+
+#: report_err_creating
+msgid "Error creating reports agent"
+msgstr "Ошибка создания агента отчетов"
+
+#: action_return_caption
+msgctxt "action_return_caption"
+msgid "Return"
+msgstr "Возврат"
+
+#: action_return_tooltip
+msgid "Return to the last menu"
+msgstr "Вернуться в предыдущее меню"
+
+#: action_return_keys
+msgid "T*"
+msgstr "T*"
+
+#: filefilter_all_sounds
+msgid "Sounds (*.wav, *.mp3, *.ogg, *.au, *.aiff)"
+msgstr "Звуки (*.wav, *.mp3, *.ogg, *.au, *.aiff)"
+
+#: filefilter_midi
+msgid "MIDI files (*.mid)"
+msgstr "MIDI файлы (*.mid)"
+
+#: filefilter_all_video
+msgid "Video files (*.avi, *.mov, *.mpeg)"
+msgstr "Видеофайлы (*.avi, *.mov, *.mpeg)"
+
+#: filefilter_all_anim
+msgid "Flash 2.0 files (*.swf)"
+msgstr "Файлы Flash 2.0 (*.swf)"
+
+#: filefilter_skins
+msgid "Skins (*.xml)"
+msgstr "Скины (*.xml)"
+
+#: filefilter_all_media
+msgid "All media files"
+msgstr "Все медиафайлы"
+
+#: filesystem_copyToRoot_1
+msgid "The file"
+msgstr "Файл"
+
+#: filesystem_copyToRoot_2
+msgid "is out of the current project's folder."
+msgstr "вне текущей папки проекта."
+
+#: filesystem_copyToRoot_3
+msgid "It's advisable to have all the files in the same folder."
+msgstr "Целесообразно иметь все файлы в одной папке."
+
+#: filesystem_copyToRoot_4
+msgid "Do you want to copy the selected file to the project's folder?"
+msgstr "Вы хотите скопировать выбранный файл в папку проекта?"
+
+#: filesystem_copyFile
+msgid "Copying file"
+msgstr "Копирование файла"
+
+#: msg_loading
+msgid "Loading"
+msgstr "Загрузка"
+
+#: report_err_bad_id
+msgid "Bad identifier!"
+msgstr "Плохой идентификатор!"
+
+#: report_err_duplicate_id
+msgid "This identifier already exists in the database!"
+msgstr "Этот идентификатор уже существует в базе!"
+
+#: report_err_bad_name
+msgid "Bad name!"
+msgstr "Плохое имя!"
+
+#: report_err_bad_pw
+msgid "Passwords don't match!"
+msgstr "Пароли не совпадают!"
+
+#: report_err_connect
+msgid "Error connecting to the reports database!"
+msgstr "Ошибка соединения с базой отчетов!"
+
+#: test_alert_exit
+msgid "EXIT: At this point, the program will exit."
+msgstr "ВЫХОД: в этой точке программа завершится."
+
+#: test_alert_jump_to
+msgid "At this point the program will jump to the project:"
+msgstr "В этой точке программа прыгнет в проект:"
+
+#: ftype_image
+msgid "Image"
+msgstr "Изображение"
+
+#: ftype_audio
+msgid "Digital audio"
+msgstr "Цифровое аудио"
+
+#: ftype_midi
+msgid "MIDI file"
+msgstr "MIDI файл"
+
+#: ftype_xml
+msgid "XML file"
+msgstr "XML файл"
+
+#: ftype_anim
+msgid "Animation"
+msgstr "Анимация"
+
+#: ftype_video
+msgid "Digital video"
+msgstr "Цифровое видео"
+
+#: ftype_font
+msgid "TrueType font"
+msgstr "Шрифт TrueType"
+
+#: ftype_jclic
+msgid "JClic project"
+msgstr "Проект JClic"
+
+#: ftype_inst
+msgid "JClic project installer script"
+msgstr "Скрипт-инсталлятор проекта JClic"
+
+#: ftype_unknown
+msgid "Unknown"
+msgstr "Неизвестный"
+
+#: ftype_animated
+msgid "animated"
+msgstr "анимированный"
+
+#: filefilter_fonts
+msgid "Fonts (*.ttf)"
+msgstr "Шрифты (*.ttf)"
+
+#: editor_moveUp_keys
+msgid "U#38"
+msgstr "U#38"
+
+#: editor_moveDown_keys
+msgid "W#40"
+msgstr "W#40"
+
+#: filefilter_all_html
+msgid "HTML documents (*.htm, *.html)"
+msgstr "HTML документы (*.htm, *.html)"
+
+#: about_creditsDoc
+msgid "about/credits.html"
+msgstr "about/credits.html"
+
+#: about_licenseDoc
+msgid "about/license.html"
+msgstr "about/license.html"
+
+#: about_sponsorsCaption
+msgid "With the support of:"
+msgstr "При поддержке:"
+
+#: about_window_systemInfo
+msgid "System information"
+msgstr "Информация о системе"
+
+#: about_window_projectInfo
+msgid "Current project info"
+msgstr "Информация о текущем проекте"
+
+#: about_window_reportInfo
+msgid "Current session results"
+msgstr "Результаты текущей сессии"
+
+#: about_otherCreditsCaption
+msgid "This product includes software developed by:"
+msgstr "Этот продукт содержит ПО, разработанное:"
+
+#: msg_saving_project
+msgid "Saving project..."
+msgstr "Сохранение проекта..."
+
+#: filefilter_text
+msgid "Text files (*.txt)"
+msgstr "Текстовые файлы (*.txt)"
+
+#. #Translation credits displayed on the about window, in HTML format
+#: html_translation_credits
+msgid "English version, by The JClic team"
+msgstr "Анлийская версия разработана командой JClic"
+
+#. #Abstract of the GPL license, version 2.0, as shown on the About window
+#: html_gpl_license
+msgid ""
+"This program is free software; you can redistribute it and/or  modify it "
+"under the terms of the GNU General Public License  as published by the Free "
+"Software Foundation; either version 2  of the License, or (at your option) "
+"any later version.<br>&nbsp;<BR>This program is distributed in the hope that "
+"it will be useful,  but WITHOUT ANY WARRANTY; without even the implied "
+"warranty of  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the  "
+"<a href\\=\"http\\://www.gnu.org/copyleft/gpl.html\">GNU General Public "
+"License</a>  for more details."
+msgstr ""
+"Данная программа является свободным программным обеспечением. Вы вправе "
+"распространять ее и/или модифицировать в соответствии с условиями "
+"Стандартной Общественной Лицензии GNU, опубликованной Free Software "
+"Foundation; либо с условиями версии 2 лицензии, либо (по вашему выбору) "
+"любыми более поздними версиями.<br>&nbsp;<BR>Мы распространяем данную "
+"программу в надежде на то, что она будет вам полезной, однако НЕ "
+"ПРЕДОСТАВЛЯЕМ НА НЕЕ НИКАКИХ ГАРАНТИЙ; даже без гарантии ТОВАРНОГО СОСТОЯНИЯ "
+"ПРИ ПРОДАЖЕ и ПРИГОДНОСТИ ДЛЯ ИСПОЛЬЗОВАНИЯ В КОНКРЕТНЫХ ЦЕЛЯХ. Смотрите <a "
+"href\\=\"http\\://www.gnu.org/copyleft/gpl.html\">GNU General Public "
+"License</a> для получения более подробной информации."

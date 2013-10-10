@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+
+<project name="JClicTranslationsFromLaunchpad" basedir="." default="main">
+
+  <!-- =================================================================== -->
+  <!-- INIT                                                                -->
+  <!-- =================================================================== -->
+  <target name="init">  
+
+    <!-- Variables -->
+    <property file="${user.home}/.ant-global.properties" />
+    <property file="../../project.properties" />
+    <property name="project.name"        value="JClic" />
+
+    <property name="jclic.src.dir"       value="../../src" />
+    <property name="po.dir"              value="po" />
+    <property name="properties.dir"      value="properties" />
+    <property name="temp.extract.dir"    value="temp.extract.dir" />   
+    <property name="temp.po.dir"         value="temp.po.dir" />   
+
+    <property name="resources.path"      value="edu/xtec/resources" />
+    <property name="messages.path"       value="${resources.path}/messages" />
+
+    <property name="launchpad.filename"  value="launchpad-export" />
+    <available file="${launchpad.filename}.tar.gz" property="launchpad.file.present" />
+
+    <!-- Patterns -->
+    <patternset id="htmls" >
+      <include name="**/*.html"/>
+    </patternset>    
+    <patternset id="langHtmls" >
+      <include name="**/*_*.html"/>
+    </patternset>    
+
+    <patternset id="props" >
+      <include name="**/*.properties"/>
+    </patternset>
+    <patternset id="langProps" >
+      <include name="**/*_*.properties"/>
+    </patternset>
+
+    <patternset id="pos" >
+      <include name="**/*.po"/>
+    </patternset>
+
+    <taskdef name="po2prop" classname="edu.xtec.ant.Po2Prop"/>  
+
+    <echo message="-----------------------------------------------"/>
+    <echo message="Conversion of imported .po files to .properties"/>
+    <echo message="-----------------------------------------------"/>
+
+    <mkdir dir="${po.dir}"/>
+    <mkdir dir="${properties.dir}"/>        
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- MAIN                                                          -->
+  <!-- =================================================================== -->
+  <target name="main"
+          description="Import edited .po files, convert it to .properties and update modified files"
+          depends="init,importLaunchpadFile,exportAuthor,exportCore,exportExtra,exportPlayer,exportUtilities,exportReports,replaceBadSlashes,backToSrc">
+
+    <echo message="*** .properties files updated from ${launchpad.filename}.tar.gz"/>
+
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- IMPORT LAUNCHPAD RESULTS                                            -->
+  <!-- =================================================================== -->
+  <target name="importLaunchpadFile"
+          description="Imports the .po files contained in launchpad-export.tar.gz"
+          depends="init"
+          if="launchpad.file.present">
+
+    <mkdir dir="${temp.extract.dir}"/>
+    <gunzip src="${launchpad.filename}.tar.gz" dest="${temp.extract.dir}"/>
+    <untar src="${temp.extract.dir}/${launchpad.filename}.tar" dest="${temp.extract.dir}"/>
+
+    <mkdir dir="${temp.po.dir}"/>
+    <copy todir="${temp.po.dir}"
+          preservelastmodified="true">
+      <fileset dir="${temp.extract.dir}">
+        <patternset refid="pos"/>
+      </fileset>
+      <mapper>
+        <globmapper from="jclic-activities/listactivities-*" to="jclic-activities/listactivities_*"/>
+        <globmapper from="listactivities/listactivities-*" to="jclic-activities/listactivities_*"/>
+        <globmapper from="jclic-author/authormessages-*" to="jclic-author/AuthorMessages_*"/>
+        <globmapper from="authormessages/authormessages-*" to="jclic-author/AuthorMessages_*"/>
+        <globmapper from="jclic-core/jclicmessages-*" to="jclic-core/JClicMessages_*"/>
+        <globmapper from="jclicmessages/jclicmessages-*" to="jclic-core/JClicMessages_*"/>
+        <globmapper from="jclic-persistent/persistentpathsmessages-*" to="jclic-persistent/PersistentPathsMessages_*"/>
+        <globmapper from="persistentpathsmessages/persistentpathsmessages-*" to="jclic-persistent/PersistentPathsMessages_*"/>
+        <globmapper from="jclic-player/playermessages-*" to="jclic-player/PlayerMessages_*"/>
+        <globmapper from="playermessages/playermessages-*" to="jclic-player/PlayerMessages_*"/>
+        <globmapper from="jclic-accessibility/accessibilitymessages-*" to="jclic-accessibility/AccessibilityMessages_*"/>
+        <globmapper from="accessibilitymessages/accessibilitymessages-*" to="jclic-accessibility/AccessibilityMessages_*"/>
+        <globmapper from="jclic-reportServer/reportservermessages-*" to="jclic-reportServer/ReportServerMessages_*"/>
+        <globmapper from="reportservermessages/reportservermessages-*" to="jclic-reportServer/ReportServerMessages_*"/>
+        <globmapper from="jclic-reportServlets/reportmessages-*" to="jclic-reportServlets/reportMessages_*"/>
+        <globmapper from="reportmessages/reportmessages-*" to="jclic-reportServlets/reportMessages_*"/>
+        <globmapper from="jclic-shapers/listshapers-*" to="jclic-shapers/listshapers_*"/>
+        <globmapper from="listshapers/listshapers-*" to="jclic-shapers/listshapers_*"/>
+        <globmapper from="jclic-utilities/basicmessages-*" to="jclic-utilities/BasicMessages_*"/>
+        <globmapper from="basicmessages/basicmessages-*" to="jclic-utilities/BasicMessages_*"/>
+        <globmapper from="jclic-installer/installer-*" to="jclic-installer/installer_*"/>
+        <globmapper from="installer/installer-*" to="jclic-installer/installer_*"/>
+
+      </mapper>
+    </copy>
+
+    <copy todir="${po.dir}"
+          preservelastmodified="true">
+      <fileset dir="${temp.po.dir}">
+        <patternset refid="pos"/>
+        <different targetdir="${po.dir}"/>
+      </fileset>
+    </copy>
+
+    <delete dir="${temp.po.dir}" />
+    <delete dir="${temp.extract.dir}" />
+
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- EXPORT AUTHOR                                                       -->
+  <!-- =================================================================== -->
+  <target name="exportAuthor"
+          description="Create .properties files for JClicAuthor"
+          depends="init">
+
+    <mkdir dir="${properties.dir}/author/${messages.path}"/>
+    <po2prop destDir="${properties.dir}/author/${messages.path}" 
+             templateFile="${jclic.src.dir}/author/${messages.path}/AuthorMessages.properties"
+             preserveTimestamps="true">
+        <fileset dir="${po.dir}/jclic-author" >
+          <patternset refid="pos" />
+        </fileset>
+    </po2prop>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- EXPORT CORE                                                          -->
+  <!-- =================================================================== -->
+  <target name="exportCore"
+          description="Create .properties files for JClic core"
+          depends="init">
+
+    <mkdir dir="${properties.dir}/core/${messages.path}"/>
+    <po2prop destDir="${properties.dir}/core/${messages.path}" 
+             templateFile="${jclic.src.dir}/core/${messages.path}/JClicMessages.properties"
+             preserveTimestamps="true">
+        <fileset dir="${po.dir}/jclic-core" >
+          <patternset refid="pos" />
+        </fileset>
+    </po2prop>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- EXPORT EXTRA                                                          -->
+  <!-- =================================================================== -->
+  <target name="exportExtra"
+          description="Create .properties files for JClic extra resources"
+          depends="init">
+
+    <mkdir dir="${properties.dir}/extra/${resources.path}/activities"/>
+    <po2prop destDir="${properties.dir}/extra/${resources.path}/activities" 
+             templateFile="${jclic.src.dir}/extra/${resources.path}/activities/listactivities.properties"
+             preserveTimestamps="true">
+        <fileset dir="${po.dir}/jclic-activities" >
+          <patternset refid="pos" />
+        </fileset>
+    </po2prop>
+
+    <mkdir dir="${po.dir}/jclic-automation" />
+    <mkdir dir="${properties.dir}/extra/${resources.path}/automation" />
+    <po2prop destDir="${properties.dir}/extra/${resources.path}/automation" 
+             templateFile="${jclic.src.dir}/extra/${resources.path}/automation/contentproviders.properties"
+             preserveTimestamps="true">
+        <fileset dir="${po.dir}/jclic-automation" >
+          <patternset refid="pos" />
+        </fileset>
+    </po2prop>
+
+    <mkdir dir="${properties.dir}/extra/${resources.path}/shapers" />
+    <po2prop destDir="${properties.dir}/extra/${resources.path}/shapers" 
+             templateFile="${jclic.src.dir}/extra/${resources.path}/shapers/listshapers.properties"
+             preserveTimestamps="true">
+        <fileset dir="${po.dir}/jclic-shapers" >
+          <patternset refid="pos" />
+        </fileset>
+    </po2prop>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- EXPORT PLAYER                                                          -->
+  <!-- =================================================================== -->
+  <target name="exportPlayer"
+          description="Create .properties files for JClic Player"
+          depends="init">
+
+    <mkdir dir="${properties.dir}/player/${messages.path}" />
+    <po2prop destDir="${properties.dir}/player/${messages.path}" 
+             templateFile="${jclic.src.dir}/player/${messages.path}/PlayerMessages.properties"
+             preserveTimestamps="true">
+        <fileset dir="${po.dir}/jclic-player" >
+          <patternset refid="pos" />
+        </fileset>
+    </po2prop>
+    
+    <mkdir dir="${po.dir}/jclic-accessibility" />
+    <po2prop destDir="${properties.dir}/player/${messages.path}" 
+             templateFile="${jclic.src.dir}/player/${messages.path}/AccessibilityMessages.properties"
+             preserveTimestamps="true">
+        <fileset dir="${po.dir}/jclic-accessibility" >
+          <patternset refid="pos" />
+        </fileset>
+    </po2prop>
+    
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- EXPORT UTILITIES                                                          -->
+  <!-- =================================================================== -->
+  <target name="exportUtilities"
+          description="Create .properties files for JClic utilities"
+          depends="init">
+
+    <mkdir dir="${properties.dir}/utilities/${messages.path}" />
+    <po2prop destDir="${properties.dir}/utilities/${messages.path}" 
+             templateFile="${jclic.src.dir}/utilities/${messages.path}/BasicMessages.properties"
+             preserveTimestamps="true">
+        <fileset dir="${po.dir}/jclic-utilities" >
+          <patternset refid="pos" />
+        </fileset>
+    </po2prop>
+
+    <po2prop destDir="${properties.dir}/utilities/${messages.path}" 
+             templateFile="${jclic.src.dir}/utilities/${messages.path}/PersistentPathsMessages.properties"
+             preserveTimestamps="true">
+        <fileset dir="${po.dir}/jclic-persistent" >
+          <patternset refid="pos" />
+        </fileset>
+    </po2prop>
+    
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- EXPORT REPORTS                                                     -->
+  <!-- =================================================================== -->
+  <target name="exportReports"
+          description="Create .properties files for JClic reports"
+          depends="init">
+
+    <mkdir dir="${properties.dir}/report/reportServer/${messages.path}" />
+    <po2prop destDir="${properties.dir}/report/reportServer/${messages.path}" 
+             templateFile="${jclic.src.dir}/report/reportServer/${messages.path}/ReportServerMessages.properties"
+             preserveTimestamps="true">
+        <fileset dir="${po.dir}/jclic-reportServer" >
+          <patternset refid="pos" />
+        </fileset>
+    </po2prop>
+
+    <mkdir dir="${properties.dir}/report/reportServlets/${messages.path}" />
+    <po2prop destDir="${properties.dir}/report/reportServlets/${messages.path}" 
+             templateFile="${jclic.src.dir}/report/reportServlets/${messages.path}/reportMessages.properties"
+             preserveTimestamps="true">
+        <fileset dir="${po.dir}/jclic-reportServlets" >
+          <patternset refid="pos" />
+        </fileset>
+    </po2prop>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- REPLACE BAD SLASHES                                                 -->
+  <!-- =================================================================== -->
+  <target name="replaceBadSlashes"
+          description="replaces '//:' with just ':' in the resulting .properties files"
+          depends="init">
+     <replace dir="${properties.dir}" token="\\:" value=":">
+        <patternset refid="langProps"/>
+     </replace>
+  </target>
+
+
+  <!-- =================================================================== -->
+  <!-- BACK TO SRC                                                         -->
+  <!-- =================================================================== -->
+  <target name="backToSrc"
+          description="returns modified .properties files to the JClic source directory"
+          depends="init">
+
+     <copy todir="${jclic.src.dir}" verbose="true">
+        <fileset dir="${properties.dir}">
+          <patternset refid="langProps"/>
+          <different targetdir="${jclic.src.dir}"/>
+        </fileset>
+     </copy>
+  </target>
+      
+</project>

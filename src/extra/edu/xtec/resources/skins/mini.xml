@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin name="blue" class="edu.xtec.jclic.skins.BasicSkin" image="mini.png">
+  <dimension id="preferredSize" width="760" height="560" />
+  <color id="fill" value="0xC0C0C0" />
+  <rectangle id="frame" left="0" top="0" width="330" height="162" />
+  <slicer left="155" right="170" top="25" bottom="65" />
+  <rectangle id="player" left="2" top="2" width="326" height="130" />
+  <rectangle id="messages" left="79" top="134" width="176" height="25" />
+  <buttons>
+    <settings>
+      <dimension width="22" height="22" />
+      <offset id="active" right="0" down="22" />
+      <offset id="over" right="0" down="44" />
+      <offset id="disabled" right="0" down="66" />
+    </settings>
+    <button id="audio" toggle="true">
+      <settings>
+        <dimension width="15" height="15" />
+        <offset id="active" right="0" down="15" />
+        <offset id="over" right="0" down="30" />
+      </settings>
+      <point id="pos" left="257" top="139" />
+      <point id="source" left="294" top="164" />
+    </button>
+    <button id="prev">
+      <point id="pos" left="30" top="135" />
+      <point id="source" left="88" top="170" />
+    </button>
+    <button id="next">
+      <point id="pos" left="54" top="135" />
+      <point id="source" left="110" top="170" />
+    </button>
+    <button id="reset">
+      <point id="pos" left="276" top="135" />
+      <point id="source" left="44" top="170" />
+    </button>
+    <button id="help">
+      <point id="pos" left="6" top="135" />
+      <point id="source" left="65" top="170" />
+    </button>
+    <button id="about">
+      <point id="pos" left="301" top="135" />
+      <point id="source" left="132" top="170" />
+    </button>
+  </buttons>
+</skin>

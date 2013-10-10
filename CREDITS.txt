@@ -1,0 +1,164 @@
+JClic: Authoring and playing system for educational activities
+Generalitat de Catalunya - Departament d'Educació
+
+Version 0.2.0
+
+WWW:   http://clic.xtec.cat
+       http://projectes.lafarga.cat/projects/jclic
+       
+Email: clic@xtec.net
+
+Developers:
+   Francesc Busquets (project leader)
+   Albert Llastarri
+
+With the support of:
+   Sara Arjona
+   Fernando Cuartero
+   
+Community support:
+   Monica Grau
+   
+Translations:
+
+   Deustch:
+   EDUCATION HIGHWAY
+   Innovationszentrum für Schule und Neue Technologie GmbH
+   Linz/Austria, http://www.eduhi.at
+   Gemeinsam mit:
+   Astrid Leeb
+   Ingeborg Kanz
+   Monika Andraschko
+   Caroline Weigner   
+   
+   Galego:
+   Edugaliza (http://www.edugaliza.org)
+   
+   Français:
+   Gilles Parenna
+   
+   Portugués:
+   Alexandre R. Soares
+   
+   Portugués (Brasil):
+   Hugo Sunayama
+   
+JClic uses code from the following projects:
+
+   JDom
+   The JDOM Project (http://www.jdom.org)
+   Apache-like license
+
+   Browser Launcher
+   Eric Albert, Markus Gebhard and Jeff Chapman (http://browserlauncher2.sourceforge.net)
+   GNU Lesser General Public License (LGPL)
+   
+   JavaLayer and MP3 JavaSound SPI
+   JavaZOOM (http://www.javazoom.net)
+   GNU Lesser General Public License (LGPL)
+   
+   JOrbis
+   ymnk - JCraft (http://www.jcraft.com/jorbis)
+   GNU Lesser General Public License (LGPL)
+   
+   Tritonus
+   Tritonus project (http://www.tritonus.org)
+   GNU Lesser General Public License (LGPL)
+
+   Image4j
+   Ian McDonagh (http://image4j.sourceforge.net)
+   GNU Lesser General Public License (LGPL)
+
+Special Thanks:
+   Dina Abizanda
+   Ismail Alí
+   Jaume Bartrolí
+   David Beltran
+   Blanca Besga
+   Tona Castell
+   Jordi Castells
+   Fina Dènia
+   Margarita Fortuny
+   Galego21.org
+   Miren Garralda
+   Eva Gea
+   Juanjo Gómez
+   Luz González
+   Alexander Herzfeld
+   Santiago Manrique
+   Moncho Marín
+   Juan José Mateo
+   Toni Miquel
+   Orixe Taldea
+   Imma Palahí
+   Manolo Paz
+   Josep Pi
+   Antoni Prim
+   Jordi Quintana
+   Pedro Reina
+   Luis Rodero
+   Rafael Rodríguez
+   Ferran Ruiz
+   Joan A. Solano
+   Sun Microsystems
+   Susi Tello
+   Núria Torrents
+   Montse Vega
+   Martí Vergés
+   Jordi Vivancos
+   Caroline Weigner
+
+-----------------------------------------------------------------------------
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public
+License as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program (in a file called COPYING); if not, go
+to http://www.gnu.org/copyleft/gpl.html or write to 
+
+  Free Software Foundation, Inc.
+  59 Temple Place - Suite 330
+  Boston, MA 02111-1307 USA
+
+-----------------------------------------------------------------------------
+
+Source code to this program is always available; for more
+information visit our website at:
+
+  http://clic.xtec.cat/
+
+
+JClic is built upon other free libraries. Most
+of these libraries are not distributed under the terms
+of the GPL, but rather some other free, GPL-compatible
+license.  Specifically:
+
+  JLayer: LGPL
+    
+  JOrbis: LGPL
+  
+  JavaZoom MP3SPI: LGPL
+  
+  Tritonus: LGPL
+  
+  JDom: BSD/Apache style
+  
+  Crimson: Apache 2.0 license
+  
+For more information, see the documentation inside
+each library's source code directory.
+
+-----------------------------------------------------------------------------
+
+See INSTALL.txt for compilation instructions, and HACKING.txt for information 
+about the internal structure of JClic and the organization of the source code.
+
+-----------------------------------------------------------------------------

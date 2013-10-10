@@ -1,0 +1,40 @@
+# Greek translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2008-07-28 06:54+0000\n"
+"Last-Translator: Yannis Kaskamanidis <ttnfy17@yahoo.gr>\n"
+"Language-Team: Greek <el@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: cl_alert
+msgid ""
+"You are running \"$\" for first time in this computer.\n"
+"Please enter a folder name where to store\n"
+"the data files and program settings."
+msgstr ""
+"Η εφαρμογή \"$\" εκτελείται για πρώτη φορά σε αυτόν τον υπολογιστή.\n"
+"Παρακαλώ εισάγετε ένα όνομα φακέλου για αποθήκευση των\n"
+"αρχείων δεδομένων και των ρυθμίσεων του προγράμματος."
+
+#: cl_err_unableToCreateDir
+msgid ""
+"Unable to create this folder!\n"
+"Please enter a valid location where you have administrative rights."
+msgstr ""
+"Αδυναμία δημιουργίας του φακέλου!\n"
+"Παρακαλώ εισάγετε μια έγκυρη τοποθεσία όπου θα έχετε δικαιώματα διαχειριστή."
+
+#: cl_prompt_title
+msgid "Installation directory"
+msgstr "Φάκελος εγκατάστασης"

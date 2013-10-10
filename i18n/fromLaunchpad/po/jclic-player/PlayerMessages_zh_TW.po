@@ -1,0 +1,823 @@
+# Chinese (Traditional) translation for jclic
+# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2012-05-20 03:27+0000\n"
+"Last-Translator: pikachu <xx8615xx2@yahoo.com.tw>\n"
+"Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#. # JClic player messages
+#: m_File
+msgid "File"
+msgstr "檔案"
+
+#: settings_passwordRequired
+msgid "JClic admin password is required in order to perform this operation."
+msgstr "需要JClic管理者密碼才能執行此操作"
+
+#: m_Help
+msgid "Help"
+msgstr "幫助"
+
+#: m_Skin
+msgid "Skin"
+msgstr "外觀"
+
+#: action_helpAbout_caption
+msgid "About..."
+msgstr "關於..."
+
+#: libraryManager_mainLibraryTitle
+msgid "Main library"
+msgstr "主要目錄庫"
+
+#: library_badFormat
+msgid ""
+"This JClic file is not a project library!\n"
+"Libraries are a special type of JClic projects."
+msgstr "這個JClic檔不是一個專案的函式庫"
+
+#: library_mainMenu
+msgid "Main menu"
+msgstr "主選單"
+
+#: library_newLibraryName
+msgctxt "library_newLibraryName"
+msgid "New project library"
+msgstr "新專案庫"
+
+#: libraryManager_new_prompt
+msgid "Do you want to create a new library or connect to a existing one?"
+msgstr "你要創建新的目錄庫，或連接到一個現有的？"
+
+#: libraryManager_connectToLibrary
+msgid "Connect"
+msgstr "連線"
+
+#: libraryManager_createNewLibrary
+msgctxt "libraryManager_createNewLibrary"
+msgid "New"
+msgstr "新增"
+
+#: libraryManager_new_tooltip
+msgid "Create or connect to a new library"
+msgstr "建立或連線新的資料庫"
+
+#: libraryManager_new_caption
+msgctxt "libraryManager_new_caption"
+msgid "New"
+msgstr "新增"
+
+#: menuElement_dlg_icon_tooltip
+msgid "Button icon"
+msgstr "按紐圖示"
+
+#: menuElement_dlg_description_tooltip
+msgid "Description of the button, used as a tooltip text."
+msgstr "按鈕的詳細描述(用tooltip語法)"
+
+#: menuElement_dlg_description
+msgid "Description:"
+msgstr "描述："
+
+#: edit_find_image
+msgid "Find image..."
+msgstr "尋找圖檔..."
+
+#: menuElement_dlg_icon
+msgid "Icon:"
+msgstr "圖示："
+
+#: edit_find_file
+msgid "Find file..."
+msgstr "尋找檔案..."
+
+#: menuElement_dlg_project_tooltip
+msgid "Path to JClic project"
+msgstr "JClic專案路徑"
+
+#: menuElement_dlg_project
+msgid "Project:"
+msgstr "專案："
+
+#: menuElement_dlg_text_tooltip
+msgid "Button text"
+msgstr "按紐內容"
+
+#: edit_text
+msgid "Text:"
+msgstr "文字："
+
+#: menu_dlg_name_tooltip
+msgid "Folder name"
+msgstr "資料夾名稱"
+
+#: library_dlg_name_tooltip
+msgid "Library name"
+msgstr "函式庫名稱"
+
+#: edit_name
+msgid "Name:"
+msgstr "名稱:"
+
+#: edit_title
+msgid "Title:"
+msgstr "標題："
+
+#: library_dlg_title
+msgid "Library properties"
+msgstr "函式庫屬性"
+
+#: menu_dlg_title
+msgid "Folder properties"
+msgstr "資料夾屬性"
+
+#: menuElement_dlg_title
+msgid "Button properties"
+msgstr "按紐屬性"
+
+#: menu_delete_tooltip
+msgid "Delete current menu"
+msgstr "刪除目前目錄"
+
+#: menu_delete_caption
+msgctxt "menu_delete_caption"
+msgid "Delete"
+msgstr "刪除"
+
+#: menuElement_delete_tooltip
+msgid "Delete current menu element"
+msgstr "刪除目前目錄元素"
+
+#: action_libraries_caption
+msgid "Libraries..."
+msgstr "函式庫"
+
+#: dlg_save_title
+msgid "Save file..."
+msgstr "儲存檔案..."
+
+#: error_propertiesFile_beg
+msgid "Error opening \""
+msgstr "開啟時發生錯誤："
+
+#: error_propertiesFile_end
+msgid "\". Defaults will be used."
+msgstr "。.個違規被發現"
+
+#: menuElement_delete_caption
+msgctxt "menuElement_delete_caption"
+msgid "Delete"
+msgstr "刪除"
+
+#: menu_newMenuElement_tooltip
+msgid "Create a new shortcut to a project"
+msgstr "建立新的捷徑到此專案"
+
+#: menu_newMenuName
+msgid "New folder"
+msgstr "新資料夾"
+
+#: menu_newMenu_tooltip
+msgid "Create a new folder for project buttons"
+msgstr "為專案的按紐建立一個新資料夾"
+
+#: menu_newMenu_caption
+msgid "New button's folder"
+msgstr "新的按紐資料夾"
+
+#: menu_newMenuElement_caption
+msgid "New project button"
+msgstr "新的專案按紐"
+
+#: menu_newMenuElementName
+msgid "New button"
+msgstr "新按紐"
+
+#: library_cancel_tooltip
+msgid "Cancel changes"
+msgstr "取消改變"
+
+#: library_cancel_caption
+msgctxt "library_cancel_caption"
+msgid "Cancel"
+msgstr "取消"
+
+#: libraryManager_edit_tooltip
+msgid "Edit selected library"
+msgstr "編輯所選的資料庫"
+
+#: libraryManager_edit_caption
+msgid "Edit"
+msgstr "編輯"
+
+#: library_select_caption_ok_tooltip
+msgid "Save changes"
+msgstr "儲存更改"
+
+#: library_select_caption_tooltip
+msgid "Choose selected folder"
+msgstr "選擇所選的資料夾"
+
+#: library_select_caption_ok
+msgid "Ok"
+msgstr "Ok"
+
+#: library_select_caption
+msgctxt "library_select_caption"
+msgid "Select"
+msgstr "選取"
+
+#: library_caption
+msgid "JClic projects library"
+msgstr "JClic專案函式庫"
+
+#: libraryManager_select_tooltip
+msgid "Open the selected library"
+msgstr "打開所選的函式庫"
+
+#: libraryManager_cancel_tooltip
+msgctxt "libraryManager_cancel_tooltip"
+msgid "Cancel"
+msgstr "取消"
+
+#: libraryManager_cancel_caption
+msgctxt "libraryManager_cancel_caption"
+msgid "Cancel"
+msgstr "取消"
+
+#: libraryManager_select_caption
+msgctxt "libraryManager_select_caption"
+msgid "Select"
+msgstr "選取"
+
+#: libraryManager_caption
+msgid "Select library"
+msgstr "選擇函式庫"
+
+#: library_error_reading
+msgid "Error reading project library!"
+msgstr "讀取函式庫錯誤!"
+
+#: wizard_next
+msgid "Next >"
+msgstr "下一步>"
+
+#: wizard_prev
+msgid "< Previous"
+msgstr "<上一步"
+
+#: wizard_finish
+msgid "Finish"
+msgstr "完成"
+
+#: library_error_creating_icons
+msgid "Error creating library icons!"
+msgstr "製造函式庫圖示失敗！"
+
+#: install_title
+msgid "Installation of JClic projects"
+msgstr "JClic專案的初使值"
+
+#: install_info_description
+msgid "Installation of a new JClic project"
+msgstr "新的JClic專案初使值"
+
+#: install_info_from
+msgid "From:"
+msgstr "從："
+
+#: wizard_cancel
+msgctxt "wizard_cancel"
+msgid "Cancel"
+msgstr "取消"
+
+#: wizard_cancel_tooltip
+msgid "Cancel the operation"
+msgstr "取消操作"
+
+#: wizard_finish_tooltip
+msgid "Finish the operation"
+msgstr "完成操作"
+
+#: wizard_next_tooltip
+msgid "Next step of the operation"
+msgstr "回復下一步操作"
+
+#: wizard_prev_tooltip
+msgid "Previous step of the operation"
+msgstr "復原操作"
+
+#: install_select_library
+msgid "Select the library where to install the project:"
+msgstr "選擇一個資料庫來安裝專案"
+
+#: install_copy_files
+msgid "File copy"
+msgstr "複製檔案"
+
+#: install_source
+msgid "Source:"
+msgstr "來源:"
+
+#: install_dest
+msgid "Destination:"
+msgstr "目的地:"
+
+#: install_status
+msgid "Status:"
+msgstr "狀態："
+
+#: install_start
+msgid "Start the installation"
+msgstr "開始安裝"
+
+#: install_start_tooltip
+msgid "Start the copy of files to your computer"
+msgstr "開始複製檔案至電腦"
+
+#: install_progress_tooltip
+msgid "Progress of the installation"
+msgstr "安裝過程"
+
+#: install_msg_waiting
+msgid "Waiting for confirmation."
+msgstr "等待確認"
+
+#: install_msg_creating_dirs
+msgid "Creating directories"
+msgstr "建立使用手冊"
+
+#: install_msg_copying
+msgid "Copying file"
+msgstr "複製檔案"
+
+#: install_msg_end
+msgid "Finished!"
+msgstr "安裝完成！"
+
+#: install_msg_cleanup
+msgid "Performing cleanup..."
+msgstr "清除動作…"
+
+#: install_msg_cancel
+msgid "Installation cancelled!"
+msgstr "取消安裝！"
+
+#: install_error
+msgid "Install error!"
+msgstr "安裝錯誤！"
+
+#: install_select_folder
+msgid "Select the folder where to place the project icons:"
+msgstr "選擇資料夾來放置專案圖示"
+
+#: install_library_folders
+msgid "Library folders:"
+msgstr "函式庫置放資料夾："
+
+#: install_success_1
+msgid "The project are now installed on your system!"
+msgstr "專案已安裝至系統！"
+
+#: install_success_2
+msgid "In order to run it, select its"
+msgstr "為了執行本程式，必需選擇這些選項"
+
+#: install_success_3
+msgid "icon on the project library."
+msgstr "專案資料庫的圖示"
+
+#: wizard_info
+msgid "Press \"Next\" to start."
+msgstr "選\"下一步\"開始"
+
+#: install_step_1
+msgid "1. Selection of JClic library"
+msgstr "JClic資料庫的選擇"
+
+#: install_step_2
+msgid "2. Download files"
+msgstr "下載檔案"
+
+#: install_step_3
+msgid "3. Creation of icons"
+msgstr "製作圖示"
+
+#: install_step_4
+msgid "Installation finished!"
+msgstr "安裝完成！"
+
+#: install_info_info
+msgid "You request to install the project:"
+msgstr "您需要安裝專案："
+
+#: settings_title
+msgid "Settings"
+msgstr "設定"
+
+#: library_error_clone
+msgid "Unable to clone library!"
+msgstr "無法複製函式庫！"
+
+#: settings_security
+msgid "Security"
+msgstr "安全性"
+
+#: settings_password_protect
+msgid "Protect settings with password"
+msgstr "設置保護密碼"
+
+#: settings_new_password
+msgid "New password:"
+msgstr "新密碼："
+
+#: settings_new_password_confirm
+msgid "Confirm new password:"
+msgstr "確認新密碼:"
+
+#: settings_general
+msgid "General"
+msgstr "一般"
+
+#: settings_look
+msgid "Look & Feel:"
+msgstr "感觀："
+
+#: settings_skin
+msgid "Skin:"
+msgstr "外觀："
+
+#: settings_language
+msgid "Language:"
+msgstr "語言:"
+
+#: settings_reports
+msgid "Reports"
+msgstr "報告"
+
+#: settings_report_use
+msgid "Write scores to a database"
+msgstr "寫入資料庫的分數"
+
+#: settings_report_engine
+msgid "Reporter class:"
+msgstr "回報者的class"
+
+#: settings_report_params
+msgid "Parameters:"
+msgstr "參數："
+
+#: settings_media
+msgid "Multimedia"
+msgstr "多媒體"
+
+#: settings_media_enabled
+msgid "Multimedia enabled"
+msgstr "多媒體可執行"
+
+#: settings_media_system
+msgid "Multimedia system:"
+msgstr "多媒體系統"
+
+#: settings_media_event_sounds
+msgid "Event sounds enabled"
+msgstr "事件音效使用中"
+
+#: settings_library
+msgid "Libraries"
+msgstr "函式庫"
+
+#: settings_library_autorun
+msgid "Automatically go to libraries when JClic starts"
+msgstr "當JClic開始時，自動引入的函式庫"
+
+#: m_Tools
+msgid "Tools"
+msgstr "工具箱"
+
+#: m_File_Mnemonic
+msgid "F"
+msgstr "F"
+
+#: m_Tools_Mnemonic
+msgctxt "m_Tools_Mnemonic"
+msgid "T"
+msgstr "T"
+
+#: m_Help_Mnemonic
+msgid "H"
+msgstr "H"
+
+#: m_Activity
+msgid "Activity"
+msgstr "活動"
+
+#: m_Activity_Mnemonic
+msgid "A"
+msgstr "A"
+
+#: action_openFile_caption
+msgid "Open file..."
+msgstr "開啟檔案..."
+
+#: action_openFile_tooltip
+msgid "Open a JClic project file"
+msgstr "打開JClic專案"
+
+#: action_openFile_keys
+msgid "OO"
+msgstr "OO"
+
+#: action_openUrl_caption
+msgid "Open URL..."
+msgstr "開啟網址..."
+
+#: action_openUrl_tooltip
+msgid "Open a JClic project directly form Internet"
+msgstr "直接從網路開始JClic專案"
+
+#: action_openUrl_keys
+msgid "UU"
+msgstr "UU"
+
+#: action_exit_caption
+msgid "Exit"
+msgstr "結束"
+
+#: action_exit_tooltip
+msgid "Close JClic"
+msgstr "關閉JClic"
+
+#: action_exit_keys
+msgid "XX"
+msgstr "XX"
+
+#: action_settings_caption
+msgid "Settings..."
+msgstr "設定..."
+
+#: action_settings_tooltip
+msgid "Adjust global program settings"
+msgstr "調整全域設定"
+
+#: action_settings_keys
+msgctxt "action_settings_keys"
+msgid "T"
+msgstr "T"
+
+#: action_libraries_tooltip
+msgid "Open or edit a JClic library."
+msgstr "打開或編輯JClic資料庫"
+
+#: action_libraries_keys
+msgid "LL"
+msgstr "LL"
+
+#: action_helpAbout_tooltip
+msgid "Information about JClic"
+msgstr "JClic的相關資訊"
+
+#: action_helpAbout_keys
+msgid "AA"
+msgstr "AA"
+
+#: menuElement_err_iconTooLarge
+msgid "This image is too large to be used as an icon!"
+msgstr "這圖片太大，無法作為圖示使用。"
+
+#: settings_report_tcp
+msgid "Connect to JClic report server:"
+msgstr "連接到JClic回報伺服器"
+
+#: settings_report_jdbc
+msgid "Direct JDBC connection:"
+msgstr "JDBC直連："
+
+#: settings_report_other
+msgid "Other:"
+msgstr "其他："
+
+#: settings_report_address
+msgid "Host:"
+msgstr "主機:"
+
+#: settings_report_port
+msgid "Port:"
+msgstr "連接埠:"
+
+#: settings_report_driver
+msgid "Driver:"
+msgstr "驅動程式:"
+
+#: settings_report_url
+msgid "URL:"
+msgstr "網址："
+
+#: settings_report_user
+msgid "User:"
+msgstr "使用者："
+
+#: settings_report_pwd
+msgid "Password:"
+msgstr "密碼："
+
+#: settings_report_options
+msgid "Reporter params::"
+msgstr "回報參數"
+
+#: settings_report_err_server
+msgid "Bad report server name!"
+msgstr "不可行的回報伺服器名稱"
+
+#: settings_report_err_port
+msgid "Incorrect port number! Please enter a value between 1000 and 65000."
+msgstr "錯誤的連接埠號碼！值必需在1000到65000之間"
+
+#: settings_report_err
+msgid "Incorrect report system data!"
+msgstr "錯誤的回報伺服器資料"
+
+#: settings_report_type
+msgid "Reporting engine:"
+msgstr "回報甲撆"
+
+#: settings_media_jmf
+msgid "Java Media Framework (JMF)"
+msgstr "JAVA媒體架構(JMF)"
+
+#: settings_media_qt
+msgid "QuickTime"
+msgstr "QuickTime"
+
+#: settings_media_default
+msgid "Auto-detect"
+msgstr "自動檢測"
+
+#: settings_security_tooltip
+msgid "Security settings"
+msgstr "安全性設定"
+
+#: settings_report_tooltip
+msgid "Report system settings"
+msgstr "回報伺服器設定"
+
+#: settings_media_tooltip
+msgid "Multimedia system options"
+msgstr "多媒體系統選項"
+
+#: settings_general_tooltip
+msgid "Language and aspect settings"
+msgstr "語言及外觀設定"
+
+#: settings_library_tooltip
+msgid "Library settings and editor"
+msgstr "函式庫設定和編輯器"
+
+#: settings_look_tooltip
+msgid "User interface look & feel"
+msgstr "使用者外觀"
+
+#: settings_skin_tooltip
+msgid "Selection of the graphic aspect of JClic"
+msgstr "JClic的圖像外觀"
+
+#: settings_language_tooltip
+msgid "Language selection"
+msgstr "語言選擇"
+
+#: settings_report_use_tooltip
+msgid "Enables/disables the connection to a JClic reports database"
+msgstr "JClic回報資料庫的許可"
+
+#: settings_report_tcp_tooltip
+msgid "Reporting engine based on a TCP/IP connection"
+msgstr "TCP/IP 直連的回報引撆"
+
+#: settings_report_jdbc_tooltip
+msgid "Reporting engine based on a direct connection to a database"
+msgstr "直連資料庫的回報引擎"
+
+#: settings_report_other_tooltip
+msgid "Other reporting engines..."
+msgstr "其它回報引撆"
+
+#: settings_report_address_tooltip
+msgid "Report server name or IP address"
+msgstr "回報伺服器的名稱或IP"
+
+#: settings_report_port_tooltip
+msgid "Port used for connection (default is 5510)"
+msgstr "連接用的連接埠(預設為5510)："
+
+#: edit_file
+msgid "File:"
+msgstr "檔案："
+
+#: error_launchLibrary
+msgid "Error launching library"
+msgstr "執行函式庫錯誤"
+
+#: install_toSourceFolder
+msgid "Installing to source folder!"
+msgstr "安裝到來源資料夾"
+
+#: edit_find_media
+msgid "Find media file..."
+msgstr "尋找媒體檔"
+
+#: libraryManager_delete_caption
+msgctxt "libraryManager_delete_caption"
+msgid "Delete"
+msgstr "刪除"
+
+#: libraryManager_delete_tooltip
+msgid "Delete the reference to the selected library"
+msgstr "永久刪除函式庫"
+
+#: libraryManager_delete_confirm
+msgid "Do you really want to delete the reference to the selected library?"
+msgstr "你確定要永久刪除這個函式庫嗎？"
+
+#: libraryManager_new_exists
+msgid "This library is already linked to the system."
+msgstr "這個函式庫已連接至系統"
+
+#: edit_find_image_keys
+msgid "F*"
+msgstr "F*"
+
+#: menu_newMenuElement_caption_keys
+msgid "NN"
+msgstr "NN"
+
+#: menu_newMenu_caption_keys
+msgid "MM"
+msgstr "MM"
+
+#: edit_find_file_keys
+msgid "FF"
+msgstr "FF"
+
+#: libraryManager_newLibaryOption
+msgid "Create new project library"
+msgstr "新增專案庫"
+
+#: libraryManager_connectToExistingOption
+msgid "Add a link to an exisiting project library"
+msgstr "新增連結到現有的專案庫"
+
+#: libraryManager_fileOrUrlCaption
+msgid "File or URL\\:"
+msgstr "檔案或網址："
+
+#: libraryManager_newLibraryTitle
+msgctxt "libraryManager_newLibraryTitle"
+msgid "New project library"
+msgstr "新專案庫"
+
+#: libraryManager_warnNoFileSelected
+msgid "Please enter thr URL or file name of the project library\\!"
+msgstr "請輸入專案庫的網址或專案名稱"
+
+#: install_launchProject
+msgid "Open the project now"
+msgstr "現在開啟專案"
+
+#: settings_browser
+msgid "Preferred browser\\:"
+msgstr "偏好的瀏覽器："
+
+#: settings_browser_tooltip
+msgid ""
+"Command used to launch the browser (firefox, iexplore, mozilla, opera...)"
+msgstr "用來開啟瀏覧器(firefox, iexplore, mozilla, opera...)的指令"
+
+#: settings_country
+msgid "Country code\\:"
+msgstr "國家代碼："
+
+#: settings_country_tooltip
+msgid ""
+"Optional two-letter code corresponding to the country-specific variant of "
+"the language (ex.\\: BR for Brazilian Portuguese)"
+msgstr "用兩個字母來簡寫語言(EX:BR for Brazilian Portuguese)"
+
+#: settings_variant
+msgid "Variant\\:"
+msgstr "變數："
+
+#: settings_variant_tooltip
+msgid "Optional variant code of the language"
+msgstr "語言的變數代碼(非必須)"

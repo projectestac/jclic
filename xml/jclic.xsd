@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" version="0.1.0">
+	<xs:element name="JClicProject">
+		<xs:annotation>
+			<xs:documentation>Main element of JClic projects</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="settings" type="projectSettingsType"/>
+				<xs:element ref="sequence"/>
+				<xs:element ref="activities"/>
+				<xs:element ref="mediaBag"/>
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:string" use="required"/>
+			<xs:attribute name="version" type="xs:string" use="required"/>
+			<xs:attribute name="type" type="xs:string" use="optional"/>
+			<xs:attribute name="code" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="projectSettingsType">
+		<xs:sequence>
+			<xs:element name="title" type="xs:string" minOccurs="0"/>
+			<xs:element name="revision" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="comments" type="multilineType" minOccurs="0"/>
+						<xs:element name="author" type="authorType" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+					<xs:attribute name="description" type="xs:string" use="required"/>
+					<xs:attribute name="date" type="dateType" use="required"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="author" type="authorType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="organization" type="organizationType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="language" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="description" type="multilineType" minOccurs="0"/>
+			<xs:element name="descriptors" minOccurs="0">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:string">
+							<xs:attribute name="area" type="xs:string"/>
+							<xs:attribute name="level" type="xs:string"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element ref="eventSounds" minOccurs="0"/>
+			<xs:element ref="skin" minOccurs="0"/>
+			<xs:element name="icon" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="file" type="xs:string" use="required"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="locale" type="xs:string"/>
+	</xs:complexType>
+	<xs:element name="sequence">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="item" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="description" type="multilineType" minOccurs="0"/>
+							<xs:element name="jump" type="activitySequenceJumpType" id="fwdJump" minOccurs="0"/>
+							<xs:element name="jump" type="activitySequenceJumpType" id="backJump" minOccurs="0"/>
+						</xs:sequence>
+						<xs:attribute name="id" type="xs:string"/>
+						<xs:attribute name="name" type="xs:string" use="required"/>
+						<xs:attribute name="delay" type="xs:short" default="0"/>
+						<xs:attribute name="navButtons" default="both">
+							<xs:simpleType>
+								<xs:restriction base="xs:NMTOKEN">
+									<xs:enumeration value="none"/>
+									<xs:enumeration value="fwd"/>
+									<xs:enumeration value="back"/>
+									<xs:enumeration value="both"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="mediaBag">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="media" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:attribute name="name" type="xs:string" use="required"/>
+						<xs:attribute name="file" type="xs:string" use="required"/>
+						<xs:attribute name="save" type="xs:boolean" default="true"/>
+						<xs:attribute name="usage" type="xs:short" default="0"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:unique name="mediaId">
+			<xs:selector xpath="./media"/>
+			<xs:field xpath="@name"/>
+		</xs:unique>
+	</xs:element>
+	<xs:element name="activities">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="activity" type="activityType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="PK_ACT">
+			<xs:selector xpath="./activity"/>
+			<xs:field xpath="@name"/>
+		</xs:key>
+	</xs:element>
+	<xs:complexType name="activityType">
+		<xs:sequence>
+			<xs:element name="description" type="multilineType" minOccurs="0"/>
+			<xs:element ref="messages"/>
+			<xs:element name="settings" type="activitySettingsType"/>
+			<xs:element name="automation" type="automationType" minOccurs="0"/>
+			<xs:choice>
+				<xs:group ref="panelActivityElements"/>
+				<xs:group ref="textActivityElements"/>
+				<xs:group ref="textGridActivityElements"/>
+				<xs:element name="menuElement" type="menuElementType" maxOccurs="unbounded"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="class" type="xs:string" use="required"/>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="code" type="xs:string"/>
+		<xs:attributeGroup ref="textActivityAttributes"/>
+		<xs:attribute name="inverse" type="xs:boolean" default="false"/>
+	</xs:complexType>
+	<xs:group name="panelActivityElements">
+		<xs:sequence>
+			<xs:element name="cells" type="cellsType" minOccurs="0" maxOccurs="3"/>
+			<xs:element name="scramble" type="activityScrambleType" minOccurs="0"/>
+			<xs:element name="layout" type="activityLayoutType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="textActivityElements">
+		<xs:sequence>
+			<xs:element name="checkButton" type="xs:string" minOccurs="0"/>
+			<xs:element name="prevScreen" type="prevScreenType" minOccurs="0"/>
+			<xs:element name="document" type="activityDocumentType" minOccurs="0"/>
+			<xs:element name="evaluator" type="textEvaluatorType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:group name="textGridActivityElements">
+		<xs:sequence>
+			<xs:element name="textGrid" type="textGridType"/>
+			<xs:element name="clues" type="cluesType" minOccurs="0"/>
+			<xs:element name="cells" type="cellsType" minOccurs="0" maxOccurs="2"/>
+			<xs:element name="layout" type="activityLayoutType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:attributeGroup name="textActivityAttributes">
+		<xs:attribute name="autoJump" type="xs:boolean" default="false"/>
+		<xs:attribute name="forceOkToAdvance" type="xs:boolean" default="false"/>
+		<xs:attribute name="type">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="orderWords"/>
+					<xs:enumeration value="orderParagraphs"/>
+					<xs:enumeration value="identifyWords"/>
+					<xs:enumeration value="identifyChars"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="amongParagraphs" type="xs:boolean" default="false"/>
+	</xs:attributeGroup>
+	<xs:complexType name="prevScreenType">
+		<xs:sequence>
+			<xs:element ref="style" minOccurs="0"/>
+			<xs:element name="p" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="maxTime" type="xs:short" default="0"/>
+	</xs:complexType>
+	<xs:complexType name="menuElementType">
+		<xs:attribute name="caption" type="xs:string"/>
+		<xs:attribute name="icon" type="xs:string" default="@ico00.gif"/>
+		<xs:attribute name="path" type="xs:string"/>
+		<xs:attribute name="sequence" type="xs:string"/>
+		<xs:attribute name="description" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="activityScrambleType">
+		<xs:attribute name="times" type="xs:short" use="required"/>
+		<xs:attribute name="primary" type="xs:boolean"/>
+		<xs:attribute name="secondary" type="xs:boolean"/>
+	</xs:complexType>
+	<xs:complexType name="activityLayoutType">
+		<xs:attribute name="position" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="AB"/>
+					<xs:enumeration value="BA"/>
+					<xs:enumeration value="AUB"/>
+					<xs:enumeration value="BUA"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attributeGroup ref="crossWordAttributeGroup"/>
+	</xs:complexType>
+	<xs:attributeGroup name="crossWordAttributeGroup">
+		<xs:attribute name="wildTransparent" type="xs:boolean" default="false"/>
+		<xs:attribute name="upperCase" type="xs:boolean" default="true"/>
+		<xs:attribute name="checkCase" type="xs:boolean" default="true"/>
+	</xs:attributeGroup>
+	<xs:complexType name="activitySettingsType">
+		<xs:sequence>
+			<xs:element ref="skin" minOccurs="0"/>
+			<xs:element name="helpWindow" type="helpWindowType" minOccurs="0"/>
+			<xs:element name="container" type="containerType" minOccurs="0"/>
+			<xs:element name="window" type="activityWindowType" minOccurs="0"/>
+			<xs:element ref="eventSounds" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="margin" type="xs:short" default="8"/>
+		<xs:attribute name="infoUrl" type="xs:string"/>
+		<xs:attribute name="infoCmd" type="xs:string"/>
+		<xs:attribute name="useOrder" type="xs:boolean" default="false"/>
+		<xs:attribute name="dragCells" type="xs:boolean" default="false"/>
+		<xs:attribute name="maxTime" type="xs:short" default="0"/>
+		<xs:attribute name="countDownTime" type="xs:boolean" default="false"/>
+		<xs:attribute name="maxActions" type="xs:short" default="0"/>
+		<xs:attribute name="countDownActions" type="xs:boolean" default="false"/>
+		<xs:attribute name="report" type="xs:boolean" default="true"/>
+		<xs:attribute name="reportActions" type="xs:boolean" default="false"/>
+	</xs:complexType>
+	<xs:complexType name="helpWindowType">
+		<xs:complexContent>
+			<xs:extension base="multilineType">
+				<xs:attribute name="showSolution" type="xs:boolean" default="false"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="containerType">
+		<xs:all>
+			<xs:element name="image" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="name" type="xs:string" use="required"/>
+					<xs:attribute name="tiled" type="xs:boolean" use="required"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="counters">
+				<xs:complexType>
+					<xs:attribute name="time" type="xs:boolean" use="required"/>
+					<xs:attribute name="actions" type="xs:boolean" use="required"/>
+					<xs:attribute name="score" type="xs:boolean" use="required"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element ref="gradient" minOccurs="0"/>
+		</xs:all>
+		<xs:attribute name="bgColor" type="colorType" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="activityWindowType">
+		<xs:sequence>
+			<xs:element ref="gradient" minOccurs="0"/>
+			<xs:element name="position" type="pointType" minOccurs="0"/>
+			<xs:element name="size" type="sizeType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="bgColor" type="colorType"/>
+		<xs:attribute name="transparent" type="xs:boolean" default="false"/>
+		<xs:attribute name="border" type="xs:boolean" default="true"/>
+	</xs:complexType>
+	<xs:element name="eventSounds">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="start" type="eventSoundType" minOccurs="0"/>
+				<xs:element name="click" type="eventSoundType" minOccurs="0"/>
+				<xs:element name="actionError" type="eventSoundType" minOccurs="0"/>
+				<xs:element name="actionOk" type="eventSoundType" minOccurs="0"/>
+				<xs:element name="finishedError" type="eventSoundType" minOccurs="0"/>
+				<xs:element name="finishedOk" type="eventSoundType" minOccurs="0"/>
+			</xs:sequence>
+			<xs:attribute name="enabled" type="tristateType"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="style">
+		<xs:complexType>
+			<xs:all>
+				<xs:element ref="font" minOccurs="0"/>
+				<xs:element ref="gradient" minOccurs="0"/>
+				<xs:element ref="color" minOccurs="0"/>
+			</xs:all>
+			<xs:attribute name="shadow" type="xs:boolean" default="false"/>
+			<xs:attribute name="transparent" type="xs:boolean" default="false"/>
+			<xs:attribute name="margin" type="xs:short" default="6"/>
+			<xs:attribute name="borderStroke" type="xs:decimal" default="0.75"/>
+			<xs:attribute name="markerStroke" type="xs:decimal" default="2.75"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="cell" type="cellType"/>
+	<xs:element name="messages">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="cell" type="messageType" minOccurs="0" maxOccurs="4"/>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:unique name="msgId">
+			<xs:selector xpath="./cell"/>
+			<xs:field xpath="@type"/>
+		</xs:unique>
+	</xs:element>
+	<xs:complexType name="messageType">
+		<xs:complexContent>
+			<xs:extension base="cellType">
+				<xs:attribute name="type">
+					<xs:simpleType>
+						<xs:restriction base="xs:NMTOKEN">
+							<xs:enumeration value="initial"/>
+							<xs:enumeration value="final"/>
+							<xs:enumeration value="previous"/>
+							<xs:enumeration value="finalError"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="authorType">
+		<xs:sequence>
+			<xs:element name="comments" type="multilineType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="mail" type="xs:string"/>
+		<xs:attribute name="url" type="xs:string"/>
+		<xs:attribute name="rol" type="xs:string"/>
+		<xs:attribute name="organization" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="organizationType">
+		<xs:sequence>
+			<xs:element name="comments" type="multilineType" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="mail" type="xs:string"/>
+		<xs:attribute name="url" type="xs:string"/>
+		<xs:attribute name="address" type="xs:string"/>
+		<xs:attribute name="pc" type="xs:string"/>
+		<xs:attribute name="city" type="xs:string"/>
+		<xs:attribute name="country" type="xs:string"/>
+		<xs:attribute name="state" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="eventSoundType">
+		<xs:attribute name="enabled" type="tristateType"/>
+		<xs:attribute name="file" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="jumpInfoType" abstract="true">
+		<xs:attribute name="action" default="JUMP">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="JUMP"/>
+					<xs:enumeration value="STOP"/>
+					<xs:enumeration value="RETURN"/>
+					<xs:enumeration value="EXIT"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="tag" type="xs:string"/>
+		<xs:attribute name="project" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="conditionalJumpInfoType">
+		<xs:complexContent>
+			<xs:extension base="jumpInfoType">
+				<xs:attribute name="id" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:NMTOKEN">
+							<xs:enumeration value="upper"/>
+							<xs:enumeration value="lower"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+				<xs:attribute name="threshold" type="xs:short" use="required"/>
+				<xs:attribute name="time" type="xs:short" default="-1"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="activitySequenceJumpType">
+		<xs:complexContent>
+			<xs:extension base="jumpInfoType">
+				<xs:sequence>
+					<xs:element name="jump" type="conditionalJumpInfoType" minOccurs="0" maxOccurs="2"/>
+				</xs:sequence>
+				<xs:attribute name="id" use="required">
+					<xs:simpleType>
+						<xs:restriction base="xs:NMTOKEN">
+							<xs:enumeration value="back"/>
+							<xs:enumeration value="forward"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="cellType">
+		<xs:sequence>
+			<xs:element ref="style" minOccurs="0"/>
+			<xs:element name="media" type="mediaType" minOccurs="0"/>
+			<xs:element name="p" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:integer" default="-1"/>
+		<xs:attribute name="item" type="xs:integer" default="-1"/>
+		<xs:attribute name="hAlign" type="hAlignType">
+			<xs:annotation>
+				<xs:documentation>Deprecated attribute. Please use imgAlign and txtAlign instead of hAlign and vAlign</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="vAlign" type="vAlignType">
+			<xs:annotation>
+				<xs:documentation>Deprecated attribute. Please use imgAlign and txtAlign instead of hAlign and vAlign</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="txtAlign" type="multipleAlignType" default="middle,middle"/>
+		<xs:attribute name="imgAlign" type="multipleAlignType" default="middle,middle"/>
+		<xs:attribute name="avoidOverlapping" type="xs:boolean" default="false"/>
+		<xs:attribute name="width" type="xs:short"/>
+		<xs:attribute name="height" type="xs:short"/>
+		<xs:attribute name="border" type="xs:boolean"/>
+		<xs:attribute name="image" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="cellsType">
+		<xs:sequence>
+			<xs:element ref="style" minOccurs="0"/>
+			<xs:element name="shaper" type="shaperType" minOccurs="0"/>
+			<xs:element name="ids" minOccurs="0">
+				<xs:simpleType>
+					<xs:list itemType="xs:integer"/>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element ref="cell" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="rows" type="xs:short" default="0"/>
+		<xs:attribute name="columns" type="xs:short" default="0"/>
+		<xs:attribute name="cellWidth" type="xs:decimal" default="0.0"/>
+		<xs:attribute name="cellHeight" type="xs:decimal" default="0.0"/>
+		<xs:attribute name="border" type="xs:boolean"/>
+		<xs:attribute name="image"/>
+		<xs:attribute name="id">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="primary"/>
+					<xs:enumeration value="secondary"/>
+					<xs:enumeration value="solvedPrimary"/>
+					<xs:enumeration value="acrossClues"/>
+					<xs:enumeration value="downClues"/>
+					<xs:enumeration value="answers"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="automationType">
+		<xs:choice>
+			<xs:group ref="arithElements"/>
+		</xs:choice>
+		<xs:attribute name="class" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="shaperType">
+		<xs:group ref="holesShaperElements"/>
+		<xs:attribute name="class" type="xs:string" use="required"/>
+		<xs:attribute name="cols" type="xs:short" use="required"/>
+		<xs:attribute name="rows" type="xs:short" use="required"/>
+		<xs:attributeGroup ref="jigSawShaperAttributes"/>
+		<xs:attributeGroup ref="holesShaperAttributes"/>
+	</xs:complexType>
+	<xs:group name="holesShaperElements">
+		<xs:sequence>
+			<xs:element name="enclosing" minOccurs="0">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="shape" type="shapeType"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="shape" type="shapeType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:attributeGroup name="jigSawShaperAttributes">
+		<xs:attribute name="baseWidthFactor" type="xs:decimal"/>
+		<xs:attribute name="toothHeightFactor" type="xs:decimal"/>
+		<xs:attribute name="randomLines" type="xs:boolean" default="false"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="holesShaperAttributes">
+		<xs:attribute name="showEnclosure" type="xs:boolean" default="true"/>
+		<xs:attribute name="scaleX" type="xs:decimal" default="1.0"/>
+		<xs:attribute name="scaleY" type="xs:decimal" default="1.0"/>
+	</xs:attributeGroup>
+	<xs:complexType name="shapeType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="comment" type="xs:string"/>
+				<xs:attribute name="rule" type="xs:short"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="mediaType">
+		<xs:attribute name="type">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="UNKNOWN"/>
+					<xs:enumeration value="PLAY_AUDIO"/>
+					<xs:enumeration value="PLAY_VIDEO"/>
+					<xs:enumeration value="PLAY_MIDI"/>
+					<xs:enumeration value="PLAY_CDAUDIO"/>
+					<xs:enumeration value="RECORD_AUDIO"/>
+					<xs:enumeration value="PLAY_RECORDED_AUDIO"/>
+					<xs:enumeration value="RUN_CLIC_ACTIVITY"/>
+					<xs:enumeration value="RUN_CLIC_PACKAGE"/>
+					<xs:enumeration value="RUN_EXTERNAL"/>
+					<xs:enumeration value="URL"/>
+					<xs:enumeration value="EXIT"/>
+					<xs:enumeration value="RETURN"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="level" type="xs:short" default="1"/>
+		<xs:attribute name="file" type="xs:string"/>
+		<xs:attribute name="params" type="xs:string"/>
+		<xs:attribute name="from" type="xs:integer" default="-1"/>
+		<xs:attribute name="to" type="xs:integer" default="-1"/>
+		<xs:attribute name="cdFrom" type="xs:integer" default="-1"/>
+		<xs:attribute name="cdTo" type="xs:integer" default="-1"/>
+		<xs:attribute name="buffer" type="xs:short"/>
+		<xs:attribute name="length" type="xs:short"/>
+		<xs:attribute name="stretch" type="xs:boolean"/>
+		<xs:attribute name="free" type="xs:boolean"/>
+		<xs:attribute name="catchMouseEvents" type="xs:boolean" default="false"/>
+		<xs:attribute name="px" type="xs:short" default="0"/>
+		<xs:attribute name="py" type="xs:short" default="0"/>
+		<xs:attribute name="pFrom">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="BOX"/>
+					<xs:enumeration value="WINDOW"/>
+					<xs:enumeration value="FRAME"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="loop" type="xs:boolean" default="false"/>
+		<xs:attribute name="autostart" type="xs:boolean" default="false"/>
+	</xs:complexType>
+	<xs:complexType name="multilineType">
+		<xs:sequence>
+			<xs:element name="p" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="tristateType">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="false"/>
+			<xs:enumeration value="true"/>
+			<xs:enumeration value="default"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="hAlignType">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="left"/>
+			<xs:enumeration value="right"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="multipleAlignType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(left|middle|right)+,+(top|middle|bottom)"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="vAlignType">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="bottom"/>
+			<xs:enumeration value="top"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="font">
+		<xs:complexType>
+			<xs:attribute name="family" type="xs:string" use="required"/>
+			<xs:attribute name="size" type="xs:byte" use="required"/>
+			<xs:attribute name="bold" type="xs:boolean"/>
+			<xs:attribute name="italic" type="xs:boolean"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="colorType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="pointType">
+		<xs:attribute name="x" type="xs:short" use="required"/>
+		<xs:attribute name="y" type="xs:short" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="sizeType">
+		<xs:attribute name="width" type="xs:short" use="required"/>
+		<xs:attribute name="height" type="xs:short" use="required"/>
+	</xs:complexType>
+	<xs:element name="color">
+		<xs:complexType>
+			<xs:attribute name="foreground" type="colorType"/>
+			<xs:attribute name="background" type="colorType"/>
+			<xs:attribute name="shadow" type="colorType"/>
+			<xs:attribute name="inactive" type="colorType"/>
+			<xs:attribute name="alternative" type="colorType"/>
+			<xs:attribute name="border" type="colorType"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="gradient">
+		<xs:complexType>
+			<xs:attribute name="source" type="colorType" use="required"/>
+			<xs:attribute name="dest" type="colorType" use="required"/>
+			<xs:attribute name="angle" type="xs:short" default="0"/>
+			<xs:attribute name="cycles" type="xs:short" default="1"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="skin">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string"/>
+			<xs:attribute name="file" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="dateType">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:complexType name="activityDocumentType">
+		<xs:sequence>
+			<xs:element name="style" type="docStyleType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="section">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="p" type="docParagraphType" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="attributesType" mixed="true">
+		<xs:attribute name="size" type="xs:short"/>
+		<xs:attribute name="background" type="colorType"/>
+		<xs:attribute name="foreground" type="colorType"/>
+		<xs:attribute name="family" type="xs:string"/>
+		<xs:attribute name="bold" type="xs:boolean"/>
+		<xs:attribute name="italic" type="xs:boolean"/>
+		<xs:attribute name="tabWidth" type="xs:short"/>
+		<xs:attribute name="target" type="xs:boolean"/>
+		<xs:anyAttribute/>
+	</xs:complexType>
+	<xs:complexType name="docStyleType">
+		<xs:complexContent>
+			<xs:extension base="attributesType">
+				<xs:attribute name="name" type="xs:string" use="required"/>
+				<xs:attribute name="base" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="docTextType">
+		<xs:complexContent>
+			<xs:extension base="attributesType">
+				<xs:attribute name="style" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="docParagraphType">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element ref="cell"/>
+			<xs:element name="target" type="textTargetType"/>
+			<xs:element name="text" type="docTextType"/>
+		</xs:choice>
+		<xs:attribute name="style" type="xs:string"/>
+		<xs:attribute name="bidiLevel" type="xs:short"/>
+		<xs:attribute name="Alignment" type="xs:short"/>
+	</xs:complexType>
+	<xs:complexType name="textTargetType" mixed="true">
+		<xs:sequence>
+			<xs:element name="answer" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:choice minOccurs="0">
+				<xs:element name="optionList" type="targetOptionListType"/>
+				<xs:element name="response" type="targetResponseType"/>
+			</xs:choice>
+			<xs:element name="info" type="targetInfoType" minOccurs="0"/>
+			<xs:element name="text" type="docTextType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="targetOptionListType">
+		<xs:sequence>
+			<xs:element name="option" type="xs:string" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="targetInfoType">
+		<xs:choice>
+			<xs:element ref="cell"/>
+			<xs:element name="media" type="mediaType"/>
+		</xs:choice>
+		<xs:attribute name="mode" type="xs:string"/>
+		<xs:attribute name="delay" type="xs:short"/>
+		<xs:attribute name="maxTime" type="xs:byte"/>
+	</xs:complexType>
+	<xs:complexType name="targetResponseType">
+		<xs:attribute name="fill" type="xs:string" default="_"/>
+		<xs:attribute name="length" type="xs:short" use="required"/>
+		<xs:attribute name="maxLength" type="xs:short" use="required"/>
+		<xs:attribute name="show" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="textGridType">
+		<xs:sequence>
+			<xs:element ref="style" minOccurs="0"/>
+			<xs:element name="text">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="row" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="rows" type="xs:short" use="required"/>
+		<xs:attribute name="columns" type="xs:short" use="required"/>
+		<xs:attribute name="cellWidth" type="xs:decimal" default="20.0"/>
+		<xs:attribute name="cellHeight" type="xs:decimal" default="20.0"/>
+		<xs:attribute name="border" type="xs:boolean" default="true"/>
+		<xs:attribute name="wild" type="xs:token" default="*"/>
+		<xs:attribute name="randomChars" type="xs:string" default="ABCDEFGHIJKLMNOPQRSTUVWXYZ"/>
+	</xs:complexType>
+	<xs:complexType name="clueType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="id" type="xs:short" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:complexType name="cluesType">
+		<xs:sequence>
+			<xs:element name="clue" type="clueType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="textEvaluatorType">
+		<xs:attribute name="class" type="xs:string" use="required"/>
+		<xs:attributeGroup ref="basicEvaluatorAttributes"/>
+		<xs:attributeGroup ref="complexEvaluatorAttributes"/>
+	</xs:complexType>
+	<xs:attributeGroup name="basicEvaluatorAttributes">
+		<xs:attribute name="checkCase" type="xs:boolean" default="false"/>
+		<xs:attribute name="checkAccents" type="xs:boolean" default="true"/>
+		<xs:attribute name="checkPunctuation" type="xs:boolean" default="true"/>
+		<xs:attribute name="checkDoubleSpaces" type="xs:boolean" default="false"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="complexEvaluatorAttributes">
+		<xs:attribute name="detail" type="xs:boolean" default="true"/>
+		<xs:attribute name="checkSteps" type="xs:short" default="3"/>
+		<xs:attribute name="checkScope" type="xs:short" default="6"/>
+	</xs:attributeGroup>
+	<!-- **************************** -->
+	<!-- Arith -->
+	<!-- **************************** -->
+	<xs:group name="arithElements">
+		<xs:sequence>
+			<xs:element name="operand" type="arithOperatorType" id="A"/>
+			<xs:element name="operand" type="arithOperatorType" id="B"/>
+			<xs:element name="operations" type="arithOperationsType"/>
+			<xs:element name="unknown" type="arithUnknownType"/>
+			<xs:element name="result" type="arithResultType"/>
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="arithOperatorType">
+		<xs:sequence>
+			<xs:element name="include" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="zero" type="xs:boolean" default="false"/>
+					<xs:attribute name="one" type="xs:boolean" default="false"/>
+					<xs:attribute name="minusOne" type="xs:boolean" default="false"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="A"/>
+					<xs:enumeration value="B"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="decimals" default="0">
+			<xs:simpleType>
+				<xs:restriction base="xs:integer">
+					<xs:minInclusive value="0"/>
+					<xs:maxInclusive value="3"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="values">
+			<xs:simpleType>
+				<xs:list itemType="xs:integer"/>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="from" type="arithLimType"/>
+		<xs:attribute name="to" type="arithLimType"/>
+	</xs:complexType>
+	<xs:simpleType name="arithLimType">
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="-9999"/>
+			<xs:enumeration value="-1000"/>
+			<xs:enumeration value="-999"/>
+			<xs:enumeration value="-100"/>
+			<xs:enumeration value="-99"/>
+			<xs:enumeration value="-50"/>
+			<xs:enumeration value="-25"/>
+			<xs:enumeration value="-20"/>
+			<xs:enumeration value="-10"/>
+			<xs:enumeration value="-9"/>
+			<xs:enumeration value="-5"/>
+			<xs:enumeration value="-1"/>
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="25"/>
+			<xs:enumeration value="50"/>
+			<xs:enumeration value="99"/>
+			<xs:enumeration value="100"/>
+			<xs:enumeration value="999"/>
+			<xs:enumeration value="1000"/>
+			<xs:enumeration value="9999"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="arithOperationsType">
+		<xs:attribute name="plus" type="xs:boolean" use="required"/>
+		<xs:attribute name="minus" type="xs:boolean" use="required"/>
+		<xs:attribute name="multiply" type="xs:boolean" use="required"/>
+		<xs:attribute name="divide" type="xs:boolean" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="arithUnknownType">
+		<xs:attribute name="result" type="xs:boolean" use="required"/>
+		<xs:attribute name="first" type="xs:boolean" use="required"/>
+		<xs:attribute name="last" type="xs:boolean" use="required"/>
+		<xs:attribute name="operand" type="xs:boolean" use="required"/>
+		<xs:attribute name="inverse" type="xs:boolean" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="arithResultType">
+		<xs:attribute name="from" type="arithLimType" use="required"/>
+		<xs:attribute name="to" type="arithLimType" use="required"/>
+		<xs:attribute name="notCarry" type="xs:boolean" default="false"/>
+		<xs:attribute name="duplicates" type="xs:boolean" default="true"/>
+		<xs:attribute name="order">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="ascending"/>
+					<xs:enumeration value="descending"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="condition">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="firstBig"/>
+					<xs:enumeration value="lastBig"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

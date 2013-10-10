@@ -1,0 +1,340 @@
+# Russian translation for jclic
+# Copyright (c) 2008 Rosetta Contributors and Canonical Ltd 2008
+# This file is distributed under the same license as the jclic package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: jclic\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2008-02-04 19:15+0200\n"
+"PO-Revision-Date: 2008-05-28 07:10+0000\n"
+"Last-Translator: Nkolay Parukhin <parukhin@gmail.com>\n"
+"Language-Team: Russian <ru@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
+
+#: ERROR
+msgid "ERROR"
+msgstr "ОШИБКА"
+
+#: OK
+msgid "OK"
+msgstr "OK"
+
+#: YES
+msgid "Yes"
+msgstr "Да"
+
+#: NO
+msgid "No"
+msgstr "Нет"
+
+#: DELETE
+msgid "Delete"
+msgstr "Удалить"
+
+#: PASTE
+msgid "Paste"
+msgstr "Вставить"
+
+#: CUT
+msgid "Cut"
+msgstr "Вырезать"
+
+#: COPY
+msgid "Copy"
+msgstr "Копировать"
+
+#: FILE_SAVE
+msgid "Save file"
+msgstr "Сохранить файл"
+
+#: CONFIRM
+msgid "Please confirm"
+msgstr "Пожалуйста, подтвердите"
+
+#: FILE_OPEN
+msgid "Open file"
+msgstr "Открыть файл"
+
+#: FILE_ERR_BEG_DIR
+msgid "Folder"
+msgstr "Папка"
+
+#: URL
+msgid "URL:"
+msgstr "Адрес(URL):"
+
+#: PASSWORD
+msgid "Password:"
+msgstr "Пароль:"
+
+#: WARNING
+msgid "Warning!"
+msgstr "Внимание!"
+
+#: FILE_NOT_READABLE
+msgid "Cannot be read!"
+msgstr "Не возможно прочесть!"
+
+#: FILE_NOT_EXIST
+msgid "Does not exist!"
+msgstr "Не существует!"
+
+#: FILE_READONLY
+msgid "Is read-only. It cannot be overwritted!"
+msgstr "Только для чтения. Он не может быть перезаписан!"
+
+#: FILE_OVERWRITE_DIR_PROMPT
+msgctxt "FILE_OVERWRITE_DIR_PROMPT"
+msgid "Do you want to overwrite it?"
+msgstr "Хотите перезаписать?"
+
+#: FILE_OVERWRITE_PROMPT
+msgctxt "FILE_OVERWRITE_PROMPT"
+msgid "Do you want to overwrite it?"
+msgstr "Хотите перезаписать?"
+
+#: FILE_EXISTS
+msgid "already exists on your system."
+msgstr "уже существует на вашем компьютере."
+
+#: FILE_DIR_BEG
+msgid "The folder"
+msgstr "Папка"
+
+#: FILE_BEG
+msgid "The file"
+msgstr "Файл"
+
+#: UNNAMED
+msgid "Unnamed"
+msgstr "Без имени"
+
+#: FILE_ERR_READING
+msgid "Error reading file"
+msgstr "Ошибка при чтении файла"
+
+#: FILE_ERR_SAVING
+msgid "Error saving file"
+msgstr "Ошибка во время сохранения файла"
+
+#: FILE_FIND
+msgid "Find file"
+msgstr "Поиск файла"
+
+#: FILE_ERR_READONLY
+msgid "is read-only."
+msgstr "только для чтения."
+
+#: FILE_ERR_EXISTS
+msgid "exists. Do you want to overwrite it?"
+msgstr "существует. Хотите перезаписать?"
+
+#: FILE_ERR_UNREADABLE
+msgid "is unreadable."
+msgstr "- нечитаемый."
+
+#: FILE_ERR_BEG
+msgid "File"
+msgstr "Файл"
+
+#: LOADING
+msgid "loading..."
+msgstr "загружается..."
+
+#: FALSE
+msgid "false"
+msgstr "ложь"
+
+#: CHECK_SIGNATURE_URL
+msgid "messages/checksignature.html"
+msgstr "messages/checksignature.html"
+
+#: URL_LAUNCH_ERROR
+msgid "Error launching URL"
+msgstr "Ошибка запуска URL"
+
+#: URL_ERROR
+msgid "Error building URL!"
+msgstr "Ошибка создания URL!"
+
+#: QUESTION
+msgid "Question"
+msgstr "Вопрос"
+
+#: PASSWORD_INCORRECT
+msgid "Incorrect password!"
+msgstr "Неверный пароль!"
+
+#: TRUE
+msgid "true"
+msgstr "истина"
+
+#: CANCEL
+msgid "Cancel"
+msgstr "Отмена"
+
+#: FILE_ERR_DELETING
+msgid "Error deleting file"
+msgstr "Ошибка удаления файла"
+
+#: URL_OPEN
+msgid "Open URL"
+msgstr "Открыть URL"
+
+#: FILE_ERR_RESTORING
+msgid "Error restoring file"
+msgstr "Ошибка восстановления файла"
+
+#: WRITING_FILE
+msgid "Writing file..."
+msgstr "Запись файла..."
+
+#: XML_ATTRIBUTE
+msgid "Attribute"
+msgstr "Атрибут"
+
+#: XML_VALUE
+msgid "Value"
+msgstr "Значение"
+
+#: XML_NOT_EDITABLE
+msgid "This field is not editable!"
+msgstr "Это поле не редактируемое!"
+
+#: XML_TEXT
+msgid "text"
+msgstr "текст"
+
+#: XML_NEW_ATTRIBUTE
+msgid "Add attribute"
+msgstr "Добавить атрибут"
+
+#: WORKING
+msgid "Working..."
+msgstr "Идёт работа..."
+
+#: LOADING_FILE
+msgid "Loading file"
+msgstr "Загрузка файла"
+
+#: XML_DEL_ATTRIBUTE
+msgid "Delete attribute"
+msgstr "Удалить атрибут"
+
+#: XML_ELEMENT
+msgid "Element"
+msgstr "Элемент"
+
+#: XML_NEW_ELEMENT
+msgid "New element"
+msgstr "Создать элемент"
+
+#: XML_DEL_ELEMENT
+msgid "Delete element"
+msgstr "Удалить элемент"
+
+#: XML_NAME
+msgid "Name"
+msgstr "Имя"
+
+#: RETRY
+msgid "Retry"
+msgstr "Повторить"
+
+#: IGNORE
+msgid "Ignore"
+msgstr "Игнорировать"
+
+#: DATE_INCORRECT
+msgid "Date incorrect!"
+msgstr "Неверная дата!"
+
+#: BAD_NUMBER
+msgid "Incorrect number!"
+msgstr "Неверное число!"
+
+#: NONE
+msgid "None"
+msgstr "Нет"
+
+#: COPY_keys
+msgid "CC"
+msgstr "CC"
+
+#: CUT_keys
+msgid "TX"
+msgstr "TX"
+
+#: PASTE_keys
+msgid "PV"
+msgstr "PV"
+
+#: DELETE_keys
+msgid "D#127"
+msgstr "D#127"
+
+#: SELECT_ALL
+msgid "Select all"
+msgstr "Выделить всё"
+
+#: SELECT_NONE
+msgid "Clear selection"
+msgstr "Очистить выбор"
+
+#: WIDTH
+msgid "Width:"
+msgstr "Ширина:"
+
+#: HEIGHT
+msgid "Height:"
+msgstr "Высота:"
+
+#: BROWSE_FILES
+msgid "Browse files..."
+msgstr "Обзор файлов..."
+
+#: VERSION
+msgid "version"
+msgstr "версия"
+
+#: ABOUT
+msgid "About..."
+msgstr "О программе..."
+
+#: YES_TO_ALL
+msgid "Yes to all"
+msgstr "Да для всех"
+
+#: NO_TO_ALL
+msgid "No to all"
+msgstr "Нет для всех"
+
+#: SAVE
+msgid "Save"
+msgstr "Сохранить"
+
+#: OPEN
+msgid "Open"
+msgstr "Открыть"
+
+#: FILE_OPEN_TOOLTIP
+msgid "Open the selected file"
+msgstr "Открыть выбранный файл"
+
+#: FILE_SAVE_TOOLTIP
+msgid "Save the specified file"
+msgstr "Сохранение указанного файла"
+
+#: SAVING
+msgid "saving..."
+msgstr "сохранение..."
+
+#: SAVING_FILE
+msgid "Saving file"
+msgstr "Сохранение файла"
