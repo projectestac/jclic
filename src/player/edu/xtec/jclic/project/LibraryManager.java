@@ -470,7 +470,7 @@ public class LibraryManager implements Domable {
                         result[i][0] = jso.getString("name");
                         result[i][1] = jso.getString("path");
                     }                    
-                    if(result[1][0]==null || result[i][1]==null)
+                    if(result[i][0]==null || result[i][1]==null)
                         throw new Exception("Invalid settings in JClic system libraries.");                        
                 }
             }

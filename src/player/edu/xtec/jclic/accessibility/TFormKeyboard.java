@@ -35,7 +35,7 @@ import javax.swing.JPanel;
  *
  * @author jlagares
  *
- * TODO: Allow different keybiard layouts
+ * TODO: Allow different keyboard layouts
  * TODO: Normalize the creation of icons
  *
  *
