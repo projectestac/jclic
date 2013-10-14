@@ -38,7 +38,7 @@ OutFile "jclic-${PRODUCT_VERSION}.exe"
 
 !insertmacro MUI_PAGE_WELCOME
 Page custom CheckJavaVersion "" " - Java system check"
-!insertmacro MUI_PAGE_LICENSE "..\COPYING.txt"
+!insertmacro MUI_PAGE_LICENSE "..\LICENSE"
 
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
@@ -248,7 +248,7 @@ Section "-JClic core" Section1
 	; Set Section Files and Shortcuts
 	SetOutPath "$INSTDIR\"
 	File "..\dist\jclic\jclic.jar"
-	File "..\COPYING.txt"
+	File "..\LICENSE"
 	File "..\CREDITS.txt"
 	File "..\CHANGES.txt"
 	File "..\HACKING.txt"
@@ -539,6 +539,7 @@ Section Uninstall
 	Delete "$INSTDIR\soundspi.jar"
 	Delete "$INSTDIR\utilities.jar"
 	Delete "$INSTDIR\COPYING.txt"
+        Delete "$INSTDIR\LICENSE"
 	Delete "$INSTDIR\CREDITS.txt"
 	Delete "$INSTDIR\CHANGES.txt"
 	Delete "$INSTDIR\HACKING.txt"
