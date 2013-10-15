@@ -1,15 +1,32 @@
 JClic: Authoring and playing system for educational activities
 -----------------------------------------------------------------------------
 
-Compilation instructions:
+This document is for people who want to hack and compile JClic
+from the source code.
 
+If you just want to download and install JClic, please go to:
+http://clic.xtec.cat/en/jclic/download.htm
+
+
+Compilation instructions:
+-------------------------
 The current version of JClic compiles with version 1.5 or later of the 
 Java Development Toolkit (JDK)
 
 Compilation is done with Apache Ant (http://ant.apache.org/), version 1.6.5 
 or later.
 
-To compile, just open a console, go to the root directory of the JClic source
+If your Java version is 1.6 or later, it's advisable to obtain the "rt.jar"
+file of Java 1.5 and place it into the directory "lib/bootstrap/1.5". This
+file is not provided with JClic because it's a not redistributable binary, 
+but can be downloaded from the Oracle Java Archive:
+http://www.oracle.com/technetwork/java/javase/archive-139210.html
+
+If you don't have the file "lib/bootstrap/1.5/rt.jar", the "rt.jar" file of your
+current JVM will be used as a bootstrap class path. This will generate a lot
+of warnings during compilation, but usually no errors. Just ignore it.
+
+To compile JClic, just open a console, go to the root directory of the JClic source
 code (where the build.xml file is located) and invoke "ant".
 
 The JAR files must be signed to be used in applets. A test certificate key
@@ -19,9 +36,9 @@ sign it using your own certificate. For more information, see the document
 "keystore/readme.txt"
 
 At the end of the build process, the resulting JAR files will appear into 
-the "dist" directory.
+the "dist/jclic" directory.
 
-To start the programs, copy all the contents of the "dist" directory to an 
+To start the programs, copy all the contents of the "dist/jclic" directory to an 
 appropiate place and enter the following commands:
 
 - To launch JClic:
@@ -40,3 +57,5 @@ The JClic modules can also be launched as a Java webstart applications. For more
 information about this option, see:
 
 http://clic.xtec.cat/en/jclic/download.htm
+
+
