@@ -26,6 +26,6 @@ i18n/fromLaunchpad/properties/
 i18n/toLaunchpad/po/
 netbeans/
 
-# Directories with non redistribuable files #
-lib/bootstrap/
+# No redistributable Java bootstrap files #
+lib/bootstrap/*/rt.jar
 

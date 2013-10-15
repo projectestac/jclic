@@ -1,0 +1,24 @@
+Bootstrap files
+-----------------
+
+Please place here the "rt.jar" file of Java 1.5
+
+JClic currently compiles against Java 1.5. As a Java developer, you probably have installed
+in your system a newest version of Java.
+
+In order to check your code against the JClic targeted version, it's advisable
+to put in this directory the bootstrap classes corresponding to Java 1.5. These classes
+are packaged into a file named "rt.jar", located on the "lib" folder of the JRE.
+
+This "rt.jar" file is not included with the source code of JClic because it's a binary 
+not redistibutable.
+
+You can download it from:
+http://www.oracle.com/technetwork/java/javase/archive-139210.html
+(look into "Java SE 5")
+
+If you don't provide this file, the compilation will be done against the bootstrap classes
+of your Java version. This will generate a lot of warnings, but usually no errors. You can
+safely ignore this warnings.
+
+
