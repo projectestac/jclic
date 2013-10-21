@@ -560,6 +560,8 @@
                        value="all-permissions"/>
             <attribute name="Codebase" 
                        value="*"/>
+            <attribute name="Application-Name" 
+                       value="JClic"/>
         </manifest>
          <fileset dir="${build.dir}/jclicPlayer" />
          <fileset dir="${build.dir}/jclicApplet" />         
@@ -643,6 +645,8 @@
                        value="all-permissions"/>
             <attribute name="Codebase" 
                        value="*"/>
+            <attribute name="Application-Name" 
+                       value="JClic Author"/>
         </manifest>
          <fileset dir="${build.dir}/author" />
     </jar>
@@ -707,6 +711,8 @@
                        value="all-permissions"/>
             <attribute name="Codebase" 
                        value="*"/>
+            <attribute name="Application-Name" 
+                       value="JClic Reports"/>
         </manifest>
         <fileset dir="${build.dir}/jclicreports" />
     </jar>
