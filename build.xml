@@ -26,6 +26,7 @@
     <property name="keystore.alias" value="testcert" />
     <property name="keystore.storepass" value="passwd" />
     <property name="keystore.keypass" value="passwd" />
+    <property name="keystore.storetype" value="JKS" />
 
     <property name="src.dir"        location="src" />
     <property name="ext.dir"        location="extensions" />
@@ -169,6 +170,7 @@
     <signjar keystore="${keystore.dir}/${keystore.file}"
              alias="${keystore.alias}" 
              storepass="${keystore.storepass}"
+             storetype="${keystore.storetype}"
              keypass="${keystore.keypass}"
              lazy="true">
         <fileset dir="${signed.dir}" includes="*.jar" />
