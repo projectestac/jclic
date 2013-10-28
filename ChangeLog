@@ -1,3 +1,14 @@
+2013-10-28  Francesc Busquets <fbusquets@xtec.cat>
+
+    * dist/jclic/jclicplugin.js
+    * dist/jnlp/author.jnlp
+    * dist/jnlp/install.jnlp
+    * dist/jnlp/player.jnlp
+    * dist/jnlp/reportServer.jnlp
+    * build.xml
+    * CHANGES.txt
+    * project.properties: Preparing for release 0.2.3.3
+
 2013-10-08  Francesc Busquets <fbusquets@xtec.cat>
 
     * dist/jclic/jclicplugin.js

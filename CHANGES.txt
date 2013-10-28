@@ -186,3 +186,10 @@ java -cp jclic.jar edu.xtec.jclic.project.LibraryManager -[option] [name] [path]
 JClic source code moved to https://github.com/projectestac/jclic
 
 
+Changes in 0.2.3.3 (28-Oct-2013)
+---------------------------------------------------------------------------------------
+
+The official JClic JAR files released in http://clic.xtec.cat are now signed using a new certificate issued by the Catalan Agency of Certification "CATCert" (http://catcert.cat). This has no effect in the source code, but requires a small change in the version number to allow refreshing of Java Caché.
+
+
+

@@ -1,8 +1,8 @@
 var player_files =    "jclic.jar";
-var player_versions = "0.2.3.2";
+var player_versions = "0.2.3.3";
 
 var author_files =    "jclicauthor.jar";
-var author_versions = "0.2.3.2";
+var author_versions = "0.2.3.3";
 
 var jar_cache_files = player_files;
 var jar_cache_versions = player_versions;
