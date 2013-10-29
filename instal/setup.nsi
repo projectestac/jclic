@@ -572,6 +572,7 @@ Section Uninstall
 	; Clean up JClic reports
 	Delete "$INSTDIR\reportServer.jar"
 	Delete "$INSTDIR\jclicreports.jar"
+	Delete "$INSTDIR\icons\reports.ico"
 	
 	; Remove remaining directories
 	RMDir "$SMPROGRAMS\JClic"
