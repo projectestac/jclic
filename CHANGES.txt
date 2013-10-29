@@ -179,7 +179,6 @@ Correction of bug: JClicReports hangs when activity or project name exceeds its 
 
 Changes in 0.2.3.2 (07-Oct-2013)
 ---------------------------------------------------------------------------------------
-
 Implementation of "JClic System Libraries": System admins can now define libraries of JClic projects as a “System setting” for all users of a specific computer. The system libraries can be managed by command line, invoking:
 java -cp jclic.jar edu.xtec.jclic.project.LibraryManager -[option] [name] [path]
 
@@ -188,8 +187,11 @@ JClic source code moved to https://github.com/projectestac/jclic
 
 Changes in 0.2.3.3 (28-Oct-2013)
 ---------------------------------------------------------------------------------------
+The official JClic JAR files released in http://clic.xtec.cat are now signed with a new certificate issued by the Catalan Agency of Certification "CATCert" (http://catcert.cat). This has no effect in the source code, but requires a small change in the version number to allow refreshing of Java Caché.
 
-The official JClic JAR files released in http://clic.xtec.cat are now signed using a new certificate issued by the Catalan Agency of Certification "CATCert" (http://catcert.cat). This has no effect in the source code, but requires a small change in the version number to allow refreshing of Java Caché.
 
-
+Changes in 0.2.3.4 (29-Oct-2013)
+---------------------------------------------------------------------------------------
+Correction of bugs affecting JClic Author: the program freezes when saving after making edits in the fields of the "Project" tab.
+Correction of a bug of Windows uninstaller: the program was not completelly uninstalled because one file (reports.ico) was not removed
 

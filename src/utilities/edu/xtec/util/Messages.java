@@ -29,7 +29,6 @@ import java.io.File;
 import java.text.Collator;
 import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -51,7 +50,7 @@ import javax.swing.SwingUtilities;
 /**
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
- * @version 13.09.09
+ * @version 13.10.29
  */
 public class Messages {
     
@@ -331,9 +330,9 @@ public class Messages {
         
         if(promptObjects!=null){
             if(shortPromptKeys==null){
-                //for(int i=0; i<promptObjects.length; i++)
-                //    v.add(promptObjects[i]);                            
-                v.addAll(Arrays.asList(promptObjects));            
+                for(JComponent jc : promptObjects)
+                    v.add(jc);                                            
+                //v.addAll(Arrays.asList(promptObjects));            
             }
             else{
                 GridBagLayout gridBag=new GridBagLayout();

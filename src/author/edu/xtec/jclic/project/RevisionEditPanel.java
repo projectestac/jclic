@@ -25,7 +25,6 @@ import edu.xtec.jclic.beans.TextListEditor;
 import edu.xtec.util.Options;
 import edu.xtec.util.StrUtils;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JComponent;
@@ -33,7 +32,7 @@ import javax.swing.JComponent;
 /**
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
- * @version 13.09.17
+ * @version 13.10.29
  */
 public class RevisionEditPanel extends javax.swing.JPanel {
     
@@ -148,7 +147,9 @@ public class RevisionEditPanel extends javax.swing.JPanel {
         commentsText.setText(rev!=null ? rev.comments : "");        
         List<Object> v=new ArrayList<Object>();
         if(rev!=null && rev.authors!=null){
-            v.add(Arrays.asList(rev.authors));
+            //v.add(Arrays.asList(rev.authors));
+            for(Author a : rev.authors)
+                v.add(a);
         }
         authorListEditor.setListData(v);        
     }

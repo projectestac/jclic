@@ -1,3 +1,13 @@
+2013-10-29  Francesc Busquets <fbusquets@xtec.cat>
+
+    * src/author/edu/xtec/jclic/beans/TextListEditor.java
+    * src/author/edu/xtec/jclic/project/ProjectSettingsEditorPanel.java
+    * src/author/edu/xtec/jclic/project/RevisionEditPanel.java
+    * src/utilities/edu/xtec/util/Messages.java: Solved bugs related to "Arrays.asList"
+    * instal/setup.nsi: Solved bug: Windows uninstaller not deleting file "reports.ico"
+    * CHANGES.txt
+    * project.properties: Preparing for release 0.2.3.4
+
 2013-10-28  Francesc Busquets <fbusquets@xtec.cat>
 
     * dist/jclic/jclicplugin.js

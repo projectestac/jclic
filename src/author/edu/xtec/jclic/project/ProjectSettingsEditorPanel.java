@@ -30,7 +30,6 @@ import edu.xtec.util.Messages;
 import edu.xtec.util.Options;
 import edu.xtec.util.StrUtils;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import javax.swing.JComponent;
 import javax.swing.JList;
@@ -41,7 +40,7 @@ import javax.swing.SwingUtilities;
 /**
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
- * @version 13.09.17
+ * @version 13.10.29
  */
 public class ProjectSettingsEditorPanel extends EditorPanel {
     
@@ -403,19 +402,24 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
         langListEditor.setListData(v);
         
         v.clear();
-        if(ps!=null && ps.authors!=null)
-            v.add(Arrays.asList(ps.authors));        
+        if(ps!=null && ps.authors!=null){
+            for(Author a: ps.authors)
+                v.add(a);
+        }
         authorListEditor.setListData(v);
         
         v.clear();
         if(ps!=null && ps.organizations!=null){
-            v.add(Arrays.asList(ps.organizations));
+            for(Organization o : ps.organizations)
+                v.add(o);
         }
         orgListEditor.setListData(v);
         
         v.clear();
-        if(ps!=null && ps.revisions!=null)
-            v.add(Arrays.asList(ps.revisions));
+        if(ps!=null && ps.revisions!=null){
+            for(Revision r : ps.revisions)
+                v.add(r);
+        }
         revListEditor.setListData(v);        
     }    
     

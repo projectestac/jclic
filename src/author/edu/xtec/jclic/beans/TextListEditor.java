@@ -31,7 +31,7 @@ import javax.swing.DefaultListModel;
 /**
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
- * @version 13.09.17
+ * @version 13.10.29
  */
 public class TextListEditor extends javax.swing.JPanel implements javax.swing.event.ListSelectionListener{
     
@@ -270,8 +270,16 @@ public class TextListEditor extends javax.swing.JPanel implements javax.swing.ev
     public List<Object> getListData() {
         Enumeration en=listModel.elements();        
         List<Object> result=new ArrayList<Object>(listModel.getSize());
-        while(en.hasMoreElements())
-            result.add(en.nextElement());
+        while(en.hasMoreElements()){
+            Object o=en.nextElement();
+            // In some cases, DefaultListModel returns elements as a "list of elements"
+            // with only one object inside
+            if(o instanceof List){
+                List al=(List)o;
+                o=al.get(0);                
+            }
+            result.add(o);
+        }
         return result;
     }    
     

@@ -21,8 +21,8 @@
   </security>
   <resources>
     <j2se version="1.5+" max-heap-size="128m"/>
-    <jar href="jclicauthor.jar" main="true" version="1.2.3.3"/>
-    <jar href="jclic.jar" version="1.2.3.3"/>
+    <jar href="jclicauthor.jar" main="true" version="1.2.3.4"/>
+    <jar href="jclic.jar" version="1.2.3.4"/>
   </resources>
   <application-desc/>
 </jnlp>
