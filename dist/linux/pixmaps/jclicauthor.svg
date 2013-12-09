@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="64"
+   height="64"
+   id="svg3064"
+   xml:space="preserve"><title
+     id="title3086">JClic Author</title><metadata
+     id="metadata3070"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><cc:license
+           rdf:resource="http://creativecommons.org/licenses/by/3.0/" /><dc:title>JClic Author</dc:title><dc:creator><cc:Agent><dc:title>Francesc Busquets</dc:title></cc:Agent></dc:creator><dc:source>http://clic.xtec.cat</dc:source></cc:Work><cc:License
+         rdf:about="http://creativecommons.org/licenses/by/3.0/"><cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" /><cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" /><cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" /><cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" /><cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" /></cc:License></rdf:RDF></metadata><defs
+     id="defs3068" /><g
+     transform="matrix(1.25,0,0,-1.25,0,64)"
+     id="g3072"><g
+       transform="matrix(0.01806031,0,0,0.01806031,2.3552,0.7168)"
+       id="g3074"><path
+         d="m 1980,1340 0,-800 -800,0 800,800 z"
+         id="path3076"
+         style="fill:none;stroke:#9d6329;stroke-width:180;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3.8636899;stroke-opacity:1;stroke-dasharray:none" /><path
+         d="M 2430,2430 90,90 l 2340,0 0,2340 z"
+         id="path3078"
+         style="fill:none;stroke:#9d6329;stroke-width:180;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3.8636899;stroke-opacity:1;stroke-dasharray:none" /><path
+         d="m 1980,1340 0,-800 -800,0 800,800 z M 2430,2430 90,90 l 2340,0 0,2340"
+         id="path3080"
+         style="fill:#f89c0e;fill-opacity:1;fill-rule:evenodd;stroke:none" /><path
+         d="M 947.332,2670 1947.39,2402.2 1680.06,1409.88 680,1676.06 947.332,2670 z"
+         id="path3082"
+         style="fill:none;stroke:#86882b;stroke-width:180;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3.8636899;stroke-opacity:1;stroke-dasharray:none" /><path
+         d="M 947.332,2670 1947.39,2402.2 1680.06,1409.88 680,1676.06 947.332,2670"
+         id="path3084"
+         style="fill:#d9e70c;fill-opacity:1;fill-rule:nonzero;stroke:none" /></g></g></svg>

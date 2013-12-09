@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# jclicreports wrapper script
+#
+# JClic Reports will use the system's default "java" command.
+# This command points to the JVM currently selected
+# in "update-alternatives". To change it, call before:
+# update-alternatives --config java
+#
+
+java -jar /usr/share/java/jclicreports.jar "$@"
+

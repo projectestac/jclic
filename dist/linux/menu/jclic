@@ -1,0 +1,6 @@
+?package(jclic):needs="X11" section="Applications/Education"\
+  title="JClic" command="/usr/bin/jclic"
+?package(jclic):needs="X11" section="Applications/Education" \
+  title="JClicauthor" command="/usr/bin/jclicauthor"
+?package(jclic):needs="X11" section="Applications/Education" \
+  title="JClic Reports" command="/usr/bin/jclicreports"

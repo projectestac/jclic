@@ -1,0 +1,197 @@
+.\" Hey, EMACS: -*- nroff -*-
+.\" First parameter, NAME, should be all caps
+.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
+.\" other parameters are allowed: see man(7), man(1)
+.\" Please adjust this date whenever revising the manpage.
+.\" 
+.\" Some roff macros, for reference:
+.\" .nh        disable hyphenation
+.\" .hy        enable hyphenation
+.\" .ad l      left justify
+.\" .ad b      justify to both left and right margins
+.\" .nf        disable filling
+.\" .fi        enable filling
+.\" .br        insert line break
+.\" .sp <n>    insert n+1 empty lines
+.\" for manpage-specific macros, see man(7)
+.TH "JClic Reports" 1 2013-12-04 "" ""
+.SH NAME
+jclicreports \-  Management of a database to track students work and
+results on JClic activities.
+
+.SH SYNOPSIS
+.B jclicreports
+.RI [ "CONFFILE.properties" ]
+
+.SH DESCRIPTION
+This manual page documents briefly the
+.B jclicreports
+command.
+This manual page was written for the Debian GNU/Linux distribution. 
+It contains only the description of the basic options.
+.br
+For full manuals and documentation please visit:
+.br
+http://clic.xtec.cat and https://github.com/projectestac/jclic/wiki
+
+.BR JClic
+is formed by a set of computer applications that are used for
+carrying out different types of educational activities: puzzles,
+associations, text exercises, crosswords...
+These activities are  packed in projects. A project is formed by a
+set of activities and one or more sequences, which indicate the order
+in which they have to be shown.
+If you want to test/get/know how JClic projects are you should take a
+look at:
+.br
+http://clic.xtec.cat/db/listact_en.jsp
+
+.BR JClic\ Reports
+allows the management of a database to track students work and
+results after playing JClic activities. It also acts as a server
+to allow accesing to the data using a web browser.
+
+.SH OPTIONS
+
+.TP 
+.B configuration file
+The only parameter allowed by jclicreports is the absolute path to a
+configuration file written in Java ".properties" format, containing
+specific settings for the different parametres used by the application.
+Default values can be found in the
+.BR JClicReports.properties
+file found on your
+.B ~/JClic
+directory after running
+.BR jclicreports
+for first time.
+
+.SS "Parameters used in JClicReports.properties"
+
+.B Parameters related to the general behavior of JClic Reports
+.TP
+.B verbose
+.TP
+.B browser
+.TP
+.B lookAndFeel
+.TP
+.B language
+.TP
+.B country
+.TP
+.B variant
+.TP
+.B trustClientDateTime
+.TP
+.B autostart
+.TP
+.B tooltips
+
+.B Parameters related to the HTTP server
+.TP
+.B http_port
+.TP
+.B session_lifetime
+.TP
+.B http_timeout
+.TP
+.B http_autostart
+
+.B Parameters related to database connection
+.TP
+.B dbMaxConns
+.TP
+.B createTables
+.TP
+.B dbServer jdbc\:mysql\://localhost/JClicReports
+.TP
+.B dbDriver com.mysql.jdbc.Driver
+.TP
+.B dbLogin root
+.TP
+.B dbMapStatements
+.TP
+.B tablePrefix JCLIC_
+.TP
+.B dbPassword
+.TP
+.B dbMaxCheckoutSeconds
+.TP
+.B timeout
+.TP
+.B dbDebugLevel
+.TP
+.B dbMinConns
+.TP
+.B dbMaxConnDays
+
+.B Parametres related to the drawing of graphics
+.TP
+.B graph_color_header_bg
+.TP
+.B graph_width
+.TP
+.B graph_color_dist
+.TP
+.B graph_header_height
+.TP
+.B graph_font_size
+.TP
+.B graph_color_border
+.TP
+.B graph_margin_dist_y
+.TP
+.B graph_margin_dist_x
+.TP
+.B graph_dist_width
+.TP
+.B graph_max_cols
+.TP
+.B graph_stroke_width
+.TP
+.B graph_color_bg
+.TP
+.B graph_color_v2
+.TP
+.B graph_color_text
+.TP
+.B graph_color_v1
+.TP
+.B graph_height
+.TP
+.B graph_margin
+.TP
+.B graph_color_header_text
+.TP
+.B graph_margin_y
+.TP
+.B graph_font_family
+.TP
+.B graph_margin_x
+.TP
+.B graph_color_alert
+.TP
+.B graph_div_y
+
+.B Parameters related to the logging system
+.TP
+.B dbLogAppend
+.TP
+.B http_logFile
+.TP
+.B dbLogFile
+
+.SH AUTHORS
+JClic was written by Francesc Busquets <fbusquets@xtec.cat> for the
+Department of Education of the Government of Catalonia.
+.PP
+This manual page was initially written by José L. Redrejo Rodríguez
+<jredrejo@edu.juntaextremadura.net>, for the Debian project, and
+continued by Francesc Busquets <fbusquets@xtec.cat> (but may be
+used by others).
+
+.SH SEE ALSO
+.BR jclic (1),
+.BR jclicauthor (1)
+
