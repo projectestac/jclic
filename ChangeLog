@@ -1,3 +1,42 @@
+2013-12-13  Francesc Busquets <fbusquets@xtec.cat>
+
+    * build.xml: Added "encoding" param to "javac" ant task to force UTF-8
+
+2013-11-13  Francesc Busquets <fbusquets@xtec.cat>
+
+    * dist/linux/bin/jclic
+    * dist/linux/bin/jclicauthor
+    * dist/linux/bin/jclicreports: Added binary launchers for Linux
+    * dist/linux/man/jclicreports.1
+    * dist/linux/man/jclicauthor.1
+    * dist/linux/man/jclic.1: Added "man" files for Linux
+    * dist/linux/applications/jclicauthor.desktop
+    * dist/linux/applications/jclicreports.desktop
+    * dist/linux/applications/jclic.desktop: Added ".desktop" files for Linux
+    * dist/linux/pixmaps/jclicreports.png
+    * dist/linux/pixmaps/jclicauthor.png
+    * dist/linux/pixmaps/jclicauthor.svg
+    * dist/linux/pixmaps/jclic.svg
+    * dist/linux/pixmaps/jclic.png
+    * dist/linux/pixmaps/jclicreports.svg: Added icon files for Linux
+    * dist/linux/debian/jclic-reports.manpages
+    * dist/linux/debian/copyright
+    * dist/linux/debian/compat
+    * dist/linux/debian/jclic-reports.docs
+    * dist/linux/debian/jclic-reports.menu
+    * dist/linux/debian/control
+    * dist/linux/debian/jclic-reports.install
+    * dist/linux/debian/jclic.install
+    * dist/linux/debian/jclic.menu
+    * dist/linux/debian/source
+    * dist/linux/debian/source/format
+    * dist/linux/debian/jclic.manpages
+    * dist/linux/debian/rules
+    * dist/linux/debian/jclic.links
+    * dist/linux/debian/jclic.docs
+    * dist/linux/debian/jclic-reports.links
+    * dist/linux/debian/changelog: Added "/debian" config files for packaging.
+
 2013-10-29  Francesc Busquets <fbusquets@xtec.cat>
 
     * src/author/edu/xtec/jclic/beans/TextListEditor.java

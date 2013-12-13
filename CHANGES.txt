@@ -199,5 +199,6 @@ Correction of a bug of Windows uninstaller: the program was not completelly unin
 Changes in 0.2.3.4 PPA (13-Dec-2013)
 ---------------------------------------------------------------------------------------
 Added the "dist/linux" directory, containing files needed to build PPA Debian packages: man files, bin launchers, desktop files, SVG icons and misc /debian control files.
-No modifications have been made on the source code of JClic.
+No modifications have been made on the source code of JClic, but build.xml has been updated to indicate UTF-8 as default encoding in javac ant task.
+
 
