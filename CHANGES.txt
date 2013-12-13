@@ -195,3 +195,9 @@ Changes in 0.2.3.4 (29-Oct-2013)
 Correction of bugs affecting JClic Author: the program freezes when saving after making edits in the fields of the "Project" tab.
 Correction of a bug of Windows uninstaller: the program was not completelly uninstalled because one file (reports.ico) was not removed
 
+
+Changes in 0.2.3.4 PPA (13-Dec-2013)
+---------------------------------------------------------------------------------------
+Added the "dist/linux" directory, containing files needed to build PPA Debian packages: man files, bin launchers, desktop files, SVG icons and misc /debian control files.
+No modifications have been made on the source code of JClic.
+
