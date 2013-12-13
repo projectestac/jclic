@@ -1,0 +1,116 @@
+Format: http://dep.debian.net/deps/dep5
+Upstream-Name: jclic
+Upstream-Contact: Francesc Busquets <francesc@gmail.com>
+Source: https://github.com/projectestac/jclic
+
+Files: *
+Copyright: 2000-2013 Francesc Busquets <francesc@gmail.com> & Departament d'Ensenyament de la Generalitat de Catalunya
+License: GPL-2.0+
+Comment: With the collaboration of Mònica Grau, Sara Arjona, Fernando Cuartero, Albert Llastarri and Jordi Lagares.
+
+Files: extensions/xml/*
+Copyright: The JDOM Project (http://www.jdom.org)
+License: JDOM "Apache like" License
+
+Files: src/utils/edu/xtec/util/BrowserLauncher.java
+Copyright: Dem Pilafian, enhanced by Williem van Engen (http://goo.gl/T3CFQ)
+License: other
+ These files are in the public domain.
+
+Files: extensions/soundspi/javalayer/* extensions/spoundspi/MpegAudioSpi/*
+Copyright: JavaZOOM (http://www.javazoom.net)
+License: GNU Lesser General Public License (LGPL)
+ The full text of the LGPL version is available in
+ https://www.gnu.org/licenses/lgpl.html
+
+Files: extensions/soundspi/jorbis/*
+Copyright: ymnk - JCraft (http://www.jcraft.com/jorbis)
+License: GNU Lesser General Public License (LGPL)
+ The full text of the LGPL version is available in
+ https://www.gnu.org/licenses/lgpl.html
+
+Files: extensions/soundspi/tritonus/*
+Copyright: Tritonus project (http://www.tritonus.org)
+License: GNU Lesser General Public License (LGPL)
+ The full text of the LGPL version is available in
+ https://www.gnu.org/licenses/lgpl.html
+
+Files: extensions/img/image4j/*
+Copyright: Ian McDonagh (http://image4j.sourceforge.net)
+License: GNU Lesser General Public License (LGPL)
+ The full text of the LGPL version is available in
+ https://www.gnu.org/licenses/lgpl.html
+
+Files: src/player/edu/xtec/jclic/project/LibraryManager.java
+Copyright: The JSON Group (http://www.json.org/java)
+License: other
+ "Do not use it for evil"
+
+License: GPL-2.0+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+
+License: JDOM "Apache like" License
+ Copyright (C) 2000-2004 Jason Hunter & Brett McLaughlin.
+ All rights reserved.
+ .
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ .
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions, and the following disclaimer.
+ .
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions, and the disclaimer that follows 
+    these conditions in the documentation and/or other materials 
+    provided with the distribution.
+ .
+ 3. The name "JDOM" must not be used to endorse or promote products
+    derived from this software without prior written permission.  For
+    written permission, please contact <request_AT_jdom_DOT_org>.
+ .
+ 4. Products derived from this software may not be called "JDOM", nor
+    may "JDOM" appear in their name, without prior written permission
+    from the JDOM Project Management <request_AT_jdom_DOT_org>.
+ .
+ In addition, we request (but do not require) that you include in the 
+ end-user documentation provided with the redistribution and/or in the 
+ software itself an acknowledgement equivalent to the following:
+     "This product includes software developed by the
+      JDOM Project (http://www.jdom.org/)."
+ Alternatively, the acknowledgment may be graphical using the logos 
+ available at http://www.jdom.org/images/logos.
+ .
+ THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+ WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ DISCLAIMED.  IN NO EVENT SHALL THE JDOM AUTHORS OR THE PROJECT
+ CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+ USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ SUCH DAMAGE.
+ .
+ This software consists of voluntary contributions made by many 
+ individuals on behalf of the JDOM Project and was originally 
+ created by Jason Hunter <jhunter_AT_jdom_DOT_org> and
+ Brett McLaughlin <brett_AT_jdom_DOT_org>.  For more information
+ on the JDOM Project, please see <http://www.jdom.org/>. 
+

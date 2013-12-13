@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: Francesc Busquets <francesc@gmail.com>
 Build-Depends: debhelper (>= 8.0.0)
 Build-Depends-Indep: ant, openjdk-6-jdk | openjdk-7-jdk | default-jdk
-Standards-Version: 3.9.2
+Standards-Version: 3.9.3
 Homepage: http://clic.xtec.cat
 #Vcs-Git: git://git.debian.org/collab-maint/jclic.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/jclic.git;a=summary
@@ -12,9 +12,19 @@ Homepage: http://clic.xtec.cat
 Package: jclic
 Architecture: all
 Depends: ${misc:Depends}, openjdk-6-jre | openjdk-7-jre | default-jre
-Recommends: libmysql-java
 Suggests: ttf-mscorefonts-installer
 Description: Authoring tool and player for multimedia educational activities
  JClic is formed by a set of computer applications that are used for
  carrying out different types of educational activities: puzzles, associations,
  text exercises, crosswords...
+
+Package: jclic-reports
+Architecture: all
+Depends: ${misc:Depends}, jclic (= ${source:Version})
+Recommends: libmysql-java
+Description: Reporting system for JClic activities
+ JClic Reports tracks JClic activities played by students, collecting
+ and storing in a database information about time spended on activities,
+ number of attempts and score. JClic Reports acts also as a tiny HTTP server
+ to represent the collected data in HTML pages and diagrams.
+
