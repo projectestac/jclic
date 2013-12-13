@@ -1,6 +1,18 @@
-jclic (0.2.3.4-1ppa1) unstable; urgency=low
+jclic (0.2.3.4b-1ppa2) precise; urgency=low
+
+  * Corrected path for SVG icons
+
+ -- Francesc Busquets <francesc@gmail.com>  Sat, 14 Dec 2013 00:17:00 +0100
+
+jclic (0.2.3.4b-1ppa1) precise; urgency=low
+
+  * build.xml updated to force UTF-8 encoding in javac ant task
+
+ -- Francesc Busquets <francesc@gmail.com>  Tue, 10 Dec 2013 09:46:28 +0100
+
+jclic (0.2.3.4-1ppa1) precise; urgency=low
 
   * Initial release of the JClic PPA package
-  * Updated Standards-Version to 3.9.4
+  * Updated Standards-Version to 3.9.3
 
  -- Francesc Busquets <francesc@gmail.com>  Tue, 10 Dec 2013 09:46:28 +0100
