@@ -1,12 +1,15 @@
-<<<<<<< HEAD
+jclic (0.2.3.4c-1ppa1) precise; urgency=low
+
+  * Corrected "Icon" field in ".desktop" launchers
+
+ -- Francesc Busquets <francesc@gmail.com>  Sat, 14 Dec 2013 09:45:00 +0100
+
 jclic (0.2.3.4b-1ppa2) precise; urgency=low
 
   * Corrected path for SVG icons
 
  -- Francesc Busquets <francesc@gmail.com>  Sat, 14 Dec 2013 00:17:00 +0100
 
-=======
->>>>>>> c2a2d987dc020d751a9941efc2a0c07fb302155c
 jclic (0.2.3.4b-1ppa1) precise; urgency=low
 
   * build.xml updated to force UTF-8 encoding in javac ant task
