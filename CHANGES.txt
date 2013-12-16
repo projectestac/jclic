@@ -196,7 +196,7 @@ Correction of bugs affecting JClic Author: the program freezes when saving after
 Correction of a bug of Windows uninstaller: the program was not completelly uninstalled because one file (reports.ico) was not removed
 
 
-Changes in 0.2.3.4 PPA (13-14 Dec-2013)
+Changes in 0.2.3.4 PPA (13-16 Dec-2013)
 ---------------------------------------------------------------------------------------
 Added the "dist/linux" directory, containing files needed to build PPA Debian packages: man files, bin launchers, desktop files, SVG icons and misc /debian control files.
 No modifications have been made on the source code of JClic, but build.xml has been updated to indicate UTF-8 as default encoding in javac ant task.

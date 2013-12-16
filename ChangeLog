@@ -1,3 +1,14 @@
+2013-12-16  Francesc Busquets <fbusquets@xtec.cat>
+
+    *   dist/linux/bin/jclic-libmanager
+    * 	dist/linux/debian/changelog
+    *   dist/linux/debian/jclic.install
+    *   dist/linux/debian/jclic.manpages
+    *   dist/linux/man/jclic.1
+    *   dist/linux/man/jclicauthor.1
+    *   dist/linux/man/jclic-libmanager.1: Added "jclic-libmanager" command to set/unset JClic project libraries at system level.
+
+
 2013-12-13  Francesc Busquets <fbusquets@xtec.cat>
 
     * build.xml: Added "encoding" param to "javac" ant task to force UTF-8

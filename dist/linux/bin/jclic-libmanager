@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# jclic-libmanager wrapper script
+
+java -cp /usr/share/java/jclic.jar edu.xtec.jclic.project.LibraryManager "$@"
+
