@@ -1,9 +1,10 @@
-2013-12-16  Francesc Busquets <fbusquets@xtec.cat>
+2013-12-17  Francesc Busquets <fbusquets@xtec.cat>
 
     *   dist/linux/bin/jclic-libmanager
     * 	dist/linux/debian/changelog
     *   dist/linux/debian/jclic.install
     *   dist/linux/debian/jclic.manpages
+    *   dist/linux/debian/jclic.postinst
     *   dist/linux/man/jclic.1
     *   dist/linux/man/jclicauthor.1
     *   dist/linux/man/jclic-libmanager.1: Added "jclic-libmanager" command to set/unset JClic project libraries at system level.
