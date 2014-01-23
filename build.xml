@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-
 <project name="JClic" basedir="." default="all">
 
   <!-- =================================================================== -->
@@ -10,14 +9,15 @@
 
     <!-- Variables -->
     <property name="name"           value="JClic" />    
-    <property name="year"           value="2004-13" />
+    <property name="year"           value="2004-14" />
     
-    <!-- Set the appropiate values for your certificate keys here, -->
-    <!-- or write it into a text file called .ant-global.properties, placed -->
-    <!-- in your home directory, using the form "variable=value", one var per line. -->
+    <!-- Set the appropiate values for your certificate keys here,
+         or write them on a text file called ".ant-global.properties",
+         placed in your home directory, using the form "variable=value" -->
     <property file="${user.home}/.ant-global.properties" />
     <property name="author" value="Test" />
-    <!-- Check the Java system to determine the appropiate keystore format: Sun JKS (default) or GNU GKR -->
+    <!-- Check the Java system to determine the appropiate
+         keystore format: Sun JKS (default) or GNU GKR -->
     <condition property="keystore.format" value="-gkr" else="">
       <contains string="${java.vm.name}" substring="gcj" casesensitive="false" />
     </condition>
@@ -134,39 +134,48 @@
     <echo message="Using Java ${java.version} by ${java.vendor} in ${java.home}"/>
     <echo message="Generating code for Java ${javac.target}"/>
     <echo message="Bootstrap: ${bootstrap.path}"/>
-    <echo message="Signing with key &quot;${keystore.alias}&quot; in ${keystore.dir}/${keystore.file}"/>
         
     <!-- Create dirs -->
-    <mkdir dir="${apidoc.dir}"/>
     <mkdir dir="${dist.dir}"/>
     <mkdir dir="${jnlp.dir}"/>
     <mkdir dir="${reports.dir}"/>
     <mkdir dir="${signed.dir}"/>
     <mkdir dir="${build.dir}"/>
-
   </target>
 
   <!-- =================================================================== -->
   <!-- MAIN                                                                -->
   <!-- =================================================================== -->
   <target name="all" 
-          depends="jclicplayer,jclicauthor,jclicreports,jclicreports.webapp,sign" 
+          depends="dist" 
           description="Builds everything.">
     <echo message="*** JClic successfully compiled!"/>
+    <echo message="*** Unsigned JAR files have been placed in ${dist.dir}"/>
+    <echo message="*** Run 'ant sign' to digitally sign them"/>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- DIST                                                               -->
+  <!-- =================================================================== -->
+  <target name="dist" 
+          depends="jclicplayer,jclicauthor,jclicreports,jclicreports.webapp" 
+          description="Prepare distribution">
+  
+    <!-- Workaround to avoid "Modified in the future" warnings -->
+    <sleep seconds="2" />
+    <copy todir="${signed.dir}">
+        <fileset dir="${build.dir}" includes="*.jar" />
+    </copy>        
   </target>
 
   <!-- =================================================================== -->
   <!-- SIGN                                                               -->
   <!-- =================================================================== -->
   <target name="sign" 
-          depends="init" 
-          description="Digitally signs the JAR files">
+          depends="dist" 
+          description="Digital signature of the JAR files">
   
-    <!-- Workaround to avoid "Modified in the future" warinings -->
-    <sleep seconds="2" />
-    <copy todir="${signed.dir}">
-        <fileset dir="${build.dir}" includes="*.jar" />
-    </copy>        
+    <echo message="Signing with key &quot;${keystore.alias}&quot; in ${keystore.dir}/${keystore.file}"/>
 
     <!-- Signing the .jar files with ${keystore.dir}/${keystore.file}"  -->
     <!-- See keystore/readme.txt -->
@@ -427,42 +436,6 @@
     <ext.javac srcdir="${lib.dir}/jmf-api/src" 
                destdir="${build.dir}/lib/jmf-api" />
   </target>
-
-  <!-- =================================================================== -->
-  <!-- CORE                                                                -->
-  <!-- =================================================================== -->
-  <target name="core-old" 
-          depends="utilities,image4j,soundspi,jmf-api,qtjava-api"
-          description="Builds the main component of JClic">
-    <mkdir dir="${build.dir}/jclic"/>
-    <mkdir dir="${build.dir}/jclic/${resource.path}"/>    
-    <copy todir="${build.dir}/jclic/${resource.path}">
-        <fileset dir="${src.dir}/core/${resource.path}">
-            <patternset refid="images" />
-            <patternset refid="sounds" />
-            <patternset refid="docs" />
-        </fileset>            
-    </copy>
-    <copy todir="${build.dir}/jclic/${resource.path}">
-        <filterset refid="versionFilterSet"/>
-        <fileset dir="${src.dir}/core/${resource.path}">
-            <patternset refid="props" />
-        </fileset>            
-    </copy>    
-    <ext.javac destdir="${build.dir}/jclic" >
-        <src path="${src.dir}/core" />
-        <src path="${src.dir}/interface" />
-        <src path="${src.dir}/qt61"/>
-        <classpath>
-            <pathelement location="${build.dir}/jdom"/>
-            <pathelement location="${build.dir}/utilities"/>
-            <pathelement location="${build.dir}/image4j"/>
-            <pathelement location="${build.dir}/lib/jmf-api"/>
-            <pathelement location="${build.dir}/lib/qtjava-api"/>
-            <pathelement location="${build.dir}/soundspi"/>
-        </classpath>
-    </ext.javac>
-  </target>
   
   <!-- =================================================================== -->
   <!-- CORE                                                                -->
@@ -536,6 +509,7 @@
   <target name="jclicplayer" 
           depends="core,extra,jclicapplet"
           description="Builds the jclic.jar component">
+
     <mkdir dir="${build.dir}/jclicPlayer"/>
     <mkdir dir="${build.dir}/jclicPlayer/${resource.path}"/>
     <copy todir="${build.dir}/jclicPlayer/${resource.path}">
@@ -546,6 +520,7 @@
             <patternset refid="props" />
         </fileset>            
     </copy>        
+
     <ext.javac srcdir="${src.dir}/jclicPlayer" 
                destdir="${build.dir}/jclicPlayer" >
         <classpath>
@@ -553,6 +528,7 @@
             <pathelement location="${build.dir}/utilities" />
         </classpath>
     </ext.javac>
+
     <jar jarfile="${build.dir}/jclic.jar">
         <manifest>
             <attribute name="Built-By" 
@@ -597,6 +573,7 @@
             <patternset refid="props" />
         </fileset>            
     </copy>        
+
     <ext.javac srcdir="${src.dir}/jclicApplet" 
                destdir="${build.dir}/jclicApplet" >
         <classpath>
@@ -631,6 +608,7 @@
             <patternset refid="props" />
         </fileset>            
     </copy>    
+
     <ext.javac destdir="${build.dir}/author" >
         <src path="${src.dir}/author"/>
         <src path="${src.dir}/shapers"/>
@@ -638,6 +616,7 @@
             <pathelement location="${build.dir}/jclic.jar"/>
         </classpath>
     </ext.javac>
+
     <jar jarfile="${build.dir}/jclicauthor.jar">
         <manifest>
             <attribute name="Built-By" 
@@ -704,6 +683,7 @@
             <pathelement location="${build.dir}/dbconn"/>
         </classpath>
     </ext.javac>
+
     <jar jarfile="${build.dir}/jclicreports.jar">
         <manifest>
             <attribute name="Built-By" 
@@ -724,7 +704,7 @@
   </target>
 
   <!-- =================================================================== -->
-  <!-- JCLIC REPORTS WEB APP                                                        -->
+  <!-- JCLIC REPORTS WEB APP                                               -->
   <!-- =================================================================== -->
   <target name="jclicreports.webapp" 
           depends="jclicreports"
@@ -737,6 +717,7 @@
         </fileset>
     </copy> 
     <copy file="${src.dir}/report/webApp/index.html" todir="${build.dir}/jclicreports.webapp"/>    
+
     <ext.javac destdir="${build.dir}/jclicreports.webapp/WEB-INF/classes" >
         <src path="${src.dir}/report/webApp/WEB-INF/classes"/>
         <classpath>
