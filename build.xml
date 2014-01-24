@@ -28,17 +28,17 @@
     <property name="keystore.keypass" value="passwd" />
     <property name="keystore.storetype" value="JKS" />
 
-    <property name="src.dir"        location="src" />
-    <property name="ext.dir"        location="extensions" />
-    <property name="lib.dir"        location="lib" />
-    <property name="build.dir"      location="build" />
-    <property name="dist.dir"       location="dist" />
-    <property name="deploy.dir"     location="deploy" />
-    <property name="signed.dir"     location="${dist.dir}/jclic" />
-    <property name="jnlp.dir"       location="${dist.dir}/jnlp" />
-    <property name="reports.dir"    location="${dist.dir}/reports" />
-    <property name="apidoc.dir"     location="apidoc" />
-    <property name="resource.path"  value="edu/xtec/resources" />
+    <property name="src.dir"          location="src" />
+    <property name="ext.dir"          location="extensions" />
+    <property name="lib.dir"          location="lib" />
+    <property name="build.dir"        location="build" />
+    <property name="dist.dir"         location="dist" />
+    <property name="dist.jclic.dir"   location="${dist.dir}/jclic" />
+    <property name="dist.reports.dir" location="${dist.dir}/reports" />
+    <property name="deploy.dir"       location="deploy" />
+    <property name="apidoc.dir"       location="apidoc" />
+
+    <property name="resource.path"    value="edu/xtec/resources" />
     
     <!-- JClic is currently targeted to JVM 1.5 -->
     <property name="javac.source" value="1.5"/>
@@ -137,9 +137,6 @@
         
     <!-- Create dirs -->
     <mkdir dir="${dist.dir}"/>
-    <mkdir dir="${jnlp.dir}"/>
-    <mkdir dir="${reports.dir}"/>
-    <mkdir dir="${signed.dir}"/>
     <mkdir dir="${build.dir}"/>
   </target>
 
@@ -148,22 +145,25 @@
   <!-- =================================================================== -->
   <target name="all" 
           depends="dist" 
-          description="Builds everything.">
-    <echo message="*** JClic successfully compiled!"/>
-    <echo message="*** Unsigned JAR files have been placed in ${dist.dir}"/>
-    <echo message="*** Run 'ant sign' to digitally sign them"/>
+          description="Builds JClic JAR files">
+    <echo message="*** JClic has been successfully compiled!"/>
+    <echo message="Unsigned JAR files have been created in: ${dist.jclic.dir}"/>
+    <echo message="Run 'ant sign' to digitally sign the JAR files"/>
+    <echo message="Run 'ant webapp' to build the WAR and EAR files needed to run JClicReports as a servlet"/>
+    <echo message="Run 'ant javadoc' to build the JClic API docs"/>
   </target>
 
   <!-- =================================================================== -->
   <!-- DIST                                                               -->
   <!-- =================================================================== -->
   <target name="dist" 
-          depends="jclicplayer,jclicauthor,jclicreports,jclicreports.webapp" 
+          depends="jclicplayer,jclicauthor,jclicreports" 
           description="Prepare distribution">
   
     <!-- Workaround to avoid "Modified in the future" warnings -->
     <sleep seconds="2" />
-    <copy todir="${signed.dir}">
+    <mkdir dir="${dist.jclic.dir}"/>
+    <copy todir="${dist.jclic.dir}">
         <fileset dir="${build.dir}" includes="*.jar" />
     </copy>        
   </target>
@@ -185,23 +185,12 @@
              storetype="${keystore.storetype}"
              keypass="${keystore.keypass}"
              lazy="true">
-        <fileset dir="${signed.dir}" includes="*.jar" />
+        <fileset dir="${dist.jclic.dir}" includes="*.jar" />
     </signjar>
-  </target>
 
-  <!-- =================================================================== -->
-  <!-- JNLP                                                               -->
-  <!-- =================================================================== -->
-  <target name="jnlp" 
-          depends="all" 
-          description="Copy the JAR files to the JNLP directory and rename it according to its version">
-    <taskdef name="updatejnlpjar" 
-             classname="edu.xtec.ant.UpdateJnlpJar"/>  
-    <updatejnlpjar destDir="${jnlp.dir}" >
-        <fileset dir="${signed.dir}" 
-                 includes="*.jar" 
-                 excludes="jclicapplet.jar" />
-    </updatejnlpjar>
+    <echo message="*** JClic files have been digitally signed with &quot;${keystore.alias}&quot;"/>
+    <echo message="Signed JAR files are located in: ${dist.jclic.dir}"/>
+
   </target>
 
   <!-- =================================================================== -->
@@ -218,10 +207,10 @@
   <!-- LAUNCH PLAYER                                                       -->
   <!-- =================================================================== -->
   <target name="launchPlayer" 
-          depends="jclicplayer,sign" 
+          depends="jclicplayer,dist" 
           description="Launch JClic player">
     <echo message="Launching JClicPlayer..."/>
-    <java jar="${signed.dir}/jclic.jar" fork="true" />
+    <java jar="${dist.jclic.dir}/jclic.jar" fork="true" />
     <echo message="JClicPlayer finished"/>
   </target>
 
@@ -229,10 +218,10 @@
   <!-- LAUNCH AUTHOR                                                       -->
   <!-- =================================================================== -->
   <target name="launchAuthor" 
-          depends="jclicauthor,sign" 
+          depends="jclicauthor,dist" 
           description="Launch JClic author">
     <echo message="Launching JClicAuthor..."/>
-    <java jar="${signed.dir}/jclicauthor.jar" fork="true" />
+    <java jar="${dist.jclic.dir}/jclicauthor.jar" fork="true" />
     <echo message="JClicAuthor finished"/>
   </target>
 
@@ -240,10 +229,10 @@
   <!-- LAUNCH REPORTS SERVER                                               -->
   <!-- =================================================================== -->
   <target name="launchReports" 
-          depends="jclicreports,sign" 
+          depends="jclicreports,dist" 
           description="Launch JClic reports server">
     <echo message="Launching JClic reports server..."/>
-    <java jar="${signed.dir}/jclicreports.jar" fork="true" />
+    <java jar="${dist.jclic.dir}/jclicreports.jar" fork="true" />
     <echo message="JClic reports server finished"/>
   </target>
 
@@ -309,6 +298,9 @@
              <link href="http://www.jdom.org/docs/apidocs.1.1/" />
              <link href="http://image4j.sourceforge.net/javadoc/" />
     </javadoc>
+
+    <echo message="*** JClic API documentation has been created in: ${apidoc.dir}"/>
+
   </target>
 
   <!-- =================================================================== -->
@@ -706,19 +698,20 @@
   <!-- =================================================================== -->
   <!-- JCLIC REPORTS WEB APP                                               -->
   <!-- =================================================================== -->
-  <target name="jclicreports.webapp" 
+  <target name="webapp" 
           depends="jclicreports"
           description="Builds the WAR and EAR versions of the JClic reports server, suitable for Tomcat or other J2EE application server">
-    <mkdir dir="${build.dir}/jclicreports.webapp/WEB-INF/classes"/>
-    <copy todir="${build.dir}/jclicreports.webapp">
+    <mkdir dir="${dist.reports.dir}"/>
+    <mkdir dir="${build.dir}/webapp/WEB-INF/classes"/>
+    <copy todir="${build.dir}/webapp">
         <fileset dir="${src.dir}/report/reportServlets/edu/xtec/resources/html">
             <patternset refid="images" />
             <patternset refid="docs" />
         </fileset>
     </copy> 
-    <copy file="${src.dir}/report/webApp/index.html" todir="${build.dir}/jclicreports.webapp"/>    
+    <copy file="${src.dir}/report/webApp/index.html" todir="${build.dir}/webapp"/>    
 
-    <ext.javac destdir="${build.dir}/jclicreports.webapp/WEB-INF/classes" >
+    <ext.javac destdir="${build.dir}/webapp/WEB-INF/classes" >
         <src path="${src.dir}/report/webApp/WEB-INF/classes"/>
         <classpath>
             <pathelement location="${build.dir}/jclicreports.jar"/>
@@ -729,8 +722,8 @@
 
     <!-- workaround to avoid the 2-seconds granularity value set by the "war" ant task (see ant's manual)-->
     <sleep seconds="3" />    
-    <war destfile="${reports.dir}/jclicreports.war" 
-         basedir="${build.dir}/jclicreports.webapp"
+    <war destfile="${dist.reports.dir}/jclicreports.war" 
+         basedir="${build.dir}/webapp"
          webxml="${src.dir}/report/webApp/WEB-INF/web.xml" >
         <manifest>
             <attribute name="Built-By" 
@@ -742,14 +735,17 @@
         </lib>
     </war>
     <sleep seconds="3" />    
-    <ear destfile="${reports.dir}/jclicreports.ear" 
+    <ear destfile="${dist.reports.dir}/jclicreports.ear" 
          appxml="${deploy.dir}/reports/xml/application.xml">
         <manifest>
             <attribute name="Built-By" 
                        value="${user.name}"/>
         </manifest>
-        <fileset dir="${reports.dir}" includes="*.war"/>
+        <fileset dir="${dist.reports.dir}" includes="*.war"/>
     </ear>
+
+    <echo message="*** JClic WAR and EAR files have been created in: ${dist.reports.dir}"/>
+
   </target>
 
 </project>
