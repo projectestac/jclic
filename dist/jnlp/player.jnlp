@@ -21,7 +21,7 @@
   </security>
   <resources>
     <j2se version="1.5+"/>
-    <jar href="jclic.jar" main="true" version="1.2.3.4"/>
+    <jar href="jclic.jar" main="true" version="1.2.3.4.02"/>
   </resources>
   <application-desc/>
 </jnlp>
