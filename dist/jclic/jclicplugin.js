@@ -1,8 +1,8 @@
 var player_files =    "jclic.jar";
-var player_versions = "0.2.3.4";
+var player_versions = "0.2.3.4.02";
 
 var author_files =    "jclicauthor.jar";
-var author_versions = "0.2.3.4";
+var author_versions = "0.2.3.4.02";
 
 var jar_cache_files = player_files;
 var jar_cache_versions = player_versions;
@@ -148,6 +148,27 @@ function setAuthorApplet(value){
 }
 
 function writePlugin(project, width, height, rWidth, rHeight){
+   document.writeln(getPlugin(project, width, height, rWidth, rHeight));
+}
+
+function writeCacheInfo(p){
+  document.writeln(getCacheInfo(p));
+}
+
+function writeDownloadPageInfo(){
+  document.writeln(getDownloadPageInfo());
+}
+
+function writeParams(project, p){
+  document.writeln(getParams(project, p));
+}
+
+
+function writeTable(w, h, nsw, nsh, s){
+  document.write(getTable(w, h, nsw, nsh, s));
+}
+
+function getPlugin(project, width, height, rWidth, rHeight){
    var w=width.toString();
    var h=height.toString();
    var nsw=w;
@@ -155,151 +176,160 @@ function writePlugin(project, width, height, rWidth, rHeight){
    if(rWidth!=null) w=rWidth.toString();
    if(rHeight!=null) h=rHeight.toString();
 
+   var htmlcode = '';
    if (_ie == true){
-      document.writeln(
-        '<object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"' +
-        ' width="' +w+ '" height="' +h+ '">');
-      document.writeln('<param name="code" value="' +mainClass+ '">');
-      document.writeln('<param name="codebase" value="' +jarBase+ '">');
-      writeCacheInfo(true);
-      document.writeln('<param name="type" value="application/x-java-applet;jpi-version=1.5">');
-      document.writeln('<param name="scriptable" value="false">');
-      writeParams(project, true);
-      writeDownloadPageInfo();
-      document.writeln('</object>');
+      htmlcode = '<object classid="clsid:8AD9C840-044E-11D1-B3E9-00805F499D93"' +
+        ' width="' +w+ '" height="' +h+ '">' +
+      '<param name="code" value="' +mainClass+ '">' +
+      '<param name="codebase" value="' +jarBase+ '">' +
+      getCacheInfo(true) +
+      '<param name="type" value="application/x-java-applet;jpi-version=1.5">' +
+      '<param name="scriptable" value="false">' +
+      getParams(project, true) +
+      getDownloadPageInfo() +
+      '</object>';
    }
    else if (_ns == true){
-      document.write(
-        '<embed type="application/x-java-applet;version=1.5"'+
-        ' code="' +mainClass+ '" codebase="' +jarBase+ '"'+
-        ' width="' +nsw+ '" height="' +nsh +'" ');
-      writeCacheInfo(false);
-      writeParams(project, false);
-      document.writeln(
-        ' scriptable="false"'+
-        ' pluginspage="http://www.java.com/">');
-      document.writeln('<noembed>');
-      writeDownloadPageInfo();
-      document.writeln('</noembed>');     
-      document.writeln("</embed>");
+      htmlcode = '<embed type="application/x-java-applet;version=1.5"'+
+      ' code="' +mainClass+ '" codebase="' +jarBase+ '"'+
+      ' width="' +nsw+ '" height="' +nsh +'" ' +
+      getCacheInfo(false) +
+      getParams(project, false) +
+      ' scriptable="false"'+
+      ' pluginspage="http://www.java.com/">' +
+      '<noembed>' + getDownloadPageInfo() + '</noembed>' +
+      '</embed>';
    }
    else{
-     document.write('<applet code="' +mainClass+ '" codebase="' +jarBase+ '"');
-     document.write(' archive="'+ jar_cache_files +'"');
-     document.writeln(' width="' +nsw+ '" height="' +nsh+ '">');
-     document.writeln('<param name="type" value="application/x-java-applet;version=1.5">');
-     document.writeln('<param name="scriptable" value="false">');
-     writeParams(project, true);
-     document.writeln('</applet>');
+     htmlcode = '<applet code="' +mainClass+ '" codebase="' +jarBase+ '"' +
+     ' archive="'+ jar_cache_files +'"' +
+     ' width="' +nsw+ '" height="' +nsh+ '">' +
+     '<param name="type" value="application/x-java-applet;version=1.5">' +
+     '<param name="scriptable" value="false">' +
+     getParams(project, true) +
+     '</applet>';
   }
+  return htmlcode;
 }
 
-function writeCacheInfo(p){
+function getCacheInfo(p){
+  var htmlcode = '';
   if(p){
-    document.writeln('<param name="cache_option" value="Plugin">');
-    document.writeln('<param name="cache_archive" value="' +jar_cache_files+ '">');
+    htmlcode = '<param name="cache_option" value="Plugin">' +
+               '<param name="cache_archive" value="' +jar_cache_files+ '">';
     if(!isFile){
-      document.writeln('<param name="cache_version" value="' +jar_cache_versions+ '">');
+      htmlcode += '<param name="cache_version" value="' +jar_cache_versions+ '">';
     }
   }else{
-    document.write(' cache_option="Plugin"');
-    document.write(' cache_archive="' +jar_cache_files+ '"');
+    htmlcode = ' cache_option="Plugin"' +
+               ' cache_archive="' +jar_cache_files+ '"';
     if(!isFile){
-      document.write(' cache_version="' +jar_cache_versions+ '"');
+      htmlcode += ' cache_version="' +jar_cache_versions+ '"';
     }
   }
+  return htmlcode;
 }
 
-function writeDownloadPageInfo(){
-  var pluginBase="http://clic.xtec.cat/";
-  var pluginCat=pluginBase+"ca/jclic/instjava.htm";
-  var pluginEsp=pluginBase+"es/jclic/instjava.htm";
-  var pluginEng=pluginBase+"en/jclic/instjava.htm";
-  document.writeln(
-    '<span style="background-color: #F5DEB3; color: Black; display: block; padding: 10; font-family: Verdana,Arial; border-style: solid; border-width: thin; font-size: 12px; text-align: center; font-weight: bold;">'+
-    'Per utilitzar aquesta aplicaci&oacute; cal instal&middot;lar un plug-in Java&#153; actualitzat<br><a href="'+pluginCat+'" target="_blank">Feu clic aqu&iacute; per descarregar-lo</a><br>&nbsp;<br>'+
-    'Para utilizar esta aplicaci&oacute;n es necesario un plug-in Java&#153; actualizado<br><a href="'+pluginEsp+'" target="_blank">Haga clic aqu&iacute; para descargarlo</a><br>&nbsp;<br>'+
-    'In order to run this program you need an updated Java&#153; plug-in<br><a href="'+pluginEng+'" target="_blank">Click here to download it</a><br>'+
-    '</span>');
-}
 
-function writeParams(project, p){
+function getParams(project, p){
+  var htmlcode = '';
 
-  if(p) document.writeln('<param name="activityPack" value="' +project+ '">');
-  else document.write(' activityPack="' +project+ '"');
+  if(p) htmlcode += '<param name="activityPack" value="' +project+ '">';
+  else htmlcode += ' activityPack="' +project+ '"';
 
   if(useSequence){
-    if(p) document.writeln('<param name="sequence" value="' +sequence+ '">');
-    else document.write(' sequence="' +sequence+ '" ');
+    if(p) htmlcode += '<param name="sequence" value="' +sequence+ '">';
+    else htmlcode += ' sequence="' +sequence+ '" ';
   }
 
   if(useLanguage){
     if(p){
-      document.writeln('<param name="language" value="' +language+ '">');
-      document.writeln('<param name="country" value="' +country+ '">');
-      document.writeln('<param name="variant" value="' +variant+ '">');
+      htmlcode += '<param name="language" value="' +language+ '">' +
+                  '<param name="country" value="' +country+ '">' +
+                  '<param name="variant" value="' +variant+ '">';
     }
-    else document.write(' language="' +language+ '" country="' +country+ '" variant="' +variant+ '" ');
+    else htmlcode += ' language="' +language+ '" country="' +country+ '" variant="' +variant+ '" ';
   }
 
   if(useSkin){
-    if(p) document.writeln('<param name="skin" value="' +skinName+ '">');
-    else document.write(' skin="' +skinName+ '" ');
+    if(p) htmlcode += '<param name="skin" value="' +skinName+ '">';
+    else htmlcode += ' skin="' +skinName+ '" ';
   }
 
   if(useExitUrl){
-    if(p) document.writeln('<param name="exitUrl" value="' +exitUrl+ '">');
-    else document.write(' exitUrl="' +exitUrl+ '" ');
+    if(p) htmlcode += '<param name="exitUrl" value="' +exitUrl+ '">';
+    else htmlcode += ' exitUrl="' +exitUrl+ '" ';
   }
 
   if(useInfoUrlFrame){
-    if(p) document.writeln('<param name="infoUrlFrame" value="' +infoUrlFrame+ '">');
-    else document.write(' infoUrlFrame="' +infoUrlFrame+ '" ');
+    if(p) htmlcode += '<param name="infoUrlFrame" value="' +infoUrlFrame+ '">';
+    else htmlcode += ' infoUrlFrame="' +infoUrlFrame+ '" ';
   }
 
   if(useReporter){
     if(p){
-      document.writeln('<param name="reporter" value="' +reporterClass+ '">');
-      document.writeln('<param name="reporterParams" value="' +reporterParams+ '">');
+      htmlcode += '<param name="reporter" value="' +reporterClass+ '">' +
+                  '<param name="reporterParams" value="' +reporterParams+ '">';
     }
-    else document.write(' reporter="' +reporterClass+ '" reporterParams="' +reporterParams+ '" ');
+    else htmlcode += ' reporter="' +reporterClass+ '" reporterParams="' +reporterParams+ '" ';
   }
 
   if(useCookie){
-    if(p) document.writeln('<param name="cookie" value="' +cookie+ '">');
-    else document.write(' cookie="' +cookie+ '" ');
+    if(p) htmlcode += '<param name="cookie" value="' +cookie+ '">';
+    else htmlcode += ' cookie="' +cookie+ '" ';
   }
 
   if(useSystemSounds){
-    if(p) document.writeln('<param name="systemSounds" value="' +systemSounds+ '">');
-    else document.write(' systemSounds="' +systemSounds+ '" ');
+    if(p) htmlcode += '<param name="systemSounds" value="' +systemSounds+ '">';
+    else htmlcode += ' systemSounds="' +systemSounds+ '" ';
   }
 
   if(useCompressImages){
-    if(p) document.writeln('<param name="compressImages" value="' +compressImages+ '">');
-    else document.write(' compressImages="' +compressImages+ '" ');
+    if(p) htmlcode += '<param name="compressImages" value="' +compressImages+ '">';
+    else htmlcode += ' compressImages="' +compressImages+ '" ';
   }
 
   if(useTrace){
-    if(p) document.writeln('<param name="trace" value="' +trace+ '">');
-    else document.write(' trace="' +trace+ '" ');
+    if(p) htmlcode += '<param name="trace" value="' +trace+ '">';
+    else htmlcode += ' trace="' +trace+ '" ';
   }
 
   if(useMyURL){
-    if(p) document.writeln('<param name="myurl" value="' +myURL+ '">');
-    else document.write(' myurl="' +myURL+ '" ');
+    if(p) htmlcode += '<param name="myurl" value="' +myURL+ '">';
+    else htmlcode += ' myurl="' +myURL+ '" ';
   }
+
+  return htmlcode;
 }
 
-function writeTable(w, h, nsw, nsh, s){
-	document.write('<table '+ s);
-    if(_ie == true){
-	  if(w!=null) document.write(' width='+ w);
-	  if(h!=null) document.write(' height='+ h);
-	}
-	else{
-	  if(nsw!=null) document.write(' width='+ nsw);
-	  if(nsh!=null) document.write(' height='+ nsh);
-	}
-	document.writeln('>');
+function getDownloadPageInfo(){
+  var htmlcode = '';
+
+  var pluginBase="http://clic.xtec.cat/";
+  var pluginCat=pluginBase+"ca/jclic/instjava.htm";
+  var pluginEsp=pluginBase+"es/jclic/instjava.htm";
+  var pluginEng=pluginBase+"en/jclic/instjava.htm";
+
+  htmlcode += '<span style="background-color: #F5DEB3; color: Black; display: block; padding: 10; font-family: Verdana,Arial; border-style: solid; border-width: thin; font-size: 12px; text-align: center; font-weight: bold;">'+
+    'Per utilitzar aquesta aplicaci&oacute; cal instal&middot;lar un plug-in Java&#153; actualitzat<br><a href="'+pluginCat+'" target="_blank">Feu clic aqu&iacute; per descarregar-lo</a><br>&nbsp;<br>'+
+    'Para utilizar esta aplicaci&oacute;n es necesario un plug-in Java&#153; actualizado<br><a href="'+pluginEsp+'" target="_blank">Haga clic aqu&iacute; para descargarlo</a><br>&nbsp;<br>'+
+    'In order to run this program you need an updated Java&#153; plug-in<br><a href="'+pluginEng+'" target="_blank">Click here to download it</a><br>'+
+    '</span>';
+
+  return htmlcode;
+}
+
+function getTable(w, h, nsw, nsh, s){
+  var htmlcode = '';
+  htmlcode += '<table '+ s;
+  if(_ie == true){
+    if(w!=null) htmlcode += ' width='+ w;
+    if(h!=null) htmlcode += ' height='+ h;
+  }
+  else{
+    if(nsw!=null) htmlcode += ' width='+ nsw;
+    if(nsh!=null) htmlcode += ' height='+ nsh;
+  }
+  htmlcode += '>';
+  return htmlcode;
 }
