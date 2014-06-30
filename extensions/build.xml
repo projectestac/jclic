@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<project name="JClic Extensions" basedir="." default="all">
+
+  <!-- =================================================================== -->
+  <!-- INIT                                                                -->
+  <!-- =================================================================== -->
+  <target name="init" 
+          description="Initialize variables.">  
+
+    <!-- Variables -->
+    <property name="dest.dir"  value="../lib" />
+    
+    <!-- Display info -->
+    <echo message="-------------------------"/>
+    <echo message="Build of JClic Extensions"/>
+    <echo message="-------------------------"/>        
+    <echo message="Using ${ant.version}, in ${ant.home}"/>
+    <echo message="Using Java ${java.version} by ${java.vendor} in ${java.home}"/>
+    <echo message="Generating code for Java ${javac.target}"/>
+    <echo message="Files will be copied into ${dest.dir}"/>
+        
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- MAIN                                                                -->
+  <!-- =================================================================== -->
+  <target name="all" 
+          depends="init"
+          description="Builds JClic Extensions">
+
+    <echo message="***"/>
+    <echo message="***"/>
+    <echo message="*** Building JDOM"/>
+    <ant dir="xml"/>
+    <copy todir="${dest.dir}" file="xml/build/jdom.jar"/>
+
+    <echo message="***"/>
+    <echo message="***"/>
+    <echo message="*** Building sound extensions"/>
+    <ant dir="soundspi"/>
+    <copy todir="${dest.dir}" file="soundspi/build/soundspi.jar"/>
+
+    <echo message="***"/>
+    <echo message="***"/>
+    <echo message="*** Building JSON extension"/>
+    <ant dir="json"/>
+    <copy todir="${dest.dir}" file="json/build/json.jar"/>
+
+    <echo message="***"/>
+    <echo message="***"/>
+    <echo message="*** Building Image4J extension"/>
+    <ant dir="img/image4j"/>
+    <copy todir="${dest.dir}" file="img/image4j/dist/image4j.jar"/>
+
+    <echo message="***"/>
+    <echo message="***"/>
+    <echo message="*** Building DBConn extension"/>
+    <ant dir="dbconn"/>
+    <copy todir="${dest.dir}" file="dbconn/build/dbconn.jar"/>
+
+    <echo message="***"/>
+    <echo message="***"/>
+    <echo message="*** JClic extensions successfully compiled"/>
+
+  </target>
+
+</project>

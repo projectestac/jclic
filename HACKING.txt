@@ -91,37 +91,19 @@ The source code of JClic is organized into the following directories:
 
 Edit instructions:
 
-JClic was made using NetBeans, currently version 3.7.
+JClic was made using NetBeans, currently version 8.0.
 You can download this IDE from:
 
 https://netbeans.org/downloads/
 
-Build the extensions by launching "ant" from the following subdirectories:
-extensions/dbconn
-extensions/img/image4j
-extensions/json
-extensions/xml
-extensions/soundspi
+Build the extensions by launching "ant" from the "extensions" directory.
+This will also make a copy of the generated JAR files into the "lib" directory.
 
-Copy the resulting jar files into the "lib" directory:
-extensions/dbconn/build/dbconn.jar
-extensions/img/image4j/dist/image4j.jar
-extensions/json/build/json.jar
-extensions/xml/build/jdom.jar
-extensions/soundspi/build/soundspi.jar
+Launch NetBeans, create a new project of type "Java Project with existing sources"
+and choose the directory containing the JClic source code as a main project folder.
 
-Launch NetBeans, create a new project and mount the following 17 
-filesystems from the directory containing the JClic source code:
+Mount the following dierctories as source folders:
 
-File-based filesystems:
-lib/jdom.jar
-lib/dbconn.jar
-lib/soundspi.jar
-lib/json.jar
-lib/image4j.jar
-
-Directory-based filesystems:
-lib/jmf-api
 src/activities
 src/author
 src/core
@@ -131,17 +113,38 @@ src/jclicApplet
 src/jclicPlayer
 src/player
 src/shapers
+src/qt61
 src/utilities
 src/report/reportServer
 src/report/reportServlets
 src/report/webApp
+* lib/jmf-api/src
+* lib/qtjava-api/src
+* lib/servlet-api/src
 
-After mounting the last filesystem, a new one will be automatically created:
-src/report/webApp/WEB-INF/classes
+Right-click on the "Libraries" folder of the NetBeans project and select "add JAR/Folder"
+to add the following files:
 
-The classes are distributed into different directories.
+lib/dbconn.jar
+lib/image4j.jar
+lib/jdom.jar
+lib/json.jar
+lib/soundspi.jar
 
-The JClic classes are organized into the following Java packages:
+The three last source folders, marked with an asterisk, contain fake (empty) skeletons
+of "Java Media Framework", "QuickTime for Java" and the Servlet API. This is because
+JMF and QuickTime are non-free software, and the servlet API is available only with
+the full package of J2EE (not really needed for JClic).
+
+To test the real behavior of JMF and QTJava you must obtain valid implementations
+of the files "jmf.jar" and "QTJava61.zip" (see the URLs indicated above) and replace
+its 'skeleton' source folder with a reference to a valid file in the "Libraries" folder
+of the netBeans project.
+
+To test the WebApp, you must replace the 'servlet-api/src' folder with a reference to a
+fully implemented J2EE library (available in the stock of Netbeans libraries)
+
+The main JClic classes are organized into the following Java packages:
 
 /                           Main classes (JClicApplet, JClicPlayer, 
                             JClicInstaller, JClicAuthor and ReportServer)
@@ -171,3 +174,4 @@ The JClic classes are organized into the following Java packages:
 /edu/xtec/resources         Different sub-packages containing messages, icons,
                             graphics, sounds, etc.
 /edu/xtec/util              Utility classes not specific to JClic                            
+
