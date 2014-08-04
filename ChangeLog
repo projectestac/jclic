@@ -1,3 +1,8 @@
+2014-08-04  Francesc Busquets <fbusquets@xtec.cat>
+
+    *   src/core/edu/xtec/jclic/fileSystem/FileSystem.java
+    * 	src/player/edu/xtec/jclic/project/LibraryManagerElement.java: Corrected GitHub issue #5
+
 2013-12-17  Francesc Busquets <fbusquets@xtec.cat>
 
     *   dist/linux/bin/jclic-libmanager
@@ -8,7 +13,6 @@
     *   dist/linux/man/jclic.1
     *   dist/linux/man/jclicauthor.1
     *   dist/linux/man/jclic-libmanager.1: Added "jclic-libmanager" command to set/unset JClic project libraries at system level.
-
 
 2013-12-13  Francesc Busquets <fbusquets@xtec.cat>
 

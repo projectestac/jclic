@@ -101,7 +101,7 @@ public class LibraryManagerElement implements Domable{
             if(path.startsWith("http:") || path.startsWith("https:")){
                 isUrl=true;
                 try{
-                    java.net.URL url=new java.net.URL(path);
+                    java.net.URL url=new java.net.URL(path.replace(" ", "%20"));
                     java.net.URLConnection con=url.openConnection();                    
                     exists=(con!=null);
                 } catch(Exception ex){

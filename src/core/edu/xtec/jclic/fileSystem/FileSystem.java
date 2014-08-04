@@ -306,7 +306,9 @@ public class FileSystem extends Object {
     public long getFileLength(String fName) throws IOException{
         long length;
         if(isURL){
-            URL url=new URL(getFullFileNamePath(fName));
+            // Updated 04-Aug-2014 to solve GitHub issue #5
+            // https://github.com/projectestac/jclic/issues/5
+            URL url=new URL(getFullFileNamePath(fName).replace(" ", "%20"));
             URLConnection c=url.openConnection();
             length=c.getContentLength();
         }
@@ -321,7 +323,9 @@ public class FileSystem extends Object {
         boolean result;
         try{
             if(isURL){
-                URL url=new URL(getFullFileNamePath(fName));
+                // Updated 04-Aug-2014 to solve GitHub issue #5
+                // https://github.com/projectestac/jclic/issues/5
+                URL url=new URL(getFullFileNamePath(fName).replace(" ", "%20"));
                 URLConnection c=url.openConnection();
                 result=(c.getContentLength()>0);
             }
@@ -341,8 +345,9 @@ public class FileSystem extends Object {
         InputStream result;
         int length;
         if(isURL){
-            //URL url=new URL(getCanonicalNameOf(root + fName));
-            URL url=new URL(getFullFileNamePath(fName));
+            // Updated 04-Aug-2014 to solve GitHub issue #5
+            // https://github.com/projectestac/jclic/issues/5
+            URL url=new URL(getFullFileNamePath(fName).replace(" ", "%20"));
             URLConnection c=url.openConnection();
             length=c.getContentLength();
             result=c.getInputStream();
