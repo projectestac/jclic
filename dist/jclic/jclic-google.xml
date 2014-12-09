@@ -3,17 +3,17 @@
 <ModulePrefs 
   title="JClic applet" 
   directory_title="Embed JClic applet"
-  title_url="http://clic.xtec.cat" 
+  title_url="https://clic.xtec.cat" 
   width="700" height="500" 
   author="Francesc Busquets" 
   author_email="francesc+jclic.gadget@gmail.com" 
   description="__MSG_description__" 
-  screenshot="http://clic.xtec.cat/dist/jclic/screenshot.png" 
-  thumbnail="http://clic.xtec.cat/dist/jclic/thumbnail.png">
-  <Locale messages="http://clic.xtec.cat/dist/jclic/ALL_ALL.xml"/>
-  <Locale lang="ca" messages="http://clic.xtec.cat/dist/jclic/ca_ALL.xml"/>
-  <Locale lang="es" messages="http://clic.xtec.cat/dist/jclic/es_ALL.xml"/>
-  <Icon>http://clic.xtec.cat/favicon.ico</Icon>
+  screenshot="https://clic.xtec.cat/dist/jclic/screenshot.png" 
+  thumbnail="https://clic.xtec.cat/dist/jclic/thumbnail.png">
+  <Locale messages="https://clic.xtec.cat/dist/jclic/ALL_ALL.xml"/>
+  <Locale lang="ca" messages="https://clic.xtec.cat/dist/jclic/ca_ALL.xml"/>
+  <Locale lang="es" messages="https://clic.xtec.cat/dist/jclic/es_ALL.xml"/>
+  <Icon>https://clic.xtec.cat/favicon.ico</Icon>
 </ModulePrefs>
 <UserPref name="url" display_name="__MSG_jclic.project.url__" datatype="string" required="true"/>
 <UserPref name="language" display_name="__MSG_language__" datatype="enum" default_value="__MSG_default.language__">
@@ -56,7 +56,7 @@
   preferred_width="700"
   preferred_height="500"
 ><![CDATA[
-<script language="JavaScript" src="https://sites.google.com/a/xtec.cat/clic/fitxers/jclicplugin.js" type="text/javascript"></script>
+<script language="JavaScript" src="https://clic.xtec.cat/dist/jclic/jclicpluginssl.js" type="text/javascript"></script>
 <script language="JavaScript">
 setLanguage('__UP_language__');
 setSkin('__UP_skin__');
