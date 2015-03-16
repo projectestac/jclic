@@ -204,4 +204,6 @@ No modifications have been made on the source code of JClic, but build.xml has b
 Changes in 0.2.3.5 (Not yet released)
 ---------------------------------------------------------------------------------------
 Correction of GitHub issue #5, related to URLs pointing to filenames containing whitespaces
+Added maxRecursion and maxFiles to FileSystem.exploreFiles to prevent hangs in large file systems
+
 

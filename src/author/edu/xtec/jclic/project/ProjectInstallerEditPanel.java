@@ -328,9 +328,10 @@ public class ProjectInstallerEditPanel extends javax.swing.JPanel implements Lis
         
         availModel.removeAllElements();
         List<String> v=new ArrayList<String>();
-        FileSystem.exploreFiles(null, base, v, '/', null);
-        for(int i=0; i<v.size(); i++)
-            availModel.addElement(v.get(i));
+        FileSystem.exploreFiles(null, base, v, '/', null, 3, 300);
+        for (String v1 : v) 
+          availModel.addElement(v1);
+      
         
         filesModel.removeAllElements();
         for(int i=0; i<pi.files.size(); i++){
