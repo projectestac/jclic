@@ -172,8 +172,9 @@
   <!-- SIGN                                                               -->
   <!-- =================================================================== -->
   <target name="sign" 
-          depends="dist" 
-          description="Digital signature of the JAR files">
+          depends="sign.with.tsa" 
+          unless="keystore.tsa"
+          description="Digital signature of the JAR files, without TSA">
   
     <echo message="Signing with key &quot;${keystore.alias}&quot; in ${keystore.dir}/${keystore.file}"/>
 
@@ -191,6 +192,25 @@
     <echo message="*** JClic files have been digitally signed with &quot;${keystore.alias}&quot;"/>
     <echo message="Signed JAR files are located in: ${dist.jclic.dir}"/>
 
+  </target>
+
+  <target name="sign.with.tsa" 
+          depends="dist" 
+          if="keystore.tsa"
+          description="Digital signature of the JAR files using a TSA URL">
+
+    <echo message="Signing with key &quot;${keystore.alias}&quot; in ${keystore.dir}/${keystore.file}"/>
+    <signjar keystore="${keystore.dir}/${keystore.file}"
+             alias="${keystore.alias}" 
+             storepass="${keystore.storepass}"
+             storetype="${keystore.storetype}"
+             keypass="${keystore.keypass}"
+             tsaurl="${keystore.tsa}"
+             lazy="true">
+        <fileset dir="${dist.jclic.dir}" includes="*.jar" />
+    </signjar>
+    <echo message="*** JClic files have been digitally signed with &quot;${keystore.alias}&quot;"/>
+    <echo message="Signed JAR files are located in: ${dist.jclic.dir}"/>
   </target>
 
   <!-- =================================================================== -->
