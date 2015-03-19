@@ -36,7 +36,7 @@ import java.awt.event.MouseEvent;
 import java.util.Iterator;
 
 /**
- * This activity has two {@link MediaBag} objects with the same number of elements.
+ * This activity has two {@link edu.xtec.jclic.bags.MediaBag} objects with the same number of elements.
  * The elements are linked one to one (first A to first B, second A to second B,
  * etc).
  * @author Francesc Busquets (fbusquets@xtec.cat)
@@ -109,9 +109,9 @@ public class SimpleAssociation extends Activity implements ActiveBagContentKit.C
     
     /**
      * Applies to this object the properties previously stored into a JDom Element
-     * usually created by means of a call to the {@link getJDomElement} method).
+     * usually created by means of a call to the {@link #getJDomElement()} method).
      * @param e The JDom element cointaining the data.
-     * @param aux Auxiliary object. Unused here, but needed to be {@link Domable}.
+     * @param aux Auxiliary object. Unused here, but has to be {@link edu.xtec.util.Domable}.
      * @throws Exception If something goes wrong.
      */    
     @Override

@@ -66,7 +66,7 @@ import javax.swing.border.BevelBorder;
  * responsible of the user interaction with the activity content.
  * Activities should extend both <CODE>Activity</CODE> and
  * <CODE>Activity.Panel</CODE> classes in order to become fully operative.
- * JClic stores activities in memory as {@link org.JDom.Element} objects. So,
+ * JClic stores activities in memory as {@link org.jdom.Element} objects. So,
  * all non-transient data must be stored to and retrieved from JDom elements.
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10
@@ -131,7 +131,7 @@ public abstract class Activity extends Object implements Constants, Editable, Do
      */
     public boolean absolutePositioned;
     
-    /** Position of the activity panel into the {@link ActivityContainer}.
+    /** Position of the activity panel into the {@link edu.xtec.jclic.Player}.
      */
     public Point absolutePosition;
     
@@ -141,7 +141,7 @@ public abstract class Activity extends Object implements Constants, Editable, Do
     public boolean includeInReports=true;
     
     /**
-     * Whether to send action events to the {@link Reporter}.
+     * Whether to send action events to the {@link edu.xtec.jclic.report.Reporter}.
      */
     public boolean reportActions;
     
@@ -163,7 +163,7 @@ public abstract class Activity extends Object implements Constants, Editable, Do
     
     /**
      * Specific set of {@link EventSounds} used in the activity. The default is <CODE>null</CODE>,
-     * meaning to use the {@link ActivityContainer} sounds.
+     * meaning to use the {@link edu.xtec.jclic.Player} sounds.
      */
     public EventSounds eventSounds=new EventSounds(null);
     
@@ -189,7 +189,7 @@ public abstract class Activity extends Object implements Constants, Editable, Do
      */
     public int maxTime;
     /**
-     * Whether the time counter should display a countdown when {@link maxTime} > 0.
+     * Whether the time counter should display a countdown when {@link #maxTime} &gt; 0.
      */
     public boolean countDownTime;
     /**
@@ -198,7 +198,7 @@ public abstract class Activity extends Object implements Constants, Editable, Do
      */
     public int maxActions;
     /**
-     * Whether the actions counter should display a countdown when {@link maxActions} > 0.
+     * Whether the actions counter should display a countdown when {@link #maxActions} &gt; 0.
      */
     public boolean countDownActions;
     /**

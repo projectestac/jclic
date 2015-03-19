@@ -61,7 +61,7 @@ public interface PlayStation extends edu.xtec.util.ResourceBridge {
     /**
      * Enables or disables the wait cursor (hourglass). This method uses a counter that
      * increments or decrements as called with <CODE>true</CODE> or <CODE>false</CODE> params.
-     * The hourglass is maintained while the counter remains >0.
+     * The hourglass is maintained while the counter remains &gt;0.
      * @param state To enable or disable the wait cursor.
      */    
     public void setWaitCursor(boolean state);
@@ -180,7 +180,7 @@ public interface PlayStation extends edu.xtec.util.ResourceBridge {
     /**
      * Instructs the Player to show a help dialog window displaying a content associated with the current
      * activity.
-     * @param hlpComponent The {@link JComponent} to be placed in the help dialog, or <CODE>null</CODE> if no special
+     * @param hlpComponent The {@link javax.swing.JComponent} to be placed in the help dialog, or <CODE>null</CODE> if no special
      * content must be used. Activities usually use {@link edu.xtec.jclic.HelpActivityComponent} objects for this param.
      * @param hlpMsg A message to be displayed on the help window, usually used in place of a
      * specific JComponent. This parameter can be <CODE>null</CODE>.

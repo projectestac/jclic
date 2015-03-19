@@ -112,7 +112,7 @@ public class CtrlPanel extends JPanel implements PropertyChangeListener,
     }
     
     /** Setter for property modified.
-     * @param modified New value of property modified.
+     * @param value New value of property "modified".
      *
      */
     public final void setModified(boolean value) {
@@ -153,7 +153,7 @@ public class CtrlPanel extends JPanel implements PropertyChangeListener,
     }
     
     /** Setter for property initializing.
-     * @param initializing New value of property initializing.
+     * @param value New value of property "initializing".
      *
      */
     public final void setInitializing(boolean value) {

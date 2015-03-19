@@ -320,8 +320,8 @@ public class JClicProject extends Object implements Editable, Domable {
         return bridge;
     }
     
-    /** Setter for property resourceBridge.
-     * @param resourceBridge New value of property resourceBridge.
+    /** Setter for property bridge.
+     * @param bridge New value of property {@link #bridge}.
      */
     public void setBridge(edu.xtec.util.ResourceBridge bridge) {
         this.bridge = bridge;

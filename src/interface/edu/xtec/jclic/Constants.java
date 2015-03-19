@@ -194,7 +194,7 @@ public interface Constants {
     public static final String[] MEDIA_SYSTEMS={DEFAULT, JMF, QT};
     
     /**
-     * Default rendering hints used with {@link Graphics2D} objects.
+     * Default rendering hints used with {@link java.awt.Graphics2D} objects.
      */    
     public static final java.awt.RenderingHints DEFAULT_RENDERING_HINTS=new java.awt.RenderingHints(null);
     

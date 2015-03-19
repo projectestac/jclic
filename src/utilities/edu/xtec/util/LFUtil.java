@@ -37,26 +37,26 @@ public abstract class LFUtil {
      */
     public static final String LOOK_AND_FEEL="lookAndFeel";
     
-    /** Default look & feel name
+    /** Default look &amp; feel name
      */
     public static final String DEFAULT="default";
-    /** System look & feel name
+    /** System look &amp; feel name
      */
     public static final String SYSTEM="system";
-    /** Metal look & feel name
+    /** Metal look &amp; feel name
      */
     public static final String METAL="metal";
-    /** Motif look & feel name
+    /** Motif look &amp; feel name
      */
     public static final String MOTIF="motif";
-    /** Windows look & feel name
+    /** Windows look &amp; feel name
      */
     public static final String WINDOWS="windows";
     
     public static final String[] VALUES={DEFAULT, SYSTEM, METAL, MOTIF};
     
-    /** Sets the app look & feel
-     * @param friendlyName Look & feel name. If null, empty or not recognized this function does nohing.
+    /** Sets the app look &amp; feel
+     * @param friendlyName Look &amp; feel name. If null, empty or not recognized this function does nohing.
      */
     public static void setLookAndFeel(String friendlyName, Component rootComponent){
         if(friendlyName!=null){

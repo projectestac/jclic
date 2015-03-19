@@ -185,7 +185,7 @@ public class ThumbsExplorerPanel extends JPanel {
     }
     
     /** Setter for property current.
-     * @param current New value of property current.
+     * @param th New value of {@link #current}.
      *
      */
     public void setCurrent(ThumbElement th) {

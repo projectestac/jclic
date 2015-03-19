@@ -30,7 +30,7 @@ import edu.xtec.util.JDomUtility;
  * playing JClic activities. In addition to the standard JumpInfo fields and methods, this
  * class have two public members where to store a score and time thresholds. The exact
  * meaning of this members will depend on the type of this <CODE>ConditionalJumpInfo</CODE>
- * ({@link edu.xtec.jclic.bags.ActivitySequenceJump.upperJump} or {@link edu.xtec.jclic.bags.ActivitySequenceJump.lowerJump}).
+ * ({@link edu.xtec.jclic.bags.ActivitySequenceJump#upperJump} or {@link edu.xtec.jclic.bags.ActivitySequenceJump#lowerJump}).
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
  */

@@ -52,7 +52,7 @@ import javax.swing.SwingUtilities;
  * Objects of this class are widely used in JClic activities: cells in puzzles and
  * associations, messages and other objects are active boxes. The specific
  * content, size and location of <CODE>ActiveBox</CODE> is determined by its
- * {@link edu.xtec.jclic.boxes.ActveBoxContent} members. Most ActiveBoxes have only
+ * {@link edu.xtec.jclic.boxes.ActiveBoxContent} members. Most ActiveBoxes have only
  * one content, but some of them can have a secondary or "alternative" content, indicated
  * by the <CODE>altContent</CODE> member. This content is used only when the <CODE>alternative</CODE>
  * flag of the <CODE>ActiveBox</CODE> is on.

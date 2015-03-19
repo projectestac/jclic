@@ -299,7 +299,7 @@ public class TextListEditor extends javax.swing.JPanel implements javax.swing.ev
         checkEnabled();
     }
     /** Setter for property listData.
-     * @param listData New value of property listData.
+     * @param textList String array with the list values.
      */    
     public void setTextList(String[] textList) {
         listModel.removeAllElements();

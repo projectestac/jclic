@@ -41,7 +41,7 @@ import javax.swing.JPanel;
 /**
  * This class is a {@link javax.swing.JPanel} tha contains a single {@link edu.xtec.jclic.boxes.ActiveBox}.
  * It is used when the ActiveBox must be integrated in a complex Swing container (for example,
- * to place ActiveBoxes into {@link javax.swing.JTextComponent} objects), or when the active
+ * to place ActiveBoxes into {@link javax.swing.JTextPane} objects), or when the active
  * content of the ActiveBox needs to be reresented into a swing panel (for example, in boxes with HTML
  * content or with boxes that have standard multimedia controllers).
  * @author Francesc Busquets (fbusquets@xtec.cat)

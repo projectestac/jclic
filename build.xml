@@ -273,7 +273,7 @@
              noindex="false" 
              windowtitle="${name} API" 
              doctitle="${name}">
-             <bottom><![CDATA[<p class="NavBarCell3"><font size="-1">Copyright &#169; ${year} Francesc Busquets (<a href="mailto:fbusquets@xtec.cat">fbusquets@xtec.cat</a>) & Departament d'Educaci&oacute; de la Generalitat de Catalunya (<a href="mailto:info@xtec.cat">info@xtec.cat</a>)<br>Licensed under the terms of the <a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></font></p>]]></bottom>             
+             <bottom><![CDATA[<p>Copyright &#169; ${year} Francesc Busquets (<a href="mailto:fbusquets@xtec.cat">fbusquets@xtec.cat</a>) &amp; Departament d'Educaci&oacute; de la Generalitat de Catalunya (<a href="mailto:info@xtec.cat">info@xtec.cat</a>)<br>Licensed under the terms of the <a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a>.</p>]]></bottom>
              <sourcepath>
                <pathelement location="${src.dir}/activities"/>
                <pathelement location="${src.dir}/author"/>

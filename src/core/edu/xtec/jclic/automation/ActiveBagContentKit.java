@@ -25,8 +25,8 @@ import edu.xtec.jclic.boxes.ActiveBagContent;
 
 /**
  * This class is used by {@link edu.xtec.jclic.Activity} objects to interact with
- * {@link edu.xtec.jclic.autmation.AutoContentProvider} objects. Activities that
- * use {@link edu.xtec.jclic.bags.ActiveBagContent} objects, like puzzles or associations,
+ * {@link edu.xtec.jclic.automation.AutoContentProvider} objects. Activities that
+ * use {@link edu.xtec.jclic.boxes.ActiveBagContent} objects, like puzzles or associations,
  * use ActiveBagContentKits to pass all its containers (up to three) in a single argument
  * when calling the <CODE>generateContent</CODE> method of <CODE>AutoContentProvider</CODE>.
  * @author Francesc Busquets (fbusquets@xtec.cat)
@@ -48,7 +48,7 @@ public class ActiveBagContentKit {
     
     /**
      * Activities should implement this interface when its contents are formed basically
-     * by {@link edu.xtec.jclic.bags.ActiveBagContent} objects, in order to let
+     * by {@link edu.xtec.jclic.boxes.ActiveBagContent} objects, in order to let
      * {@link edu.xtec.jclic.automation.AutoContentProvider} objects to check whether
      * they are compatible with them.
      */    

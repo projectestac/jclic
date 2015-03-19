@@ -195,7 +195,8 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
     }
     
     /** Setter for property clues.
-     * @param clues New value of property clues.
+     * @param cl New value of property "clues"
+     * @param clItems New value of property "clueItems"
      *
      */
     public void setClues(String[] cl, int[] clItems) {

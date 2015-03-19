@@ -166,8 +166,8 @@ public class Player extends JPanel implements Constants, RunnableComponent, Play
     protected Messages messages;
     
     /**
-     * The {@link edu.xtec.jclic.JClicProject} currently hosted by the
-     * <CODE>Player</CODE>.
+     * The {@link edu.xtec.jclic.project.JClicProject} currently hosted by the
+     * {@code Player}.
      */
     protected JClicProject project;
     

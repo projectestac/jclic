@@ -165,7 +165,7 @@ public class BrowserLauncher {
      * Added by fbusquets
      * Gets the path to the user's preferred browser.
      * @param defaultValue The default choice, used only if preferred browser not set.
-     * @returns The command line corresponding to the user's preferred browser
+     * @return The command line corresponding to the user's preferred browser
      */
     public static String getPreferredBrowser(String defaultValue){
         return StrUtils.secureString(preferredBrowser, defaultValue);
