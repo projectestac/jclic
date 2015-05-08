@@ -315,7 +315,7 @@ public class Player extends JPanel implements Constants, RunnableComponent, Play
     }
     
     /**
-     * Starts off the player, loading a specific project if specified. This
+     * Starts the player, loading a specific project if specified. This
      * method is defined in the {@link RunnableComponent} interface.
      * @param fullPath Full path to the JClic project file to be loaded. Can be
      * <I>null</I>.
@@ -338,7 +338,7 @@ public class Player extends JPanel implements Constants, RunnableComponent, Play
     
     /**
      * This method is called when the container gains the focus for the first
-     * time or after have lost it. Not used in <CODE>Player</CODE>.
+     * time or when losts it. Not used in <CODE>Player</CODE>.
      */
     public void activate() {
     }

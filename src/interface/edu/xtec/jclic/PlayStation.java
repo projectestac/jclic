@@ -31,10 +31,10 @@ package edu.xtec.jclic;
 public interface PlayStation extends edu.xtec.util.ResourceBridge {
     
     /**
-     * The action corresponding to this index. The indexes of actions are dfined as constants
+     * The action corresponding to this index. The indexes of actions are defined as constants
      * in <CODE>edu.xtec.jclic.Constants</CODE>.
      * @param id The index for the requested action.
-     * @return The action coresponding to this index, or null if does not exist.
+     * @return The action coresponding to this index, or null if it does not exist.
      */    
     public javax.swing.Action getAction(int id);    
     
