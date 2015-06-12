@@ -91,45 +91,18 @@ The source code of JClic is organized into the following directories:
 
 Edit instructions:
 
-JClic was made using NetBeans, currently version 8.0.
+JClic was made using NetBeans, currently version 8.0
 You can download this IDE from:
 
 https://netbeans.org/downloads/
 
 Build the extensions by launching "ant" from the "extensions" directory.
-This will also make a copy of the generated JAR files into the "lib" directory.
+This will also make a copy of the generated JAR files into the "lib" directory:
 
-Launch NetBeans, create a new project of type "Java Project with existing sources"
-and choose the directory containing the JClic source code as a main project folder.
+> cd extensions
+> ant
 
-Mount the following dierctories as source folders:
-
-src/activities
-src/author
-src/core
-src/extra
-src/interface
-src/jclicApplet
-src/jclicPlayer
-src/player
-src/shapers
-src/qt61
-src/utilities
-src/report/reportServer
-src/report/reportServlets
-src/report/webApp
-* lib/jmf-api/src
-* lib/qtjava-api/src
-* lib/servlet-api/src
-
-Right-click on the "Libraries" folder of the NetBeans project and select "add JAR/Folder"
-to add the following files:
-
-lib/dbconn.jar
-lib/image4j.jar
-lib/jdom.jar
-lib/json.jar
-lib/soundspi.jar
+Launch NetBeans and open the project located in the "nbeans" folder.
 
 The three last source folders, marked with an asterisk, contain fake (empty) skeletons
 of "Java Media Framework", "QuickTime for Java" and the Servlet API. This is because
