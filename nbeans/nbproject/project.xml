@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>org.netbeans.modules.java.j2seproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
+            <name>JClic</name>
+            <source-roots>
+                <root id="core.dir" name="core"/>
+                <root id="src.dir" name="activities"/>
+                <root id="player.dir" name="player"/>
+                <root id="utilities.dir" name="utilities"/>
+                <root id="shapers.dir" name="shapers"/>
+                <root id="interface.dir" name="interface"/>
+                <root id="extra.dir" name="extra"/>
+                <root id="jclicPlayer.dir" name="JClicPlayer"/>
+                <root id="jclicApplet.dir" name="JClicApplet"/>
+                <root id="author.dir" name="JClicAuthor"/>
+                <root id="qt61.dir" name="qt61"/>
+                <root id="reportServer.dir" name="reportServer"/>
+                <root id="reportServlets.dir" name="reportServlets"/>
+                <root id="classes.dir" name="reportWebApp"/>
+                <root id="src2.dir" name="jmf-api"/>
+                <root id="src3.dir" name="qtjava-api"/>
+                <root id="src4.dir" name="servlet-api"/>
+            </source-roots>
+            <test-roots/>
+        </data>
+    </configuration>
+</project>

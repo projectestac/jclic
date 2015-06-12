@@ -29,3 +29,9 @@ netbeans/
 # No redistributable Java bootstrap files #
 lib/bootstrap/*/rt.jar
 
+# Netbeans private and build directories #
+/nbeans/nbproject/private/
+/nbeans/dist/
+/nbeans/build/
+
+
