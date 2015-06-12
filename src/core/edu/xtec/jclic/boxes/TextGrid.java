@@ -42,7 +42,7 @@ import javax.swing.RepaintManager;
 import javax.swing.Timer;
 
 /**
- * This class is a special {@link edu.xtec.jclic.boxes.ActiveBox} that displays a grid
+ * This class is a special {@link edu.xtec.jclic.boxes.AbstractBox} that displays a grid
  * of single characters. It is used in activities like crosswords and scrambled letters.
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.08

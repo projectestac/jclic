@@ -36,7 +36,7 @@ import javax.swing.JComponent;
 /**
  * <CODE>BoxConnector</CODE> allows users to visually connect two {@link edu.xtec.jclic.boxes.ActiveBox}
  * objects in a {@link edu.xtec.jclic.Activity.Panel}. There are two modes of operation:
- * drwaing a line between an origin point (usually the point where the user clicks on)
+ * drawing a line between an origin point (usually the point where the user clicks on)
  * and a destination point, or dragging the box from one location to another. The lines can
  * have arrows at its ending.
  * @author Francesc Busquets (fbusquets@xtec.cat)

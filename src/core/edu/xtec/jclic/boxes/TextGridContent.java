@@ -28,10 +28,10 @@ import java.util.Iterator;
 
 
 /**
- * This class encapsulates the content of {@link edu.xtec.jclic.boxes.TextGridContent} objects.
- * It implements methds to set and retrieve individual characters on the grid, and to
+ * This class encapsulates the content of {@link edu.xtec.jclic.boxes.TextGrid} objects.
+ * It implements methods to set and retrieve individual characters on the grid, and to
  * serialize and de-serialize the content from/to XML objects. It also contains information
- * about the desired size and graphic proprties (font, colors, etc.) of the grid.
+ * about the desired size and graphic properties (font, colors, etc.) of the grid.
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.08
  */
