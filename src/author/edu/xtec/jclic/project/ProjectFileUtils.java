@@ -21,6 +21,8 @@
 package edu.xtec.jclic.project;
 
 import edu.xtec.jclic.bags.ActivityBagElement;
+import edu.xtec.jclic.bags.ActivitySequenceElement;
+import edu.xtec.jclic.bags.JumpInfo;
 import edu.xtec.jclic.bags.MediaBagElement;
 import edu.xtec.jclic.fileSystem.FileSystem;
 import edu.xtec.jclic.fileSystem.FileZip;
@@ -42,233 +44,247 @@ import java.util.Iterator;
  */
 public class ProjectFileUtils implements ResourceBridge {
 
-  FileZip zipFS;
-  String zipName;
-  String projectName;
-  String newFileName;
-  String[] entries;
-  JClicProject project;
+    FileZip zipFS;
+    String zipName;
+    String projectName;
+    String newFileName;
+    String[] entries;
+    JClicProject project;
 
-  public ProjectFileUtils(String fileName) throws Exception {
+    public ProjectFileUtils(String fileName) throws Exception {
 
-    zipFS = (FileZip) FileSystem.createFileSystem(fileName, this);
+        zipFS = (FileZip) FileSystem.createFileSystem(fileName, this);
 
-    entries = zipFS.getEntries(null);
+        entries = zipFS.getEntries(null);
 
-    String[] projects = zipFS.getEntries(".jclic");
-    if (projects == null) {
-      throw new Exception("File " + fileName + " does not contain any jclic project");
-    }
-    projectName = projects[0];
-
-    org.jdom.Document doc = zipFS.getXMLDocument(projectName);
-    project = JClicProject.getJClicProject(doc.getRootElement(), this, zipFS, fileName);
-
-    String s = zipFS.getZipName();
-    newFileName = s.substring(0, s.lastIndexOf("."));
-
-    System.out.println("Processing \"" + fileName + "\"");
-  }
-
-  public void clear() {
-
-    if (project != null) {
-      project.end();
-      project = null;
-    }
-
-    if (zipFS != null) {
-      zipFS.close();
-      zipFS = null;
-    }
-  }
-
-  @Override
-  public void finalize() throws Throwable {
-    clear();
-    super.finalize();
-  }
-
-  /**
-   * Normalizes the file names of the media bag, restricting it to URL-safe
-   * characters.
-   */
-  public void normalizeFileNames() {
-
-    HashSet<String> currentNames = new HashSet<String>();
-    Iterator<MediaBagElement> it = project.mediaBag.getElements().iterator();
-    while (it.hasNext()) {
-      MediaBagElement mbe = it.next();
-      if (!mbe.saveFlag) {
-        System.out.println("Warning: File \"" + mbe.getFileName() + "\" is not part of \"" + zipFS.getFullRoot() + "\"");
-      } else {
-        String fn = mbe.getFileName();
-        mbe.setMetaData(fn);
-        String fnv = FileSystem.getValidFileName(fn);
-        if (!fnv.equals(fn)) {
-          String fn0 = fnv;
-          int n = 0;
-          while (currentNames.contains(fnv)) {
-            fnv = Integer.toString(n++) + fn0;
-          }
-          System.out.println("Renaming \"" + fn + "\" as \"" + fnv + "\"");
-          mbe.setFileName(fnv);
+        String[] projects = zipFS.getEntries(".jclic");
+        if (projects == null) {
+            throw new Exception("File " + fileName + " does not contain any jclic project");
         }
-        currentNames.add(fnv);
-      }
-    }
-  }
+        projectName = projects[0];
 
-  /**
-   * Searchs for links to ".jclic.zip" files in ActiveBox and JumpInfo objects,
-   * and redirects it to ".jclic" files
-   */
-  public void avoidZipLinks() {
-    // Scan Activity elements
-    for (ActivityBagElement ab : project.activityBag.getElements()) {
-      avoidZipLinksInElement(ab.getData());
-    };
-  }
+        org.jdom.Document doc = zipFS.getXMLDocument(projectName);
+        project = JClicProject.getJClicProject(doc.getRootElement(), this, zipFS, fileName);
 
-  /**
-   *
-   * Searchs for links to ".jclic.zip" files in the given JDOM element. This
-   * method makes recursive calls on all the child elements of the provided
-   * starting point.
-   *
-   * @param el - The org.jdom.Element to analyze
-   */
-  public void avoidZipLinksInElement(org.jdom.Element el) {
-    String n = el.getName();
+        String s = zipFS.getZipName();
+        newFileName = s.substring(0, s.lastIndexOf("."));
 
-    if (("media".equals(n) && el.getAttribute("params") != null)
-            || ("jump".equals(n) && el.getAttribute("project") != null)) {
-
-      String attrName = "media".equals(n) ? "params" : "project";
-
-      String p = el.getAttributeValue(attrName);
-      if (p != null && p.endsWith(".jclic.zip")) {
-        String pv = p.substring(0, p.length() - 4);
-        System.out.println("Changing " + n + " link from \"" + p + "\" to \"" + pv + "\"");
-        el.setAttribute(attrName, pv);
-      }
-    }
-    Iterator it = el.getChildren().iterator();
-    while (it.hasNext()) {
-      avoidZipLinksInElement((org.jdom.Element) it.next());
-    }
-  }
-
-  /**
-   * Saves the JClic project and all its contents in plain format (not zipped)
-   * into the specified path
-   *
-   * @param path - The path where the project will be saved
-   * @throws Exception
-   */
-  public void saveTo(String path) throws Exception {
-
-    File outPath = new File(path);
-
-    // Check outPath exists and is writtable
-    if (!outPath.exists()) {
-      outPath.mkdirs();
+        System.out.println("Processing \"" + fileName + "\"");
     }
 
-    if (!outPath.isDirectory() || !outPath.canWrite()) {
-      throw new Exception("Unable to write to: \"" + path + "\"");
-    }
+    public void clear() {
 
-    // Export media files
-    Iterator<MediaBagElement> it = project.mediaBag.getElements().iterator();
-    while (it.hasNext()) {
-      MediaBagElement mbe = it.next();
-      if (mbe.saveFlag) {
-
-        String fn = mbe.getMetaData();
-        if (fn == null) {
-          fn = mbe.getFileName();
+        if (project != null) {
+            project.end();
+            project = null;
         }
 
-        InputStream is = zipFS.getInputStream(fn);
-        File outFile = new File(outPath, mbe.getFileName());
+        if (zipFS != null) {
+            zipFS.close();
+            zipFS = null;
+        }
+    }
+
+    @Override
+    public void finalize() throws Throwable {
+        clear();
+        super.finalize();
+    }
+
+    /**
+     * Normalizes the file names of the media bag, restricting it to URL-safe
+     * characters.
+     */
+    public void normalizeFileNames() {
+
+        HashSet<String> currentNames = new HashSet<String>();
+        Iterator<MediaBagElement> it = project.mediaBag.getElements().iterator();
+        while (it.hasNext()) {
+            MediaBagElement mbe = it.next();
+            if (!mbe.saveFlag) {
+                System.out.println("Warning: File \"" + mbe.getFileName() + "\" is not part of \"" + zipFS.getFullRoot() + "\"");
+            } else {
+                String fn = mbe.getFileName();
+                mbe.setMetaData(fn);
+                String fnv = FileSystem.getValidFileName(fn);
+                if (!fnv.equals(fn)) {
+                    String fn0 = fnv;
+                    int n = 0;
+                    while (currentNames.contains(fnv)) {
+                        fnv = Integer.toString(n++) + fn0;
+                    }
+                    System.out.println("Renaming \"" + fn + "\" as \"" + fnv + "\"");
+                    mbe.setFileName(fnv);
+                }
+                currentNames.add(fnv);
+            }
+        }
+    }
+
+    /**
+     * Searchs for links to ".jclic.zip" files in ActiveBox and JumpInfo
+     * objects, and redirects it to ".jclic" files
+     */
+    public void avoidZipLinks() {
+        // Scan Activity elements
+        for (ActivityBagElement ab : project.activityBag.getElements()) {
+            avoidZipLinksInElement(ab.getData());
+        }
+
+        for (ActivitySequenceElement ase : project.activitySequence.getElements()) {
+            if (ase.fwdJump != null) {
+                avoidZipLinksInJumpInfo(ase.fwdJump);
+                avoidZipLinksInJumpInfo(ase.fwdJump.upperJump);
+                avoidZipLinksInJumpInfo(ase.fwdJump.lowerJump);
+            }
+            if (ase.backJump != null) {
+                avoidZipLinksInJumpInfo(ase.backJump);
+                avoidZipLinksInJumpInfo(ase.backJump.upperJump);
+                avoidZipLinksInJumpInfo(ase.backJump.lowerJump);
+            }
+        }
+    }
+
+    public void avoidZipLinksInJumpInfo(JumpInfo ji) {
+        if (ji != null && ji.projectPath != null && ji.projectPath.endsWith(".jclic.zip")) {
+            String p = ji.projectPath;
+            String pv = p.substring(0, p.length() - 4);
+            ji.projectPath = pv;
+            System.out.println("Changing sequence link from \"" + p + "\" to \"" + pv + "\"");
+        }
+    }
+
+    /**
+     *
+     * Searchs for links to ".jclic.zip" files in the given JDOM element. This
+     * method makes recursive calls on all the child elements of the provided
+     * starting point.
+     *
+     * @param el - The org.jdom.Element to analyze
+     */
+    public void avoidZipLinksInElement(org.jdom.Element el) {
+        if (el.getAttribute("params") != null) {
+            String p = el.getAttributeValue("params");
+            if (p != null && p.endsWith(".jclic.zip")) {
+                String pv = p.substring(0, p.length() - 4);
+                System.out.println("Changing media link from \"" + p + "\" to \"" + pv + "\"");
+                el.setAttribute("params", pv);
+            }
+        }
+        Iterator it = el.getChildren().iterator();
+        while (it.hasNext()) {
+            avoidZipLinksInElement((org.jdom.Element) it.next());
+        }
+    }
+
+    /**
+     * Saves the JClic project and all its contents in plain format (not zipped)
+     * into the specified path
+     *
+     * @param path - The path where the project will be saved
+     * @throws Exception
+     */
+    public void saveTo(String path) throws Exception {
+
+        File outPath = new File(path);
+
+        // Check outPath exists and is writtable
+        if (!outPath.exists()) {
+            outPath.mkdirs();
+        }
+
+        if (!outPath.isDirectory() || !outPath.canWrite()) {
+            throw new Exception("Unable to write to: \"" + path + "\"");
+        }
+
+        // Export media files
+        Iterator<MediaBagElement> it = project.mediaBag.getElements().iterator();
+        while (it.hasNext()) {
+            MediaBagElement mbe = it.next();
+            if (mbe.saveFlag) {
+
+                String fn = mbe.getMetaData();
+                if (fn == null) {
+                    fn = mbe.getFileName();
+                }
+
+                InputStream is = zipFS.getInputStream(fn);
+                File outFile = new File(outPath, mbe.getFileName());
+                FileOutputStream fos = new FileOutputStream(outFile);
+                System.out.println("Extracting \"" + fn + "\" to \"" + outFile.getPath() + "\"");
+                StreamIO.writeStreamTo(is, fos);
+            }
+        }
+
+        // Save ".jclic" file
+        File outFile = new File(outPath, newFileName);
         FileOutputStream fos = new FileOutputStream(outFile);
-        System.out.println("Extracting \"" + fn + "\" to \"" + outFile.getPath() + "\"");
-        StreamIO.writeStreamTo(is, fos);
-      }
+        System.out.println("Saving project to \"" + outFile.getPath() + "\"");
+        project.saveDocument(fos);
+        fos.close();
+
+        System.out.println("Done processing \"" + zipFS.getFullRoot() + "\"");
     }
 
-    // Save ".jclic" file
-    File outFile = new File(outPath, newFileName);
-    FileOutputStream fos = new FileOutputStream(outFile);
-    System.out.println("Saving project to \"" + outFile.getPath() + "\"");
-    project.saveDocument(fos);
-    fos.close();
+    public static void processFolder(String sourcePath, String destPath) throws Exception {
 
-    System.out.println("Done processing \"" + zipFS.getFullRoot() + "\"");
-  }
+        File src = new File(sourcePath);
 
-  public static void processFolder(String sourcePath, String destPath) throws Exception {
+        if (!src.isDirectory() || !src.canRead()) {
+            throw new Exception("Source file does not exist, or is not readable");
+        }
 
-    File src = new File(sourcePath);
+        System.out.println("Cleaning and exporting jclic.zip files from \"" + sourcePath + "\" to \"" + destPath + "\"");
 
-    if (!src.isDirectory() || !src.canRead()) {
-      throw new Exception("Source file does not exist, or is not readable");
+        File dest = new File(destPath);
+
+        File[] jclicZipFiles = src.listFiles(new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                return name.toLowerCase().endsWith(".jclic.zip");
+            }
+        });
+
+        for (File f : jclicZipFiles) {
+            ProjectFileUtils prjFU = new ProjectFileUtils(f.getAbsolutePath());
+            prjFU.normalizeFileNames();
+            prjFU.avoidZipLinks();
+            prjFU.saveTo(dest.getAbsolutePath());
+        }
+
+        // Process subdirectories
+        File[] subDirs = src.listFiles(new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                return new File(dir, name).isDirectory();
+            }
+        });
+
+        for (File f : subDirs) {
+            ProjectFileUtils.processFolder(
+                    new File(src, f.getName()).getAbsolutePath(),
+                    new File(dest, f.getName()).getAbsolutePath());
+        }
     }
 
-    System.out.println("Cleaning and exporting jclic.zip files from \"" + sourcePath + "\" to \"" + destPath + "\"");
-
-    File dest = new File(destPath);
-
-    File[] jclicZipFiles = src.listFiles(new FilenameFilter() {
-      public boolean accept(File dir, String name) {
-        return name.toLowerCase().endsWith(".jclic.zip");
-      }
-    });
-
-    for (File f : jclicZipFiles) {
-       ProjectFileUtils prjFU = new ProjectFileUtils(f.getAbsolutePath());
-       prjFU.normalizeFileNames();
-       prjFU.avoidZipLinks();
-       prjFU.saveTo(dest.getAbsolutePath());
+    //
+    // Void implementation of "ResourceBridge" methods:
+    //
+    public java.io.InputStream getProgressInputStream(java.io.InputStream is, int expectedLength, String name) {
+        return is;
     }
 
-    // Process subdirectories
-    File[] subDirs = src.listFiles(new FilenameFilter() {
-      public boolean accept(File dir, String name) {
-        return new File(dir, name).isDirectory();
-      }
-    });
-
-    for (File f : subDirs) {
-      ProjectFileUtils.processFolder(
-              new File(src, f.getName()).getAbsolutePath(),
-              new File(dest, f.getName()).getAbsolutePath());
+    public edu.xtec.util.Options getOptions() {
+        return null;
     }
 
-  }
+    public String getMsg(String key) {
+        return key;
+    }
 
-  // 
-  //
-  // Void implementation of "ResourceBridge" methods:
-  //
-  public java.io.InputStream getProgressInputStream(java.io.InputStream is, int expectedLength, String name) {
-    return is;
-  }
+    public javax.swing.JComponent getComponent() {
+        return null;
+    }
 
-  public edu.xtec.util.Options getOptions() {
-    return null;
-  }
-
-  public String getMsg(String key) {
-    return key;
-  }
-
-  public javax.swing.JComponent getComponent() {
-    return null;
-  }
-
-  public void displayUrl(String url, boolean inFrame) {
-    throw new UnsupportedOperationException("Not supported");
-  }
+    public void displayUrl(String url, boolean inFrame) {
+        throw new UnsupportedOperationException("Not supported");
+    }
 }
