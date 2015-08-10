@@ -57,6 +57,10 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
     public boolean animated;
     private boolean hasThumb;
     
+    // 10-Aug-2015
+    // Added to allow renaming of media files
+    private String metadata;
+    
     /** Creates new MediaBagElement */
     
     public MediaBagElement(String fileName) {
@@ -120,6 +124,14 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
     
     public String getFileName(){
         return fileName;
+    }
+    
+    public void setMetaData(String meta){
+        metadata=meta;
+    }
+    
+    public String getMetaData(){
+        return metadata;
     }
     
     public boolean isImage(){

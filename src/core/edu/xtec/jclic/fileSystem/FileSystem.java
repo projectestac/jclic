@@ -745,7 +745,11 @@ public class FileSystem extends Object {
     }
   }
 
-  private static final String validFileChars = "_!~0123456789abcdefghijklmnopqrstuvwxyz";
+  // Modified 10-Aug-2015
+  // Allow only plain ASCII characters, dot, numbers and underscore
+  // private static final String validFileChars = "_!~0123456789abcdefghijklmnopqrstuvwxyz";
+  private static final String validFileChars = "_.0123456789abcdefghijklmnopqrstuvwxyz";
+  
   // Modified 26-jul0-2006
   // Scope of character conversion limited to the basic ANSI (Latin1) set
   private static final String convertibleChars = "\u00e1\u00e0\u00e4\u00e2\u00e3\u00e9\u00e8\u00eb\u00ea\u00ed\u00ec\u00ef\u00ee\u00f3\u00f2\u00f6\u00f4\u00f5\u00fa\u00f9\u00fc\u00fb\u00f1\u00e7\u20ac\u00ba\u00aa\u00e5\u00e6\u00f8\u00fd\u00fe\u00ff";

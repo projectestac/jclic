@@ -20,6 +20,8 @@
  */
 
 import edu.xtec.jclic.SingleInstanceJFrame;
+import edu.xtec.jclic.project.ProjectFileUtils;
+import edu.xtec.util.StrUtils;
 
 /**
  *
@@ -27,22 +29,49 @@ import edu.xtec.jclic.SingleInstanceJFrame;
  * @version 13.08.29
  */
 public abstract class JClicAuthor {
+
+  public static final int INSTANCE_PORT = 5874;
+
+  /**
+   * @param args the command line arguments
+   */
+  public static void main(String args[]) {
+
+    int p = StrUtils.getIndexOf("-processZip", args);
+    if (p >= 0 && args.length > p + 1) {
+      try {
+        ProjectFileUtils pfu = new ProjectFileUtils(args[p + 1]);
+        pfu.normalizeFileNames();
+        pfu.avoidZipLinks();
+        if (args.length > p + 2 && !args[p + 2].startsWith("-")) {
+          pfu.saveTo(args[p + 2]);
+        }
+      } catch (Exception ex) {
+        System.err.println("Error processing ZIP file: " + ex.getMessage());
+      }
+      return;
+    }
+
+    p = StrUtils.getIndexOf("-processZipFolder", args);
+    if (p >= 0 && args.length > p + 2) {
+      try {
+        ProjectFileUtils.processFolder(args[p+1], args[p+2]);
+      } catch (Exception ex) {
+        System.err.println("Error processing ZIP file: " + ex.getMessage());
+      }
+      return;
+    }
     
-    public static final int INSTANCE_PORT=5874;
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        SingleInstanceJFrame jcp=new SingleInstanceJFrame(
-        "edu.xtec.jclic.AuthorSingleFrame", args, 
-        "JClic author", "icons/logo_author.png", 
-        "icons/miniauthor.png",
-        INSTANCE_PORT);
-        if(jcp.isArmed())
-            //jcp.show();
-            jcp.setVisible(true);
-        else
-            System.exit(0);
-    }    
+    SingleInstanceJFrame jcp = new SingleInstanceJFrame(
+            "edu.xtec.jclic.AuthorSingleFrame", args,
+            "JClic author", "icons/logo_author.png",
+            "icons/miniauthor.png",
+            INSTANCE_PORT);
+    if (jcp.isArmed()) //jcp.show();
+    {
+      jcp.setVisible(true);
+    } else {
+      System.exit(0);
+    }
+  }
 }
