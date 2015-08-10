@@ -82,8 +82,14 @@ public class TextGridContent extends Object implements Domable{
         org.jdom.Element e=new org.jdom.Element(ELEMENT_NAME);
         org.jdom.Element child;
         
+        // ---------------------------------------------------------------------
+        // May 2015
+        // WARNING: The number of rows (nch) is stored as "columns", and the number
+        // of columns (ncw) as "rows". By now, this bug will not be corrected to avoid
+        // problems with already existing JClic packages.
         e.setAttribute(ROWS, Integer.toString(ncw));
         e.setAttribute(COLUMNS, Integer.toString(nch));
+        // ---------------------------------------------------------------------
         e.setAttribute(CELL_WIDTH, Double.toString(w));
         e.setAttribute(CELL_HEIGHT, Double.toString(h));
         e.setAttribute(BORDER, JDomUtility.boolString(border));
