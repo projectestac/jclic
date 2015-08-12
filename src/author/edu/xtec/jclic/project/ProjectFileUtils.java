@@ -93,7 +93,7 @@ public class ProjectFileUtils implements ResourceBridge {
     while (it.hasNext()) {
       MediaBagElement mbe = it.next();
       if (!mbe.saveFlag) {
-        System.out.println("WARINIG: File \"" + mbe.getFileName() + "\" is not part of \"" + zipFilePath + "\"");
+        System.out.println("WARNING: File \"" + mbe.getFileName() + "\" is not part of \"" + zipFilePath + "\"");
       } else {
         String fn = mbe.getFileName();
         mbe.setMetaData(fn);

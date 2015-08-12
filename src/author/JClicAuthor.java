@@ -36,7 +36,7 @@ public abstract class JClicAuthor {
    * @param args the command line arguments
    */
   public static void main(String args[]) {
-
+    
     int p = StrUtils.getIndexOf("-processZip", args);
     if (p >= 0 && args.length > p + 1) {
       try {

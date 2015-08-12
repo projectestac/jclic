@@ -747,13 +747,13 @@ public class FileSystem extends Object {
 
   // Modified 10-Aug-2015
   // Allow only plain ASCII characters, dot, numbers and underscore
-  // private static final String validFileChars = "_!~0123456789abcdefghijklmnopqrstuvwxyz";
-  private static final String validFileChars = "_.0123456789abcdefghijklmnopqrstuvwxyz";
+  // private static final String FNAME_VALID_CHARS = "_!~0123456789abcdefghijklmnopqrstuvwxyz";
+  private static final String FNAME_VALID_CHARS = "_.0123456789abcdefghijklmnopqrstuvwxyz";
   
   // Modified 26-jul0-2006
   // Scope of character conversion limited to the basic ANSI (Latin1) set
-  private static final String convertibleChars = "\u00e1\u00e0\u00e4\u00e2\u00e3\u00e9\u00e8\u00eb\u00ea\u00ed\u00ec\u00ef\u00ee\u00f3\u00f2\u00f6\u00f4\u00f5\u00fa\u00f9\u00fc\u00fb\u00f1\u00e7\u20ac\u00ba\u00aa\u00e5\u00e6\u00f8\u00fd\u00fe\u00ff";
-  private static final String equivalentChars = "aaaaaeeeeiiiiooooouuuunceoaaaoypy";
+  public static final String FNAME_CONVERTIBLE_CHARS = "\u00e1\u00e0\u00e4\u00e2\u00e3\u00e9\u00e8\u00eb\u00ea\u00ed\u00ec\u00ef\u00ee\u00f3\u00f2\u00f6\u00f4\u00f5\u00fa\u00f9\u00fc\u00fb\u00f1\u00e7\u20ac\u00ba\u00aa\u00e5\u00e6\u00f8\u00fd\u00fe\u00ff\u03b1\u03b2\u03b3\u03b4\u03b5\u03b6\u03b7\u03b8\u03b9\u03ba\u03bb\u03bc\u03bd\u03be\u03bf\u03c0\u03c1\u03c2\u03c3\u03c4\u03c5\u03c6\u03c7\u03c8\u03c9";
+  private static final String FNAME_EQUIVALENT_CHARS = "aaaaaeeeeiiiiooooouuuunceoaaaoypyabgdezhtjklmnkoprsstufxpo";
 
   public static String getValidFileName(String fn) {
     String result = null;
@@ -761,10 +761,10 @@ public class FileSystem extends Object {
       StringBuilder sb = new StringBuilder();
       for (char ch : fn.toCharArray()) {
         ch = Character.toLowerCase(ch);
-        if (validFileChars.indexOf(ch) < 0) {
-          int p = convertibleChars.indexOf(ch);
+        if (FNAME_VALID_CHARS.indexOf(ch) < 0) {
+          int p = FNAME_CONVERTIBLE_CHARS.indexOf(ch);
           if (p >= 0) {
-            ch = equivalentChars.charAt(p);
+            ch = FNAME_EQUIVALENT_CHARS.charAt(p);
           } else {
             ch = '_';
           }
