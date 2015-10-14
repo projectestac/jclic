@@ -27,7 +27,7 @@
     </context-param>
     <context-param>
         <param-name>tablePrefix</param-name>
-        <param-value>JCLIC_</param-value>
+        <param-value>EDU_JCLIC_</param-value>
     </context-param>
     <listener>
         <listener-class>edu.xtec.jclic.report.servlet.ContextParamsReader</listener-class>
