@@ -32,6 +32,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.HashSet;
 import java.util.Iterator;
 
@@ -51,19 +52,21 @@ public class ProjectFileUtils implements ResourceBridge {
   String jclicFileName;
   String[] entries;
   JClicProject project;
-  
-  
+
   /**
    * Builds a ProjectFileUtils object, initializing a @link{JClicProject}
-   * @param fileName - Relative or absolute path to the ".jclic.zip" file to be processed
-   * @throws Exception 
+   *
+   * @param fileName - Relative or absolute path to the ".jclic.zip" file to be
+   * processed
+   * @throws Exception
    */
   public ProjectFileUtils(String fileName) throws Exception {
-    
+
     zipFilePath = new File(fileName).getCanonicalPath();
-    if(!zipFilePath.endsWith(".jclic.zip"))
-      throw new Exception("File "+fileName+" is not a jclic.zip file!");
-    
+    if (!zipFilePath.endsWith(".jclic.zip")) {
+      throw new Exception("File " + fileName + " is not a jclic.zip file!");
+    }
+
     zipFS = (FileZip) FileSystem.createFileSystem(zipFilePath, this);
     zipFileName = zipFS.getZipName();
     jclicFileName = zipFileName.substring(0, zipFileName.lastIndexOf("."));
@@ -79,35 +82,42 @@ public class ProjectFileUtils implements ResourceBridge {
     org.jdom.Document doc = zipFS.getXMLDocument(projectName);
     project = JClicProject.getJClicProject(doc.getRootElement(), this, zipFS, zipFileName);
 
-    System.out.println("\nProcessing file: " + zipFilePath);
   }
-  
+
   /**
    * Normalizes the file names of the media bag, restricting it to URL-safe
    * characters.
+   *
+   * @param ps - The @link{PrintStream} where progress messages will be
+   * outputed. Can be null.
    */
-  public void normalizeFileNames() {
+  public void normalizeFileNames(PrintStream ps) {
 
     HashSet<String> currentNames = new HashSet<String>();
     Iterator<MediaBagElement> it = project.mediaBag.getElements().iterator();
     while (it.hasNext()) {
       MediaBagElement mbe = it.next();
       if (!mbe.saveFlag) {
-        System.out.println("WARNING: File \"" + mbe.getFileName() + "\" is not part of \"" + zipFilePath + "\"");
+        if (ps != null) {
+          ps.println("WARNING: File \"" + mbe.getFileName() + "\" is not part of \"" + zipFilePath + "\"");
+        }
       } else {
         String fn = mbe.getFileName();
         mbe.setMetaData(fn);
         String fnv = FileSystem.getValidFileName(fn);
         // Avoid filenames starting with a dot
-        if(fnv.charAt(0)=='.')
-          fnv = "_" + fnv;          
+        if (fnv.charAt(0) == '.') {
+          fnv = "_" + fnv;
+        }
         if (!fnv.equals(fn)) {
           String fn0 = fnv;
           int n = 0;
           while (currentNames.contains(fnv)) {
             fnv = Integer.toString(n++) + fn0;
           }
-          System.out.println("Renaming \"" + fn + "\" as \"" + fnv + "\"");
+          if (ps != null) {
+            ps.println("Renaming \"" + fn + "\" as \"" + fnv + "\"");
+          }
           mbe.setFileName(fnv);
         }
         currentNames.add(fnv);
@@ -116,41 +126,48 @@ public class ProjectFileUtils implements ResourceBridge {
   }
 
   /**
-   * Searchs for links to ".jclic.zip" files in @link{ActiveBox} and @link{JumpInfo} objects,
-   * and redirects it to ".jclic" files
+   * Searchs for links to ".jclic.zip" files in @link{ActiveBox} and
+   * @link{JumpInfo} objects, and redirects it to ".jclic" files
+   *
+   * @param ps - The @link{PrintStream} where progress messages will be
+   * outputed. Can be null.
    */
-  public void avoidZipLinks() {
+  public void avoidZipLinks(PrintStream ps) {
     // Scan Activity elements
     for (ActivityBagElement ab : project.activityBag.getElements()) {
-      avoidZipLinksInElement(ab.getData());
+      avoidZipLinksInElement(ab.getData(), ps);
     }
 
     for (ActivitySequenceElement ase : project.activitySequence.getElements()) {
       if (ase.fwdJump != null) {
-        avoidZipLinksInJumpInfo(ase.fwdJump);
-        avoidZipLinksInJumpInfo(ase.fwdJump.upperJump);
-        avoidZipLinksInJumpInfo(ase.fwdJump.lowerJump);
+        avoidZipLinksInJumpInfo(ase.fwdJump, ps);
+        avoidZipLinksInJumpInfo(ase.fwdJump.upperJump, ps);
+        avoidZipLinksInJumpInfo(ase.fwdJump.lowerJump, ps);
       }
       if (ase.backJump != null) {
-        avoidZipLinksInJumpInfo(ase.backJump);
-        avoidZipLinksInJumpInfo(ase.backJump.upperJump);
-        avoidZipLinksInJumpInfo(ase.backJump.lowerJump);
+        avoidZipLinksInJumpInfo(ase.backJump, ps);
+        avoidZipLinksInJumpInfo(ase.backJump.upperJump, ps);
+        avoidZipLinksInJumpInfo(ase.backJump.lowerJump, ps);
       }
     }
   }
-  
-  
+
   /**
    * Searchs for ".jclic.zip" links in JumpInfo elements, changing it to links
    * to plain ".jclic" files.
+   *
    * @param ji - The JumpInfo to scan for links
+   * @param ps - The @link{PrintStream} where progress messages will be
+   * outputed. Can be null.
    */
-  public void avoidZipLinksInJumpInfo(JumpInfo ji) {
+  public void avoidZipLinksInJumpInfo(JumpInfo ji, PrintStream ps) {
     if (ji != null && ji.projectPath != null && ji.projectPath.endsWith(".jclic.zip")) {
       String p = ji.projectPath;
       String pv = p.substring(0, p.length() - 4);
       ji.projectPath = pv;
-      System.out.println("Changing sequence link from \"" + p + "\" to \"" + pv + "\"");
+      if (ps != null) {
+        ps.println("Changing sequence link from \"" + p + "\" to \"" + pv + "\"");
+      }
     }
   }
 
@@ -161,19 +178,23 @@ public class ProjectFileUtils implements ResourceBridge {
    * starting point.
    *
    * @param el - The org.jdom.Element to scan for links
+   * @param ps - The @link{PrintStream} where progress messages will be
+   * outputed. Can be null.
    */
-  public void avoidZipLinksInElement(org.jdom.Element el) {
+  public void avoidZipLinksInElement(org.jdom.Element el, PrintStream ps) {
     if (el.getAttribute("params") != null) {
       String p = el.getAttributeValue("params");
       if (p != null && p.endsWith(".jclic.zip")) {
         String pv = p.substring(0, p.length() - 4);
-        System.out.println("Changing media link from \"" + p + "\" to \"" + pv + "\"");
+        if (ps != null) {
+          ps.println("Changing media link from \"" + p + "\" to \"" + pv + "\"");
+        }
         el.setAttribute("params", pv);
       }
     }
     Iterator it = el.getChildren().iterator();
     while (it.hasNext()) {
-      avoidZipLinksInElement((org.jdom.Element) it.next());
+      avoidZipLinksInElement((org.jdom.Element) it.next(), ps);
     }
   }
 
@@ -182,9 +203,11 @@ public class ProjectFileUtils implements ResourceBridge {
    * into the specified path
    *
    * @param path - The path where the project will be saved
+   * @param ps - The @link{PrintStream} where progress messages will be
+   * outputed. Can be null.
    * @throws Exception
    */
-  public void saveTo(String path) throws Exception {
+  public void saveTo(String path, PrintStream ps) throws Exception {
 
     File outPath = new File(path);
     path = outPath.getCanonicalPath();
@@ -212,7 +235,9 @@ public class ProjectFileUtils implements ResourceBridge {
         InputStream is = zipFS.getInputStream(fn);
         File outFile = new File(outPath, mbe.getFileName());
         FileOutputStream fos = new FileOutputStream(outFile);
-        System.out.println("Extracting " + fn + " to " + outFile.getCanonicalPath());
+        if (ps != null) {
+          ps.println("Extracting " + fn + " to " + outFile.getCanonicalPath());
+        }
         StreamIO.writeStreamTo(is, fos);
       }
     }
@@ -220,22 +245,28 @@ public class ProjectFileUtils implements ResourceBridge {
     // Save ".jclic" file
     File outFile = new File(outPath, jclicFileName);
     FileOutputStream fos = new FileOutputStream(outFile);
-    System.out.println("Saving project to: " + outFile.getCanonicalPath());
+    if (ps != null) {
+      ps.println("Saving project to: " + outFile.getCanonicalPath());
+    }
     project.saveDocument(fos);
     fos.close();
 
-    System.out.println("Done processing: " + zipFilePath);
+    if (ps != null) {
+      ps.println("Done processing: " + zipFilePath);
+    }
   }
 
-  public static void processFolder(String sourcePath, String destPath) throws Exception {
+  public static void processFolder(String sourcePath, String destPath, PrintStream ps) throws Exception {
 
     File src = new File(sourcePath);
 
     if (!src.isDirectory() || !src.canRead()) {
-      throw new Exception("Source directory \""+sourcePath+"\" does not exist, not a directory or not readable");
+      throw new Exception("Source directory \"" + sourcePath + "\" does not exist, not a directory or not readable");
     }
 
-    System.out.println("Exporting all jclic.zip files in \"" + src.getCanonicalPath() + "\" to \"" + destPath + "\"");
+    if (ps != null) {
+      ps.println("Exporting all jclic.zip files in \"" + src.getCanonicalPath() + "\" to \"" + destPath + "\"");
+    }
 
     File dest = new File(destPath);
 
@@ -246,15 +277,16 @@ public class ProjectFileUtils implements ResourceBridge {
     });
 
     for (File f : jclicZipFiles) {
-      try {
-        ProjectFileUtils prjFU = new ProjectFileUtils(f.getAbsolutePath());
-        prjFU.normalizeFileNames();
-        prjFU.avoidZipLinks();
-        prjFU.saveTo(dest.getAbsolutePath());
-      } catch (Exception ex) {
-        System.out.println("ERROR: "+ex.getMessage());
+
+      if (ps != null) {
+        ps.println("\nProcessing file: " + f.getAbsolutePath());
       }
-    }    
+
+      ProjectFileUtils prjFU = new ProjectFileUtils(f.getAbsolutePath());
+      prjFU.normalizeFileNames(ps);
+      prjFU.avoidZipLinks(ps);
+      prjFU.saveTo(dest.getAbsolutePath(), ps);
+    }
     jclicZipFiles = null;
     System.gc();
 
@@ -268,7 +300,8 @@ public class ProjectFileUtils implements ResourceBridge {
     for (File f : subDirs) {
       ProjectFileUtils.processFolder(
               new File(src, f.getName()).getCanonicalPath(),
-              new File(dest, f.getName()).getCanonicalPath());
+              new File(dest, f.getName()).getCanonicalPath(),
+              ps);
     }
     subDirs = null;
     System.gc();

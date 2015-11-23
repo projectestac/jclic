@@ -457,6 +457,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
         fileMenu.addSeparator();
         fileMenu.add(new KJMenuItem(getAction(ACTION_SAVE_FILE)));
         fileMenu.add(new KJMenuItem(getAction(ACTION_SAVE_FILE_AS)));
+        fileMenu.add(new KJMenuItem(getAction(ACTION_EXPORT_PROJECT)));
         menuBar.add(fileMenu);
         
         editMenu=new JMenu(messages.get("m_Edit"));
@@ -583,7 +584,8 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
     ACTION_CREATE_HTML=13,
     ACTION_CREATE_INSTALLER=14,
     ACTION_IMPORT_ACTIVITIES=15,
-    AUTHOR_NUM_ACTIONS=16;
+    ACTION_EXPORT_PROJECT=16,
+    AUTHOR_NUM_ACTIONS=17;
     
     public static final String[] ACTION_NAMES={
         "openFile",
@@ -601,7 +603,8 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
         "editSeq",
         "createHTML",
         "createInstaller",
-        "importActivities"
+        "importActivities",
+        "exportProject"
     };
     public static final String[] ACTION_ICONS={
         "icons/file_open.gif",
@@ -619,7 +622,8 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
         "icons/sequence.gif",
         "icons/html_doc.gif",
         "icons/installer.gif",
-        "icons/import_act.png"
+        "icons/import_act.png",
+        "icons/file_save_as.gif"
     };
     
     protected int getNumActions(){
@@ -785,6 +789,20 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
             }
         };
         
+        actions[ACTION_EXPORT_PROJECT]=new AbstractAction(){
+            public void actionPerformed(ActionEvent ev){
+                if(checkSaveChanges()){
+                    String[] folders=ExportToJSDlg.prompt(AuthorSingleFrame.this, AuthorSingleFrame.this, createFileSystem());
+                    if(folders!=null){
+                      
+                      // Implement export project to JS
+                      System.out.println("Exporting "+folders[0]+" to "+folders[1]);
+                      
+                    }
+                }
+            }
+        };
+        
         actions[ACTION_EDIT_PROJECT]=new AbstractAction(){
             public void actionPerformed(ActionEvent ev){
                 if(tabbedPane!=null)
@@ -832,7 +850,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
         actions[ACTION_EDIT_SEQ], actions[ACTION_EDIT_ACTIVITIES],
         actions[ACTION_EDIT_MEDIA], actions[ACTION_EDIT_PROJECT],
         actions[ACTION_CREATE_HTML], actions[ACTION_CREATE_INSTALLER],
-        actions[ACTION_IMPORT_ACTIVITIES]};
+        actions[ACTION_IMPORT_ACTIVITIES], actions[ACTION_EXPORT_PROJECT]};
         
         checkActions();
     }
