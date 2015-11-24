@@ -91,7 +91,7 @@ public class ProjectFileUtils implements ResourceBridge {
    * @param ps - The @link{PrintStream} where progress messages will be
    * outputed. Can be null.
    */
-  public void normalizeFileNames(PrintStream ps) {
+  public void normalizeFileNames(PrintStream ps) throws InterruptedException {
 
     HashSet<String> currentNames = new HashSet<String>();
     Iterator<MediaBagElement> it = project.mediaBag.getElements().iterator();
@@ -132,7 +132,7 @@ public class ProjectFileUtils implements ResourceBridge {
    * @param ps - The @link{PrintStream} where progress messages will be
    * outputed. Can be null.
    */
-  public void avoidZipLinks(PrintStream ps) {
+  public void avoidZipLinks(PrintStream ps) throws InterruptedException {
     // Scan Activity elements
     for (ActivityBagElement ab : project.activityBag.getElements()) {
       avoidZipLinksInElement(ab.getData(), ps);
@@ -160,7 +160,7 @@ public class ProjectFileUtils implements ResourceBridge {
    * @param ps - The @link{PrintStream} where progress messages will be
    * outputed. Can be null.
    */
-  public void avoidZipLinksInJumpInfo(JumpInfo ji, PrintStream ps) {
+  public void avoidZipLinksInJumpInfo(JumpInfo ji, PrintStream ps) throws InterruptedException {
     if (ji != null && ji.projectPath != null && ji.projectPath.endsWith(".jclic.zip")) {
       String p = ji.projectPath;
       String pv = p.substring(0, p.length() - 4);
@@ -181,7 +181,7 @@ public class ProjectFileUtils implements ResourceBridge {
    * @param ps - The @link{PrintStream} where progress messages will be
    * outputed. Can be null.
    */
-  public void avoidZipLinksInElement(org.jdom.Element el, PrintStream ps) {
+  public void avoidZipLinksInElement(org.jdom.Element el, PrintStream ps) throws InterruptedException {
     if (el.getAttribute("params") != null) {
       String p = el.getAttributeValue("params");
       if (p != null && p.endsWith(".jclic.zip")) {
@@ -207,7 +207,7 @@ public class ProjectFileUtils implements ResourceBridge {
    * outputed. Can be null.
    * @throws Exception
    */
-  public void saveTo(String path, PrintStream ps) throws Exception {
+  public void saveTo(String path, PrintStream ps) throws Exception, InterruptedException {
 
     File outPath = new File(path);
     path = outPath.getCanonicalPath();
@@ -256,7 +256,7 @@ public class ProjectFileUtils implements ResourceBridge {
     }
   }
 
-  public static void processFolder(String sourcePath, String destPath, PrintStream ps) throws Exception {
+  public static void processFolder(String sourcePath, String destPath, PrintStream ps) throws Exception, InterruptedException {
 
     File src = new File(sourcePath);
 

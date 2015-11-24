@@ -20,39 +20,32 @@
  */
 package edu.xtec.jclic.project;
 
-import edu.xtec.jclic.fileSystem.FileSystem;
-import edu.xtec.jclic.misc.Utils;
 import edu.xtec.util.Messages;
 import edu.xtec.util.Options;
 import edu.xtec.util.ResourceBridge;
-import edu.xtec.util.SimpleFileFilter;
 import edu.xtec.util.StrUtils;
 import java.awt.Component;
 import java.io.File;
-import java.io.FilenameFilter;
 import javax.swing.JFileChooser;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 
 /**
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
- * @version 13.08.09
+ * @version 23.11.15
  */
 public class ExportToJSDlg extends javax.swing.JPanel {
 
   ResourceBridge rb;
   Options options;
-  String inputFolder;
   String outputFolder;
+  boolean exportAll = true;
 
   /**
    * Creates new form ExportToJSDlg
    */
-  public ExportToJSDlg(ResourceBridge rb, String inputFolder) {
+  public ExportToJSDlg(ResourceBridge rb) {
     this.rb = rb;
     options = rb.getOptions();
-    this.inputFolder = inputFolder.replace('/', File.separatorChar);
     initComponents();
   }
 
@@ -66,15 +59,13 @@ public class ExportToJSDlg extends javax.swing.JPanel {
     java.awt.GridBagConstraints gridBagConstraints;
 
     exportLb = new javax.swing.JLabel();
-    inputFolderLb = new javax.swing.JLabel();
-    inputFolderText = new javax.swing.JTextField();
-    inputFolderBtn = new javax.swing.JButton();
-    spacer1 = new javax.swing.JLabel();
     outputFolderLb = new javax.swing.JLabel();
     outputFolderText = new javax.swing.JTextField();
     outputFolderBtn = new javax.swing.JButton();
-    spacer2 = new javax.swing.JLabel();
+    javax.swing.JLabel spacer2 = new javax.swing.JLabel();
+    allPrjChk = new javax.swing.JCheckBox();
 
+    setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
     setLayout(new java.awt.GridBagLayout());
 
     exportLb.setText(options.getMsg("export_project_desc"));
@@ -83,36 +74,6 @@ public class ExportToJSDlg extends javax.swing.JPanel {
     gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
     gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
     add(exportLb, gridBagConstraints);
-
-    inputFolderLb.setLabelFor(inputFolderText);
-    inputFolderLb.setText(options.getMsg("export_project_source_folder"));
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-    gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
-    add(inputFolderLb, gridBagConstraints);
-
-    inputFolderText.setToolTipText(options.getMsg("edit_new_project_folder_tooltip"));
-    inputFolderText.setMinimumSize(new java.awt.Dimension(280, 21));
-    inputFolderText.setPreferredSize(new java.awt.Dimension(280, 21));
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridwidth = 2;
-    gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-    gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
-    add(inputFolderText, gridBagConstraints);
-
-    inputFolderBtn.setText(options.getMsg("edit_new_project_folder_browse"));
-    inputFolderBtn.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        inputFolderBtnActionPerformed(evt);
-      }
-    });
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-    gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
-    add(inputFolderBtn, gridBagConstraints);
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-    add(spacer1, gridBagConstraints);
 
     outputFolderLb.setLabelFor(outputFolderText);
     outputFolderLb.setText(options.getMsg("export_project_output_folder"));
@@ -143,49 +104,43 @@ public class ExportToJSDlg extends javax.swing.JPanel {
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
     add(spacer2, gridBagConstraints);
+
+    allPrjChk.setText(options.getMsg("export_project_includeAll"));
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+    add(allPrjChk, gridBagConstraints);
   }// </editor-fold>//GEN-END:initComponents
 
   private JFileChooser chooser;
-
-    private void inputFolderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputFolderBtnActionPerformed
-
-      if (chooser == null) {
-        chooser = new JFileChooser(inputFolder);
-        chooser.setDialogType(JFileChooser.DIRECTORIES_ONLY);
-      }
-      if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-        inputFolder = chooser.getCurrentDirectory().getAbsolutePath();
-        inputFolderText.setText(inputFolder);
-      }
-
-    }//GEN-LAST:event_inputFolderBtnActionPerformed
 
   private void outputFolderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputFolderBtnActionPerformed
 
     if (chooser == null) {
       chooser = new JFileChooser(outputFolder);
-      chooser.setDialogType(JFileChooser.DIRECTORIES_ONLY);
+      chooser.setApproveButtonText(options.getMsg("export_project_selectFolder"));
+      chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
     }
     if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-      outputFolder = chooser.getCurrentDirectory().getAbsolutePath();
+      outputFolder = chooser.getSelectedFile().getAbsolutePath();
       outputFolderText.setText(outputFolder);
     }
 
   }//GEN-LAST:event_outputFolderBtnActionPerformed
 
   public void fillData() {
-    inputFolderText.setText(inputFolder == null ? "" : inputFolder);
     outputFolderText.setText(outputFolder == null ? "" : outputFolder);
+    allPrjChk.setSelected(exportAll);
   }
 
   public void getData() {
-    inputFolder = StrUtils.nullableString(inputFolderText.getText());
     outputFolder = StrUtils.nullableString(outputFolderText.getText());
+    exportAll = allPrjChk.isSelected();
   }
 
-  public static String[] prompt(ResourceBridge rb, Component parent, FileSystem baseFS) {
+  public static String[] prompt(ResourceBridge rb, Component parent, String inputPath) {
     String[] result = null;
-    ExportToJSDlg exportDlg = new ExportToJSDlg(rb, baseFS.root);
+    ExportToJSDlg exportDlg = new ExportToJSDlg(rb);
     Messages msg = rb.getOptions().getMessages();
     exportDlg.fillData();
     while (result == null) {
@@ -193,29 +148,30 @@ public class ExportToJSDlg extends javax.swing.JPanel {
         break;
       }
       exportDlg.getData();
-      if (exportDlg.inputFolder == null || exportDlg.outputFolder == null) {
+      if (exportDlg.outputFolder == null) {
         msg.showErrorWarning(parent, "export_project_err_empty", null);
       } else {
         try {
-          boolean foldersOk = true;
-          File inputFolderFile = new File(exportDlg.inputFolder);
+          boolean folderOk = true;
           File outputFolderFile = new File(exportDlg.outputFolder);
 
-          if (!inputFolderFile.exists()) {
-            msg.showErrorWarning(parent, "export_project_err_sourceNotExists", null);
-            foldersOk = false;
+          if (exportDlg.outputFolder.equals(inputPath)) {
+            msg.showErrorWarning(parent, "edit_new_project_err_sameFolder", null);
+            folderOk = false;
+          } else if (exportDlg.outputFolder.startsWith(inputPath)) {
+            msg.showErrorWarning(parent, "edit_new_project_err_nestedFolders", null);
+            folderOk = false;
           } else if (outputFolderFile.exists() && outputFolderFile.isDirectory()) {
-            FilenameFilter ff = ((SimpleFileFilter) Utils.getFileFilter(Utils.ALL_JCLIC_CLIC_FF, msg)).getFilenameFilter();
-            if (outputFolderFile.list(ff).length > 0) {
-              foldersOk = msg.showQuestionDlg(parent, "edit_new_project_warning_noEmptyFolder", null, "yn") == Messages.YES;
+            if (outputFolderFile.list().length > 0) {
+              folderOk = msg.showQuestionDlg(parent, "export_project_warning_noEmptyFolder", null, "yn") == Messages.YES;
             }
           } else if (!outputFolderFile.mkdirs()) {
             msg.showErrorWarning(parent, "edit_new_project_err_folderCreation", null);
-            foldersOk = false;
+            folderOk = false;
           }
 
-          if (foldersOk) {
-            result = new String[]{exportDlg.inputFolder, exportDlg.outputFolder};
+          if (folderOk) {
+            result = new String[]{exportDlg.outputFolder, inputPath, exportDlg.exportAll ? "true" : "false"};
           }
         } catch (Exception ex) {
           msg.showErrorWarning(parent, "ERROR", ex);
@@ -225,17 +181,12 @@ public class ExportToJSDlg extends javax.swing.JPanel {
     return result;
   }
 
-
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JCheckBox allPrjChk;
   private javax.swing.JLabel exportLb;
-  private javax.swing.JButton inputFolderBtn;
-  private javax.swing.JLabel inputFolderLb;
-  private javax.swing.JTextField inputFolderText;
   private javax.swing.JButton outputFolderBtn;
   private javax.swing.JLabel outputFolderLb;
   private javax.swing.JTextField outputFolderText;
-  private javax.swing.JLabel spacer1;
-  private javax.swing.JLabel spacer2;
   // End of variables declaration//GEN-END:variables
 
 }

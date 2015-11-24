@@ -782,7 +782,6 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
                     JClicProject prj=NewProjectDlg.prompt(AuthorSingleFrame.this, AuthorSingleFrame.this, createFileSystem());
                     if(prj!=null){
                         setProject(prj);
-                        //setProject(new JClicProject(AuthorSingleFrame.this, createFileSystem(), null));
                         attachProject();
                     }
                 }
@@ -792,12 +791,13 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
         actions[ACTION_EXPORT_PROJECT]=new AbstractAction(){
             public void actionPerformed(ActionEvent ev){
                 if(checkSaveChanges()){
-                    String[] folders=ExportToJSDlg.prompt(AuthorSingleFrame.this, AuthorSingleFrame.this, createFileSystem());
+                    String inputPath=project.getFileSystem().getFullFileNamePath("");
+                    String[] folders=ExportToJSDlg.prompt(AuthorSingleFrame.this, AuthorSingleFrame.this, inputPath);
                     if(folders!=null){
-                      
-                      // Implement export project to JS
-                      System.out.println("Exporting "+folders[0]+" to "+folders[1]);
-                      
+                      boolean exportAll = folders[1].equals("true");
+                      if(!exportAll)
+                        inputPath = project.getFileSystem().getFullRoot();                      
+                      ExportTaskDlg.doTask(AuthorSingleFrame.this, AuthorSingleFrame.this, inputPath, folders[0], exportAll);
                     }
                 }
             }
