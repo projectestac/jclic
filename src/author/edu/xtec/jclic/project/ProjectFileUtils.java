@@ -53,6 +53,9 @@ public class ProjectFileUtils implements ResourceBridge {
   String[] entries;
   JClicProject project;
 
+  // Interruption flag
+  public static boolean interrupt = false;
+
   /**
    * Builds a ProjectFileUtils object, initializing a @link{JClicProject}
    *
@@ -96,6 +99,12 @@ public class ProjectFileUtils implements ResourceBridge {
     HashSet<String> currentNames = new HashSet<String>();
     Iterator<MediaBagElement> it = project.mediaBag.getElements().iterator();
     while (it.hasNext()) {
+
+      if (interrupt) {
+        interrupt = false;
+        throw new InterruptedException();
+      }
+
       MediaBagElement mbe = it.next();
       if (!mbe.saveFlag) {
         if (ps != null) {
@@ -135,10 +144,20 @@ public class ProjectFileUtils implements ResourceBridge {
   public void avoidZipLinks(PrintStream ps) throws InterruptedException {
     // Scan Activity elements
     for (ActivityBagElement ab : project.activityBag.getElements()) {
+      if (interrupt) {
+        interrupt = false;
+        throw new InterruptedException();
+      }
       avoidZipLinksInElement(ab.getData(), ps);
     }
 
     for (ActivitySequenceElement ase : project.activitySequence.getElements()) {
+
+      if (interrupt) {
+        interrupt = false;
+        throw new InterruptedException();
+      }
+
       if (ase.fwdJump != null) {
         avoidZipLinksInJumpInfo(ase.fwdJump, ps);
         avoidZipLinksInJumpInfo(ase.fwdJump.upperJump, ps);
@@ -194,6 +213,12 @@ public class ProjectFileUtils implements ResourceBridge {
     }
     Iterator it = el.getChildren().iterator();
     while (it.hasNext()) {
+
+      if (interrupt) {
+        interrupt = false;
+        throw new InterruptedException();
+      }
+
       avoidZipLinksInElement((org.jdom.Element) it.next(), ps);
     }
   }
@@ -224,6 +249,12 @@ public class ProjectFileUtils implements ResourceBridge {
     // Export media files
     Iterator<MediaBagElement> it = project.mediaBag.getElements().iterator();
     while (it.hasNext()) {
+
+      if (interrupt) {
+        interrupt = false;
+        throw new InterruptedException();
+      }
+
       MediaBagElement mbe = it.next();
       if (mbe.saveFlag) {
 
@@ -278,6 +309,11 @@ public class ProjectFileUtils implements ResourceBridge {
 
     for (File f : jclicZipFiles) {
 
+      if (interrupt) {
+        interrupt = false;
+        throw new InterruptedException();
+      }
+
       if (ps != null) {
         ps.println("\nProcessing file: " + f.getAbsolutePath());
       }
@@ -298,6 +334,12 @@ public class ProjectFileUtils implements ResourceBridge {
     });
 
     for (File f : subDirs) {
+
+      if (interrupt) {
+        interrupt = false;
+        throw new InterruptedException();
+      }
+
       ProjectFileUtils.processFolder(
               new File(src, f.getName()).getCanonicalPath(),
               new File(dest, f.getName()).getCanonicalPath(),

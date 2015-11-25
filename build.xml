@@ -9,7 +9,7 @@
 
     <!-- Variables -->
     <property name="name"           value="JClic" />    
-    <property name="year"           value="2004-14" />
+    <property name="year"           value="2004-15" />
     
     <!-- Set the appropiate values for your certificate keys here,
          or write them on a text file called ".ant-global.properties",
@@ -94,6 +94,7 @@
         <include name="**/*.jpg"/>
         <include name="**/*.png"/>
         <include name="**/*.ttf"/>
+        <include name="**/*.ico"/>
     </patternset>
     <patternset id="sounds" >
         <include name="**/*.wav"/>
@@ -293,6 +294,7 @@
                <pathelement location="${build.dir}/dbconn"/>
                <pathelement location="${build.dir}/soundspi"/>
                <pathelement location="${build.dir}/image4j"/>
+               <pathelement location="${build.dir}/websrv"/>
                <pathelement location="${build.dir}/lib/jmf-api"/>
                <pathelement location="${build.dir}/lib/qtjava-api"/>                
              </classpath>
@@ -385,7 +387,7 @@
   </target>  
   
   <!-- =================================================================== -->
-  <!-- IMAGE4J                                                           -->
+  <!-- IMAGE4J                                                             -->
   <!-- =================================================================== -->
   <target name="image4j" 
           depends="init"
@@ -393,6 +395,17 @@
     <mkdir dir="${build.dir}/image4j"/>
     <ext.javac srcdir="${ext.dir}/img/image4j/src" 
                destdir="${build.dir}/image4j" />
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- WEBSRV                                                             -->
+  <!-- =================================================================== -->
+  <target name="websrv" 
+          depends="init"
+          description="Builds the SimpleWebServer library">
+    <mkdir dir="${build.dir}/websrv"/>
+    <ext.javac srcdir="${ext.dir}/websrv/src" 
+               destdir="${build.dir}/websrv" />
   </target>
   
   <!-- =================================================================== -->
@@ -599,7 +612,7 @@
   <!-- JCLICAUTHOR                                                         -->
   <!-- =================================================================== -->
   <target name="jclicauthor" 
-          depends="jclicplayer"
+          depends="jclicplayer,websrv"
           description="Builds the jclicauthor.jar component">
     <mkdir dir="${build.dir}/author"/>
     <mkdir dir="${build.dir}/author/${resource.path}"/>
@@ -626,6 +639,7 @@
         <src path="${src.dir}/shapers"/>
         <classpath>
             <pathelement location="${build.dir}/jclic.jar"/>
+            <pathelement location="${build.dir}/websrv" />
         </classpath>
     </ext.javac>
 

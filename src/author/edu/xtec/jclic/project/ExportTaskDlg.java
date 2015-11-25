@@ -23,15 +23,21 @@ package edu.xtec.jclic.project;
 import edu.xtec.util.Messages;
 import edu.xtec.util.Options;
 import edu.xtec.util.ResourceBridge;
+import edu.xtec.util.StrUtils;
+import edu.xtec.util.StreamIO;
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import javax.swing.JDialog;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
 
 /**
  *
@@ -42,6 +48,28 @@ public class ExportTaskDlg extends javax.swing.JPanel {
 
   ResourceBridge rb;
   Options options;
+  edu.xtec.util.SwingWorker sw;
+
+  static String indexHtml
+          = "<!DOCTYPE html>\n"
+          + "<html>\n"
+          + "  <head>\n"
+          + "    <meta charset=\"UTF-8\">\n"
+          + "    <title>%TITLE%</title>\n"
+          + "    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n"
+          + "    <meta name=\"mobile-web-app-capable\" content=\"yes\">\n"
+          + "    <meta name=\"application-name\" content=\"%TITLE%\">\n"
+          + "    <link rel=\"shortcut icon\" href=\"favicon.ico\">\n"
+          + "    <link rel=\"icon\" sizes=\"16x16\" href=\"favicon.ico\">\n"
+          + "    <link rel=\"icon\" sizes=\"72x72\" href=\"icons/icon-72.png\">\n"
+          + "    <link rel=\"icon\" sizes=\"192x192\" href=\"icon-192.png\">\n"
+          + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+          + "    <script type=\"text/javascript\" src=\"https://clic.xtec.cat/dist/jclic.js/jclic.min.js\"></script>\n"
+          + "  </head>\n"
+          + "  <body style=\"margin:0\">\n"
+          + "    <div class =\"JClic\" data-project=\"%MAINFILE%\"></div>\n"
+          + "  </body>\n"
+          + "</html>";
 
   /**
    * Creates new ExportTaskDlg
@@ -69,16 +97,16 @@ public class ExportTaskDlg extends javax.swing.JPanel {
     setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
     setLayout(new java.awt.BorderLayout(0, 10));
 
-    logArea.setColumns(20);
-    logArea.setRows(5);
-    logArea.setMinimumSize(new java.awt.Dimension(223, 78));
+    jScrollPane1.setPreferredSize(new java.awt.Dimension(600, 500));
+
+    logArea.setEditable(false);
     jScrollPane1.setViewportView(logArea);
 
     add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
     bottomPanel.setLayout(new java.awt.BorderLayout());
 
-    copyBtn.setText(options.getMsg("COPY"));
+    copyBtn.setText(options.getMsg("export_project_copyLog"));
     copyBtn.setEnabled(false);
     copyBtn.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,30 +127,43 @@ public class ExportTaskDlg extends javax.swing.JPanel {
   }// </editor-fold>//GEN-END:initComponents
 
   private void copyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyBtnActionPerformed
-    // TODO add your handling code here:
+
+    StringSelection stringSelection = new StringSelection(logArea.getText());
+    Clipboard clpbrd = Toolkit.getDefaultToolkit().getSystemClipboard();
+    clpbrd.setContents(stringSelection, null);
+
   }//GEN-LAST:event_copyBtnActionPerformed
 
   private void cancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelBtnActionPerformed
 
-    JDialog myDlg = (JDialog) javax.swing.SwingUtilities.getAncestorOfClass(JDialog.class, this);
-    if (myDlg != null) {
-      myDlg.dispose();
+    if (sw != null) {
+      ProjectFileUtils.interrupt = true;
+    } else {
+      JDialog myDlg = (JDialog) javax.swing.SwingUtilities.getAncestorOfClass(JDialog.class, this);
+      if (myDlg != null) {
+        myDlg.dispose();
+      }
     }
-
   }//GEN-LAST:event_cancelBtnActionPerformed
 
-  public static void doTask(ResourceBridge rb, Component parent, final String inputPath, final String outputPath, final boolean copyAll) {
+  public static void doTask(ResourceBridge rb, Component parent,
+          final String inputPath, final String outputPath, final String mainFileName,
+          final String projectTitle, final boolean copyAll) {
 
     final Messages msg = rb.getOptions().getMessages();
     final ExportTaskDlg exportDlg = new ExportTaskDlg(rb);
 
     final PrintStream ps = new PrintStream(new ByteArrayOutputStream()) {
+      @Override
       public void println(String s) {
         exportDlg.logArea.append(s + "\n");
+        exportDlg.logArea.setCaretPosition(exportDlg.logArea.getText().length());
       }
 
+      @Override
       public void print(String s) {
         exportDlg.logArea.append(s);
+        exportDlg.logArea.setCaretPosition(exportDlg.logArea.getText().length());
       }
     };
 
@@ -135,11 +176,12 @@ public class ExportTaskDlg extends javax.swing.JPanel {
     dlg.setLocationRelativeTo(parent);
     dlg.setLocation((parent.getWidth() - dlg.getWidth()) / 2, (parent.getHeight() - dlg.getHeight()) / 2);
 
-    edu.xtec.util.SwingWorker sw = new edu.xtec.util.SwingWorker() {
+    exportDlg.sw = new edu.xtec.util.SwingWorker() {
 
       @Override
       public Object construct() {
         try {
+
           if (!copyAll) {
             ps.println("Processing: " + inputPath);
             ProjectFileUtils pfu = new ProjectFileUtils(inputPath);
@@ -148,13 +190,36 @@ public class ExportTaskDlg extends javax.swing.JPanel {
             pfu.saveTo(outputPath, ps);
           } else {
             ps.println("Processing al projects in: " + inputPath);
-
             ProjectFileUtils.processFolder(inputPath, outputPath, ps);
           }
+
+          ps.println("Generating file " + outputPath + "/index.html");
+          FileOutputStream fos = new FileOutputStream(new File(outputPath, "index.html"));
+          PrintWriter pw = new PrintWriter(new OutputStreamWriter(fos, "UTF-8"));
+          String s = StrUtils.replace(indexHtml, "%TITLE%", projectTitle);
+          s = StrUtils.replace(s, "%MAINFILE%", mainFileName);
+          pw.print(s);
+          pw.flush();
+          pw.close();
+
+          ps.println("Copying favicon.ico");
+          StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/favicon.ico"),
+                  new FileOutputStream(new File(outputPath, "favicon.ico")));
+
+          ps.println("Copying icon-192.png");
+          StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/icon-192.png"),
+                  new FileOutputStream(new File(outputPath, "icon-192.png")));
+
+          ps.println("Copying icon-72.png");
+          StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/icon-72.png"),
+                  new FileOutputStream(new File(outputPath, "icon-72.png")));
+
+          ps.println("\nProject successfully exported to " + outputPath);
+
         } catch (InterruptedException iex) {
-          ps.println("Process was interrumpted!");
+          ps.println("\nWARNING: The process was interrupted! Contents of the output folder might be unsuitable.");
         } catch (Exception ex) {
-          ps.println("ERROR processing ZIP file: " + ex.getMessage());
+          ps.println("\nERROR processing ZIP file: " + ex.getMessage());
         }
         return null;
       }
@@ -162,10 +227,12 @@ public class ExportTaskDlg extends javax.swing.JPanel {
       @Override
       public void finished() {
         exportDlg.cancelBtn.setText(msg.get("OK"));
+        exportDlg.copyBtn.setEnabled(true);
+        exportDlg.sw = null;
       }
     };
 
-    sw.start();
+    exportDlg.sw.start();
 
     dlg.setVisible(true);
 
