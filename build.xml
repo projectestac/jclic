@@ -658,7 +658,8 @@
             <attribute name="Application-Name" 
                        value="JClic Author"/>
         </manifest>
-         <fileset dir="${build.dir}/author" />
+        <fileset dir="${build.dir}/author" />
+        <fileset dir="${build.dir}/websrv" />
     </jar>
   </target>
     

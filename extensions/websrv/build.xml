@@ -19,6 +19,7 @@
            source="${ant.build.javac.source}"
            target="${ant.build.javac.target}"
            includeAntRuntime="false">      
+<compilerarg value="-Xlint:unchecked"/>
     </javac>
   </target>
   

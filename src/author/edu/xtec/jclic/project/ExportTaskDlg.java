@@ -20,6 +20,7 @@
  */
 package edu.xtec.jclic.project;
 
+import edu.xtec.util.BrowserLauncher;
 import edu.xtec.util.Messages;
 import edu.xtec.util.Options;
 import edu.xtec.util.ResourceBridge;
@@ -49,6 +50,9 @@ public class ExportTaskDlg extends javax.swing.JPanel {
   ResourceBridge rb;
   Options options;
   edu.xtec.util.SwingWorker sw;
+  org.jibble.simplewebserver.SimpleWebServer websrv;
+  File exportPath;
+  int srvPort = 8888;
 
   static String indexHtml
           = "<!DOCTYPE html>\n"
@@ -61,7 +65,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
           + "    <meta name=\"application-name\" content=\"%TITLE%\">\n"
           + "    <link rel=\"shortcut icon\" href=\"favicon.ico\">\n"
           + "    <link rel=\"icon\" sizes=\"16x16\" href=\"favicon.ico\">\n"
-          + "    <link rel=\"icon\" sizes=\"72x72\" href=\"icons/icon-72.png\">\n"
+          + "    <link rel=\"icon\" sizes=\"72x72\" href=\"icon-72.png\">\n"
           + "    <link rel=\"icon\" sizes=\"192x192\" href=\"icon-192.png\">\n"
           + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
           + "    <script type=\"text/javascript\" src=\"https://clic.xtec.cat/dist/jclic.js/jclic.min.js\"></script>\n"
@@ -80,6 +84,20 @@ public class ExportTaskDlg extends javax.swing.JPanel {
     initComponents();
   }
 
+  PrintStream ps = new PrintStream(new ByteArrayOutputStream()) {
+    @Override
+    public synchronized void println(String s) {
+      logArea.append(s + "\n");
+      logArea.setCaretPosition(logArea.getText().length());
+    }
+
+    @Override
+    public synchronized void print(String s) {
+      logArea.append(s);
+      logArea.setCaretPosition(logArea.getText().length());
+    }
+  };
+
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
@@ -92,6 +110,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
     logArea = new javax.swing.JTextArea();
     javax.swing.JPanel bottomPanel = new javax.swing.JPanel();
     copyBtn = new javax.swing.JButton();
+    serverBtn = new javax.swing.JButton();
     cancelBtn = new javax.swing.JButton();
 
     setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -104,7 +123,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
 
     add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
-    bottomPanel.setLayout(new java.awt.BorderLayout());
+    bottomPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 10, 5));
 
     copyBtn.setText(options.getMsg("export_project_copyLog"));
     copyBtn.setEnabled(false);
@@ -113,7 +132,17 @@ public class ExportTaskDlg extends javax.swing.JPanel {
         copyBtnActionPerformed(evt);
       }
     });
-    bottomPanel.add(copyBtn, java.awt.BorderLayout.WEST);
+    bottomPanel.add(copyBtn);
+
+    serverBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/xtec/resources/icons/html_doc.gif"))); // NOI18N
+    serverBtn.setText(options.getMsg("export_project_launchWebServer"));
+    serverBtn.setEnabled(false);
+    serverBtn.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        serverBtnActionPerformed(evt);
+      }
+    });
+    bottomPanel.add(serverBtn);
 
     cancelBtn.setText(options.getMsg("CANCEL"));
     cancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -121,7 +150,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
         cancelBtnActionPerformed(evt);
       }
     });
-    bottomPanel.add(cancelBtn, java.awt.BorderLayout.EAST);
+    bottomPanel.add(cancelBtn);
 
     add(bottomPanel, java.awt.BorderLayout.SOUTH);
   }// </editor-fold>//GEN-END:initComponents
@@ -139,6 +168,10 @@ public class ExportTaskDlg extends javax.swing.JPanel {
     if (sw != null) {
       ProjectFileUtils.interrupt = true;
     } else {
+      if (websrv != null) {
+        websrv.stopServer();
+        websrv = null;
+      }
       JDialog myDlg = (JDialog) javax.swing.SwingUtilities.getAncestorOfClass(JDialog.class, this);
       if (myDlg != null) {
         myDlg.dispose();
@@ -146,26 +179,31 @@ public class ExportTaskDlg extends javax.swing.JPanel {
     }
   }//GEN-LAST:event_cancelBtnActionPerformed
 
+  private void serverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serverBtnActionPerformed
+
+    if (websrv == null) {
+      try {
+        websrv = new org.jibble.simplewebserver.SimpleWebServer(exportPath, srvPort, ps);
+        websrv.startServer();
+        BrowserLauncher.openURL("http://localhost:" + srvPort + "/index.html");
+        serverBtn.setText(options.getMsg("export_project_stopWebServer"));
+      } catch (Exception ex) {
+        ps.println("ERROR: " + ex);
+      }
+    } else {
+      websrv.stopServer();
+      websrv = null;
+      serverBtn.setText(options.getMsg("export_project_launchWebServer"));
+    }
+
+  }//GEN-LAST:event_serverBtnActionPerformed
+
   public static void doTask(ResourceBridge rb, Component parent,
           final String inputPath, final String outputPath, final String mainFileName,
           final String projectTitle, final boolean copyAll) {
 
     final Messages msg = rb.getOptions().getMessages();
     final ExportTaskDlg exportDlg = new ExportTaskDlg(rb);
-
-    final PrintStream ps = new PrintStream(new ByteArrayOutputStream()) {
-      @Override
-      public void println(String s) {
-        exportDlg.logArea.append(s + "\n");
-        exportDlg.logArea.setCaretPosition(exportDlg.logArea.getText().length());
-      }
-
-      @Override
-      public void print(String s) {
-        exportDlg.logArea.append(s);
-        exportDlg.logArea.setCaretPosition(exportDlg.logArea.getText().length());
-      }
-    };
 
     JDialog dlg = new JDialog(JOptionPane.getFrameForComponent(parent), true);
     dlg.setTitle(msg.get("export_project_exporting"));
@@ -183,17 +221,17 @@ public class ExportTaskDlg extends javax.swing.JPanel {
         try {
 
           if (!copyAll) {
-            ps.println("Processing: " + inputPath);
+            exportDlg.ps.println("Processing: " + inputPath);
             ProjectFileUtils pfu = new ProjectFileUtils(inputPath);
-            pfu.normalizeFileNames(ps);
-            pfu.avoidZipLinks(ps);
-            pfu.saveTo(outputPath, ps);
+            pfu.normalizeFileNames(exportDlg.ps);
+            pfu.avoidZipLinks(exportDlg.ps);
+            pfu.saveTo(outputPath, exportDlg.ps);
           } else {
-            ps.println("Processing al projects in: " + inputPath);
-            ProjectFileUtils.processFolder(inputPath, outputPath, ps);
+            exportDlg.ps.println("Processing al projects in: " + inputPath);
+            ProjectFileUtils.processFolder(inputPath, outputPath, exportDlg.ps);
           }
 
-          ps.println("Generating file " + outputPath + "/index.html");
+          exportDlg.ps.println("Generating file " + outputPath + "/index.html");
           FileOutputStream fos = new FileOutputStream(new File(outputPath, "index.html"));
           PrintWriter pw = new PrintWriter(new OutputStreamWriter(fos, "UTF-8"));
           String s = StrUtils.replace(indexHtml, "%TITLE%", projectTitle);
@@ -202,24 +240,38 @@ public class ExportTaskDlg extends javax.swing.JPanel {
           pw.flush();
           pw.close();
 
-          ps.println("Copying favicon.ico");
+          exportDlg.exportPath = new File(outputPath);
+
+          exportDlg.ps.println("Copying favicon.ico");
           StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/favicon.ico"),
                   new FileOutputStream(new File(outputPath, "favicon.ico")));
 
-          ps.println("Copying icon-192.png");
+          exportDlg.ps.println("Copying icon-192.png");
           StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/icon-192.png"),
                   new FileOutputStream(new File(outputPath, "icon-192.png")));
 
-          ps.println("Copying icon-72.png");
+          exportDlg.ps.println("Copying icon-72.png");
           StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/icon-72.png"),
                   new FileOutputStream(new File(outputPath, "icon-72.png")));
 
-          ps.println("\nProject successfully exported to " + outputPath);
+          exportDlg.ps.println("Copying project cover model");
+          StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/cover-base.jpg"),
+                  new FileOutputStream(new File(outputPath, "project-cover.jpg")));
+          
+          exportDlg.ps.println("Copying project thumbnail model");
+          StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/thumb-base.jpg"),
+                  new FileOutputStream(new File(outputPath, "project-thumb.jpg")));
+                    
+          exportDlg.ps.println("\n"+msg.get("export_project_finished")+ outputPath);
+          
+          exportDlg.ps.println("\n"+msg.get("export_project_notice"));
+
+          exportDlg.serverBtn.setEnabled(true);
 
         } catch (InterruptedException iex) {
-          ps.println("\nWARNING: The process was interrupted! Contents of the output folder might be unsuitable.");
+          exportDlg.ps.println("\nWARNING: The process was interrupted! Contents of the output folder might be unsuitable.");
         } catch (Exception ex) {
-          ps.println("\nERROR processing ZIP file: " + ex.getMessage());
+          exportDlg.ps.println("\nERROR processing ZIP file: " + ex.getMessage());
         }
         return null;
       }
@@ -243,6 +295,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
   private javax.swing.JButton copyBtn;
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JTextArea logArea;
+  private javax.swing.JButton serverBtn;
   // End of variables declaration//GEN-END:variables
 
 }
