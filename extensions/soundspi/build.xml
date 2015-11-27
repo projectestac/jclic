@@ -9,11 +9,11 @@
 
     <!-- Variables -->
     <property name="name"           value="SoundSPI" />    
-    <property name="year"           value="2013" />
+    <property name="year"           value="2015" />
     
-    <!-- JClic is currently targeted to JVM 1.5 -->
-    <property name="ant.build.javac.source" value="1.5"/>
-    <property name="ant.build.javac.target" value="1.5"/>    
+    <!-- JClic is currently targeted to JVM 1.6 -->
+    <property name="ant.build.javac.source" value="1.6"/>
+    <property name="ant.build.javac.target" value="1.6"/>    
 
     <property name="build.dir"      location="build" />
     <property name="apidoc.dir"     location="apidoc" />

@@ -5,8 +5,8 @@
   <property name="dist.dir" value="${basedir}/dist"/>
   <property name="docs.dir" value="${basedir}/apidoc"/>
 
-  <property name="ant.build.javac.source" value="1.5"/>
-  <property name="ant.build.javac.target" value="1.5"/>
+  <property name="ant.build.javac.source" value="1.6"/>
+  <property name="ant.build.javac.target" value="1.6"/>
     
   <target name="all" depends="clean,build,jar"/>
   
