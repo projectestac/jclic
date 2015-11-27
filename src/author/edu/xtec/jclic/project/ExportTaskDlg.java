@@ -39,6 +39,7 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import org.json.JSONObject;
 
 /**
  *
@@ -119,6 +120,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
     jScrollPane1.setPreferredSize(new java.awt.Dimension(600, 500));
 
     logArea.setEditable(false);
+    logArea.setLineWrap(true);
     jScrollPane1.setViewportView(logArea);
 
     add(jScrollPane1, java.awt.BorderLayout.CENTER);
@@ -200,7 +202,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
 
   public static void doTask(ResourceBridge rb, Component parent,
           final String inputPath, final String outputPath, final String mainFileName,
-          final String projectTitle, final boolean copyAll) {
+          final JClicProject project, final boolean copyAll) {
 
     final Messages msg = rb.getOptions().getMessages();
     final ExportTaskDlg exportDlg = new ExportTaskDlg(rb);
@@ -230,15 +232,18 @@ public class ExportTaskDlg extends javax.swing.JPanel {
             exportDlg.ps.println("Processing al projects in: " + inputPath);
             ProjectFileUtils.processFolder(inputPath, outputPath, exportDlg.ps);
           }
-
+          
           exportDlg.ps.println("Generating file " + outputPath + "/index.html");
           FileOutputStream fos = new FileOutputStream(new File(outputPath, "index.html"));
           PrintWriter pw = new PrintWriter(new OutputStreamWriter(fos, "UTF-8"));
-          String s = StrUtils.replace(indexHtml, "%TITLE%", projectTitle);
+          String s = indexHtml.replaceAll("%TITLE%", StrUtils.safeHtml(project.settings.title));
           s = StrUtils.replace(s, "%MAINFILE%", mainFileName);
           pw.print(s);
           pw.flush();
           pw.close();
+          
+          JSONObject json = project.settings.toJSON(msg);
+          json.put("mainFile", mainFileName);
 
           exportDlg.exportPath = new File(outputPath);
 
@@ -256,12 +261,21 @@ public class ExportTaskDlg extends javax.swing.JPanel {
 
           exportDlg.ps.println("Copying project cover model");
           StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/cover-base.jpg"),
-                  new FileOutputStream(new File(outputPath, "project-cover.jpg")));
+                  new FileOutputStream(new File(outputPath, "project-cover.jpg")));          
+          json.put("cover", "project-cover.jpg");
           
           exportDlg.ps.println("Copying project thumbnail model");
           StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/thumb-base.jpg"),
                   new FileOutputStream(new File(outputPath, "project-thumb.jpg")));
-                    
+          json.put("thumbnail", "project-thumb.jpg");
+          
+          exportDlg.ps.println("Generating project.json");
+          fos = new FileOutputStream(new File(outputPath, "project.json"));
+          pw = new PrintWriter(new OutputStreamWriter(fos, "UTF-8"));
+          pw.print(json.toString(2));
+          pw.flush();
+          pw.close();
+          
           exportDlg.ps.println("\n"+msg.get("export_project_finished")+ outputPath);
           
           exportDlg.ps.println("\n"+msg.get("export_project_notice"));

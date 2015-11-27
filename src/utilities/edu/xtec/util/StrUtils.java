@@ -330,5 +330,25 @@ public abstract class StrUtils {
     }
     return result;
   }
+  
+  public static String safeHtml(String s){
+    return StrUtils.secureString(s).replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll("\"", "&quot;")
+            .replaceAll("&", "&amp;");    
+  }
+  
+  public static String getEnumeration(String[] array){
+    StringBuilder sb = new StringBuilder();
+    String tr;
+    for(String s : array){
+      if(s!=null && (tr=s.trim()).length()>0){
+        if(sb.length()>0)
+          sb.append(", ");
+        sb.append(tr);
+      }
+    }
+    return sb.toString();
+  }
 
 }

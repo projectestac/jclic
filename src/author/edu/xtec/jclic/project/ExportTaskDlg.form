@@ -42,6 +42,7 @@
         <Component class="javax.swing.JTextArea" name="logArea">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
+            <Property name="lineWrap" type="boolean" value="true"/>
           </Properties>
         </Component>
       </SubComponents>

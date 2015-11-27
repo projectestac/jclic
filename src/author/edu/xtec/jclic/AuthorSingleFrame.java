@@ -802,7 +802,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
                         mainFile = mainFile.substring(0, mainFile.length()-4);
                       ExportTaskDlg.doTask(AuthorSingleFrame.this, AuthorSingleFrame.this,
                               inputPath, folders[0], mainFile,
-                              project.settings.title, exportAll);
+                              project, exportAll);
                     }
                 }
             }

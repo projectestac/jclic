@@ -29,6 +29,7 @@ import edu.xtec.util.Html;
 import edu.xtec.util.JDomUtility;
 import edu.xtec.util.StrUtils;
 import java.util.*;
+import org.json.JSONObject;
 
 /**
  *
@@ -296,6 +297,63 @@ public class ProjectSettings implements Editable, Domable{
             html.doubleCell(msg.get(msgBase+"descriptors"), true, descriptors, false);
         
         return Html.table(html.toString(), null, 1, 5, -1, null, false);
+    }
+    
+    public JSONObject toJSON(edu.xtec.util.Messages msg){
+      JSONObject json = new JSONObject();
+      
+      json.put("title", title);
+      if(authors.length>0){
+        StringBuilder sb = new StringBuilder();
+        for(Author a : authors){
+          if(sb.length()>0)
+            sb.append(", ");
+          sb.append(a.toString());
+        }
+        json.put("author", sb.toString());        
+      }
+      
+      if(organizations!=null){
+        StringBuilder sb = new StringBuilder();
+        for(Organization o : organizations){
+          if(sb.length()>0)
+            sb.append(", ");
+          sb.append(o.toString());
+        }
+        json.put("school", sb.toString());
+      }
+      
+      json.put("date", msg.getShortDateStr(revisions[0].date));
+      
+      if(languages!=null){
+        for(String lang : languages){
+          
+          String code = null;
+          int p = lang.lastIndexOf('(');
+          int q = lang.lastIndexOf(')');
+          if(p>0 && q>p){
+            code = lang.substring(p+1, q);
+          }
+          else {
+            code = (String)edu.xtec.util.Messages.getNamesToCodes().get(lang.toLowerCase());
+          }
+          
+          if(code!=null){
+            json.append("langCodes", code);
+          }
+        }
+      }
+      
+      if(area!=null)
+        json.put("area", area);
+      
+      if(level!=null)
+        json.put("level", level);
+      
+      if(description!=null)
+        json.put("description", description);
+      
+      return json;
     }
     
     public Editor getEditor(Editor parent) {
