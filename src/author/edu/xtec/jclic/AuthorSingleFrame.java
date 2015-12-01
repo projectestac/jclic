@@ -487,6 +487,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
         toolsMenu.addSeparator();
         toolsMenu.add(new KJMenuItem(getAction(ACTION_DOCTREE)));
         toolsMenu.addSeparator();
+        toolsMenu.add(new KJMenuItem(getAction(ACTION_EXPORT_HTML5)));
         toolsMenu.add(new KJMenuItem(getAction(ACTION_CREATE_HTML)));
         toolsMenu.add(new KJMenuItem(getAction(ACTION_CREATE_INSTALLER)));
         menuBar.add(toolsMenu);
@@ -583,7 +584,8 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
     ACTION_CREATE_HTML=13,
     ACTION_CREATE_INSTALLER=14,
     ACTION_IMPORT_ACTIVITIES=15,
-    AUTHOR_NUM_ACTIONS=16;
+    ACTION_EXPORT_HTML5=16,
+    AUTHOR_NUM_ACTIONS=17;
     
     public static final String[] ACTION_NAMES={
         "openFile",
@@ -601,7 +603,8 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
         "editSeq",
         "createHTML",
         "createInstaller",
-        "importActivities"
+        "importActivities",
+        "exportProject"
     };
     public static final String[] ACTION_ICONS={
         "icons/file_open.gif",
@@ -619,7 +622,8 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
         "icons/sequence.gif",
         "icons/html_doc.gif",
         "icons/installer.gif",
-        "icons/import_act.png"
+        "icons/import_act.png",
+        "icons/html_doc.gif"
     };
     
     protected int getNumActions(){
@@ -778,8 +782,27 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
                     JClicProject prj=NewProjectDlg.prompt(AuthorSingleFrame.this, AuthorSingleFrame.this, createFileSystem());
                     if(prj!=null){
                         setProject(prj);
-                        //setProject(new JClicProject(AuthorSingleFrame.this, createFileSystem(), null));
                         attachProject();
+                    }
+                }
+            }
+        };
+        
+        actions[ACTION_EXPORT_HTML5]=new AbstractAction(){
+            public void actionPerformed(ActionEvent ev){
+                if(checkSaveChanges()){
+                    String inputPath=project.getFileSystem().getFullFileNamePath("");
+                    String[] folders=ExportToJSDlg.prompt(AuthorSingleFrame.this, AuthorSingleFrame.this, inputPath);
+                    if(folders!=null){
+                      boolean exportAll = folders[2].equals("true");
+                      if(!exportAll)
+                        inputPath = project.getFileSystem().getFullRoot();
+                      String mainFile = project.getFileSystem().getRelativeFileNamePath(project.getFullPath());
+                      if(mainFile.endsWith(".zip"))
+                        mainFile = mainFile.substring(0, mainFile.length()-4);
+                      ExportTaskDlg.doTask(AuthorSingleFrame.this, AuthorSingleFrame.this,
+                              inputPath, folders[0], mainFile,
+                              project, exportAll);
                     }
                 }
             }
@@ -832,7 +855,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
         actions[ACTION_EDIT_SEQ], actions[ACTION_EDIT_ACTIVITIES],
         actions[ACTION_EDIT_MEDIA], actions[ACTION_EDIT_PROJECT],
         actions[ACTION_CREATE_HTML], actions[ACTION_CREATE_INSTALLER],
-        actions[ACTION_IMPORT_ACTIVITIES]};
+        actions[ACTION_IMPORT_ACTIVITIES], actions[ACTION_EXPORT_HTML5]};
         
         checkActions();
     }

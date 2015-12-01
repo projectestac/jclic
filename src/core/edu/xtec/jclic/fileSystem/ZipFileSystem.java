@@ -66,6 +66,10 @@ public abstract class ZipFileSystem extends FileSystem {
         return root+zipName;
     }
     
+    public String getZipName(){
+      return zipName;
+    }
+    
     public abstract class ExtendedZipEntry extends ZipEntry{
         public boolean ignore;
         ExtendedZipEntry(ZipEntry entry){

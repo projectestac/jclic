@@ -38,8 +38,8 @@ import java.util.Map;
  */
 public class ActivitySequenceJump extends JumpInfo implements Cloneable {
     
-    protected ConditionalJumpInfo upperJump;
-    protected ConditionalJumpInfo lowerJump;
+    public ConditionalJumpInfo upperJump;
+    public ConditionalJumpInfo lowerJump;
     
     /** Creates new ActivitySequenceJump */
     public ActivitySequenceJump(int action) {

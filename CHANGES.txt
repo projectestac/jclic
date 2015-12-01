@@ -201,9 +201,16 @@ Changes in 0.2.3.4 PPA (13-16 Dec-2013)
 Added the "dist/linux" directory, containing files needed to build PPA Debian packages: man files, bin launchers, desktop files, SVG icons and misc /debian control files.
 No modifications have been made on the source code of JClic, but build.xml has been updated to indicate UTF-8 as default encoding in javac ant task.
 
+
 Changes in 0.2.3.5 (Not yet released)
 ---------------------------------------------------------------------------------------
 Correction of GitHub issue #5, related to URLs pointing to filenames containing whitespaces
 Added maxRecursion and maxFiles to FileSystem.exploreFiles to prevent hangs in large file systems
 
+
+Changes in 0.3.1.0 (01-Dec-2015)
+---------------------------------------------------------------------------------------
+New option in JClicAuthor to export JClic projects to HTML5 using jclic.js (see http://projectestac.github.io/jclic.js)
+"Export to HTML5" generates also a "project.json" file suitable for activity repositories created with "JClic Repo" (see https://github.com/projectestac/jclic-repo)
+JClic needs now Java 1.6 or later
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="image4j" default="all" basedir=".">
+<project name="SimpleWebServer" default="all" basedir=".">
   <property name="src.dir" value="${basedir}/src"/>
   <property name="build.dir" value="${basedir}/build/classes"/>  
   <property name="dist.dir" value="${basedir}/dist"/>
@@ -19,19 +19,13 @@
            source="${ant.build.javac.source}"
            target="${ant.build.javac.target}"
            includeAntRuntime="false">      
+<compilerarg value="-Xlint:unchecked"/>
     </javac>
   </target>
   
   <target name="jar" depends="build">
-    <jar basedir="${build.dir}" file="${dist.dir}/image4j.jar">     
+    <jar basedir="${build.dir}" file="${dist.dir}/websrv.jar">     
     </jar>
-  </target>
-  
-  <target name="docs" depends="init">
-    <mkdir dir="${docs.dir}"/>
-    <javadoc destdir="${docs.dir}" windowtitle="image4j" overview="${src.dir}/overview.html">
-      <fileset dir="${src.dir}" includes="**/*.java"/>
-    </javadoc>
   </target>
   
   <target name="init">

@@ -23,7 +23,8 @@ package edu.xtec.jclic.fileSystem;
 
 import edu.xtec.util.ResourceBridge;
 import edu.xtec.util.StreamIO;
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.zip.ZipEntry;
