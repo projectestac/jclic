@@ -121,6 +121,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
 
     logArea.setEditable(false);
     logArea.setLineWrap(true);
+    logArea.setWrapStyleWord(true);
     jScrollPane1.setViewportView(logArea);
 
     add(jScrollPane1, java.awt.BorderLayout.CENTER);
@@ -276,9 +277,11 @@ public class ExportTaskDlg extends javax.swing.JPanel {
           pw.flush();
           pw.close();
           
-          exportDlg.ps.println("\n"+msg.get("export_project_finished")+ outputPath);
+          exportDlg.ps.println("\n"+msg.get("export_project_finished")+ " " + outputPath);
           
-          exportDlg.ps.println("\n"+msg.get("export_project_notice"));
+          exportDlg.ps.printf("\n"+msg.get("export_project_customize"), "favicon.ico, icon-72.png, icon-192.png, project-cover.jpg", "project-thumb.jpg");          
+          
+          exportDlg.ps.println("\n\n"+msg.get("export_project_notice"));
 
           exportDlg.serverBtn.setEnabled(true);
 

@@ -156,10 +156,10 @@ public class ExportToJSDlg extends javax.swing.JPanel {
           File outputFolderFile = new File(exportDlg.outputFolder);
 
           if (exportDlg.outputFolder.equals(inputPath)) {
-            msg.showErrorWarning(parent, "edit_new_project_err_sameFolder", null);
+            msg.showErrorWarning(parent, "export_project_err_sameFolder", null);
             folderOk = false;
           } else if (exportDlg.outputFolder.startsWith(inputPath)) {
-            msg.showErrorWarning(parent, "edit_new_project_err_nestedFolders", null);
+            msg.showErrorWarning(parent, "export_project_err_nestedFolders", null);
             folderOk = false;
           } else if (outputFolderFile.exists() && outputFolderFile.isDirectory()) {
             if (outputFolderFile.list().length > 0) {
