@@ -1,3 +1,69 @@
+2015-12-01  Francesc Busquets <fbusquets@xtec.cat>
+
+    *   build.xml
+    *   extensions/dbconn/build.xml
+    *   extensions/img/image4j/build.xml
+    *   extensions/json/build.xml
+    *   extensions/soundspi/build.xml
+    *   extensions/websrv/build.xml
+    *   extensions/xml/build.xml
+    *   project.properties: Update to JRE 1.6. Preparing for release 0.3.1.0
+
+    *   extensions/websrv/license.txt
+    *   extensions/websrv/src/org/jibble/simplewebserver/RequestThread.java
+    *   extensions/websrv/src/org/jibble/simplewebserver/SimpleWebServer.java
+    *   src/author/JClicAuthor.java
+    *   src/author/edu/xtec/jclic/AuthorSingleFrame.java
+    *   src/author/edu/xtec/jclic/project/ExportTaskDlg.form
+    *   src/author/edu/xtec/jclic/project/ExportTaskDlg.java
+    *   src/author/edu/xtec/jclic/project/ExportToJSDlg.form
+    *   src/author/edu/xtec/jclic/project/ExportToJSDlg.java
+    *   src/author/edu/xtec/jclic/project/ProjectFileUtils.java
+    *   src/author/edu/xtec/resources/icons/cover-base.jpg
+    *   src/author/edu/xtec/resources/icons/favicon.ico
+    *   src/author/edu/xtec/resources/icons/icon-192.png
+    *   src/author/edu/xtec/resources/icons/icon-72.png
+    *   src/author/edu/xtec/resources/icons/thumb-base.jpg
+    *   src/core/edu/xtec/jclic/project/ProjectSettings.java
+    *   src/author/edu/xtec/resources/messages/AuthorMessages.properties: Implementing "Export to HTM5"
+
+    *   HACKING.txt
+    *   README.md
+    *   dist/jclic/jclic-google.xml
+    *   dist/jclic/jclicpluginssl.js
+    *   dist/reports/jclicReports.properties
+    *   src/report/webApp/WEB-INF/web.xml
+    *   src/activities/edu/xtec/jclic/activities/associations/SimpleAssociation.java
+    *   src/activities/edu/xtec/jclic/activities/textGrid/WordSearch.java
+    *   src/author/edu/xtec/jclic/beans/TextListEditor.java
+    *   src/author/edu/xtec/jclic/project/ProjectInstallerEditPanel.java
+    *   src/core/edu/xtec/jclic/Activity.java
+    *   src/core/edu/xtec/jclic/Player.java
+    *   src/core/edu/xtec/jclic/automation/ActiveBagContentKit.java
+    *   src/core/edu/xtec/jclic/bags/ActivityBagElement.java
+    *   src/core/edu/xtec/jclic/bags/ActivitySequenceJump.java
+    *   src/core/edu/xtec/jclic/bags/ConditionalJumpInfo.java
+    *   src/core/edu/xtec/jclic/bags/MediaBagElement.java
+    *   src/core/edu/xtec/jclic/boxes/ActiveBox.java
+    *   src/core/edu/xtec/jclic/boxes/BoxConnector.java
+    *   src/core/edu/xtec/jclic/boxes/JPanelActiveBox.java
+    *   src/core/edu/xtec/jclic/boxes/SimpleBox.java
+    *   src/core/edu/xtec/jclic/boxes/TextGrid.java
+    *   src/core/edu/xtec/jclic/boxes/TextGridContent.java
+    *   src/core/edu/xtec/jclic/boxes/ThumbsExplorerPanel.java
+    *   src/core/edu/xtec/jclic/fileSystem/FileSystem.java
+    *   src/core/edu/xtec/jclic/fileSystem/FileZip.java
+    *   src/core/edu/xtec/jclic/fileSystem/ZipFileSystem.java
+    *   src/core/edu/xtec/jclic/project/JClicProject.java
+    *   src/interface/edu/xtec/jclic/Constants.java
+    *   src/interface/edu/xtec/jclic/PlayStation.java
+    *   src/utilities/edu/xtec/util/BrowserLauncher.java
+    *   src/utilities/edu/xtec/util/CtrlPanel.java
+    *   src/utilities/edu/xtec/util/FontCheck.java
+    *   src/utilities/edu/xtec/util/LFUtil.java
+    *   src/utilities/edu/xtec/util/Messages.java
+    *   src/utilities/edu/xtec/util/StrUtils.java: Miscellaneous improvements
+
 2014-08-04  Francesc Busquets <fbusquets@xtec.cat>
 
     *   src/core/edu/xtec/jclic/fileSystem/FileSystem.java
