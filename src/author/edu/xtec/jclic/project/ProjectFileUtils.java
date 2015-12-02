@@ -26,15 +26,21 @@ import edu.xtec.jclic.bags.JumpInfo;
 import edu.xtec.jclic.bags.MediaBagElement;
 import edu.xtec.jclic.fileSystem.FileSystem;
 import edu.xtec.jclic.fileSystem.FileZip;
+import edu.xtec.util.JDomUtility;
 import edu.xtec.util.ResourceBridge;
 import edu.xtec.util.StreamIO;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FilenameFilter;
 import java.io.InputStream;
+import java.io.OutputStreamWriter;
 import java.io.PrintStream;
+import java.io.PrintWriter;
 import java.util.HashSet;
 import java.util.Iterator;
+import org.json.JSONObject;
+import org.json.JSONStringer;
 
 /**
  * Miscellaneous utilities to process ".jclic.zip" files, normalizing media file
@@ -274,13 +280,36 @@ public class ProjectFileUtils implements ResourceBridge {
     }
 
     // Save ".jclic" file
+    
+    org.jdom.Document doc = project.getDocument();
+    
     File outFile = new File(outPath, jclicFileName);
     FileOutputStream fos = new FileOutputStream(outFile);
     if (ps != null) {
       ps.println("Saving project to: " + outFile.getCanonicalPath());
     }
-    project.saveDocument(fos);
+    JDomUtility.saveDocument(fos, doc);
     fos.close();
+
+    outFile = new File(outPath, jclicFileName + ".js");
+    fos = new FileOutputStream(outFile);
+    PrintWriter pw = new PrintWriter(new OutputStreamWriter(fos, "UTF-8"));
+    if (ps != null) {
+      ps.println("Saving project to: " + outFile.getCanonicalPath());
+    }
+
+    org.jdom.output.XMLOutputter xmlOutputter = new org.jdom.output.XMLOutputter();
+    ByteArrayOutputStream bas = new ByteArrayOutputStream();
+    xmlOutputter.output(doc, bas);
+    JSONObject json = new JSONObject();
+    json.put("xml", bas.toString("UTF-8"));
+    
+    String sequence = json.toString();
+    sequence = sequence.substring(8, sequence.length()-2);
+    
+    pw.println("if(JClicObject){JClicObject.projectFiles[\""+jclicFileName+"\"]=\""+sequence+"\";}");
+    pw.flush();
+    pw.close();
 
     if (ps != null) {
       ps.println("Done processing: " + zipFilePath);

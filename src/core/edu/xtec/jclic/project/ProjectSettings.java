@@ -346,7 +346,7 @@ public class ProjectSettings implements Editable, Domable {
     JSONObject json = new JSONObject();
 
     json.put("title", title);
-    if (authors.length > 0) {
+    if (authors!=null && authors.length > 0) {
       StringBuilder sb = new StringBuilder();
       for (Author a : authors) {
         if (sb.length() > 0) {
@@ -357,7 +357,7 @@ public class ProjectSettings implements Editable, Domable {
       json.put("author", sb.toString());
     }
 
-    if (organizations != null) {
+    if (organizations != null && organizations.length > 0) {
       StringBuilder sb = new StringBuilder();
       for (Organization o : organizations) {
         if (sb.length() > 0) {
@@ -368,12 +368,13 @@ public class ProjectSettings implements Editable, Domable {
       json.put("school", sb.toString());
     }
 
-    json.put("date", msg.getShortDateStr(revisions[0].date));
+    if(revisions!=null && revisions.length > 0)
+      json.put("date", msg.getShortDateStr(revisions[0].date));
 
     Locale locale = msg.getLocale();
     String langCode = msg.getLocale().getLanguage();
     boolean langCodeSet = false;
-    if (languages != null) {
+    if (languages != null && languages.length > 0) {
       String langNames = "";
       for (String lang : languages) {
 
