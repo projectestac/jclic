@@ -138,10 +138,12 @@ public class ExportToJSDlg extends javax.swing.JPanel {
     exportAll = allPrjChk.isSelected();
   }
 
-  public static String[] prompt(ResourceBridge rb, Component parent, String inputPath) {
-    String[] result = null;
+  public static String[] prompt(ResourceBridge rb, Component parent, String inputPath, String exportBasePath) {
+    String[] result = null;    
     ExportToJSDlg exportDlg = new ExportToJSDlg(rb);
     Messages msg = rb.getOptions().getMessages();
+    String inputBase = (new File(inputPath)).getName();
+    exportDlg.outputFolder = (new File(new File(exportBasePath), inputBase)).getPath();
     exportDlg.fillData();
     while (result == null) {
       if (!msg.showInputDlg(parent, exportDlg, "export_project_title")) {

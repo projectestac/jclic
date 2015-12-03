@@ -51,9 +51,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
   ResourceBridge rb;
   Options options;
   edu.xtec.util.SwingWorker sw;
-  org.jibble.simplewebserver.SimpleWebServer websrv;
   File exportPath;
-  int srvPort = 8888;
 
   static String indexHtml
           = "<!DOCTYPE html>\n"
@@ -111,7 +109,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
     logArea = new javax.swing.JTextArea();
     javax.swing.JPanel bottomPanel = new javax.swing.JPanel();
     copyBtn = new javax.swing.JButton();
-    serverBtn = new javax.swing.JButton();
+    browserBtn = new javax.swing.JButton();
     cancelBtn = new javax.swing.JButton();
 
     setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -137,15 +135,15 @@ public class ExportTaskDlg extends javax.swing.JPanel {
     });
     bottomPanel.add(copyBtn);
 
-    serverBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/xtec/resources/icons/html_doc.gif"))); // NOI18N
-    serverBtn.setText(options.getMsg("export_project_launchWebServer"));
-    serverBtn.setEnabled(false);
-    serverBtn.addActionListener(new java.awt.event.ActionListener() {
+    browserBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/xtec/resources/icons/html_doc.gif"))); // NOI18N
+    browserBtn.setText(options.getMsg("export_project_launchBrowser"));
+    browserBtn.setEnabled(false);
+    browserBtn.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        serverBtnActionPerformed(evt);
+        browserBtnActionPerformed(evt);
       }
     });
-    bottomPanel.add(serverBtn);
+    bottomPanel.add(browserBtn);
 
     cancelBtn.setText(options.getMsg("CANCEL"));
     cancelBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -171,10 +169,6 @@ public class ExportTaskDlg extends javax.swing.JPanel {
     if (sw != null) {
       ProjectFileUtils.interrupt = true;
     } else {
-      if (websrv != null) {
-        websrv.stopServer();
-        websrv = null;
-      }
       JDialog myDlg = (JDialog) javax.swing.SwingUtilities.getAncestorOfClass(JDialog.class, this);
       if (myDlg != null) {
         myDlg.dispose();
@@ -182,24 +176,13 @@ public class ExportTaskDlg extends javax.swing.JPanel {
     }
   }//GEN-LAST:event_cancelBtnActionPerformed
 
-  private void serverBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serverBtnActionPerformed
+  private void browserBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_browserBtnActionPerformed
 
-    if (websrv == null) {
-      try {
-        websrv = new org.jibble.simplewebserver.SimpleWebServer(exportPath, srvPort, ps);
-        websrv.startServer();
-        BrowserLauncher.openURL("http://localhost:" + srvPort + "/index.html");
-        serverBtn.setText(options.getMsg("export_project_stopWebServer"));
-      } catch (Exception ex) {
-        ps.println("ERROR: " + ex);
-      }
-    } else {
-      websrv.stopServer();
-      websrv = null;
-      serverBtn.setText(options.getMsg("export_project_launchWebServer"));
-    }
-
-  }//GEN-LAST:event_serverBtnActionPerformed
+    String url = exportPath + "/index.html";
+    BrowserLauncher.openURL(url);
+    ps.println("File "+url+" opened in web browser.");
+    
+  }//GEN-LAST:event_browserBtnActionPerformed
 
   public static void doTask(ResourceBridge rb, Component parent,
           final String inputPath, final String outputPath, final String mainFileName,
@@ -283,7 +266,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
           
           exportDlg.ps.println("\n\n"+msg.get("export_project_notice"));
 
-          exportDlg.serverBtn.setEnabled(true);
+          exportDlg.browserBtn.setEnabled(true);
 
         } catch (InterruptedException iex) {
           exportDlg.ps.println("\nWARNING: The process was interrupted! Contents of the output folder might be unsuitable.");
@@ -308,11 +291,11 @@ public class ExportTaskDlg extends javax.swing.JPanel {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton browserBtn;
   private javax.swing.JButton cancelBtn;
   private javax.swing.JButton copyBtn;
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JTextArea logArea;
-  private javax.swing.JButton serverBtn;
   // End of variables declaration//GEN-END:variables
 
 }

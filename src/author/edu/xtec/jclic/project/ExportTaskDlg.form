@@ -74,18 +74,18 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="copyBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="serverBtn">
+        <Component class="javax.swing.JButton" name="browserBtn">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/edu/xtec/resources/icons/html_doc.gif"/>
             </Property>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="options.getMsg(&quot;export_project_launchWebServer&quot;)" type="code"/>
+              <Connection code="options.getMsg(&quot;export_project_launchBrowser&quot;)" type="code"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="serverBtnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="browserBtnActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="cancelBtn">

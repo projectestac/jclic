@@ -792,7 +792,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
             public void actionPerformed(ActionEvent ev){
                 if(checkSaveChanges()){
                     String inputPath=project.getFileSystem().getFullFileNamePath("");
-                    String[] folders=ExportToJSDlg.prompt(AuthorSingleFrame.this, AuthorSingleFrame.this, inputPath);
+                    String[] folders=ExportToJSDlg.prompt(AuthorSingleFrame.this, AuthorSingleFrame.this, inputPath, AuthorSingleFrame.this.settings.rootExportPath);
                     if(folders!=null){
                       boolean exportAll = folders[2].equals("true");
                       if(!exportAll)

@@ -294,7 +294,6 @@
                <pathelement location="${build.dir}/dbconn"/>
                <pathelement location="${build.dir}/soundspi"/>
                <pathelement location="${build.dir}/image4j"/>
-               <pathelement location="${build.dir}/websrv"/>
                <pathelement location="${build.dir}/lib/jmf-api"/>
                <pathelement location="${build.dir}/lib/qtjava-api"/>                
              </classpath>
@@ -397,17 +396,6 @@
                destdir="${build.dir}/image4j" />
   </target>
 
-  <!-- =================================================================== -->
-  <!-- WEBSRV                                                             -->
-  <!-- =================================================================== -->
-  <target name="websrv" 
-          depends="init"
-          description="Builds the SimpleWebServer library">
-    <mkdir dir="${build.dir}/websrv"/>
-    <ext.javac srcdir="${ext.dir}/websrv/src" 
-               destdir="${build.dir}/websrv" />
-  </target>
-  
   <!-- =================================================================== -->
   <!-- EXTRA                                                               -->
   <!-- =================================================================== -->
@@ -612,7 +600,7 @@
   <!-- JCLICAUTHOR                                                         -->
   <!-- =================================================================== -->
   <target name="jclicauthor" 
-          depends="jclicplayer,websrv"
+          depends="jclicplayer"
           description="Builds the jclicauthor.jar component">
     <mkdir dir="${build.dir}/author"/>
     <mkdir dir="${build.dir}/author/${resource.path}"/>
@@ -639,7 +627,6 @@
         <src path="${src.dir}/shapers"/>
         <classpath>
             <pathelement location="${build.dir}/jclic.jar"/>
-            <pathelement location="${build.dir}/websrv" />
         </classpath>
     </ext.javac>
 
@@ -659,7 +646,6 @@
                        value="JClic Author"/>
         </manifest>
         <fileset dir="${build.dir}/author" />
-        <fileset dir="${build.dir}/websrv" />
     </jar>
   </target>
     
