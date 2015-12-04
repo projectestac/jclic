@@ -346,6 +346,7 @@ public class ProjectSettings implements Editable, Domable {
     JSONObject json = new JSONObject();
 
     json.put("title", title);
+    
     if (authors!=null && authors.length > 0) {
       StringBuilder sb = new StringBuilder();
       for (Author a : authors) {

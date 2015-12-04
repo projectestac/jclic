@@ -40,12 +40,9 @@ public abstract class JClicAuthor {
     int p = StrUtils.getIndexOf("-processZip", args);
     if (p >= 0 && args.length > p + 1) {
       try {
-        System.out.println("Processing " + args[p + 1]);
-        ProjectFileUtils pfu = new ProjectFileUtils(args[p + 1]);
-        pfu.normalizeFileNames(System.out);
-        pfu.avoidZipLinks(System.out);
         if (args.length > p + 2 && !args[p + 2].startsWith("-")) {
-          pfu.saveTo(args[p + 2], System.out);
+          System.out.println("Processing " + args[p + 1]);        
+          ProjectFileUtils.processSingleFile(args[p + 1], args[p + 2], null, System.out);
         }
       } catch (Exception ex) {
         System.err.println("Error processing ZIP file: " + ex.getMessage());
@@ -56,7 +53,7 @@ public abstract class JClicAuthor {
     p = StrUtils.getIndexOf("-processZipFolder", args);
     if (p >= 0 && args.length > p + 2) {
       try {
-        ProjectFileUtils.processFolder(args[p + 1], args[p + 2], System.out);
+        ProjectFileUtils.processRootFolder(args[p + 1], args[p + 2], null, System.out);
       } catch (Exception ex) {
         System.err.println("Error processing ZIP file: " + ex.getMessage());
       }

@@ -37,6 +37,8 @@ import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import org.json.JSONObject;
@@ -76,6 +78,8 @@ public class ExportTaskDlg extends javax.swing.JPanel {
 
   /**
    * Creates new ExportTaskDlg
+   *
+   * @param rb
    */
   public ExportTaskDlg(ResourceBridge rb) {
     this.rb = rb;
@@ -180,8 +184,8 @@ public class ExportTaskDlg extends javax.swing.JPanel {
 
     String url = exportPath + "/index.html";
     BrowserLauncher.openURL(url);
-    ps.println("File "+url+" opened in web browser.");
-    
+    ps.println("File " + url + " opened in web browser.");
+
   }//GEN-LAST:event_browserBtnActionPerformed
 
   public static void doTask(ResourceBridge rb, Component parent,
@@ -205,18 +209,17 @@ public class ExportTaskDlg extends javax.swing.JPanel {
       @Override
       public Object construct() {
         try {
+          
+          ArrayList<String> fileList = new ArrayList<String>();
 
           if (!copyAll) {
             exportDlg.ps.println("Processing: " + inputPath);
-            ProjectFileUtils pfu = new ProjectFileUtils(inputPath);
-            pfu.normalizeFileNames(exportDlg.ps);
-            pfu.avoidZipLinks(exportDlg.ps);
-            pfu.saveTo(outputPath, exportDlg.ps);
+            ProjectFileUtils.processSingleFile(inputPath, outputPath, fileList, exportDlg.ps);
           } else {
             exportDlg.ps.println("Processing al projects in: " + inputPath);
-            ProjectFileUtils.processFolder(inputPath, outputPath, exportDlg.ps);
+            ProjectFileUtils.processRootFolder(inputPath, outputPath, fileList, exportDlg.ps);
           }
-          
+
           exportDlg.ps.println("Generating file " + outputPath + "/index.html");
           FileOutputStream fos = new FileOutputStream(new File(outputPath, "index.html"));
           PrintWriter pw = new PrintWriter(new OutputStreamWriter(fos, "UTF-8"));
@@ -225,46 +228,57 @@ public class ExportTaskDlg extends javax.swing.JPanel {
           pw.print(s);
           pw.flush();
           pw.close();
-          
+          fileList.add("index.html");
+
           JSONObject json = project.settings.toJSON(msg);
           json.put("mainFile", mainFileName);
 
           exportDlg.exportPath = new File(outputPath);
+          
+          String fn = "favicon.ico";
+          exportDlg.ps.println("Copying "+fn);
+          StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/" + fn),
+                  new FileOutputStream(new File(outputPath, fn)));
+          fileList.add(fn);
 
-          exportDlg.ps.println("Copying favicon.ico");
-          StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/favicon.ico"),
-                  new FileOutputStream(new File(outputPath, "favicon.ico")));
-
-          exportDlg.ps.println("Copying icon-192.png");
-          StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/icon-192.png"),
-                  new FileOutputStream(new File(outputPath, "icon-192.png")));
-
-          exportDlg.ps.println("Copying icon-72.png");
-          StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/icon-72.png"),
-                  new FileOutputStream(new File(outputPath, "icon-72.png")));
-
+          fn = "icon-192.png";
+          exportDlg.ps.println("Copying " + fn);
+          StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/" + fn),
+                  new FileOutputStream(new File(outputPath, fn)));
+          fileList.add(fn);
+          
+          fn = "icon-72.png";
+          exportDlg.ps.println("Copying " + fn);
+          StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/" + fn),
+                  new FileOutputStream(new File(outputPath, fn)));
+          fileList.add(fn);
+          
           exportDlg.ps.println("Copying project cover model");
           StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/cover-base.jpg"),
-                  new FileOutputStream(new File(outputPath, "project-cover.jpg")));          
+                  new FileOutputStream(new File(outputPath, "project-cover.jpg")));
+          fileList.add("project-cover.jpg");
           json.put("cover", "project-cover.jpg");
-          
+
           exportDlg.ps.println("Copying project thumbnail model");
           StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/thumb-base.jpg"),
                   new FileOutputStream(new File(outputPath, "project-thumb.jpg")));
+          fileList.add("project-thumb.jpg");
           json.put("thumbnail", "project-thumb.jpg");
-          
+
           exportDlg.ps.println("Generating project.json");
+          fileList.add("project.json");          
+          Collections.sort(fileList);
+          json.put("files", fileList);
+          
           fos = new FileOutputStream(new File(outputPath, "project.json"));
           pw = new PrintWriter(new OutputStreamWriter(fos, "UTF-8"));
           pw.print(json.toString(2));
           pw.flush();
           pw.close();
-          
-          exportDlg.ps.println("\n"+msg.get("export_project_finished")+ " " + outputPath);
-          
-          exportDlg.ps.printf("\n"+msg.get("export_project_customize"), "favicon.ico, icon-72.png, icon-192.png, project-cover.jpg", "project-thumb.jpg");          
-          
-          exportDlg.ps.println("\n\n"+msg.get("export_project_notice"));
+
+          exportDlg.ps.println("\n" + msg.get("export_project_finished") + " " + outputPath);
+
+          exportDlg.ps.println("\n\n" + msg.get("export_project_notice"));
 
           exportDlg.browserBtn.setEnabled(true);
 
