@@ -14,7 +14,7 @@
 .\" .br        insert line break
 .\" .sp <n>    insert n+1 empty lines
 .\" for manpage-specific macros, see man(7)
-.TH "JClic Author" 1 2013-12-04 "" ""
+.TH "JClic Author" 1 2015-12-09 "" ""
 .SH NAME
 jclicauthor \- Editor of multimedia educational activities
 .SH SYNOPSIS
@@ -30,7 +30,7 @@ It contains only the description of the basic options.
 .br
 For full manuals and documentation please visit:
 .br
-http://clic.xtec.cat and https://github.com/projectestac/jclic/wiki
+http://projectestac.github.io/jclic and http://clic.xtec.cat
 
 .BR JClic
 is formed by a set of computer applications that are used for
@@ -47,9 +47,11 @@ http://clic.xtec.cat/db/listact_en.jsp
 .BR JClic\ Author
 is an authoring tool used to create and edit JClic project files,
 that should have extension \fB*.jclic.zip\fP. It is used also to
-create JClic project installers (files with extension
-\fB*.jclic.inst\fP) and to generate HTML pages containing JClic
-applets, ready to be published on the Internet.
+export JClic activities to HTML5, ready to be published on the
+Internet and used with any modern browser without the need of Java.
+JClic Author can also create JClic project installers (files with
+extension \fB*.jclic.inst\fP) and generate HTML pages containing
+JClic Java applets.
 
 .SH OPTIONS
 .TP 
@@ -89,6 +91,16 @@ This option allows to enable or disable the sounds in JClic.
 .BI \-mediaSystem= JMF|QT
 Preferred multimedia system: "JMF" for Java Media Framework or "QT"
 for QuickTime.
+.TP
+.BI \-processZip file outFolder
+Exports a single JClic project (a file with extension ".jclic.zip")
+into the specified output folder. Files on \fIoutFolder\fP may
+be overwritten.
+.TP
+.BI \-processZipFolder inFolder outFolder
+Exports all JClic project files (files with extension ".jclic.zip")
+located on \fIinFolder\fP (and its subdirectories) to \fIoutFolder\fP.
+Files on outFolder may be overwritten.
 
 .SH AUTHORS
 JClic was written by Francesc Busquets <fbusquets@xtec.cat> for the

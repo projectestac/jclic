@@ -20,9 +20,9 @@
     <all-permissions/>
   </security>
   <resources>
-    <j2se version="1.5+" max-heap-size="128m"/>
-    <jar href="jclicauthor.jar" main="true" version="1.2.3.4.02"/>
-    <jar href="jclic.jar" version="1.2.3.4.02"/>
+    <j2se version="1.6+" max-heap-size="128m"/>
+    <jar href="jclicauthor.jar" main="true" version="1.3.1.0.00"/>
+    <jar href="jclic.jar" version="1.3.1.0.00"/>
   </resources>
   <application-desc/>
 </jnlp>

@@ -208,7 +208,7 @@ Correction of GitHub issue #5, related to URLs pointing to filenames containing 
 Added maxRecursion and maxFiles to FileSystem.exploreFiles to prevent hangs in large file systems
 
 
-Changes in 0.3.1.0 (01-Dec-2015)
+Changes in 0.3.1.0 (09-Dec-2015)
 ---------------------------------------------------------------------------------------
 New option in JClicAuthor to export JClic projects to HTML5 using jclic.js (see http://projectestac.github.io/jclic.js)
 "Export to HTML5" generates also a "project.json" file suitable for activity repositories created with "JClic Repo" (see https://github.com/projectestac/jclic-repo)

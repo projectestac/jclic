@@ -145,13 +145,12 @@ public class ProjectFileUtils implements ResourceBridge {
   }
 
   /**
-   * Searchs for links to ".jclic.zip" files in @link{ActiveBox} and
-   *
-   * @throws java.lang.InterruptedException
-   * @link{JumpInfo} objects, and redirects it to ".jclic" files
+   * Searchs for links to ".jclic.zip" files in @link{ActiveBox} 
+   * and @link{JumpInfo} objects, and redirects it to ".jclic" files
    *
    * @param ps - The @link{PrintStream} where progress messages will be
    * outputed. Can be null.
+   * @throws java.lang.InterruptedException
    */
   public void avoidZipLinks(PrintStream ps) throws InterruptedException {
     // Scan Activity elements

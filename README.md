@@ -15,5 +15,5 @@ The current components of JClic are:
 
 See INSTALL.txt for compilation instructions, and HACKING.txt if you want to set-up your own JClic development project with [Netbeans](http://netbeans.org).
 
-JClic needs Java 1.5 or later (currently supported only in GNU/Linux, Windows and Mac OS X), but the development of the new project **[JClic.js](http://projectestac.github.io/jclic.js/)** is underway and runs on Android, iOS, ChromeOS, FirefoxOS and any modern browser supporting HTML5, without need of Java.
+JClic needs Java 1.6 or later (currently supported only in GNU/Linux, Windows and Mac OS X), but new project **[JClic.js](http://projectestac.github.io/jclic.js/)** allows to play JClic activities on Android, iOS, Chrome OS, Firefox OS and any other modern browser supporting HTML5, without the need of Java.
 

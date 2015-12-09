@@ -5,7 +5,7 @@
 
 ; Constants and variables for Java version check
 !define GET_JAVA_URL "http://www.java.com"
-!define MIN_JAVA_VERSION "1.5"
+!define MIN_JAVA_VERSION "1.6"
 Var JAVA_HOME
 Var JAVA_VERSION
 
@@ -15,7 +15,7 @@ Var JAVA_VERSION
 
 ; Define your application name
 !define APPNAME "JClic (offline)"
-!define APPNAMEANDVERSION "JClic 0.2"
+!define APPNAMEANDVERSION "JClic 0.3"
 
 ; MUI Settings
 !define MUI_ABORTWARNING
@@ -85,26 +85,26 @@ Page custom CheckJavaVersion "" " - Java system check"
 ;--------------------------------
 
 
-LangString javaNeeded ${LANG_CATALAN} "El JClic necessita un motor Java actualitzat, versió 1.5 o superior. El podeu descarregar gratuïtament des de http://www.java.com"
-LangString javaNeeded ${LANG_ENGLISH} "JClic needs an updated Java engine, version 1.5 or higher. You can download it from http://www.java.com"
-LangString javaNeeded ${LANG_SPANISH} "JClic necesita un motor Java actualizado, versión 1.5 o superior. Puede descargarlo gratuitamente desde http://www.java.com"
-LangString javaNeeded ${LANG_ITALIAN} "JClic richiede un motore Java aggiornato, versione 1.5 o superiore. Puoi scaricarla da http://www.java.com"
-LangString javaNeeded ${LANG_GREEK} "Το JClic χρειάζεται μια ενημερωμένη μηχανή Java, έκδοση 1.5 ή μεταγενέστερη. Μπορείτε να την κατεβάσετε από τη διεύθυνση http://www.java.com"
-LangString javaNeeded ${LANG_BASQUE} "JClic-ek Java 1.5 edo aurreragoko bertsioa behar du. Hemen lortu ahal duzu: http://www.java.com"
-LangString javaNeeded ${LANG_PORTUGUESE} "O Jclic necessita um motor Java actualizado (versão 1.5 ou superior). Pode desacrregá-lo em http://www.java.com"
-LangString javaNeeded ${LANG_ARABIC} "JClic needs an updated Java engine, version 1.5 or higher. You can download it from http://www.java.com"
-LangString javaNeeded ${LANG_FRENCH} "JClic requiert une version plus récente de la machine java, ver. 1.5 ou supérieure. Vous pouvez la télécharger sur http://www.java.com"
-LangString javaNeeded ${LANG_RUSSIAN} "JClic необходима Java машина версии 1.5 или выше. Вы можете загрузить её с сайта http://www.java.com"
-LangString javaNeeded ${LANG_GERMAN} "JClic benötigt Java Version 1.5 oder höher. Download unter http://www.java.com"
-LangString javaNeeded ${LANG_GALICIAN} "JClic precisa un motor Java actualizado, na versión 1.5 ou posterior. Pode descargala de http://www.java.com"
-LangString javaNeeded ${LANG_DUTCH} "JClic heeft een aangepaste Java engine nodig, versie 1.5 of beter. Je kan deze downloaden via http://www.java.com"
-LangString javaNeeded ${LANG_PORTUGUESEBR} "JClic requer Java atualizado, versão 1.5 ou superior. Você pode obtê-lo em http://www.java.com"
-LangString javaNeeded ${LANG_CZECH} "JClic vyžaduje novější Java engine, verze 1.5 nebo vyšší. Můžete jej nahrát z: http://www.java.com"
-LangString javaNeeded ${LANG_TRADCHINESE} "JClic 需要 1.5 以上版本的 Java 引擎， 您可以從 http://www.java.com 網站下載。"
-;LangString javaNeeded ${LANG_ASTURIAN} "JClic necesita un motor Java anováu, versión 1.5 o superior. Pues descargalu de baldre dende http://www.java.com"
-LangString javaNeeded ${LANG_BOSNIAN} "JClic treba ažuriranu Java engine, verzija 1.5 ili novija. Možete ga preuzeti sa http://www.java.com"
-LangString javaNeeded ${LANG_TURKISH} "JClic, 1.5 veya üstü sürümde bir Java motoru gerektiriyor. http://www.java.com'dan indirebilirsiniz."
-;LangString javaNeeded ${LANG_VENETIAN} "Senghe vol un motor Java axornà par JClic, version 1.5 o superior. Te pol descargarla da http://www.java.com"
+LangString javaNeeded ${LANG_CATALAN} "El JClic necessita un motor Java actualitzat, versió 1.6 o superior. El podeu descarregar gratuïtament des de http://www.java.com"
+LangString javaNeeded ${LANG_ENGLISH} "JClic needs an updated Java engine, version 1.6 or higher. You can download it from http://www.java.com"
+LangString javaNeeded ${LANG_SPANISH} "JClic necesita un motor Java actualizado, versión 1.6 o superior. Puede descargarlo gratuitamente desde http://www.java.com"
+LangString javaNeeded ${LANG_ITALIAN} "JClic richiede un motore Java aggiornato, versione 1.6 o superiore. Puoi scaricarla da http://www.java.com"
+LangString javaNeeded ${LANG_GREEK} "Το JClic χρειάζεται μια ενημερωμένη μηχανή Java, έκδοση 1.6 ή μεταγενέστερη. Μπορείτε να την κατεβάσετε από τη διεύθυνση http://www.java.com"
+LangString javaNeeded ${LANG_BASQUE} "JClic-ek Java 1.6 edo aurreragoko bertsioa behar du. Hemen lortu ahal duzu: http://www.java.com"
+LangString javaNeeded ${LANG_PORTUGUESE} "O Jclic necessita um motor Java actualizado (versão 1.6 ou superior). Pode desacrregá-lo em http://www.java.com"
+LangString javaNeeded ${LANG_ARABIC} "JClic needs an updated Java engine, version 1.6 or higher. You can download it from http://www.java.com"
+LangString javaNeeded ${LANG_FRENCH} "JClic requiert une version plus récente de la machine java, ver. 1.6 ou supérieure. Vous pouvez la télécharger sur http://www.java.com"
+LangString javaNeeded ${LANG_RUSSIAN} "JClic необходима Java машина версии 1.6 или выше. Вы можете загрузить её с сайта http://www.java.com"
+LangString javaNeeded ${LANG_GERMAN} "JClic benötigt Java Version 1.6 oder höher. Download unter http://www.java.com"
+LangString javaNeeded ${LANG_GALICIAN} "JClic precisa un motor Java actualizado, na versión 1.6 ou posterior. Pode descargala de http://www.java.com"
+LangString javaNeeded ${LANG_DUTCH} "JClic heeft een aangepaste Java engine nodig, versie 1.6 of beter. Je kan deze downloaden via http://www.java.com"
+LangString javaNeeded ${LANG_PORTUGUESEBR} "JClic requer Java atualizado, versão 1.6 ou superior. Você pode obtê-lo em http://www.java.com"
+LangString javaNeeded ${LANG_CZECH} "JClic vyžaduje novější Java engine, verze 1.6 nebo vyšší. Můžete jej nahrát z: http://www.java.com"
+LangString javaNeeded ${LANG_TRADCHINESE} "JClic 需要 1.6 以上版本的 Java 引擎， 您可以從 http://www.java.com 網站下載。"
+;LangString javaNeeded ${LANG_ASTURIAN} "JClic necesita un motor Java anováu, versión 1.6 o superior. Pues descargalu de baldre dende http://www.java.com"
+LangString javaNeeded ${LANG_BOSNIAN} "JClic treba ažuriranu Java engine, verzija 1.6 ili novija. Možete ga preuzeti sa http://www.java.com"
+LangString javaNeeded ${LANG_TURKISH} "JClic, 1.6 veya üstü sürümde bir Java motoru gerektiriyor. http://www.java.com'dan indirebilirsiniz."
+;LangString javaNeeded ${LANG_VENETIAN} "Senghe vol un motor Java axornà par JClic, version 1.6 o superior. Te pol descargarla da http://www.java.com"
 
 LangString oldJavaMsg ${LANG_CATALAN} "El sistema Java d'aquest ordinador és antic."
 LangString oldJavaMsg ${LANG_ENGLISH} "There is an old version of Java installed on this computer."

@@ -10,21 +10,21 @@ http://clic.xtec.cat/en/jclic/download.htm
 
 Compilation instructions:
 -------------------------
-The current version of JClic compiles with version 1.5 or later of the 
+The current version of JClic compiles with version 1.6 or later of the 
 Java Development Toolkit (JDK)
 
 Compilation is done with Apache Ant (http://ant.apache.org/), version 1.6.5 
 or later.
 
-If your Java version is 1.6 or later, it's advisable to obtain the "rt.jar"
-file of Java 1.5 and place it into the directory "lib/bootstrap/1.5". This
+If your Java version is 1.7 or later, it's advisable to obtain the "rt.jar"
+file of Java 1.6 and place it into the directory "lib/bootstrap/1.6". This
 file is not provided with JClic because it's a not redistributable binary, 
 but can be downloaded from the Oracle Java Archive:
 http://www.oracle.com/technetwork/java/javase/archive-139210.html
 
-If you don't have the file "lib/bootstrap/1.5/rt.jar", the "rt.jar" file of your
+If you don't have the file "lib/bootstrap/1.6/rt.jar", the "rt.jar" file of your
 current JVM will be used as a bootstrap class path. This will generate a lot
-of warnings during compilation, but usually no errors. Just ignore it.
+of warnings during compilation, but usually no errors. Just ignore this warnings.
 
 To compile JClic, just open a console, go to the root directory of the JClic source
 code (where the build.xml file is located) and invoke "ant".
