@@ -28,6 +28,7 @@ import edu.xtec.util.Html;
 import edu.xtec.util.JDomUtility;
 import edu.xtec.util.StrUtils;
 import java.util.*;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
@@ -342,7 +343,7 @@ public class ProjectSettings implements Editable, Domable {
     return Html.table(html.toString(), null, 1, 5, -1, null, false);
   }
 
-  public JSONObject toJSON(edu.xtec.util.Messages msg) {
+  public JSONObject toJSON(edu.xtec.util.Messages msg) throws JSONException {
     JSONObject json = new JSONObject();
 
     json.put("title", title);
