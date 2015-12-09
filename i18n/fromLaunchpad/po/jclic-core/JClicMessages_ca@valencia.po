@@ -1,16 +1,16 @@
-# Czech translation for jclic
-# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# Catalan (Valencian) translation for jclic
+# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
 # This file is distributed under the same license as the jclic package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: jclic\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2008-03-27 00:34+0200\n"
-"PO-Revision-Date: 2011-09-24 06:40+0000\n"
-"Last-Translator: Zbyněk Schwarz <Unknown>\n"
-"Language-Team: Czech <cs@li.org>\n"
+"PO-Revision-Date: 2011-08-19 12:27+0000\n"
+"Last-Translator: Alfons Rovira <inclusa@gmail.com>\n"
+"Language-Team: Catalan (Valencian) <ca@valencia@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,764 +20,762 @@ msgstr ""
 #. #JClic main messages
 #: label_time
 msgid "time"
-msgstr "čas"
+msgstr "temps"
 
 #: label_actions
 msgid "tries"
-msgstr "pokusů"
+msgstr ""
 
 #: label_score
 msgid "score"
-msgstr "skóre"
+msgstr "puntuació"
 
 #: Skin
 msgid "Skin"
-msgstr "Motiv"
+msgstr "Aparença"
 
 #: action_next_caption
 msgid "Next"
-msgstr "Další"
+msgstr "Següent"
 
 #: action_next_tooltip
 msgid "Next activity"
-msgstr "Další aktivita"
+msgstr "Activitat següent"
 
 #: action_prev_caption
 msgid "Previous"
-msgstr "Předchozí"
+msgstr "Anterior"
 
 #: action_prev_tooltip
 msgid "Previous activity"
-msgstr "Předchozí aktivita"
+msgstr "Activitat anterior"
 
 #: action_reset_caption
 msgid "Restart"
-msgstr "Spustit znovu"
+msgstr "Reinicia"
 
 #: action_reset_tooltip
 msgid "Restart activity"
-msgstr "Restartovat aktivitu"
+msgstr "Reinicia l'attivitat"
 
 #: action_info_caption
 msgid "Information"
-msgstr "Informace"
+msgstr "Informació"
 
 #: about_window_lb_project
 msgid "Project"
-msgstr "Projekt"
+msgstr "Projecte"
 
 #: about_window_lb_languages
 msgid "languages"
-msgstr "jazyky"
+msgstr "llengües"
 
 #: about_window_lb_language
 msgid "language"
-msgstr "jazyk"
+msgstr "llengua"
 
 #: about_window_close_button
 msgctxt "about_window_close_button"
 msgid "Return"
-msgstr "Návrat"
+msgstr "Retorn"
 
 #: about_window_caption
 msgid "About"
-msgstr "O aplikaci"
+msgstr "Quant a"
 
 #: action_about_tooltip
 msgid "User reports"
-msgstr "Uživatelská sestava"
+msgstr ""
 
 #: about_window_lb_report
 msgid "Report"
-msgstr "Sestava"
+msgstr "Informe"
 
 #: about_window_browser_button
 msgid "View in browser"
-msgstr "Zobrazit v prohlížeči"
+msgstr "Veure-ho al navegador"
 
 #: report_no_activities
 msgid "No activities reported!"
-msgstr "Nebyly nahlášeny žádné aktivity!"
+msgstr "Activitats no registrades"
 
 #: report_system_standard
 msgid "Report not registered in any DB"
-msgstr "Zpráva není zaregistrována v žádné DB"
+msgstr ""
 
 #: report_lb_time
 msgid "Time"
-msgstr "Čas"
+msgstr "Temps"
 
 #: msg_error_loading_sequence
 msgid "Error loading sequence"
-msgstr "Chyba při načítání sekvence"
+msgstr ""
 
 #: media_qt_error_initializing
 msgid "Error initializing QuickTime!"
-msgstr "Chyba při inicializaci QuickTime!"
+msgstr "Error inicialitzant QuickTime"
 
 #: media_check_url
 msgid "messages/checkmedia.html"
-msgstr "messages/checkmedia.html"
+msgstr ""
 
 #: filesystem_openURL
 msgid "Open URL..."
-msgstr "Otevřít URL..."
+msgstr "Obri l'URL..."
 
 #: filesystem_openFile
 msgid "Open file..."
-msgstr "Otevřít soubor..."
+msgstr "Obri el fitxer..."
 
 #: filesystem_enterURL
 msgid "Please enter the URL to the resource to be loaded."
-msgstr "Zadejte prosím URL zdroje, který má být načten."
+msgstr "Per favor, introdueix l'URK del recurs que vols baixar"
 
 #: msg_error_executing_external
 msgid "Error executing the command:"
-msgstr "Chyba při provádění příkazu:"
+msgstr "Error executant el comandament"
 
 #: editor_moveDown_tooltip
 msgid "Move the selected element down"
-msgstr "Přesunout vybraný prvek dolů"
+msgstr "Mou l'element seleccionat cap avall"
 
 #: editor_moveUp_tooltip
 msgid "Move the selected element up"
-msgstr "Přesunout vybraný prvek nahoru"
+msgstr ""
 
 #: editor_moveDown
 msgid "Move down"
-msgstr "Posunout dolů"
+msgstr ""
 
 #: editor_moveUp
 msgid "Move up"
-msgstr "Posunout nahoru"
+msgstr ""
 
 #: filefilter_all_images
 msgid "Image files (*.gif, *.jpg, *.png, *.bmp, *.ico)"
-msgstr "Soubory obrázků (*.gif, *.jpg, *.png, *.bmp, *.ico)"
+msgstr ""
 
 #: filefilter_png
 msgid "PNG images"
-msgstr "PNG obrázky"
+msgstr ""
 
 #: filefilter_jpg
 msgid "JPG images"
-msgstr "JPG obrázky"
+msgstr ""
 
 #: filefilter_gif
 msgid "GIF images"
-msgstr "GIF obrázky"
+msgstr ""
 
 #: filesystem_saveURLerror
 msgid "URL-based files are read-only."
-msgstr "Soubory založené na URL jsou určeny pouze pro čtení."
+msgstr ""
 
 #: filefilter_all_clic
 msgid "Clic 3.0 packages (*.pac, *.pcc)"
-msgstr "Clic 3.0 balíčky (*.pac, *.pcc)"
+msgstr ""
 
 #: filefilter_all
 msgid "All files"
-msgstr "Všechny soubory"
+msgstr ""
 
 #: filefilter_all_jclic_clic
 msgid "JClic and Clic 3.0 projects (*.jclic, *.jclic.zip, *.pac, *.pcc)"
-msgstr "JClic a Clic 3.0 projekty (*.jclic, *.jclic.zip, *.pac, *.pcc)"
+msgstr ""
 
 #: filefilter_all_jclic
 msgid "JClic projects (*.jclic, *.jclic.zip)"
-msgstr "JClic projekty (*.jclic, *.jclic.zip)"
+msgstr ""
 
 #: filefilter_pcc
 msgid "Clic 3.0 compact packages (*.pcc)"
-msgstr "Clic 3.0 kompaktní balíčky (*.pcc)"
+msgstr ""
 
 #: filefilter_pac
 msgid "Clic 3.0 open packages (*.pac)"
-msgstr "Clic 3.0 otevřené balíčky (*.pac)"
+msgstr ""
 
 #: filefilter_jclic_zip
 msgid "JClic compressed projects (*.jclic.zip)"
-msgstr "JClic zkomprimované projekty (*.jclic.zip)"
+msgstr ""
 
 #: filefilter_jclic
 msgid "JClic projects (*.jclic)"
-msgstr "JClic projekty (*.jclic)"
+msgstr ""
 
 #: about_window_lb_mediaSystem
 msgid "Multimedia system"
-msgstr "Systém multimédií"
+msgstr ""
 
 #: about_window_lb_level
 msgid "Level"
-msgstr "Úroveň"
+msgstr ""
 
 #: about_window_lb_area
 msgid "Area"
-msgstr "Oblast"
+msgstr ""
 
 #: report_num_actions
 msgid "Actions done:"
-msgstr "Provedené akce:"
+msgstr ""
 
 #: report_project
 msgid "Project:"
-msgstr "Projekt:"
+msgstr ""
 
 #: report_lb_totals
 msgid "Total:"
-msgstr "Celkem:"
+msgstr ""
 
 #: report_num_projects
 msgid "Projects:"
-msgstr "Projekty:"
+msgstr ""
 
 #: report_session
 msgid "Session:"
-msgstr "Sezení:"
+msgstr ""
 
 #: msg_warn_no_exec_in_applets
 msgid ""
 "For security reasons, execution of external programs is disabled in JClic "
 "applets."
 msgstr ""
-"Spouštění externích aplikací je v appletech JClic zakázáno z bezpečnostních "
-"důvodů."
 
 #: msg_error_starting_activity
 msgid "Error starting activity!"
-msgstr "Chyba při spouštění aktivity!"
+msgstr ""
 
 #: msg_error_loading_project
 msgid "Error loading project"
-msgstr "Chyba při načítání projektu"
+msgstr ""
 
 #: msg_error_playing_media
 msgid "Error playing media!"
-msgstr "Chyba při přehrávání média!"
+msgstr ""
 
 #: msg_activity_finished
 msgid "Activity finished!"
-msgstr "Aktivita dokončena!"
+msgstr ""
 
 #: msg_playing_media
 msgid "Playing media"
-msgstr "Přehrávaná média"
+msgstr ""
 
 #: msg_activity_running
 msgid "Activity running"
-msgstr "Běžící aktivita"
+msgstr ""
 
 #: msg_activity_ready
 msgid "Activity ready"
-msgstr "Aktivita připravena"
+msgstr ""
 
 #: msg_initializing
 msgid "Initializing..."
-msgstr "Probíhá inicializace..."
+msgstr ""
 
 #: msg_preparing_media
 msgid "Preparing media"
-msgstr "Připravuje se médium"
+msgstr ""
 
 #: msg_error_loading_activity
 msgid "Error loading activity"
-msgstr "Chyba při načítání"
+msgstr ""
 
 #: msg_loading_activity
 msgid "Loading activity"
-msgstr "Načítá se aktivita"
+msgstr ""
 
 #: msg_loading_project
 msgid "Loading project..."
-msgstr "Načítá se projekt..."
+msgstr ""
 
 #: msg_ready
 msgid "Ready"
-msgstr "Připraven"
+msgstr ""
 
 #: err_reading_data
 msgid "Error loading file"
-msgstr "Chyba při načítání souboru"
+msgstr ""
 
 #: err_file_save
 msgid "Error saving file!"
-msgstr "Chyba při ukládání souboru!"
+msgstr ""
 
 #: err_file_open
 msgid "Error opening file!"
-msgstr "Chyba při otevírání souboru!"
+msgstr ""
 
 #: report_started
 msgid "Session started:"
-msgstr "Sezení spuštěno:"
+msgstr ""
 
 #: report_lb_score
 msgid "Score"
-msgstr "Skóre"
+msgstr ""
 
 #: report_lb_actions
 msgid "Actions"
-msgstr "Akce"
+msgstr ""
 
 #: report_lb_solved
 msgid "Ok"
-msgstr "Ok"
+msgstr ""
 
 #: report_lb_activity
 msgctxt "report_lb_activity"
 msgid "Activity"
-msgstr "Aktivita"
+msgstr ""
 
 #: report_lb_sequence
 msgid "Sequence"
-msgstr "Sekvence"
+msgstr ""
 
 #: report_global_score
 msgid "Global score:"
-msgstr "Celkové skóre:"
+msgstr ""
 
 #: report_total_time
 msgid "Total time on activities:"
-msgstr "Celkový čas aktivit:"
+msgstr ""
 
 #: report_num_activities_solved
 msgid "Activities ok:"
-msgstr "Aktivity ok:"
+msgstr ""
 
 #: report_num_activities
 msgid "Activities done:"
-msgstr "Dokončené aktivity:"
+msgstr ""
 
 #: report_num_sequences
 msgid "Sequences:"
-msgstr "Sekvence:"
+msgstr ""
 
 #: report_system
 msgid "Report system:"
-msgstr "Systém zprávy:"
+msgstr ""
 
 #: report_user
 msgid "User:"
-msgstr "Uživatel:"
+msgstr ""
 
 #: report_not_finished
 msgid "Activity not finished"
-msgstr "Činnost nebyla dokončena"
+msgstr ""
 
 #: action_info_tooltip
 msgid "Additional information"
-msgstr "Další informace"
+msgstr ""
 
 #: action_help_caption
 msgid "Help"
-msgstr "Nápověda"
+msgstr ""
 
 #: action_help_tooltip
 msgid "Help about this activity"
-msgstr "Nápověda k této činnosti"
+msgstr ""
 
 #: action_audio_caption
 msgid "Sounds"
-msgstr "Zvuky"
+msgstr ""
 
 #: action_audio_tooltip
 msgid "Enable/disable sounds"
-msgstr "Zapnout/vypnout zvuky"
+msgstr ""
 
 #: about_window_lb_system
 msgid "System"
-msgstr "Systém"
+msgstr ""
 
 #: about_window_lb_total_mem
 msgid "Total memory"
-msgstr "Celková paměť"
+msgstr ""
 
 #: about_window_lb_free_mem
 msgid "Free memory"
-msgstr "Volná paměť"
+msgstr ""
 
 #: about_window_lb_java_home
 msgid "Java home"
-msgstr "Java domov"
+msgstr ""
 
 #: about_window_lb_java_vm
 msgid "Java virtual machine"
-msgstr "Virtuální stroj Java"
+msgstr ""
 
 #: about_window_lb_java_version
 msgid "Java version"
-msgstr "Verze Javy"
+msgstr ""
 
 #: about_window_lb_os
 msgid "Operating system"
-msgstr "Operační systém"
+msgstr ""
 
 #: about_window_lb_version
 msgid "Version"
-msgstr "Verze"
+msgstr ""
 
 #: about_window_lb_descriptors
 msgid "Descriptors"
-msgstr "Popisovače"
+msgstr ""
 
 #: about_window_lb_description
 msgid "Description"
-msgstr "Popisek"
+msgstr ""
 
 #: about_window_lb_history
 msgid "History"
-msgstr "Historie"
+msgstr ""
 
 #: about_window_lb_organizations
 msgid "Organizations"
-msgstr "Organizace"
+msgstr ""
 
 #: about_window_lb_organization
 msgid "Organization"
-msgstr "Organizace"
+msgstr ""
 
 #: about_window_lb_authors
 msgid "Authors"
-msgstr "Autoři"
+msgstr ""
 
 #: about_window_lb_author
 msgid "Author"
-msgstr "Tvůrce"
+msgstr ""
 
 #: about_window_lb_activity
 msgctxt "about_window_lb_activity"
 msgid "Activity"
-msgstr "Aktivita"
+msgstr ""
 
 #: help_window_close_button
 msgid "Return to activity"
-msgstr "Návrat k aktivitě"
+msgstr ""
 
 #: help_window_caption
 msgid "Help window"
-msgstr "Okno nápovědy"
+msgstr ""
 
 #: action_about_caption
 msgid "Reports"
-msgstr "Sestavy"
+msgstr ""
 
 #: action_about_keys
 msgid "RR"
-msgstr "RR"
+msgstr ""
 
 #: action_audio_keys
 msgid "SS"
-msgstr "SS"
+msgstr ""
 
 #: action_help_keys
 msgid "HH"
-msgstr "HH"
+msgstr ""
 
 #: action_info_keys
 msgid "II"
-msgstr "II"
+msgstr ""
 
 #: action_next_keys
 msgid "N*"
-msgstr "N*"
+msgstr ""
 
 #: action_prev_keys
 msgid "P*"
-msgstr "P*"
+msgstr ""
 
 #: action_reset_keys
 msgid "R*"
-msgstr "R*"
+msgstr ""
 
 #: filefilter_install
 msgid "JClic project installers (*.jclic.inst)"
-msgstr "JClic instalátory projektů (*jclic.inst)"
+msgstr ""
 
 #: report_err_no_users
 msgid "No users defined in the reports database!"
-msgstr "V databázi sestav nejsou vytvořeni žádní uživatelé!"
+msgstr ""
 
 #: report_err_no_users_in_group
 msgid "No users defined for this group in the reports database!"
-msgstr "V této databázi sestav nejsou vytvořeni žádní uživatelé!"
+msgstr ""
 
 #: report_new_user
 msgid "New user..."
-msgstr "Nový uživatel..."
+msgstr ""
 
 #: report_new_user_tooltip
 msgid "Create a new user in the reports database"
-msgstr "Vytvořit nového uživatele v databázi sestav"
+msgstr ""
 
 #: report_err_creating_user
 msgid "Error creating new user!"
-msgstr "Chyba při vytvářní nového uživatele!"
+msgstr ""
 
 #: report_select_user
 msgid "User identification for the reports database"
-msgstr "Identifikace uživatele v databázi sestav"
+msgstr ""
 
 #: report_userlist_title
 msgid "Please select your name:"
-msgstr "Prosím, zadejte své jméno:"
+msgstr ""
 
 #: report_ident_user
 msgid "User identification"
-msgstr "Identifikace uživatele"
+msgstr ""
 
 #: report_name_prompt
 msgid "Name:"
-msgstr "Jméno:"
+msgstr ""
 
 #: report_id_prompt
 msgid "Login:"
-msgstr "Přihlašovací jméno:"
+msgstr ""
 
 #: report_pw_prompt
 msgid "Password:"
-msgstr "Heslo:"
+msgstr ""
 
 #: report_pw_prompt_confirm
 msgid "Confirm password:"
-msgstr "Potvrdit heslo:"
+msgstr ""
 
 #: report_new_user_data
 msgid "Creation of a new user:"
-msgstr "Vytvoření nového uživatele:"
+msgstr ""
 
 #: report_err_bad_data
 msgid "Incorrect data!"
-msgstr "Chybná data!"
+msgstr ""
 
 #: report_generic_group_name
 msgid "Generic"
-msgstr "Obecný"
+msgstr ""
 
 #: report_new_group
 msgid "Create a new group..."
-msgstr "Vytvořit novou skupinu..."
+msgstr ""
 
 #: report_err_creating_group
 msgid "Error creating the new group!"
-msgstr "Chyba při vytváření nové skupiny!"
+msgstr ""
 
 #: report_grouplist_title
 msgid "Please select your group:"
-msgstr "Prosím, vyberte svou skupinu:"
+msgstr ""
 
 #: report_new_group_data
 msgid "Creation of a new users group:"
-msgstr "Vytvoření nové skupiny uživatelů:"
+msgstr ""
 
 #: report_err_invalid_user
 msgid "Missing user ID or incorrect password."
-msgstr "Chybí ID uživatele nebo heslo je chybné."
+msgstr ""
 
 #: report_user_has_pwd
 msgid "This account is password-protected."
-msgstr "Tento účet je chráněn heslem."
+msgstr ""
 
 #: report_err_init
 msgid "Error initializing report system."
-msgstr "Chyba při inicializaci systému sestav."
+msgstr ""
 
 #: report_not_connected
 msgid "not connected"
-msgstr "nepřipojeno"
+msgstr ""
 
 #: report_err_creating
 msgid "Error creating reports agent"
-msgstr "Chyba při vytváření agenta sestav"
+msgstr ""
 
 #: action_return_caption
 msgctxt "action_return_caption"
 msgid "Return"
-msgstr "Zpět"
+msgstr ""
 
 #: action_return_tooltip
 msgid "Return to the last menu"
-msgstr "Zpět do poslední nabídky"
+msgstr ""
 
 #: action_return_keys
 msgid "T*"
-msgstr "T*"
+msgstr ""
 
 #: filefilter_all_sounds
 msgid "Sounds (*.wav, *.mp3, *.ogg, *.au, *.aiff)"
-msgstr "Zvuky (*.wav, *.mp3, *.ogg, *.au, *.aiff)"
+msgstr ""
 
 #: filefilter_midi
 msgid "MIDI files (*.mid)"
-msgstr "MIDI soubory (*.mid)"
+msgstr ""
 
 #: filefilter_all_video
 msgid "Video files (*.avi, *.mov, *.mpeg)"
-msgstr "Video soubory (*.avi, *.mov, *.mpeg)"
+msgstr ""
 
 #: filefilter_all_anim
 msgid "Flash 2.0 files (*.swf)"
-msgstr "Flash 2.0 soubory (*.swf)"
+msgstr ""
 
 #: filefilter_skins
 msgid "Skins (*.xml)"
-msgstr "Motivy (*.xml)"
+msgstr ""
 
 #: filefilter_all_media
 msgid "All media files"
-msgstr "Všechny soubory médií"
+msgstr ""
 
 #: filesystem_copyToRoot_1
 msgid "The file"
-msgstr "Soubor"
+msgstr ""
 
 #: filesystem_copyToRoot_2
 msgid "is out of the current project's folder."
-msgstr "je mimo aktuální složku projektu."
+msgstr ""
 
 #: filesystem_copyToRoot_3
 msgid "It's advisable to have all the files in the same folder."
-msgstr "Doporučuje se mít všechny soubory ve stejné složce."
+msgstr ""
 
 #: filesystem_copyToRoot_4
 msgid "Do you want to copy the selected file to the project's folder?"
-msgstr "Chce zkopírovat vybrané soubory do projektové složky?"
+msgstr ""
 
 #: filesystem_copyFile
 msgid "Copying file"
-msgstr "Kopíruje se soubor"
+msgstr ""
 
 #: msg_loading
 msgid "Loading"
-msgstr "Načítá se"
+msgstr ""
 
 #: report_err_bad_id
 msgid "Bad identifier!"
-msgstr "Špatný identifikátor!"
+msgstr ""
 
 #: report_err_duplicate_id
 msgid "This identifier already exists in the database!"
-msgstr "Tento identifikátor v databázi již existuje!"
+msgstr ""
 
 #: report_err_bad_name
 msgid "Bad name!"
-msgstr "Špatné jméno!"
+msgstr ""
 
 #: report_err_bad_pw
 msgid "Passwords don't match!"
-msgstr "Hesla nesouhlasí!"
+msgstr ""
 
 #: report_err_connect
 msgid "Error connecting to the reports database!"
-msgstr "Chyba při připojování se k databázi sestav!"
+msgstr ""
 
 #: test_alert_exit
 msgid "EXIT: At this point, the program will exit."
-msgstr "KONEC: Nyní bude program ukončen."
+msgstr ""
 
 #: test_alert_jump_to
 msgid "At this point the program will jump to the project:"
-msgstr "Nyní program přejde k projektu:"
+msgstr ""
 
 #: ftype_image
 msgid "Image"
-msgstr "Obrázek"
+msgstr ""
 
 #: ftype_audio
 msgid "Digital audio"
-msgstr "Digitální zvuk"
+msgstr ""
 
 #: ftype_midi
 msgid "MIDI file"
-msgstr "MIDI soubor"
+msgstr ""
 
 #: ftype_xml
 msgid "XML file"
-msgstr "XML soubor"
+msgstr ""
 
 #: ftype_anim
 msgid "Animation"
-msgstr "Animace"
+msgstr ""
 
 #: ftype_video
 msgid "Digital video"
-msgstr "Digitální video"
+msgstr ""
 
 #: ftype_font
 msgid "TrueType font"
-msgstr "Písmo TrueType"
+msgstr ""
 
 #: ftype_jclic
 msgid "JClic project"
-msgstr "JClic projekt"
+msgstr ""
 
 #: ftype_inst
 msgid "JClic project installer script"
-msgstr "JClic skript instalátoru projektu"
+msgstr ""
 
 #: ftype_unknown
 msgid "Unknown"
-msgstr "Neznámý"
+msgstr ""
 
 #: ftype_animated
 msgid "animated"
-msgstr "animovaný"
+msgstr ""
 
 #: filefilter_fonts
 msgid "Fonts (*.ttf)"
-msgstr "Písma (*.ttf)"
+msgstr ""
 
 #: editor_moveUp_keys
 msgid "U#38"
-msgstr "U#38"
+msgstr ""
 
 #: editor_moveDown_keys
 msgid "W#40"
-msgstr "W#40"
+msgstr ""
 
 #: filefilter_all_html
 msgid "HTML documents (*.htm, *.html)"
-msgstr "HTML dokumenty (*.htm, *.html)"
+msgstr ""
 
 #: about_creditsDoc
 msgid "about/credits.html"
-msgstr "about/credits.html"
+msgstr ""
 
 #: about_licenseDoc
 msgid "about/license.html"
-msgstr "about/license.html"
+msgstr ""
 
 #: about_sponsorsCaption
 msgid "With the support of:"
-msgstr "S podporou:"
+msgstr ""
 
 #: about_window_systemInfo
 msgid "System information"
-msgstr "Informace o systému"
+msgstr ""
 
 #: about_window_projectInfo
 msgid "Current project info"
-msgstr "Informace o aktuálním projektu"
+msgstr ""
 
 #: about_window_reportInfo
 msgid "Current session results"
-msgstr "Výsledky aktuálního sezení"
+msgstr ""
 
 #: about_otherCreditsCaption
 msgid "This product includes software developed by:"
-msgstr "Tento produkt obsahuje software vyvinutý:"
+msgstr ""
 
 #: msg_saving_project
 msgid "Saving project..."
-msgstr "Ukládání projektu..."
+msgstr ""
 
 #: filefilter_text
 msgid "Text files (*.txt)"
-msgstr "Textové soubory (*.txt)"
+msgstr ""
 
 #. #Translation credits displayed on the about window, in HTML format
 #: html_translation_credits
 msgid "English version, by The JClic team"
-msgstr "Anglická verze od JClic týmu"
+msgstr ""
 
 #. #Abstract of the GPL license, version 2.0, as shown on the About window
 #: html_gpl_license
@@ -791,12 +789,3 @@ msgid ""
 "<a href\\=\"http\\://www.gnu.org/copyleft/gpl.html\">GNU General Public "
 "License</a>  for more details."
 msgstr ""
-"Tento program je svobodný software; můžete ho předávat a/nebo upravovat "
-"podle podmínek GNU General Public License, kterou vydala Free Software "
-"Foundation; buď verze 2 této licence, nebo (podle vaší volby) některou další "
-"verzí.<br>&nbsp;\r\n"
-"<BR>Tento program je šířen v naději, že bude užitečný, ale BEZ JAKÉKOLI "
-"ZÁRUKY; neposkytuje se ani odvozená záruka\r\n"
-"PRODEJNOSTI nebo VHODNOSTI PRO URČITÝ ÚČEL. Podívejte se na <a href\\"
-"=\"http\\://www.gnu.org/copyleft/gpl.html\">GNU General Public License</a> "
-"pro další detaily."

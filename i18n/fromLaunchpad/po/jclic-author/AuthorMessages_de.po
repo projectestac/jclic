@@ -3,14 +3,14 @@ msgstr ""
 "Project-Id-Version: JClic 0.2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-01-13 23:10+0200\n"
-"PO-Revision-Date: 2012-01-06 13:15+0000\n"
-"Last-Translator: Daniel Winzen <d@winzen4.de>\n"
+"PO-Revision-Date: 2014-07-06 15:34+0000\n"
+"Last-Translator: Tobias Bannert <Unknown>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
-"X-Generator: Launchpad (build 16718)\n"
+"X-Launchpad-Export-Date: 2015-12-09 11:48+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 #. #JClic Author messages
 #: edit_act_description_block
@@ -124,7 +124,7 @@ msgstr ""
 #: edit_act_buttons_block
 msgctxt "edit_act_buttons_block"
 msgid "Buttons"
-msgstr "Schaltflächen"
+msgstr "Knöpfe"
 
 #: edit_act_helpBtn
 msgid "Help"
@@ -132,7 +132,7 @@ msgstr "Hilfe"
 
 #: edit_act_helpBtn_tooltip
 msgid "Show/hide help button"
-msgstr "Hilfetaste anzeigen/verbergen"
+msgstr "Hilfeknopf anzeigen/verbergen"
 
 #: edit_act_helpBtn_solution
 msgid "Show solution"
@@ -148,7 +148,7 @@ msgstr "Information"
 
 #: edit_act_infoBtn_tooltip
 msgid "Show/Hide the button of information"
-msgstr "Info-Taste anzeigen/verbergen"
+msgstr "Infoknopf anzeigen/verbergen"
 
 #: edit_act_infoBtn_url
 msgid "Show this URL:"
@@ -160,11 +160,11 @@ msgstr "Folgenden Befehl ausführen:"
 
 #: edit_act_infoBtn_url_tooltip
 msgid "Web site address to show when click on the info button"
-msgstr "Bei Klick auf Info-Taste wird diese Website angezeigt"
+msgstr "Beim Klick auf den Infoknopf wird diese Internetseite angezeigt"
 
 #: edit_act_infoBtn_cmd_tooltip
 msgid "Command line to be executed on click to the info button."
-msgstr "Bei Klick auf Info-Taste Befehl ausführen."
+msgstr "Befehl ausführen, bei Klick auf den Infoknopf."
 
 #: edit_act_mainWindow
 msgid "Main window:"
@@ -574,7 +574,7 @@ msgstr "Inhalt der Nachrichten"
 
 #: edit_act_panels_panel
 msgid "Panel"
-msgstr "Tafel"
+msgstr "Leiste"
 
 #: edit_act_panels_panel_tooltip
 msgid "Contents of the panel"
@@ -872,7 +872,7 @@ msgstr "Kontrolle"
 
 #: edit_act_panels_controls_tooltip
 msgid "Options for buttons and counters"
-msgstr "Optionen für Schaltflächen und Zähler"
+msgstr "Optionen für Knöpfe und Zähler"
 
 #: edit_act_class
 msgctxt "edit_act_class"
@@ -1013,7 +1013,7 @@ msgstr "Aktion:"
 
 #: edit_seq_button_enabled
 msgid "Show button"
-msgstr "Schaltfläche anzeigen"
+msgstr "Knopf anzeigen"
 
 #: edit_seq_project
 msgid "JClic Project:"
@@ -1341,11 +1341,11 @@ msgstr "Ziel..."
 
 #: edit_text_act_checkButton_show
 msgid "Show correction button"
-msgstr "Schaltfläche \"Korrigieren\" anzeigen"
+msgstr "»Korrigieren«-Knopf anzeigen"
 
 #: edit_text_act_checkButtonText
 msgid "Button text:"
-msgstr "Text der Schaltfläche:"
+msgstr "Knopftext:"
 
 #: edit_text_act_checkCase
 msgid "Match case"
@@ -1405,7 +1405,7 @@ msgstr "Korrektur..."
 
 #: edit_text_act_checkButton
 msgid "Correction button"
-msgstr "Schaltfläche \"Korrigieren\""
+msgstr "»Korrigieren«-Knopf"
 
 #: edit_text_act_checkProgress
 msgid "Progress"
@@ -2339,11 +2339,11 @@ msgstr "Voraussetzungen für Wechsel auf tiefere Stufe angeben"
 
 #: edit_seq_action_tooltip_fw
 msgid "Action assigned to the \"next\" button"
-msgstr "Der Schaltfläche \"Weiter\" zugewiesene Aktion"
+msgstr "Dem »Weiter«-Knopf zugewiesene Aktion"
 
 #: edit_seq_action_tooltip_bk
 msgid "Action assigned to the \"previous\" button"
-msgstr "Der Schaltfläche \"Zurück\" zugewiesene Aktion"
+msgstr "Dem »Zurück«-Knopf zugewiesene Aktion"
 
 #: edit_seq_jump_tooltip
 msgid "Set the jump target"
@@ -2665,15 +2665,15 @@ msgstr "Mischversuche"
 #: edit_act_copy_buttons
 msgctxt "edit_act_copy_buttons"
 msgid "Buttons"
-msgstr "Buttons"
+msgstr "Knöpfe"
 
 #: edit_act_copy_btnHelp
 msgid "Help button"
-msgstr "Hilfetaste"
+msgstr "Hilfeknopf"
 
 #: edit_act_copy_btnInfo
 msgid "Information button"
-msgstr "Info-Button"
+msgstr "Infoknopf"
 
 #: edit_act_copy_grids
 msgid "Grids"
@@ -2902,7 +2902,7 @@ msgstr "Name des Info-Frames:"
 #: applet_infoFrame_tooltip
 msgid ""
 "Name of the frame used to show the content related to the \"info\" button"
-msgstr "Name des Frames, der geöffnet werden soll, um die Infos anzuzeigen."
+msgstr "Name des Rahmens, der geöffnet werden soll, um die Infos anzuzeigen."
 
 #: action_createInstaller_caption
 msgid "Create project installer..."
@@ -2981,12 +2981,12 @@ msgstr "Ausgewählte Datei aus der Liste entfernen"
 
 #: installer_button
 msgid "Launch button"
-msgstr "Button für Start"
+msgstr "Startknopf"
 
 #: installer_button_tooltip
 msgid "Properties of the button to be shown in the project library"
 msgstr ""
-"Eigenschaften des Buttons, der in der Projektbibliothek angezeigt wird"
+"Eigenschaften des Knopfes, der in der Projektbibliothek angezeigt wird"
 
 #: installer_button_project
 msgid "Main project:"
@@ -2994,7 +2994,7 @@ msgstr "Hauptprojekt:"
 
 #: installer_button_project_tooltip
 msgid "JClic project to be launched by the button"
-msgstr "JClic-Projekt durch Anklicken der Schaltfläche starten"
+msgstr "JClic-Projekt durch Anklicken des Knopfes starten"
 
 #: installer_button_text
 msgctxt "installer_button_text"
@@ -3003,7 +3003,7 @@ msgstr "Label:"
 
 #: installer_button_text_tooltip
 msgid "Short text label, to be shown inside the button"
-msgstr "Kurzer Text, der auf dem Button angezeigt werden soll"
+msgstr "Kurzer Text, der auf dem Knopf angezeigt werden soll"
 
 #: installer_button_icon
 msgid "Icon:"
@@ -3013,8 +3013,8 @@ msgstr "Symbol:"
 msgid ""
 "Picture to be used as button icon. Leave blank to use the default JClic icon."
 msgstr ""
-"Grafik als Schaltflächensymbol. Frei lassen, wenn JClic-Standard-"
-"Schaltfläche verwendet werden soll."
+"Grafik als Knopfsymbol. Frei lassen, wenn JClic-Standardknopf verwendet "
+"werden soll."
 
 #: installer_button_description
 msgctxt "installer_button_description"
@@ -3023,7 +3023,7 @@ msgstr "Beschreibung"
 
 #: installer_button_description_tooltip
 msgid "Tooltip to be shown by the button"
-msgstr "Bei Klick auf Schaltfläche angezeigte Kurzinfo"
+msgstr "Bei Klick auf Knopf angezeigte Kurzinfo"
 
 #: installer_error_noTitle
 msgid "Error: Missing project title"
@@ -3039,15 +3039,15 @@ msgstr "Fehler: Keine Dateien ausgewählt"
 
 #: installer_error_noButtonText
 msgid "Error: Missing launch button text label"
-msgstr "Fehler: Text für Startbutton fehlt"
+msgstr "Fehler: Text für Startknopf fehlt"
 
 #: installer_error_projectNotInFiles
 msgid ""
 "Error: The project assigned to the launch button is not in the list of files "
 "to be copied"
 msgstr ""
-"Fehler: Dem Startbutton zugewiesenes Projekt scheint in der Liste der "
-"Dateien, die kopiert werden sollen, nicht auf"
+"Fehler: Das dem Startknopf zugewiesene Projekt erscheint nicht in der Liste "
+"der Dateien, die kopiert werden sollen"
 
 #: applet_page_full
 msgid "Full-page applet"
@@ -3202,11 +3202,11 @@ msgstr "Verbinden"
 
 #: edit_shape_zoomIn
 msgid "Zoom in"
-msgstr "Zoom in"
+msgstr "Vergrößern"
 
 #: edit_shape_zoomOut
 msgid "Zoom out"
-msgstr "Zoom out"
+msgstr "Verkleinern"
 
 #: edit_shape_aproxPoints
 msgid "Join nearest points"

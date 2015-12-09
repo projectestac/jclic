@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: jclic\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-01-13 23:10+0200\n"
-"PO-Revision-Date: 2012-05-20 06:51+0000\n"
-"Last-Translator: ptlove1222 <ptlove1222@gmail.com>\n"
+"PO-Revision-Date: 2014-04-09 16:31+0000\n"
+"Last-Translator: Po-Hsu Lin <po-hsu.lin@canonical.com>\n"
 "Language-Team: Traditional Chinese <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
-"X-Generator: Launchpad (build 16718)\n"
+"X-Launchpad-Export-Date: 2015-12-09 11:48+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 #. #JClic Author messages
 #: edit_act_description_block
@@ -2470,7 +2470,7 @@ msgstr "專案簡述、描述名稱"
 #: edit_new_project_filename
 msgctxt "edit_new_project_filename"
 msgid "File name:"
-msgstr "檔案名稱:"
+msgstr "檔案名稱："
 
 #: edit_new_project_filename_tooltip
 msgid "Name of the project file, without extension"

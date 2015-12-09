@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: jclic\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2010-01-13 23:10+0200\n"
-"PO-Revision-Date: 2011-05-23 08:52+0000\n"
-"Last-Translator: Denis Deryabin <Unknown>\n"
+"PO-Revision-Date: 2013-11-15 00:47+0000\n"
+"Last-Translator: Nikolay Tyunin <tyunins@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-05 11:32+0000\n"
-"X-Generator: Launchpad (build 16718)\n"
+"X-Launchpad-Export-Date: 2015-12-09 11:48+0000\n"
+"X-Generator: Launchpad (build 17865)\n"
 
 #. #JClic Author messages
 #: edit_act_description_block
@@ -85,7 +85,7 @@ msgstr "Скрыть/Показать счетчик времени"
 #: edit_act_actionsCounter
 msgctxt "edit_act_actionsCounter"
 msgid "Tries counter"
-msgstr "Попытка счета"
+msgstr "Счетчик попыток"
 
 #: edit_act_actionsCounter_tooltip
 msgid "Show/hide the tries counter"
@@ -94,11 +94,11 @@ msgstr "Показать/скрыть счетчик попыток"
 #: edit_act_scoreCounter
 msgctxt "edit_act_scoreCounter"
 msgid "Score counter"
-msgstr "Счетчик счета"
+msgstr "Балы"
 
 #: edit_act_scoreCounter_tooltip
 msgid "Show/hide the score counter."
-msgstr "Показать/скрыть счетчик счета"
+msgstr "Показать/скрыть балы"
 
 #: edit_act_maxTime
 msgid "Max time:"
@@ -108,8 +108,8 @@ msgstr "Макс. время:"
 msgid ""
 "Maximum time to to solve the activity, in seconds, or 0 for unlimited time."
 msgstr ""
-"Максимальное время, чтобы решить действие, в секундах или 0 для "
-"неограниченного времени."
+"Максимально допустимое время для решения в секундах, если 0, то время не "
+"ограничено."
 
 #: edit_act_countdown
 msgid "Countdown"
@@ -126,8 +126,7 @@ msgstr "Максимум попыток"
 #: edit_act_maxActions_tooltip
 msgid "Maximum number of tries allowed, or 0 for unlimited tries."
 msgstr ""
-"Максимальное количество разрешенных попыток , или 0 для неограниченного "
-"количества попыток."
+"Максимальное количество разрешенных попыток , если 0, то без ограничений."
 
 #: edit_act_buttons_block
 msgctxt "edit_act_buttons_block"
@@ -164,7 +163,7 @@ msgstr "Показать эту URL-ссылку:"
 
 #: edit_act_infoBtn_cmd
 msgid "Execute this command:"
-msgstr "Выполните следующую команду:"
+msgstr "Выполните  команду:"
 
 #: edit_act_infoBtn_url_tooltip
 msgid "Web site address to show when click on the info button"
@@ -184,7 +183,7 @@ msgstr "Игровое окно:"
 
 #: edit_act_margin
 msgid "Margin:"
-msgstr ""
+msgstr "Поля:"
 
 #: edit_act_margin_tooltip
 msgid "Horizontal and vertical spacing between visual objects."
@@ -201,7 +200,7 @@ msgstr "Изменение цвета фона."
 
 #: edit_gradient_startColor
 msgid "Start color:"
-msgstr ""
+msgstr "Исходный цвет"
 
 #: edit_gradient_endColor
 msgid "End color:"
@@ -221,7 +220,7 @@ msgstr "Циклы:"
 
 #: edit_gradient_cycles_tooltip
 msgid "Number of repetitions of the gradient over the paint surface"
-msgstr ""
+msgstr "Количество градиентных повторов в рисунке"
 
 #: edit_gradient_orientation
 msgid "Orientation:"
@@ -241,11 +240,11 @@ msgstr "Используйте градиент цвета"
 
 #: edit_color_opacity
 msgid "Opacity"
-msgstr "Непрозрачность"
+msgstr "Прозрачность"
 
 #: edit_color_opacity_tooltip
 msgid "Set the color's alpha channel (opacity) value."
-msgstr ""
+msgstr "Установить цвета альфа канала (прозрачность)."
 
 #: edit_gradient_title
 msgctxt "edit_gradient_title"
@@ -254,7 +253,7 @@ msgstr "Градиент"
 
 #: edit_gradient_default
 msgid "Use default values (null gradient)"
-msgstr ""
+msgstr "Использовать значения по умолчанию (пустой градиент)"
 
 #: edit_act_image
 msgid "Image:"
@@ -278,8 +277,8 @@ msgid ""
 "Paint all the surface with the image, repeating it along the X and Y axis as "
 "needed."
 msgstr ""
-"Закрасить всю поверхность с изображением, повторяя его по X и Y оси по мере "
-"необходимости."
+"Заполнить всю поверхность изображением, по мере необходимости повторяя его "
+"по X и Y оси."
 
 #: edit_act_preview
 msgctxt "edit_act_preview"
@@ -328,7 +327,7 @@ msgstr "По центру"
 
 #: edit_act_centered_tooltip
 msgid "The object will be centered over the main window"
-msgstr ""
+msgstr "Объект будет центрирован над главным окном"
 
 #: edit_act_x
 msgctxt "edit_act_x"
@@ -351,11 +350,11 @@ msgstr "Абсолютная вертикальная позиция"
 #: edit_act_ui_block
 msgctxt "edit_act_ui_block"
 msgid "User interface"
-msgstr "Пользовательский интерфейс"
+msgstr "Интерфейс"
 
 #: edit_act_image_tooltip
 msgid "Select an image"
-msgstr "Выберите изображение"
+msgstr "Выбрать изображение"
 
 #: edit_act_text
 msgid "Text:"
@@ -388,7 +387,7 @@ msgstr "Подчёркнутый"
 #: edit_font_style
 msgctxt "edit_font_style"
 msgid "Style:"
-msgstr "Вид:"
+msgstr "Стиль:"
 
 #: edit_cell_title
 msgid "Cell contents"
@@ -417,23 +416,21 @@ msgstr "Сообщение об ошибке:"
 
 #: edit_act_msg_initial_tooltip
 msgid "Message to be shown when the activity starts"
-msgstr "Сообщение, показываемое при начале активности"
+msgstr "Сообщение, показываемое при начале действия"
 
 #: edit_act_msg_final_tooltip
 msgid "Message to be shown when the activity is finished"
-msgstr "Сообщение, показываемое при завершении активности"
+msgstr "Сообщение, показываемое при завершении действия"
 
 #: edit_act_msg_error_tooltip
 msgid "Message to be shown when the activity ends with errors"
-msgstr "Сообщение, показываемое при завершении активности с ошибками"
+msgstr "Сообщение, показываемое при завершении действия с ошибками"
 
 #: edit_act_msg_prev_tooltip
 msgid ""
 "Message to be shown prior to the start of the activity (only in certain "
 "types of activities)"
 msgstr ""
-"Сообщение, показываемое до начала активности (Только в отдельных видах "
-"активности)"
 
 #: edit_align
 msgid "Align:"
@@ -499,7 +496,7 @@ msgstr "Отключено"
 
 #: edit_cell_alt
 msgid "Alternative"
-msgstr "Альтернатива"
+msgstr "Альтернативно"
 
 #: edit_cell_textMargin
 msgid "Internal margin:"
@@ -515,7 +512,7 @@ msgstr "Ширина рамки:"
 
 #: edit_cell_borderWidth_tooltip
 msgid "Width of the stroke used to draw the standard border"
-msgstr "Ширина черты, используемой для рисования стандартных границ"
+msgstr "Ширина линии, используемой для рисования стандартных границ"
 
 #: edit_cell_markerWidth
 msgid "Marker width:"
@@ -543,11 +540,11 @@ msgstr "Предварительный просмотр в \"отмеченно�
 
 #: edit_act_testAction
 msgid "Preview activity"
-msgstr "Предварительный просмотр активности"
+msgstr "Предварительный просмотр действия"
 
 #: edit_act_testAction_tooltip
 msgid "Preview and test the activity"
-msgstr "Предварительный просмотр и проверка активности"
+msgstr "Предварительный просмотр и проверка действия"
 
 #: edit_act_panels_description
 msgctxt "edit_act_panels_description"
@@ -556,15 +553,15 @@ msgstr "Описание"
 
 #: edit_act_panels_description_tooltip
 msgid "Title and description of the activity"
-msgstr "Название и описание активности"
+msgstr "Название и описание действия"
 
 #: edit_act_panels_options
 msgid "Options"
-msgstr "Параметры"
+msgstr "Опции"
 
 #: edit_act_panels_options_tooltip
 msgid "Options of the activity"
-msgstr "Параметры активности"
+msgstr "Параметры действия"
 
 #: edit_act_panels_frame
 msgctxt "edit_act_panels_frame"
@@ -573,7 +570,7 @@ msgstr "Окно"
 
 #: edit_act_panels_frame_tooltip
 msgid "Aspect, size and position of the activity window"
-msgstr "Внешний вид, размер и положение окна активности"
+msgstr "Внешний вид, размер и положение окна адействия"
 
 #: edit_act_panels_messages
 msgctxt "edit_act_panels_messages"
@@ -582,7 +579,7 @@ msgstr "Сообщения"
 
 #: edit_act_panels_messages_tooltip
 msgid "Content of the activity messages"
-msgstr "Содержание сообщений  активности"
+msgstr "Содержание сообщений  действия"
 
 #: edit_act_panels_panel
 msgid "Panel"
@@ -612,7 +609,7 @@ msgstr "Избегайте перекрытия изображения текс�
 
 #: edit_act_overlap_tooltip
 msgid "Try to avoid text overlapping over image"
-msgstr ""
+msgstr "Старайтесь избегать перекрытия текста на изображение"
 
 #: edit_media_exists_1
 msgid "The file"
@@ -632,7 +629,7 @@ msgstr "Ошибка видообразователя:"
 
 #: edit_act_num_cols
 msgid "Columns:"
-msgstr "Столбцы:"
+msgstr "Колонки:"
 
 #: edit_act_num_rows
 msgid "Rows:"
@@ -652,7 +649,7 @@ msgstr "Случайное распределение"
 
 #: edit_act_shaper_properties
 msgid "Shaper properties"
-msgstr ""
+msgstr "Параметры раскроя рисунка"
 
 #: edit_act_panels_text
 msgid "Text"
@@ -660,7 +657,7 @@ msgstr "Текст"
 
 #: edit_act_panels_text_tooltip
 msgid "Text of the activity"
-msgstr "Текст активности"
+msgstr "Текст действия"
 
 #: action_saveFile_caption
 msgid "Save..."
@@ -685,7 +682,7 @@ msgstr "T*"
 
 #: action_docTree_tooltip
 msgid "Show the project's document as a tree"
-msgstr ""
+msgstr "Показать документ проекта в виде дерева"
 
 #: edit_docTree_title
 msgid "Document tree"
@@ -693,7 +690,7 @@ msgstr "Дерево документов"
 
 #: edit_media_referencedBy
 msgid "Referenced by:"
-msgstr ""
+msgstr "Ссылается на:"
 
 #: msg_prompt_loadReferences
 msgid ""
@@ -702,6 +699,10 @@ msgid ""
 "load all the related files?<P>(It's advisable to answer <B>YES</B> when "
 "importing Clic 3.0 activities)</font></html>"
 msgstr ""
+"<html><font face=\"dialog\" size=\"2\"><B>Warning:</B><P>Этот проект связан "
+"с другими проектами.<BR>Вы хотите изучить ссылки и загрузить все связанные "
+"файлы ?<P>(Необходимо ответить <B>Да</B> при импорте  действия Clic "
+"3.0)</font></html>"
 
 #: edit_mc_type
 msgctxt "edit_mc_type"
@@ -738,7 +739,7 @@ msgstr "Воспроизвести записанный звуковой отр�
 
 #: edit_mc_type_run_activity
 msgid "Go to activity"
-msgstr "Перейти к активности"
+msgstr "Перейти к действию"
 
 #: edit_mc_type_run_sequence
 msgid "Go to sequence"
@@ -746,11 +747,11 @@ msgstr "Перейти к последовательности"
 
 #: edit_mc_type_run_external
 msgid "Run program"
-msgstr "Запустить программу"
+msgstr "Запуск программы"
 
 #: edit_mc_type_url
 msgid "Show URL"
-msgstr "Показать URL-ссылку"
+msgstr "Показывать ссылку"
 
 #: edit_mc_type_exit
 msgid "End"
@@ -790,11 +791,11 @@ msgstr "Макс. длина:"
 
 #: edit_mc_recBuffer
 msgid "Record tape:"
-msgstr ""
+msgstr "Запись"
 
 #: edit_mc_stretch
 msgid "Stretch size"
-msgstr ""
+msgstr "Размер растягивания:"
 
 #: edit_mc_location
 msgctxt "edit_mc_location"
@@ -835,11 +836,11 @@ msgstr ""
 
 #: edit_mc_autostart
 msgid "Auto start"
-msgstr "Автоматический запуск"
+msgstr "Автозапуск"
 
 #: edit_mc_catchmouse
 msgid "Catch mouse"
-msgstr ""
+msgstr "Захват мыши"
 
 #: edit_mc_title
 msgid "Multimedia and active content"
@@ -847,7 +848,7 @@ msgstr "Мультимедиа и активное содержимое"
 
 #: edit_mc_label
 msgid "Active content:"
-msgstr "активное содержимое:"
+msgstr "Активное содержимое:"
 
 #: edit_media_dlg_title
 msgid "Multimedia object selection"
@@ -856,7 +857,7 @@ msgstr "Выбор мультимедиа объектов"
 #: edit_media_title
 msgctxt "edit_media_title"
 msgid "Media library"
-msgstr ""
+msgstr "Медиабиблиотека"
 
 #: edit_mc_pos_cell
 msgid "Centered over cell"
@@ -872,15 +873,15 @@ msgstr "Особая позиция:"
 
 #: edit_tree_badFormat
 msgid "Incorrect tree structure or data!"
-msgstr "Неправильная структура дерева или данные!"
+msgstr "Неправильная структура дерева или данных!"
 
 #: edit_act_panels_controls
 msgid "Controls"
-msgstr "Элементы управления"
+msgstr "Управление"
 
 #: edit_act_panels_controls_tooltip
 msgid "Options for buttons and counters"
-msgstr "Функции кнопок и счетчиков"
+msgstr "Опции кнопок и счетчиков"
 
 #: edit_act_class
 msgctxt "edit_act_class"
@@ -889,7 +890,7 @@ msgstr "Шрифт:"
 
 #: edit_act_gridLayout
 msgid "Grid layout:"
-msgstr "Расположение сетки:"
+msgstr "Расположение таблицы:"
 
 #: edit_act_gridLayout_tooltip
 msgid "Relative postion of the panels A and B."
@@ -897,12 +898,12 @@ msgstr "Взаимное расположение панелей А и B."
 
 #: edit_act_inverseResolution
 msgid "Inverse resolution"
-msgstr ""
+msgstr "Обратное разрешение"
 
 #: edit_act_inverseResolution_tooltip
 msgid ""
 "The activity is solved when all assigned elements of \"B\" are matched."
-msgstr "Активность решена, когда все заданные элементы \"В\" соответствуют."
+msgstr "Действие выполнено, когда все заданные элементы \"В\" соответствуют."
 
 #: edit_act_showAllArrows
 msgid "Show all arrows"
@@ -926,15 +927,15 @@ msgstr "Редактировать  альтернативное содержи�
 
 #: edit_act_grid
 msgid "Grid"
-msgstr "Сетка"
+msgstr "Таблица"
 
 #: edit_act_grid_A
 msgid "Grid A"
-msgstr "Сетка А"
+msgstr "Таблица А"
 
 #: edit_act_grid_B
 msgid "Grid B"
-msgstr "Сетка В"
+msgstr "Таблица В"
 
 #: edit_act_grid_layout
 msgid "Layout"
@@ -959,7 +960,7 @@ msgstr "перейти к"
 #: edit_seq_activity
 msgctxt "edit_seq_activity"
 msgid "Activity:"
-msgstr "Активность:"
+msgstr "Действие:"
 
 #: edit_seq_tag
 msgctxt "edit_seq_tag"
@@ -1072,28 +1073,28 @@ msgstr "Цель перехода"
 
 #: edit_act_newActivity_tooltip
 msgid "Add a new activity to project"
-msgstr "Добавить новый вид активности в проект"
+msgstr "Добавить новый вид дейсьвия в проект"
 
 #: edit_act_prompt_class
 msgid "Type of activity:"
-msgstr "Вид активности:"
+msgstr "Вид действия:"
 
 #: edit_act_prompt_name
 msgctxt "edit_act_prompt_name"
 msgid "Name:"
-msgstr "Имя:"
+msgstr "Название:"
 
 #: edit_act_newActivity_msg
 msgid "Please select the type of activity to create and give it a name:"
-msgstr "Пожалуйста, выберите вид активности для создания и дайте ему имя:"
+msgstr "Пожалуйста, выберите вид действия  и дайте ему имя:"
 
 #: edit_act_newActivity_error_noAct
 msgid "You must select an activity type!"
-msgstr "Вы должны выбрать вид активности!"
+msgstr "Вы должны выбрать вид действия!"
 
 #: edit_act_newActivity_error_noName
 msgid "You must especify a name for the activity!"
-msgstr "Вы должны указать имя для активности"
+msgstr "Вы должны назвать действие"
 
 #: edit_act_newActivity_error_creating
 msgid "Unable to create activity!"
