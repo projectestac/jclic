@@ -488,6 +488,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
         toolsMenu.add(new KJMenuItem(getAction(ACTION_DOCTREE)));
         toolsMenu.addSeparator();
         toolsMenu.add(new KJMenuItem(getAction(ACTION_EXPORT_HTML5)));
+        toolsMenu.addSeparator();
         toolsMenu.add(new KJMenuItem(getAction(ACTION_CREATE_HTML)));
         toolsMenu.add(new KJMenuItem(getAction(ACTION_CREATE_INSTALLER)));
         menuBar.add(toolsMenu);
