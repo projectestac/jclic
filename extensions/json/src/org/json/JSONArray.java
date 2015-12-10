@@ -174,7 +174,7 @@ public class JSONArray {
     /**
      * Appends {@code value} to the end of this array.
      *
-     * @param value a {@link JSONObject}, {@link JSONArray}, String, Boolean,
+     * @param value a {@link JSONObject}, {@link JSONArray}, {@link Collection}, String, Boolean,
      *     Integer, Long, Double, {@link JSONObject#NULL}, or {@code null}. May
      *     not be {@link Double#isNaN() NaNs} or {@link Double#isInfinite()
      *     infinities}. Unsupported values are not permitted and will cause the
@@ -182,7 +182,16 @@ public class JSONArray {
      * @return this array.
      */
     public JSONArray put(Object value) {
+      // Modified 2015/12/10 by fbusquets
+      // When 'value' is a Collection, add all its elements to 'values'
+      if(value instanceof Collection<?>){
+        Iterator<?> it = ((Collection<?>)value).iterator();
+        while(it.hasNext()){
+          values.add(it.next());
+        }        
+      } else {
         values.add(value);
+      }
         return this;
     }
 

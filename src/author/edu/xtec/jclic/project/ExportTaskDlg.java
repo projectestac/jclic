@@ -268,7 +268,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
           exportDlg.ps.println("Generating project.json");
           fileList.add("project.json");          
           Collections.sort(fileList);
-          json.put("files", fileList);
+          json.append("files", fileList);
           
           fos = new FileOutputStream(new File(outputPath, "project.json"));
           pw = new PrintWriter(new OutputStreamWriter(fos, "UTF-8"));

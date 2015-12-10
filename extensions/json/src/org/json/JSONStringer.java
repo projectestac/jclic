@@ -313,10 +313,18 @@ public class JSONStringer {
             switch (c) {
                 case '"':
                 case '\\':
-                case '/':
                     out.append('\\').append(c);
                     break;
 
+                // Modified 2015/12/10 by fbusquets:
+                // Avoid unnecessary escape of '/'
+                // See: http://stackoverflow.com/questions/1580647/json-why-are-forward-slashes-escaped
+                case '/':                    
+                    if(i>0 && value.charAt(i-1)=='<')
+                        out.append('\\');                    
+                    out.append(c);
+                    break;
+                    
                 case '\t':
                     out.append("\\t");
                     break;
