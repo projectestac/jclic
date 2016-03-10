@@ -1,8 +1,8 @@
 var player_files =    "jclic.jar";
-var player_versions = "0.2.3.4.02";
+var player_versions = "0.3.1.0.01";
 
 var author_files =    "jclicauthor.jar";
-var author_versions = "0.2.3.4.02";
+var author_versions = "0.3.1.0.01";
 
 var jar_cache_files = player_files;
 var jar_cache_versions = player_versions;
@@ -183,14 +183,14 @@ function getPlugin(project, width, height, rWidth, rHeight){
       '<param name="code" value="' +mainClass+ '">' +
       '<param name="codebase" value="' +jarBase+ '">' +
       getCacheInfo(true) +
-      '<param name="type" value="application/x-java-applet;jpi-version=1.5">' +
+      '<param name="type" value="application/x-java-applet;jpi-version=1.6">' +
       '<param name="scriptable" value="false">' +
       getParams(project, true) +
       getDownloadPageInfo() +
       '</object>';
    }
    else if (_ns == true){
-      htmlcode = '<embed type="application/x-java-applet;version=1.5"'+
+      htmlcode = '<embed type="application/x-java-applet;version=1.6"'+
       ' code="' +mainClass+ '" codebase="' +jarBase+ '"'+
       ' width="' +nsw+ '" height="' +nsh +'" ' +
       getCacheInfo(false) +
@@ -204,7 +204,7 @@ function getPlugin(project, width, height, rWidth, rHeight){
      htmlcode = '<applet code="' +mainClass+ '" codebase="' +jarBase+ '"' +
      ' archive="'+ jar_cache_files +'"' +
      ' width="' +nsw+ '" height="' +nsh+ '">' +
-     '<param name="type" value="application/x-java-applet;version=1.5">' +
+     '<param name="type" value="application/x-java-applet;version=1.6">' +
      '<param name="scriptable" value="false">' +
      getParams(project, true) +
      '</applet>';
