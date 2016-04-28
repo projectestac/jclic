@@ -54,6 +54,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
     public FileSystem fileSystem;
     public String appletCodeBase;
     public String appletWidth, appletHeight;
+    public String jsCodeBase;
     public Color appletBgColor;
     public int imgMaxWidth;
     public int imgMaxHeight;
@@ -76,6 +77,8 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
     public static final String DEFAULT_APPLET_WIDTH="700";
     public static final String DEFAULT_APPLET_HEIGHT="450";
     public static final Color DEFAULT_APPLET_BGCOLOR=Color.white;    
+    
+    public static final String DEFAULT_JS_CODEBASE="https://cdn.jsdelivr.net/jclic.js/latest/jclic.min.js";
 
     /** Creates new AuthorSettings */
     public AuthorSettings(ResourceBridge rb, String fromPath){
@@ -100,6 +103,9 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
         appletWidth=DEFAULT_APPLET_WIDTH;
         appletHeight=DEFAULT_APPLET_HEIGHT;
         appletBgColor=DEFAULT_APPLET_BGCOLOR;
+        
+        jsCodeBase = DEFAULT_JS_CODEBASE;
+        
         imgMaxWidth=MediaBagEditor.DEFAULT_IMG_MAX_WIDTH;
         imgMaxHeight=MediaBagEditor.DEFAULT_IMG_MAX_HEIGHT;
     }
@@ -108,6 +114,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
     ELEMENT_NAME="JClicAuthorSettings",
     APPLET="applet",
     CODEBASE="codebase",
+    JSCODEBASE = "JScodebase",
     BGCOLOR="bgcolor",
     IMGMAXSIZE="imgMaxSize",
     WIDTH="width",
@@ -235,6 +242,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
         child.setAttribute(WIDTH, appletWidth);
         child.setAttribute(HEIGHT, appletHeight);
         child.setAttribute(BGCOLOR, JDomUtility.colorToString(appletBgColor));
+        child.setAttribute(JSCODEBASE, jsCodeBase);
         e.addContent(child);
                 
         child=new org.jdom.Element(SOUND);
@@ -320,6 +328,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
             appletWidth=JDomUtility.getStringAttr(child, WIDTH, DEFAULT_APPLET_WIDTH, false);
             appletHeight=JDomUtility.getStringAttr(child, HEIGHT, DEFAULT_APPLET_HEIGHT, false);
             appletBgColor=JDomUtility.getColorAttr(child, BGCOLOR, DEFAULT_APPLET_BGCOLOR);
+            jsCodeBase=JDomUtility.getStringAttr(child, JSCODEBASE, DEFAULT_JS_CODEBASE, false);
         }
         
         if((child=e.getChild(Messages.LANGUAGE))!=null){

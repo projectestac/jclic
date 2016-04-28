@@ -20,6 +20,7 @@
  */
 package edu.xtec.jclic.project;
 
+import edu.xtec.jclic.AuthorSettings;
 import edu.xtec.util.BrowserLauncher;
 import edu.xtec.util.Messages;
 import edu.xtec.util.Options;
@@ -69,7 +70,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
           + "    <link rel=\"icon\" sizes=\"72x72\" href=\"icon-72.png\">\n"
           + "    <link rel=\"icon\" sizes=\"192x192\" href=\"icon-192.png\">\n"
           + "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
-          + "    <script type=\"text/javascript\" src=\"https://clic.xtec.cat/dist/jclic.js/jclic.min.js\"></script>\n"
+          + "    <script type=\"text/javascript\" src=\"%JSCODEBASE%\"></script>\n"
           + "  </head>\n"
           + "  <body style=\"margin:0\">\n"
           + "    <div class =\"JClic\" data-project=\"%MAINFILE%\"></div>\n"
@@ -188,12 +189,13 @@ public class ExportTaskDlg extends javax.swing.JPanel {
 
   }//GEN-LAST:event_browserBtnActionPerformed
 
-  public static void doTask(ResourceBridge rb, Component parent,
+  public static void doTask(ResourceBridge rb, AuthorSettings settings, Component parent,
           final String inputPath, final String outputPath, final String mainFileName,
           final JClicProject project, final boolean copyAll) {
 
     final Messages msg = rb.getOptions().getMessages();
     final ExportTaskDlg exportDlg = new ExportTaskDlg(rb);
+    final AuthorSettings set = settings;
 
     JDialog dlg = new JDialog(JOptionPane.getFrameForComponent(parent), true);
     dlg.setTitle(msg.get("export_project_exporting"));
@@ -216,7 +218,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
             exportDlg.ps.println("Processing: " + inputPath);
             ProjectFileUtils.processSingleFile(inputPath, outputPath, fileList, exportDlg.ps);
           } else {
-            exportDlg.ps.println("Processing al projects in: " + inputPath);
+            exportDlg.ps.println("Processing all projects in: " + inputPath);
             ProjectFileUtils.processRootFolder(inputPath, outputPath, fileList, exportDlg.ps);
           }
 
@@ -225,6 +227,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
           PrintWriter pw = new PrintWriter(new OutputStreamWriter(fos, "UTF-8"));
           String s = indexHtml.replaceAll("%TITLE%", StrUtils.safeHtml(project.settings.title));
           s = StrUtils.replace(s, "%MAINFILE%", mainFileName);
+          s = StrUtils.replace(s, "%JSCODEBASE%", set.jsCodeBase);
           pw.print(s);
           pw.flush();
           pw.close();
