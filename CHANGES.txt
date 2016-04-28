@@ -214,3 +214,9 @@ New option in JClicAuthor to export JClic projects to HTML5 using jclic.js (see 
 "Export to HTML5" generates also a "project.json" file suitable for activity repositories created with "JClic Repo" (see https://github.com/projectestac/jclic-repo)
 JClic needs now Java 1.6 or later
 
+
+Changes in 0.3.1.1 (28-Apr-2016)
+---------------------------------------------------------------------------------------
+Write 'animated' flag in MediaBag Elements (needed for JClic.js in order to optimize the detection of animated GIFs)
+Changed the URL of jclic.min.js in HTML5 export. Now pointing to: https://cdn.jsdelivr.net/jclic.js/latest/jclic.min.js
+

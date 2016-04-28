@@ -1,3 +1,16 @@
+2015-04-28  Francesc Busquets <fbusquets@xtec.cat>
+
+    *   src/author/edu/xtec/jclic/AuthorSettings.java
+    *   src/author/edu/xtec/jclic/AuthorSettingsDlg.form
+    *   src/author/edu/xtec/jclic/AuthorSettingsDlg.java
+    *   src/author/edu/xtec/jclic/AuthorSingleFrame.java
+    *   src/author/edu/xtec/jclic/project/ExportTaskDlg.java
+    *   src/author/edu/xtec/resources/messages/AuthorMessages.properties
+    *   src/author/edu/xtec/resources/messages/AuthorMessages_ca.properties
+    *   src/author/edu/xtec/resources/messages/AuthorMessages_es.properties: Changing codebase of jclic.min.js to JSDelivr.net
+
+    *   src/core/edu/xtec/jclic/bags/MediaBagElement.java: Writting 'animated' flag in media elements
+
 2015-12-09  Francesc Busquets <fbusquets@xtec.cat>
 
     *   build.xml
