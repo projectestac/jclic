@@ -81,7 +81,7 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
     }
     
     public static final String ELEMENT_NAME="media";
-    public static final String FILE="file", NAME="name", SAVE="save", USAGE="usage";
+    public static final String FILE="file", NAME="name", SAVE="save", USAGE="usage", ANIMATED="animated";
     
     public org.jdom.Element getJDomElement(){
         org.jdom.Element e=new org.jdom.Element(ELEMENT_NAME);
@@ -91,6 +91,8 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
             e.setAttribute(SAVE, JDomUtility.BOOL_STR[JDomUtility.FALSE]);
         if(usageCount>0)
             e.setAttribute(USAGE, Integer.toString(usageCount));
+        if(animated)
+            e.setAttribute(ANIMATED, JDomUtility.BOOL_STR[JDomUtility.TRUE]);
         return e;
     }
     
@@ -106,6 +108,7 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
         setFileName(JDomUtility.getStringAttr(e, FILE, fileName, false));
         saveFlag=JDomUtility.getBoolAttr(e, SAVE, true);
         usageCount=JDomUtility.getIntAttr(e, USAGE, usageCount);        
+        animated=JDomUtility.getBoolAttr(e, ANIMATED, false);
     }
     
     public Editor getEditor(Editor parent) {
@@ -140,7 +143,8 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
     
     public void setData(Object sData){
         data=sData;
-        animated=false;
+     // CHANGED: 28/Apr/2016 - Don't clear animated flag!
+     // animated=false;
         if(data!=null && data instanceof Image)
             Toolkit.getDefaultToolkit().prepareImage((Image)data, -1, -1, null);
     }
