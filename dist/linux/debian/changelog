@@ -1,3 +1,9 @@
+jclic (0.3.1.1a-1ppa1) precise; urgency=low
+
+  * Improvements in HTML5 export (set "animated" flag in GIF media, allow to choose codebase for "jclic.min.js")
+
+ -- Francesc Busquets <francesc@gmail.com>  Wed, 09 Dec 2015 14:00:00 +0100
+
 jclic (0.3.1.0a-1ppa1) precise; urgency=low
 
   * New feature "Export to HTML5"
