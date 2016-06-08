@@ -78,6 +78,9 @@ public class JClicReportService extends ReportsRequestProcessor{
     public void header(List<String[]> v){
         super.header(v);
         v.add(new String[]{CONTENT_TYPE, "text/xml"});
+        // 8-Jun-16: Added support for Cross-Domain requests
+        // TODO: Allow to set specific values for CORS
+        v.add(new String[]{"Access-Control-Allow-Origin", "*"});
     }
     
     private TCPReportBean processRequest(TCPReportBean bean) throws Exception{
