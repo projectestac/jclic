@@ -32,6 +32,7 @@ import edu.xtec.util.Domable;
 import edu.xtec.util.JDomUtility;
 import java.util.List;
 import java.util.Map;
+import java.io.InputStream;
 
 /**
  *
@@ -49,12 +50,19 @@ public class JClicReportService extends ReportsRequestProcessor{
         if(!super.init())
             return false;
         
-        if(prop!=null)
-           trustClientDateTime="true".equalsIgnoreCase((String)prop.get(BasicJDBCBridge.TRUST_CLIENT_DATETIME));
+        InputStream is = getInputStream();
+        
+        if (is != null) {
+          if (prop != null) {
+            trustClientDateTime = "true".equalsIgnoreCase((String) prop.get(BasicJDBCBridge.TRUST_CLIENT_DATETIME));
+          }
 
-        org.jdom.Document doc=JDomUtility.getSAXBuilder().build(getInputStream());
-        request=new TCPReportBean(doc.getRootElement());
-        response=processRequest(request);        
+          org.jdom.Document doc = JDomUtility.getSAXBuilder().build(is);
+          request = new TCPReportBean(doc.getRootElement());
+          response = processRequest(request);
+        }
+        else
+          response = new TCPReportBean();
         
         return true;
     }
@@ -80,7 +88,8 @@ public class JClicReportService extends ReportsRequestProcessor{
         v.add(new String[]{CONTENT_TYPE, "text/xml"});
         // 8-Jun-16: Added support for Cross-Domain requests
         // TODO: Allow to set specific values for CORS
-        v.add(new String[]{"Access-Control-Allow-Origin", "*"});
+        v.add(new String[]{EXTRA, "Access-Control-Allow-Origin", "*"});
+        v.add(new String[]{EXTRA, "Access-Control-Allow-Headers", "Content-Type"});
     }
     
     private TCPReportBean processRequest(TCPReportBean bean) throws Exception{
