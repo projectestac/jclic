@@ -226,7 +226,7 @@ public class HTTPReportServer extends ReportServerEventMaker{
                                 else if(h[0].equals(RequestProcessor.EXTRA)){
                                     StringBuilder sb=new StringBuilder(100);
                                     if(re.head.extra!=null)
-                                        sb.append(re.head.extra).append("\n\r");
+                                        sb.append(re.head.extra).append("\r\n");
                                     sb.append(h[1]).append(": ").append(h[2]);
                                     re.head.extra=sb.substring(0);
                                 }

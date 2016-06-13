@@ -1,10 +1,10 @@
 JClic: Authoring and playing system for educational activities
-Generalitat de Catalunya - Departament d'Educació
+Generalitat de Catalunya - Departament d'Ensenyament
 
 Version 0.2.0
 
 WWW:   http://clic.xtec.cat
-       http://projectes.lafarga.cat/projects/jclic
+       https://github.com/projectestac/jclic
        
 Email: clic@xtec.net
 

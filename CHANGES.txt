@@ -220,3 +220,8 @@ Changes in 0.3.1.1 (28-Apr-2016)
 Write 'animated' flag in MediaBag Elements (needed for JClic.js in order to optimize the detection of animated GIFs)
 Changed the URL of jclic.min.js in HTML5 export. Now pointing to: https://cdn.jsdelivr.net/jclic.js/latest/jclic.min.js
 
+
+Changes in 0.3.1.2 (not yet published)
+---------------------------------------------------------------------------------------
+Add CORS headers in JClic Reports Server to allow direct communicatiuon with JClic.js running on browsers
+

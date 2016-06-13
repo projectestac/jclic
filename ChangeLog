@@ -1,3 +1,7 @@
+2016-06-12  Francesc Busquets <fbusquets@xtec.cat>
+    *   src/report/reportServer/edu/xtec/jclic/report/HTTPReportServer.java
+    *   src/report/reportServlets/edu/xtec/jclic/report/rp/JClicReportService.java: Adding CORS response headers and allowing OPTIONS method in Reports Server (needed for JClic.js when running in different server/port)
+
 2015-04-28  Francesc Busquets <fbusquets@xtec.cat>
 
     *   src/author/edu/xtec/jclic/AuthorSettings.java
