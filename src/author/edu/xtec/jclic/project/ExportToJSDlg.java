@@ -39,6 +39,7 @@ public class ExportToJSDlg extends javax.swing.JPanel {
   Options options;
   String outputFolder;
   boolean exportAll = true;
+  boolean exportScorm = true;
 
   /**
    * Creates new form ExportToJSDlg
@@ -64,6 +65,7 @@ public class ExportToJSDlg extends javax.swing.JPanel {
     outputFolderBtn = new javax.swing.JButton();
     javax.swing.JLabel spacer2 = new javax.swing.JLabel();
     allPrjChk = new javax.swing.JCheckBox();
+    exportScormChk = new javax.swing.JCheckBox();
 
     setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
     setLayout(new java.awt.GridBagLayout());
@@ -110,6 +112,12 @@ public class ExportToJSDlg extends javax.swing.JPanel {
     gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
     gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
     add(allPrjChk, gridBagConstraints);
+
+    exportScormChk.setText(options.getMsg("export_project_exportSCORM"));
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+    add(exportScormChk, gridBagConstraints);
   }// </editor-fold>//GEN-END:initComponents
 
   private JFileChooser chooser;
@@ -131,11 +139,13 @@ public class ExportToJSDlg extends javax.swing.JPanel {
   public void fillData() {
     outputFolderText.setText(outputFolder == null ? "" : outputFolder);
     allPrjChk.setSelected(exportAll);
+    exportScormChk.setSelected(exportScorm);
   }
 
   public void getData() {
     outputFolder = StrUtils.nullableString(outputFolderText.getText());
     exportAll = allPrjChk.isSelected();
+    exportScorm = exportScormChk.isSelected();
   }
 
   public static String[] prompt(ResourceBridge rb, Component parent, String inputPath, String exportBasePath) {
@@ -173,7 +183,9 @@ public class ExportToJSDlg extends javax.swing.JPanel {
           }
 
           if (folderOk) {
-            result = new String[]{exportDlg.outputFolder, inputPath, exportDlg.exportAll ? "true" : "false"};
+            result = new String[]{exportDlg.outputFolder, inputPath,
+              exportDlg.exportAll ? "true" : "false",
+              exportDlg.exportScorm ? "true" : "false"};
           }
         } catch (Exception ex) {
           msg.showErrorWarning(parent, "ERROR", ex);
@@ -186,6 +198,7 @@ public class ExportToJSDlg extends javax.swing.JPanel {
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JCheckBox allPrjChk;
   private javax.swing.JLabel exportLb;
+  private javax.swing.JCheckBox exportScormChk;
   private javax.swing.JButton outputFolderBtn;
   private javax.swing.JLabel outputFolderLb;
   private javax.swing.JTextField outputFolderText;

@@ -796,6 +796,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
                     String[] folders=ExportToJSDlg.prompt(AuthorSingleFrame.this, AuthorSingleFrame.this, inputPath, AuthorSingleFrame.this.settings.rootExportPath);
                     if(folders!=null){
                       boolean exportAll = folders[2].equals("true");
+                      boolean exportScorm = folders[3].equals("true");
                       if(!exportAll)
                         inputPath = project.getFileSystem().getFullRoot();
                       String mainFile = project.getFileSystem().getRelativeFileNamePath(project.getFullPath());
@@ -803,7 +804,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
                         mainFile = mainFile.substring(0, mainFile.length()-4);
                       ExportTaskDlg.doTask(AuthorSingleFrame.this, settings, AuthorSingleFrame.this,
                               inputPath, folders[0], mainFile,
-                              project, exportAll);
+                              project, exportAll, exportScorm);
                     }
                 }
             }
