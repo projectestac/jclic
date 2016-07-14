@@ -50,6 +50,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
     public String preferredBrowser;
     public String rootPath;
     public String rootExportPath;
+    public String rootScormPath;
     public String mediaSystem;
     public FileSystem fileSystem;
     public String appletCodeBase;
@@ -71,6 +72,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
     public static final String 
     PROJECTS_PATH="projects",
     EXPORT_PATH="export",
+    SCORM_PATH = "scorm",
     CFG_FILE="jclic_author.cfg";
     
     public static final String DEFAULT_APPLET_CODEBASE="http://clic.xtec.cat/dist/jclic";
@@ -89,7 +91,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
         recentFiles=new String[MAX_RECENT];
         mediaSystem=DEFAULT;
         readOnly=false;
-        rootExportPath=rootPath=System.getProperty("user.home");        
+        rootExportPath=rootScormPath=rootPath=System.getProperty("user.home");        
         cfgFile=(fromPath==null ? getDefaultCfgFile(rb.getOptions()) : fromPath);
         fileSystem=new FileSystem(rb);
         if(FileSystem.isStrUrl(cfgFile)){
@@ -126,6 +128,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
     PATH="path", 
     ROOT="root",
     EXPORT="export",
+    SCORM="scorm",
     RECENT_FILES="recentFiles", 
     FILE="file";
         
@@ -187,6 +190,9 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
 
             f=new File(new File(cfgFile).getParentFile(), EXPORT_PATH);
             rootExportPath=f.getAbsolutePath();            
+
+            f=new File(new File(cfgFile).getParentFile(), SCORM_PATH);
+            rootScormPath=f.getAbsolutePath();            
             
             fileSystem=new FileSystem(rootPath, rb);
             imgMaxWidth=MediaBagEditor.getImgMaxWidth();
@@ -233,6 +239,11 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
         child2=new org.jdom.Element(PATH);
         child2.setAttribute(ID, EXPORT);
         child2.setAttribute(PATH, rootExportPath);        
+        child.addContent(child2);
+
+        child2=new org.jdom.Element(PATH);
+        child2.setAttribute(ID, SCORM);
+        child2.setAttribute(PATH, rootScormPath);        
         child.addContent(child2);
         
         e.addContent(child);
@@ -292,7 +303,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
         org.jdom.Element child, child2;
         
         if((child=e.getChild(PATHS))!=null){
-            String rp=null, rpx=null;
+            String rp=null, rpx=null, rps=null;
             Iterator it=child.getChildren(PATH).iterator();
             while(it.hasNext()){
                 child2=(org.jdom.Element)it.next();
@@ -302,6 +313,9 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
                 else if(EXPORT.equals(child2.getAttributeValue(ID))){
                     rpx=JDomUtility.getStringAttr(child2, PATH, rootExportPath, false);
                 }
+                else if(SCORM.equals(child2.getAttributeValue(ID))){
+                    rps=JDomUtility.getStringAttr(child2, PATH, rootScormPath, false);
+                }                
             }
             if(rp!=null){
                 rootPath=rp;
@@ -318,6 +332,19 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
                 }
                 else{
                   rootExportPath = (new File(f, EXPORT_PATH)).getPath();
+                }                                
+              }              
+            }
+            if(rps!=null){
+              rootScormPath=rps;
+            } else {
+              if(!FileSystem.isStrUrl(rootPath)){
+                File f=new File(rootPath);
+                if(f.getName().compareToIgnoreCase(PROJECTS_PATH)==0 && f.getParent()!=null){
+                  rootScormPath = (new File(f.getParentFile(), SCORM_PATH)).getPath();
+                }
+                else{
+                  rootScormPath = (new File(f, SCORM_PATH)).getPath();
                 }                                
               }              
             }

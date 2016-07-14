@@ -38,6 +38,7 @@ public class ExportToJSDlg extends javax.swing.JPanel {
   ResourceBridge rb;
   Options options;
   String outputFolder;
+  String scormFile;
   boolean exportAll = true;
   boolean exportScorm = true;
 
@@ -59,30 +60,40 @@ public class ExportToJSDlg extends javax.swing.JPanel {
   private void initComponents() {
     java.awt.GridBagConstraints gridBagConstraints;
 
+    exportPanel = new javax.swing.JPanel();
     exportLb = new javax.swing.JLabel();
     outputFolderLb = new javax.swing.JLabel();
     outputFolderText = new javax.swing.JTextField();
     outputFolderBtn = new javax.swing.JButton();
-    javax.swing.JLabel spacer2 = new javax.swing.JLabel();
+    spacer2 = new javax.swing.JLabel();
     allPrjChk = new javax.swing.JCheckBox();
+    spacer = new javax.swing.JLabel();
+    scormPanel = new javax.swing.JPanel();
     exportScormChk = new javax.swing.JCheckBox();
+    scormFolderLb = new javax.swing.JLabel();
+    scormFileText = new javax.swing.JTextField();
+    scormFileBtn = new javax.swing.JButton();
+    javax.swing.JLabel spacer3 = new javax.swing.JLabel();
 
     setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
-    setLayout(new java.awt.GridBagLayout());
+    setLayout(new javax.swing.BoxLayout(this, javax.swing.BoxLayout.Y_AXIS));
+
+    exportPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("HTML5"));
+    exportPanel.setLayout(new java.awt.GridBagLayout());
 
     exportLb.setText(options.getMsg("export_project_desc"));
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
     gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
     gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
-    add(exportLb, gridBagConstraints);
+    exportPanel.add(exportLb, gridBagConstraints);
 
     outputFolderLb.setLabelFor(outputFolderText);
     outputFolderLb.setText(options.getMsg("export_project_output_folder"));
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
     gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
-    add(outputFolderLb, gridBagConstraints);
+    exportPanel.add(outputFolderLb, gridBagConstraints);
 
     outputFolderText.setToolTipText(options.getMsg("edit_new_project_folder_tooltip"));
     outputFolderText.setMinimumSize(new java.awt.Dimension(280, 21));
@@ -91,7 +102,7 @@ public class ExportToJSDlg extends javax.swing.JPanel {
     gridBagConstraints.gridwidth = 2;
     gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
     gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
-    add(outputFolderText, gridBagConstraints);
+    exportPanel.add(outputFolderText, gridBagConstraints);
 
     outputFolderBtn.setText(options.getMsg("edit_new_project_folder_browse"));
     outputFolderBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -102,22 +113,69 @@ public class ExportToJSDlg extends javax.swing.JPanel {
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
     gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
-    add(outputFolderBtn, gridBagConstraints);
+    exportPanel.add(outputFolderBtn, gridBagConstraints);
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-    add(spacer2, gridBagConstraints);
+    gridBagConstraints.weightx = 1.0;
+    exportPanel.add(spacer2, gridBagConstraints);
 
     allPrjChk.setText(options.getMsg("export_project_includeAll"));
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
     gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-    add(allPrjChk, gridBagConstraints);
+    exportPanel.add(allPrjChk, gridBagConstraints);
+
+    add(exportPanel);
+
+    spacer.setPreferredSize(new java.awt.Dimension(25, 25));
+    add(spacer);
+
+    scormPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("SCORM"));
+    scormPanel.setLayout(new java.awt.GridBagLayout());
 
     exportScormChk.setText(options.getMsg("export_project_exportSCORM"));
+    exportScormChk.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        scormSelChanged(evt);
+      }
+    });
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
     gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-    add(exportScormChk, gridBagConstraints);
+    scormPanel.add(exportScormChk, gridBagConstraints);
+
+    scormFolderLb.setLabelFor(scormFileText);
+    scormFolderLb.setText(options.getMsg("export_project_scorm_file"));
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+    gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
+    scormPanel.add(scormFolderLb, gridBagConstraints);
+
+    scormFileText.setToolTipText(options.getMsg("export_project_scorm_file_tooltip "));
+    scormFileText.setMinimumSize(new java.awt.Dimension(280, 21));
+    scormFileText.setPreferredSize(new java.awt.Dimension(280, 21));
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridwidth = 2;
+    gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+    gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
+    scormPanel.add(scormFileText, gridBagConstraints);
+
+    scormFileBtn.setText(options.getMsg("export_project_scorm_file_browse"));
+    scormFileBtn.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        scormFileBtnActionPerformed(evt);
+      }
+    });
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+    gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
+    scormPanel.add(scormFileBtn, gridBagConstraints);
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+    gridBagConstraints.weightx = 1.0;
+    scormPanel.add(spacer3, gridBagConstraints);
+
+    add(scormPanel);
   }// </editor-fold>//GEN-END:initComponents
 
   private JFileChooser chooser;
@@ -136,8 +194,18 @@ public class ExportToJSDlg extends javax.swing.JPanel {
 
   }//GEN-LAST:event_outputFolderBtnActionPerformed
 
+  private void scormFileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scormFileBtnActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_scormFileBtnActionPerformed
+
+  private void scormSelChanged(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scormSelChanged
+    scormFileBtn.setEnabled(exportScormChk.isSelected());
+    scormFolderLb.setEnabled(exportScormChk.isSelected());
+  }//GEN-LAST:event_scormSelChanged
+
   public void fillData() {
     outputFolderText.setText(outputFolder == null ? "" : outputFolder);
+    scormFileText.setText(scormFile == null ? "" : scormFile);
     allPrjChk.setSelected(exportAll);
     exportScormChk.setSelected(exportScorm);
   }
@@ -146,14 +214,16 @@ public class ExportToJSDlg extends javax.swing.JPanel {
     outputFolder = StrUtils.nullableString(outputFolderText.getText());
     exportAll = allPrjChk.isSelected();
     exportScorm = exportScormChk.isSelected();
+    scormFile = StrUtils.nullableString(scormFileText.getText());
   }
 
-  public static String[] prompt(ResourceBridge rb, Component parent, String inputPath, String exportBasePath) {
-    String[] result = null;    
+  public static String[] prompt(ResourceBridge rb, Component parent, String inputPath, String exportBasePath, String scormBasePath) {
+    String[] result = null;
     ExportToJSDlg exportDlg = new ExportToJSDlg(rb);
     Messages msg = rb.getOptions().getMessages();
     String inputBase = (new File(inputPath)).getName();
     exportDlg.outputFolder = (new File(new File(exportBasePath), inputBase)).getPath();
+    exportDlg.scormFile = (new File(new File(scormBasePath), inputBase + ".scorm.zip")).getPath();
     exportDlg.fillData();
     while (result == null) {
       if (!msg.showInputDlg(parent, exportDlg, "export_project_title")) {
@@ -165,6 +235,8 @@ public class ExportToJSDlg extends javax.swing.JPanel {
       } else {
         try {
           boolean folderOk = true;
+          boolean scormOk = true;
+
           File outputFolderFile = new File(exportDlg.outputFolder);
 
           if (exportDlg.outputFolder.equals(inputPath)) {
@@ -182,10 +254,27 @@ public class ExportToJSDlg extends javax.swing.JPanel {
             folderOk = false;
           }
 
-          if (folderOk) {
-            result = new String[]{exportDlg.outputFolder, inputPath,
+          if (folderOk && exportDlg.exportScorm) {
+            if (exportDlg.scormFile == null) {
+              msg.showErrorWarning(parent, "export_project_scorm_file_err_empty", null);
+              scormOk = false;
+            } else {
+              File scormFile = new File(exportDlg.scormFile);
+              if (scormFile.exists()) {
+                scormOk = msg.showQuestionDlg(parent, "export_project_scorm_file_exists", null, "yn") == Messages.YES;
+              } else if (!scormFile.getParentFile().mkdirs()) {
+                msg.showErrorWarning(parent, "edit_new_project_err_folderCreation", null);
+                scormOk = false;
+              }
+            }
+          }
+
+          if (folderOk && scormOk) {
+            result = new String[]{
+              exportDlg.outputFolder,
+              inputPath,
               exportDlg.exportAll ? "true" : "false",
-              exportDlg.exportScorm ? "true" : "false"};
+              exportDlg.exportScorm ? exportDlg.scormFile : null};
           }
         } catch (Exception ex) {
           msg.showErrorWarning(parent, "ERROR", ex);
@@ -198,10 +287,17 @@ public class ExportToJSDlg extends javax.swing.JPanel {
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JCheckBox allPrjChk;
   private javax.swing.JLabel exportLb;
+  private javax.swing.JPanel exportPanel;
   private javax.swing.JCheckBox exportScormChk;
   private javax.swing.JButton outputFolderBtn;
   private javax.swing.JLabel outputFolderLb;
   private javax.swing.JTextField outputFolderText;
+  private javax.swing.JButton scormFileBtn;
+  private javax.swing.JTextField scormFileText;
+  private javax.swing.JLabel scormFolderLb;
+  private javax.swing.JPanel scormPanel;
+  private javax.swing.JLabel spacer;
+  private javax.swing.JLabel spacer2;
   // End of variables declaration//GEN-END:variables
 
 }
