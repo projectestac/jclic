@@ -1,12 +1,11 @@
 JClic: Authoring and playing system for educational activities
 Generalitat de Catalunya - Departament d'Ensenyament
 
-Version 0.2.0
-
-WWW:   http://clic.xtec.cat
-       https://github.com/projectestac/jclic
+Main site: https://clic.xtec.cat
+Development: https://projectestac.github.io/jclic
+New HTML5 player: https://clic.xtec.cat/repo
        
-Email: clic@xtec.net
+Contact: clic@xtec.cat
 
 Developers:
    Francesc Busquets (project leader)
@@ -130,10 +129,9 @@ to http://www.gnu.org/copyleft/gpl.html or write to
 
 -----------------------------------------------------------------------------
 
-Source code to this program is always available; for more
-information visit our website at:
+Source code to this program is always available in:
 
-  http://clic.xtec.cat/
+  https://github.com/projectestac/jclic
 
 
 JClic is built upon other free libraries. Most
@@ -161,4 +159,4 @@ each library's source code directory.
 See INSTALL.txt for compilation instructions, and HACKING.txt for information 
 about the internal structure of JClic and the organization of the source code.
 
------------------------------------------------------------------------------
+
