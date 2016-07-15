@@ -250,7 +250,7 @@ Section "-JClic core" Section1
 	File "..\dist\jclic\jclic.jar"
 	File "..\LICENSE"
 	File "..\CREDITS.txt"
-	File "..\CHANGES.txt"
+	File "CHANGES.txt"
 	File "..\HACKING.txt"
 	File "..\INSTALL.txt"
 

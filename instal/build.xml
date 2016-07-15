@@ -46,7 +46,7 @@
           depends="init">
     <zip destfile="${instal.dir}/${prefix}.zip">
       <zipfileset dir="." includes="COPYING.txt" prefix="${prefix}" />
-      <zipfileset dir="." includes="CHANGES.txt" prefix="${prefix}" />
+      <zipfileset dir="." includes="CHANGES.md" prefix="${prefix}" />
       <zipfileset dir="." includes="CREDITS.txt" prefix="${prefix}" />
       <zipfileset dir="." includes="HACKING.txt" prefix="${prefix}" />
       <zipfileset dir="." includes="INSTALL.txt" prefix="${prefix}" />
