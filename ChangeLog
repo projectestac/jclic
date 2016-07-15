@@ -1,3 +1,13 @@
+2016-07-15  Francesc Busquets <fbusquets@xtec.cat>
+    *   src/author/edu/xtec/jclic/AuthorSettings.java
+    *   src/author/edu/xtec/jclic/AuthorSingleFrame.java
+    *   src/author/edu/xtec/jclic/project/ExportTaskDlg.java
+    *   src/author/edu/xtec/jclic/project/ExportToJSDlg.form
+    *   src/author/edu/xtec/jclic/project/ExportToJSDlg.java: Generate SCORM file in HTML5 export
+
+    *   instal/build.xml
+    *   instal/setup.nsi: Windows installer updated
+
 2016-06-12  Francesc Busquets <fbusquets@xtec.cat>
     *   src/report/reportServer/edu/xtec/jclic/report/HTTPReportServer.java
     *   src/report/reportServlets/edu/xtec/jclic/report/rp/JClicReportService.java: Adding CORS response headers and allowing OPTIONS method in Reports Server (needed for JClic.js when running in different server/port)
