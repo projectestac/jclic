@@ -94,13 +94,13 @@ public class ExportTaskDlg extends javax.swing.JPanel {
           + " <organizations default=\"JClic\">  \n"
           + "  <organization identifier=\"JClic\">  \n"
           + "   <title>%SCORMTITLE%</title>\n"
-          + "   <item identifier=\"ITEM_JClic\" identifierref=\"RES_JClic\">\n"
+          + "   <item identifier=\"ITEM_%SCORMID%\" identifierref=\"RES_%SCORMID%\">\n"
           + "    <title>%SCORMTITLE%</title>\n"
           + "   </item>\n"
           + "  </organization>\n"
           + " </organizations>\n"
           + " <resources>\n"
-          + "  <resource identifier=\"RES_JClic\" type=\"webcontent\" href=\"/index.html\" adlcp:scormtype=\"sco\"> \n"
+          + "  <resource identifier=\"RES_%SCORMID%\" type=\"webcontent\" href=\"/index.html\" adlcp:scormtype=\"sco\"> \n"
           + "%FILETAGS%  </resource>\n"
           + " </resources>\n"
           + "</manifest>";
@@ -315,7 +315,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
           fos = new FileOutputStream(new File(outputPath, "imsmanifest.xml"));
           pw = new PrintWriter(new OutputStreamWriter(fos, "UTF-8"));
           s = imsmanifest.replaceAll("%SCORMTITLE%", StrUtils.safeHtml(project.settings.title));
-          s = StrUtils.replace(s, "%SCORMID%", "JClic-" + Integer.toHexString((int) (Math.random() * 0xEFFF + 0x1000)).toUpperCase());
+          s = StrUtils.replace(s, "%SCORMID%", "JClic-" + Integer.toHexString((int) (Math.random() * 0xEFFFFF + 0x100000)).toUpperCase());
           StringBuilder sb = new StringBuilder();
           ListIterator<String> it = fileList.listIterator();
           while (it.hasNext()) {
@@ -328,16 +328,16 @@ public class ExportTaskDlg extends javax.swing.JPanel {
 
           if (scormFile != null) {
             final byte[] BUFFER = new byte[1024];
-            int i = 0;
             exportDlg.ps.println("Generating file \"" + scormFile + "\" with all content inside");
 
-            ZipOutputStream out = new ZipOutputStream(new FileOutputStream(new File(outputPath, scormFile)));
+            ZipOutputStream out = new ZipOutputStream(new FileOutputStream(scormFile));
             it = fileList.listIterator();
             while (it.hasNext()) {
               String file = it.next();
               FileInputStream in = new FileInputStream(new File(outputPath, file));
               ZipEntry entry = new ZipEntry(file);
               out.putNextEntry(entry);
+              int i;
               while ((i = in.read(BUFFER)) != -1) {
                 out.write(BUFFER, 0, i);
               }

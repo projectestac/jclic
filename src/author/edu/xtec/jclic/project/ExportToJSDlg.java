@@ -65,7 +65,7 @@ public class ExportToJSDlg extends javax.swing.JPanel {
     outputFolderLb = new javax.swing.JLabel();
     outputFolderText = new javax.swing.JTextField();
     outputFolderBtn = new javax.swing.JButton();
-    spacer2 = new javax.swing.JLabel();
+    javax.swing.JLabel spacer2 = new javax.swing.JLabel();
     allPrjChk = new javax.swing.JCheckBox();
     spacer = new javax.swing.JLabel();
     scormPanel = new javax.swing.JPanel();
@@ -96,8 +96,8 @@ public class ExportToJSDlg extends javax.swing.JPanel {
     exportPanel.add(outputFolderLb, gridBagConstraints);
 
     outputFolderText.setToolTipText(options.getMsg("edit_new_project_folder_tooltip"));
-    outputFolderText.setMinimumSize(new java.awt.Dimension(280, 21));
-    outputFolderText.setPreferredSize(new java.awt.Dimension(280, 21));
+    outputFolderText.setMinimumSize(new java.awt.Dimension(320, 21));
+    outputFolderText.setPreferredSize(new java.awt.Dimension(320, 21));
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridwidth = 2;
     gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -151,9 +151,9 @@ public class ExportToJSDlg extends javax.swing.JPanel {
     gridBagConstraints.insets = new java.awt.Insets(4, 4, 4, 4);
     scormPanel.add(scormFolderLb, gridBagConstraints);
 
-    scormFileText.setToolTipText(options.getMsg("export_project_scorm_file_tooltip "));
-    scormFileText.setMinimumSize(new java.awt.Dimension(280, 21));
-    scormFileText.setPreferredSize(new java.awt.Dimension(280, 21));
+    scormFileText.setToolTipText(options.getMsg("export_project_scorm_file_tooltip"));
+    scormFileText.setMinimumSize(new java.awt.Dimension(320, 21));
+    scormFileText.setPreferredSize(new java.awt.Dimension(320, 21));
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridwidth = 2;
     gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
@@ -179,14 +179,29 @@ public class ExportToJSDlg extends javax.swing.JPanel {
   }// </editor-fold>//GEN-END:initComponents
 
   private JFileChooser chooser;
+  private JFileChooser scormFileChooser;
 
   private void outputFolderBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputFolderBtnActionPerformed
 
     if (chooser == null) {
-      chooser = new JFileChooser(outputFolder);
+      chooser = new JFileChooser();
       chooser.setApproveButtonText(options.getMsg("export_project_selectFolder"));
       chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
     }
+
+    outputFolder = StrUtils.nullableString(outputFolderText.getText());
+    if (outputFolder != null) {
+      try {
+        File f = new File(outputFolder);
+        if (!f.exists()) {
+          f.mkdirs();
+        }
+        chooser.setSelectedFile(f);
+      } catch (Exception ex) {
+        // Unable to create folders. By now, do nothing
+      }
+    }
+
     if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
       outputFolder = chooser.getSelectedFile().getAbsolutePath();
       outputFolderText.setText(outputFolder);
@@ -195,7 +210,30 @@ public class ExportToJSDlg extends javax.swing.JPanel {
   }//GEN-LAST:event_outputFolderBtnActionPerformed
 
   private void scormFileBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scormFileBtnActionPerformed
-    // TODO add your handling code here:
+
+    if (scormFileChooser == null) {
+      scormFileChooser = new JFileChooser();
+      scormFileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+    }
+    
+    scormFile = StrUtils.nullableString(scormFileText.getText());
+    if (scormFile != null) {
+      try {
+        File f = new File(scormFile);
+        if (!f.getParentFile().exists()) {
+          f.getParentFile().mkdirs();
+        }
+        scormFileChooser.setSelectedFile(f);
+      } catch (Exception ex) {
+        // Unable to create folders. By now, do nothing
+      }
+    }
+
+    if (scormFileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+      scormFile = scormFileChooser.getSelectedFile().getAbsolutePath();
+      scormFileText.setText(scormFile);
+    }
+
   }//GEN-LAST:event_scormFileBtnActionPerformed
 
   private void scormSelChanged(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scormSelChanged
@@ -262,7 +300,7 @@ public class ExportToJSDlg extends javax.swing.JPanel {
               File scormFile = new File(exportDlg.scormFile);
               if (scormFile.exists()) {
                 scormOk = msg.showQuestionDlg(parent, "export_project_scorm_file_exists", null, "yn") == Messages.YES;
-              } else if (!scormFile.getParentFile().mkdirs()) {
+              } else if (!scormFile.getParentFile().exists() && !scormFile.getParentFile().mkdirs()) {
                 msg.showErrorWarning(parent, "edit_new_project_err_folderCreation", null);
                 scormOk = false;
               }
@@ -297,7 +335,6 @@ public class ExportToJSDlg extends javax.swing.JPanel {
   private javax.swing.JLabel scormFolderLb;
   private javax.swing.JPanel scormPanel;
   private javax.swing.JLabel spacer;
-  private javax.swing.JLabel spacer2;
   // End of variables declaration//GEN-END:variables
 
 }
