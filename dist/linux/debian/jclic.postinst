@@ -21,7 +21,7 @@ set -e
 case "$1" in
     configure)
 	# Initializing edu.xtec.jclic node in Java system preferences
-	jclic-libmanager -list
+	jclic-libmanager -list -silent
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

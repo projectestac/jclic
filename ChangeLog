@@ -1,3 +1,6 @@
+2016-09-05  Francesc Busquets <fbusquets@xtec.cat>
+    *   src/author/edu/xtec/jclic/AuthorSettings.java: Revert JS codebase to clic.xtec.cat
+
 2016-07-15  Francesc Busquets <fbusquets@xtec.cat>
     *   src/author/edu/xtec/jclic/AuthorSettings.java
     *   src/author/edu/xtec/jclic/AuthorSingleFrame.java
@@ -215,7 +218,7 @@
     * src/player/edu/xtec/jclic/PlayerSettings.java
     * src/player/edu/xtec/jclic/accessibility/FressaFunctions.java
     * src/player/edu/xtec/jclic/accessibility/TFormExchange.java
-    * src/player/edu/xtec/jclic/accessibility/TFormKeyboard.java: Pre-implementation of "Fressa" accessibility functions 
+    * src/player/edu/xtec/jclic/accessibility/TFormKeyboard.java: Pre-implementation of "Fressa" accessibility functions
 
     * src/core/edu/xtec/jclic/edit/Editor.java
     * src/author/edu/xtec/jclic/bags/ActivitySequenceEditor.java: Correction of bug #172
@@ -262,7 +265,7 @@
 2010-05-14  Francesc Busquets  <fbusquets@xtec.cat>
 
     * project.properties: Preparing version 0.2.1.1
-    
+
     * extensions/dbconn/build.xml: Updated build script
     * src/report/webApp/META-INF/context.xml
     * src/report/webApp/WEB-INF/sun-web.xml
@@ -274,9 +277,9 @@
 
     * i18n/fromLaunchpad/build.xml: Corrected a bug in translations. Colons (":") were often
                                     replaced by slash-colon sequences ("/:").
-                                    
+
     * src/author/edu/xtec/jclic/AuthorSingleFrame.java
-    * src/core/edu/xtec/jclic/project/JClicProject.java: More improvements in memory management.                                    
+    * src/core/edu/xtec/jclic/project/JClicProject.java: More improvements in memory management.
 
 2010-01-15  Francesc Busquets  <fbusquets@xtec.cat>
 
@@ -295,8 +298,8 @@
     * src/core/edu/xtec/jclic/Player.java
     * src/utilities/edu/xtec/util/Messages.java
     * src/utilities/edu/xtec/util/StreamIO.java: Miscellaneous improvements like the ability to import media
-                                                 files when editing a cell.                                                 
-    
+                                                 files when editing a cell.
+
 2010-01-13  Francesc Busquets  <fbusquets@xtec.cat>
 
     * CHANGES.txt
@@ -305,13 +308,13 @@
     * dist/jclic/llegiume.txt
     * dist/jclic/leeme.txt
     * project.properties: Preparing version 0.2.1.0
-    
+
     * dist/jnlp/author.jnlp
     * dist/jnlp/install.jnlp
     * dist/jnlp/player.jnlp
     * dist/jnlp/reportServer.jnlp
     * instal/setup.nsi: Launch JClic Author with the parameter -Xmx256m
-    
+
     * src/author/edu/xtec/jclic/ActivityEditorPanel.form
     * src/author/edu/xtec/jclic/ActivityEditorPanel.java
     * src/author/edu/xtec/jclic/AuthorSettingsDlg.form
@@ -339,17 +342,17 @@
 
     * lib/servlet-api/src/javax/servlet/ServletContextEvent.java
     * lib/servlet-api/src/javax/servlet/ServletContextListener.java
-    * extensions/dbconn/src/edu/xtec/util/db/ConnectionBeanProvider.java: 
+    * extensions/dbconn/src/edu/xtec/util/db/ConnectionBeanProvider.java:
     * src/report/reportServlets/edu/xtec/jclic/report/rp/ReportsRequestProcessor.java
     * src/report/webApp/WEB-INF/classes/edu/xtec/jclic/report/servlet/ContextParamsReader.java
     * src/report/webApp/WEB-INF/web.xml: New methods for passing settings to servlets: by "context-param" entries
                                          in web.xml, and by key-value fields in the database
-    
+
     * src/core/edu/xtec/jclic/boxes/ActiveBox.java: Corrected bug 321 - Bad rendring in right-to-left (arabic, hebrew...) texts
-    
+
     * src/utilities/edu/xtec/util/Options.java
     * src/core/edu/xtec/jclic/media/CheckMediaSystem.java: Correction for Mac OS-X SnowLeopard - Avoid QuickTime with 64-bit java
-    
+
     * project.properties: Preparing for new version 0.2.1.0
 
 2009-03-03  Francesc Busquets  <fbusquets@xtec.cat>
@@ -367,7 +370,7 @@
     * dist/jnlp/player.jnlp
     * dist/jnlp/install.jnlp
     * dist/jnlp/author.jnlp
-    * dist/jnlp/reportServer.jnlp: 
+    * dist/jnlp/reportServer.jnlp:
     * instal/build.xml
     * instal/setup.nsi: Preparing new version 0.2.0.6
 
@@ -732,7 +735,7 @@
     * ... and a lot of i18n/fromLaunchpad/po/*_*.po files not listed here: Implemented a new system in i18n/
       to synchronize the .properties files with the .po files used in the Launchpad translation service.
 
-2008-02-06  Francesc Busquets  <fbusquets@xtec.cat>	
+2008-02-06  Francesc Busquets  <fbusquets@xtec.cat>
 
     * src/author/edu/xtec/resources/messages/AuthorMessages.properties
     * src/author/edu/xtec/resources/messages/AuthorMessages_ca.properties
@@ -769,7 +772,7 @@
     * src/extra/edu/xtec/resources/shapers/listshapers_es.properties
     * src/extra/edu/xtec/resources/shapers/listshapers_gl.properties
     * src/extra/edu/xtec/resources/shapers/listshapers_pt_BR.properties
-    * src/player/edu/xtec/resources/messages/PlayerMessages.properties 
+    * src/player/edu/xtec/resources/messages/PlayerMessages.properties
     * src/player/edu/xtec/resources/messages/PlayerMessages_ca.properties
     * src/player/edu/xtec/resources/messages/PlayerMessages_de.properties
     * src/player/edu/xtec/resources/messages/PlayerMessages_es.properties
@@ -807,24 +810,24 @@
     * src/utilities/edu/xtec/resources/messages/PersistentPathsMessages_pt.properties
     * src/author/edu/xtec/jclic/AuthorSingleFrame.java
     * src/interface/edu/xtec/jclic/Constants.java
-    * src/core/edu/xtec/jclic/Player.java 
+    * src/core/edu/xtec/jclic/Player.java
     * src/jclicApplet/JClicApplet.java
     * src/jclicPlayer/JClicInstaller.java
     * src/player/edu/xtec/jclic/SingleInstanceJFrame.java
     * src/report/reportServer/ReportServer.form
     * src/report/reportServer/ReportServer.java
-    * src/core/edu/xtec/resources/commonSettings.properties: The encoding of all .properties 
+    * src/core/edu/xtec/resources/commonSettings.properties: The encoding of all .properties
     files unified with the "native2ascii" tool, in order to make if compatible with "prop2po". Also,
     config expressions (like internal paths to resources or version numbers) have been removed from
     language files and placed in the new file commonSettings.properties.
 ﻿
-2008-01-26  Francesc Busquets  <fbusquets@xtec.cat>	
+2008-01-26  Francesc Busquets  <fbusquets@xtec.cat>
 
     * src/core/edu/xtec/jclic/Player.java
     * removed file src/extra/edu/xtec/resources/fonts/arial2.ttf: Removed clone of arial font,
     not needed.
 
-﻿2008-01-23  Francesc Busquets  <fbusquets@xtec.cat>	
+﻿2008-01-23  Francesc Busquets  <fbusquets@xtec.cat>
 
     * dist/jclic/jclicplugin.js
     * dist/jclic/leeme.txt
@@ -842,15 +845,15 @@
     * INSTALL.txt
     * build.xml: The packaging of JClic has been simplified. Now only
     three JAR files are created: jclic.jar, jclicauthor.jar and jclicreports.jar
-    
-2008-01-23  Francesc Busquets  <fbusquets@xtec.cat>	
+
+2008-01-23  Francesc Busquets  <fbusquets@xtec.cat>
 
     * src/report/reportServlets/edu/xtec/jclic/report/rp/Img.java
     * removed directory src/report/reportServlets/edu/xtec/util/ranab: The GIF Encoder library,
     by Rana Bhattacharyya, has been suppressed. The graphics of reports are nou generated by
-    means of the ImageIO API.    
-    
-2008-01-23  Francesc Busquets  <fbusquets@xtec.cat>	
+    means of the ImageIO API.
+
+2008-01-23  Francesc Busquets  <fbusquets@xtec.cat>
 
      * added directory extensions/img/image4j
      * src/core/edu/xtec/jclic/misc/Bmp.java
@@ -863,29 +866,29 @@
      * src/core/edu/xtec/resources/messages/JClicMessages_pt.properties
      * src/core/edu/xtec/resources/messages/JClicMessages_ca.properties
      * src/core/edu/xtec/resources/messages/JClicMessages_fr.properties
-     * src/core/edu/xtec/resources/about/otherCredits.html     
+     * src/core/edu/xtec/resources/about/otherCredits.html
      * src/core/edu/xtec/jclic/misc/Utils.java
-     * CREDITS.txt: The class used to import BMP files, by J.Osbaldeston, 
+     * CREDITS.txt: The class used to import BMP files, by J.Osbaldeston,
      has been replaced by the LGPL library image4j (http://image4j.sourceforge.net). Now ICO files are
      also recognized by JClic.
 
-2008-01-23  Francesc Busquets  <fbusquets@xtec.cat>	
+2008-01-23  Francesc Busquets  <fbusquets@xtec.cat>
 
      * added directory extensions/img/image4j
-     * src/core/edu/xtec/jclic/misc/Bmp.java: The class used to import BMP files, by J.Osbaldeston, 
+     * src/core/edu/xtec/jclic/misc/Bmp.java: The class used to import BMP files, by J.Osbaldeston,
      has been replaced by the LGPL library image4j (http://image4j.sourceforge.net)
 
-2008-01-14  Francesc Busquets  <fbusquets@xtec.cat>	
+2008-01-14  Francesc Busquets  <fbusquets@xtec.cat>
 
      * removed dir lib/servlet-api
      * added new directory tree lib/servlet-api: The implementation of JSR-154 (Servlet 2.4) taked
        from the GlassFish project has been substitued by a partial, empty stub implementation of the
        classes and interfaces needed at compile-time by JClic reports server.
 
-2008-01-14  Francesc Busquets  <fbusquets@xtec.cat>	
+2008-01-14  Francesc Busquets  <fbusquets@xtec.cat>
 
      * removed dir extensions/jmf
-     * dist/jclic/jclicplugin.js     
+     * dist/jclic/jclicplugin.js
      * dist/jnlp/reportServer.jnlp
      * dist/jnlp/jclic.jnlp
      * dist/jnlp/install.jnlp
@@ -900,7 +903,7 @@
      * build.xml: The stub implementations of some JMF codecs in extensions/jmf has been removed to avoid
        copyright conflicts.
 
-2007-12-29  Francesc Busquets  <fbusquets@xtec.cat>	
+2007-12-29  Francesc Busquets  <fbusquets@xtec.cat>
 
      * added file testcert-gkr.keystore
      * added file testcert-gkr.cer
@@ -908,13 +911,13 @@
        Sun's JKS format. The Ant script build script dinamically loads the appropiate keystore for
        the compiler currently used (Sun JDK or GNU gcj)
 
-2007-12-27  Francesc Busquets  <fbusquets@xtec.cat>	
+2007-12-27  Francesc Busquets  <fbusquets@xtec.cat>
 
      * removed dir extensions/xml/jdom-1.0/lib
      * build.xml: Suppressed the binary JAR files in the jdom-1.0/lib directory. JDOM is now
        compiled without the X-Path functions, not needed by JClic.
 
-﻿2007-12-10  Francesc Busquets  <fbusquets@xtec.cat>	
+﻿2007-12-10  Francesc Busquets  <fbusquets@xtec.cat>
 
      * src/core/edu/xtec/jclic/media/JMFActiveMediaPlayer.java
      * src/qt61/edu/xtec/jclic/media/QT61AudioPlayer.java
@@ -925,7 +928,7 @@
      * src/core/edu/xtec/jclic/media/ByteDataSource.java: Minor changes in the source code, replacing
      "include" statements with full qualified names.
 
-2007-12-10  Francesc Busquets  <fbusquets@xtec.cat>	
+2007-12-10  Francesc Busquets  <fbusquets@xtec.cat>
     * removed file lib/QTJava.zip
     * added directory tree lib/qtjava-api
     * removed file lib/jclicjmf.jar
@@ -934,16 +937,16 @@
     * added dirctory tree lib/servlet-api: Changes made in order to have a clean and full-compilable
     source code without external non-free dependencies.
 
-2007-12-10  Francesc Busquets  <fbusquets@xtec.cat>	
+2007-12-10  Francesc Busquets  <fbusquets@xtec.cat>
     * extensions/soundspi/tritonus/src/org/tritonus/share/sampled/mixer/TClip.java: Added the
     getLongFramePosition method in order to make it compliant with javax.sound.sampled.DataLine
-    
-2007-11-28  Francesc Busquets  <fbusquets@xtec.cat>	
+
+2007-11-28  Francesc Busquets  <fbusquets@xtec.cat>
 	* extensions/dbconn/build.xml
 	* build.xml: File extensions/dbconn/lib/javax-sql-classes.zip is no longer needed since
 	JClic compiles against Java 1.4
 
-2007-11-27  Francesc Busquets  <fbusquets@xtec.cat>	
+2007-11-27  Francesc Busquets  <fbusquets@xtec.cat>
 
 	* dist/jclic/jclicplugin.js
 	* dist/jnlp/reportServer.jnlp
@@ -961,7 +964,7 @@
 	* HACKING.txt: Support for QuickTime 6.0 has been supressed in JClic. Mac users can still
 	make use of QuickTime for Java 6.1.
 
-2007-11-27  Francesc Busquets  <fbusquets@xtec.cat>	
+2007-11-27  Francesc Busquets  <fbusquets@xtec.cat>
 
 	* dist/jclic/jclicplugin.js
 	* dist/jnlp/reportServer.jnlp
@@ -976,15 +979,15 @@
 	was a workaround for having the texts of the common Java dialog boxes translated to Catalan.
 	Since Java is a free platform, this must be done in the Java source code.
 
-2007-11-26  Francesc Busquets  <fbusquets@xtec.cat>	
+2007-11-26  Francesc Busquets  <fbusquets@xtec.cat>
 
 	* src/extra/edu/xtec/resources/skins/mini.xml
 	* src/extra/edu/xtec/resources/skins/mini.png
 	* src/extra/edu/xtec/resources/skins/listskins.properties: Added a new skin
-	called "Mini", suitable for embedding JClic projects in blogs and other web pages with 
+	called "Mini", suitable for embedding JClic projects in blogs and other web pages with
 	small space available.
 
-2007-11-23  Francesc Busquets  <fbusquets@xtec.cat>	
+2007-11-23  Francesc Busquets  <fbusquets@xtec.cat>
 
 	* extensions/dbconn/build.xml
 	* dist/jclic/jclicplugin.js
@@ -999,56 +1002,56 @@
 	* build.xml
 	* HACKING.txt
 	* INSTALL.txt
-	* project.properties: The Java virtual machine required by JClic has been updated 
+	* project.properties: The Java virtual machine required by JClic has been updated
 	from 1.3.1 to 1.4. This allows to use JAXP and other XML libraries provided by the
 	platform, so it's no longer necessary to build jclicxml.jar. JDOM 1.0, still necessary,
 	is built now within the new file "jdom.jar". The directories extensions/xml/jaxp and
 	extensions/xml/crimson have been deleted.
 
-2007-04-30  Francesc Busquets  <fbusquets@xtec.cat>	
+2007-04-30  Francesc Busquets  <fbusquets@xtec.cat>
 
 	* src/activities/edu/xtec/jclic/beans/ColorButton.java:
 	* src/activities/edu/xtec/jclic/beans/AlphaColorChooserPanel.java:
 	* src/activities/edu/xtec/jclic/beans/AlphaColorChooserPanel.form: Corrected an irregular
      behavior of colorButton, that returns a new color even when the dialog window is closed.
 
-2007-04-29  Francesc Busquets  <fbusquets@xtec.cat>	
+2007-04-29  Francesc Busquets  <fbusquets@xtec.cat>
 
 	* src/activities/edu/xtec/jclic/activities/text/WrittenAnswer.java: The marker is drawed
      only when there are more than one cell to solve. In multiple-answer mode, the first valid
      option is always displayed when the activity is finished, even if another valid option
      was entered (useful for natural spelling exercises).
 
-2007-03-30  Francesc Busquets  <fbusquets@xtec.cat>	
+2007-03-30  Francesc Busquets  <fbusquets@xtec.cat>
 
 	* src/extra/edu/xtec/resources/skins/listskins.properties
 	* src/extra/edu/xtec/resources/skins/empty.png
 	* src/extra/edu/xtec/resources/skins/empty.xml: Added a new skin, named "Empty",
      without buttons, counters nor message boxes.
 
-2007-02-23  Francesc Busquets  <fbusquets@xtec.cat>	
+2007-02-23  Francesc Busquets  <fbusquets@xtec.cat>
 
 	* src/author/edu/xtec/jclic/AuthorSingleFrame.java
 	* src/core/edu/xtec/jclic/PlayerHistory.java: Corrections and improvements
 	to the reports system, in order to solve bug #41 (conditional jumps between
 	sequence elements are not always working as expected)
 
-2007-02-21  Francesc Busquets  <fbusquets@xtec.cat>	
+2007-02-21  Francesc Busquets  <fbusquets@xtec.cat>
 
 	* src/core/edu/xtec/jclic/report/SessionReg.java: Corrected an error in the
 	algorithm that computes the global score for a session
-	
-2006-12-18  Francesc Busquets  <fbusquets@xtec.cat>	
+
+2006-12-18  Francesc Busquets  <fbusquets@xtec.cat>
 
 	* src/author/edu/xtec/jclic/AuthorSingleFrame.java: Corrected a problem with
 	the scrolling of JList when importing activities
-	
-2006-10-24  Francesc Busquets  <fbusquets@xtec.cat>	
+
+2006-10-24  Francesc Busquets  <fbusquets@xtec.cat>
 
 	* src/core/edu/xtec/jclic/automation/AutoContentProvider.java: Corrected a bug that
 	caused recursive calls into "init(ResourceBridge,FileSystem)"
 
-2006-10-23  Francesc Busquets  <fbusquets@xtec.cat>	
+2006-10-23  Francesc Busquets  <fbusquets@xtec.cat>
 
 	* src/interface/edu/xtec/jclic/Constants.java
 	* src/core/edu/xtec/jclic/Activity.java
@@ -1076,8 +1079,8 @@
 	* src/author/edu/xtec/resources/messages/AuthorMessages_ca.properties: Implementation of TagReplace,
 	a new automation module that allows to substitute tags with expressions indicated on text files or URLs.
 
-2006-10-23  Francesc Busquets  <fbusquets@xtec.cat>	
-	
+2006-10-23  Francesc Busquets  <fbusquets@xtec.cat>
+
 	* src/author/edu/xtec/jclic/AuthorSingleFrame.java
 	* src/author/edu/xtec/resources/icons/import_act.png: Customized icon and messages
 	for import activities.
@@ -1097,19 +1100,19 @@
 	* src/author/edu/xtec/jclic/AuthorSingleFrame.java:
 	* src/author/edu/xtec/jclic/bags/MediaBagEditor.java:
 	* src/author/edu/xtec/resources/messages/AuthorMessages.properties
-	* src/core/edu/xtec/jclic/project/JClicProject.java: Added the ability to import 
+	* src/core/edu/xtec/jclic/project/JClicProject.java: Added the ability to import
 	activities from another project.
 
 2006-07-28  Francesc Busquets  <fbusquets@xtec.cat>
 
-	* src/core/edu/xtec/jclic/fileSystem/FileSystem.java: Simplified and corrected the 
+	* src/core/edu/xtec/jclic/fileSystem/FileSystem.java: Simplified and corrected the
 	file name character conversion tables.
 
 2006-07-28  Francesc Busquets  <fbusquets@xtec.cat>
 
 	* src/core/edu/xtec/jclic/report/TCPReporter.java:
 	* src/report/reportServer/edu/xtec/jclic/report/HTTPReportServer.java:
-	* src/report/reportServer/edu/xtec/jclic/report/HTTPRequest.java: Modified the 
+	* src/report/reportServer/edu/xtec/jclic/report/HTTPRequest.java: Modified the
 	'content-type' header of report requests.
 
 2006-07-28  Francesc Busquets  <fbusquets@xtec.cat>
@@ -1164,8 +1167,8 @@
 	* INSTALL.txt:
 	* project.properties: Attending feature request #69 (split readme.txt), five files have been
 	created (CHANGES.txt, COPYING.txt, CREDITS.txt, HACKING.txt and INSTALL.txt). Also, the "version"
-	strings displayed in credits has been moved to the external file "project.properties".	
-	
+	strings displayed in credits has been moved to the external file "project.properties".
+
 2006-05-22  Francesc Busquets  <fbusquets@xtec.cat>
 
 	* src/core/edu/xtec/jclic/report/Reporter.java:
@@ -1177,29 +1180,29 @@
 	* src/report/reportServlets/edu/xtec/resources/messages/reportMessages_de.properties:
 	* src/report/reportServlets/edu/xtec/resources/messages/reportMessages_es.properties:
 	* src/report/reportServlets/edu/xtec/resources/messages/reportMessages_fr.properties:
-	* src/report/reportServlets/edu/xtec/resources/messages/reportMessages_gl.properties: 
-	Solved bug #103. The "edit user" and "create user" forms have been modified, so now the 
+	* src/report/reportServlets/edu/xtec/resources/messages/reportMessages_gl.properties:
+	Solved bug #103. The "edit user" and "create user" forms have been modified, so now the
 	password can be set in JClic Reports when creating a new user, and modified or erased later.
-	
+
 2006-05-19  Francesc Busquets  <fbusquets@xtec.cat>
 
 	* src/report/reportServer/ReportServerSettingsDlg.java:
 	* src/report/reportServer/ReportServerSettingsDlg.java: Solved a problem with unitialized settings
 	that cause null pointer exception.
-	
-2006-04-20  Francesc Busquets  <fbusquets@xtec.cat>	
-	
+
+2006-04-20  Francesc Busquets  <fbusquets@xtec.cat>
+
 	* src/author/edu/xtec/jclic/bags/ActivityBagElementEditor.java:
 	* src/author/edu/xtec/jclic/project/JclicProjectEditor.java:
 	* src/core/edu/xtec/jclic/bags/ActivityBag.java:
 	* src/core/edu/xtec/jclic/media/EventSounds.java:
 	* src/interface/edu/xtec/jclic/Constants.java: Bug #83 solved.
-	Now custom event sounds are correctly handled by JClic author, both when specified for the 
-	whole project or for a specific activity. In addition, changes to the project global skin 
+	Now custom event sounds are correctly handled by JClic author, both when specified for the
+	whole project or for a specific activity. In addition, changes to the project global skin
 	are also shown in the test activity window.
-	
-2006-04-13  Francesc Busquets  <fbusquets@xtec.cat>	
-	
+
+2006-04-13  Francesc Busquets  <fbusquets@xtec.cat>
+
 	* src/author/edu/xtec/resources/messages/AuthorMessages.properties:
 	* src/author/edu/xtec/resources/messages/AuthorMessages_pt.properties:
 	* src/author/edu/xtec/resources/messages/AuthorMessages_pt_BR.properties:
@@ -1213,12 +1216,12 @@
 	* src/author/edu/xtec/jclic/bags/ConditionalJumpPanel.form:
 	* src/author/edu/xtec/jclic/ActivityEditorOptionsPanel.java:
 	* src/author/edu/xtec/jclic/ActivityEditorOptionsPanel.form: Bugs #51, #52 and #42 solved.
-	Now it's possible to set/unset the boolean properties dragCells and useOrder from JClic author. 
-	The check boxes are in the "Options" tab of the Activity editor. Changes in the parameters of 
+	Now it's possible to set/unset the boolean properties dragCells and useOrder from JClic author.
+	The check boxes are in the "Options" tab of the Activity editor. Changes in the parameters of
 	conditional jumps (in "sequences" tab of JClic author) are now retained.
-	
-2006-04-10  Francesc Busquets  <fbusquets@xtec.cat>	
+
+2006-04-10  Francesc Busquets  <fbusquets@xtec.cat>
 
 	* src/author/edu/xtec/jclic/boxes/ActiveBagContentControlPanel.java: Bug #38 solved.
-	Data loss when editing crosswords. It was caused by a cleanup of excessive cells, 
+	Data loss when editing crosswords. It was caused by a cleanup of excessive cells,
 	incorrectly applied to CrossWord activities.

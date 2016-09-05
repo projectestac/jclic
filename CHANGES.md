@@ -1,9 +1,13 @@
 ## Release notes for JClic (https://projectestac.github.io/jclic)
 ==============================================
 
+###Changes in 0.3.2.1 (05-Sep-2016)
+---------------------------------------------------------------------------------------
+- Reverted the change of the URL of jclic.min.js in HTML5 export, now pointing again to clic.xtec.cat
+
 ###Changes in 0.3.2.0 (15-Jul-2016)
 ---------------------------------------------------------------------------------------
-- Add CORS headers in JClic Reports Server to allow direct communicatiuon with JClic.js running on browsers
+- Add CORS headers in JClic Reports Server to allow direct communication with JClic.js running on browsers
 - A SCORM package can be created in HTML5 export. This kind of files will be used in the new version of the [JClic module for Moodle](https://moodle.org/plugins/mod_jclic).
 
 ###Changes in 0.3.1.1 (28-Apr-2016)
@@ -27,7 +31,7 @@
 ###Changes in 0.2.3.4 (29-Oct-2013)
 ---------------------------------------------------------------------------------------
 - Correction of bugs affecting JClic Author: the program freezes when saving after making edits in the fields of the "Project" tab.
-- Correction of a bug of Windows uninstaller: the program was not completelly uninstalled because one file (reports.ico) was not removed
+- Correction of a bug of Windows uninstaller: the program was not completely uninstalled because one file (reports.ico) was not removed
 
 ###Changes in 0.2.3.3 (28-Oct-2013)
 ---------------------------------------------------------------------------------------
@@ -70,7 +74,7 @@
 - Windows installer: Added the parameter "-Xmx128m" into the command line of the JClic Author shortcut.
 - Java WebStart: Added the parameter "max-heap-size=128m" to the JClic Author JNLP script.
 - JClic AUthor: Memory management has been improved, specially in JClic AUthor, to avoid unexpected crashes. Now the java.awt.Image objects stored in the MediaBag are often cleaned, and reloaded only when needed. JClic player and Applet have also improved memory check and garbage collection.
-- Fixed bug 129-326: Arabic and other right-to-left writting languages are now rended correctly.
+- Fixed bug 129-326: Arabic and other right-to-left writing languages are now rendered correctly.
 - JClic Author: Large images can be automatically scaled-down when imported into the media library. The maximum size is set by default to 800 x 600 pixels, but this setting can be changed in user's preferences.
 - JClic Author: The cell properties editor allows to directly import images and other files into the media library (improvement suggested by Camille Manoury)
 - JClic Author: When creating new activities, prompt again errors like empty or repeated name (improvement suggested by Camille Manoury)
@@ -105,7 +109,7 @@ This is a maintenance release.
 - ANT extensions are no longer needed to build JClic. The password for the key store file (needed to digitally sign the JAR files) is now provided through a include call to the file ~/.ant-global.properties.
 - JDOM is now compiled without X-Path functions. This features, not used by JClic, require binary JAR files at compile-time.
 - The file jmfhandlers.jar, used to avoid unnecessary http connections to the server during the initialization of Java Media Framework in applets, has been suppressed to avoid copyright conflicts.
-- The GIF Encoder library by Rana Bhattacharyya, and the BMP importer by J.Osbaldeston, have been removed. Now the graphics presented in JClic Reports are dinamically generated in PNG format by the Java ImageIO library (included in Java 1.4). The import of BMP files is done by means of the Image4j library (http://image4j.sourceforge.net).
+- The GIF Encoder library by Rana Bhattacharyya, and the BMP importer by J.Osbaldeston, have been removed. Now the graphics presented in JClic Reports are dynamically generated in PNG format by the Java ImageIO library (included in Java 1.4). The import of BMP files is done by means of the Image4j library (http://image4j.sourceforge.net).
 - Important changes have been done in the final packaging of JClic. Since this version, only three JAR files will be generated:
  * `jclic.jar` - Contains all the ingredients needed to run JClic Player and JClic Applet
  * `jclicauthor.jar` - To be used in conjunction with jclic.jar. Contains JClic Author.
@@ -113,7 +117,7 @@ This is a maintenance release.
 - In addition to this three files, `jclicreports.war` and `jclicreports.ear` provide the Servlet version of JClic Reports Server.
 - The build.xml file has been changed in many ways to reflect all this changes in the source code structure.
 - Added two new skins: "Mini", for embedding JClic projects in blogs and other web pages with small space available, and "Empty", without buttons, counters nor message boxes.
-- The cell marker is drawed only when there are more than one cell to solve. In multiple-answer mode, the first valid option is always displayed when the activity is finished, even if another valid option was entered (useful for natural spelling exercises).
+- The cell marker is drawn only when there are more than one cell to solve. In multiple-answer mode, the first valid option is always displayed when the activity is finished, even if another valid option was entered (useful for natural spelling exercises).
 - Applets can now handle project installer scripts (files with extension ".jclic.inst"). This allows to perform "one-click" installations of remote JClic projects without using Java WebStart. To use this feature, edit your project with JClicAuthor, generate the installer script (Menu "Tools-Create project installer...") and generate the applet ("Tools - Create web page..."). Then edit the "index.htm" file created in the last step, find the line that starts with "writePlugin" and change the project's file name ("yourproject.jclic.zip") by the installer one ("yourproject.jclic.inst").
 - New translation system hosted in [Launchpad.net](https://translations.launchpad.net/jclic) and new translations: Basque, Greek, Danish and Turkish.
 
@@ -141,4 +145,3 @@ The following bugs have been fixed:
 - 83: Custom event sounds ignored in media dependency check. Now custom event sounds are correctly handled by JClic author, both when specified for the whole project or for a specific activity. In addition, changes to the project global skin are also shown in the test activity window.
 - 103: User's password not saved in JClic reports. The "edit user" and "create user" forms have been modified, so now the password can be set in JClic Reports when creating a new user, and modified or erased later.
 - 46: Windows installer create icons only for the current user. Now the installer defaults to create shortcuts and icons for all users.
-

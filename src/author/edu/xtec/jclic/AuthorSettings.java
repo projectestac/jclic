@@ -43,7 +43,7 @@ import java.util.Map;
  * @version 13.09.17
  */
 public class AuthorSettings implements edu.xtec.jclic.Constants {
-        
+
     public ResourceBridge rb;
     public String language, country, variant;
     public String lookAndFeel;
@@ -60,27 +60,29 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
     public int imgMaxWidth;
     public int imgMaxHeight;
     public Map<String, Object> misc;
-    
+
     public static final int MAX_RECENT=8;
     public String[] recentFiles;
-    
+
     public String cfgFile;
     public boolean readOnly;
-        
+
     protected static String defaultCfgFile=null;
-    
-    public static final String 
+
+    public static final String
     PROJECTS_PATH="projects",
     EXPORT_PATH="export",
     SCORM_PATH = "scorm",
     CFG_FILE="jclic_author.cfg";
-    
+
     public static final String DEFAULT_APPLET_CODEBASE="http://clic.xtec.cat/dist/jclic";
     public static final String DEFAULT_APPLET_WIDTH="700";
     public static final String DEFAULT_APPLET_HEIGHT="450";
-    public static final Color DEFAULT_APPLET_BGCOLOR=Color.white;    
-    
-    public static final String DEFAULT_JS_CODEBASE="https://cdn.jsdelivr.net/jclic.js/latest/jclic.min.js";
+    public static final Color DEFAULT_APPLET_BGCOLOR=Color.white;
+
+    /** Revert codebase to clic.xtec.cat */
+    // public static final String DEFAULT_JS_CODEBASE="https://cdn.jsdelivr.net/jclic.js/latest/jclic.min.js";
+    public static final String DEFAULT_JS_CODEBASE="https://clic.xtec.cat/dist/jclic.js/jclic.min.js";
 
     /** Creates new AuthorSettings */
     public AuthorSettings(ResourceBridge rb, String fromPath){
@@ -91,7 +93,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
         recentFiles=new String[MAX_RECENT];
         mediaSystem=DEFAULT;
         readOnly=false;
-        rootExportPath=rootScormPath=rootPath=System.getProperty("user.home");        
+        rootExportPath=rootScormPath=rootPath=System.getProperty("user.home");
         cfgFile=(fromPath==null ? getDefaultCfgFile(rb.getOptions()) : fromPath);
         fileSystem=new FileSystem(rb);
         if(FileSystem.isStrUrl(cfgFile)){
@@ -100,18 +102,18 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
         else{
             File f=new File(cfgFile);
             readOnly=!f.canWrite();
-        }        
+        }
         appletCodeBase=DEFAULT_APPLET_CODEBASE;
         appletWidth=DEFAULT_APPLET_WIDTH;
         appletHeight=DEFAULT_APPLET_HEIGHT;
         appletBgColor=DEFAULT_APPLET_BGCOLOR;
-        
+
         jsCodeBase = DEFAULT_JS_CODEBASE;
-        
+
         imgMaxWidth=MediaBagEditor.DEFAULT_IMG_MAX_WIDTH;
         imgMaxHeight=MediaBagEditor.DEFAULT_IMG_MAX_HEIGHT;
     }
-    
+
     public static final String
     ELEMENT_NAME="JClicAuthorSettings",
     APPLET="applet",
@@ -121,32 +123,32 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
     IMGMAXSIZE="imgMaxSize",
     WIDTH="width",
     HEIGHT="height",
-    SOUND="sound", 
+    SOUND="sound",
     SYSTEM="system",
-    MISC="misc", 
-    PATHS="paths", 
-    PATH="path", 
+    MISC="misc",
+    PATHS="paths",
+    PATH="path",
     ROOT="root",
     EXPORT="export",
     SCORM="scorm",
-    RECENT_FILES="recentFiles", 
+    RECENT_FILES="recentFiles",
     FILE="file";
-        
+
     public static String getDefaultCfgFile(Options options){
         if(defaultCfgFile==null)
             defaultCfgFile=edu.xtec.util.PersistentSettings.getFilePath(PROGRAM, CFG_FILE, options, true);
         return defaultCfgFile;
     }
-    
+
     public static AuthorSettings loadAuthorSettings(ResourceBridge rb){
-        
+
         AuthorSettings result=null;
-        
+
         String cfgFile=rb.getOptions().getString(ELEMENT_NAME);
-        
+
         if(cfgFile!=null){
             try{
-                result=new AuthorSettings(rb, cfgFile);                
+                result=new AuthorSettings(rb, cfgFile);
                 result.loadSettings(result.fileSystem.getXMLDocument(cfgFile).getRootElement());
             } catch(Exception ex){
                 result=null;
@@ -162,7 +164,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
                 result.initNewSettings();
             }
         }
-        
+
         Options options=rb.getOptions();
         options.syncProperties(result.getProperties(), true);
         if(!options.getBoolean(Options.LANGUAGE_BY_PARAM) && result.language!=null){
@@ -174,7 +176,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
         }
         return result;
     }
-    
+
     private void initNewSettings(){
         try{
             Messages msg=rb.getOptions().getMessages();
@@ -189,11 +191,11 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
             rootPath=f.getAbsolutePath();
 
             f=new File(new File(cfgFile).getParentFile(), EXPORT_PATH);
-            rootExportPath=f.getAbsolutePath();            
+            rootExportPath=f.getAbsolutePath();
 
             f=new File(new File(cfgFile).getParentFile(), SCORM_PATH);
-            rootScormPath=f.getAbsolutePath();            
-            
+            rootScormPath=f.getAbsolutePath();
+
             fileSystem=new FileSystem(rootPath, rb);
             imgMaxWidth=MediaBagEditor.getImgMaxWidth();
             imgMaxHeight=MediaBagEditor.getImgMaxHeight();
@@ -201,7 +203,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
             System.err.println("Unable to create new settings!\n"+ex);
         }
     }
-    
+
     public void save(){
         if(!readOnly){
             try{
@@ -214,7 +216,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
             }
         }
     }
-    
+
     public org.jdom.Element getJDomElement(){
         org.jdom.Element e=new org.jdom.Element(ELEMENT_NAME);
         org.jdom.Element child, child2;
@@ -226,28 +228,28 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
                 child.setAttribute(Messages.COUNTRY, country);
             if(variant!=null)
                 child.setAttribute(Messages.VARIANT, variant);
-            e.addContent(child);            
+            e.addContent(child);
         }
-        
+
         child=new org.jdom.Element(PATHS);
-        
+
         child2=new org.jdom.Element(PATH);
         child2.setAttribute(ID, ROOT);
-        child2.setAttribute(PATH, rootPath);        
+        child2.setAttribute(PATH, rootPath);
         child.addContent(child2);
 
         child2=new org.jdom.Element(PATH);
         child2.setAttribute(ID, EXPORT);
-        child2.setAttribute(PATH, rootExportPath);        
+        child2.setAttribute(PATH, rootExportPath);
         child.addContent(child2);
 
         child2=new org.jdom.Element(PATH);
         child2.setAttribute(ID, SCORM);
-        child2.setAttribute(PATH, rootScormPath);        
+        child2.setAttribute(PATH, rootScormPath);
         child.addContent(child2);
-        
+
         e.addContent(child);
-        
+
         child=new org.jdom.Element(APPLET);
         child.setAttribute(CODEBASE, appletCodeBase);
         child.setAttribute(WIDTH, appletWidth);
@@ -255,19 +257,19 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
         child.setAttribute(BGCOLOR, JDomUtility.colorToString(appletBgColor));
         child.setAttribute(JSCODEBASE, jsCodeBase);
         e.addContent(child);
-                
+
         child=new org.jdom.Element(SOUND);
         child.setAttribute(MEDIA_SYSTEM, mediaSystem);
         e.addContent(child);
-        
+
         child=new org.jdom.Element(LFUtil.LOOK_AND_FEEL);
         child.setAttribute(ID, lookAndFeel);
         e.addContent(child);
-        
+
         child=new org.jdom.Element(BrowserLauncher.BROWSER);
         child.setAttribute(ID, preferredBrowser);
         e.addContent(child);
-        
+
         child=new org.jdom.Element(IMGMAXSIZE);
         child.setAttribute(WIDTH, Integer.toString(imgMaxWidth));
         child.setAttribute(HEIGHT, Integer.toString(imgMaxHeight));
@@ -283,7 +285,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
             }
             e.addContent(child);
         }
-        
+
         child=new org.jdom.Element(RECENT_FILES);
         for(int i=0; i<MAX_RECENT; i++){
             if(recentFiles[i]!=null){
@@ -293,15 +295,15 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
             }
         }
         e.addContent(child);
-        
+
         return e;
     }
-    
+
     protected void loadSettings(org.jdom.Element e) throws Exception{
-        
-        JDomUtility.checkName(e, ELEMENT_NAME);        
+
+        JDomUtility.checkName(e, ELEMENT_NAME);
         org.jdom.Element child, child2;
-        
+
         if((child=e.getChild(PATHS))!=null){
             String rp=null, rpx=null, rps=null;
             Iterator it=child.getChildren(PATH).iterator();
@@ -315,7 +317,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
                 }
                 else if(SCORM.equals(child2.getAttributeValue(ID))){
                     rps=JDomUtility.getStringAttr(child2, PATH, rootScormPath, false);
-                }                
+                }
             }
             if(rp!=null){
                 rootPath=rp;
@@ -332,8 +334,8 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
                 }
                 else{
                   rootExportPath = (new File(f, EXPORT_PATH)).getPath();
-                }                                
-              }              
+                }
+              }
             }
             if(rps!=null){
               rootScormPath=rps;
@@ -345,8 +347,8 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
                 }
                 else{
                   rootScormPath = (new File(f, SCORM_PATH)).getPath();
-                }                                
-              }              
+                }
+              }
             }
         }
 
@@ -357,26 +359,26 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
             appletBgColor=JDomUtility.getColorAttr(child, BGCOLOR, DEFAULT_APPLET_BGCOLOR);
             jsCodeBase=JDomUtility.getStringAttr(child, JSCODEBASE, DEFAULT_JS_CODEBASE, false);
         }
-        
+
         if((child=e.getChild(Messages.LANGUAGE))!=null){
             language=JDomUtility.getStringAttr(child, ID, language, false);
             country=JDomUtility.getStringAttr(child, Messages.COUNTRY, country, false);
             variant=JDomUtility.getStringAttr(child, Messages.VARIANT, variant, false);
         }
-        
+
         if((child=e.getChild(SOUND))!=null){
             mediaSystem=JDomUtility.getStringAttr(child, MEDIA_SYSTEM, mediaSystem, false);
         }
-        
+
         if((child=e.getChild(LFUtil.LOOK_AND_FEEL))!=null){
             lookAndFeel=JDomUtility.getStringAttr(child, ID, lookAndFeel, false);
         }
-        
+
         if((child=e.getChild(BrowserLauncher.BROWSER))!=null){
             preferredBrowser=JDomUtility.getStringAttr(child, ID, preferredBrowser, false);
             BrowserLauncher.setPreferredBrowser(preferredBrowser);
         }
-        
+
         if((child=e.getChild(IMGMAXSIZE))!=null){
             imgMaxWidth=JDomUtility.getIntAttr(child, WIDTH, MediaBagEditor.DEFAULT_IMG_MAX_WIDTH);
             imgMaxHeight=JDomUtility.getIntAttr(child, HEIGHT, MediaBagEditor.DEFAULT_IMG_MAX_HEIGHT);
@@ -391,7 +393,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
                 misc.put(a.getName(), a.getValue());
             }
         }
-        
+
         if((child=e.getChild(RECENT_FILES))!=null){
             java.util.Iterator it=child.getChildren(FILE).iterator();
             for(int i=0; i<MAX_RECENT; i++){
@@ -400,27 +402,27 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
                 else
                     recentFiles[i]=null;
             }
-        }        
+        }
     }
-    
-    public Map<String, Object> getProperties(){        
-        Map<String, Object> prop=new HashMap<String, Object>();        
-        
+
+    public Map<String, Object> getProperties(){
+        Map<String, Object> prop=new HashMap<String, Object>();
+
         String t=TRUE;
         String f=FALSE;
-        
+
         if(language!=null){
             prop.put(Messages.LANGUAGE, language);
             prop.put(Messages.COUNTRY, country);
             prop.put(Messages.VARIANT, variant);
         }
-        
+
         prop.put(LFUtil.LOOK_AND_FEEL, lookAndFeel);
         prop.put(MEDIA_SYSTEM, mediaSystem);
         prop.putAll(misc);
         return prop;
     }
-    
+
     public boolean edit(Component parent){
         AuthorSettingsDlg dlg=new AuthorSettingsDlg(this, parent);
         dlg.setVisible(true);
@@ -431,7 +433,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
         }
         return dlg.result;
     }
-    
+
     public void addRecentFile(String fName){
         String[] recentBak=recentFiles;
         recentFiles=new String[MAX_RECENT];
@@ -442,5 +444,5 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
             }
         }
     }
-    
+
 }

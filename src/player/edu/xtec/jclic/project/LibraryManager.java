@@ -336,21 +336,21 @@ public class LibraryManager implements Domable {
 
           /*
                      Object[] opcions = { options.getMsg(MSG_ID+"createNewLibrary"), options.getMsg(MSG_ID+"connectToLibrary"), options.getMsg("CANCEL")};
-                     int n = JOptionPane.showOptionDialog(LibraryPane.this, 
-                     options.getMsg(MSG_ID+"new_prompt"), 
+                     int n = JOptionPane.showOptionDialog(LibraryPane.this,
+                     options.getMsg(MSG_ID+"new_prompt"),
                      null,
                      JOptionPane.YES_NO_CANCEL_OPTION,
                      JOptionPane.QUESTION_MESSAGE,
                      null,
                      opcions,
                      opcions[0]);
-                    
+
                      LibraryManagerElement lme=null;
                      if(n==JOptionPane.YES_OPTION)
                      lme=createNewProjectLibrary(null, null);
                      else if(n==JOptionPane.NO_OPTION)
                      lme=locateNewProjectLibrary(null);
-                    
+
            */
           LibraryManagerElement lme = NewLibraryDlg.getLibraryManagerElement(LibraryManager.this, LibraryPane.this);
           if (lme != null) {
@@ -487,12 +487,15 @@ public class LibraryManager implements Domable {
     String command = null;
     String libName = null;
     String libPath = null;
+    boolean silent = false;
 
     String[][] sysLibs = getSystemLibraries();
 
     boolean err = false;
     for (String s : args) {
-      if (s.startsWith("-")) {
+      if(s.equals("-silent")) {
+        silent = true;
+      } else if (s.startsWith("-")) {
         if (command != null || s.length() == 1) {
           err = true;
         } else {
@@ -580,8 +583,9 @@ public class LibraryManager implements Domable {
         }
       } else if (command.equals("list")) {
         if (sysLibs == null || sysLibs.length == 0) {
-          System.out.println("There are no system libraries defined!");
-        } else {
+          if (!silent)
+            System.out.println("There are no system libraries defined!");
+        } else if (!silent) {
           for (int i = 0; i < sysLibs.length; i++) {
             System.out.println(sysLibs[i][0] + ": " + sysLibs[i][1]);
           }
@@ -609,6 +613,7 @@ public class LibraryManager implements Domable {
             + "                   'path' must point to a library.jclic file.\n"
             + "-remove name       Removes the library from the system list.\n"
             + "-list              Displays a list of the existing system libraries.\n"
+            + "-silent            Supresses console output (except for errors).\n"
             + "-help              Displays this message.\n");
   }
 }
