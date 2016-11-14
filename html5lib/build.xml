@@ -1,0 +1,99 @@
+<project name="HTML5Lib" basedir="." default="all">
+
+  <!-- =================================================================== -->
+  <!-- INIT                                                                -->
+  <!-- =================================================================== -->
+  <target name="init">  
+
+    <!-- Variables -->
+    <property name="name"           value="HTML5Lib" />    
+    <property name="year"           value="2016" />
+    
+    <!-- JClic is currently targeted to JVM 1.6 -->
+    <property name="ant.build.javac.source" value="1.6"/>
+    <property name="ant.build.javac.target" value="1.6"/>    
+
+    <property name="src.dir"        location="src" />
+    <property name="build.dir"      location="build" />
+    <property name="apidoc.dir"     location="apidoc" />
+    
+    <property name="debug"          value="on" />    
+    <property name="deprecation"    value="on" />    
+    <property name="optimize"       value="on" />    
+    
+    <echo message="---------------------"/>
+    <echo message="HTML5Lib build"/>
+    <echo message="---------------------"/>
+    
+    <!-- Create dirs -->
+    <mkdir dir="${build.dir}"/>
+
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- MAIN                                                                -->
+  <!-- =================================================================== -->
+  <target name="all" 
+          depends="html5lib" 
+          description="Build everything.">
+
+    <echo message="*** HTML5Lib successfully compiled!"/>
+
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- CLEAN                                                               -->
+  <!-- =================================================================== -->
+  <target name="clean" 
+          depends="init" 
+          description="Clean build dir">
+    <delete dir="${build.dir}" />
+    <echo message="*** Build dir cleared!"/>
+  </target>
+  
+  <!-- =================================================================== -->
+  <!-- JAVADOC                                                             -->
+  <!-- =================================================================== -->
+  <target name="javadoc" 
+          depends="all" 
+          description="HTML5Lib JavaDoc">
+    <delete dir="${apidoc.dir}" />
+    <mkdir dir="${apidoc.dir}"/>
+    <javadoc packagenames="edu.xtec.*" 
+             destdir="${apidoc.dir}" 
+             author="true" 
+             version="true" 
+             use="true" 
+             splitindex="true" 
+             noindex="false" 
+             windowtitle="${name} API" 
+             doctitle="${name}">
+             <bottom><![CDATA[<p class="NavBarCell3"><font size="-1">Copyright &#169; ${year} Francesc Busquets (<a href="mailto:fbusquets@xtec.cat">fbusquets@xtec.cat</a>) & Departament d'Educaci&oacute; de la Generalitat de Catalunya (<a href="mailto:info@xtec.cat">info@xtec.cat</a>)<br>Licensed under the terms of the <a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a></font></p>]]></bottom>
+             <sourcepath>
+               <pathelement location="${src.dir}"/>
+             </sourcepath>
+             <classpath />
+             <excludepackage name="edu.xtec.resources.messages" />
+             <link href="http://docs.oracle.com/javase/1.6.0/docs/api/" />
+    </javadoc>
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- HTML5Lib                                                            -->
+  <!-- =================================================================== -->
+  <target name="html5lib" 
+          depends="init">
+    <mkdir dir="${build.dir}/html5lib"/>
+    <javac srcdir="${src.dir}" 
+           destdir="${build.dir}/html5lib" 
+           debug="${debug}" 
+           deprecation="${deprecation}"
+           source="${ant.build.javac.source}"
+           target="${ant.build.javac.target}"
+           includeAntRuntime="false"
+           optimize="${optimize}" />
+    <jar jarfile="${build.dir}/html5lib.jar" 
+         basedir="${build.dir}/html5lib" />
+  </target>
+
+</project>
