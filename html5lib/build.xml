@@ -9,21 +9,37 @@
     <property name="name"           value="HTML5Lib" />    
     <property name="year"           value="2016" />
     
-    <!-- JClic is currently targeted to JVM 1.6 -->
-    <property name="ant.build.javac.source" value="1.6"/>
-    <property name="ant.build.javac.target" value="1.6"/>    
+    <!-- JClic is currently targeted to JVM 1.7 -->
+    <property name="ant.build.javac.source" value="1.7"/>
+    <property name="ant.build.javac.target" value="1.7"/>    
 
     <property name="src.dir"        location="src" />
+    <property name="ext.dir"        location="../extensions" />
     <property name="build.dir"      location="build" />
+    <property name="dist.dir"       location="dist" />
     <property name="apidoc.dir"     location="apidoc" />
     
     <property name="debug"          value="on" />    
     <property name="deprecation"    value="on" />    
-    <property name="optimize"       value="on" />    
-    
+    <property name="optimize"       value="on" />   
+
+    <!-- Patterns -->
+    <patternset id="images" >
+        <include name="**/*.gif"/>
+        <include name="**/*.jpg"/>
+        <include name="**/*.png"/>
+        <include name="**/*.ttf"/>
+        <include name="**/*.ico"/>
+    </patternset>
+    <patternset id="props" >
+        <include name="**/*.properties"/>
+    </patternset>
+     
     <echo message="---------------------"/>
     <echo message="HTML5Lib build"/>
     <echo message="---------------------"/>
+
+    <property name="resource.path"    value="edu/xtec/resources" />
     
     <!-- Create dirs -->
     <mkdir dir="${build.dir}"/>
@@ -34,7 +50,7 @@
   <!-- MAIN                                                                -->
   <!-- =================================================================== -->
   <target name="all" 
-          depends="html5lib" 
+          depends="dist" 
           description="Build everything.">
 
     <echo message="*** HTML5Lib successfully compiled!"/>
@@ -82,8 +98,16 @@
   <!-- HTML5Lib                                                            -->
   <!-- =================================================================== -->
   <target name="html5lib" 
-          depends="init">
+          depends="gson">
     <mkdir dir="${build.dir}/html5lib"/>
+    <mkdir dir="${build.dir}/html5lib/${resource.path}"/>
+    <copy todir="${build.dir}/html5lib/${resource.path}">
+        <fileset dir="${src.dir}/${resource.path}">
+            <patternset refid="images" />
+            <patternset refid="props" />
+        </fileset>            
+    </copy>        
+
     <javac srcdir="${src.dir}" 
            destdir="${build.dir}/html5lib" 
            debug="${debug}" 
@@ -93,7 +117,50 @@
            includeAntRuntime="false"
            optimize="${optimize}" />
     <jar jarfile="${build.dir}/html5lib.jar" 
-         basedir="${build.dir}/html5lib" />
+         basedir="${build.dir}/html5lib">
+        <manifest>
+            <attribute name="Built-By" 
+                       value="${user.name}"/>
+            <attribute name="Main-Class" 
+                       value="edu.xtec.HTML5Lib"/>
+            <attribute name="Class-Path" 
+                       value="."/>
+            <attribute name="Permissions" 
+                       value="all-permissions"/>
+            <attribute name="Codebase" 
+                       value="*"/>
+            <attribute name="Application-Name" 
+                       value="HTML5Lib"/>
+        </manifest>
+    </jar>
   </target>
+
+  <!-- =================================================================== -->
+  <!-- GSON                                                              -->
+  <!-- =================================================================== -->
+  <target name="gson" 
+          depends="init"
+          description="Builds the Google-gson library">
+    <mkdir dir="${build.dir}/gson"/>
+    <javac includeantruntime="false"
+           srcdir="${ext.dir}/gson/src" 
+           destdir="${build.dir}/gson" />
+  </target>
+
+  <!-- =================================================================== -->
+  <!-- DIST                                                               -->
+  <!-- =================================================================== -->
+  <target name="dist" 
+          depends="html5lib" 
+          description="Prepare distribution">
+  
+    <!-- Workaround to avoid "Modified in the future" warnings -->
+    <sleep seconds="2" />
+    <mkdir dir="${dist.dir}"/>
+    <copy todir="${dist.dir}">
+        <fileset dir="${build.dir}" includes="*.jar" />
+    </copy>        
+  </target>
+
 
 </project>

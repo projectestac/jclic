@@ -48,6 +48,12 @@
 
     <echo message="***"/>
     <echo message="***"/>
+    <echo message="*** Building GSON extension"/>
+    <ant dir="gson"/>
+    <copy todir="${dest.dir}" file="gson/build/gson.jar"/>
+
+    <echo message="***"/>
+    <echo message="***"/>
     <echo message="*** Building Image4J extension"/>
     <ant dir="img/image4j"/>
     <copy todir="${dest.dir}" file="img/image4j/dist/image4j.jar"/>

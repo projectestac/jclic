@@ -29,6 +29,7 @@ public class HTML5Lib extends javax.swing.JFrame {
 
     mainPanel = new javax.swing.JPanel();
     titlePanel = new javax.swing.JPanel();
+    libNameLb = new javax.swing.JLabel();
     libName = new javax.swing.JLabel();
     pathLb = new javax.swing.JLabel();
     pathTxt = new javax.swing.JLabel();
@@ -63,6 +64,9 @@ public class HTML5Lib extends javax.swing.JFrame {
     java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("edu/xtec/resources/messages/HTML5Lib"); // NOI18N
     setTitle(bundle.getString("appTitle")); // NOI18N
 
+    libNameLb.setLabelFor(libName);
+    libNameLb.setText(bundle.getString("libraryLb")); // NOI18N
+
     libName.setText(bundle.getString("libraryNameLb")); // NOI18N
 
     pathLb.setLabelFor(pathLb);
@@ -78,18 +82,23 @@ public class HTML5Lib extends javax.swing.JFrame {
       .addGroup(titlePanelLayout.createSequentialGroup()
         .addContainerGap()
         .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(libName)
+          .addGroup(titlePanelLayout.createSequentialGroup()
+            .addComponent(libNameLb)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(libName))
           .addGroup(titlePanelLayout.createSequentialGroup()
             .addComponent(pathLb)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(pathTxt)))
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addContainerGap(619, Short.MAX_VALUE))
     );
     titlePanelLayout.setVerticalGroup(
       titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(titlePanelLayout.createSequentialGroup()
         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addComponent(libName)
+        .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(libName)
+          .addComponent(libNameLb))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(pathLb)
@@ -368,6 +377,7 @@ public class HTML5Lib extends javax.swing.JFrame {
   private javax.swing.JComboBox<String> levelCombo;
   private javax.swing.JLabel levelSelLb;
   private javax.swing.JLabel libName;
+  private javax.swing.JLabel libNameLb;
   private javax.swing.JPanel mainPanel;
   private javax.swing.JPanel okCancelPanel;
   private javax.swing.JLabel pathLb;
