@@ -6,7 +6,9 @@
 package edu.xtec.jclic;
 
 import java.io.File;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -14,6 +16,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author fbusquet
  */
 public class HTML5LibEditor extends javax.swing.JFrame {
+  
+  private HTML5Lib lib;
 
   /**
    * Creates new form HTML5Lib
@@ -372,7 +376,7 @@ public class HTML5LibEditor extends javax.swing.JFrame {
     JFileChooser fileChooser = new JFileChooser();
     FileNameExtensionFilter filter = new FileNameExtensionFilter("JSON files", "json");
     fileChooser.setFileFilter(filter);    
-    int returnValue = fileChooser.showOpenDialog(null);
+    int returnValue = fileChooser.showOpenDialog(this);
     if (returnValue == JFileChooser.APPROVE_OPTION) {
       openFile(fileChooser.getSelectedFile());
     }    
@@ -381,13 +385,28 @@ public class HTML5LibEditor extends javax.swing.JFrame {
   protected boolean openFile(File f) {
     boolean result = false;
     
+    // TODO: Clear components
     
-    
-    
-    
-    
-    
-    
+    try {
+      lib = HTML5Lib.getLib(f);
+      libName.setText(lib.getDefaultStr(lib.title));
+      pathTxt.setText(lib.baseURL);            
+      
+      langCombo.setModel(new DefaultComboBoxModel(lib.getDefaultArray(lib.actLanguagesValues)));
+      langCombo.setEnabled(true);      
+      
+      levelCombo.setModel(new DefaultComboBoxModel(lib.getDefaultArray(lib.actLevelsValues)));
+      levelCombo.setEnabled(true);      
+      
+      areaCombo.setModel(new DefaultComboBoxModel(lib.getDefaultArray(lib.actSubjectsValues)));
+      areaCombo.setEnabled(true);      
+      
+      tagCombo.setModel(new DefaultComboBoxModel(lib.getDefaultArray(lib.actTagsValues)));
+      tagCombo.setEnabled(true);      
+            
+    } catch(Exception ex) {
+      JOptionPane.showMessageDialog(this, ex, "ERROR", JOptionPane.ERROR_MESSAGE);      
+    }    
     return result;    
   }
   
