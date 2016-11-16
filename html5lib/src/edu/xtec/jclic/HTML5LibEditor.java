@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.xtec;
+package edu.xtec.jclic;
 
 import java.io.File;
 import javax.swing.JFileChooser;

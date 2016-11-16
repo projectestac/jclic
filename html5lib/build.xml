@@ -122,7 +122,7 @@
             <attribute name="Built-By" 
                        value="${user.name}"/>
             <attribute name="Main-Class" 
-                       value="edu.xtec.HTML5LibEditor"/>
+                       value="edu.xtec.jclic.HTML5LibEditor"/>
             <attribute name="Class-Path" 
                        value="."/>
             <attribute name="Permissions" 
