@@ -5,16 +5,20 @@
  */
 package edu.xtec;
 
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author fbusquet
  */
-public class HTML5Lib extends javax.swing.JFrame {
+public class HTML5LibEditor extends javax.swing.JFrame {
 
   /**
    * Creates new form HTML5Lib
    */
-  public HTML5Lib() {
+  public HTML5LibEditor() {
     initComponents();
   }
 
@@ -41,24 +45,29 @@ public class HTML5Lib extends javax.swing.JFrame {
     filtersPanel = new javax.swing.JPanel();
     combosPanel = new javax.swing.JPanel();
     langSelLb = new javax.swing.JLabel();
-    langCombo = new javax.swing.JComboBox<String>();
+    langCombo = new javax.swing.JComboBox<>();
     levelSelLb = new javax.swing.JLabel();
-    levelCombo = new javax.swing.JComboBox<String>();
+    levelCombo = new javax.swing.JComboBox<>();
     areaSelLb = new javax.swing.JLabel();
-    areaCombo = new javax.swing.JComboBox<String>();
+    areaCombo = new javax.swing.JComboBox<>();
     tagSelLb = new javax.swing.JLabel();
-    tagCombo = new javax.swing.JComboBox<String>();
+    tagCombo = new javax.swing.JComboBox<>();
     textFieldsPanel = new javax.swing.JPanel();
     prjNameLb = new javax.swing.JLabel();
     prjNameTxt = new javax.swing.JTextField();
     authorLb = new javax.swing.JLabel();
     authorTxt = new javax.swing.JTextField();
-    projectsPanel = new javax.swing.JPanel();
     prjListScroll = new javax.swing.JScrollPane();
-    prjList = new javax.swing.JList<String>();
-    okCancelPanel = new javax.swing.JPanel();
-    cancelBtn = new javax.swing.JButton();
-    saveBtn = new javax.swing.JButton();
+    prjList = new javax.swing.JList<>();
+    mainMenu = new javax.swing.JMenuBar();
+    fileMenu = new javax.swing.JMenu();
+    newLibMenuItem = new javax.swing.JMenuItem();
+    openLibMenuItem = new javax.swing.JMenuItem();
+    sep1 = new javax.swing.JPopupMenu.Separator();
+    saveMenuItem = new javax.swing.JMenuItem();
+    jSeparator1 = new javax.swing.JPopupMenu.Separator();
+    exitMenuItem = new javax.swing.JMenuItem();
+    aboutMenu = new javax.swing.JMenu();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("edu/xtec/resources/messages/HTML5Lib"); // NOI18N
@@ -67,13 +76,10 @@ public class HTML5Lib extends javax.swing.JFrame {
     libNameLb.setLabelFor(libName);
     libNameLb.setText(bundle.getString("libraryLb")); // NOI18N
 
-    libName.setText(bundle.getString("libraryNameLb")); // NOI18N
-
     pathLb.setLabelFor(pathLb);
     pathLb.setText(bundle.getString("pathLb")); // NOI18N
 
     pathTxt.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-    pathTxt.setText("...");
 
     javax.swing.GroupLayout titlePanelLayout = new javax.swing.GroupLayout(titlePanel);
     titlePanel.setLayout(titlePanelLayout);
@@ -83,14 +89,15 @@ public class HTML5Lib extends javax.swing.JFrame {
         .addContainerGap()
         .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(titlePanelLayout.createSequentialGroup()
-            .addComponent(libNameLb)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(libName))
-          .addGroup(titlePanelLayout.createSequentialGroup()
             .addComponent(pathLb)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(pathTxt)))
-        .addContainerGap(619, Short.MAX_VALUE))
+            .addComponent(pathTxt)
+            .addGap(0, 717, Short.MAX_VALUE))
+          .addGroup(titlePanelLayout.createSequentialGroup()
+            .addComponent(libNameLb)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(libName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        .addContainerGap())
     );
     titlePanelLayout.setVerticalGroup(
       titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,15 +114,19 @@ public class HTML5Lib extends javax.swing.JFrame {
 
     propBtn.setText(bundle.getString("propBtnLb")); // NOI18N
     propBtn.setToolTipText(bundle.getString("propBtnTooltip")); // NOI18N
+    propBtn.setEnabled(false);
 
     checkBtn.setText(bundle.getString("checkBtnLb")); // NOI18N
     checkBtn.setToolTipText(bundle.getString("checkBtnTooltip")); // NOI18N
+    checkBtn.setEnabled(false);
 
     updateBtn.setText(bundle.getString("updateBtnLb")); // NOI18N
     updateBtn.setToolTipText(bundle.getString("updateBtnTooltip")); // NOI18N
+    updateBtn.setEnabled(false);
 
     addBtn.setText(bundle.getString("addBtnLb")); // NOI18N
     addBtn.setToolTipText(bundle.getString("addBtnTooltip")); // NOI18N
+    addBtn.setEnabled(false);
 
     javax.swing.GroupLayout buttonsPanelLayout = new javax.swing.GroupLayout(buttonsPanel);
     buttonsPanel.setLayout(buttonsPanelLayout);
@@ -148,22 +159,26 @@ public class HTML5Lib extends javax.swing.JFrame {
     langSelLb.setLabelFor(langCombo);
     langSelLb.setText(bundle.getString("langSelLb")); // NOI18N
 
-    langCombo.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "All languages" }));
+    langCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All languages" }));
+    langCombo.setEnabled(false);
 
     levelSelLb.setLabelFor(levelCombo);
     levelSelLb.setText(bundle.getString("levelSelLb")); // NOI18N
 
-    levelCombo.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "All levels" }));
+    levelCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All levels" }));
+    levelCombo.setEnabled(false);
 
     areaSelLb.setLabelFor(areaCombo);
     areaSelLb.setText(bundle.getString("areaSelLb")); // NOI18N
 
-    areaCombo.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "All areas" }));
+    areaCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All areas" }));
+    areaCombo.setEnabled(false);
 
     tagSelLb.setLabelFor(tagCombo);
     tagSelLb.setText(bundle.getString("tagSelLb")); // NOI18N
 
-    tagCombo.setModel(new javax.swing.DefaultComboBoxModel<String>(new String[] { "All tags" }));
+    tagCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "All tags" }));
+    tagCombo.setEnabled(false);
 
     javax.swing.GroupLayout combosPanelLayout = new javax.swing.GroupLayout(combosPanel);
     combosPanel.setLayout(combosPanelLayout);
@@ -185,7 +200,7 @@ public class HTML5Lib extends javax.swing.JFrame {
         .addComponent(tagSelLb)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addComponent(tagCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(0, 89, Short.MAX_VALUE))
+        .addGap(0, 0, Short.MAX_VALUE))
     );
     combosPanelLayout.setVerticalGroup(
       combosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,7 +218,16 @@ public class HTML5Lib extends javax.swing.JFrame {
     prjNameLb.setLabelFor(prjNameTxt);
     prjNameLb.setText(bundle.getString("prjNameLb")); // NOI18N
 
+    prjNameTxt.setEnabled(false);
+    prjNameTxt.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        prjNameTxtActionPerformed(evt);
+      }
+    });
+
     authorLb.setText(bundle.getString("authorLb")); // NOI18N
+
+    authorTxt.setEnabled(false);
 
     javax.swing.GroupLayout textFieldsPanelLayout = new javax.swing.GroupLayout(textFieldsPanel);
     textFieldsPanel.setLayout(textFieldsPanelLayout);
@@ -242,51 +266,13 @@ public class HTML5Lib extends javax.swing.JFrame {
     filtersPanelLayout.setVerticalGroup(
       filtersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(filtersPanelLayout.createSequentialGroup()
-        .addContainerGap()
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         .addComponent(combosPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-        .addComponent(textFieldsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        .addComponent(textFieldsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
     );
-
-    projectsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(bundle.getString("projectsLb"))); // NOI18N
 
     prjListScroll.setViewportView(prjList);
-
-    javax.swing.GroupLayout projectsPanelLayout = new javax.swing.GroupLayout(projectsPanel);
-    projectsPanel.setLayout(projectsPanelLayout);
-    projectsPanelLayout.setHorizontalGroup(
-      projectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(prjListScroll)
-    );
-    projectsPanelLayout.setVerticalGroup(
-      projectsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addComponent(prjListScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
-    );
-
-    cancelBtn.setText(bundle.getString("cancelBtnLb")); // NOI18N
-
-    saveBtn.setText(bundle.getString("saveBtnLb")); // NOI18N
-
-    javax.swing.GroupLayout okCancelPanelLayout = new javax.swing.GroupLayout(okCancelPanel);
-    okCancelPanel.setLayout(okCancelPanelLayout);
-    okCancelPanelLayout.setHorizontalGroup(
-      okCancelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, okCancelPanelLayout.createSequentialGroup()
-        .addGap(6, 6, 6)
-        .addComponent(cancelBtn)
-        .addGap(18, 18, 18)
-        .addComponent(saveBtn)
-        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-    );
-    okCancelPanelLayout.setVerticalGroup(
-      okCancelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGroup(okCancelPanelLayout.createSequentialGroup()
-        .addGroup(okCancelPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(cancelBtn)
-          .addComponent(saveBtn))
-        .addGap(0, 12, Short.MAX_VALUE))
-    );
 
     javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
     mainPanel.setLayout(mainPanelLayout);
@@ -294,9 +280,12 @@ public class HTML5Lib extends javax.swing.JFrame {
       mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addComponent(titlePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
       .addComponent(buttonsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-      .addComponent(filtersPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-      .addComponent(projectsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-      .addComponent(okCancelPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+      .addGroup(mainPanelLayout.createSequentialGroup()
+        .addContainerGap()
+        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(filtersPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+          .addComponent(prjListScroll))
+        .addContainerGap())
     );
     mainPanelLayout.setVerticalGroup(
       mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,10 +296,51 @@ public class HTML5Lib extends javax.swing.JFrame {
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addComponent(filtersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(projectsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(okCancelPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addComponent(prjListScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+        .addContainerGap())
     );
+
+    fileMenu.setMnemonic('f');
+    fileMenu.setText(bundle.getString("fileMenu")); // NOI18N
+
+    newLibMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+    newLibMenuItem.setMnemonic('n');
+    newLibMenuItem.setText(bundle.getString("newLib")); // NOI18N
+    fileMenu.add(newLibMenuItem);
+
+    openLibMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+    openLibMenuItem.setMnemonic('o');
+    openLibMenuItem.setText(bundle.getString("openLib")); // NOI18N
+    openLibMenuItem.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        openLibMenuItemActionPerformed(evt);
+      }
+    });
+    fileMenu.add(openLibMenuItem);
+    fileMenu.add(sep1);
+
+    saveMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+    saveMenuItem.setMnemonic('s');
+    saveMenuItem.setText(bundle.getString("saveFile")); // NOI18N
+    fileMenu.add(saveMenuItem);
+    fileMenu.add(jSeparator1);
+
+    exitMenuItem.setMnemonic('x');
+    exitMenuItem.setText(bundle.getString("exitMenu")); // NOI18N
+    exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        exitMenuItemActionPerformed(evt);
+      }
+    });
+    fileMenu.add(exitMenuItem);
+
+    mainMenu.add(fileMenu);
+
+    aboutMenu.setMnemonic('a');
+    aboutMenu.setText(bundle.getString("aboutMenu")); // NOI18N
+    mainMenu.add(aboutMenu);
+
+    setJMenuBar(mainMenu);
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
@@ -326,6 +356,41 @@ public class HTML5Lib extends javax.swing.JFrame {
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
+  private void prjNameTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prjNameTxtActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_prjNameTxtActionPerformed
+
+  private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
+        
+    
+  }//GEN-LAST:event_exitMenuItemActionPerformed
+
+  private void openLibMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openLibMenuItemActionPerformed
+    
+    // TODO: Check if current document must be saved
+    
+    JFileChooser fileChooser = new JFileChooser();
+    FileNameExtensionFilter filter = new FileNameExtensionFilter("JSON files", "json");
+    fileChooser.setFileFilter(filter);    
+    int returnValue = fileChooser.showOpenDialog(null);
+    if (returnValue == JFileChooser.APPROVE_OPTION) {
+      openFile(fileChooser.getSelectedFile());
+    }    
+  }//GEN-LAST:event_openLibMenuItemActionPerformed
+
+  protected boolean openFile(File f) {
+    boolean result = false;
+    
+    
+    
+    
+    
+    
+    
+    
+    return result;    
+  }
+  
   /**
    * @param args the command line arguments
    */
@@ -343,52 +408,58 @@ public class HTML5Lib extends javax.swing.JFrame {
         }
       }
     } catch (ClassNotFoundException ex) {
-      java.util.logging.Logger.getLogger(HTML5Lib.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(HTML5LibEditor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (InstantiationException ex) {
-      java.util.logging.Logger.getLogger(HTML5Lib.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(HTML5LibEditor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (IllegalAccessException ex) {
-      java.util.logging.Logger.getLogger(HTML5Lib.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(HTML5LibEditor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-      java.util.logging.Logger.getLogger(HTML5Lib.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(HTML5LibEditor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
+    //</editor-fold>
     //</editor-fold>
 
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(new Runnable() {
       public void run() {
-        new HTML5Lib().setVisible(true);
+        new HTML5LibEditor().setVisible(true);
       }
     });
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JMenu aboutMenu;
   private javax.swing.JButton addBtn;
   private javax.swing.JComboBox<String> areaCombo;
   private javax.swing.JLabel areaSelLb;
   private javax.swing.JLabel authorLb;
   private javax.swing.JTextField authorTxt;
   private javax.swing.JPanel buttonsPanel;
-  private javax.swing.JButton cancelBtn;
   private javax.swing.JButton checkBtn;
   private javax.swing.JPanel combosPanel;
+  private javax.swing.JMenuItem exitMenuItem;
+  private javax.swing.JMenu fileMenu;
   private javax.swing.JPanel filtersPanel;
+  private javax.swing.JPopupMenu.Separator jSeparator1;
   private javax.swing.JComboBox<String> langCombo;
   private javax.swing.JLabel langSelLb;
   private javax.swing.JComboBox<String> levelCombo;
   private javax.swing.JLabel levelSelLb;
   private javax.swing.JLabel libName;
   private javax.swing.JLabel libNameLb;
+  private javax.swing.JMenuBar mainMenu;
   private javax.swing.JPanel mainPanel;
-  private javax.swing.JPanel okCancelPanel;
+  private javax.swing.JMenuItem newLibMenuItem;
+  private javax.swing.JMenuItem openLibMenuItem;
   private javax.swing.JLabel pathLb;
   private javax.swing.JLabel pathTxt;
   private javax.swing.JList<String> prjList;
   private javax.swing.JScrollPane prjListScroll;
   private javax.swing.JLabel prjNameLb;
   private javax.swing.JTextField prjNameTxt;
-  private javax.swing.JPanel projectsPanel;
   private javax.swing.JButton propBtn;
-  private javax.swing.JButton saveBtn;
+  private javax.swing.JMenuItem saveMenuItem;
+  private javax.swing.JPopupMenu.Separator sep1;
   private javax.swing.JComboBox<String> tagCombo;
   private javax.swing.JLabel tagSelLb;
   private javax.swing.JPanel textFieldsPanel;

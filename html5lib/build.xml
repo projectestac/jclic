@@ -6,7 +6,7 @@
   <target name="init">  
 
     <!-- Variables -->
-    <property name="name"           value="HTML5Lib" />    
+    <property name="name"           value="JClic HTML5 Library Editor" />
     <property name="year"           value="2016" />
     
     <!-- JClic is currently targeted to JVM 1.7 -->
@@ -122,7 +122,7 @@
             <attribute name="Built-By" 
                        value="${user.name}"/>
             <attribute name="Main-Class" 
-                       value="edu.xtec.HTML5Lib"/>
+                       value="edu.xtec.HTML5LibEditor"/>
             <attribute name="Class-Path" 
                        value="."/>
             <attribute name="Permissions" 
@@ -130,7 +130,7 @@
             <attribute name="Codebase" 
                        value="*"/>
             <attribute name="Application-Name" 
-                       value="HTML5Lib"/>
+                       value="${name}"/>
         </manifest>
     </jar>
   </target>
