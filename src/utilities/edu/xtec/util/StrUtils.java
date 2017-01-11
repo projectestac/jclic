@@ -332,10 +332,10 @@ public abstract class StrUtils {
   }
   
   public static String safeHtml(String s){
-    return StrUtils.secureString(s).replaceAll("<", "&lt;")
+    return StrUtils.secureString(s).replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
             .replaceAll(">", "&gt;")
-            .replaceAll("\"", "&quot;")
-            .replaceAll("&", "&amp;");    
+            .replaceAll("\"", "&quot;");
   }
   
   public static String getEnumeration(String[] array){
