@@ -35,7 +35,6 @@ import javax.swing.ImageIcon;
 import net.sf.image4j.codec.bmp.BMPDecoder;
 import net.sf.image4j.codec.ico.ICODecoder;
 
-
 /**
  * <CODE>MediaBagElements</CODE> are the members of {@link edu.xtec.jclic.bags.MediaBag}
  * objects. Media elements have a name, a reference to a file (the <CODE>fileName</CODE>)
@@ -46,8 +45,8 @@ import net.sf.image4j.codec.ico.ICODecoder;
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
  */
-public class MediaBagElement extends Object implements Editable, Domable, Comparable{
-    
+public class MediaBagElement extends Object implements Editable, Domable, Comparable {
+
     private String name;
     private String fileName;
     private int usageCount;
@@ -56,242 +55,242 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
     public boolean saveFlag;
     public boolean animated;
     private boolean hasThumb;
-    
+    private boolean isGif;
+
     // 10-Aug-2015
     // Added to allow renaming of media files
     private String metadata;
-    
+
     /** Creates new MediaBagElement */
-    
+
     public MediaBagElement(String fileName) {
         this(fileName, null);
     }
-    
+
     public MediaBagElement(String fileName, Object data) {
         this(fileName, data, fileName);
     }
-    
-    public MediaBagElement(String fileName, Object data, String name){
+
+    public MediaBagElement(String fileName, Object data, String name) {
         setName(name);
         setFileName(fileName);
         setData(data);
-        usageCount=0;
-        animated=false;
-        saveFlag=true;
+        usageCount = 0;
+        animated = false;
+        saveFlag = true;
     }
-    
-    public static final String ELEMENT_NAME="media";
-    public static final String FILE="file", NAME="name", SAVE="save", USAGE="usage", ANIMATED="animated";
-    
-    public org.jdom.Element getJDomElement(){
-        org.jdom.Element e=new org.jdom.Element(ELEMENT_NAME);
+
+    public static final String ELEMENT_NAME = "media";
+    public static final String FILE = "file", NAME = "name", SAVE = "save", USAGE = "usage", ANIMATED = "animated";
+
+    public org.jdom.Element getJDomElement() {
+        org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
         e.setAttribute(NAME, name);
         e.setAttribute(FILE, fileName);
-        if(!saveFlag)
+        if (!saveFlag)
             e.setAttribute(SAVE, JDomUtility.BOOL_STR[JDomUtility.FALSE]);
-        if(usageCount>0)
+        if (usageCount > 0)
             e.setAttribute(USAGE, Integer.toString(usageCount));
-        if(animated)
-            e.setAttribute(ANIMATED, JDomUtility.BOOL_STR[JDomUtility.TRUE]);
+        if (isGif)
+            e.setAttribute(ANIMATED, JDomUtility.BOOL_STR[animated ? JDomUtility.TRUE : JDomUtility.FALSE]);
         return e;
     }
-    
-    protected static MediaBagElement getMediaBagElement(org.jdom.Element e) throws Exception{
-        MediaBagElement mb=new MediaBagElement("NONAME", null);
+
+    protected static MediaBagElement getMediaBagElement(org.jdom.Element e) throws Exception {
+        MediaBagElement mb = new MediaBagElement("NONAME", null);
         mb.setProperties(e, null);
         return mb;
     }
-    
-    public void setProperties(org.jdom.Element e, Object aux) throws Exception{
+
+    public void setProperties(org.jdom.Element e, Object aux) throws Exception {
         JDomUtility.checkName(e, ELEMENT_NAME);
         setName(JDomUtility.getStringAttr(e, NAME, name, false));
         setFileName(JDomUtility.getStringAttr(e, FILE, fileName, false));
-        saveFlag=JDomUtility.getBoolAttr(e, SAVE, true);
-        usageCount=JDomUtility.getIntAttr(e, USAGE, usageCount);        
-        animated=JDomUtility.getBoolAttr(e, ANIMATED, false);
-    }
-    
-    public Editor getEditor(Editor parent) {
-        return Editor.createEditor(getClass().getName()+"Editor", this, parent);
-    }
-    
-    public boolean isEmpty(){
-        return data==null;
-    }
-    
-    public void setFileName(String sName){
-        fileName=FileSystem.stdFn(sName);
-        data=null;
-        animated=false;
-    }
-    
-    public String getFileName(){
-        return fileName;
-    }
-    
-    public void setMetaData(String meta){
-        metadata=meta;
-    }
-    
-    public String getMetaData(){
-        return metadata;
-    }
-    
-    public boolean isImage(){
-        return Utils.getFileType(fileName)==Utils.TYPE_IMAGE;        
-    }
-    
-    public void setData(Object sData){
-        data=sData;
-     // CHANGED: 28/Apr/2016 - Don't clear animated flag!
-     // animated=false;
-        if(data!=null && data instanceof Image)
-            Toolkit.getDefaultToolkit().prepareImage((Image)data, -1, -1, null);
+        saveFlag = JDomUtility.getBoolAttr(e, SAVE, true);
+        usageCount = JDomUtility.getIntAttr(e, USAGE, usageCount);
+        animated = JDomUtility.getBoolAttr(e, ANIMATED, false);
     }
 
-    public void clearData(){
-        if(data!=null && !(data instanceof java.awt.Font)){
-            if(data instanceof Image)
-                ((Image)data).flush();
+    public Editor getEditor(Editor parent) {
+        return Editor.createEditor(getClass().getName() + "Editor", this, parent);
+    }
+
+    public boolean isEmpty() {
+        return data == null;
+    }
+
+    public void setFileName(String sName) {
+        fileName = FileSystem.stdFn(sName);
+        data = null;
+        animated = false;
+        isGif = fileName.toLowerCase().endsWith(".gif");
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setMetaData(String meta) {
+        metadata = meta;
+    }
+
+    public String getMetaData() {
+        return metadata;
+    }
+
+    public boolean isImage() {
+        return Utils.getFileType(fileName) == Utils.TYPE_IMAGE;
+    }
+
+    public void setData(Object sData) {
+        data = sData;
+        // CHANGED: 28/Apr/2016 - Don't clear animated flag!
+        // animated=false;
+        if (data != null && data instanceof Image)
+            Toolkit.getDefaultToolkit().prepareImage((Image) data, -1, -1, null);
+    }
+
+    public void clearData() {
+        if (data != null && !(data instanceof java.awt.Font)) {
+            if (data instanceof Image)
+                ((Image) data).flush();
             setData(null);
         }
     }
-    
-    public Object getData(){
+
+    public Object getData() {
         return data;
     }
-    
-    public boolean isInternal(){
-        return (data!=null);
+
+    public boolean isInternal() {
+        return (data != null);
     }
-    
-    public void incUsageCount(){
+
+    public void incUsageCount() {
         usageCount++;
     }
-    
-    public void decUsageCount(){
+
+    public void decUsageCount() {
         usageCount--;
     }
-    
-    public boolean isUsed(){
-        return usageCount<=0;
+
+    public boolean isUsed() {
+        return usageCount <= 0;
     }
-    
+
     @Override
-    protected void finalize() throws Throwable{
-        Image img=getImage();
-        if(img!=null)
+    protected void finalize() throws Throwable {
+        Image img = getImage();
+        if (img != null)
             img.flush();
-        data=null;
+        data = null;
         super.finalize();
     }
-    
-    public boolean prepareImage(FileSystem fs) throws Exception{
-        boolean result=false;
-        if(isImage()){
-            if(data==null || !(data instanceof Image)){
-                String fn=fileName.toLowerCase();
-                if(fn.endsWith(".bmp")){   
-                    
+
+    public boolean prepareImage(FileSystem fs) throws Exception {
+        boolean result = false;
+        if (isImage()) {
+            if (data == null || !(data instanceof Image)) {
+                String fn = fileName.toLowerCase();
+                if (fn.endsWith(".bmp")) {
+
                     // Old edu.xtec.jclic.misc.Bmp replaced by image4j
                     //Bmp bmp=new Bmp(fs.getInputStream(fileName));
                     //setData(bmp.getImage());                    
-                    
-                    BufferedImage img=BMPDecoder.read(fs.getInputStream(fileName));
+
+                    BufferedImage img = BMPDecoder.read(fs.getInputStream(fileName));
                     setData(Toolkit.getDefaultToolkit().createImage(img.getSource()));
-                }
-                else if(fn.endsWith(".ico")){
-                    java.util.List list=ICODecoder.read(fs.getInputStream(fileName));
-                    int maxs=0;
-                    BufferedImage img=null;
-                    int listSize=list.size();
-                    for(int i=0; i<listSize; i++){
-                        BufferedImage imgtmp=(BufferedImage)list.get(i);
-                        int s=imgtmp.getWidth()*imgtmp.getHeight();
-                        if(s>=maxs){
-                            img=imgtmp;
-                            maxs=s;
+                } else if (fn.endsWith(".ico")) {
+                    java.util.List list = ICODecoder.read(fs.getInputStream(fileName));
+                    int maxs = 0;
+                    BufferedImage img = null;
+                    int listSize = list.size();
+                    for (int i = 0; i < listSize; i++) {
+                        BufferedImage imgtmp = (BufferedImage) list.get(i);
+                        int s = imgtmp.getWidth() * imgtmp.getHeight();
+                        if (s >= maxs) {
+                            img = imgtmp;
+                            maxs = s;
                         }
-                    }                    
-                    if(img!=null)
-                        setData(Toolkit.getDefaultToolkit().createImage(img.getSource()));                    
-                }
-                else
+                    }
+                    if (img != null)
+                        setData(Toolkit.getDefaultToolkit().createImage(img.getSource()));
+                } else
                     setData(fs.getImageFile(fileName));
             }
-            result=true;
+            result = true;
         }
         return result;
     }
-    
-    private static int imgReadyFlag=(ImageObserver.WIDTH | ImageObserver.HEIGHT);
-    public Image getImage() throws Exception{
-        int imgStatus=0;
-        if(data==null || !(data instanceof Image))
+
+    private static int imgReadyFlag = (ImageObserver.WIDTH | ImageObserver.HEIGHT);
+
+    public Image getImage() throws Exception {
+        int imgStatus = 0;
+        if (data == null || !(data instanceof Image))
             return null;
-        if(!animated)
-            while(true){
-                imgStatus=Toolkit.getDefaultToolkit().checkImage((Image)data, -1, -1, null);
-                if((imgStatus & (ImageObserver.ERROR | ImageObserver.ABORT))!=0){
-                    System.err.println("Error loading "+getName() + 
-                            " - Toolkit.checkImage returned status: "+imgStatus);
-                    data=null;
+        if (!animated)
+            while (true) {
+                imgStatus = Toolkit.getDefaultToolkit().checkImage((Image) data, -1, -1, null);
+                if ((imgStatus & (ImageObserver.ERROR | ImageObserver.ABORT)) != 0) {
+                    System.err.println(
+                            "Error loading " + getName() + " - Toolkit.checkImage returned status: " + imgStatus);
+                    data = null;
                     break;
-                }
-                else if((imgStatus & imgReadyFlag)==imgReadyFlag)
+                } else if ((imgStatus & imgReadyFlag) == imgReadyFlag)
                     break;
                 Thread.sleep(50);
             }
-        
-        if(data!=null && (imgStatus & ImageObserver.FRAMEBITS)!=0)
-            animated=true;
-        
-        return (Image)data;
+
+        if (data != null && (imgStatus & ImageObserver.FRAMEBITS) != 0)
+            animated = true;
+
+        return (Image) data;
     }
-    
-    public Image prepareAndGetImage(FileSystem fs) throws Exception{
-        Image img=getImage();
-        if(img==null && data==null){
-            if(prepareImage(fs))
-                img=getImage();
+
+    public Image prepareAndGetImage(FileSystem fs) throws Exception {
+        Image img = getImage();
+        if (img == null && data == null) {
+            if (prepareImage(fs))
+                img = getImage();
         }
-        return img;        
+        return img;
     }
-    
-    public ImageIcon getThumbNail(int maxWidth, int maxHeight, FileSystem fs){
-        ImageIcon result=null;
-        try{
-            Image img=prepareAndGetImage(fs);
-            if(img==null){
-                img=Utils.getFileIcon(fileName).getImage();
+
+    public ImageIcon getThumbNail(int maxWidth, int maxHeight, FileSystem fs) {
+        ImageIcon result = null;
+        try {
+            Image img = prepareAndGetImage(fs);
+            if (img == null) {
+                img = Utils.getFileIcon(fileName).getImage();
             }
-            if(img!=null && maxWidth>0 && maxHeight>0){
-                int w=img.getWidth(null);
-                int h=img.getHeight(null);
-                if(w>0 && h>0 && (w>maxWidth || h>maxHeight)){
-                    double f=Math.min((double)maxWidth/w, (double)maxHeight/h);
-                    img=img.getScaledInstance((int)(f*w), (int)(f*h), Image.SCALE_SMOOTH);
+            if (img != null && maxWidth > 0 && maxHeight > 0) {
+                int w = img.getWidth(null);
+                int h = img.getHeight(null);
+                if (w > 0 && h > 0 && (w > maxWidth || h > maxHeight)) {
+                    double f = Math.min((double) maxWidth / w, (double) maxHeight / h);
+                    img = img.getScaledInstance((int) (f * w), (int) (f * h), Image.SCALE_SMOOTH);
                 }
-                result=new ImageIcon(img);
-                hasThumb=true;
+                result = new ImageIcon(img);
+                hasThumb = true;
             }
-        } catch(Exception ex){
-            System.err.println("Error reading image:\n"+ex);
+        } catch (Exception ex) {
+            System.err.println("Error reading image:\n" + ex);
         }
         return result;
     }
-        
-    public boolean isWaitingForImage(){
-        if(hasThumb==true || animated==true || data==null || !(data instanceof Image))
+
+    public boolean isWaitingForImage() {
+        if (hasThumb == true || animated == true || data == null || !(data instanceof Image))
             return false;
-        int state=Toolkit.getDefaultToolkit().checkImage((Image)data, -1, -1, null);
-        if((state  & ImageObserver.FRAMEBITS)!=0){
-            animated=true;
+        int state = Toolkit.getDefaultToolkit().checkImage((Image) data, -1, -1, null);
+        if ((state & ImageObserver.FRAMEBITS) != 0) {
+            animated = true;
         }
-        boolean result=(state & (ImageObserver.ALLBITS | ImageObserver.FRAMEBITS))==0;
+        boolean result = (state & (ImageObserver.ALLBITS | ImageObserver.FRAMEBITS)) == 0;
         return result;
     }
-    
+
     /** Getter for property name.
      * @return Value of property name.
      *
@@ -299,7 +298,7 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
     public java.lang.String getName() {
         return name;
     }
-    
+
     /** Setter for property name.
      * @param name New value of property name.
      *
@@ -307,18 +306,18 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
     public void setName(String name) {
         this.name = FileSystem.stdFn(name);
     }
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return name;
     }
-    
+
     public int compareTo(Object obj) {
-        int result=-1;
-        if(getName()!=null && obj instanceof MediaBagElement){
-            result=getName().compareTo(((MediaBagElement)obj).getName());
+        int result = -1;
+        if (getName() != null && obj instanceof MediaBagElement) {
+            result = getName().compareTo(((MediaBagElement) obj).getName());
         }
         return result;
     }
-    
+
 }
