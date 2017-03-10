@@ -1,5 +1,5 @@
 //
-// New version of jclicplugin.js (2017-03-09)
+// New version of jclicplugin.js (2017-03-10)
 // Now using JClic.js (HTML5 player) instead of JClic java applet
 //
 // Old script is also available at:
@@ -8,10 +8,17 @@
 // For more information see: https://clic.xtec.cat/repo/index.html?page=info
 //
 
-var jarBase = 'https://clic.xtec.cat/dist/jclic.js/jclic.min.js';
+
+// Location of jclic.js
+var jsBase = 'https://clic.xtec.cat/dist/jclic.js/jclic.min.js';
+function setJsBase(base) {
+  jsBase = base;
+}
+
+// jarBase is not used bt HTML5
+var jarBase = 'https://clic.xtec.cat/dist/jclic';
 function setJarBase(base) {
-  // Do nothing: this is useful only for old JAR Applet files
-  //jarBase = base;
+  jarBase = base;
 }
 
 var useLanguage = false;
@@ -120,9 +127,6 @@ if (myURL.indexOf("file:") == 0) {
 
 function writePlugin(project, width, height, rWidth, rHeight) {
   document.writeln(getPlugin(project, width, height, rWidth, rHeight));
-  var jclicScript = document.createElement('script');
-  jclicScript.setAttribute('src', jarBase);
-  document.head.appendChild(jclicScript);
 }
 
 function writeParams(project, p) {
@@ -135,6 +139,13 @@ function writeTable(w, h, nsw, nsh, s) {
 }
 
 function getPlugin(project, width, height, rWidth, rHeight) {
+  // Load jclic.js if not already loaded
+  if (typeof JClicObject === 'undefined') {
+    var jclicScript = document.createElement('script');
+    jclicScript.setAttribute('src', jsBase);
+    document.head.appendChild(jclicScript);
+  }
+
   var w = width.toString();
   var h = height.toString();
   var nsw = w;
@@ -205,13 +216,13 @@ function getParams(project, w, h) {
     options = options + ',"myURL":"' + myURL + '"';
 
   // Check if equivalent project of type 'jclic.js' exists
-  if(project.indexOf('clic.xtec.cat/projects')>0 && project.indexOf('/jclic/')>0 && project.match(/\.zip$/)){
-    project = project.replace(/^http:\/\//, 'https://').replace(/\/jclic\//, '/jclic.js/').replace(/\.zip$/,'');
+  if (project.indexOf('clic.xtec.cat/projects') > 0 && project.indexOf('/jclic/') > 0 && project.match(/\.jclic\.zip$/)) {
+    project = project.replace(/^http:\/\//, 'https://').replace(/\/jclic\//, '/jclic.js/').replace(/\.zip$/, '');
   }
 
   var htmlcode = ' data-project="' + project + '"';
   if (options.length > 0)
-    htmlcode = htmlcode + ' data-options=\'' + options.substring(1) + '\'';
+    htmlcode = htmlcode + ' data-options=\'{' + options.substring(1) + '}\'';
 
   return htmlcode;
 }
