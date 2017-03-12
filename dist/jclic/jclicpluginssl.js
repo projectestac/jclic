@@ -142,7 +142,9 @@ function getPlugin(project, width, height, rWidth, rHeight) {
   // Load jclic.js if not already loaded
   if (typeof JClicObject === 'undefined') {
     var jclicScript = document.createElement('script');
+    jclicScript.setAttribute('type', 'text/javascript');
     jclicScript.setAttribute('src', jsBase);
+    jclicScript.setAttribute('charset', 'utf-8'):
     document.head.appendChild(jclicScript);
   }
 
