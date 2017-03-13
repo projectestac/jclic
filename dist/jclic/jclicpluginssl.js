@@ -164,7 +164,7 @@ function getParams(project, w, h) {
   var options = '';
 
   if (w)
-    options = options + ',"with":"' + w + '"';
+    options = options + ',"width":"' + w + '"';
 
   if (h)
     options = options + ',"height":"' + h + '"';
