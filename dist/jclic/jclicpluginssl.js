@@ -144,7 +144,7 @@ function getPlugin(project, width, height, rWidth, rHeight) {
     var jclicScript = document.createElement('script');
     jclicScript.setAttribute('type', 'text/javascript');
     jclicScript.setAttribute('src', jsBase);
-    jclicScript.setAttribute('charset', 'utf-8'):
+    jclicScript.setAttribute('charset', 'utf-8');
     document.head.appendChild(jclicScript);
   }
 
