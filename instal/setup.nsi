@@ -598,23 +598,43 @@ Function CheckJavaVersion
 	ReadRegStr $JAVA_VERSION HKLM "SOFTWARE\JavaSoft\Java Runtime Environment" "CurrentVersion"
 	ReadRegStr $JAVA_HOME HKLM "SOFTWARE\JavaSoft\Java Runtime Environment\$JAVA_VERSION" "JavaHome"
 	
-	IfErrors NoJava
+	IfErrors Check32
+	Goto JavaFound
+
+Check32:
+	ClearErrors
+	ReadRegStr $JAVA_VERSION HKLM "SOFTWARE\WOW6432Node\JavaSoft\Java Runtime Environment" "CurrentVersion"
+	ReadRegStr $JAVA_HOME HKLM "SOFTWARE\WOW6432Node\JavaSoft\Java Runtime Environment\$JAVA_VERSION" "JavaHome"
 	
+	IfErrors CheckJDK
+	Goto JavaFound
+
+CheckJDK:
+	ClearErrors
+	ReadRegStr $JAVA_VERSION HKLM "SOFTWARE\JavaSoft\JDK" "CurrentVersion"
+	ReadRegStr $JAVA_HOME HKLM "SOFTWARE\JavaSoft\JDK\$JAVA_VERSION" "JavaHome"
+	
+	IfErrors NoJava
+	Goto JavaFound
+
+		
+NoJava:
+	MessageBox MB_OK|MB_ICONSTOP "$(noJavaMsg) $(javaNeeded)"
+
+GetJava:		
+	ExecShell "open" ${GET_JAVA_URL}
+	Quit
+
+
+JavaFound:
 	Push ${MIN_JAVA_VERSION}
 	Push $JAVA_VERSION	
 	Call CompareVersions
 	Pop $R0
 	StrCmp $R0 "1" JavaOk
 	
-  MessageBox MB_OK|MB_ICONSTOP "$(oldJavaMsg) $(javaNeeded)"
+	MessageBox MB_OK|MB_ICONSTOP "$(oldJavaMsg) $(javaNeeded)"
 	Goto GetJava
-	
-NoJava:
-  MessageBox MB_OK|MB_ICONSTOP "$(noJavaMsg) $(javaNeeded)"
-
-GetJava:		
-	ExecShell "open" ${GET_JAVA_URL}
-	Quit
 
 JavaOk:
 	DetailPrint "Found JRE $JAVA_VERSION in path $JAVA_HOME"
