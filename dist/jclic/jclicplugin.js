@@ -10,7 +10,11 @@
 
 
 // Location of jclic.js
-var jsBase = 'https://clic.xtec.cat/dist/jclic.js/jclic.min.js';
+
+//var jsBase = 'https://clic.xtec.cat/dist/jclic.js/jclic.min.js';
+var jsBase = 'https://unpkg.com/jclic/dist/jclic.min.js';
+//var jsBase = 'https://cdn.jsdelivr.net/jclic.js/latest/jclic.min.js';
+
 function setJsBase(base) {
   jsBase = base;
 }
@@ -40,7 +44,12 @@ var reporterParams = '';
 function setReporter(rClass, rParams) {
   if (rClass) {
     reporterClass = rClass.toString();
-    if (rParams) reporterParams = rParams.toString();
+    if (rParams) {
+      reporterParams = rParams.toString();
+      if(reporterParams.indexOf('protocol=') === -1) {
+        reporterParams = reporterParams + ';protocol=' + (document.location.protocol === 'http:' ? 'http' : 'https');
+      }
+    }
     useReporter = true;
   }
 }
@@ -218,8 +227,11 @@ function getParams(project, w, h) {
     options = options + ',"myURL":"' + myURL + '"';
 
   // Check if equivalent project of type 'jclic.js' exists
-  if (project.indexOf('clic.xtec.cat/projects') > 0 && project.indexOf('/jclic/') > 0 && project.match(/\.jclic\.zip$/)) {
-    project = project.replace(/^http:\/\//, 'https://').replace(/\/jclic\//, '/jclic.js/').replace(/\.zip$/, '');
+  if (project.match(/^http.?:\/\/clic.xtec.cat\/.*\/jclic\/.*\.jclic\.zip$/)) {
+    project = project
+      //.replace(/^http:\/\//, 'https://')
+      .replace(/\/jclic\//, '/jclic.js/')
+      .replace(/\.zip$/, '');
   }
 
   var htmlcode = ' data-project="' + project + '"';
