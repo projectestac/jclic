@@ -5,17 +5,8 @@
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>JClic</name>
             <source-roots>
-                <root id="core.dir" name="core"/>
-                <root id="src.dir" name="activities"/>
-                <root id="player.dir" name="player"/>
-                <root id="utilities.dir" name="utilities"/>
-                <root id="shapers.dir" name="shapers"/>
-                <root id="interface.dir" name="interface"/>
-                <root id="extra.dir" name="extra"/>
-                <root id="jclicPlayer.dir" name="JClicPlayer"/>
-                <root id="jclicApplet.dir" name="JClicApplet"/>
+                <root id="core.dir" name="JClic"/>
                 <root id="author.dir" name="JClicAuthor"/>
-                <root id="qt61.dir" name="qt61"/>
                 <root id="reportServer.dir" name="reportServer"/>
                 <root id="reportServlets.dir" name="reportServlets"/>
                 <root id="classes.dir" name="reportWebApp"/>

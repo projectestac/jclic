@@ -9,7 +9,7 @@
 
     <!-- Variables -->
     <property name="name"           value="JClic" />    
-    <property name="year"           value="2004-15" />
+    <property name="year"           value="2004-17" />
     
     <!-- Set the appropiate values for your certificate keys here,
          or write them on a text file called ".ant-global.properties",
@@ -276,16 +276,8 @@
              doctitle="${name}">
              <bottom><![CDATA[<p>Copyright &#169; ${year} Francesc Busquets (<a href="mailto:fbusquets@xtec.cat">fbusquets@xtec.cat</a>) &amp; Departament d'Educaci&oacute; de la Generalitat de Catalunya (<a href="mailto:info@xtec.cat">info@xtec.cat</a>)<br>Licensed under the terms of the <a href="http://www.gnu.org/copyleft/gpl.html">GNU General Public License</a>.</p>]]></bottom>
              <sourcepath>
-               <pathelement location="${src.dir}/activities"/>
-               <pathelement location="${src.dir}/author"/>
                <pathelement location="${src.dir}/core"/>
-               <pathelement location="${src.dir}/interface"/>
-               <pathelement location="${src.dir}/jclicApplet"/>
-               <pathelement location="${src.dir}/jclicPlayer"/>
-               <pathelement location="${src.dir}/player"/>
-               <pathelement location="${src.dir}/utilities"/>
-               <pathelement location="${src.dir}/shapers"/>
-               <pathelement location="${src.dir}/qt61"/>
+               <pathelement location="${src.dir}/author"/>
              </sourcepath>
              <classpath>
                <pathelement location="${build.dir}/jdom"/>
@@ -397,49 +389,6 @@
   </target>
 
   <!-- =================================================================== -->
-  <!-- EXTRA                                                               -->
-  <!-- =================================================================== -->
-  <target name="extra" 
-          depends="init"
-          description="Builds a package with skins and other extra content, not used by the applet">
-    <mkdir dir="${build.dir}/extra"/>
-    <mkdir dir="${build.dir}/extra/${resource.path}"/>
-    <copy todir="${build.dir}/extra/${resource.path}">
-        <fileset dir="${src.dir}/extra/${resource.path}">
-            <patternset refid="images" />
-            <patternset refid="sounds" />
-            <patternset refid="docs" />
-            <patternset refid="props" />
-        </fileset>            
-    </copy>        
-  </target>
-  
-  <!-- =================================================================== -->
-  <!-- UTILITIES                                                           -->
-  <!-- =================================================================== -->
-  <target name="utilities" 
-          depends="jdom"
-          description="Builds the utilities">
-    <mkdir dir="${build.dir}/utilities"/>
-    <mkdir dir="${build.dir}/utilities/${resource.path}"/>
-    <copy todir="${build.dir}/utilities/${resource.path}">
-        <fileset dir="${src.dir}/utilities/${resource.path}">
-            <patternset refid="images" />
-            <patternset refid="sounds" />
-            <patternset refid="docs" />
-            <patternset refid="props" />
-        </fileset>            
-    </copy>        
-    <ext.javac srcdir="${src.dir}/utilities" 
-               destdir="${build.dir}/utilities" >
-        <classpath>
-            <pathelement location="${build.dir}/jdom" />
-            <pathelement location="${src.dir}/core" />
-        </classpath>
-    </ext.javac>
-  </target>
-  
-  <!-- =================================================================== -->
   <!-- JMF-API                                                             -->
   <!-- =================================================================== -->
   <target name="jmf-api"
@@ -451,61 +400,6 @@
   </target>
   
   <!-- =================================================================== -->
-  <!-- CORE                                                                -->
-  <!-- =================================================================== -->
-  <target name="core" 
-          depends="utilities,image4j,soundspi,jmf-api,qtjava-api,dbconn,json"
-          description="Builds the main component of JClic">
-    <mkdir dir="${build.dir}/jclic"/>
-
-    <mkdir dir="${build.dir}/jclic/${resource.path}"/>    
-    <copy todir="${build.dir}/jclic/${resource.path}">
-        <fileset dir="${src.dir}/core/${resource.path}">
-            <patternset refid="images" />
-            <patternset refid="sounds" />
-            <patternset refid="docs" />
-        </fileset>            
-        <fileset dir="${src.dir}/activities/${resource.path}">
-            <patternset refid="images" />
-            <patternset refid="sounds" />
-            <patternset refid="docs" />
-            <patternset refid="props" />
-        </fileset>            
-        <fileset dir="${src.dir}/player/${resource.path}">
-            <patternset refid="images" />
-            <patternset refid="sounds" />
-            <patternset refid="docs" />
-            <patternset refid="props" />
-        </fileset>            
-    </copy>
-
-    <copy todir="${build.dir}/jclic/${resource.path}">
-        <filterset refid="versionFilterSet"/>
-        <fileset dir="${src.dir}/core/${resource.path}">
-            <patternset refid="props" />
-        </fileset>            
-    </copy>    
-
-    <ext.javac destdir="${build.dir}/jclic" >
-        <src path="${src.dir}/core" />
-        <src path="${src.dir}/interface" />
-        <src path="${src.dir}/qt61"/>
-        <src path="${src.dir}/activities"/>
-        <src path="${src.dir}/player"/>
-        <classpath>
-            <pathelement location="${build.dir}/jdom"/>
-            <pathelement location="${build.dir}/json"/>
-            <pathelement location="${build.dir}/dbconn"/>
-            <pathelement location="${build.dir}/utilities"/>
-            <pathelement location="${build.dir}/image4j"/>
-            <pathelement location="${build.dir}/lib/jmf-api"/>
-            <pathelement location="${build.dir}/lib/qtjava-api"/>
-            <pathelement location="${build.dir}/soundspi"/>
-        </classpath>
-    </ext.javac>
-  </target>
-
-  <!-- =================================================================== -->
   <!-- QTJAVA-API                                                          -->
   <!-- =================================================================== -->
   <target name="qtjava-api"
@@ -516,31 +410,53 @@
                destdir="${build.dir}/lib/qtjava-api" />
   </target>
         
+  
+  <!-- =================================================================== -->
+  <!-- CORE                                                                -->
+  <!-- =================================================================== -->
+  <target name="core" 
+          depends="jdom,image4j,soundspi,jmf-api,qtjava-api,dbconn,json"
+          description="Builds the main component of JClic">
+    <mkdir dir="${build.dir}/jclic"/>
+
+    <mkdir dir="${build.dir}/jclic/${resource.path}"/>    
+    <copy todir="${build.dir}/jclic/${resource.path}">
+        <filterset refid="versionFilterSet"/>
+        <fileset dir="${src.dir}/core/${resource.path}">
+            <patternset refid="props" />
+        </fileset>            
+    </copy>
+    <copy todir="${build.dir}/jclic/${resource.path}">
+        <fileset dir="${src.dir}/core/${resource.path}">
+            <patternset refid="images" />
+            <patternset refid="sounds" />
+            <patternset refid="docs" />
+        </fileset>            
+    </copy>
+
+    <ext.javac destdir="${build.dir}/jclic" >
+        <src path="${src.dir}/core" />
+        <classpath>
+            <pathelement location="${build.dir}/jdom"/>
+            <pathelement location="${build.dir}/json"/>
+            <pathelement location="${build.dir}/dbconn"/>
+            <pathelement location="${build.dir}/image4j"/>
+            <pathelement location="${build.dir}/lib/jmf-api"/>
+            <pathelement location="${build.dir}/lib/qtjava-api"/>
+            <pathelement location="${build.dir}/soundspi"/>
+        </classpath>
+    </ext.javac>
+  </target>
+
   <!-- =================================================================== -->
   <!-- JCLIC PLAYER                                                        -->
   <!-- =================================================================== -->
   <target name="jclicplayer" 
-          depends="core,extra,jclicapplet"
+          depends="core"
           description="Builds the jclic.jar component">
 
     <mkdir dir="${build.dir}/jclicPlayer"/>
     <mkdir dir="${build.dir}/jclicPlayer/${resource.path}"/>
-    <copy todir="${build.dir}/jclicPlayer/${resource.path}">
-        <fileset dir="${src.dir}/jclicPlayer/${resource.path}">
-            <patternset refid="images" />
-            <patternset refid="sounds" />
-            <patternset refid="docs" />
-            <patternset refid="props" />
-        </fileset>            
-    </copy>        
-
-    <ext.javac srcdir="${src.dir}/jclicPlayer" 
-               destdir="${build.dir}/jclicPlayer" >
-        <classpath>
-            <pathelement location="${build.dir}/jclic" />
-            <pathelement location="${build.dir}/utilities" />
-        </classpath>
-    </ext.javac>
 
     <jar jarfile="${build.dir}/jclic.jar">
         <manifest>
@@ -557,45 +473,15 @@
             <attribute name="Application-Name" 
                        value="JClic"/>
         </manifest>
-         <fileset dir="${build.dir}/jclicPlayer" />
-         <fileset dir="${build.dir}/jclicApplet" />         
          <fileset dir="${build.dir}/jclic" />
          <fileset dir="${build.dir}/jdom" />
          <fileset dir="${build.dir}/json" />
-         <fileset dir="${build.dir}/utilities" />
-         <fileset dir="${build.dir}/extra" />
          <fileset dir="${build.dir}/dbconn" />         
          <fileset dir="${build.dir}/soundspi" />
          <fileset dir="${build.dir}/image4j" />
     </jar>
   </target>  
-  
-  <!-- =================================================================== -->
-  <!-- JCLICAPPLET                                                         -->
-  <!-- =================================================================== -->
-  <target name="jclicapplet" 
-          depends="core,soundspi"
-          description="Builds the JClic applet">
-    <mkdir dir="${build.dir}/jclicApplet"/>
-    <mkdir dir="${build.dir}/jclicApplet/${resource.path}"/>
-    <copy todir="${build.dir}/jclicApplet/${resource.path}">
-        <fileset dir="${src.dir}/jclicApplet/${resource.path}">
-            <patternset refid="images" />
-            <patternset refid="sounds" />
-            <patternset refid="docs" />
-            <patternset refid="props" />
-        </fileset>            
-    </copy>        
-
-    <ext.javac srcdir="${src.dir}/jclicApplet" 
-               destdir="${build.dir}/jclicApplet" >
-        <classpath>
-            <pathelement location="${build.dir}/jclic" />
-            <pathelement location="${build.dir}/utilities" />
-        </classpath>
-    </ext.javac>
-  </target>
-  
+    
   <!-- =================================================================== -->
   <!-- JCLICAUTHOR                                                         -->
   <!-- =================================================================== -->
@@ -610,10 +496,6 @@
             <patternset refid="sounds" />
             <patternset refid="docs" />
         </fileset>            
-        <fileset dir="${src.dir}/shapers/${resource.path}">
-            <patternset refid="images" />
-            <patternset refid="props" />
-        </fileset>            
     </copy>        
     <copy todir="${build.dir}/author/${resource.path}">
         <filterset refid="versionFilterSet"/>
@@ -624,7 +506,6 @@
 
     <ext.javac destdir="${build.dir}/author" >
         <src path="${src.dir}/author"/>
-        <src path="${src.dir}/shapers"/>
         <classpath>
             <pathelement location="${build.dir}/jclic.jar"/>
         </classpath>
@@ -689,7 +570,6 @@
         <src path="${src.dir}/report/reportServer"/>
         <src path="${src.dir}/report/reportServlets"/>
         <classpath>
-            <pathelement location="${build.dir}/utilities"/>
             <pathelement location="${build.dir}/jclic"/>
             <pathelement location="${build.dir}/lib/servlet-api"/>
             <pathelement location="${build.dir}/jdom"/>

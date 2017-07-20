@@ -17,12 +17,14 @@ With the support of:
    
 Community support:
    Monica Grau
+   Imma PalahÃ­
+   Isabel Oussedik
    
 Translations:
 
    Deustch:
    EDUCATION HIGHWAY
-   Innovationszentrum für Schule und Neue Technologie GmbH
+   Innovationszentrum fÃ¼r Schule und Neue Technologie GmbH
    Linz/Austria, http://www.eduhi.at
    Gemeinsam mit:
    Astrid Leeb
@@ -33,13 +35,13 @@ Translations:
    Galego:
    Edugaliza (http://www.edugaliza.org)
    
-   Français:
+   FranÃ§ais:
    Gilles Parenna
    
-   Portugués:
+   PortuguÃªs:
    Alexandre R. Soares
    
-   Portugués (Brasil):
+   PortuguÃªs (Brasil):
    Hugo Sunayama
    
 JClic uses code from the following projects:
@@ -70,40 +72,40 @@ JClic uses code from the following projects:
 
 Special Thanks:
    Dina Abizanda
-   Ismail Alí
-   Jaume Bartrolí
+   Ismail AlÃ­
+   Jaume BartrolÃ­
    David Beltran
    Blanca Besga
    Tona Castell
    Jordi Castells
-   Fina Dènia
+   Fina DÃ¨nia
    Margarita Fortuny
    Galego21.org
    Miren Garralda
    Eva Gea
-   Juanjo Gómez
-   Luz González
+   Juanjo GÃ³mez
+   Luz GonzÃ¡lez
    Alexander Herzfeld
    Santiago Manrique
-   Moncho Marín
-   Juan José Mateo
+   Moncho MarÃ­n
+   Juan JosÃ© Mateo
    Toni Miquel
    Orixe Taldea
-   Imma Palahí
+   Imma PalahÃ­
    Manolo Paz
    Josep Pi
    Antoni Prim
    Jordi Quintana
    Pedro Reina
    Luis Rodero
-   Rafael Rodríguez
+   Rafael RodrÃ­guez
    Ferran Ruiz
    Joan A. Solano
    Sun Microsystems
    Susi Tello
-   Núria Torrents
+   NÃºria Torrents
    Montse Vega
-   Martí Vergés
+   MartÃ­ VergÃ©s
    Jordi Vivancos
    Caroline Weigner
 
@@ -158,5 +160,3 @@ each library's source code directory.
 
 See INSTALL.txt for compilation instructions, and HACKING.txt for information 
 about the internal structure of JClic and the organization of the source code.
-
-

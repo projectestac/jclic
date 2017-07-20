@@ -15,20 +15,11 @@ The source code of JClic is organized into the following directories:
 * src
   Contains the source code of the JClic modules. It is organized in several
   sub-directories:
-  - activities            JClic activities
+  - core                  Main classes of JClic, including JClic Player
   - author                Code specific of the JClic author module
-  - core                  Main classes of JClic
-  - extra                 No Java code here: only miscellaneous resources
-  - interface             Main interfaces and constants
-  - jclicApplet           Code for the JClic applet
-  - jclicPlayer           Code for the JClic player module
-  - player                Code used by JClic player and JClic author
-  - qt61                  QuickTime 6.1 functions, used only in Mac OS X
   - report/reportServer   The stand-alone JClic reports server
   - report/webApp         The J2EE application release of the reports server
   - report/reportServlets Code common to both versions of the reports server
-  - shapers               The cell shape editor of JClic author
-  - utilities             Miscellaneous utilities
   
 * extensions
   Contains the code of several libraries and external tools needed to
@@ -91,7 +82,7 @@ The source code of JClic is organized into the following directories:
 
 Edit instructions:
 
-JClic was made using NetBeans, currently version 8.0
+JClic was made using NetBeans, currently version 8.2
 You can download this IDE from:
 
 https://netbeans.org/downloads/

@@ -50,7 +50,8 @@
     <echo message="-----------------------------------------------"/>
 
     <mkdir dir="${po.dir}"/>
-    <mkdir dir="${properties.dir}"/>        
+    <mkdir dir="${properties.dir}"/>
+        
   </target>
 
 
@@ -164,9 +165,9 @@
           description="Create .properties files for JClic extra resources"
           depends="init">
 
-    <mkdir dir="${properties.dir}/extra/${resources.path}/activities"/>
-    <po2prop destDir="${properties.dir}/extra/${resources.path}/activities" 
-             templateFile="${jclic.src.dir}/extra/${resources.path}/activities/listactivities.properties"
+    <mkdir dir="${properties.dir}/core/${resources.path}/activities"/>
+    <po2prop destDir="${properties.dir}/core/${resources.path}/activities" 
+             templateFile="${jclic.src.dir}/core/${resources.path}/activities/listactivities.properties"
              preserveTimestamps="true">
         <fileset dir="${po.dir}/jclic-activities" >
           <patternset refid="pos" />
@@ -174,18 +175,18 @@
     </po2prop>
 
     <mkdir dir="${po.dir}/jclic-automation" />
-    <mkdir dir="${properties.dir}/extra/${resources.path}/automation" />
-    <po2prop destDir="${properties.dir}/extra/${resources.path}/automation" 
-             templateFile="${jclic.src.dir}/extra/${resources.path}/automation/contentproviders.properties"
+    <mkdir dir="${properties.dir}/core/${resources.path}/automation" />
+    <po2prop destDir="${properties.dir}/core/${resources.path}/automation" 
+             templateFile="${jclic.src.dir}/core/${resources.path}/automation/contentproviders.properties"
              preserveTimestamps="true">
         <fileset dir="${po.dir}/jclic-automation" >
           <patternset refid="pos" />
         </fileset>
     </po2prop>
 
-    <mkdir dir="${properties.dir}/extra/${resources.path}/shapers" />
-    <po2prop destDir="${properties.dir}/extra/${resources.path}/shapers" 
-             templateFile="${jclic.src.dir}/extra/${resources.path}/shapers/listshapers.properties"
+    <mkdir dir="${properties.dir}/core/${resources.path}/shapers" />
+    <po2prop destDir="${properties.dir}/core/${resources.path}/shapers" 
+             templateFile="${jclic.src.dir}/core/${resources.path}/shapers/listshapers.properties"
              preserveTimestamps="true">
         <fileset dir="${po.dir}/jclic-shapers" >
           <patternset refid="pos" />
@@ -200,9 +201,9 @@
           description="Create .properties files for JClic Player"
           depends="init">
 
-    <mkdir dir="${properties.dir}/player/${messages.path}" />
-    <po2prop destDir="${properties.dir}/player/${messages.path}" 
-             templateFile="${jclic.src.dir}/player/${messages.path}/PlayerMessages.properties"
+    <mkdir dir="${properties.dir}/core/${messages.path}" />
+    <po2prop destDir="${properties.dir}/core/${messages.path}" 
+             templateFile="${jclic.src.dir}/core/${messages.path}/PlayerMessages.properties"
              preserveTimestamps="true">
         <fileset dir="${po.dir}/jclic-player" >
           <patternset refid="pos" />
@@ -210,8 +211,8 @@
     </po2prop>
     
     <mkdir dir="${po.dir}/jclic-accessibility" />
-    <po2prop destDir="${properties.dir}/player/${messages.path}" 
-             templateFile="${jclic.src.dir}/player/${messages.path}/AccessibilityMessages.properties"
+    <po2prop destDir="${properties.dir}/core/${messages.path}" 
+             templateFile="${jclic.src.dir}/core/${messages.path}/AccessibilityMessages.properties"
              preserveTimestamps="true">
         <fileset dir="${po.dir}/jclic-accessibility" >
           <patternset refid="pos" />
@@ -227,17 +228,17 @@
           description="Create .properties files for JClic utilities"
           depends="init">
 
-    <mkdir dir="${properties.dir}/utilities/${messages.path}" />
-    <po2prop destDir="${properties.dir}/utilities/${messages.path}" 
-             templateFile="${jclic.src.dir}/utilities/${messages.path}/BasicMessages.properties"
+    <mkdir dir="${properties.dir}/core/${messages.path}" />
+    <po2prop destDir="${properties.dir}/core/${messages.path}" 
+             templateFile="${jclic.src.dir}/core/${messages.path}/BasicMessages.properties"
              preserveTimestamps="true">
         <fileset dir="${po.dir}/jclic-utilities" >
           <patternset refid="pos" />
         </fileset>
     </po2prop>
 
-    <po2prop destDir="${properties.dir}/utilities/${messages.path}" 
-             templateFile="${jclic.src.dir}/utilities/${messages.path}/PersistentPathsMessages.properties"
+    <po2prop destDir="${properties.dir}/core/${messages.path}" 
+             templateFile="${jclic.src.dir}/core/${messages.path}/PersistentPathsMessages.properties"
              preserveTimestamps="true">
         <fileset dir="${po.dir}/jclic-persistent" >
           <patternset refid="pos" />
