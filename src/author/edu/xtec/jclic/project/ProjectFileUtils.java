@@ -43,7 +43,7 @@ import java.util.Iterator;
 import org.json.JSONObject;
 
 /**
- * Miscellaneous utilities to process ".jclic.zip" files, normalizing media file
+ * Miscellaneous utilities to process ".jclic" and ".jclic.zip" files, normalizing media file
  * names, avoiding links to other "zip" files and extracting contents to a given
  * folder.
  *
@@ -51,14 +51,12 @@ import org.json.JSONObject;
  */
 public class ProjectFileUtils implements ResourceBridge {
 
-  FileZip zipFS;
-  String zipFilePath;
-  String zipFileName;
+  FileSystem fileSystem;
+  String fullFilePath;
   String projectName;
   String jclicFileName;
   String basePath;
   String relativePath;
-  String[] entries;
   JClicProject project;
 
   // Interruption flag
@@ -67,37 +65,42 @@ public class ProjectFileUtils implements ResourceBridge {
   /**
    * Builds a ProjectFileUtils object, initializing a @link{JClicProject}
    *
-   * @param fileName - Relative or absolute path to the ".jclic.zip" file to be
-   * processed
+   * @param fileName - Relative or absolute path to the ".jclic" or ".jclic.zip"
+   * file to be processed
    * @param basePath - Base path of this project. Relative paths are based on
    * this one. When null, the parent folder of fileName will be used.
    * @throws Exception
    */
   public ProjectFileUtils(String fileName, String basePath) throws Exception {
 
-    zipFilePath = new File(fileName).getCanonicalPath();
-    if (!zipFilePath.endsWith(".jclic.zip")) {
-      throw new Exception("File " + fileName + " is not a jclic.zip file!");
+    fullFilePath = new File(fileName).getCanonicalPath();
+    boolean isZip = fullFilePath.endsWith(".jclic.zip");
+    if (!isZip && !fullFilePath.endsWith(".jclic")) {
+      throw new Exception("File " + fileName + " is not a JClic project file!");
     }
     
-    String zipBase = (new File(zipFilePath)).getParent();
-    this.basePath = (basePath == null ? zipBase : basePath);    
-    relativePath = this.basePath.equals(zipBase) ? "" : zipBase.substring(this.basePath.length()+1);
+    File fullFilePathFile = new File(fullFilePath);    
+    String fileBase = fullFilePathFile.getParent();
+    this.basePath = (basePath == null ? fileBase : basePath);    
+    relativePath = this.basePath.equals(fileBase) ? "" : fileBase.substring(this.basePath.length()+1);
     
-    zipFS = (FileZip) FileSystem.createFileSystem(zipFilePath, this);
-    zipFileName = zipFS.getZipName();
-    jclicFileName = zipFileName.substring(0, zipFileName.lastIndexOf("."));
+    fileSystem = FileSystem.createFileSystem(fullFilePath, this);
+    String file = fullFilePathFile.getName();
+    if(isZip){
+      file = ((FileZip)fileSystem).getZipName();
+      jclicFileName = file.substring(0, file.lastIndexOf("."));
 
-    entries = zipFS.getEntries(null);
-
-    String[] projects = zipFS.getEntries(".jclic");
-    if (projects == null) {
-      throw new Exception("File " + zipFilePath + " does not contain any jclic project");
+      String[] projects = ((FileZip)fileSystem).getEntries(".jclic");
+      if (projects == null) {
+        throw new Exception("File " + fullFilePath + " does not contain any jclic project");
+      }
+      projectName = projects[0];
+    } else {
+      projectName = file;
     }
-    projectName = projects[0];
 
-    org.jdom.Document doc = zipFS.getXMLDocument(projectName);
-    project = JClicProject.getJClicProject(doc.getRootElement(), this, zipFS, zipFileName);
+    org.jdom.Document doc = fileSystem.getXMLDocument(projectName);
+    project = JClicProject.getJClicProject(doc.getRootElement(), this, fileSystem, file);
 
   }
 
@@ -214,14 +217,15 @@ public class ProjectFileUtils implements ResourceBridge {
    * @throws java.lang.InterruptedException
    */
   public void avoidZipLinksInElement(org.jdom.Element el, PrintStream ps) throws InterruptedException {
-    if (el.getAttribute("params") != null) {
-      String p = el.getAttributeValue("params");
+    if (el.getAttribute("params") != null || (el.getName().equals("menuElement")  && el.getAttribute("path") != null)) {
+      String attr = el.getName().equals("menuElement") ? "path" : "params";
+      String p = el.getAttributeValue(attr);
       if (p != null && p.endsWith(".jclic.zip")) {
         String pv = p.substring(0, p.length() - 4);
         if (ps != null) {
           ps.println("Changing media link from \"" + p + "\" to \"" + pv + "\"");
         }
-        el.setAttribute("params", pv);
+        el.setAttribute(attr, pv);
       }
     }
     Iterator it = el.getChildren().iterator();
@@ -279,7 +283,7 @@ public class ProjectFileUtils implements ResourceBridge {
         fn = mbe.getFileName();
       }
 
-      InputStream is = zipFS.getInputStream(fn);
+      InputStream is = fileSystem.getInputStream(fn);
       File outFile = new File(outPath, mbe.getFileName());
       FileOutputStream fos = new FileOutputStream(outFile);
       if (ps != null) {
@@ -331,7 +335,7 @@ public class ProjectFileUtils implements ResourceBridge {
     }
 
     if (ps != null) {
-      ps.println("Done processing: " + zipFilePath);
+      ps.println("Done processing: " + fullFilePath);
     }
   }
 
@@ -360,18 +364,19 @@ public class ProjectFileUtils implements ResourceBridge {
     }
 
     if (ps != null) {
-      ps.println("Exporting all jclic.zip files in \"" + src.getCanonicalPath() + "\" to \"" + destPath + "\"");
+      ps.println("Writting all jclic.zip files in \"" + src.getCanonicalPath() + "\" to \"" + destPath + "\"");
     }
 
     File dest = new File(destPath);
 
-    File[] jclicZipFiles = src.listFiles(new FilenameFilter() {
+    File[] jclicFiles = src.listFiles(new FilenameFilter() {
       public boolean accept(File dir, String name) {
-        return name.toLowerCase().endsWith(".jclic.zip");
+        String lowerName = name.toLowerCase();
+        return lowerName.endsWith(".jclic.zip") || lowerName.endsWith(".jclic");
       }
     });
 
-    for (File f : jclicZipFiles) {
+    for (File f : jclicFiles) {
 
       if (interrupt) {
         interrupt = false;
@@ -387,7 +392,7 @@ public class ProjectFileUtils implements ResourceBridge {
     }
 
     // Force garbage collection
-    jclicZipFiles = null;
+    jclicFiles = null;
     System.gc();
 
     // Process subdirectories
@@ -419,22 +424,27 @@ public class ProjectFileUtils implements ResourceBridge {
 
   // Void implementation of "ResourceBridge" methods:
   //
+  @Override
   public java.io.InputStream getProgressInputStream(java.io.InputStream is, int expectedLength, String name) {
     return is;
   }
 
+  @Override
   public edu.xtec.util.Options getOptions() {
     return null;
   }
 
+  @Override
   public String getMsg(String key) {
     return key;
   }
 
+  @Override
   public javax.swing.JComponent getComponent() {
     return null;
   }
 
+  @Override
   public void displayUrl(String url, boolean inFrame) {
     throw new UnsupportedOperationException("Not supported");
   }
