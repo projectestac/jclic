@@ -51,11 +51,23 @@ public class ProjectSettings implements Editable, Domable {
   public Revision[] revisions;
   public String skinFileName;
   public EventSounds eventSounds;
-
+  // --- New fields added 25/07/2017
+  public String coverFileName;
+  public String thumbnailFileName;
+  public String[] meta_langs;
+  public String[] descriptions;
+  public String[] area_codes;
+  public String[] area_descs;
+  public String[] level_codes;
+  public String[] level_descs;
+  public String[] lang_codes;
+  public String[] lang_descs;
+  public String[] licenses;
+   
   public static String UNTITLED = "untitled";
   public static String ELEMENT_NAME = "settings";
   public static String TITLE = "title", LOCALE = "locale", LANGUAGE = "language", DESCRIPTION = "description", DESCRIPTORS = "descriptors",
-          SKIN = "skin", FILE = "file", AREA = "area", LEVEL = "level", ICON = "icon";
+          SKIN = "skin", FILE = "file", AREA = "area", LEVEL = "level", ICON = "icon", COVER = "cover", THUMB = "thumb";
 
   /**
    * Creates new ProjectSettings
@@ -74,6 +86,10 @@ public class ProjectSettings implements Editable, Domable {
     eventSounds = new EventSounds(null);
     skinFileName = null;
     iconFileName = null;
+    // --- New fields added 25/07/2017
+    coverFileName = null;
+    thumbnailFileName = null;
+    
   }
 
   public org.jdom.Element getJDomElement() {
@@ -143,19 +159,27 @@ public class ProjectSettings implements Editable, Domable {
     if (skinFileName != null) {
       child = new org.jdom.Element(SKIN);
       child.setAttribute(FILE, skinFileName);
-      //if(skin!=null && skin.name!=null && skin.name.length()>0)
-      //    child2.setAttribute(NAME, skin.name);
       e.addContent(child);
     }
 
     if (iconFileName != null) {
       child = new org.jdom.Element(ICON);
       child.setAttribute(FILE, iconFileName);
-      //if(skin!=null && skin.name!=null && skin.name.length()>0)
-      //    child2.setAttribute(NAME, skin.name);
       e.addContent(child);
     }
+    
+    if(coverFileName != null){
+      child = new org.jdom.Element(COVER);
+      child.setAttribute(FILE, coverFileName);
+      e.addContent(child);      
+    }
 
+    if(thumbnailFileName != null){
+      child = new org.jdom.Element(THUMB);
+      child.setAttribute(FILE, thumbnailFileName);
+      e.addContent(child);      
+    }
+    
     return e;
   }
 
@@ -247,25 +271,21 @@ public class ProjectSettings implements Editable, Domable {
       level = JDomUtility.getStringAttr(child, LEVEL, level, false);
     }
 
-    if ((child = e.getChild(EventSounds.ELEMENT_NAME)) != null) {
+    if ((child = e.getChild(EventSounds.ELEMENT_NAME)) != null)
       eventSounds = EventSounds.getEventSounds(child);
-    }
 
-    if ((child = e.getChild(SKIN)) != null) {
+    if ((child = e.getChild(SKIN)) != null)
       skinFileName = JDomUtility.getStringAttr(child, FILE, skinFileName, false);
-      //if(jcp.skinFileName!=null && jcp.skinFileName.length()>0)
-      //    jcp.skin=jcp.mediaBag.getSkinElement(jcp.skinFileName);
-      //else
-      //    jcp.skinFileName=null;
-    }
 
-    if ((child = e.getChild(ICON)) != null) {
+    if ((child = e.getChild(ICON)) != null)
       iconFileName = JDomUtility.getStringAttr(child, FILE, iconFileName, false);
-      //if(jcp.skinFileName!=null && jcp.skinFileName.length()>0)
-      //    jcp.skin=jcp.mediaBag.getSkinElement(jcp.skinFileName);
-      //else
-      //    jcp.skinFileName=null;
-    }
+    
+    if ((child = e.getChild(COVER)) != null)
+      coverFileName = JDomUtility.getStringAttr(child, FILE, coverFileName, false);
+
+    if ((child = e.getChild(THUMB)) != null)
+      thumbnailFileName = JDomUtility.getStringAttr(child, FILE, thumbnailFileName, false);
+    
   }
 
   public String toHtmlString(edu.xtec.util.Messages msg) {

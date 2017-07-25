@@ -96,7 +96,7 @@ public class ProjectFileUtils implements ResourceBridge {
       }
       projectName = projects[0];
     } else {
-      projectName = file;
+      jclicFileName = projectName = file;
     }
 
     org.jdom.Document doc = fileSystem.getXMLDocument(projectName);
@@ -370,6 +370,7 @@ public class ProjectFileUtils implements ResourceBridge {
     File dest = new File(destPath);
 
     File[] jclicFiles = src.listFiles(new FilenameFilter() {
+      @Override
       public boolean accept(File dir, String name) {
         String lowerName = name.toLowerCase();
         return lowerName.endsWith(".jclic.zip") || lowerName.endsWith(".jclic");
@@ -397,6 +398,7 @@ public class ProjectFileUtils implements ResourceBridge {
 
     // Process subdirectories
     File[] subDirs = src.listFiles(new FilenameFilter() {
+      @Override
       public boolean accept(File dir, String name) {
         return new File(dir, name).isDirectory();
       }
