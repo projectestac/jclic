@@ -26,6 +26,7 @@ import edu.xtec.jclic.media.EventSounds;
 import edu.xtec.util.Domable;
 import edu.xtec.util.Html;
 import edu.xtec.util.JDomUtility;
+import edu.xtec.util.Messages;
 import edu.xtec.util.StrUtils;
 import java.util.*;
 import org.json.JSONException;
@@ -54,7 +55,7 @@ public class ProjectSettings implements Editable, Domable {
   // --- New fields added 25/07/2017
   public String coverFileName;
   public String thumbnailFileName;
-  public String[] meta_langs;
+  public Locale[] meta_langs;
   public String[] descriptions;
   public String[] area_codes;
   public String[] area_descs;
@@ -63,11 +64,12 @@ public class ProjectSettings implements Editable, Domable {
   public String[] lang_codes;
   public String[] lang_descs;
   public String[] licenses;
-   
+
   public static String UNTITLED = "untitled";
   public static String ELEMENT_NAME = "settings";
-  public static String TITLE = "title", LOCALE = "locale", LANGUAGE = "language", DESCRIPTION = "description", DESCRIPTORS = "descriptors",
-          SKIN = "skin", FILE = "file", AREA = "area", LEVEL = "level", ICON = "icon", COVER = "cover", THUMB = "thumb";
+  public static String TITLE = "title", LOCALE = "locale", LANGUAGE = "language", DESCRIPTION = "description",
+          DESCRIPTORS = "descriptors", SKIN = "skin", FILE = "file", AREA = "area", LEVEL = "level",
+          ICON = "icon", COVER = "cover", THUMB = "thumb", META_LANGS = "meta_langs", DESCRIPTIONS = "descriptions";
 
   /**
    * Creates new ProjectSettings
@@ -89,12 +91,15 @@ public class ProjectSettings implements Editable, Domable {
     // --- New fields added 25/07/2017
     coverFileName = null;
     thumbnailFileName = null;
-    
+    meta_langs = new Locale[1];
+    meta_langs[0] = Locale.getDefault();
+    descriptions = new String[1];
+    descriptions[0] = "";
   }
 
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
-    org.jdom.Element child;
+    org.jdom.Element child, child2;
 
     e.addContent(new org.jdom.Element(TITLE).setText(title));
 
@@ -123,14 +128,17 @@ public class ProjectSettings implements Editable, Domable {
     }
 
     if (locale != null) {
-      StringBuilder sb = new StringBuilder(locale.getLanguage());
-      if (locale.getCountry() != null && locale.getCountry().length() > 0) {
-        sb.append('-').append(locale.getCountry());
-        if (locale.getVariant() != null && locale.getVariant().length() > 0) {
-          sb.append('-').append(locale.getVariant());
+      /*
+      StringBuilder sb = new StringBuilder(loc.getLanguage());
+      if (loc.getCountry() != null && loc.getCountry().length() > 0) {
+        sb.append('-').append(loc.getCountry());
+        if (loc.getVariant() != null && loc.getVariant().length() > 0) {
+          sb.append('-').append(loc.getVariant());
         }
       }
       e.setAttribute(LOCALE, sb.substring(0));
+       */
+      e.setAttribute(LOCALE, locale.toLanguageTag());
     }
 
     if (description != null) {
@@ -167,19 +175,34 @@ public class ProjectSettings implements Editable, Domable {
       child.setAttribute(FILE, iconFileName);
       e.addContent(child);
     }
-    
-    if(coverFileName != null){
+
+    if (coverFileName != null) {
       child = new org.jdom.Element(COVER);
       child.setAttribute(FILE, coverFileName);
-      e.addContent(child);      
+      e.addContent(child);
     }
 
-    if(thumbnailFileName != null){
+    if (thumbnailFileName != null) {
       child = new org.jdom.Element(THUMB);
       child.setAttribute(FILE, thumbnailFileName);
-      e.addContent(child);      
+      e.addContent(child);
     }
-    
+
+    child = new org.jdom.Element(META_LANGS);
+    StringBuilder sb = new StringBuilder();
+    for (int i = 0; i < meta_langs.length; i++) {
+      sb.append(i > 0 ? "," : "").append(meta_langs[i].toLanguageTag());
+    }
+    child.setText(sb.substring(0));
+    e.addContent(child);
+
+    child = new org.jdom.Element(DESCRIPTIONS);
+    for (int i = 0; i < meta_langs.length; i++) {
+      child2 = JDomUtility.addParagraphs(child, DESCRIPTION, descriptions[i] == null ? "" : descriptions[i]);
+      child2.setAttribute(LANGUAGE, meta_langs[i].toLanguageTag());
+    }
+    e.addContent(child);
+
     return e;
   }
 
@@ -234,6 +257,19 @@ public class ProjectSettings implements Editable, Domable {
     }
     if (!all.isEmpty()) {
       languages = all.toArray(new String[all.size()]);
+      for (int i = 0; i < languages.length; i++) {
+        String lng = Messages.getLanguageFromDescriptive(languages[i]);
+        Locale loc = Locale.forLanguageTag(lng == null ? languages[i] : lng);
+        if (loc.getLanguage().equals("")) {
+          lng = Messages.getKnownLanguageCode(languages[i]);
+          loc = Locale.forLanguageTag(lng == null ? languages[i] : lng);
+        }
+        languages[i] = loc.toLanguageTag();
+      }
+    }
+
+    if (languages != null && languages.length > 0 && languages[0].length() > 1 && !languages[0].equals("und")) {
+      meta_langs[0] = Locale.forLanguageTag(languages[0]);
     }
 
     if ((s = JDomUtility.getStringAttr(e, LOCALE, null, false)) != null) {
@@ -258,6 +294,9 @@ public class ProjectSettings implements Editable, Domable {
     }
 
     description = JDomUtility.getParagraphs(e.getChild(DESCRIPTION));
+    if (description != null) {
+      descriptions[0] = description;
+    }
 
     if ((child = e.getChild(DESCRIPTORS)) != null) {
       // check for old format
@@ -271,21 +310,44 @@ public class ProjectSettings implements Editable, Domable {
       level = JDomUtility.getStringAttr(child, LEVEL, level, false);
     }
 
-    if ((child = e.getChild(EventSounds.ELEMENT_NAME)) != null)
+    if ((child = e.getChild(EventSounds.ELEMENT_NAME)) != null) {
       eventSounds = EventSounds.getEventSounds(child);
+    }
 
-    if ((child = e.getChild(SKIN)) != null)
+    if ((child = e.getChild(SKIN)) != null) {
       skinFileName = JDomUtility.getStringAttr(child, FILE, skinFileName, false);
+    }
 
-    if ((child = e.getChild(ICON)) != null)
+    if ((child = e.getChild(ICON)) != null) {
       iconFileName = JDomUtility.getStringAttr(child, FILE, iconFileName, false);
-    
-    if ((child = e.getChild(COVER)) != null)
-      coverFileName = JDomUtility.getStringAttr(child, FILE, coverFileName, false);
+    }
 
-    if ((child = e.getChild(THUMB)) != null)
+    if ((child = e.getChild(COVER)) != null) {
+      coverFileName = JDomUtility.getStringAttr(child, FILE, coverFileName, false);
+    }
+
+    if ((child = e.getChild(THUMB)) != null) {
       thumbnailFileName = JDomUtility.getStringAttr(child, FILE, thumbnailFileName, false);
-    
+    }
+
+    if ((child = e.getChild(META_LANGS)) != null) {
+      String[] ml = child.getTextNormalize().split(",");
+      meta_langs = new Locale[ml.length];
+      descriptions = new String[ml.length];
+      for (int i = 0; i < ml.length; i++) {
+        meta_langs[i] = Locale.forLanguageTag(ml[i]);
+        descriptions[i] = (i == 0 && description != null) ? description : "";
+      }
+    }
+
+    if ((child = e.getChild(DESCRIPTIONS)) != null) {
+      List<org.jdom.Element> descs = (List<org.jdom.Element>) child.getChildren(DESCRIPTION);
+      descriptions = new String[Math.max(meta_langs.length, descs.size())];
+      for (int i = 0; i < descs.size(); i++) {
+        descriptions[i] = JDomUtility.getParagraphs(descs.get(i));
+      }
+    }
+
   }
 
   public String toHtmlString(edu.xtec.util.Messages msg) {
@@ -367,8 +429,8 @@ public class ProjectSettings implements Editable, Domable {
     JSONObject json = new JSONObject();
 
     json.put("title", title);
-    
-    if (authors!=null && authors.length > 0) {
+
+    if (authors != null && authors.length > 0) {
       StringBuilder sb = new StringBuilder();
       for (Author a : authors) {
         if (sb.length() > 0) {
@@ -390,10 +452,11 @@ public class ProjectSettings implements Editable, Domable {
       json.put("school", sb.toString());
     }
 
-    if(revisions!=null && revisions.length > 0)
+    if (revisions != null && revisions.length > 0) {
       json.put("date", msg.getShortDateStr(revisions[0].date));
+    }
 
-    Locale locale = msg.getLocale();
+    Locale loc = msg.getLocale();
     String langCode = msg.getLocale().getLanguage();
     boolean langCodeSet = false;
     if (languages != null && languages.length > 0) {
@@ -412,7 +475,7 @@ public class ProjectSettings implements Editable, Domable {
         if (code != null) {
           if (!langCodeSet) {
             langCode = code;
-            locale = new Locale(code);
+            loc = new Locale(code);
             langCodeSet = true;
           }
           json.append("langCodes", code);
@@ -420,7 +483,7 @@ public class ProjectSettings implements Editable, Domable {
           if (langNames.length() > 0) {
             langNames += ", ";
           }
-          langNames += (new Locale(code)).getDisplayName(locale);
+          langNames += (new Locale(code)).getDisplayName(loc);
         }
       }
       if (langNames.length() > 0) {
@@ -445,6 +508,7 @@ public class ProjectSettings implements Editable, Domable {
     return json;
   }
 
+  @Override
   public Editor getEditor(Editor parent) {
     return Editor.createEditor(getClass().getName() + "Editor", this, parent);
   }

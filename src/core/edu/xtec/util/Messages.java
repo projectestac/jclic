@@ -80,6 +80,9 @@ public class Messages {
   private java.text.NumberFormat percentFormat;
 
   public static final String OPTIONS_DELIMITER = ",";
+  
+  public static final String[] KNOWN_LANGS = {"anglès", "arabic", "araucanian", "basque", "català", "catalán", "chinese", "english", "espanyol", "español", "esperanto", "euskara", "francés", "francès", "french", "gallego", "german", "greek", "inglés", "italian", "latin", "occità", "occitan", "portuguès", "romanian", "spanish", "swedish", "vasco"};
+  public static final String[] KNOWN_LANG_CODES = {"en","ar",     "arn",        "eu",     "ca",     "ca",      "ch",      "en",      "es",       "es",      "eo",        "eu",      "fr",      "fr",      "fr",     "gl",      "de",     "gr",    "en",     "it",      "la",    "oc",     "oc",      "pt",        "ro",       "es",      "sv",      "eu"};
 
   public Messages(String bundle) {
     init(bundle, null, null, null);
@@ -746,6 +749,17 @@ public class Messages {
 
   public String[] getDescriptiveLanguageCodes() {
     return getDescriptiveLanguageCodes(getLocale());
+  }
+  
+  public static String getKnownLanguageCode(String language) {
+    String result = null, lang = (language == null) ? "" : language.toLowerCase();
+    for(int i=0; i<KNOWN_LANGS.length; i++) {
+      if(KNOWN_LANGS[i].equals(lang)){
+        result = KNOWN_LANG_CODES[i];
+        break;
+      }      
+    }    
+    return result;
   }
 
   private static HashMap<String, String> codesToNames;

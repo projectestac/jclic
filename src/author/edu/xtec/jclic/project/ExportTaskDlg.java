@@ -41,7 +41,6 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.ListIterator;
 import java.util.zip.ZipEntry;
@@ -250,6 +249,9 @@ public class ExportTaskDlg extends javax.swing.JPanel {
             exportDlg.ps.println("Processing all projects in: " + inputPath);
             ProjectFileUtils.processRootFolder(inputPath, outputPath, fileList, exportDlg.ps);
           }
+          
+          // Get normalized filenames          
+          project.mediaBag.setNormalizedFileNames();
 
           exportDlg.ps.println("Generating file " + outputPath + "/index.html");
           FileOutputStream fos = new FileOutputStream(new File(outputPath, "index.html"));
@@ -285,17 +287,29 @@ public class ExportTaskDlg extends javax.swing.JPanel {
                   new FileOutputStream(new File(outputPath, fn)));
           fileList.add(fn);
 
-          exportDlg.ps.println("Copying project cover model");
-          StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/cover-base.jpg"),
-                  new FileOutputStream(new File(outputPath, "project-cover.jpg")));
-          fileList.add("project-cover.jpg");
-          json.put("cover", "project-cover.jpg");
+          String cover = project.settings.coverFileName;
+          if(cover == null) {            
+            exportDlg.ps.println("Copying project cover model");
+            cover = "project-cover.jpg";
+            StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/cover-base.jpg"),
+                  new FileOutputStream(new File(outputPath, cover)));
+            fileList.add(cover);
+          } else {
+            cover = project.mediaBag.getElement(cover).normalizedFileName;
+          }
+          json.put("cover", cover);
 
-          exportDlg.ps.println("Copying project thumbnail model");
-          StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/thumb-base.jpg"),
-                  new FileOutputStream(new File(outputPath, "project-thumb.jpg")));
-          fileList.add("project-thumb.jpg");
-          json.put("thumbnail", "project-thumb.jpg");
+          String thumb = project.settings.thumbnailFileName;
+          if(thumb==null) {
+            thumb = "project-thumb.jpg";
+            exportDlg.ps.println("Copying project thumbnail model");
+            StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/thumb-base.jpg"),
+                  new FileOutputStream(new File(outputPath, thumb)));
+            fileList.add(thumb);
+          } else {
+            thumb = project.mediaBag.getElement(thumb).normalizedFileName;
+          }
+          json.put("thumbnail", thumb);
 
           exportDlg.ps.println("Generating project.json");
           fileList.add("project.json");
