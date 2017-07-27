@@ -29,6 +29,7 @@ import edu.xtec.util.Messages;
 import edu.xtec.util.Options;
 import edu.xtec.util.StrUtils;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import javax.swing.JComponent;
@@ -44,6 +45,7 @@ import javax.swing.SwingUtilities;
 public class ProjectSettingsEditorPanel extends EditorPanel {
 
   private javax.swing.JTextPane[] descPanels = null;
+  private Locale[] meta_langs = new Locale[]{};
 
   /**
    * Creates new form JClicProjectEditorPanel
@@ -72,6 +74,8 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
     titleText = new javax.swing.JTextField();
     javax.swing.JLabel descLb = new javax.swing.JLabel();
     tabDesc = new javax.swing.JTabbedPane();
+    addBtn = new javax.swing.JButton();
+    removeBtn = new javax.swing.JButton();
     coverPanel = new edu.xtec.jclic.beans.RollPanel();
     javax.swing.JLabel coverLb = new javax.swing.JLabel();
     coverButton = new edu.xtec.jclic.beans.ImgButton();
@@ -156,6 +160,33 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
     gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
     gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
     descrPanel.getMainPanel().add(tabDesc, gridBagConstraints);
+
+    addBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/xtec/resources/icons/plus16.gif"))); // NOI18N
+    addBtn.setToolTipText(options==null ? "" : options.getMsg("edit_list_newElement_tooltip"));
+    addBtn.setMargin(new java.awt.Insets(0, 0, 0, 0));
+    addBtn.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        addBtnActionPerformed(evt);
+      }
+    });
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 1;
+    gridBagConstraints.gridwidth = java.awt.GridBagConstraints.RELATIVE;
+    gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 0);
+    descrPanel.getMainPanel().add(addBtn, gridBagConstraints);
+
+    removeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/xtec/resources/icons/minus16.gif"))); // NOI18N
+    removeBtn.setToolTipText(options==null ? "" : options.getMsg("edit_list_deleteElement_tooltip"));
+    removeBtn.setEnabled(false);
+    removeBtn.setMargin(new java.awt.Insets(0, 0, 0, 0));
+    removeBtn.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        removeBtnActionPerformed(evt);
+      }
+    });
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+    descrPanel.getMainPanel().add(removeBtn, gridBagConstraints);
 
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
@@ -389,6 +420,54 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
     add(scroll, java.awt.BorderLayout.CENTER);
   }// </editor-fold>//GEN-END:initComponents
 
+  private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
+
+    /*
+    int v=list.getSelectedIndex();
+    if(options!=null){
+      //String s=options.getMessages().showInputDlg(this, (String)null, "edit_list_newValue", "", "edit_list_addElement", false);
+      Object s=editItem(null, true);
+      if(s!=null && s.toString().length()>0){
+        if(upperCase)
+        s=s.toString().toUpperCase();
+        listModel.add(v+1, s);
+        list.setSelectedIndex(v+1);
+        firePropertyChange(PROP_LIST, "", s);
+        modified=true;
+      }
+    }*/
+
+    String lang = (String)editLanguage(null, true);
+    if(lang!=null){
+      lang = Messages.getLanguageFromDescriptive(lang);
+      Locale loc = Locale.forLanguageTag(lang);
+      Locale[] ml = Arrays.copyOf(meta_langs, meta_langs.length + 1);
+      if(Arrays.binarySearch(ml, loc, null) < 0) {
+        // alert duplicate
+        return;
+      }
+      
+      ml[meta_langs.length] = loc;
+      meta_langs = ml;
+      addDescTab("");
+    }
+
+  }//GEN-LAST:event_addBtnActionPerformed
+
+  private void removeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeBtnActionPerformed
+
+    /*
+    Object o=list.getSelectedValue();
+    if(o!=null){
+      listModel.removeElement(o);
+      firePropertyChange(PROP_LIST, o, null);
+      modified=true;
+      checkEnabled();
+    }
+    */
+
+  }//GEN-LAST:event_removeBtnActionPerformed
+
   public boolean checkIfEditorValid(Editor e) {
     return (e instanceof ProjectSettingsEditor);
   }
@@ -426,16 +505,14 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
 
     tabDesc.removeAll();
     descPanels = null;
+    meta_langs = new Locale[]{};
+    
     if (ps != null) {
+      meta_langs = new Locale[ps.meta_langs.length];
       descPanels = new javax.swing.JTextPane[ps.meta_langs.length];
-      for (int i = 0; i < ps.meta_langs.length; i++) {
-        javax.swing.JScrollPane scr = new javax.swing.JScrollPane();
-        descPanels[i] = new javax.swing.JTextPane();
-        descPanels[i].setText(StrUtils.secureString(ps.descriptions[i]));
-        descPanels[i].getDocument().addDocumentListener(this);
-        scr.setViewportView(descPanels[i]);
-        scr.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        tabDesc.addTab(ps.meta_langs[i].toLanguageTag(), scr);
+      for (int i = 0; i < meta_langs.length; i++) {
+        meta_langs[i] = ps.meta_langs[i];
+        addDescTab(ps.descriptions[i]);
       }
     }
 
@@ -480,6 +557,26 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
       }
     }
     revListEditor.setListData(v);
+  }
+  
+  private void addDescTab(String text){
+    int i = tabDesc.getTabCount();
+ 
+    if(i >= descPanels.length){
+      javax.swing.JTextPane[] dp = new javax.swing.JTextPane[descPanels.length + 1];
+      for(int p=0; p<descPanels.length; p++)
+        dp[p] = descPanels[p];
+      descPanels = dp;
+    }
+    
+    javax.swing.JScrollPane scr = new javax.swing.JScrollPane();
+    descPanels[i] = new javax.swing.JTextPane();
+    descPanels[i].setText(StrUtils.secureString(text));
+    descPanels[i].getDocument().addDocumentListener(this);
+    scr.setViewportView(descPanels[i]);
+    scr.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+    tabDesc.addTab(meta_langs[i].toLanguageTag(), scr);
+    
   }
 
   @Override
@@ -529,8 +626,9 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
       ps.title = StrUtils.secureString(titleText.getText(), options.getMsg("UNNAMED"));
 
       //ps.description = StrUtils.nullableString(descText.getText());
-      ps.descriptions = new String[ps.meta_langs.length];
-      for (int i = 0; i < ps.meta_langs.length; i++) {
+      ps.meta_langs = meta_langs;
+      ps.descriptions = new String[meta_langs.length];
+      for (int i = 0; i < meta_langs.length; i++) {
         ps.descriptions[i] = descPanels[i].getText();
       }
       ps.description = ps.descriptions[0];
@@ -661,6 +759,7 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
   }
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton addBtn;
   private javax.swing.JTextField areaText;
   private edu.xtec.jclic.beans.RollPanel authPanel;
   private edu.xtec.jclic.beans.TextListEditor authorListEditor;
@@ -674,6 +773,7 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
   private javax.swing.JTextField levelText;
   private javax.swing.JPanel mainPanel;
   private edu.xtec.jclic.beans.TextListEditor orgListEditor;
+  private javax.swing.JButton removeBtn;
   private edu.xtec.jclic.beans.TextListEditor revListEditor;
   private javax.swing.JScrollPane scroll;
   private javax.swing.JComboBox skinCombo;
