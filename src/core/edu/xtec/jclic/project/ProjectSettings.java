@@ -57,19 +57,37 @@ public class ProjectSettings implements Editable, Domable {
   public String thumbnailFileName;
   public Locale[] meta_langs;
   public String[] descriptions;
-  public String[] area_codes;
-  public String[] area_descs;
-  public String[] level_codes;
-  public String[] level_descs;
+  public List<String> area_codes;
+  public List<String> level_codes;
   public String[] lang_codes;
-  public String[] lang_descs;
   public String[] licenses;
 
   public static String UNTITLED = "untitled";
   public static String ELEMENT_NAME = "settings";
   public static String TITLE = "title", LOCALE = "locale", LANGUAGE = "language", DESCRIPTION = "description",
-          DESCRIPTORS = "descriptors", SKIN = "skin", FILE = "file", AREA = "area", LEVEL = "level",
+          DESCRIPTORS = "descriptors", SKIN = "skin", FILE = "file", AREA = "area", AREA_CODES = "area-codes", LEVEL = "level", LEVEL_CODES = "level-codes",
           ICON = "icon", COVER = "cover", THUMB = "thumb", META_LANGS = "meta_langs", DESCRIPTIONS = "descriptions";
+  
+  public static List<String>[] KNOWN_LEVEL_DESCS = (List<String>[])new List[]{
+      Arrays.asList(new String[]{"Infantil (3-6)", "Infantil (3-6)", "Kindergarten (3-6)"}), 
+      Arrays.asList(new String[]{"Primària (6-12)", "Primaria (6-12)", "Primary school (6-12)"}),
+      Arrays.asList(new String[]{"Secundària (12-16)", "Secundaria (12-16)", "Secondary school (12-16)"}),
+      Arrays.asList(new String[]{"Batxillerat (16-18)", "Bachillerato (16-18)", "High school (16-18)"})
+  };
+  public static String[] KNOWN_LEVEL_CODES = {"INF", "PRI", "SEC", "BTX"};
+  
+  public static List<String>[] KNOWN_AREA_DESCS = (List<String>[])new List[]{
+      Arrays.asList(new String[]{"Llengües", "Lenguas", "Languages"}), 
+      Arrays.asList(new String[]{"Matemàtiques", "Matemáticas", "Mathematics"}),
+      Arrays.asList(new String[]{"Ciències socials", "Ciencias sociales", "Social sciences"}),
+      Arrays.asList(new String[]{"Ciències experimentals", "Ciencias experimentales", "Experimental sciences"}),
+      Arrays.asList(new String[]{"Música", "Música", "Music"}),
+      Arrays.asList(new String[]{"Visual i plàstica", "Plástica y visual", "Art & design"}),
+      Arrays.asList(new String[]{"Educació física", "Educación física", "Physical education"}),
+      Arrays.asList(new String[]{"Tecnologies", "Tecnología", "Design & technology"}),
+      Arrays.asList(new String[]{"Diversos", "Diversos", "Miscellaneous"})
+  };
+  public static String[] KNOWN_AREA_CODES = {"lleng", "mat", "soc", "exp", "mus", "vip", "ef", "tec", "div"};
 
   /**
    * Creates new ProjectSettings
@@ -150,8 +168,16 @@ public class ProjectSettings implements Editable, Domable {
       child.setAttribute(AREA, area);
     }
 
+    if (area_codes != null && area_codes.size() > 0) {
+      child.setAttribute(AREA_CODES, StrUtils.getEnumeration(area_codes));
+    }
+
     if (level != null) {
       child.setAttribute(LEVEL, level);
+    }
+    
+    if (level_codes != null && level_codes.size() > 0) {
+      child.setAttribute(LEVEL_CODES, StrUtils.getEnumeration(level_codes));
     }
 
     if (descriptors != null) {
@@ -218,6 +244,9 @@ public class ProjectSettings implements Editable, Domable {
     org.jdom.Element child;
     Iterator itr;
     String s;
+    StringBuffer sb;
+    StringTokenizer stk;
+    ArrayList<String> al;
 
     if ((child = e.getChild(TITLE)) != null) {
       title = child.getText();
@@ -273,7 +302,7 @@ public class ProjectSettings implements Editable, Domable {
     }
 
     if ((s = JDomUtility.getStringAttr(e, LOCALE, null, false)) != null) {
-      StringTokenizer stk = new StringTokenizer(s, "-");
+      stk = new StringTokenizer(s, "-");
       String l = null, c = null, v = null;
       if (stk.hasMoreTokens()) {
         l = stk.nextToken();
@@ -307,7 +336,55 @@ public class ProjectSettings implements Editable, Domable {
         descriptors = StrUtils.nullableString(child.getTextNormalize());
       }
       area = JDomUtility.getStringAttr(child, AREA, area, false);
+      String ac = JDomUtility.getStringAttr(child, AREA_CODES, null, false);
+      if(ac!=null)
+          area_codes = StrUtils.enumerationToList(ac, ",");
+      else if(area != null) {
+          sb = new StringBuffer();
+          al = new ArrayList<String>();
+          stk = new StringTokenizer(area, ",");
+          while(stk.hasMoreElements()) {
+              s = stk.nextToken().trim();
+              int i = 0;
+              for(; i< KNOWN_AREA_DESCS.length; i++){
+                  if(KNOWN_AREA_DESCS[i].contains(s)) {
+                      al.add(KNOWN_AREA_CODES[i]);
+                      break;                      
+                  }
+              }
+              if(i==KNOWN_AREA_DESCS.length)
+                  sb.append(sb.length() > 0 ? ", " : "").append(s);              
+          }
+          area = sb.length() > 0 ? sb.toString() : null;
+          if(al.size() > 0)
+              area_codes = al;
+      }
+      
       level = JDomUtility.getStringAttr(child, LEVEL, level, false);
+      String lc = JDomUtility.getStringAttr(child, LEVEL_CODES, null, false);
+      if(lc!=null)
+          level_codes = StrUtils.enumerationToList(lc, ",");
+      else if(level != null) {
+          sb = new StringBuffer();
+          al = new ArrayList<String>();
+          stk = new StringTokenizer(level, ",");
+          while(stk.hasMoreElements()) {
+              s = stk.nextToken().trim();
+              int i = 0;
+              for(; i< KNOWN_LEVEL_DESCS.length; i++){
+                  if(KNOWN_LEVEL_DESCS[i].contains(s)) {
+                      al.add(KNOWN_LEVEL_CODES[i]);
+                      break;          
+                  }
+              }
+              if(i==KNOWN_LEVEL_DESCS.length)
+                  sb.append(sb.length() > 0 ? ", " : "").append(s);              
+          }
+          level = sb.length() > 0 ? sb.toString() : null;
+          if(al.size() > 0) {
+              level_codes = al;
+          }                    
+      }      
     }
 
     if ((child = e.getChild(EventSounds.ELEMENT_NAME)) != null) {

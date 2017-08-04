@@ -70,6 +70,12 @@ public class CtrlPanel extends JPanel implements PropertyChangeListener,
             modified=true;
     }
     
+    public final void listenButtonActions(javax.swing.AbstractButton[] controls){
+        for(javax.swing.AbstractButton cmp : controls)
+            cmp.addActionListener(this);
+            
+    }
+    
     public final void propertyChange(PropertyChangeEvent propertyChangeEvent) {
         if(!isInitializing() && eventPerformed(propertyChangeEvent))
             modified=true;

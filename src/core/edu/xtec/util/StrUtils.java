@@ -22,6 +22,7 @@ package edu.xtec.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.StringTokenizer;
 
 /**
@@ -67,6 +68,24 @@ public abstract class StrUtils {
   }
 
   public static String[] strToStrArray(String source, String separator) {
+    List<String> v =  StrUtils.enumerationToList(source, separator);
+    return v != null ? v.toArray(new String[v.size()]) : null;
+  }
+
+  public static String[] strToStrArrayNoNulls(String source, String separator) throws Exception {
+    String[] result = strToStrArray(source, separator);
+    if (result == null || result.length == 0) {
+      throw new Exception("Invalid parameter: " + source);
+    }
+    for (String s : result) {
+      if (s == null || s.length() == 0) {
+        throw new Exception("Invalid parameter: " + source);
+      }
+    }
+    return result;
+  }
+  
+  public static List<String> enumerationToList(String source, String separator) {
     if (source == null || separator == null) {
       return null;
     }
@@ -83,20 +102,7 @@ public abstract class StrUtils {
         }
       }
     }
-    return v.toArray(new String[v.size()]);
-  }
-
-  public static String[] strToStrArrayNoNulls(String source, String separator) throws Exception {
-    String[] result = strToStrArray(source, separator);
-    if (result == null || result.length == 0) {
-      throw new Exception("Invalid parameter: " + source);
-    }
-    for (String s : result) {
-      if (s == null || s.length() == 0) {
-        throw new Exception("Invalid parameter: " + source);
-      }
-    }
-    return result;
+    return v;      
   }
 
   public static byte[] extractByteSeq(byte[] data, int line, byte searchFor, byte changeTo) {
@@ -350,5 +356,16 @@ public abstract class StrUtils {
     }
     return sb.toString();
   }
-
+  
+  public static String getEnumeration(List<String> items){
+    StringBuilder sb = new StringBuilder();
+    String tr;
+    ListIterator<String> it = items.listIterator();
+    
+    while(it.hasNext())
+        sb.append(sb.length() > 0 ? ",": "").append(it.next());
+    
+    return sb.toString();
+  }
+  
 }

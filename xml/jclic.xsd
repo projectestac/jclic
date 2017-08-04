@@ -39,7 +39,9 @@
 					<xs:simpleContent>
 						<xs:extension base="xs:string">
 							<xs:attribute name="area" type="xs:string"/>
-							<xs:attribute name="level" type="xs:string"/>
+							<xs:attribute name="area-codes" type="xs:string"/>
+							<xs:attribute name="area" type="xs:string"/>
+							<xs:attribute name="level-codes" type="xs:string"/>
 						</xs:extension>
 					</xs:simpleContent>
 				</xs:complexType>
@@ -50,6 +52,26 @@
 				<xs:complexType>
 					<xs:attribute name="file" type="xs:string" use="required"/>
 				</xs:complexType>
+			</xs:element>
+			<xs:element name="cover" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="file" type="xs:string" use="required"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="thumb" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="file" type="xs:string" use="required"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="meta_langs" type="xs:string" minOccurs="0" />
+			<xs:element name="descriptions" minOccurs="0">
+				<xs:sequence>
+					<xs:element name="description" type="multilineType" >
+						<xs:complexType>
+							<xs:attribute name="language" type="xs:string" use="required"/>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="locale" type="xs:string"/>
