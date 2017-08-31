@@ -109,6 +109,12 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
       }
     };
     descPanel = new edu.xtec.jclic.beans.RollPanel();
+    javax.swing.JLabel langLb = new javax.swing.JLabel();
+    langListEditor = new TextListEditor(options){
+      protected Object editItem(Object currentValue, boolean newValue){
+        return editLanguage(currentValue, newValue);
+      }
+    };
     javax.swing.JLabel levelLb = new javax.swing.JLabel();
     levels_INF = new javax.swing.JCheckBox();
     levels_PRI = new javax.swing.JCheckBox();
@@ -130,12 +136,6 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
     areaText = new javax.swing.JTextField();
     javax.swing.JLabel descriptorslLb = new javax.swing.JLabel();
     descriptorsText = new javax.swing.JTextField();
-    javax.swing.JLabel langLb = new javax.swing.JLabel();
-    langListEditor = new TextListEditor(options){
-      protected Object editItem(Object currentValue, boolean newValue){
-        return editLanguage(currentValue, newValue);
-      }
-    };
     uiPanel = new edu.xtec.jclic.beans.RollPanel();
     javax.swing.JLabel skinLb = new javax.swing.JLabel();
     skinCombo = new javax.swing.JComboBox<String>(edu.xtec.jclic.skins.Skin.getSystemSkinList(false));
@@ -315,6 +315,22 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
     descPanel.setTitle(options.getMsg("edit_project_descriptors_block"));
     descPanel.getMainPanel().setLayout(new java.awt.GridBagLayout());
 
+    langLb.setLabelFor(langListEditor);
+    langLb.setText(options.getMsg("edit_project_languages"));
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+    gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+    descPanel.getMainPanel().add(langLb, gridBagConstraints);
+
+    langListEditor.setToolTipText(options.getMsg("edit_project_languages_tooltip"));
+    langListEditor.setPreferredSize(new java.awt.Dimension(200, 80));
+    langListEditor.addPropertyChangeListener(TextListEditor.PROP_LIST, this);
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+    gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+    descPanel.getMainPanel().add(langListEditor, gridBagConstraints);
+
     levelLb.setText(options.getMsg("edit_project_level"));
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
@@ -470,21 +486,6 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
     gridBagConstraints.weightx = 1.0;
     gridBagConstraints.insets = new java.awt.Insets(3, 3, 10, 3);
     descPanel.getMainPanel().add(descriptorsText, gridBagConstraints);
-
-    langLb.setLabelFor(langListEditor);
-    langLb.setText(options.getMsg("edit_project_languages"));
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-    gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
-    descPanel.getMainPanel().add(langLb, gridBagConstraints);
-
-    langListEditor.setToolTipText(options.getMsg("edit_project_languages_tooltip"));
-    langListEditor.setPreferredSize(new java.awt.Dimension(200, 80));
-    langListEditor.addPropertyChangeListener(TextListEditor.PROP_LIST, this);
-    gridBagConstraints = new java.awt.GridBagConstraints();
-    gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
-    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-    descPanel.getMainPanel().add(langListEditor, gridBagConstraints);
 
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;

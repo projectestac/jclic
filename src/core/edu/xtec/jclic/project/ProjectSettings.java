@@ -29,6 +29,7 @@ import edu.xtec.util.JDomUtility;
 import edu.xtec.util.Messages;
 import edu.xtec.util.StrUtils;
 import java.util.*;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -67,25 +68,27 @@ public class ProjectSettings implements Editable, Domable {
   public static String TITLE = "title", LOCALE = "locale", LANGUAGE = "language", DESCRIPTION = "description",
           DESCRIPTORS = "descriptors", SKIN = "skin", FILE = "file", AREA = "area", AREA_CODES = "area-codes", LEVEL = "level", LEVEL_CODES = "level-codes",
           ICON = "icon", COVER = "cover", THUMB = "thumb", META_LANGS = "meta_langs", DESCRIPTIONS = "descriptions";
-  
-  public static List<String>[] KNOWN_LEVEL_DESCS = (List<String>[])new List[]{
-      Arrays.asList(new String[]{"Infantil (3-6)", "Infantil (3-6)", "Kindergarten (3-6)"}), 
-      Arrays.asList(new String[]{"Primària (6-12)", "Primaria (6-12)", "Primary school (6-12)"}),
-      Arrays.asList(new String[]{"Secundària (12-16)", "Secundaria (12-16)", "Secondary school (12-16)"}),
-      Arrays.asList(new String[]{"Batxillerat (16-18)", "Bachillerato (16-18)", "High school (16-18)"})
+
+  public static String[] KNOWN_META_LANGS = {"ca", "es", "en"};
+
+  public static List<String>[] KNOWN_LEVEL_DESCS = (List<String>[]) new List[]{
+    Arrays.asList(new String[]{"Infantil (3-6)", "Infantil (3-6)", "Kindergarten (3-6)"}),
+    Arrays.asList(new String[]{"Primària (6-12)", "Primaria (6-12)", "Primary school (6-12)"}),
+    Arrays.asList(new String[]{"Secundària (12-16)", "Secundaria (12-16)", "Secondary school (12-16)"}),
+    Arrays.asList(new String[]{"Batxillerat (16-18)", "Bachillerato (16-18)", "High school (16-18)"})
   };
   public static String[] KNOWN_LEVEL_CODES = {"INF", "PRI", "SEC", "BTX"};
-  
-  public static List<String>[] KNOWN_AREA_DESCS = (List<String>[])new List[]{
-      Arrays.asList(new String[]{"Llengües", "Lenguas", "Languages"}), 
-      Arrays.asList(new String[]{"Matemàtiques", "Matemáticas", "Mathematics"}),
-      Arrays.asList(new String[]{"Ciències socials", "Ciencias sociales", "Social sciences"}),
-      Arrays.asList(new String[]{"Ciències experimentals", "Ciencias experimentales", "Experimental sciences"}),
-      Arrays.asList(new String[]{"Música", "Música", "Music"}),
-      Arrays.asList(new String[]{"Visual i plàstica", "Plástica y visual", "Art & design"}),
-      Arrays.asList(new String[]{"Educació física", "Educación física", "Physical education"}),
-      Arrays.asList(new String[]{"Tecnologies", "Tecnología", "Design & technology"}),
-      Arrays.asList(new String[]{"Diversos", "Diversos", "Miscellaneous"})
+
+  public static List<String>[] KNOWN_AREA_DESCS = (List<String>[]) new List[]{
+    Arrays.asList(new String[]{"Llengües", "Lenguas", "Languages"}),
+    Arrays.asList(new String[]{"Matemàtiques", "Matemáticas", "Mathematics"}),
+    Arrays.asList(new String[]{"Ciències socials", "Ciencias sociales", "Social sciences"}),
+    Arrays.asList(new String[]{"Ciències experimentals", "Ciencias experimentales", "Experimental sciences"}),
+    Arrays.asList(new String[]{"Música", "Música", "Music"}),
+    Arrays.asList(new String[]{"Visual i plàstica", "Plástica y visual", "Art & design"}),
+    Arrays.asList(new String[]{"Educació física", "Educación física", "Physical education"}),
+    Arrays.asList(new String[]{"Tecnologies", "Tecnología", "Design & technology"}),
+    Arrays.asList(new String[]{"Diversos", "Diversos", "Miscellaneous"})
   };
   public static String[] KNOWN_AREA_CODES = {"lleng", "mat", "soc", "exp", "mus", "vip", "ef", "tec", "div"};
 
@@ -175,7 +178,7 @@ public class ProjectSettings implements Editable, Domable {
     if (level != null) {
       child.setAttribute(LEVEL, level);
     }
-    
+
     if (level_codes != null && level_codes.size() > 0) {
       child.setAttribute(LEVEL_CODES, StrUtils.getEnumeration(level_codes));
     }
@@ -337,54 +340,57 @@ public class ProjectSettings implements Editable, Domable {
       }
       area = JDomUtility.getStringAttr(child, AREA, area, false);
       String ac = JDomUtility.getStringAttr(child, AREA_CODES, null, false);
-      if(ac!=null)
-          area_codes = StrUtils.enumerationToList(ac, ",");
-      else if(area != null) {
-          sb = new StringBuffer();
-          al = new ArrayList<String>();
-          stk = new StringTokenizer(area, ",");
-          while(stk.hasMoreElements()) {
-              s = stk.nextToken().trim();
-              int i = 0;
-              for(; i< KNOWN_AREA_DESCS.length; i++){
-                  if(KNOWN_AREA_DESCS[i].contains(s)) {
-                      al.add(KNOWN_AREA_CODES[i]);
-                      break;                      
-                  }
-              }
-              if(i==KNOWN_AREA_DESCS.length)
-                  sb.append(sb.length() > 0 ? ", " : "").append(s);              
+      if (ac != null) {
+        area_codes = StrUtils.enumerationToList(ac, ",");
+      } else if (area != null) {
+        sb = new StringBuffer();
+        al = new ArrayList<String>();
+        stk = new StringTokenizer(area, ",");
+        while (stk.hasMoreElements()) {
+          s = stk.nextToken().trim();
+          int i = 0;
+          for (; i < KNOWN_AREA_DESCS.length; i++) {
+            if (KNOWN_AREA_DESCS[i].contains(s)) {
+              al.add(KNOWN_AREA_CODES[i]);
+              break;
+            }
           }
-          area = sb.length() > 0 ? sb.toString() : null;
-          if(al.size() > 0)
-              area_codes = al;
+          if (i == KNOWN_AREA_DESCS.length) {
+            sb.append(sb.length() > 0 ? ", " : "").append(s);
+          }
+        }
+        area = sb.length() > 0 ? sb.toString() : null;
+        if (al.size() > 0) {
+          area_codes = al;
+        }
       }
-      
+
       level = JDomUtility.getStringAttr(child, LEVEL, level, false);
       String lc = JDomUtility.getStringAttr(child, LEVEL_CODES, null, false);
-      if(lc!=null)
-          level_codes = StrUtils.enumerationToList(lc, ",");
-      else if(level != null) {
-          sb = new StringBuffer();
-          al = new ArrayList<String>();
-          stk = new StringTokenizer(level, ",");
-          while(stk.hasMoreElements()) {
-              s = stk.nextToken().trim();
-              int i = 0;
-              for(; i< KNOWN_LEVEL_DESCS.length; i++){
-                  if(KNOWN_LEVEL_DESCS[i].contains(s)) {
-                      al.add(KNOWN_LEVEL_CODES[i]);
-                      break;          
-                  }
-              }
-              if(i==KNOWN_LEVEL_DESCS.length)
-                  sb.append(sb.length() > 0 ? ", " : "").append(s);              
+      if (lc != null) {
+        level_codes = StrUtils.enumerationToList(lc, ",");
+      } else if (level != null) {
+        sb = new StringBuffer();
+        al = new ArrayList<String>();
+        stk = new StringTokenizer(level, ",");
+        while (stk.hasMoreElements()) {
+          s = stk.nextToken().trim();
+          int i = 0;
+          for (; i < KNOWN_LEVEL_DESCS.length; i++) {
+            if (KNOWN_LEVEL_DESCS[i].contains(s)) {
+              al.add(KNOWN_LEVEL_CODES[i]);
+              break;
+            }
           }
-          level = sb.length() > 0 ? sb.toString() : null;
-          if(al.size() > 0) {
-              level_codes = al;
-          }                    
-      }      
+          if (i == KNOWN_LEVEL_DESCS.length) {
+            sb.append(sb.length() > 0 ? ", " : "").append(s);
+          }
+        }
+        level = sb.length() > 0 ? sb.toString() : null;
+        if (al.size() > 0) {
+          level_codes = al;
+        }
+      }
     }
 
     if ((child = e.getChild(EventSounds.ELEMENT_NAME)) != null) {
@@ -503,84 +509,168 @@ public class ProjectSettings implements Editable, Domable {
   }
 
   public JSONObject toJSON(edu.xtec.util.Messages msg) throws JSONException {
+
+    // Initialize `langTags` with current codes in meta_langs
+    int numLangs = meta_langs.length;
+    String[] langTags = new String[numLangs];
+    for (int i = 0; i < numLangs; i++) {
+      langTags[i] = meta_langs[i].toLanguageTag();
+    }
+    
+    // Prepare an empty JSON object to be filled in with current project settings
     JSONObject json = new JSONObject();
 
+    // Fill in title
     json.put("title", title);
 
+    // Fill in authors
     if (authors != null && authors.length > 0) {
       StringBuilder sb = new StringBuilder();
-      for (Author a : authors) {
-        if (sb.length() > 0) {
-          sb.append(", ");
-        }
-        sb.append(a.toString());
-      }
+      for (Author a : authors) 
+        StrUtils.addToEnum(sb, a.toString());
       json.put("author", sb.toString());
     }
-
+    
+    // Fill in organizations
     if (organizations != null && organizations.length > 0) {
       StringBuilder sb = new StringBuilder();
-      for (Organization o : organizations) {
-        if (sb.length() > 0) {
-          sb.append(", ");
-        }
-        sb.append(o.toString());
-      }
+      for (Organization o : organizations)
+        StrUtils.addToEnum(sb, o.toString());
       json.put("school", sb.toString());
     }
-
+    
+    // Fill in last revision date
     if (revisions != null && revisions.length > 0) {
       json.put("date", msg.getShortDateStr(revisions[0].date));
     }
-
-    Locale loc = msg.getLocale();
-    String langCode = msg.getLocale().getLanguage();
-    boolean langCodeSet = false;
+    
+    // Fill in project languages (codes and names)
     if (languages != null && languages.length > 0) {
-      String langNames = "";
+      String[] langDescs = new String[numLangs];
+
       for (String lang : languages) {
 
         String code = null;
+        
+        // Check for full language and code format, like in "Catalan (ca)"
         int p = lang.lastIndexOf('(');
         int q = lang.lastIndexOf(')');
         if (p > 0 && q > p) {
           code = lang.substring(p + 1, q);
         } else {
+          // Check for descriptive language code, like in "Catalan"
           code = (String) edu.xtec.util.Messages.getNamesToCodes().get(lang.toLowerCase());
+          if (code == null)
+            // Fallblack: "lang" should be a language code
+            code = lang;
         }
-
-        if (code != null) {
-          if (!langCodeSet) {
-            langCode = code;
-            loc = new Locale(code);
-            langCodeSet = true;
+        
+        // Append code
+        json.append("langCodes", code);
+        
+        // Add language description for each meta_lang
+        Locale loc = new Locale(code);
+        for (int i = 0; i < numLangs; i++) 
+          langDescs[i] = StrUtils.addToEnum(langDescs[i] == null ? "" : langDescs[i], loc.getDisplayName(meta_langs[i]));
+      }
+      
+      // Build a special object for language descriptions
+      JSONObject jso = new JSONObject();      
+      for (int i = 0; i < numLangs; i++)
+        jso.put(langTags[i], langDescs[i]);
+      json.put("languages", jso);
+    }
+    
+    // Fill in project subjects, both as codes and descriptive tags
+    if (area_codes != null && area_codes.size() > 0) {
+      
+      // Fill in area codes
+      json.put("areaCodes", new JSONArray(area_codes));
+      
+      // Fill in descriptive names
+      JSONObject jso = new JSONObject();
+      for (String lang : langTags) {        
+        String areaDescs = "";        
+        int p = StrUtils.getIndexOf(lang, KNOWN_META_LANGS);
+        if (p >= 0) {
+          StringBuilder sb = new StringBuilder();
+          Iterator<String> it = area_codes.iterator();
+          while (it.hasNext()) {            
+            String code = it.next();
+            int j = StrUtils.getIndexOf(code, KNOWN_AREA_CODES);
+            StrUtils.addToEnum(sb, j >= 0 ? KNOWN_AREA_DESCS[j].get(p) : code);
           }
-          json.append("langCodes", code);
-
-          if (langNames.length() > 0) {
-            langNames += ", ";
-          }
-          langNames += (new Locale(code)).getDisplayName(loc);
+          areaDescs = sb.toString();
+        } else {
+          areaDescs = StrUtils.getEnumeration(area_codes);
         }
+        
+        // Add additional subjects        
+        if(area!=null && area.length()>0) 
+          areaDescs = StrUtils.addToEnum(areaDescs, area);
+        
+        jso.put(lang, areaDescs);
       }
-      if (langNames.length() > 0) {
-        json.put("languages", (new JSONObject()).put(langCode, langNames));
+      json.put("areas", jso);
+    } else if (area != null) {
+      JSONObject jso = new JSONObject();
+      for (String lang :langTags)
+        jso.put(lang, area);
+      json.put("areas", jso);
+    }
+    
+    // Fill in project educational levels, both as codes and descriptive names
+    if (level_codes != null && level_codes.size() > 0) {
+      // Fill in level codes
+      json.put("levelCodes", new JSONArray(level_codes));
+      
+      JSONObject jso = new JSONObject();
+      for (String lang : langTags) {
+        String levelDescs = "";
+        int p = StrUtils.getIndexOf(lang, KNOWN_META_LANGS);
+        if (p >= 0) {
+          StringBuilder sb = new StringBuilder();
+          Iterator<String> it = level_codes.iterator();
+          while (it.hasNext()) {
+            String level = it.next();
+            int j = StrUtils.getIndexOf(level, KNOWN_LEVEL_CODES);
+            StrUtils.addToEnum(sb, j >= 0 ? KNOWN_LEVEL_DESCS[j].get(p) : level);
+          }
+          levelDescs = sb.toString();
+        } else {
+          levelDescs = StrUtils.getEnumeration(level_codes);
+        }
+        
+        // Add additional levels
+        if(level!=null && level.length()>0)
+          levelDescs = StrUtils.addToEnum(levelDescs, level);        
+        jso.put(lang, levelDescs);
+      }
+      json.put("levels", jso);
+    } else if (level != null) {
+      JSONObject jso = new JSONObject();
+      for (String lang : langTags)
+        jso.put(lang, level);
+      json.put("levels", jso);
+    }
+
+    // Fill in descriptions
+    JSONObject jso = new JSONObject();
+    for (int i = 0; i < numLangs && i < descriptions.length; i++) {
+      if (descriptions[i] != null) {
+        jso.put(langTags[i], descriptions[i]);
       }
     }
+    json.put("description", jso);
 
-    if (area != null) {
-      json.put("areas", (new JSONObject()).put(langCode, area));
-    }
-
-    if (level != null) {
-      json.put("levels", (new JSONObject()).put(langCode, level));
-    }
-
-    if (description != null) {
-      json.put("description", (new JSONObject()).put(langCode, description));
-    }
-
-    json.append("meta_langs", langCode);
+    // Fill in meta langs
+    json.put("meta_langs", new JSONArray(langTags));
+    
+    // Fill in cover and thumbnail images
+    if (coverFileName != null)
+      json.put("cover", coverFileName);
+    if (thumbnailFileName != null)
+      json.put("thumbnail", thumbnailFileName);
 
     return json;
   }

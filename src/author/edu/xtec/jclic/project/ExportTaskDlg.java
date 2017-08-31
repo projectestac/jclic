@@ -295,7 +295,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
                   new FileOutputStream(new File(outputPath, cover)));
             fileList.add(cover);
           } else {
-            cover = project.mediaBag.getElement(cover).normalizedFileName;
+            cover = project.mediaBag.getElement(cover).getFileName();
           }
           json.put("cover", cover);
 
@@ -307,7 +307,7 @@ public class ExportTaskDlg extends javax.swing.JPanel {
                   new FileOutputStream(new File(outputPath, thumb)));
             fileList.add(thumb);
           } else {
-            thumb = project.mediaBag.getElement(thumb).normalizedFileName;
+            thumb = project.mediaBag.getElement(thumb).getFileName();
           }
           json.put("thumbnail", thumb);
 
