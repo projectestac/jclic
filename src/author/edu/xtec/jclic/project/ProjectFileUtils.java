@@ -55,6 +55,7 @@ public class ProjectFileUtils implements ResourceBridge {
   String fullFilePath;
   String projectName;
   String jclicFileName;
+  String plainProjectName;
   String basePath;
   String relativePath;
   JClicProject project;
@@ -98,6 +99,8 @@ public class ProjectFileUtils implements ResourceBridge {
     } else {
       jclicFileName = projectName = file;
     }
+    
+    plainProjectName = FileSystem.getValidFileName(projectName.substring(0, projectName.lastIndexOf(".")));
 
     org.jdom.Document doc = fileSystem.getXMLDocument(projectName);
     project = JClicProject.getJClicProject(doc.getRootElement(), this, fileSystem, file);
@@ -110,13 +113,16 @@ public class ProjectFileUtils implements ResourceBridge {
    *
    * @param ps - The @link{PrintStream} where progress messages will be
    * outputed. Can be null.
+   * @param fileList - The list of currently exported files, used to avoid duplicates
    * @throws java.lang.InterruptedException
    */
-  public void normalizeFileNames(PrintStream ps) throws InterruptedException {
+  public void normalizeFileNames(PrintStream ps, Collection<String> fileList) throws InterruptedException {
 
     HashSet<String> currentNames = new HashSet<String>();
     Iterator<MediaBagElement> it = project.mediaBag.getElements().iterator();
     while (it.hasNext()) {
+      
+      boolean renamed = false;
 
       if (interrupt) {
         interrupt = false;
@@ -138,11 +144,21 @@ public class ProjectFileUtils implements ResourceBridge {
         while (currentNames.contains(fnv)) {
           fnv = Integer.toString(n++) + fn0;
         }
-        if (ps != null) {
-          ps.println("Renaming \"" + fn + "\" as \"" + fnv + "\"");
-        }
-        mbe.setFileName(fnv);
+        renamed = true;
       }
+      
+      // Avoid duplicate filenames
+      if(fileList.contains(getRelativeFn(fnv))){
+        int p = fnv.lastIndexOf(".");
+        fnv = fnv.substring(0, p) + "-" + plainProjectName + fnv.substring(p);
+        renamed = true;
+      }
+      
+      if(renamed && ps!=null) {
+        mbe.setFileName(fnv);
+        ps.println("Renaming \"" + fn + "\" as \"" + fnv + "\"");
+      }
+              
       currentNames.add(fnv);
     }
   }
@@ -345,7 +361,7 @@ public class ProjectFileUtils implements ResourceBridge {
 
   public static void processSingleFile(String sourceFile, String destPath, String basePath, Collection<String> fileList, PrintStream ps) throws Exception, InterruptedException {
     ProjectFileUtils prjFU = new ProjectFileUtils(sourceFile, basePath);
-    prjFU.normalizeFileNames(ps);
+    prjFU.normalizeFileNames(ps, fileList);
     prjFU.avoidZipLinks(ps);
     prjFU.saveTo(destPath, fileList, ps);
   }
