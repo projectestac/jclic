@@ -40,11 +40,11 @@
 
     <property name="resource.path"    value="edu/xtec/resources" />
     
-    <!-- JClic is currently targeted to JVM 1.6 -->
-    <property name="javac.source" value="1.6"/>
-    <property name="javac.target" value="1.6"/>
+    <!-- JClic is currently targeted to JVM 1.7 -->
+    <property name="javac.source" value="1.7"/>
+    <property name="javac.target" value="1.7"/>
 
-    <!-- Check if "rt.jar" exists in lib/bootstrap/1.6  -->
+    <!-- Check if "rt.jar" exists in lib/bootstrap/1.7  -->
     <property name="bootstrap.file" value="${lib.dir}/bootstrap/${javac.target}/rt.jar"/>
     <condition property="bootstrap.path"
                value="${bootstrap.file}"
@@ -306,7 +306,7 @@
                     <package name="edu.xtec.jclic*"/>
              </group>
              
-             <link href="http://docs.oracle.com/javase/1.6.0/docs/api/" />
+             <link href="http://docs.oracle.com/javase/7/docs/api/" />
              <link href="http://docs.oracle.com/cd/E17802_01/j2se/javase/technologies/desktop/media/jmf/2.1.1/apidocs/" />
              <link href="http://www.jdom.org/docs/apidocs.1.1/" />
              <link href="http://image4j.sourceforge.net/javadoc/" />
