@@ -47,7 +47,7 @@ import org.json.JSONObject;
  */
 public class LibraryManager implements Domable {
 
-  protected DefaultListModel libraries;
+  protected DefaultListModel<Object> libraries;
   protected PlayerSettings settings;
   protected boolean modified;
   public boolean autoRun;
@@ -61,7 +61,7 @@ public class LibraryManager implements Domable {
    */
   public LibraryManager(PlayerSettings settings) {
     this.settings = settings;
-    libraries = new DefaultListModel();
+    libraries = new DefaultListModel<>();
     modified = false;
     autoRun = true;
   }
@@ -233,7 +233,7 @@ public class LibraryManager implements Domable {
   public class LibraryPane extends JPanel implements ListSelectionListener {
 
     Action editAction, newLibraryAction, deleteAction;
-    JList list;
+    JList<Object> list;
     boolean allowEdit, onlyEditable;
     LibraryManagerElement current = null;
 
@@ -242,7 +242,7 @@ public class LibraryManager implements Domable {
       this.allowEdit = allowEdit;
       onlyEditable = selectOnlyEditable;
       buildActions();
-      list = new JList(libraries);
+      list = new JList<>(libraries);
       list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
       list.addListSelectionListener(this);
       if (list.getModel().getSize() > 0) {

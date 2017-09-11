@@ -221,7 +221,7 @@ public class Reporter extends Object {
                 return groupId;
         }
         final List<GroupData> vg=getGroups();        
-        final JList list=new JList();
+        final JList<Object> list=new JList<Object>();
         list.setCellRenderer(new CompoundListCellRenderer());
         list.setListData(vg.toArray());
         list.setSelectedValue(vg.get(0), false);
@@ -288,7 +288,7 @@ public class Reporter extends Object {
                     msg.showErrorWarning(parent, groupId==null ? "report_err_no_users" : "report_err_no_users_in_group", null);
                     break;
                 }
-                final JList list=new JList();
+                final JList<Object> list=new JList<Object>();
                 list.setCellRenderer(new CompoundListCellRenderer());
                 list.setListData(v.toArray());
                 if(!v.isEmpty())

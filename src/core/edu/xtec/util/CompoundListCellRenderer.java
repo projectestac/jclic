@@ -32,7 +32,7 @@ import javax.swing.ListCellRenderer;
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10
  */
-public class CompoundListCellRenderer extends JLabel implements ListCellRenderer {
+public class CompoundListCellRenderer extends JLabel implements ListCellRenderer<Object> {
     
     /** Creates a new instance of CompoundListCellRenderer */
     public CompoundListCellRenderer() {
@@ -41,7 +41,7 @@ public class CompoundListCellRenderer extends JLabel implements ListCellRenderer
         setVerticalAlignment(CENTER);
     }
     
-    public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+    public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
         if (isSelected) {
             setBackground(list.getSelectionBackground());
             setForeground(list.getSelectionForeground());

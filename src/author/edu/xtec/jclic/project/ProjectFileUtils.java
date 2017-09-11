@@ -265,6 +265,7 @@ public class ProjectFileUtils implements ResourceBridge {
    * into the specified path
    *
    * @param path - The path where the project will be saved
+   * @param fileList - Dynamic list containing relative paths of all exported files
    * @param ps - The @link{PrintStream} where progress messages will be
    * outputed. Can be null.
    * @throws Exception

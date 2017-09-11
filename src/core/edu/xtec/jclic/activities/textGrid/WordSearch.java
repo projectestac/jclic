@@ -381,13 +381,13 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
             if(showSolution){
                 hac=new HelpActivityComponent(this){
                     JScrollPane scrollPane=null;
-                    JList cluesList=null;
+                    JList<String> cluesList=null;
                     public void render(Graphics2D g2, Rectangle dirtyRegion){
                         // do nothing
                     }
                     @Override
                     public void init(){
-                        cluesList=new JList(clues);
+                        cluesList=new JList<>(clues);
                         cluesList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                         cluesList.addListSelectionListener(this);
                         scrollPane=new JScrollPane(cluesList);

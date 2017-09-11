@@ -326,7 +326,7 @@ public class TextTarget extends java.lang.Object{
             tabp.popupTimer.stopPopup();
     }
 
-    public class TargetCombo extends JComboBox{
+    public class TargetCombo extends JComboBox<String>{
         
         Color bgColor, foreColor;
         Color errBgColor, errForeColor;
@@ -415,7 +415,7 @@ public class TextTarget extends java.lang.Object{
             }
         }
         
-        class TargetComboCellRenderer extends JLabel implements ListCellRenderer {
+        class TargetComboCellRenderer extends JLabel implements ListCellRenderer<Object> {
             
             public TargetComboCellRenderer() {
                 setOpaque(true);

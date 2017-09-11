@@ -71,6 +71,7 @@ public class ProjectSettings implements Editable, Domable {
 
   public static String[] KNOWN_META_LANGS = {"ca", "es", "en"};
 
+  @SuppressWarnings("unchecked")
   public static List<String>[] KNOWN_LEVEL_DESCS = (List<String>[]) new List[]{
     Arrays.asList(new String[]{"Infantil (3-6)", "Infantil (3-6)", "Kindergarten (3-6)"}),
     Arrays.asList(new String[]{"Primària (6-12)", "Primaria (6-12)", "Primary school (6-12)"}),
@@ -79,6 +80,7 @@ public class ProjectSettings implements Editable, Domable {
   };
   public static String[] KNOWN_LEVEL_CODES = {"INF", "PRI", "SEC", "BTX"};
 
+  @SuppressWarnings("unchecked")
   public static List<String>[] KNOWN_AREA_DESCS = (List<String>[]) new List[]{
     Arrays.asList(new String[]{"Llengües", "Lenguas", "Languages"}),
     Arrays.asList(new String[]{"Matemàtiques", "Matemáticas", "Mathematics"}),
@@ -424,6 +426,7 @@ public class ProjectSettings implements Editable, Domable {
     }
 
     if ((child = e.getChild(DESCRIPTIONS)) != null) {
+      @SuppressWarnings("unchecked")
       List<org.jdom.Element> descs = (List<org.jdom.Element>) child.getChildren(DESCRIPTION);
       descriptions = new String[Math.max(meta_langs.length, descs.size())];
       for (int i = 0; i < descs.size(); i++) {
