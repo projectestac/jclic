@@ -1,3 +1,10 @@
+2017-09-13  Francesc Busquets <fbusquets@xtec.cat>
+    *   src/*: The tree of 'src' has been simplified, now with only 3 directories: core, author and report
+    *   src/*, dist/jclic/jclicplugin-applet.js, dist/jnlp/*.jnlp: Java 1.7 required
+    *   src/*: Type member declarations added to many classes and methods, thus avoiding compiler warnings
+    *   src/*: New fields added to ".jclic" files to make it more consistent with project.json, generated at HTML5 export
+    *   src/author/edu/xtec/jclic/project/ProjectFileUtils.java: HTML5 export: Avoid overriding of files with same name in multiple zips
+
 2016-09-05  Francesc Busquets <fbusquets@xtec.cat>
     *   src/author/edu/xtec/jclic/AuthorSettings.java: Revert JS codebase to clic.xtec.cat
 

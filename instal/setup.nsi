@@ -1,11 +1,11 @@
 ; Product version
 !ifndef PRODUCT_VERSION
-!define PRODUCT_VERSION "0.1.1.7"
+!define PRODUCT_VERSION "0.1.1.8"
 !endif
 
 ; Constants and variables for Java version check
 !define GET_JAVA_URL "http://www.java.com"
-!define MIN_JAVA_VERSION "1.6"
+!define MIN_JAVA_VERSION "1.7"
 Var JAVA_HOME
 Var JAVA_VERSION
 

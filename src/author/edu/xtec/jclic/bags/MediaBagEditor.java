@@ -491,7 +491,7 @@ public class MediaBagEditor extends Editor{
                 //result=options.getMessages().showQuestionDlg(parent, "edit_project_orphanMedia", null, true);
                 Object[] object=new Object[]{
                     options.getMsg("edit_project_orphanMedia"),
-                    v.size()>10 ? (Object)(new javax.swing.JScrollPane(new javax.swing.JList(v.toArray()))) : (Object)v,
+                    v.size()>10 ? (Object)(new javax.swing.JScrollPane(new javax.swing.JList<Object>(v.toArray()))) : (Object)v,
                     options.getMsg("edit_project_orphanMedia_prompt"),
                 };
                 result=options.getMessages().showQuestionDlgObj(parent, object, "edit_project_orphanMedia_title", "ync");

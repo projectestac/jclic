@@ -293,7 +293,7 @@ public class ActivityBagEditor extends Editor {
                 //result=options.getMessages().showQuestionDlg(parent, "edit_project_orphanActivities", null, true);                
                 Object[] object=new Object[]{
                     options.getMsg("edit_project_orphanActivities"),
-                    v.size()>10 ? (Object)(new javax.swing.JScrollPane(new javax.swing.JList(v.toArray()))) : (Object)v,
+                    v.size()>10 ? (Object)(new javax.swing.JScrollPane(new javax.swing.JList<Object>(v.toArray()))) : (Object)v,
                     options.getMsg("edit_project_orphanActivities_prompt"),
                 };
                 result=options.getMessages().showQuestionDlgObj(parent, object, "edit_project_orphanActivities_title", "ync");

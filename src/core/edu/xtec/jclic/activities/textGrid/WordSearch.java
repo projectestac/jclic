@@ -108,7 +108,7 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
         if((child=e.getChild(CLUES))==null)
             throw new IllegalArgumentException("WordSearch without clues!");
         
-        java.util.List cluesList=child.getChildren(CLUE);
+        java.util.List<?> cluesList=child.getChildren(CLUE);
         int numClues=cluesList.size();
         clues=new String[numClues];
         clueItems=new int[numClues];
@@ -381,13 +381,13 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
             if(showSolution){
                 hac=new HelpActivityComponent(this){
                     JScrollPane scrollPane=null;
-                    JList<String> cluesList=null;
+                    JList<Object> cluesList=null;
                     public void render(Graphics2D g2, Rectangle dirtyRegion){
                         // do nothing
                     }
                     @Override
                     public void init(){
-                        cluesList=new JList<>(clues);
+                        cluesList=new JList<Object>(clues);
                         cluesList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
                         cluesList.addListSelectionListener(this);
                         scrollPane=new JScrollPane(cluesList);

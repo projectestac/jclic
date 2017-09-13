@@ -85,11 +85,11 @@ public class PlayerSettingsDlg extends edu.xtec.util.ExtendedJDialog {
     pwdField2 = new javax.swing.JPasswordField(settings.password, 20);
     javax.swing.JPanel generalPane = new javax.swing.JPanel();
     javax.swing.JLabel lookLb = new javax.swing.JLabel();
-    lookCombo = new javax.swing.JComboBox(edu.xtec.util.LFUtil.VALUES);
+    lookCombo = new javax.swing.JComboBox<Object>(edu.xtec.util.LFUtil.VALUES);
     javax.swing.JLabel skinLb = new javax.swing.JLabel();
-    skinCombo = new javax.swing.JComboBox(edu.xtec.jclic.skins.Skin.getSystemSkinList(false));
+    skinCombo = new javax.swing.JComboBox<Object>(edu.xtec.jclic.skins.Skin.getSystemSkinList(false));
     javax.swing.JLabel langLb = new javax.swing.JLabel();
-    langCombo = new javax.swing.JComboBox(Messages.getDescriptiveLanguageCodes(msg.getLocale()));
+    langCombo = new javax.swing.JComboBox<Object>(Messages.getDescriptiveLanguageCodes(msg.getLocale()));
     javax.swing.JLabel countryLb = new javax.swing.JLabel();
     countryField = new javax.swing.JTextField();
     javax.swing.JLabel variantLb = new javax.swing.JLabel();

@@ -61,7 +61,7 @@ public class LibraryManager implements Domable {
    */
   public LibraryManager(PlayerSettings settings) {
     this.settings = settings;
-    libraries = new DefaultListModel<>();
+    libraries = new DefaultListModel<Object>();
     modified = false;
     autoRun = true;
   }
@@ -242,7 +242,7 @@ public class LibraryManager implements Domable {
       this.allowEdit = allowEdit;
       onlyEditable = selectOnlyEditable;
       buildActions();
-      list = new JList<>(libraries);
+      list = new JList<Object>(libraries);
       list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
       list.addListSelectionListener(this);
       if (list.getModel().getSize() > 0) {

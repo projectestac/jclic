@@ -31,21 +31,21 @@ import javax.swing.event.ListDataListener;
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
-public class ListComboModel extends Object implements ComboBoxModel{
+public class ListComboModel extends Object implements ComboBoxModel<Object>{
     
-    private ListModel model;
+    private ListModel<Object> model;
     private Object current;
     
     /** Creates a new instance of ListComboModel */
-    public ListComboModel(ListModel model) {
+    public ListComboModel(ListModel<Object> model) {
         this.model=model;
     }
     
     public ListComboModel() {
-        this(new DefaultListModel());
+        this(new DefaultListModel<Object>());
     }
     
-    public ListModel getListModel(){
+    public ListModel<Object> getListModel(){
         return model;
     }
     

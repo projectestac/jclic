@@ -167,14 +167,14 @@ public abstract class Editor extends DefaultMutableTreeNode{
         return currentTree;
     }
     
-    public AbstractListModel getListModel(){
+    public AbstractListModel<Object> getListModel(){
         if(listModel==null){
             listModel=new LModel();
         }
         return listModel;
     }
     
-    protected class LModel extends AbstractListModel{
+    protected class LModel extends AbstractListModel<Object>{
         public Object getElementAt(int index){
             return (index>=0 && index<getChildCount()) ? getChildAt(index) : null;
         }

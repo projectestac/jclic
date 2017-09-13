@@ -63,9 +63,9 @@ public class AuthorSettingsDlg extends edu.xtec.util.ExtendedJDialog {
     javax.swing.JTabbedPane mainPane = new javax.swing.JTabbedPane();
     javax.swing.JPanel generalPane = new javax.swing.JPanel();
     javax.swing.JLabel lookLb = new javax.swing.JLabel();
-    lookCombo = new javax.swing.JComboBox(edu.xtec.util.LFUtil.VALUES);
+    lookCombo = new javax.swing.JComboBox<Object>(edu.xtec.util.LFUtil.VALUES);
     javax.swing.JLabel langLb = new javax.swing.JLabel();
-    langCombo = new javax.swing.JComboBox(Messages.getDescriptiveLanguageCodes(msg.getLocale()));
+    langCombo = new javax.swing.JComboBox<Object>(Messages.getDescriptiveLanguageCodes(msg.getLocale()));
     javax.swing.JLabel countryLb = new javax.swing.JLabel();
     countryField = new javax.swing.JTextField();
     javax.swing.JLabel variantLb = new javax.swing.JLabel();
@@ -451,8 +451,8 @@ public class AuthorSettingsDlg extends edu.xtec.util.ExtendedJDialog {
   private javax.swing.JTextField countryField;
   private javax.swing.JTextField heightText;
   private javax.swing.JPanel imgSizePanel;
-  private javax.swing.JComboBox langCombo;
-  private javax.swing.JComboBox lookCombo;
+  private javax.swing.JComboBox<Object> langCombo;
+  private javax.swing.JComboBox<Object> lookCombo;
   private javax.swing.JRadioButton mDefaultBtn;
   private javax.swing.JRadioButton mJMFbtn;
   private javax.swing.JRadioButton mQTbtn;

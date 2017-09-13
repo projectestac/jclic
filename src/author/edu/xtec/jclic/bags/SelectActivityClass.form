@@ -56,6 +56,9 @@
                   <Dimension value="[200, 0]"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JList&lt;&gt;()"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

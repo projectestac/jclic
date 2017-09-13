@@ -980,7 +980,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
                         
                         // Select activities to import
                         JClicProjectEditor jcped=(JClicProjectEditor)jcp.getEditor(null);                        
-                        javax.swing.JList actList=new javax.swing.JList(jcp.activityBag.getElements());
+                        javax.swing.JList<Object> actList=new javax.swing.JList<Object>(jcp.activityBag.getElements());
                         // Error: setpreferedSize must be called on the JScrollPane, not on the JList
                         //actList.setPreferredSize(new java.awt.Dimension(200, 300));
                         javax.swing.JScrollPane pane=new javax.swing.JScrollPane(actList);

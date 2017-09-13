@@ -34,7 +34,7 @@ import javax.swing.ListCellRenderer;
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
  */
-public class CustomListCellRenderer extends JLabel implements ListCellRenderer{
+public class CustomListCellRenderer extends JLabel implements ListCellRenderer<Object>{
     
     protected String[] labels=null;
     protected Icon[] icons=null;
@@ -59,7 +59,7 @@ public class CustomListCellRenderer extends JLabel implements ListCellRenderer{
         this.icons=icons;
     }
     
-    public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+    public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
         if (isSelected) {
             setBackground(list.getSelectionBackground());
             setForeground(list.getSelectionForeground());

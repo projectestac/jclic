@@ -50,7 +50,7 @@ import javax.swing.tree.MutableTreeNode;
 public class ActivitySequenceEditor extends Editor{
     
     public static ImageIcon icon;    
-    protected DefaultListModel tagList;
+    protected DefaultListModel<Object> tagList;
     private boolean initializing;
     public static boolean actionsCreated;
     public static EditorAction newActivitySequenceElementAction;    
@@ -144,7 +144,7 @@ public class ActivitySequenceEditor extends Editor{
                 msg.showAlert(dlgParent, "edit_seq_newElement_error_emptyList");
                 return false;
             }
-            JComboBox actCombo=new JComboBox(new ListComboModel(
+            JComboBox actCombo=new JComboBox<Object>(new ListComboModel(
             getProjectEditor().getActivityBagEditor().getListModel()
             ));
             actCombo.setToolTipText(msg.get("edit_seq_activity_tooltip"));
@@ -186,9 +186,9 @@ public class ActivitySequenceEditor extends Editor{
         return insertEditor(aseed, true, index, true);
     }
         
-    public ListModel getTagList(){
+    public ListModel<Object> getTagList(){
         if(tagList==null){
-            tagList=new DefaultListModel();
+            tagList=new DefaultListModel<Object>();
             Enumeration en=children();
             while(en.hasMoreElements()){
                 ActivitySequenceElementEditor asee=(ActivitySequenceElementEditor)en.nextElement();
