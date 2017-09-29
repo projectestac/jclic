@@ -37,15 +37,16 @@ import java.io.InputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.json.JSONObject;
 
 /**
- * Miscellaneous utilities to process ".jclic" and ".jclic.zip" files, normalizing media file
- * names, avoiding links to other "zip" files and extracting contents to a given
- * folder.
+ * Miscellaneous utilities to process ".jclic" and ".jclic.zip" files,
+ * normalizing media file names, avoiding links to other "zip" files and
+ * extracting contents to a given folder.
  *
  * @author fbusquet
  */
@@ -79,19 +80,19 @@ public class ProjectFileUtils implements ResourceBridge {
     if (!isZip && !fullFilePath.endsWith(".jclic")) {
       throw new Exception("File " + fileName + " is not a JClic project file!");
     }
-    
-    File fullFilePathFile = new File(fullFilePath);    
+
+    File fullFilePathFile = new File(fullFilePath);
     String fileBase = fullFilePathFile.getParent();
-    this.basePath = (basePath == null ? fileBase : basePath);    
-    relativePath = this.basePath.equals(fileBase) ? "" : fileBase.substring(this.basePath.length()+1);
-    
+    this.basePath = (basePath == null ? fileBase : basePath);
+    relativePath = this.basePath.equals(fileBase) ? "" : fileBase.substring(this.basePath.length() + 1);
+
     fileSystem = FileSystem.createFileSystem(fullFilePath, this);
     String file = fullFilePathFile.getName();
-    if(isZip){
-      file = ((FileZip)fileSystem).getZipName();
+    if (isZip) {
+      file = ((FileZip) fileSystem).getZipName();
       jclicFileName = file.substring(0, file.lastIndexOf("."));
 
-      String[] projects = ((FileZip)fileSystem).getEntries(".jclic");
+      String[] projects = ((FileZip) fileSystem).getEntries(".jclic");
       if (projects == null) {
         throw new Exception("File " + fullFilePath + " does not contain any jclic project");
       }
@@ -99,7 +100,7 @@ public class ProjectFileUtils implements ResourceBridge {
     } else {
       jclicFileName = projectName = file;
     }
-    
+
     plainProjectName = FileSystem.getValidFileName(projectName.substring(0, projectName.lastIndexOf(".")));
 
     org.jdom.Document doc = fileSystem.getXMLDocument(projectName);
@@ -113,7 +114,8 @@ public class ProjectFileUtils implements ResourceBridge {
    *
    * @param ps - The @link{PrintStream} where progress messages will be
    * outputed. Can be null.
-   * @param fileList - The list of currently exported files, used to avoid duplicates
+   * @param fileList - The list of currently exported files, used to avoid
+   * duplicates
    * @throws java.lang.InterruptedException
    */
   public void normalizeFileNames(PrintStream ps, Collection<String> fileList) throws InterruptedException {
@@ -121,7 +123,7 @@ public class ProjectFileUtils implements ResourceBridge {
     HashSet<String> currentNames = new HashSet<String>();
     Iterator<MediaBagElement> it = project.mediaBag.getElements().iterator();
     while (it.hasNext()) {
-      
+
       boolean renamed = false;
 
       if (interrupt) {
@@ -146,26 +148,26 @@ public class ProjectFileUtils implements ResourceBridge {
         }
         renamed = true;
       }
-      
+
       // Avoid duplicate filenames
-      if(fileList.contains(getRelativeFn(fnv))){
+      if (fileList != null && fileList.contains(getRelativeFn(fnv))) {
         int p = fnv.lastIndexOf(".");
         fnv = fnv.substring(0, p) + "-" + plainProjectName + fnv.substring(p);
         renamed = true;
       }
-      
-      if(renamed && ps!=null) {
+
+      if (renamed && ps != null) {
         mbe.setFileName(fnv);
         ps.println("Renaming \"" + fn + "\" as \"" + fnv + "\"");
       }
-              
+
       currentNames.add(fnv);
     }
   }
 
   /**
-   * Searchs for links to ".jclic.zip" files in @link{ActiveBox} 
-   * and @link{JumpInfo} objects, and redirects it to ".jclic" files
+   * Searchs for links to ".jclic.zip" files in @link{ActiveBox} and
+   * @link{JumpInfo} objects, and redirects it to ".jclic" files
    *
    * @param ps - The @link{PrintStream} where progress messages will be
    * outputed. Can be null.
@@ -233,7 +235,7 @@ public class ProjectFileUtils implements ResourceBridge {
    * @throws java.lang.InterruptedException
    */
   public void avoidZipLinksInElement(org.jdom.Element el, PrintStream ps) throws InterruptedException {
-    if (el.getAttribute("params") != null || (el.getName().equals("menuElement")  && el.getAttribute("path") != null)) {
+    if (el.getAttribute("params") != null || (el.getName().equals("menuElement") && el.getAttribute("path") != null)) {
       String attr = el.getName().equals("menuElement") ? "path" : "params";
       String p = el.getAttributeValue(attr);
       if (p != null && p.endsWith(".jclic.zip")) {
@@ -255,9 +257,9 @@ public class ProjectFileUtils implements ResourceBridge {
       avoidZipLinksInElement((org.jdom.Element) it.next(), ps);
     }
   }
-  
-  public String getRelativeFn(String fName){
-    return relativePath.length()>0 ? relativePath + '/' + fName : fName;
+
+  public String getRelativeFn(String fName) {
+    return relativePath.length() > 0 ? relativePath + '/' + fName : fName;
   }
 
   /**
@@ -265,7 +267,8 @@ public class ProjectFileUtils implements ResourceBridge {
    * into the specified path
    *
    * @param path - The path where the project will be saved
-   * @param fileList - Dynamic list containing relative paths of all exported files
+   * @param fileList - Dynamic list containing relative paths of all exported
+   * files
    * @param ps - The @link{PrintStream} where progress messages will be
    * outputed. Can be null.
    * @throws Exception
@@ -307,8 +310,8 @@ public class ProjectFileUtils implements ResourceBridge {
         ps.println("Extracting " + fn + " to " + outFile.getCanonicalPath());
       }
       StreamIO.writeStreamTo(is, fos);
-      
-      if(fileList!=null){
+
+      if (fileList != null) {
         fileList.add(getRelativeFn(outFile.getName()));
       }
     }
@@ -323,7 +326,7 @@ public class ProjectFileUtils implements ResourceBridge {
     }
     JDomUtility.saveDocument(fos, doc);
     fos.close();
-    
+
     // Save ".jclic.js" file
     String jsFileName = jclicFileName + ".js";
     outFile = new File(outPath, jsFileName);
@@ -341,14 +344,14 @@ public class ProjectFileUtils implements ResourceBridge {
 
     String sequence = json.toString();
     sequence = sequence.substring(8, sequence.length() - 2);
-    
+
     pw.println("if(JClicObject){JClicObject.projectFiles[\"" + getRelativeFn(jclicFileName) + "\"]=\"" + sequence + "\";}");
     pw.flush();
     pw.close();
-    
-    if(fileList!=null){
+
+    if (fileList != null) {
       fileList.add(getRelativeFn(jclicFileName));
-      fileList.add(getRelativeFn(jsFileName));      
+      fileList.add(getRelativeFn(jsFileName));
     }
 
     if (ps != null) {
@@ -375,6 +378,7 @@ public class ProjectFileUtils implements ResourceBridge {
   public static void processFolder(String sourcePath, String destPath, String basePath, Collection<String> fileList, PrintStream ps) throws Exception, InterruptedException {
 
     File src = new File(sourcePath);
+    Collection<String> thisFolderList = (fileList == null ? new ArrayList<String>() : fileList);
 
     if (!src.isDirectory() || !src.canRead()) {
       throw new Exception("Source directory \"" + sourcePath + "\" does not exist, not a directory or not readable");
@@ -405,7 +409,7 @@ public class ProjectFileUtils implements ResourceBridge {
         ps.println("\nProcessing file: " + f.getAbsolutePath());
       }
 
-      processSingleFile(f.getAbsolutePath(), dest.getAbsolutePath(), basePath, fileList, ps);
+      processSingleFile(f.getAbsolutePath(), dest.getAbsolutePath(), basePath, thisFolderList, ps);
 
     }
 
