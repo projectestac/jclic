@@ -307,7 +307,7 @@ public class ProjectInstallerEditPanel extends javax.swing.JPanel implements Lis
             if(projectFileName!=null)
                 projectFileName=FileSystem.getFileNameOf(projectFileName);
             else
-                projectFileName=prj.getName()+".jclic.zip";
+                projectFileName=prj.getName()+Utils.EXT_JCLIC_ZIP;
             pi.addFile(projectFileName);
             ii=pi.createIconItem();
             ii.project=projectFileName;

@@ -26,6 +26,7 @@ import edu.xtec.jclic.bags.JumpInfo;
 import edu.xtec.jclic.bags.MediaBagElement;
 import edu.xtec.jclic.fileSystem.FileSystem;
 import edu.xtec.jclic.fileSystem.FileZip;
+import edu.xtec.jclic.misc.Utils;
 import edu.xtec.util.JDomUtility;
 import edu.xtec.util.ResourceBridge;
 import edu.xtec.util.StreamIO;
@@ -44,7 +45,7 @@ import java.util.Iterator;
 import org.json.JSONObject;
 
 /**
- * Miscellaneous utilities to process ".jclic" and ".jclic.zip" files,
+ * Miscellaneous utilities to process ".jclic", ".jclic.zip" and ".scorm.zip" files,
  * normalizing media file names, avoiding links to other "zip" files and
  * extracting contents to a given folder.
  *
@@ -59,7 +60,8 @@ public class ProjectFileUtils implements ResourceBridge {
   String plainProjectName;
   String basePath;
   String relativePath;
-  JClicProject project;
+  JClicProject project;  
+  public boolean isScorm;
 
   // Interruption flag
   public static boolean interrupt = false;
@@ -76,7 +78,8 @@ public class ProjectFileUtils implements ResourceBridge {
   public ProjectFileUtils(String fileName, String basePath) throws Exception {
 
     fullFilePath = new File(fileName).getCanonicalPath();
-    boolean isZip = fullFilePath.endsWith(".jclic.zip");
+    isScorm = fullFilePath.endsWith(Utils.EXT_SCORM_ZIP);
+    boolean isZip = isScorm || fullFilePath.endsWith(Utils.EXT_JCLIC_ZIP);
     if (!isZip && !fullFilePath.endsWith(".jclic")) {
       throw new Exception("File " + fileName + " is not a JClic project file!");
     }
@@ -213,7 +216,7 @@ public class ProjectFileUtils implements ResourceBridge {
    * @throws java.lang.InterruptedException
    */
   public void avoidZipLinksInJumpInfo(JumpInfo ji, PrintStream ps) throws InterruptedException {
-    if (ji != null && ji.projectPath != null && ji.projectPath.endsWith(".jclic.zip")) {
+    if (ji != null && ji.projectPath != null && ji.projectPath.endsWith(Utils.EXT_JCLIC_ZIP)) {
       String p = ji.projectPath;
       String pv = p.substring(0, p.length() - 4);
       ji.projectPath = pv;
@@ -238,7 +241,7 @@ public class ProjectFileUtils implements ResourceBridge {
     if (el.getAttribute("params") != null || (el.getName().equals("menuElement") && el.getAttribute("path") != null)) {
       String attr = el.getName().equals("menuElement") ? "path" : "params";
       String p = el.getAttributeValue(attr);
-      if (p != null && p.endsWith(".jclic.zip")) {
+      if (p != null && p.endsWith(Utils.EXT_JCLIC_ZIP)) {
         String pv = p.substring(0, p.length() - 4);
         if (ps != null) {
           ps.println("Changing media link from \"" + p + "\" to \"" + pv + "\"");
@@ -394,7 +397,7 @@ public class ProjectFileUtils implements ResourceBridge {
       @Override
       public boolean accept(File dir, String name) {
         String lowerName = name.toLowerCase();
-        return lowerName.endsWith(".jclic.zip") || lowerName.endsWith(".jclic");
+        return lowerName.endsWith(Utils.EXT_JCLIC_ZIP) || lowerName.endsWith(Utils.EXT_SCORM_ZIP) || lowerName.endsWith(Utils.EXT_JCLIC);
       }
     });
 

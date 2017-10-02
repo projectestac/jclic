@@ -113,4 +113,16 @@ public class Author extends Object implements Domable{
         return sb.substring(0);
     }
     
+    public static Author fromString(String str){
+      Author result = new Author();
+      str = str.trim();
+      int p = str.indexOf(" (");
+      if(p>0) {
+        result.name = str.substring(0, p);
+        result.rol = str.substring(p+2, str.length()-1);
+      } else
+        result.name = str;
+      return result;
+    }
+    
 }

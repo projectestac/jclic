@@ -127,4 +127,16 @@ public class Organization extends Object implements Domable{
         return sb.toString();
     }
     
+    public static Organization fromString(String str) {
+      Organization result = new Organization();
+      str = str.trim();
+      int p = str.indexOf(" (");
+      if(p>0) {
+        result.name = str.substring(0, p);
+        result.city = str.substring(p+2, str.length()-1);
+      } else
+        result.name = str;
+      return result;      
+    }
+    
 }

@@ -220,7 +220,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
                                 sequence="0";
                             
                             String projectName;
-                            if(fullPath.endsWith(".jclic.zip")){
+                            if(fullPath.endsWith(Utils.EXT_JCLIC_ZIP) || fullPath.endsWith(Utils.EXT_SCORM_ZIP)){
                                 fileSystem=FileSystem.createFileSystem(fullPath, thisAuthor);
                                 String[] projects=((ZipFileSystem)fileSystem).getEntries(".jclic");
                                 if(projects==null)
@@ -875,9 +875,9 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
         if(project!=null && projectEditor.checkProject(options, this, true)){
             int[] filters={Utils.JCLIC_ZIP_FF};
             FileSystem fs=project.getFileSystem();
-            String path=StrUtils.secureString(project.getFullPath(), project.getName()+".jclic.zip");
+            String path=StrUtils.secureString(project.getFullPath(), project.getName()+ (project.isScorm ? Utils.EXT_SCORM_ZIP : Utils.EXT_JCLIC_ZIP));
             String pLower=path.toLowerCase();
-            if(!pLower.endsWith(".jclic.zip")){
+            if(!pLower.endsWith(Utils.EXT_JCLIC_ZIP) && !pLower.endsWith(Utils.EXT_SCORM_ZIP)){
                 if(pLower.endsWith(".jclic"))
                     path=path+".zip";
                 else if(pLower.endsWith(".pac") || pLower.endsWith(".pcc")){
@@ -885,7 +885,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
                     if(dot>=1){
                         path=path.substring(0, dot);
                     }
-                    path=path+".jclic.zip";
+                    path=path+Utils.EXT_JCLIC_ZIP;
                 }
             }
             
@@ -909,6 +909,8 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
     
     static boolean saveResult;
     protected boolean doSaveFile(final String fName){
+      
+      // TODO: Save also in SCORM format!
         
         if(worker!=null){
             return false;

@@ -28,6 +28,7 @@ import edu.xtec.util.Html;
 import edu.xtec.util.JDomUtility;
 import edu.xtec.util.Messages;
 import edu.xtec.util.StrUtils;
+import java.text.DateFormat;
 import java.util.*;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -509,6 +510,36 @@ public class ProjectSettings implements Editable, Domable {
     }
 
     return Html.table(html.toString(), null, 1, 5, -1, null, false);
+  }
+  
+  public void readJSON(JSONObject json, edu.xtec.util.Messages msg, boolean preserve) throws Exception {
+    if(json.has("title") && (!preserve || title.length() == 0))
+      title = json.getString("title");
+    
+    if(json.has("author") && (!preserve || authors == null || authors.length == 0)){
+      String[] authStr = json.getString("author").split(", ");
+      authors = new Author[authStr.length];
+      for(int i=0; i<authStr.length; i++)
+        authors[i]=Author.fromString(authStr[i]);
+    }
+    
+    if(json.has("school") && (!preserve || organizations == null || organizations.length == 0)){
+      String[] orgStr = json.getString("school").split(", ");
+      organizations = new Organization[orgStr.length];
+      for(int i=0; i<orgStr.length; i++)
+        organizations[i]=Organization.fromString(orgStr[i]);
+    }
+    
+    if(json.has("date") && (!preserve || revisions == null || revisions.length == 0)) {
+      Date d=msg.parseShortDate(json.getString("date"));
+      if(d!=null)
+        revisions = new Revision[]{new Revision(d, "created")};
+    }
+    
+    
+    
+    
+    
   }
 
   public JSONObject toJSON(edu.xtec.util.Messages msg) throws JSONException {

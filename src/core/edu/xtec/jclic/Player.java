@@ -660,7 +660,7 @@ public class Player extends JPanel implements Constants, RunnableComponent, Play
                         }
 
                         String projectName;
-                        if(fullPath.endsWith(".jclic.zip")){
+                        if(fullPath.endsWith(Utils.EXT_JCLIC_ZIP) || fullPath.endsWith(Utils.EXT_SCORM_ZIP)){
                             fileSystem=FileSystem.createFileSystem(fullPath, thisPlayer);
                             String[] projects=((ZipFileSystem)fileSystem).getEntries(".jclic");
                             if(projects==null)

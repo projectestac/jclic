@@ -48,7 +48,7 @@ public abstract class Utils implements Constants{
     
     private static SimpleFileFilter[] fileFilters=new SimpleFileFilter[NUM_FILE_FILTERS];
     
-    public static final String EXT_JCLIC=".jclic", EXT_JCLIC_ZIP=".jclic.zip",
+    public static final String EXT_JCLIC=".jclic", EXT_JCLIC_ZIP=".jclic.zip", EXT_SCORM_ZIP=".scorm.zip",
     EXT_PAC=".pac", EXT_PCC=".pcc", EXT_INSTALL=".jclic.inst";
     public static final String EXT_GIF=".gif", EXT_JPG=".jpg", EXT_PNG=".png", EXT_BMP=".bmp", EXT_ICO=".ico";
     public static final String EXT_WAV=".wav", EXT_AU=".au", EXT_MP3=".mp3", 
@@ -57,7 +57,7 @@ public abstract class Utils implements Constants{
     public static final String EXT_SWF=".swf", EXT_XML=".xml", EXT_TTF=".ttf", 
     EXT_HTM=".htm", EXT_HTML=".html", EXT_TXT=".txt", EXT_ALL=".*";
     
-    public static final String[] EXT_ALL_JCLIC=new String[]{EXT_JCLIC, EXT_JCLIC_ZIP};
+    public static final String[] EXT_ALL_JCLIC=new String[]{EXT_JCLIC, EXT_JCLIC_ZIP, EXT_SCORM_ZIP};
     public static final String[] EXT_ALL_CLIC=new String[]{EXT_PAC, EXT_PCC};
     public static final String[] EXT_ALL_JCLIC_CLIC=new String[]{EXT_JCLIC, EXT_JCLIC_ZIP, EXT_PAC, EXT_PCC};
     public static final String[] EXT_ALL_IMAGES=new String[]{EXT_GIF, EXT_JPG, EXT_PNG, EXT_BMP, EXT_ICO};

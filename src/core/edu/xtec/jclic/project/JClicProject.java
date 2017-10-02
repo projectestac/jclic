@@ -28,6 +28,7 @@ import edu.xtec.jclic.edit.Editor;
 import edu.xtec.jclic.fileSystem.FileSystem;
 import edu.xtec.jclic.fileSystem.ZipFileSystem;
 import edu.xtec.jclic.media.EventSounds;
+import edu.xtec.jclic.misc.Utils;
 import edu.xtec.jclic.skins.Skin;
 import edu.xtec.util.Domable;
 import edu.xtec.util.JDomUtility;
@@ -66,6 +67,7 @@ public class JClicProject extends Object implements Editable, Domable {
     public String code;
     
     protected String fullPath;
+    public boolean isScorm;
         
     public static String TYPE="type";
     
@@ -74,6 +76,7 @@ public class JClicProject extends Object implements Editable, Domable {
         this.fileSystem=fileSystem;
         this.bridge=bridge;
         this.fullPath = (fullPath==null ? "" : fullPath);
+        isScorm = this.fullPath.endsWith(".scorm.zip");
         version=CURRENT_VERSION;
         settings=new ProjectSettings();
         settings.title=bridge.getMsg("UNNAMED");
@@ -160,8 +163,16 @@ public class JClicProject extends Object implements Editable, Domable {
             fullPath=fullPath.substring(7);
                             
         String projectName;
-        if(fullPath.endsWith(".jclic.zip")){
+        if(fullPath.endsWith(Utils.EXT_JCLIC_ZIP)){
             fileSystem=FileSystem.createFileSystem(fullPath, rb);
+            String[] projects=((ZipFileSystem)fileSystem).getEntries(".jclic");
+            if(projects==null)
+                throw new Exception("File "+fullPath+" does not contain any jclic project");
+            projectName=projects[0];
+        }
+        else if(fullPath.endsWith(Utils.EXT_SCORM_ZIP)){
+            fileSystem=FileSystem.createFileSystem(fullPath, rb);
+            // TODO: Parse JSON
             String[] projects=((ZipFileSystem)fileSystem).getEntries(".jclic");
             if(projects==null)
                 throw new Exception("File "+fullPath+" does not contain any jclic project");
