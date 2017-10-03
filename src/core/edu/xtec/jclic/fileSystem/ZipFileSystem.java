@@ -103,7 +103,8 @@ public abstract class ZipFileSystem extends FileSystem {
     
     @Override
     public boolean fileExists(String fName){
-        return super.fileExists(fName);
+      //return super.fileExists(fName);
+      return getEntry(fName)!=null;
     }
     
     @Override

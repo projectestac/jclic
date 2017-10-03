@@ -91,7 +91,8 @@ public class ProjectFileUtils implements ResourceBridge {
 
     fileSystem = FileSystem.createFileSystem(fullFilePath, this);
     String file = fullFilePathFile.getName();
-    if (isZip) {
+    JSONObject json = null;
+    if (isZip && !isScorm) {
       file = ((FileZip) fileSystem).getZipName();
       jclicFileName = file.substring(0, file.lastIndexOf("."));
 
@@ -100,6 +101,14 @@ public class ProjectFileUtils implements ResourceBridge {
         throw new Exception("File " + fullFilePath + " does not contain any jclic project");
       }
       projectName = projects[0];
+    } else if(isScorm){
+      if(fileSystem.fileExists("project.json")){
+        json = new JSONObject(new String(fileSystem.getBytes("project.json")));
+        projectName = json.optString("mainFile", null);
+        jclicFileName = projectName;
+      }
+      if(projectName == null)
+        throw new Exception("Invalid JClic SCORM file: " + fullFilePath);
     } else {
       jclicFileName = projectName = file;
     }
@@ -108,7 +117,8 @@ public class ProjectFileUtils implements ResourceBridge {
 
     org.jdom.Document doc = fileSystem.getXMLDocument(projectName);
     project = JClicProject.getJClicProject(doc.getRootElement(), this, fileSystem, file);
-
+    if(json!=null)
+      project.readJSON(json, false);
   }
 
   /**

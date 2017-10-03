@@ -38,6 +38,7 @@ import edu.xtec.util.StrUtils;
 import java.io.*;
 import java.util.*;
 import java.util.zip.*;
+import org.json.JSONObject;
 
 /**
  *
@@ -142,6 +143,10 @@ public class JClicProject extends Object implements Editable, Domable {
         mediaBag.setProperties(e.getChild(MediaBag.ELEMENT_NAME), null);        
     }
     
+    public void readJSON(JSONObject json, boolean preserve) throws Exception {
+      settings.readJSON(json, this, preserve);
+    }
+    
     public static JClicProject getJClicProject(org.jdom.Element e, ResourceBridge rb, FileSystem fs, String fullPath) throws Exception{
         JClicProject jcp=new JClicProject(rb, fs, fullPath);
         //jcp.load(e);
@@ -162,7 +167,8 @@ public class JClicProject extends Object implements Editable, Domable {
         if(fullPath.startsWith("file://"))
             fullPath=fullPath.substring(7);
                             
-        String projectName;
+        String projectName = null;
+        JSONObject json=null;
         if(fullPath.endsWith(Utils.EXT_JCLIC_ZIP)){
             fileSystem=FileSystem.createFileSystem(fullPath, rb);
             String[] projects=((ZipFileSystem)fileSystem).getEntries(".jclic");
@@ -172,11 +178,12 @@ public class JClicProject extends Object implements Editable, Domable {
         }
         else if(fullPath.endsWith(Utils.EXT_SCORM_ZIP)){
             fileSystem=FileSystem.createFileSystem(fullPath, rb);
-            // TODO: Parse JSON
-            String[] projects=((ZipFileSystem)fileSystem).getEntries(".jclic");
-            if(projects==null)
-                throw new Exception("File "+fullPath+" does not contain any jclic project");
-            projectName=projects[0];
+            if(fileSystem.fileExists("project.json")){
+              json = new JSONObject(new String(fileSystem.getBytes("project.json")));
+              projectName = json.optString("mainFile", null);
+            }
+            if(projectName == null)
+              throw new Exception("Invalid JClic SCORM file: " + fullPath);
         }
         else{
             fileSystem=new FileSystem(FileSystem.getPathPartOf(fullPath), rb);
@@ -186,10 +193,12 @@ public class JClicProject extends Object implements Editable, Domable {
         if(projectName.endsWith(".jclic")){
             org.jdom.Document doc=fileSystem.getXMLDocument(projectName);
             System.gc();            
-            result=getJClicProject(doc.getRootElement(), rb, fileSystem, fullPath);            
+            result=getJClicProject(doc.getRootElement(), rb, fileSystem, fullPath);
         }
 
         if(result!=null){
+            if(json!=null)
+              result.readJSON(json, false);          
             result.mediaBag.waitForAllImages();
             //System.gc();
         }

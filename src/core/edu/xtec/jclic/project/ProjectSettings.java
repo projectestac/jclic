@@ -20,6 +20,7 @@
  */
 package edu.xtec.jclic.project;
 
+import edu.xtec.jclic.bags.MediaBagElement;
 import edu.xtec.jclic.edit.Editable;
 import edu.xtec.jclic.edit.Editor;
 import edu.xtec.jclic.media.EventSounds;
@@ -28,7 +29,6 @@ import edu.xtec.util.Html;
 import edu.xtec.util.JDomUtility;
 import edu.xtec.util.Messages;
 import edu.xtec.util.StrUtils;
-import java.text.DateFormat;
 import java.util.*;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -511,35 +511,64 @@ public class ProjectSettings implements Editable, Domable {
 
     return Html.table(html.toString(), null, 1, 5, -1, null, false);
   }
-  
-  public void readJSON(JSONObject json, edu.xtec.util.Messages msg, boolean preserve) throws Exception {
-    if(json.has("title") && (!preserve || title.length() == 0))
+
+  public void readJSON(JSONObject json, JClicProject parent, boolean preserve) throws Exception {
+
+    // Read title
+    if (json.has("title") && (!preserve || title.length() == 0)) {
       title = json.getString("title");
-    
-    if(json.has("author") && (!preserve || authors == null || authors.length == 0)){
+    }
+
+    // Read authors
+    if (json.has("author") && (!preserve || authors == null || authors.length == 0)) {
       String[] authStr = json.getString("author").split(", ");
       authors = new Author[authStr.length];
-      for(int i=0; i<authStr.length; i++)
-        authors[i]=Author.fromString(authStr[i]);
+      for (int i = 0; i < authStr.length; i++) {
+        authors[i] = Author.fromString(authStr[i]);
+      }
     }
-    
-    if(json.has("school") && (!preserve || organizations == null || organizations.length == 0)){
+
+    // Read organizations
+    if (json.has("school") && (!preserve || organizations == null || organizations.length == 0)) {
       String[] orgStr = json.getString("school").split(", ");
       organizations = new Organization[orgStr.length];
-      for(int i=0; i<orgStr.length; i++)
-        organizations[i]=Organization.fromString(orgStr[i]);
+      for (int i = 0; i < orgStr.length; i++) {
+        organizations[i] = Organization.fromString(orgStr[i]);
+      }
     }
-    
-    if(json.has("date") && (!preserve || revisions == null || revisions.length == 0)) {
-      Date d=msg.parseShortDate(json.getString("date"));
-      if(d!=null)
-        revisions = new Revision[]{new Revision(d, "created")};
+
+    // Load meta-languages
+    if (json.has("meta_langs") && (!preserve || (meta_langs.length == 1 && meta_langs[0] == Locale.getDefault()))) {
+      JSONArray langTags = json.getJSONArray("meta_langs");
+      meta_langs = new Locale[langTags.length()];
+      for (int i = 0; i < meta_langs.length; i++) {
+        meta_langs[i] = new Locale(langTags.getString(i));
+      }
     }
-    
-    
-    
-    
-    
+
+    // TODO: must we read levels, areas and languages from descriptive, localized tags? They are
+    // already present in ProjectSettings
+    // Load descriptions
+    if (json.has("description") && (!preserve || (descriptions.length == 1 || descriptions[0].length() == 0))) {
+      JSONObject descs = json.getJSONObject("description");
+      descriptions = new String[meta_langs.length];
+      for (int i = 0; i < meta_langs.length; i++) {
+        descriptions[i] = descs.optString(meta_langs[i].toLanguageTag());
+      }
+      description = descriptions[0];
+    }
+
+    // Load cover and thumbnail
+    if (json.has("cover") && (!preserve || coverFileName == null)) {
+      coverFileName = json.getString("cover");
+      parent.mediaBag.addElement(new MediaBagElement(coverFileName));
+    }
+
+    if (json.has("thumbnail") && (!preserve || thumbnailFileName == null)) {
+      thumbnailFileName = json.getString("thumbnail");
+      parent.mediaBag.addElement(new MediaBagElement(thumbnailFileName));
+    }
+
   }
 
   public JSONObject toJSON(edu.xtec.util.Messages msg) throws JSONException {
@@ -550,7 +579,7 @@ public class ProjectSettings implements Editable, Domable {
     for (int i = 0; i < numLangs; i++) {
       langTags[i] = meta_langs[i].toLanguageTag();
     }
-    
+
     // Prepare an empty JSON object to be filled in with current project settings
     JSONObject json = new JSONObject();
 
@@ -560,24 +589,26 @@ public class ProjectSettings implements Editable, Domable {
     // Fill in authors
     if (authors != null && authors.length > 0) {
       StringBuilder sb = new StringBuilder();
-      for (Author a : authors) 
+      for (Author a : authors) {
         StrUtils.addToEnum(sb, a.toString());
+      }
       json.put("author", sb.toString());
     }
-    
+
     // Fill in organizations
     if (organizations != null && organizations.length > 0) {
       StringBuilder sb = new StringBuilder();
-      for (Organization o : organizations)
+      for (Organization o : organizations) {
         StrUtils.addToEnum(sb, o.toString());
+      }
       json.put("school", sb.toString());
     }
-    
+
     // Fill in last revision date
     if (revisions != null && revisions.length > 0) {
       json.put("date", msg.getShortDateStr(revisions[0].date));
     }
-    
+
     // Fill in project languages (codes and names)
     if (languages != null && languages.length > 0) {
       String[] langDescs = new String[numLangs];
@@ -585,7 +616,7 @@ public class ProjectSettings implements Editable, Domable {
       for (String lang : languages) {
 
         String code = null;
-        
+
         // Check for full language and code format, like in "Catalan (ca)"
         int p = lang.lastIndexOf('(');
         int q = lang.lastIndexOf(')');
@@ -594,42 +625,45 @@ public class ProjectSettings implements Editable, Domable {
         } else {
           // Check for descriptive language code, like in "Catalan"
           code = (String) edu.xtec.util.Messages.getNamesToCodes().get(lang.toLowerCase());
-          if (code == null)
-            // Fallblack: "lang" should be a language code
+          if (code == null) // Fallblack: "lang" should be a language code
+          {
             code = lang;
+          }
         }
-        
+
         // Append code
         json.append("langCodes", code);
-        
+
         // Add language description for each meta_lang
         Locale loc = new Locale(code);
-        for (int i = 0; i < numLangs; i++) 
+        for (int i = 0; i < numLangs; i++) {
           langDescs[i] = StrUtils.addToEnum(langDescs[i] == null ? "" : langDescs[i], loc.getDisplayName(meta_langs[i]));
+        }
       }
-      
+
       // Build a special object for language descriptions
-      JSONObject jso = new JSONObject();      
-      for (int i = 0; i < numLangs; i++)
+      JSONObject jso = new JSONObject();
+      for (int i = 0; i < numLangs; i++) {
         jso.put(langTags[i], langDescs[i]);
+      }
       json.put("languages", jso);
     }
-    
+
     // Fill in project subjects, both as codes and descriptive tags
     if (area_codes != null && area_codes.size() > 0) {
-      
+
       // Fill in area codes
       json.put("areaCodes", new JSONArray(area_codes));
-      
+
       // Fill in descriptive names
       JSONObject jso = new JSONObject();
-      for (String lang : langTags) {        
-        String areaDescs = "";        
+      for (String lang : langTags) {
+        String areaDescs = "";
         int p = StrUtils.getIndexOf(lang, KNOWN_META_LANGS);
         if (p >= 0) {
           StringBuilder sb = new StringBuilder();
           Iterator<String> it = area_codes.iterator();
-          while (it.hasNext()) {            
+          while (it.hasNext()) {
             String code = it.next();
             int j = StrUtils.getIndexOf(code, KNOWN_AREA_CODES);
             StrUtils.addToEnum(sb, j >= 0 ? KNOWN_AREA_DESCS[j].get(p) : code);
@@ -638,26 +672,28 @@ public class ProjectSettings implements Editable, Domable {
         } else {
           areaDescs = StrUtils.getEnumeration(area_codes);
         }
-        
+
         // Add additional subjects        
-        if(area!=null && area.length()>0) 
+        if (area != null && area.length() > 0) {
           areaDescs = StrUtils.addToEnum(areaDescs, area);
-        
+        }
+
         jso.put(lang, areaDescs);
       }
       json.put("areas", jso);
     } else if (area != null) {
       JSONObject jso = new JSONObject();
-      for (String lang :langTags)
+      for (String lang : langTags) {
         jso.put(lang, area);
+      }
       json.put("areas", jso);
     }
-    
+
     // Fill in project educational levels, both as codes and descriptive names
     if (level_codes != null && level_codes.size() > 0) {
       // Fill in level codes
       json.put("levelCodes", new JSONArray(level_codes));
-      
+
       JSONObject jso = new JSONObject();
       for (String lang : langTags) {
         String levelDescs = "";
@@ -674,17 +710,19 @@ public class ProjectSettings implements Editable, Domable {
         } else {
           levelDescs = StrUtils.getEnumeration(level_codes);
         }
-        
+
         // Add additional levels
-        if(level!=null && level.length()>0)
-          levelDescs = StrUtils.addToEnum(levelDescs, level);        
+        if (level != null && level.length() > 0) {
+          levelDescs = StrUtils.addToEnum(levelDescs, level);
+        }
         jso.put(lang, levelDescs);
       }
       json.put("levels", jso);
     } else if (level != null) {
       JSONObject jso = new JSONObject();
-      for (String lang : langTags)
+      for (String lang : langTags) {
         jso.put(lang, level);
+      }
       json.put("levels", jso);
     }
 
@@ -699,12 +737,14 @@ public class ProjectSettings implements Editable, Domable {
 
     // Fill in meta langs
     json.put("meta_langs", new JSONArray(langTags));
-    
+
     // Fill in cover and thumbnail images
-    if (coverFileName != null)
+    if (coverFileName != null) {
       json.put("cover", coverFileName);
-    if (thumbnailFileName != null)
+    }
+    if (thumbnailFileName != null) {
       json.put("thumbnail", thumbnailFileName);
+    }
 
     return json;
   }

@@ -86,6 +86,7 @@ import javax.swing.KeyStroke;
 import javax.swing.RootPaneContainer;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
+import org.json.JSONObject;
 
 
 /**
@@ -659,13 +660,23 @@ public class Player extends JPanel implements Constants, RunnableComponent, Play
                             // ----------
                         }
 
-                        String projectName;
-                        if(fullPath.endsWith(Utils.EXT_JCLIC_ZIP) || fullPath.endsWith(Utils.EXT_SCORM_ZIP)){
+                        String projectName = null;
+                        JSONObject json = null;
+                        if(fullPath.endsWith(Utils.EXT_JCLIC_ZIP)){
                             fileSystem=FileSystem.createFileSystem(fullPath, thisPlayer);
                             String[] projects=((ZipFileSystem)fileSystem).getEntries(".jclic");
                             if(projects==null)
                                 throw new Exception("File "+fullPath+" does not contain any jclic project");
                             projectName=projects[0];
+                        }
+                        else if(fullPath.endsWith(Utils.EXT_SCORM_ZIP)){
+                            fileSystem=FileSystem.createFileSystem(fullPath, thisPlayer);
+                            if(fileSystem.fileExists("project.json")){
+                              json = new JSONObject(new String(fileSystem.getBytes("project.json")));
+                              projectName = json.optString("mainFile", null);
+                            }
+                            if(projectName == null)
+                              throw new Exception("Invalid JClic SCORM file: " + fullPath);
                         }
                         else{
                             fileSystem=new FileSystem(FileSystem.getPathPartOf(fullPath), thisPlayer);
@@ -675,8 +686,10 @@ public class Player extends JPanel implements Constants, RunnableComponent, Play
                         // Set project
                         if(projectName.endsWith(".jclic")){
                             org.jdom.Document doc=fileSystem.getXMLDocument(projectName);
-                            setProject(JClicProject.getJClicProject(doc.getRootElement(),
-                            thisPlayer, fileSystem, fullPath));
+                            JClicProject prj = JClicProject.getJClicProject(doc.getRootElement(), thisPlayer, fileSystem, fullPath);
+                            if(json!=null)
+                              prj.readJSON(json, false);
+                            setProject(prj);
                             if(reporter!=null)
                                 reporter.newSession(project, thisPlayer, messages);
                         }
