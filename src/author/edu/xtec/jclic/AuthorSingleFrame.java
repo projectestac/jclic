@@ -666,7 +666,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
 
     actions[ACTION_OPEN_FILE] = new AbstractAction() {
       public void actionPerformed(ActionEvent ev) {
-        if (checkSaveChanges()) {
+        if (checkSaveChanges(false)) {
           int[] filters = {Utils.ALL_CLIC_FF, Utils.INSTALL_FF, Utils.ALL_JCLIC_FF};
           FileSystem fs = settings.fileSystem;
           String result = fs.chooseFile(null, false, filters, options, null, AuthorSingleFrame.this, false);
@@ -683,7 +683,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
 
     actions[ACTION_OPEN_URL] = new AbstractAction() {
       public void actionPerformed(ActionEvent ev) {
-        if (checkSaveChanges()) {
+        if (checkSaveChanges(false)) {
           String url = messages.showInputDlg(AuthorSingleFrame.this, "URL_OPEN", "URL", "http://", "URL_OPEN", false);
           if (url != null) {
             url = url.trim();
@@ -811,7 +811,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
 
     actions[ACTION_NEW_PROJECT] = new AbstractAction() {
       public void actionPerformed(ActionEvent ev) {
-        if (checkSaveChanges()) {
+        if (checkSaveChanges(false)) {
           JClicProject prj = NewProjectDlg.prompt(AuthorSingleFrame.this, AuthorSingleFrame.this, createFileSystem());
           if (prj != null) {
             setProject(prj);
@@ -824,7 +824,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
     actions[ACTION_EXPORT_HTML5] = new AbstractAction() {
       @Override
       public void actionPerformed(ActionEvent ev) {
-        if (checkSaveChanges()) {
+        if (checkSaveChanges(project.isScorm)) {
           String inputPath = project.getFileSystem().getFullFileNamePath("");
           String[] folders = ExportToJSDlg.prompt(AuthorSingleFrame.this, AuthorSingleFrame.this,
                   inputPath, AuthorSingleFrame.this.settings.rootExportPath,
@@ -886,7 +886,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
 
     actions[ACTION_CREATE_HTML] = new AbstractAction() {
       public void actionPerformed(ActionEvent ev) {
-        if (checkSaveChanges()) {
+        if (checkSaveChanges(project.isScorm)) {
           AppletHtmlCreator.createHtml(project, settings, AuthorSingleFrame.this);
         }
       }
@@ -894,7 +894,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
 
     actions[ACTION_CREATE_INSTALLER] = new AbstractAction() {
       public void actionPerformed(ActionEvent ev) {
-        if (checkSaveChanges()) {
+        if (checkSaveChanges(project.isScorm)) {
           ProjectInstallerEditPanel.createInstaller(project, AuthorSingleFrame.this);
         }
       }
@@ -913,13 +913,15 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
   protected boolean saveFile(boolean saveAs) {
     boolean ok = false;
     if (project != null && projectEditor.checkProject(options, this, true)) {
-      if (project.isScorm && messages.showQuestionDlg(this, "warn_save_scorm_file", "CONFIRM", "yn") != Messages.YES) {
-        return false;
-      }
-
       int[] filters = {Utils.JCLIC_ZIP_FF};
       FileSystem fs = project.getFileSystem();
-      String path = StrUtils.secureString(project.isScorm ? null : project.getFullPath(), project.getName() + Utils.EXT_JCLIC_ZIP);
+      String path = StrUtils.secureString(project.getFullPath(), project.getName() + Utils.EXT_JCLIC_ZIP);;
+      if(project.isScorm) {
+        if(messages.showQuestionDlg(this, "warn_save_scorm_file", "CONFIRM", "yn") != Messages.YES)
+          return false;
+        saveAs = true;
+        path = settings.fileSystem.getFullFileNamePath(project.getName() + File.separator + project.getName() + Utils.EXT_JCLIC_ZIP);
+      }
       String pLower = path.toLowerCase();
       if (!pLower.endsWith(Utils.EXT_JCLIC_ZIP)) {
         if (pLower.endsWith(".jclic")) {
@@ -935,6 +937,15 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
 
       String result;
       File f = new File(path);
+      if(project.isScorm) {
+        // Create folder if not exists
+        try {
+          f.getParentFile().mkdir();
+        } catch(Exception ex) {
+          messages.showErrorWarning(this, "err_unable_to_create_folder", ex);
+          return false;
+        }
+      }
       if (!saveAs && f.exists() && f.canWrite()) {
         result = path;
       } else {
@@ -975,6 +986,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
         try {
           projectEditor.saveProject(fName);
           saveResult = true;
+          project.isScorm = false;
           addRecentFile(project.getFullPath());
           o = true;
         } catch (Exception ex) {
@@ -1199,7 +1211,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
     if (ac.startsWith("recent") && ac.length() > 6) {
       try {
         int i = Integer.parseInt(ac.substring(6));
-        if (i >= 0 && i < PlayerSettings.MAX_RECENT && settings.recentFiles[i] != null && checkSaveChanges()) {
+        if (i >= 0 && i < PlayerSettings.MAX_RECENT && settings.recentFiles[i] != null && checkSaveChanges(false)) {
           load(settings.recentFiles[i], null);
         }
       } catch (Exception ex) {
@@ -1226,7 +1238,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
   }
 
   public void exit() {
-    if (checkSaveChanges()) {
+    if (checkSaveChanges(false)) {
       SwingUtilities.invokeLater(new Runnable() {
         public void run() {
           if (options.getApplet() == null) {
@@ -1376,11 +1388,11 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
     return true;
   }
 
-  protected boolean checkSaveChanges() {
+  protected boolean checkSaveChanges(boolean force) {
     boolean result = true;
     if (projectEditor != null) {
       projectEditor.collectData();
-      if (projectEditor.isModified()) {
+      if (force || projectEditor.isModified()) {
         //switch(JOptionPane.showConfirmDialog(this, messages.get("warn_project_modified"), messages.get("CONFIRM"), JOptionPane.YES_NO_CANCEL_OPTION)){
         switch (messages.showQuestionDlg(this, "warn_project_modified", "CONFIRM", "ync")) {
           case Messages.YES:
@@ -1390,6 +1402,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
             result = false;
             break;
           case Messages.NO:
+            result = false;
             break;
         }
       }
@@ -1398,7 +1411,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
   }
 
   public boolean windowCloseRequested() {
-    return checkSaveChanges();
+    return checkSaveChanges(false);
   }
 
   public void displayUrl(String url, boolean inFrame) {

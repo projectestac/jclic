@@ -238,21 +238,22 @@ public class ActivityBag extends Object implements Editable, Domable, Listener {
             if(dp!=null && dp.containsKey(name) && (type==null || type.equals(dp.get(name))))
                 map.put("["+project.getBridge().getMsg("edit_project")+"]", Constants.PROJECT_OBJECT);            
         }
-                
+        
         if(project.settings.coverFileName != null){
-          String cover = project.mediaBag.getElementByFileName(project.settings.coverFileName).getName();
-          if(name.equals(cover))
+          MediaBagElement mbe = project.mediaBag.getElementByFileName(project.settings.coverFileName);
+          if(mbe!=null && name.equals(mbe.getName()))
             map.put(name, Constants.PROJECT_OBJECT);
         }
         
         if(project.settings.thumbnailFileName != null){
-          String thumb = project.mediaBag.getElementByFileName(project.settings.thumbnailFileName).getName();
-          if(name.equals(thumb))
-            map.put(name, Constants.PROJECT_OBJECT);
+          MediaBagElement mbe = project.mediaBag.getElementByFileName(project.settings.thumbnailFileName);
+          if(mbe!=null && name.equals(mbe.getName()))
+            map.put(name, Constants.PROJECT_OBJECT);            
         }
                 
     }
     
+    @Override
     public void listReferences(String type, Map<String, String> map) {
         for(int i=0; i<size(); i++){
             ActivityBagElement abe=elementAt(i);
