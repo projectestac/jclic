@@ -44,7 +44,7 @@ public abstract class Utils implements Constants{
     ALL_FF=12,
     ALL_SOUNDS_FF=13, MIDI_FF=14, ALL_VIDEO_FF=15, ALL_ANIM_FF=16,
     SKINS_FF=17, FONTS_FF=18, ALL_MEDIA_FF=19, ALL_MULTIMEDIA_FF=20,
-    ALL_HTML_FF=21, TEXT_FF=22, NUM_FILE_FILTERS=23;
+    ALL_HTML_FF=21, TEXT_FF=22, ALL_JCLIC_SCORM_FF=23, NUM_FILE_FILTERS=24;
     
     private static SimpleFileFilter[] fileFilters=new SimpleFileFilter[NUM_FILE_FILTERS];
     
@@ -57,7 +57,8 @@ public abstract class Utils implements Constants{
     public static final String EXT_SWF=".swf", EXT_XML=".xml", EXT_TTF=".ttf", 
     EXT_HTM=".htm", EXT_HTML=".html", EXT_TXT=".txt", EXT_ALL=".*";
     
-    public static final String[] EXT_ALL_JCLIC=new String[]{EXT_JCLIC, EXT_JCLIC_ZIP, EXT_SCORM_ZIP};
+    public static final String[] EXT_ALL_JCLIC=new String[]{EXT_JCLIC, EXT_JCLIC_ZIP};
+    public static final String[] EXT_ALL_JCLIC_SCORM=new String[]{EXT_JCLIC, EXT_JCLIC_ZIP, EXT_SCORM_ZIP};
     public static final String[] EXT_ALL_CLIC=new String[]{EXT_PAC, EXT_PCC};
     public static final String[] EXT_ALL_JCLIC_CLIC=new String[]{EXT_JCLIC, EXT_JCLIC_ZIP, EXT_PAC, EXT_PCC};
     public static final String[] EXT_ALL_IMAGES=new String[]{EXT_GIF, EXT_JPG, EXT_PNG, EXT_BMP, EXT_ICO};
@@ -203,6 +204,9 @@ public abstract class Utils implements Constants{
                 case ALL_JCLIC_FF:
                     fileFilters[fileFilterCode]=new SimpleFileFilter(EXT_ALL_JCLIC, msg.get("filefilter_all_jclic"));
                     break;
+                case ALL_JCLIC_SCORM_FF:
+                    fileFilters[fileFilterCode]=new SimpleFileFilter(EXT_ALL_JCLIC_SCORM, msg.get("filefilter_all_jclic_scorm"));
+                    break;
                 case ALL_CLIC_FF:
                     fileFilters[fileFilterCode]=new SimpleFileFilter(EXT_ALL_CLIC, msg.get("filefilter_all_clic"));
                     break;
@@ -282,6 +286,9 @@ public abstract class Utils implements Constants{
                     break;
                 case ALL_JCLIC_FF:
                     result=EXT_ALL_JCLIC;
+                    break;
+                case ALL_JCLIC_SCORM_FF:
+                    result=EXT_ALL_JCLIC_SCORM;
                     break;
                 case ALL_CLIC_FF:
                     result=EXT_ALL_CLIC;

@@ -246,6 +246,8 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
               } else {
                 fileSystem = new FileSystem(FileSystem.getPathPartOf(fullPath), thisAuthor);
                 projectName = FileSystem.getFileNameOf(fullPath);
+                if(fileSystem.fileExists("project.json"))
+                  json = new JSONObject(new String(fileSystem.getBytes("project.json")));
               }
 
               if (projectName.endsWith(".jclic")) {
@@ -513,7 +515,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
     toolsMenu.addSeparator();
     toolsMenu.add(new KJMenuItem(getAction(ACTION_EXPORT_HTML5)));
     toolsMenu.addSeparator();
-    toolsMenu.add(new KJMenuItem(getAction(ACTION_CREATE_HTML)));
+    //toolsMenu.add(new KJMenuItem(getAction(ACTION_CREATE_HTML)));
     toolsMenu.add(new KJMenuItem(getAction(ACTION_CREATE_INSTALLER)));
     menuBar.add(toolsMenu);
 
@@ -611,11 +613,11 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
           ACTION_EDIT_MEDIA = 10,
           ACTION_EDIT_ACTIVITIES = 11,
           ACTION_EDIT_SEQ = 12,
-          ACTION_CREATE_HTML = 13,
-          ACTION_CREATE_INSTALLER = 14,
-          ACTION_IMPORT_ACTIVITIES = 15,
-          ACTION_EXPORT_HTML5 = 16,
-          AUTHOR_NUM_ACTIONS = 17;
+          //ACTION_CREATE_HTML = 13,
+          ACTION_CREATE_INSTALLER = 13,
+          ACTION_IMPORT_ACTIVITIES = 14,
+          ACTION_EXPORT_HTML5 = 15,
+          AUTHOR_NUM_ACTIONS = 16;
 
   public static final String[] ACTION_NAMES = {
     "openFile",
@@ -631,7 +633,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
     "editMedia",
     "editActivities",
     "editSeq",
-    "createHTML",
+    //"createHTML",
     "createInstaller",
     "importActivities",
     "exportProject"
@@ -650,7 +652,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
     "icons/media_bag.gif",
     "icons/miniclic.png",
     "icons/sequence.gif",
-    "icons/html_doc.gif",
+    //"icons/html_doc.gif",
     "icons/installer.gif",
     "icons/import_act.png",
     "icons/html_doc.gif"
@@ -667,7 +669,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
     actions[ACTION_OPEN_FILE] = new AbstractAction() {
       public void actionPerformed(ActionEvent ev) {
         if (checkSaveChanges(false)) {
-          int[] filters = {Utils.ALL_CLIC_FF, Utils.INSTALL_FF, Utils.ALL_JCLIC_FF};
+          int[] filters = {Utils.ALL_CLIC_FF, Utils.INSTALL_FF, Utils.ALL_JCLIC_SCORM_FF};
           FileSystem fs = settings.fileSystem;
           String result = fs.chooseFile(null, false, filters, options, null, AuthorSingleFrame.this, false);
           if (result != null) {
@@ -884,6 +886,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
       }
     };
 
+    /*
     actions[ACTION_CREATE_HTML] = new AbstractAction() {
       public void actionPerformed(ActionEvent ev) {
         if (checkSaveChanges(project.isScorm)) {
@@ -891,6 +894,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
         }
       }
     };
+    */
 
     actions[ACTION_CREATE_INSTALLER] = new AbstractAction() {
       public void actionPerformed(ActionEvent ev) {
@@ -904,7 +908,8 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
       actions[ACTION_SAVE_FILE_AS], actions[ACTION_DOCTREE],
       actions[ACTION_EDIT_SEQ], actions[ACTION_EDIT_ACTIVITIES],
       actions[ACTION_EDIT_MEDIA], actions[ACTION_EDIT_PROJECT],
-      actions[ACTION_CREATE_HTML], actions[ACTION_CREATE_INSTALLER],
+      //actions[ACTION_CREATE_HTML],
+      actions[ACTION_CREATE_INSTALLER],
       actions[ACTION_IMPORT_ACTIVITIES], actions[ACTION_EXPORT_HTML5]};
 
     checkActions();

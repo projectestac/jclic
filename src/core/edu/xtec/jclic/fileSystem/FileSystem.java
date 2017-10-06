@@ -748,7 +748,7 @@ public class FileSystem extends Object {
   // Modified 10-Aug-2015
   // Allow only plain ASCII characters, dot, numbers and underscore
   // private static final String FNAME_VALID_CHARS = "_!~0123456789abcdefghijklmnopqrstuvwxyz";
-  private static final String FNAME_VALID_CHARS = "_.0123456789abcdefghijklmnopqrstuvwxyz";
+  private static final String FNAME_VALID_CHARS = "_-.0123456789abcdefghijklmnopqrstuvwxyz";
   
   // Modified 26-jul0-2006
   // Scope of character conversion limited to the basic ANSI (Latin1) set

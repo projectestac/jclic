@@ -259,7 +259,9 @@ public class ExportToJSDlg extends javax.swing.JPanel {
     String[] result = null;
     ExportToJSDlg exportDlg = new ExportToJSDlg(rb);
     Messages msg = rb.getOptions().getMessages();
-    String inputBase = (new File(inputPath)).getName();
+    File inputFile = new File(inputPath);
+    String inputBase = inputFile.getName();
+    exportDlg.exportAll = !inputBase.toLowerCase().equals("projects");
     exportDlg.outputFolder = (new File(new File(exportBasePath), inputBase)).getPath();
     exportDlg.scormFile = (new File(new File(scormBasePath), inputBase + ".scorm.zip")).getPath();
     exportDlg.fillData();

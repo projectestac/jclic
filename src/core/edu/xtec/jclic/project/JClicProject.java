@@ -188,6 +188,8 @@ public class JClicProject extends Object implements Editable, Domable {
         else{
             fileSystem=new FileSystem(FileSystem.getPathPartOf(fullPath), rb);
             projectName=FileSystem.getFileNameOf(fullPath);
+            if(fileSystem.fileExists("project.json"))
+              json = new JSONObject(new String(fileSystem.getBytes("project.json")));
         }
                             
         if(projectName.endsWith(".jclic")){

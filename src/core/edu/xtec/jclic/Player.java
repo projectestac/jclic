@@ -681,6 +681,8 @@ public class Player extends JPanel implements Constants, RunnableComponent, Play
                         else{
                             fileSystem=new FileSystem(FileSystem.getPathPartOf(fullPath), thisPlayer);
                             projectName=FileSystem.getFileNameOf(fullPath);
+                            if(fileSystem.fileExists("project.json"))
+                              json = new JSONObject(new String(fileSystem.getBytes("project.json")));
                         }
                         
                         // Set project
