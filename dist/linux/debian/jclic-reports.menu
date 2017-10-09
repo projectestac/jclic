@@ -1,2 +1,0 @@
-?package(jclic-reports):needs="X11" section="Applications/Education" \
-  title="JClicReports" command="/usr/bin/jclicreports"

@@ -4,47 +4,37 @@ Upstream-Contact: Francesc Busquets <francesc@gmail.com>
 Source: https://github.com/projectestac/jclic
 
 Files: *
-Copyright: 2000-2013 Francesc Busquets <francesc@gmail.com> & Departament d'Ensenyament de la Generalitat de Catalunya
+Copyright: 2000-2017 Francesc Busquets <francesc@gmail.com> & Departament d'Ensenyament de la Generalitat de Catalunya
 License: GPL-2.0+
 Comment: With the collaboration of Mònica Grau, Sara Arjona, Fernando Cuartero, Albert Llastarri and Jordi Lagares.
 
 Files: extensions/xml/*
 Copyright: The JDOM Project (http://www.jdom.org)
-License: JDOM "Apache like" License
+License: JDOM-Apache-like
 
 Files: src/utils/edu/xtec/util/BrowserLauncher.java
 Copyright: Dem Pilafian, enhanced by Williem van Engen (http://goo.gl/T3CFQ)
-License: other
- These files are in the public domain.
+License: public-domain
 
 Files: extensions/soundspi/javalayer/* extensions/spoundspi/MpegAudioSpi/*
 Copyright: JavaZOOM (http://www.javazoom.net)
-License: GNU Lesser General Public License (LGPL)
- The full text of the LGPL version is available in
- https://www.gnu.org/licenses/lgpl.html
+License: LGPL
 
 Files: extensions/soundspi/jorbis/*
 Copyright: ymnk - JCraft (http://www.jcraft.com/jorbis)
-License: GNU Lesser General Public License (LGPL)
- The full text of the LGPL version is available in
- https://www.gnu.org/licenses/lgpl.html
+License: LGPL
 
 Files: extensions/soundspi/tritonus/*
 Copyright: Tritonus project (http://www.tritonus.org)
-License: GNU Lesser General Public License (LGPL)
- The full text of the LGPL version is available in
- https://www.gnu.org/licenses/lgpl.html
+License: LGPL
 
 Files: extensions/img/image4j/*
 Copyright: Ian McDonagh (http://image4j.sourceforge.net)
-License: GNU Lesser General Public License (LGPL)
- The full text of the LGPL version is available in
- https://www.gnu.org/licenses/lgpl.html
+License: LGPL
 
 Files: src/player/edu/xtec/jclic/project/LibraryManager.java
 Copyright: The JSON Group (http://www.json.org/java)
 License: other
- "Do not use it for evil"
 
 License: GPL-2.0+
  This package is free software; you can redistribute it and/or modify
@@ -63,7 +53,7 @@ License: GPL-2.0+
  On Debian systems, the complete text of the GNU General
  Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
 
-License: JDOM "Apache like" License
+License: JDOM-Apache-like
  Copyright (C) 2000-2004 Jason Hunter & Brett McLaughlin.
  All rights reserved.
  .
@@ -114,3 +104,12 @@ License: JDOM "Apache like" License
  Brett McLaughlin <brett_AT_jdom_DOT_org>.  For more information
  on the JDOM Project, please see <http://www.jdom.org/>. 
 
+License: LGPL
+ The full text of the LGPL version is available in
+ https://www.gnu.org/licenses/lgpl.html
+
+License: public-domain
+ These files are in the public domain.
+
+License: other
+ Do not use it for evil
