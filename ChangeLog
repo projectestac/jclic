@@ -1,3 +1,7 @@
+2017-10-09  Francesc Busquets <fbusquets@xtec.cat>
+    *   src/core/edu/xtec/jclic/project/JClicProject.java
+    *   src/core/edu/xtec/jclic/project/ProjectSettings.java: Ability to import ".scorm.zip" files
+
 2017-09-13  Francesc Busquets <fbusquets@xtec.cat>
     *   src/*: The tree of 'src' has been simplified, now with only 3 directories: core, author and report
     *   src/*, dist/jclic/jclicplugin-applet.js, dist/jnlp/*.jnlp: Java 1.7 required

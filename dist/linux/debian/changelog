@@ -1,3 +1,9 @@
+jclic (0.3.2.4-1ppa1) trusty; urgency=low
+
+  * New fields in jclic files, and importing of previously exported scorm.zip files
+
+ -- Francesc Busquets <francesc@gmail.com>  Mon, 09 Sep 2017 12:00:00 +0100
+
 jclic (0.3.2.1-1ppa1) precise; urgency=low
 
   * Revert changes in the base URL of the script used in HTML5 export

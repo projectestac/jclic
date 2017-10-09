@@ -1,6 +1,18 @@
 ## Release notes for JClic (https://projectestac.github.io/jclic)
 ==============================================
 
+###Changes in 0.3.2.4 (09-Oct-2017)
+---------------------------------------------------------------------------------------
+- Java 7 required
+- New fields in jclic files (see jclic.xsd):
+  - `meta-langs`: Language codes for wich a "description" is available. In packages published on the ClicZone, descriptions are usually provided in English (en), Catalan (ca) and Spanish (es).
+  - `descriptions`: Since now, there was an unique "description" field. Now there is a collection of descriptions in several languages.
+  - `cover` and `thumb`: Cover and thumbnail images, used to display the project in JClic libraries.
+- JClic Author can now import files previously exported to ".scorm.zip".
+- When opening a project, both in JClic player and author, meta-data is loaded from file "project.json" (if available).
+- Export to HTML5 has been optimized, looking for files with same name but different content placed in different jclic.zip files on same folder.
+- Re-organization of menus in JClic Author: now "Export to HTML5" has been moved fo "File" (from they old location in "Tools")
+
 ###Changes in 0.3.2.1 (05-Sep-2016)
 ---------------------------------------------------------------------------------------
 - Reverted the change of the URL of jclic.min.js in HTML5 export, now pointing again to clic.xtec.cat
