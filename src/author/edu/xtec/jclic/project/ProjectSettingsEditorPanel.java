@@ -74,6 +74,7 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
     java.awt.GridBagConstraints gridBagConstraints;
 
     scroll = new javax.swing.JScrollPane();
+    scroll.getVerticalScrollBar().setUnitIncrement(16);
     mainPanel = new javax.swing.JPanel();
     descrPanel = new edu.xtec.jclic.beans.RollPanel();
     javax.swing.JLabel titleLb = new javax.swing.JLabel();

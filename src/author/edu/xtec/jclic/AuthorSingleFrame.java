@@ -483,6 +483,8 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
     fileMenu.addSeparator();
     fileMenu.add(new KJMenuItem(getAction(ACTION_SAVE_FILE)));
     fileMenu.add(new KJMenuItem(getAction(ACTION_SAVE_FILE_AS)));
+    fileMenu.addSeparator();
+    fileMenu.add(new KJMenuItem(getAction(ACTION_EXPORT_HTML5)));
     menuBar.add(fileMenu);
 
     editMenu = new JMenu(messages.get("m_Edit"));
@@ -512,8 +514,6 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
     toolsMenu.add(new KJMenuItem(getAction(ACTION_SETTINGS)));
     toolsMenu.addSeparator();
     toolsMenu.add(new KJMenuItem(getAction(ACTION_DOCTREE)));
-    toolsMenu.addSeparator();
-    toolsMenu.add(new KJMenuItem(getAction(ACTION_EXPORT_HTML5)));
     toolsMenu.addSeparator();
     //toolsMenu.add(new KJMenuItem(getAction(ACTION_CREATE_HTML)));
     toolsMenu.add(new KJMenuItem(getAction(ACTION_CREATE_INSTALLER)));

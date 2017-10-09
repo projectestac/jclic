@@ -65,6 +65,7 @@ public class ActivityEditorOptionsPanel extends ActivityEditorInternalPanel {
     javax.swing.ButtonGroup helpBtnButtonGroup = new javax.swing.ButtonGroup();
     javax.swing.ButtonGroup infoBtnButtonGroup = new javax.swing.ButtonGroup();
     scroll = new javax.swing.JScrollPane();
+    scroll.getVerticalScrollBar().setUnitIncrement(16);
     javax.swing.JPanel mainPanel = new javax.swing.JPanel();
     descPanel = new edu.xtec.jclic.beans.RollPanel();
     javax.swing.JLabel classLb = new javax.swing.JLabel();

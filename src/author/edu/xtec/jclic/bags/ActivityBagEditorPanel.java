@@ -71,6 +71,7 @@ public class ActivityBagEditorPanel extends EditorPanel implements ListSelection
 
     javax.swing.JSplitPane split = new javax.swing.JSplitPane();
     javax.swing.JScrollPane scroll = new javax.swing.JScrollPane();
+    scroll.getVerticalScrollBar().setUnitIncrement(16);
     list = new javax.swing.JList<>();
     edit = new javax.swing.JPanel();
 
