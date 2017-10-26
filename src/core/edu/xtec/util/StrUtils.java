@@ -89,18 +89,12 @@ public abstract class StrUtils {
     if (source == null || separator == null) {
       return null;
     }
-    StringTokenizer st = new StringTokenizer(source, separator, true);
+    StringTokenizer st = new StringTokenizer(source, separator);
     List<String> v = new ArrayList<String>();
     while (st.hasMoreTokens()) {
-      String s = st.nextToken();
-      if (separator.equals(s)) {
-        v.add(new String());
-      } else {
+      String s = st.nextToken().trim();
+      if(s.length()>0)
         v.add(s);
-        if (st.hasMoreTokens()) {
-          st.nextToken();
-        }
-      }
     }
     return v;      
   }

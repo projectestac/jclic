@@ -1,6 +1,10 @@
 ## Release notes for JClic (https://projectestac.github.io/jclic)
 ==============================================
 
+###Changes in 0.3.2.5 (26-Oct-2017)
+---------------------------------------------------------------------------------------
+- Corrected an error found when parsing the new area and level descriptors
+
 ###Changes in 0.3.2.4 (09-Oct-2017)
 ---------------------------------------------------------------------------------------
 - Java 7 required

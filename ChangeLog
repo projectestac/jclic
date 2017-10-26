@@ -1,3 +1,6 @@
+2017-10-26  Francesc Busquets <fbusquets@xtec.cat>
+    *   src/core/edu/xtec/util/StrUtils.java: Corrected an error found when parsing the new area and level descriptors
+
 2017-10-09  Francesc Busquets <fbusquets@xtec.cat>
     *   src/core/edu/xtec/jclic/project/JClicProject.java
     *   src/core/edu/xtec/jclic/project/ProjectSettings.java: Ability to import ".scorm.zip" files
