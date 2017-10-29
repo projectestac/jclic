@@ -1407,7 +1407,7 @@ public class AuthorSingleFrame extends JPanel implements ResourceBridge, TestPla
             result = false;
             break;
           case Messages.NO:
-            result = false;
+            result = !force;
             break;
         }
       }

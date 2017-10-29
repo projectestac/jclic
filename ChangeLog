@@ -1,3 +1,6 @@
+2017-10-29  Francesc Busquets <fbusquets@xtec.cat>
+    *   src/author/edu/xtec/jclic/AuthorSingleFrame.java: Corrected an error found in CheckSaveChanges
+
 2017-10-26  Francesc Busquets <fbusquets@xtec.cat>
     *   src/core/edu/xtec/util/StrUtils.java: Corrected an error found when parsing the new area and level descriptors
 

@@ -1,9 +1,10 @@
 ## Release notes for JClic (https://projectestac.github.io/jclic)
 ==============================================
 
-###Changes in 0.3.2.5 (26-Oct-2017)
+###Changes in 0.3.2.6 (29-Oct-2017)
 ---------------------------------------------------------------------------------------
 - Corrected an error found when parsing the new area and level descriptors
+- Corrected an error found in JClic Author blocking exit without saving changes
 
 ###Changes in 0.3.2.4 (09-Oct-2017)
 ---------------------------------------------------------------------------------------
