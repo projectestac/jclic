@@ -125,8 +125,12 @@ public class MediaBagElementEditor extends Editor{
     }
     
     public void updateContent(Editor.EditorListener agent){
-        getMediaBagElement().setData(null);
-        fireEditorDataChanged(/*agent*/null);
+        MediaBagElement mbe = getMediaBagElement();
+        FileSystem fs=getMediaBag().getProject().getFileSystem();
+        if(fs.realFileExists(mbe.getFileName())){
+          mbe.setData(null);
+          fireEditorDataChanged(/*agent*/null);
+        }
     }
     
     public boolean changeFileName(String newFileName, Editor.EditorListener agent, Messages msg){

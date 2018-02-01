@@ -521,9 +521,9 @@
                 </Component>
                 <Component class="edu.xtec.jclic.beans.SmallIntEditor" name="lengthEditor">
                   <Properties>
-                    <Property name="max" type="int" value="15"/>
-                    <Property name="value" type="int" value="5"/>
+                    <Property name="max" type="int" value="180"/>
                     <Property name="min" type="int" value="1"/>
+                    <Property name="value" type="int" value="5"/>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="lengthEditor.addPropertyChangeListener(SmallIntEditor.PROP_VALUE, this);"/>

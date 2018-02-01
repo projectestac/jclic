@@ -342,6 +342,10 @@ public class FileSystem extends Object {
     }
     return result;
   }
+  
+  public boolean realFileExists(String fName) {
+    return fileExists(fName);
+  }
 
   public InputStream getInputStream(String fName) throws IOException {
     InputStream result;

@@ -42,7 +42,7 @@ public abstract class AudioBuffer {
     /**
      * Default maximum length of recordings (in seconds).
      */
-    public static final int MAX_RECORD_LENGTH=20;
+    public static final int MAX_RECORD_LENGTH=180;
     
     /**
      * Maximum recording length, in seconds.

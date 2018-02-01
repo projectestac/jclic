@@ -1,6 +1,11 @@
 ## Release notes for JClic (https://projectestac.github.io/jclic)
 ==============================================
 
+###Changes in 0.3.2.7 (01-Feb-2018)
+---------------------------------------------------------------------------------------
+- JClic Author "refresh media" button will not act on elements where the original file does not exist
+- The maximum recording time in "record audio" media elements has been increased to 3' (180")
+
 ###Changes in 0.3.2.6 (29-Oct-2017)
 ---------------------------------------------------------------------------------------
 - Corrected an error found when parsing the new area and level descriptors

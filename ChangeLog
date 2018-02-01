@@ -1,3 +1,14 @@
+2018-01-01  Francesc Busquets <fbusquets@xtec.cat>
+    *   src/author/edu/xtec/jclic/bags/MediaBagEditor.java
+    *   src/author/edu/xtec/jclic/bags/MediaBagElementEditor.java
+    *   src/author/edu/xtec/jclic/bags/MediaBagElementEditorPanel.form
+    *   src/author/edu/xtec/jclic/bags/MediaBagElementEditorPanel.java
+    *   src/author/edu/xtec/jclic/media/MediaContentEditor.form
+    *   src/author/edu/xtec/jclic/media/MediaContentEditor.java
+    *   src/core/edu/xtec/jclic/fileSystem/FileSystem.java
+    *   src/core/edu/xtec/jclic/fileSystem/ZipFileSystem.java
+    *   src/core/edu/xtec/jclic/media/AudioBuffer.java: Increased max time in record audio and optimized "refresh media" action
+
 2017-10-29  Francesc Busquets <fbusquets@xtec.cat>
     *   src/author/edu/xtec/jclic/AuthorSingleFrame.java: Corrected an error found in CheckSaveChanges
 
