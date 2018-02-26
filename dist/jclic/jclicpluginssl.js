@@ -11,8 +11,8 @@
 
 // Location of jclic.js
 
-//var jsBase = 'https://clic.xtec.cat/dist/jclic.js/jclic.min.js';
-var jsBase = 'https://unpkg.com/jclic/dist/jclic.min.js';
+var jsBase = 'https://clic.xtec.cat/dist/jclic.js/jclic.min.js';
+//var jsBase = 'https://unpkg.com/jclic/dist/jclic.min.js';
 //var jsBase = 'https://cdn.jsdelivr.net/jclic.js/latest/jclic.min.js';
 
 function setJsBase(base) {
