@@ -57,6 +57,7 @@ public class ProjectSettings implements Editable, Domable {
   // --- New fields added 25/07/2017
   public String coverFileName;
   public String thumbnailFileName;
+  public String icon16, icon72, icon192;
   public Locale[] meta_langs;
   public String[] descriptions;
   public List<String> area_codes;
@@ -68,7 +69,7 @@ public class ProjectSettings implements Editable, Domable {
   public static String ELEMENT_NAME = "settings";
   public static String TITLE = "title", LOCALE = "locale", LANGUAGE = "language", DESCRIPTION = "description",
           DESCRIPTORS = "descriptors", SKIN = "skin", FILE = "file", AREA = "area", AREA_CODES = "area-codes", LEVEL = "level", LEVEL_CODES = "level-codes",
-          ICON = "icon", COVER = "cover", THUMB = "thumb", META_LANGS = "meta_langs", DESCRIPTIONS = "descriptions", LICENSE = "license", TYPE = "type", URL = "url";
+          ICON = "icon", COVER = "cover", THUMB = "thumb", ICON16="icon16", ICON72="icon72", ICON192="icon192", META_LANGS = "meta_langs", DESCRIPTIONS = "descriptions", LICENSE = "license", TYPE = "type", URL = "url";
 
   public static String[] KNOWN_META_LANGS = {"ca", "es", "en"};
 
@@ -118,6 +119,7 @@ public class ProjectSettings implements Editable, Domable {
     iconFileName = null;
     // --- New fields added 25/07/2017
     coverFileName = null;
+    icon16 = icon72 = icon192 = null;
     thumbnailFileName = null;
     meta_langs = new Locale[1];
     meta_langs[0] = Locale.getDefault();
@@ -222,6 +224,24 @@ public class ProjectSettings implements Editable, Domable {
     if (thumbnailFileName != null) {
       child = new org.jdom.Element(THUMB);
       child.setAttribute(FILE, thumbnailFileName);
+      e.addContent(child);
+    }
+
+    if (icon16 != null) {
+      child = new org.jdom.Element(ICON16);
+      child.setAttribute(FILE, icon16);
+      e.addContent(child);
+    }
+
+    if (icon72 != null) {
+      child = new org.jdom.Element(ICON72);
+      child.setAttribute(FILE, icon72);
+      e.addContent(child);
+    }
+
+    if (icon192 != null) {
+      child = new org.jdom.Element(ICON192);
+      child.setAttribute(FILE, icon192);
       e.addContent(child);
     }
 
@@ -426,6 +446,18 @@ public class ProjectSettings implements Editable, Domable {
       thumbnailFileName = JDomUtility.getStringAttr(child, FILE, thumbnailFileName, false);
     }
 
+    if ((child = e.getChild(ICON16)) != null) {
+      icon16 = JDomUtility.getStringAttr(child, FILE, icon16, false);
+    }
+
+    if ((child = e.getChild(ICON72)) != null) {
+      icon72 = JDomUtility.getStringAttr(child, FILE, icon72, false);
+    }
+
+    if ((child = e.getChild(ICON192)) != null) {
+      icon192 = JDomUtility.getStringAttr(child, FILE, icon192, false);
+    }
+    
     if ((child = e.getChild(META_LANGS)) != null) {
       String[] ml = child.getTextNormalize().split(",");
       meta_langs = new Locale[ml.length];
@@ -582,7 +614,22 @@ public class ProjectSettings implements Editable, Domable {
       thumbnailFileName = json.getString("thumbnail");
       parent.mediaBag.addElement(new MediaBagElement(thumbnailFileName));
     }
+    
+    // Load icons if not defined
+    if(icon16 == null) {
+      icon16 = "favicon.ico";
+      parent.mediaBag.addElement(new MediaBagElement(icon16));      
+    }
 
+    if(icon72 == null) {
+      icon72 = "icon-72.png";
+      parent.mediaBag.addElement(new MediaBagElement(icon72));
+    }
+
+    if(icon192 == null) {
+      icon192 = "icon-192.png";
+      parent.mediaBag.addElement(new MediaBagElement(icon192));
+    }    
   }
 
   public JSONObject toJSON(edu.xtec.util.Messages msg) throws JSONException {

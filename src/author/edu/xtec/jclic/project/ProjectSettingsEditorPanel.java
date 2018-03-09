@@ -90,6 +90,15 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
     javax.swing.JLabel thumbLb = new javax.swing.JLabel();
     thumbButton = new edu.xtec.jclic.beans.ImgButton();
     thumbButton.setOptions(options);
+    javax.swing.JLabel icon16Lb = new javax.swing.JLabel();
+    icon16Button = new edu.xtec.jclic.beans.ImgButton();
+    icon16Button.setOptions(options);
+    javax.swing.JLabel icon72Lb = new javax.swing.JLabel();
+    icon72Button = new edu.xtec.jclic.beans.ImgButton();
+    icon72Button.setOptions(options);
+    javax.swing.JLabel icon192Lb = new javax.swing.JLabel();
+    icon192Button = new edu.xtec.jclic.beans.ImgButton();
+    icon192Button.setOptions(options);
     authPanel = new edu.xtec.jclic.beans.RollPanel();
     javax.swing.JLabel authorLb = new javax.swing.JLabel();
     authorListEditor = new TextListEditor(options){
@@ -253,6 +262,54 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
     gridBagConstraints.weightx = 1.0;
     gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
     coverPanel.getMainPanel().add(thumbButton, gridBagConstraints);
+
+    icon16Lb.setLabelFor(icon16Button);
+    icon16Lb.setText(options.getMsg("edit_project_icon16"));
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+    gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+    coverPanel.getMainPanel().add(icon16Lb, gridBagConstraints);
+
+    icon16Button.setToolTipText(options.getMsg("edit_project_icons_tooltip"));
+    icon16Button.addPropertyChangeListener(ImgButton.PROP_IMG_NAME, this);
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+    gridBagConstraints.weightx = 1.0;
+    gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+    coverPanel.getMainPanel().add(icon16Button, gridBagConstraints);
+
+    icon72Lb.setLabelFor(icon72Button);
+    icon72Lb.setText(options.getMsg("edit_project_icon72"));
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+    gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+    coverPanel.getMainPanel().add(icon72Lb, gridBagConstraints);
+
+    icon72Button.setToolTipText(options.getMsg("edit_project_icons_tooltip"));
+    icon72Button.addPropertyChangeListener(ImgButton.PROP_IMG_NAME, this);
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+    gridBagConstraints.weightx = 1.0;
+    gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+    coverPanel.getMainPanel().add(icon72Button, gridBagConstraints);
+
+    icon192Lb.setLabelFor(icon192Button);
+    icon192Lb.setText(options.getMsg("edit_project_icon192"));
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+    gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+    coverPanel.getMainPanel().add(icon192Lb, gridBagConstraints);
+
+    icon192Button.setToolTipText(options.getMsg("edit_project_icons_tooltip"));
+    icon192Button.addPropertyChangeListener(ImgButton.PROP_IMG_NAME, this);
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+    gridBagConstraints.weightx = 1.0;
+    gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+    coverPanel.getMainPanel().add(icon192Button, gridBagConstraints);
 
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
@@ -639,6 +696,15 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
     thumbButton.setMediaBagEditor(mbe);
     thumbButton.setImgName(ps == null ? null : ps.thumbnailFileName);
 
+    icon16Button.setMediaBagEditor(mbe);
+    icon16Button.setImgName(ps == null ? null : ps.icon16);
+
+    icon72Button.setMediaBagEditor(mbe);
+    icon72Button.setImgName(ps == null ? null : ps.icon72);
+    
+    icon192Button.setMediaBagEditor(mbe);
+    icon192Button.setImgName(ps == null ? null : ps.icon192);
+    
     titleText.setText(ps == null || ps.title == null ? options.getMsg("UNNAMED") : ps.title);
 
     tabDesc.removeAll();
@@ -742,7 +808,10 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
     revListEditor.setEnabled(enabled);
     coverButton.setEnabled(enabled);
     thumbButton.setEnabled(enabled);
-
+    icon16Button.setEnabled(enabled);
+    icon72Button.setEnabled(enabled);
+    icon192Button.setEnabled(enabled);
+    
     for (javax.swing.JCheckBox check : levelChkBoxes) {
       check.setEnabled(enabled);
     }
@@ -797,6 +866,11 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
 
       ps.coverFileName = coverButton.getImgName();
       ps.thumbnailFileName = thumbButton.getImgName();
+
+      ps.icon16 = icon16Button.getImgName();
+      ps.icon72 = icon72Button.getImgName();
+      ps.icon192 = icon192Button.getImgName();
+      
       List<Object> v = authorListEditor.getListData();
       ps.authors = (Author[]) v.toArray(new Author[v.size()]);
       v = orgListEditor.getListData();
@@ -953,6 +1027,9 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
   private edu.xtec.jclic.beans.RollPanel descrPanel;
   private javax.swing.JTextField descriptorsText;
   private edu.xtec.jclic.beans.EventSoundsButton evSoundsBtn;
+  private edu.xtec.jclic.beans.ImgButton icon16Button;
+  private edu.xtec.jclic.beans.ImgButton icon192Button;
+  private edu.xtec.jclic.beans.ImgButton icon72Button;
   private edu.xtec.jclic.beans.TextListEditor langListEditor;
   private javax.swing.JTextField levelText;
   private javax.swing.JCheckBox levels_BTX;

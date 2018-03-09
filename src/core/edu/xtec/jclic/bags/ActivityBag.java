@@ -250,7 +250,24 @@ public class ActivityBag extends Object implements Editable, Domable, Listener {
           if(mbe!=null && name.equals(mbe.getName()))
             map.put(name, Constants.PROJECT_OBJECT);            
         }
-                
+        
+        if(project.settings.icon16 != null){
+          MediaBagElement mbe = project.mediaBag.getElementByFileName(project.settings.icon16);
+          if(mbe!=null && name.equals(mbe.getName()))
+            map.put(name, Constants.PROJECT_OBJECT);
+        }
+
+        if(project.settings.icon72 != null){
+          MediaBagElement mbe = project.mediaBag.getElementByFileName(project.settings.icon72);
+          if(mbe!=null && name.equals(mbe.getName()))
+            map.put(name, Constants.PROJECT_OBJECT);
+        }
+        
+        if(project.settings.icon192 != null){
+          MediaBagElement mbe = project.mediaBag.getElementByFileName(project.settings.icon192);
+          if(mbe!=null && name.equals(mbe.getName()))
+            map.put(name, Constants.PROJECT_OBJECT);
+        }                
     }
     
     @Override
