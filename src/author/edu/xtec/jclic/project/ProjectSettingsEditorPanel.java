@@ -109,6 +109,9 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
         return editRevision(currentValue, newValue);
       }
     };
+    javax.swing.JLabel licenseLb = new javax.swing.JLabel();
+    licenseCombo = new javax.swing.JComboBox<String>(edu.xtec.jclic.project.ProjectSettings.getLicensesList(this.options.getMsg("settings_license_other")));
+    licenseCombo.setSelectedIndex(edu.xtec.jclic.project.ProjectSettings.CC_BY_NC_SA);
     descPanel = new edu.xtec.jclic.beans.RollPanel();
     javax.swing.JLabel langLb = new javax.swing.JLabel();
     langListEditor = new TextListEditor(options){
@@ -305,6 +308,22 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
     gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
     gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
     authPanel.getMainPanel().add(revListEditor, gridBagConstraints);
+
+    licenseLb.setLabelFor(licenseCombo);
+    licenseLb.setText(options.getMsg("settings_license"));
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+    gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+    authPanel.getMainPanel().add(licenseLb, gridBagConstraints);
+
+    licenseCombo.setToolTipText(options.getMsg("settings_license_tooltip"));
+    licenseCombo.addActionListener(this);
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+    gridBagConstraints.weightx = 1.0;
+    gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+    authPanel.getMainPanel().add(licenseCombo, gridBagConstraints);
 
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
@@ -645,6 +664,7 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
     levelText.setText(ps == null ? "" : StrUtils.secureString(ps.level));
     descriptorsText.setText(ps == null ? "" : StrUtils.secureString(ps.descriptors));
     skinCombo.setSelectedItem(ps == null ? null : ps.skinFileName);
+    licenseCombo.setSelectedIndex(ps == null ? edu.xtec.jclic.project.ProjectSettings.CC_BY_NC_SA : ps.license);
 
     List<Object> v = new ArrayList<Object>();
     if (ps != null && ps.languages != null) {
@@ -715,6 +735,7 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
     removeBtn.setEnabled(enabled && meta_langs != null && meta_langs.length > 1);
     descriptorsText.setEnabled(enabled);
     skinCombo.setEnabled(enabled);
+    licenseCombo.setEnabled(enabled);
     langListEditor.setEnabled(enabled);
     authorListEditor.setEnabled(enabled);
     orgListEditor.setEnabled(enabled);
@@ -808,6 +829,7 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
         ps.languages[i] = (ln == null ? langs[i] : ln);
       }
       ps.skinFileName = StrUtils.nullableString(skinCombo.getSelectedItem());
+      ps.license = licenseCombo.getSelectedIndex();
 
       EventSounds evs = evSoundsBtn.getEventSounds();
       ps.eventSounds = (evs == null ? new EventSounds(null) : evs);
@@ -937,6 +959,7 @@ public class ProjectSettingsEditorPanel extends EditorPanel {
   private javax.swing.JCheckBox levels_INF;
   private javax.swing.JCheckBox levels_PRI;
   private javax.swing.JCheckBox levels_SEC;
+  private javax.swing.JComboBox licenseCombo;
   private javax.swing.JPanel mainPanel;
   private edu.xtec.jclic.beans.TextListEditor orgListEditor;
   private javax.swing.JButton removeBtn;

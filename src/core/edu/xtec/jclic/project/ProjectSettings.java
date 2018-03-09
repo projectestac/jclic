@@ -68,7 +68,7 @@ public class ProjectSettings implements Editable, Domable {
   public static String ELEMENT_NAME = "settings";
   public static String TITLE = "title", LOCALE = "locale", LANGUAGE = "language", DESCRIPTION = "description",
           DESCRIPTORS = "descriptors", SKIN = "skin", FILE = "file", AREA = "area", AREA_CODES = "area-codes", LEVEL = "level", LEVEL_CODES = "level-codes",
-          ICON = "icon", COVER = "cover", THUMB = "thumb", META_LANGS = "meta_langs", DESCRIPTIONS = "descriptions", LICENSE="license", TYPE="type", URL="url";
+          ICON = "icon", COVER = "cover", THUMB = "thumb", META_LANGS = "meta_langs", DESCRIPTIONS = "descriptions", LICENSE = "license", TYPE = "type", URL = "url";
 
   public static String[] KNOWN_META_LANGS = {"ca", "es", "en"};
 
@@ -94,11 +94,11 @@ public class ProjectSettings implements Editable, Domable {
     Arrays.asList(new String[]{"Diversos", "Diversos", "Miscellaneous"})
   };
   public static String[] KNOWN_AREA_CODES = {"lleng", "mat", "soc", "exp", "mus", "vip", "ef", "tec", "div"};
-  
+
   public static String[] CC_LICENSES = {"by", "by-sa", "by-nd", "by-nc", "by-nc-sa", "by-nc-nd", "other"};
-  public static int CC_BY=0, CC_BY_SA=1, CC_BY_ND=2, CC_BY_NC=3, CC_BY_NC_SA=4, CC_BY_NC_ND=5, OTHER=6;
-  public static String CC_URL="https://creativecommons.org/licenses/%%CODE%%/4.0", OTHER_URL="See description";
-  
+  public static int CC_BY = 0, CC_BY_SA = 1, CC_BY_ND = 2, CC_BY_NC = 3, CC_BY_NC_SA = 4, CC_BY_NC_ND = 5, OTHER = 6;
+  public static String CC_URL = "https://creativecommons.org/licenses/%%CODE%%/4.0", OTHER_URL = "See 'description'";
+
   /**
    * Creates new ProjectSettings
    */
@@ -239,10 +239,10 @@ public class ProjectSettings implements Editable, Domable {
       child2.setAttribute(LANGUAGE, meta_langs[i].toLanguageTag());
     }
     e.addContent(child);
-    
+
     child = new org.jdom.Element(LICENSE);
     child.setAttribute(TYPE, CC_LICENSES[license]);
-    child.setAttribute(URL, license<OTHER ? CC_URL.replace("%%CODE%%", CC_LICENSES[license]) : OTHER_URL);
+    child.setAttribute(URL, license < OTHER ? CC_URL.replace("%%CODE%%", CC_LICENSES[license]) : OTHER_URL);
     e.addContent(child);
 
     return e;
@@ -448,7 +448,7 @@ public class ProjectSettings implements Editable, Domable {
     if ((child = e.getChild(LICENSE)) != null) {
       license = JDomUtility.getStrIndexAttr(child, TYPE, CC_LICENSES, CC_BY_NC_SA);
     }
-    
+
   }
 
   public String toHtmlString(edu.xtec.util.Messages msg) {
@@ -761,6 +761,15 @@ public class ProjectSettings implements Editable, Domable {
     }
 
     return json;
+  }
+
+  public static String[] getLicensesList(String otherTxt) {
+    ArrayList<String> v = new ArrayList<String>();
+    for (int i = 0; i < OTHER; i++) {
+      v.add("Creative Commons " + CC_LICENSES[i].toUpperCase());
+    }
+    v.add(otherTxt);
+    return (String[]) v.toArray(new String[v.size()]);
   }
 
   @Override
