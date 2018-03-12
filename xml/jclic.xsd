@@ -63,6 +63,21 @@
 					<xs:attribute name="file" type="xs:string" use="required"/>
 				</xs:complexType>
 			</xs:element>
+			<xs:element name="icon16" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="file" type="xs:string" use="required"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="icon72" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="file" type="xs:string" use="required"/>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="icon192" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="file" type="xs:string" use="required"/>
+				</xs:complexType>
+			</xs:element>
 			<xs:element name="meta_langs" type="xs:string" minOccurs="0" />
 			<xs:element name="descriptions" minOccurs="0">
 				<xs:sequence>
@@ -72,6 +87,12 @@
 						</xs:complexType>
 					</xs:element>
 				</xs:sequence>
+			</xs:element>
+			<xs:element name="license" minOccurs="0">
+				<xs:complexType>
+					<xs:attribute name="type" type="xs:string" use="required"/>
+					<xs:attribute name="url" type="xs:string" use="optional"/>
+				</xs:complexType>
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="locale" type="xs:string"/>

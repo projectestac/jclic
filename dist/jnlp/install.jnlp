@@ -16,7 +16,7 @@
   </security>
   <resources>
     <j2se version="1.7+"/>
-    <jar href="jclic.jar" version="1.3.2.6"/>
+    <jar href="jclic.jar" version="1.3.2.8"/>
   </resources>
   <application-desc main-class="JClicInstaller">
     <argument>$$argument</argument>

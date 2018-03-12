@@ -1,5 +1,11 @@
 ## Release notes for JClic (https://projectestac.github.io/jclic)
-==============================================
+=================================================================
+
+###Changes in 0.3.2.8 (12-Mar-2018)
+---------------------------------------------------------------------------------------
+- New license chooser in JClic Author. Allows to choose between different Creative Commons models, or set it to "other" (to be detailed in `decription`)
+- JClic Author allows now to set custom icons for HTML export in three sizes: 16x16 (favicon), 72x72 and 192x192
+- New fields in jclic files: `license`, `icon16`, `icon72` and `icon192` (see jclic.xsd)
 
 ###Changes in 0.3.2.7 (01-Feb-2018)
 ---------------------------------------------------------------------------------------

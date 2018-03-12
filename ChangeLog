@@ -1,3 +1,14 @@
+2018-03-12  Francesc Busquets <fbusquets@xtec.cat>
+    *   xml/jclic.xsd
+    *   src/author/edu/xtec/jclic/project/ExportTaskDlg.java
+    *   src/author/edu/xtec/jclic/project/ProjectSettingsEditorPanel.form
+    *   src/author/edu/xtec/jclic/project/ProjectSettingsEditorPanel.java
+    *   src/author/edu/xtec/resources/messages/AuthorMessages_ca.properties
+    *   src/author/edu/xtec/resources/messages/AuthorMessages_es.properties
+    *   src/author/edu/xtec/resources/messages/AuthorMessages.properties
+    *   src/core/edu/xtec/jclic/bags/ActivityBag.java
+    *   src/core/edu/xtec/jclic/project/ProjectSettings.java: New "license", "icon16", "icon72" and "icon192" fields
+
 2018-01-01  Francesc Busquets <fbusquets@xtec.cat>
     *   src/author/edu/xtec/jclic/bags/MediaBagEditor.java
     *   src/author/edu/xtec/jclic/bags/MediaBagElementEditor.java
