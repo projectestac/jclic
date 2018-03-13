@@ -1,3 +1,6 @@
+2018-03-13  Francesc Busquets <fbusquets@xtec.cat>
+    *   src/core/edu/xtec/jclic/project/ProjectSettings.java: Write license tags to project.json in HTML5 export
+
 2018-03-12  Francesc Busquets <fbusquets@xtec.cat>
     *   xml/jclic.xsd
     *   src/author/edu/xtec/jclic/project/ExportTaskDlg.java

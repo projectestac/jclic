@@ -99,6 +99,16 @@ public class ProjectSettings implements Editable, Domable {
   public static String[] CC_LICENSES = {"by", "by-sa", "by-nd", "by-nc", "by-nc-sa", "by-nc-nd", "other"};
   public static int CC_BY = 0, CC_BY_SA = 1, CC_BY_ND = 2, CC_BY_NC = 3, CC_BY_NC_SA = 4, CC_BY_NC_ND = 5, OTHER = 6;
   public static String CC_URL = "https://creativecommons.org/licenses/%%CODE%%/4.0", OTHER_URL = "See 'description'";
+  public static String[] LICENSE_DESC = {
+    "Aquesta obra està sota una llicència de Creative Commons <a href=\"%%URL%%\">%%CODE%%</a>",
+    "Esta obra está bajo una licencia de Creative Commons <a href=\"%%URL%%\">%%CODE%%</a>",
+    "Licensed under a Creative Commons license <a href=\"%%URL%%\">%%CODE%%</a>"
+  };
+  public static String[] LICENSE_OTHER = {
+    "Els termes de la llicència d'ús s'especifiquen a la descripció del projecte",
+    "Los términos de la licencia de uso se especifican en la descripción del proyecto",
+    "License terms are specified in project description"
+  };
 
   /**
    * Creates new ProjectSettings
@@ -796,9 +806,21 @@ public class ProjectSettings implements Editable, Domable {
     }
     json.put("description", jso);
 
+    // Fill in license
+    jso = new JSONObject();
+    String url = license < OTHER ? CC_URL.replace("%%CODE%%", CC_LICENSES[license]) : OTHER_URL;
+    for (int i = 0; i < numLangs; i++) {
+      int p = StrUtils.getIndexOf(langTags[i], KNOWN_META_LANGS);
+      if(p < 0)
+        p = 2;
+      String str = license < OTHER ? LICENSE_DESC[p].replace("%%URL%%", url).replace("%%CODE%%", CC_LICENSES[license].toUpperCase()) : LICENSE_OTHER[p];
+      jso.put(langTags[i], str);
+    }
+    json.put("license", jso);
+    
     // Fill in meta langs
     json.put("meta_langs", new JSONArray(langTags));
-
+    
     // Fill in cover and thumbnail images
     if (coverFileName != null) {
       json.put("cover", coverFileName);
