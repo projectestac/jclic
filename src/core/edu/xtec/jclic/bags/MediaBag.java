@@ -317,6 +317,16 @@ public class MediaBag extends Object implements Editable, Domable, StreamIO.Inpu
     }
     return null;
   }
+  
+  public long getTotalFileSize() {
+    long result = 0;
+    Iterator<MediaBagElement> it = elements.iterator();
+    while (it.hasNext()) {
+      MediaBagElement mbe = it.next();
+      result += mbe.getFileSize(this.project.getFileSystem());
+    }
+    return result;    
+  }
 
   public boolean isWaitingForImages() {
     Iterator<MediaBagElement> it = elements.iterator();

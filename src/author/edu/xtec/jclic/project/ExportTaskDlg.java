@@ -269,6 +269,10 @@ public class ExportTaskDlg extends javax.swing.JPanel {
 
           JSONObject json = project.settings.toJSON(msg);
           json.put("mainFile", mainFileName);
+          
+          // TODO: check recursive projects!
+          json.put("activities", project.activityBag.size());
+          json.put("size", project.mediaBag.getTotalFileSize());
 
           exportDlg.exportPath = new File(outputPath);
 

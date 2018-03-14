@@ -30,18 +30,17 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
+import java.io.IOException;
 import javax.swing.ImageIcon;
 import net.sf.image4j.codec.bmp.BMPDecoder;
 import net.sf.image4j.codec.ico.ICODecoder;
 
 /**
- * <CODE>MediaBagElements</CODE> are the members of
- * {@link edu.xtec.jclic.bags.MediaBag} objects. Media elements have a name, a
- * reference to a file (the <CODE>fileName</CODE>) and, when initialized, a
- * <CODE>data</CODE> field containing the raw content of the media. They have
- * also a flag indicating if the data must be saved into the
- * {@link edu.xtec.jclic.project.JClicProject} file or must be mantained as a
- * single reference to a external file.
+ * <CODE>MediaBagElements</CODE> are the members of {@link edu.xtec.jclic.bags.MediaBag} objects.
+ * Media elements have a name, a reference to a file (the <CODE>fileName</CODE>) and, when
+ * initialized, a <CODE>data</CODE> field containing the raw content of the media. They have also a
+ * flag indicating if the data must be saved into the {@link edu.xtec.jclic.project.JClicProject}
+ * file or must be mantained as a single reference to a external file.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
@@ -272,6 +271,18 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
       }
     }
     return img;
+  }
+
+  public long getFileSize(FileSystem fs) {
+    long result = 0;
+    if (fileName != null) {
+      try {
+        result = fs.getFileLength(fileName);
+      } catch (IOException ex) {
+        System.err.println("Error recovering the file size of \"" + fileName + "\": " + ex.getMessage());
+      }
+    }
+    return result;
   }
 
   public ImageIcon getThumbNail(int maxWidth, int maxHeight, FileSystem fs) {
