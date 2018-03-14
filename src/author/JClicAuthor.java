@@ -36,13 +36,13 @@ public abstract class JClicAuthor {
    * @param args the command line arguments
    */
   public static void main(String args[]) {
-
+    long[] counters = {0, 0, 0};
     int p = StrUtils.getIndexOf("-processZip", args);
     if (p >= 0 && args.length > p + 1) {
       try {
         if (args.length > p + 2 && !args[p + 2].startsWith("-")) {
-          System.out.println("Processing " + args[p + 1]);        
-          ProjectFileUtils.processSingleFile(args[p + 1], args[p + 2], null, System.out);
+          System.out.println("Processing " + args[p + 1]);
+          ProjectFileUtils.processSingleFile(args[p + 1], args[p + 2], null, System.out, counters);
         }
       } catch (Exception ex) {
         System.err.println("Error processing ZIP file: " + ex.getMessage());
@@ -53,7 +53,7 @@ public abstract class JClicAuthor {
     p = StrUtils.getIndexOf("-processZipFolder", args);
     if (p >= 0 && args.length > p + 2) {
       try {
-        ProjectFileUtils.processRootFolder(args[p + 1], args[p + 2], null, System.out);
+        ProjectFileUtils.processRootFolder(args[p + 1], args[p + 2], null, System.out, counters);
       } catch (Exception ex) {
         System.err.println("Error processing ZIP file: " + ex.getMessage());
       }

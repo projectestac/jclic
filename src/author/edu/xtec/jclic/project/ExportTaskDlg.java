@@ -238,15 +238,17 @@ public class ExportTaskDlg extends javax.swing.JPanel {
       public Object construct() {
         try {
 
+          long[] counters = {0, 0, 0};
+          
           ArrayList<String> fileList = new ArrayList<String>();
           fileList.add("imsmanifest.xml");
 
           if (!copyAll) {
             exportDlg.ps.println("Processing: " + inputPath);
-            ProjectFileUtils.processSingleFile(inputPath, outputPath, fileList, exportDlg.ps);
+            ProjectFileUtils.processSingleFile(inputPath, outputPath, fileList, exportDlg.ps, counters);
           } else {
             exportDlg.ps.println("Processing all projects in: " + inputPath);
-            ProjectFileUtils.processRootFolder(inputPath, outputPath, fileList, exportDlg.ps);
+            ProjectFileUtils.processRootFolder(inputPath, outputPath, fileList, exportDlg.ps, counters);
           }
 
           // Get normalized filenames          
@@ -264,49 +266,54 @@ public class ExportTaskDlg extends javax.swing.JPanel {
 
           pw.print(s);
           pw.flush();
+          counters[ProjectFileUtils.TOTAL_FILESIZE] += fos.getChannel().size();
           pw.close();
           fileList.add("index.html");
 
           JSONObject json = project.settings.toJSON(msg);
           json.put("mainFile", mainFileName);
-          
-          // TODO: check recursive projects!
-          json.put("activities", project.activityBag.size());
-          json.put("size", project.mediaBag.getTotalFileSize());
-
+                    
           exportDlg.exportPath = new File(outputPath);
 
           String fn = "favicon.ico";
           if (project.settings.icon16 == null) {
             exportDlg.ps.println("Copying " + fn);
-            StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/" + fn),
-                    new FileOutputStream(new File(outputPath, fn)));
+            fos = new FileOutputStream(new File(outputPath, fn));
+            counters[ProjectFileUtils.TOTAL_FILESIZE] += StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/" + fn), fos);            
+            fos.close();
             fileList.add(fn);
+            counters[ProjectFileUtils.NUM_MEDIA]++;
           }
 
           if (project.settings.icon192 == null) {
             fn = "icon-192.png";
             exportDlg.ps.println("Copying " + fn);
-            StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/" + fn),
-                    new FileOutputStream(new File(outputPath, fn)));
+            fos = new FileOutputStream(new File(outputPath, fn));
+            counters[ProjectFileUtils.TOTAL_FILESIZE] += StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/" + fn), fos);
+            fos.close();
             fileList.add(fn);
+            counters[ProjectFileUtils.NUM_MEDIA]++;            
           }
 
           if (project.settings.icon72 == null) {
             fn = "icon-72.png";
             exportDlg.ps.println("Copying " + fn);
-            StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/" + fn),
-                    new FileOutputStream(new File(outputPath, fn)));
+            fos = new FileOutputStream(new File(outputPath, fn));
+            counters[ProjectFileUtils.TOTAL_FILESIZE] += StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/" + fn), fos);
+            fos.close();            
             fileList.add(fn);
+            counters[ProjectFileUtils.NUM_MEDIA]++;            
           }
 
           String cover = project.settings.coverFileName;
           if (cover == null) {
             exportDlg.ps.println("Copying project cover model");
             cover = "project-cover.jpg";
-            StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/cover-base.jpg"),
-                    new FileOutputStream(new File(outputPath, cover)));
+            fos = new FileOutputStream(new File(outputPath, cover));
+            counters[ProjectFileUtils.TOTAL_FILESIZE] += StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/cover-base.jpg"), fos);
+            fos.close();;            
             fileList.add(cover);
+            counters[ProjectFileUtils.NUM_MEDIA]++;            
           } else {
             cover = project.mediaBag.getElement(cover).getFileName();
           }
@@ -316,9 +323,11 @@ public class ExportTaskDlg extends javax.swing.JPanel {
           if (thumb == null) {
             thumb = "project-thumb.jpg";
             exportDlg.ps.println("Copying project thumbnail model");
-            StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/thumb-base.jpg"),
-                    new FileOutputStream(new File(outputPath, thumb)));
+            fos = new FileOutputStream(new File(outputPath, thumb));
+            counters[ProjectFileUtils.TOTAL_FILESIZE] += StreamIO.writeStreamTo(getClass().getResourceAsStream("/edu/xtec/resources/icons/thumb-base.jpg"), fos);
+            fos.close();            
             fileList.add(thumb);
+            counters[ProjectFileUtils.NUM_MEDIA]++;            
           } else {
             thumb = project.mediaBag.getElement(thumb).getFileName();
           }
@@ -326,18 +335,13 @@ public class ExportTaskDlg extends javax.swing.JPanel {
 
           exportDlg.ps.println("Generating project.json");
           fileList.add("project.json");
+          
 
           // Order fileList and remove duplicate values
           Collections.sort(fileList);
           fileList = new ArrayList<String>(new LinkedHashSet<String>(fileList));
-          json.append("files", fileList);
 
-          fos = new FileOutputStream(new File(outputPath, "project.json"));
-          pw = new PrintWriter(new OutputStreamWriter(fos, "UTF-8"));
-          pw.print(json.toString(2));
-          pw.flush();
-          pw.close();
-
+          // Write imsmanifest
           exportDlg.ps.println("Generating imsmanifest.xml");
           fos = new FileOutputStream(new File(outputPath, "imsmanifest.xml"));
           pw = new PrintWriter(new OutputStreamWriter(fos, "UTF-8"));
@@ -350,6 +354,22 @@ public class ExportTaskDlg extends javax.swing.JPanel {
           }
           s = StrUtils.replace(s, "%FILETAGS%", sb.toString());
           pw.print(s);
+          pw.flush();
+          counters[ProjectFileUtils.TOTAL_FILESIZE] += fos.getChannel().size();
+          pw.close();
+
+          // Save statistics and file list
+          json.put("activities", counters[ProjectFileUtils.NUM_ACTS]);
+          json.put("mediaFiles", counters[ProjectFileUtils.NUM_MEDIA]);
+          json.put("totalSize", counters[ProjectFileUtils.TOTAL_FILESIZE]);
+          json.append("files", fileList);
+          counters[ProjectFileUtils.TOTAL_FILESIZE] += json.toString(2).length();
+          json.put("totalSize", counters[ProjectFileUtils.TOTAL_FILESIZE]);
+          
+          // Write project.json
+          fos = new FileOutputStream(new File(outputPath, "project.json"));
+          pw = new PrintWriter(new OutputStreamWriter(fos, "UTF-8"));
+          pw.print(json.toString(2));
           pw.flush();
           pw.close();
 
@@ -374,6 +394,9 @@ public class ExportTaskDlg extends javax.swing.JPanel {
           }
 
           exportDlg.ps.println("\n" + msg.get("export_project_finished") + " " + outputPath);
+          exportDlg.ps.println("\n" + msg.get("export_project_numActivities") + " " + counters[ProjectFileUtils.NUM_ACTS]);
+          exportDlg.ps.println(msg.get("export_project_mediaFiles") + " " + counters[ProjectFileUtils.NUM_MEDIA]);
+          exportDlg.ps.println(msg.get("export_project_totalSize") + " " + counters[ProjectFileUtils.TOTAL_FILESIZE]);
 
           exportDlg.ps.println("\n" + msg.get("export_project_notice"));
 

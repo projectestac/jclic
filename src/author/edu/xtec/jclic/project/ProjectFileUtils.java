@@ -45,9 +45,8 @@ import java.util.Iterator;
 import org.json.JSONObject;
 
 /**
- * Miscellaneous utilities to process ".jclic", ".jclic.zip" and ".scorm.zip" files,
- * normalizing media file names, avoiding links to other "zip" files and
- * extracting contents to a given folder.
+ * Miscellaneous utilities to process ".jclic", ".jclic.zip" and ".scorm.zip" files, normalizing
+ * media file names, avoiding links to other "zip" files and extracting contents to a given folder.
  *
  * @author fbusquet
  */
@@ -60,19 +59,22 @@ public class ProjectFileUtils implements ResourceBridge {
   String plainProjectName;
   String basePath;
   String relativePath;
-  JClicProject project;  
+  JClicProject project;
   public boolean isScorm;
 
   // Interruption flag
   public static boolean interrupt = false;
 
+  // Offsets in "counters" array
+  public static int NUM_ACTS = 0, NUM_MEDIA = 1, TOTAL_FILESIZE = 2;
+
   /**
    * Builds a ProjectFileUtils object, initializing a @link{JClicProject}
    *
-   * @param fileName - Relative or absolute path to the ".jclic" or ".jclic.zip"
-   * file to be processed
-   * @param basePath - Base path of this project. Relative paths are based on
-   * this one. When null, the parent folder of fileName will be used.
+   * @param fileName - Relative or absolute path to the ".jclic" or ".jclic.zip" file to be
+   * processed
+   * @param basePath - Base path of this project. Relative paths are based on this one. When null,
+   * the parent folder of fileName will be used.
    * @throws Exception
    */
   public ProjectFileUtils(String fileName, String basePath) throws Exception {
@@ -101,14 +103,15 @@ public class ProjectFileUtils implements ResourceBridge {
         throw new Exception("File " + fullFilePath + " does not contain any jclic project");
       }
       projectName = projects[0];
-    } else if(isScorm){
-      if(fileSystem.fileExists("project.json")){
+    } else if (isScorm) {
+      if (fileSystem.fileExists("project.json")) {
         json = new JSONObject(new String(fileSystem.getBytes("project.json")));
         projectName = json.optString("mainFile", null);
         jclicFileName = projectName;
       }
-      if(projectName == null)
+      if (projectName == null) {
         throw new Exception("Invalid JClic SCORM file: " + fullFilePath);
+      }
     } else {
       jclicFileName = projectName = file;
     }
@@ -117,18 +120,16 @@ public class ProjectFileUtils implements ResourceBridge {
 
     org.jdom.Document doc = fileSystem.getXMLDocument(projectName);
     project = JClicProject.getJClicProject(doc.getRootElement(), this, fileSystem, file);
-    if(json!=null)
+    if (json != null) {
       project.readJSON(json, false);
+    }
   }
 
   /**
-   * Normalizes the file names of the media bag, restricting it to URL-safe
-   * characters.
+   * Normalizes the file names of the media bag, restricting it to URL-safe characters.
    *
-   * @param ps - The @link{PrintStream} where progress messages will be
-   * outputed. Can be null.
-   * @param fileList - The list of currently exported files, used to avoid
-   * duplicates
+   * @param ps - The @link{PrintStream} where progress messages will be outputed. Can be null.
+   * @param fileList - The list of currently exported files, used to avoid duplicates
    * @throws java.lang.InterruptedException
    */
   public void normalizeFileNames(PrintStream ps, Collection<String> fileList) throws InterruptedException {
@@ -217,12 +218,11 @@ public class ProjectFileUtils implements ResourceBridge {
   }
 
   /**
-   * Searchs for ".jclic.zip" links in JumpInfo elements, changing it to links
-   * to plain ".jclic" files.
+   * Searchs for ".jclic.zip" links in JumpInfo elements, changing it to links to plain ".jclic"
+   * files.
    *
    * @param ji - The JumpInfo to scan for links
-   * @param ps - The @link{PrintStream} where progress messages will be
-   * outputed. Can be null.
+   * @param ps - The @link{PrintStream} where progress messages will be outputed. Can be null.
    * @throws java.lang.InterruptedException
    */
   public void avoidZipLinksInJumpInfo(JumpInfo ji, PrintStream ps) throws InterruptedException {
@@ -238,13 +238,11 @@ public class ProjectFileUtils implements ResourceBridge {
 
   /**
    *
-   * Searchs for links to ".jclic.zip" files in the given JDOM element. This
-   * method makes recursive calls on all the child elements of the provided
-   * starting point.
+   * Searchs for links to ".jclic.zip" files in the given JDOM element. This method makes recursive
+   * calls on all the child elements of the provided starting point.
    *
    * @param el - The org.jdom.Element to scan for links
-   * @param ps - The @link{PrintStream} where progress messages will be
-   * outputed. Can be null.
+   * @param ps - The @link{PrintStream} where progress messages will be outputed. Can be null.
    * @throws java.lang.InterruptedException
    */
   public void avoidZipLinksInElement(org.jdom.Element el, PrintStream ps) throws InterruptedException {
@@ -276,18 +274,19 @@ public class ProjectFileUtils implements ResourceBridge {
   }
 
   /**
-   * Saves the JClic project and all its contents in plain format (not zipped)
-   * into the specified path
+   * Saves the JClic project and all its contents in plain format (not zipped) into the specified
+   * path
    *
    * @param path - The path where the project will be saved
-   * @param fileList - Dynamic list containing relative paths of all exported
-   * files
-   * @param ps - The @link{PrintStream} where progress messages will be
-   * outputed. Can be null.
+   * @param fileList - Dynamic list containing relative paths of all exported files
+   * @param ps - The @link{PrintStream} where progress messages will be outputed. Can be null.
    * @throws Exception
    * @throws java.lang.InterruptedException
    */
-  public void saveTo(String path, Collection<String> fileList, PrintStream ps) throws Exception, InterruptedException {
+  public void saveTo(String path, Collection<String> fileList, PrintStream ps, long[] counters) throws Exception, InterruptedException {
+
+    counters[NUM_ACTS] += project.activityBag.size();
+    counters[NUM_MEDIA] += project.mediaBag.getElements().size();
 
     File outPath = new File(path);
     path = outPath.getCanonicalPath();
@@ -322,7 +321,7 @@ public class ProjectFileUtils implements ResourceBridge {
       if (ps != null) {
         ps.println("Extracting " + fn + " to " + outFile.getCanonicalPath());
       }
-      StreamIO.writeStreamTo(is, fos);
+      counters[TOTAL_FILESIZE] += StreamIO.writeStreamTo(is, fos);
 
       if (fileList != null) {
         fileList.add(getRelativeFn(outFile.getName()));
@@ -338,6 +337,7 @@ public class ProjectFileUtils implements ResourceBridge {
       ps.println("Saving project to: " + outFile.getCanonicalPath());
     }
     JDomUtility.saveDocument(fos, doc);
+    counters[TOTAL_FILESIZE] += fos.getChannel().size();
     fos.close();
 
     // Save ".jclic.js" file
@@ -360,6 +360,7 @@ public class ProjectFileUtils implements ResourceBridge {
 
     pw.println("if(JClicObject){JClicObject.projectFiles[\"" + getRelativeFn(jclicFileName) + "\"]=\"" + sequence + "\";}");
     pw.flush();
+    counters[TOTAL_FILESIZE] += fos.getChannel().size();
     pw.close();
 
     if (fileList != null) {
@@ -372,23 +373,23 @@ public class ProjectFileUtils implements ResourceBridge {
     }
   }
 
-  public static void processSingleFile(String sourceFile, String destPath, Collection<String> fileList, PrintStream ps) throws Exception, InterruptedException {
-    processSingleFile(sourceFile, destPath, null, fileList, ps);
+  public static void processSingleFile(String sourceFile, String destPath, Collection<String> fileList, PrintStream ps, long[] counters) throws Exception, InterruptedException {
+    processSingleFile(sourceFile, destPath, null, fileList, ps, counters);
   }
 
-  public static void processSingleFile(String sourceFile, String destPath, String basePath, Collection<String> fileList, PrintStream ps) throws Exception, InterruptedException {
+  public static void processSingleFile(String sourceFile, String destPath, String basePath, Collection<String> fileList, PrintStream ps, long[] counters) throws Exception, InterruptedException {
     ProjectFileUtils prjFU = new ProjectFileUtils(sourceFile, basePath);
     prjFU.normalizeFileNames(ps, fileList);
     prjFU.avoidZipLinks(ps);
-    prjFU.saveTo(destPath, fileList, ps);
+    prjFU.saveTo(destPath, fileList, ps, counters);
   }
 
-  public static void processRootFolder(String sourcePath, String destPath, Collection<String> fileList, PrintStream ps) throws Exception, InterruptedException {
+  public static void processRootFolder(String sourcePath, String destPath, Collection<String> fileList, PrintStream ps, long[] counters) throws Exception, InterruptedException {
     String basePath = (new File(sourcePath)).getCanonicalPath();
-    processFolder(sourcePath, destPath, basePath, fileList, ps);
+    processFolder(sourcePath, destPath, basePath, fileList, ps, counters);
   }
 
-  public static void processFolder(String sourcePath, String destPath, String basePath, Collection<String> fileList, PrintStream ps) throws Exception, InterruptedException {
+  public static void processFolder(String sourcePath, String destPath, String basePath, Collection<String> fileList, PrintStream ps, long[] counters) throws Exception, InterruptedException {
 
     File src = new File(sourcePath);
     Collection<String> thisFolderList = (fileList == null ? new ArrayList<String>() : fileList);
@@ -422,7 +423,7 @@ public class ProjectFileUtils implements ResourceBridge {
         ps.println("\nProcessing file: " + f.getAbsolutePath());
       }
 
-      processSingleFile(f.getAbsolutePath(), dest.getAbsolutePath(), basePath, thisFolderList, ps);
+      processSingleFile(f.getAbsolutePath(), dest.getAbsolutePath(), basePath, thisFolderList, ps, counters);
 
     }
 
@@ -450,7 +451,8 @@ public class ProjectFileUtils implements ResourceBridge {
               new File(dest, f.getName()).getCanonicalPath(),
               basePath,
               fileList,
-              ps);
+              ps,
+              counters);
     }
 
     // Force garbage collection
