@@ -151,11 +151,11 @@ msgstr "Mostrar o amagar el botó d'informació"
 
 #: edit_act_infoBtn_url
 msgid "Show this URL:"
-msgstr "Mostrar aquesta URL:"
+msgstr "Mostrar aquest URL:"
 
 #: edit_act_infoBtn_cmd
 msgid "Execute this command:"
-msgstr "Executa el comandament:"
+msgstr "Executa l'ordre:"
 
 #: edit_act_infoBtn_url_tooltip
 msgid "Web site address to show when click on the info button"
@@ -213,7 +213,7 @@ msgstr "Cicles:"
 
 #: edit_gradient_cycles_tooltip
 msgid "Number of repetitions of the gradient over the paint surface"
-msgstr "Nombre de repeticions del gradient sobre la superfície a pintar"
+msgstr "Nombre de repeticions del degradat sobre la superfície a pintar"
 
 #: edit_gradient_orientation
 msgid "Orientation:"
@@ -221,15 +221,15 @@ msgstr "Orientació:"
 
 #: edit_gradient_orientation_tooltip
 msgid "Gradient's orientation, measured in degrees over the horizontal"
-msgstr "Orientació del gradient, mesurada en graus sobre la horitzontal"
+msgstr "Orientació del degradat, mesurada en graus sobre l'horitzontal"
 
 #: edit_act_gradient
 msgid "Gradient:"
-msgstr "Gradient:"
+msgstr "Degradat:"
 
 #: edit_act_gradient_tooltip
 msgid "Use gradient of colours"
-msgstr "Utilitza un gradient de colors"
+msgstr "Utilitza un degradat de colors"
 
 #: edit_color_opacity
 msgid "Opacity"
@@ -242,11 +242,11 @@ msgstr "Ajusta el valor del canal alfa (opacitat) del color."
 #: edit_gradient_title
 msgctxt "edit_gradient_title"
 msgid "Gradient"
-msgstr "Gradient"
+msgstr "Degradat"
 
 #: edit_gradient_default
 msgid "Use default values (null gradient)"
-msgstr "Utilitza els valors per defecte (gradient nul)"
+msgstr "Utilitza els valors per defecte (degradat nul)"
 
 #: edit_act_image
 msgid "Image:"
@@ -329,7 +329,7 @@ msgstr "X:"
 
 #: edit_act_x_tooltip
 msgid "Absolute horizontal location"
-msgstr "Posició horizontal absoluta"
+msgstr "Posició horitzontal absoluta"
 
 #: edit_act_y
 msgctxt "edit_act_y"
@@ -375,7 +375,7 @@ msgstr "Cursiva"
 
 #: edit_font_underline
 msgid "Underline"
-msgstr "Subrratllat"
+msgstr "Subratllat"
 
 #: edit_font_style
 msgctxt "edit_font_style"
@@ -676,7 +676,7 @@ msgstr "A*"
 
 #: action_docTree_tooltip
 msgid "Show the project's document as a tree"
-msgstr "Mostra el document del projecte en forma d'abre"
+msgstr "Mostra el document del projecte en forma d'arbre"
 
 #: edit_docTree_title
 msgid "Document tree"
@@ -733,11 +733,11 @@ msgstr "Interpreta un enregistrament"
 
 #: edit_mc_type_run_activity
 msgid "Go to activity"
-msgstr "Ves a l'activitat"
+msgstr "Vés a l'activitat"
 
 #: edit_mc_type_run_sequence
 msgid "Go to sequence"
-msgstr "Ves a la seqüència"
+msgstr "Vés a la seqüència"
 
 #: edit_mc_type_run_external
 msgid "Run program"
@@ -745,7 +745,7 @@ msgstr "Executa un programa"
 
 #: edit_mc_type_url
 msgid "Show URL"
-msgstr "Mostra la URL"
+msgstr "Mostra l'URL"
 
 #: edit_mc_type_exit
 msgid "End"
@@ -1007,7 +1007,7 @@ msgstr "Fletxa endavant:"
 
 #: edit_seq_arrow_back
 msgid "Back arrow:"
-msgstr "Fletxa enrera:"
+msgstr "Fletxa enrere:"
 
 #: edit_seq_action
 msgid "Action:"
@@ -1027,7 +1027,7 @@ msgstr "Posició absoluta"
 
 #: edit_act_absolute_tooltip
 msgid "The object will be placed at the specified X and Y co-ordinates"
-msgstr "L'objecte es situarà a les coordenades X i Y que especifiqueu"
+msgstr "L'objecte se situarà a les coordenades X i Y que especifiqueu"
 
 #: edit_act_location
 msgctxt "edit_act_location"
@@ -1040,7 +1040,7 @@ msgstr "Nou element de seqüència..."
 
 #: edit_seq_newElement_tooltip
 msgid "Insert a new element into the activity sequence"
-msgstr "Insereix un nou element a la sequencia d'activitats"
+msgstr "Insereix un nou element a la seqüència d'activitats"
 
 #: edit_seq_newElement_msg
 msgid "Please select an activity for the new sequence element."
@@ -1159,7 +1159,7 @@ msgstr "Longitud màxima:"
 
 #: edit_text_act_maxLen_tooltip
 msgid "Maximum amount of characters in the answer."
-msgstr "Nombre màxim de caràcters de la resposta"
+msgstr "Nombre màxim de caràcters de la resposta."
 
 #: edit_text_act_fillingChar
 msgid "Filling character"
@@ -1186,7 +1186,7 @@ msgstr "Text inicial:"
 
 #: edit_text_act_iniText_tooltip
 msgid "Text displayed in the blank at the beggining of the activity."
-msgstr "Tetx que es mostrarà a la incògnita en iniciar l'activitat."
+msgstr "Text que es mostrarà a la incògnita en iniciar l'activitat."
 
 #: edit_text_act_list
 msgid "Show a list of options:"
@@ -1238,7 +1238,7 @@ msgstr "Només interpreta so"
 msgid ""
 "You must select a fragment of text in order to create a new text target!"
 msgstr ""
-"¡Per crear una nova incògnita cal que seleccioneu un fragment de text!"
+"Per crear una nova incògnita cal que seleccioneu un fragment de text!"
 
 #: edit_text_act_err_badCharInSelection
 msgid "Target text cannot include paragraph returns nor tabs."
@@ -1247,7 +1247,7 @@ msgstr ""
 
 #: edit_text_act_err_nestedTargets
 msgid "Targets cannot nest!"
-msgstr "Les incògnites no es poden solapar!"
+msgstr "Les incògnites no es poden superposar!"
 
 #: edit_text_act_err_cellInTarget
 msgid "Targets cannot contain cells!"
@@ -1267,7 +1267,7 @@ msgstr "Estil principal:"
 
 #: edit_text_act_tabSpc
 msgid "Tab space:"
-msgstr "Tab space:"
+msgstr "Amplada del tabulador:"
 
 #: edit_text_act_tabSize
 msgid "Spaces between tab marks:"
@@ -1472,7 +1472,7 @@ msgstr "Mida del fitxer:"
 
 #: edit_media_show_type
 msgid "Files of type:"
-msgstr "Tipus de fitxers :"
+msgstr "Tipus de fitxers:"
 
 #: edit_media_preview
 msgid "Preview media"
@@ -1596,7 +1596,7 @@ msgstr "Àrees:"
 
 #: edit_project_area_tooltip
 msgid "Curricular areas of the project"
-msgstr "Àrees curriculars a les que s'orienta el projecte"
+msgstr "Àrees curriculars a les quals s'orienta el projecte"
 
 #: edit_project_level
 msgid "Levels:"
@@ -1604,7 +1604,7 @@ msgstr "Nivells:"
 
 #: edit_project_level_tooltip
 msgid "Educational levels of the project"
-msgstr "Nivells i cicles educatius als que s'adreça el projecte"
+msgstr "Nivells i cicles educatius als quals s'adreça el projecte"
 
 #: edit_project_descriptors
 msgid "Descriptors:"
@@ -1641,7 +1641,7 @@ msgstr "Autors/es:"
 
 #: edit_project_authors_tooltip
 msgid "People involved in the creation of the project"
-msgstr "Persones que han contribuit a la creació del projecte"
+msgstr "Persones que han contribuït a la creació del projecte"
 
 #: edit_project_author_name
 msgctxt "edit_project_author_name"
@@ -1900,27 +1900,27 @@ msgstr "Error: La descripció no es pot deixar en blanc"
 
 #: edit_evsounds_dlg_title
 msgid "Edit event sounds"
-msgstr "Edita els sons d'events"
+msgstr "Edita els sons d'esdeveniment"
 
 #: edit_project_evsounds
 msgctxt "edit_project_evsounds"
 msgid "Event sounds:"
-msgstr "Sons d'event:"
+msgstr "Sons d'esdeveniment:"
 
 #: edit_project_evsounds_tooltip
 msgctxt "edit_project_evsounds_tooltip"
 msgid "Set specific sounds for each JClic event"
-msgstr "Assigna sons específics per a cada event del JClic"
+msgstr "Assigna sons específics per a cada esdeveniment del JClic"
 
 #: edit_act_evsounds
 msgctxt "edit_act_evsounds"
 msgid "Event sounds:"
-msgstr "Sons d'event:"
+msgstr "Sons d'esdeveniment:"
 
 #: edit_act_evsounds_tooltip
 msgctxt "edit_act_evsounds_tooltip"
 msgid "Set specific sounds for each JClic event"
-msgstr "Assigna sons específics per a cada event del JClic"
+msgstr "Assigna sons específics per a cada esdeveniment del JClic"
 
 #: edit_evsounds_default
 msgid "default sound"
@@ -1932,13 +1932,13 @@ msgstr "desactivat"
 
 #: edit_evsounds_chk_tooltip
 msgid "Enable or disable the sound for this event"
-msgstr "Activa o desactiva el so per aquest event"
+msgstr "Activa o desactiva el so per aquest esdeveniment"
 
 #: edit_evsounds_select_tooltip
 msgid ""
 "Click to select a sound for this event, or uncheck to use the default sound"
 msgstr ""
-"Cliqueu per a seleccionar un so per aquest event, o desmarqueu per emprar el "
+"Cliqueu per a seleccionar un so per aquest esdeveniment, o desmarqueu per emprar el "
 "so per defecte"
 
 #: action_newProject_caption
@@ -1977,7 +1977,7 @@ msgstr "Amb:"
 
 #: edit_arith_op_with_tooltip
 msgid "If checked, the operator can also have this value"
-msgstr "Si es marca, l'operand port tenir també aquest valor"
+msgstr "Si es marca, l'operand pot tenir també aquest valor"
 
 #: edit_arith_op_fromList
 msgid "One from the list:"
@@ -2065,7 +2065,7 @@ msgstr "El primer operand és la incògnita"
 
 #: edit_arith_unknown_axbr
 msgid "The operation is the unknown"
-msgstr "La operació és la incògnita"
+msgstr "L'operació és la incògnita"
 
 #: edit_arith_unknown_invert
 msgid "Write the result at the beggining of the expression"
@@ -2126,7 +2126,7 @@ msgstr "Generador automàtic de contingut:"
 #: edit_autocp_tooltip
 msgid "Select the type of automatic content generator for this activity."
 msgstr ""
-"Seleccio del tipus de generador automàtic de contingut per aquesta activitat."
+"Selecció del tipus de generador automàtic de contingut per aquesta activitat."
 
 #: edit_autocp_block
 msgid "Content generator"
@@ -2270,7 +2270,7 @@ msgstr "SS"
 
 #: action_editSeq_tooltip
 msgid "Edit the sequences of activities"
-msgstr "Edita les sequencies d'activitats"
+msgstr "Edita les seqüències d'activitats"
 
 #: warn_project_modified
 msgid "Current project has been modified. Do you want to save the changes?"
@@ -2286,7 +2286,7 @@ msgstr "Nou objecte multimèdia..."
 
 #: edit_media_new_tooltip
 msgid "Add a new image or multimedia object to the library"
-msgstr "Afegeix una imatge o un objecte multimedia a la mediateca"
+msgstr "Afegeix una imatge o un objecte multimèdia a la mediateca"
 
 #: edit_media_new_keys
 msgid "M*"
@@ -2299,7 +2299,7 @@ msgstr "Llindar de puntuació:"
 #: edit_seq_threshold_tooltip_up
 msgid "Take this way when the global score is equal to or higher than..."
 msgstr ""
-"Ves per aquest camí quan la puntuació global sigui igual o superior a..."
+"Vés per aquest camí quan la puntuació global sigui igual o superior a..."
 
 #: edit_seq_time
 msgid "Time threshold:"
@@ -2389,7 +2389,7 @@ msgstr "Avançar automàticament en acabar l'activitat"
 
 #: edit_seq_delay_tooltip
 msgid "Seconds to wait before to do the automatic move"
-msgstr "Nombre de segons a esperar abans de realitzar el pas automátic"
+msgstr "Nombre de segons a esperar abans de realitzar el pas automàtic"
 
 #: edit_color_dlgTitle
 msgid "Select color"
@@ -2562,7 +2562,7 @@ msgid ""
 "be applied."
 msgstr ""
 "No heu seleccionat cap activitat! Per fer servir aquesta funció cal "
-"seleccionar a la llista l'activitat o activitats a les que s'aplicaran els "
+"seleccionar a la llista l'activitat o activitats a les quals s'aplicaran els "
 "atributs indicats."
 
 #: edit_act_copy_action_prefix
@@ -2580,7 +2580,7 @@ msgstr "Color de fons"
 #: edit_act_copy_gradient
 msgctxt "edit_act_copy_gradient"
 msgid "Gradient"
-msgstr "Gradient"
+msgstr "Degradat"
 
 #: edit_act_copy_bgImage
 msgid "Background image"
@@ -2767,7 +2767,7 @@ msgstr ""
 "Els usuaris/es avançats/es poden crear també altres tipus d'activitats JClic "
 "no registrades. Escriviu a sota el nom complet de la classe, precedida pel "
 "del paquet (per exemple: \"com.acme.activities.FooActivity\"). Les noves "
-"activitats han d'extendre edu.xtec.jclic.Activity, i han de ser accessibles "
+"activitats han d'estendre edu.xtec.jclic.Activity, i han de ser accessibles "
 "al carregador de classes de la màquina virtual de Java."
 
 #: edit_act_newActivity_name
@@ -2914,7 +2914,7 @@ msgstr "Marc d'informació:"
 #: applet_infoFrame_tooltip
 msgid ""
 "Name of the frame used to show the content related to the \"info\" button"
-msgstr "Nom del marc emprat per mostrar el contingut lligat al botó \"info\""
+msgstr "Nom del marc emprat per mostrar el contingut lligat al botó \"informació\""
 
 #: action_createInstaller_caption
 msgid "Create project installer..."
@@ -3024,7 +3024,7 @@ msgstr "Icona:"
 msgid ""
 "Picture to be used as button icon. Leave blank to use the default JClic icon."
 msgstr ""
-"Imatge que mostrará el botó. Deixeu-ho en blanc per mostrar la icona per "
+"Imatge que mostrarà el botó. Deixeu-ho en blanc per mostrar la icona per "
 "defecte del JClic."
 
 #: installer_button_description
@@ -3070,7 +3070,7 @@ msgstr "L'applet té unes dimensions específiques"
 
 #: edit_text_align_left
 msgid "Align text left"
-msgstr "Aliniar el text a l'esquerra"
+msgstr "Alinear el text a l'esquerra"
 
 #: edit_text_align_center
 msgid "Center text"
@@ -3078,7 +3078,7 @@ msgstr "Text centrat"
 
 #: edit_text_align_right
 msgid "Align text right"
-msgstr "Aliniar el text a la dreta"
+msgstr "Alinear el text a la dreta"
 
 #: edit_text_act_target_toggle
 msgid "Create or remove target"
@@ -3106,7 +3106,7 @@ msgid ""
 "The following activities never appear in any of the project's activity "
 "sequences, so they never will be displayed:"
 msgstr ""
-"Les següents activitats mai no arribaran a executarse, degut a que no "
+"Les següents activitats mai no arribaran a executar-se, ja que no "
 "apareixen a cap seqüència d'activitats del projecte:"
 
 #: edit_project_orphanMedia
@@ -3161,7 +3161,7 @@ msgstr "X*"
 
 #: edit_shape_select
 msgid "Select"
-msgstr "Seleciona"
+msgstr "Selecciona"
 
 #: edit_shape_addPoint
 msgid "Add point"

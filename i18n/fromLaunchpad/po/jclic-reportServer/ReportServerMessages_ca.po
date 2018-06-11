@@ -134,7 +134,7 @@ msgstr "ERROR"
 #: form_settings_timeout
 msgctxt "form_settings_timeout"
 msgid "Timeout:"
-msgstr "Timeout:"
+msgstr "Temps màxim d'espera:"
 
 #: form_settings_timeout_tooltip
 msgid "Maximum inactivity seconds allowed to connections"
@@ -190,7 +190,7 @@ msgstr "Neteja la finestra de missatges"
 
 #: error_DB
 msgid "Requested action could not be completed"
-msgstr "L'acció sol.licitada no s'ha pogut completar"
+msgstr "L'acció sol·licitada no s'ha pogut completar"
 
 #: settings_title
 msgid "JClic reports server settings"
@@ -286,7 +286,7 @@ msgstr "Fitxer..."
 
 #: settings_tablePrefix
 msgid "Table names prefix:"
-msgstr "Prefixe dels noms de les taules:"
+msgstr "Prefix dels noms de les taules:"
 
 #: settings_createTables
 msgid "Create tables if not exist"

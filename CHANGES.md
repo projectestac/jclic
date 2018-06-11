@@ -1,8 +1,10 @@
 ## Release notes for JClic (https://projectestac.github.io/jclic)
 =================================================================
+
 ###Changes in 0.3.2.9 (Not yet released)
 ---------------------------------------------------------------------------------------
 - Write license tags to `project.json` in HTML5 export
+- Updated Catalan translation
 
 ###Changes in 0.3.2.8 (12-Mar-2018)
 ---------------------------------------------------------------------------------------

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: JClic installer 0.2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-05-30 16:00+0000\n"
-"PO-Revision-Date: 2008-06-02 10:11+0000\n"
+"PO-Revision-Date: 2018-06-11 10:11+0000\n"
 "Last-Translator: Francesc Busquets <Unknown>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,10 +18,10 @@ msgstr "Català"
 
 #: javaNeeded
 msgid ""
-"JClic needs an updated Java engine, version 1.4 or higher. You can download "
+"JClic needs an updated Java engine, version 1.7 or higher. You can download "
 "it from http://www.java.com"
 msgstr ""
-"El JClic necessita un motor Java actualitzat, versió 1.4 o superior. El "
+"El JClic necessita un motor Java actualitzat, versió 1.7 o superior. El "
 "podeu descarregar gratuïtament des de http://www.java.com"
 
 #: oldJavaMsg

@@ -10,7 +10,7 @@ http://clic.xtec.cat/en/jclic/download.htm
 
 Compilation instructions:
 -------------------------
-The current version of JClic compiles with version 1.6 or later of the 
+The current version of JClic compiles with version 1.7 or later of the 
 Java Development Toolkit (JDK)
 
 Compilation is done with Apache Ant (http://ant.apache.org/), version 1.6.5 

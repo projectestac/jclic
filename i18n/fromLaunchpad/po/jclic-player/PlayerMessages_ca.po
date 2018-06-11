@@ -20,7 +20,7 @@ msgstr "Fitxers"
 #: settings_passwordRequired
 msgid "JClic admin password is required in order to perform this operation."
 msgstr ""
-"Per a efectuar aquesta operació cal introduir la contrassenya "
+"Per a efectuar aquesta operació cal introduir la contrasenya "
 "d'administració del JClic."
 
 #: m_Help
@@ -278,7 +278,7 @@ msgstr "Endavant >"
 
 #: wizard_prev
 msgid "< Previous"
-msgstr "< Enrera"
+msgstr "< Enrere"
 
 #: wizard_finish
 msgid "Finish"
@@ -355,7 +355,7 @@ msgstr "Progrés de la instal·lació"
 
 #: install_msg_waiting
 msgid "Waiting for confirmation."
-msgstr "Esperant confirmació"
+msgstr "Esperant confirmació."
 
 #: install_msg_creating_dirs
 msgid "Creating directories"
@@ -495,7 +495,7 @@ msgstr "Sistema multimèdia:"
 
 #: settings_media_event_sounds
 msgid "Event sounds enabled"
-msgstr "Sons d'event activats"
+msgstr "Sons d'esdeveniment activats"
 
 #: settings_library
 msgid "Libraries"
@@ -581,7 +581,7 @@ msgstr "C"
 
 #: action_libraries_tooltip
 msgid "Open or edit a JClic library."
-msgstr "Obre o modifica una biblioteca JClic"
+msgstr "Obre o modifica una biblioteca JClic."
 
 #: action_libraries_keys
 msgid "LL"
@@ -703,7 +703,7 @@ msgstr "Selecció d'idioma"
 
 #: settings_report_use_tooltip
 msgid "Enables/disables the connection to a JClic reports database"
-msgstr "Activa o descativa la connexió a una base de dades d'informes JClic"
+msgstr "Activa o desactiva la connexió a una base de dades d'informes JClic"
 
 #: settings_report_tcp_tooltip
 msgid "Reporting engine based on a TCP/IP connection"
@@ -756,7 +756,7 @@ msgstr "Realment voleu suprimir la referència a la biblioteca seleccionada?"
 
 #: libraryManager_new_exists
 msgid "This library is already linked to the system."
-msgstr "Aquesta biblioteca ja està connectada al sistema!"
+msgstr "Aquesta biblioteca ja està connectada al sistema."
 
 #: edit_find_image_keys
 msgid "F*"
@@ -795,7 +795,7 @@ msgstr "Nova biblioteca de projectes:"
 msgid "Please enter thr URL or file name of the project library\\!"
 msgstr ""
 "Si us plau, escriviu l'URL o el nom de fitxer de la biblioteca de projectes "
-"a la què voleu accedir\\!"
+"a la qual voleu accedir\\!"
 
 #: install_launchProject
 msgid "Open the project now"

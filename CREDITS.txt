@@ -108,6 +108,7 @@ Special Thanks:
    Martí Vergés
    Jordi Vivancos
    Caroline Weigner
+   Jordi Mas
 
 -----------------------------------------------------------------------------
 

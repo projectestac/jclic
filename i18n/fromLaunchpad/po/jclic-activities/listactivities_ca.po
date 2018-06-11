@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Associació complexa|En aquest tipus d'activitat es presenten també dos "
 "conjunts d'informació, però aquests poden tenir un nombre diferent "
-"d'elements i entre ells es poden donar diversos tipus de relació: un a un, "
+"d'elements i entre ells es poden donar diversos tipus de relació, p. ex.: un a un, "
 "diversos a un, elements sense assignar..."
 
 #: @associations.SimpleAssociation
@@ -59,7 +59,7 @@ msgid ""
 "those parts that meet a certain condition."
 msgstr ""
 "Activitat d'identificació|Es presenta només un conjunt d'informació i cal "
-"fer clic damunt aquells elements que acompleixin una determinada condició."
+"fer clic damunt aquells elements que compleixin una determinada condició."
 
 #: @panels.InformationScreen
 msgid ""
@@ -96,7 +96,7 @@ msgid ""
 msgstr ""
 "Puzzle de forat|En un únic plafó es fa desaparèixer una peça i es barregen "
 "les restants. En cada tirada es pot desplaçar una de les peces veïnes al "
-"forat, fins tenir-les totes en l'ordre original."
+"forat, fins a tenir-les totes en l'ordre original."
 
 #: @text.WrittenAnswer
 msgid ""
@@ -134,7 +134,7 @@ msgid ""
 "paragraphs of a text are selected to be shuffled around. The user has to put "
 "them back in order."
 msgstr ""
-"Text: Ordenar elements|En el moment de dissenyar l'activitat es seleccionen "
+"Text: Ordenar elements|En el moment de dissenyar l'activitat se seleccionen "
 "en el text algunes paraules o paràgrafs que es barrejaran entre si. L'usuari "
 "ha de tornar a posar-ho en ordre."
 

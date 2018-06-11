@@ -1,3 +1,20 @@
+2018-06-11  Francesc Busquets <fbusquets@xtec.cat>
+    *   i18n/fromLaunchpad/po/jclic-activities/listactivities_ca.po
+    *   i18n/fromLaunchpad/po/jclic-author/AuthorMessages_ca.po
+    *   i18n/fromLaunchpad/po/jclic-core/JClicMessages_ca.po
+    *   i18n/fromLaunchpad/po/jclic-installer/installer_ca.po
+    *   i18n/fromLaunchpad/po/jclic-persistent/PersistentPathsMessages_ca.po
+    *   i18n/fromLaunchpad/po/jclic-player/PlayerMessages_ca.po
+    *   i18n/fromLaunchpad/po/jclic-reportServer/ReportServerMessages_ca.po
+    *   i18n/fromLaunchpad/po/jclic-reportServlets/reportMessages_ca.po
+    *   src/author/edu/xtec/resources/messages/AuthorMessages_ca.properties
+    *   src/core/edu/xtec/resources/activities/listactivities_ca.properties
+    *   src/core/edu/xtec/resources/messages/JClicMessages_ca.properties
+    *   src/core/edu/xtec/resources/messages/PersistentPathsMessages_ca.properties
+    *   src/core/edu/xtec/resources/messages/PlayerMessages_ca.properties
+    *   src/report/reportServer/edu/xtec/resources/messages/ReportServerMessages_ca.properties
+    *   src/report/reportServlets/edu/xtec/resources/messages/reportMessages_ca.properties: Updated Catalan translation (issue #25)
+
 2018-03-13  Francesc Busquets <fbusquets@xtec.cat>
     *   src/core/edu/xtec/jclic/project/ProjectSettings.java: Write license tags to project.json in HTML5 export
 

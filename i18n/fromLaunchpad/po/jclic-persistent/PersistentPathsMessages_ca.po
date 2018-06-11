@@ -28,7 +28,7 @@ msgid ""
 "Please enter a valid location where you have administrative rights."
 msgstr ""
 "S'ha produit un error en intentar crear la carpeta!\n"
-"Si us plau, indiqueu una ubicació on tingueu drets d'aministració."
+"Si us plau, indiqueu una ubicació on tingueu drets d'administració."
 
 #: cl_prompt_title
 msgid "Installation directory"
