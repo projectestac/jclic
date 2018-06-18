@@ -850,7 +850,7 @@ public class MediaContentEditor extends edu.xtec.util.CtrlPanel {
                 bExternal=true;
             case MediaContent.URL:
                 bFile=true;
-                bLevel=false;
+                bLevel= mc.mediaType == MediaContent.URL;
                 filePanelItem=1;
                 fragmentPanelItem=2;
                 break;
