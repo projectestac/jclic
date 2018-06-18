@@ -225,7 +225,8 @@ public class StreamIO {
           result = false;
           msg.showErrorWarning(dlg, "ERROR", ex);
         }
-        dlg.setVisible(false);
+        //dlg.setVisible(false);
+        dlg.dispose();;
         return result;
       }
     };
