@@ -28,7 +28,6 @@ import java.awt.Rectangle;
 import java.io.OutputStream;
 import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -36,7 +35,6 @@ import java.util.Locale;
 import java.util.StringTokenizer;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.16
  */
@@ -46,13 +44,20 @@ public class JDomUtility {
   private static org.jdom.output.XMLOutputter outputter;
 
   public static final String ID = "id",
-          IMAGE = "image", NAME = "name", TYPE = "type",
-          BGCOLOR = "bgcolor", FORECOLOR = "forecolor",
-          MARGIN = "margin", BORDER = "border",
-          POSITION = "position", X = "x", Y = "y", P = "p", CLASS = "class";
+      IMAGE = "image",
+      NAME = "name",
+      TYPE = "type",
+      BGCOLOR = "bgcolor",
+      FORECOLOR = "forecolor",
+      MARGIN = "margin",
+      BORDER = "border",
+      POSITION = "position",
+      X = "x",
+      Y = "y",
+      P = "p",
+      CLASS = "class";
 
-  private JDomUtility() {
-  }
+  private JDomUtility() {}
 
   public static boolean addGenericAttribute(org.jdom.Element e, String key, Object v) {
     if (v == null) {
@@ -68,10 +73,10 @@ public class JDomUtility {
     }
 
     if (cl.isAssignableFrom(String.class)
-            || cl.isAssignableFrom(Integer.class)
-            || cl.isAssignableFrom(Float.class)
-            || cl.isAssignableFrom(Double.class)
-            || cl.isAssignableFrom(Boolean.class)) {
+        || cl.isAssignableFrom(Integer.class)
+        || cl.isAssignableFrom(Float.class)
+        || cl.isAssignableFrom(Double.class)
+        || cl.isAssignableFrom(Boolean.class)) {
       e.setAttribute(key, v.toString());
     } else if (cl.isAssignableFrom(Color.class)) {
       e.setAttribute(key, colorToString((Color) v));
@@ -105,7 +110,9 @@ public class JDomUtility {
     checkName(e, FONT);
     String family = getStringAttr(e, FAMILY, "default", false);
     int size = getIntAttr(e, SIZE, 12);
-    int style = (getBoolAttr(e, BOLD, false) ? Font.BOLD : 0) | (getBoolAttr(e, ITALIC, false) ? Font.ITALIC : 0);
+    int style =
+        (getBoolAttr(e, BOLD, false) ? Font.BOLD : 0)
+            | (getBoolAttr(e, ITALIC, false) ? Font.ITALIC : 0);
     return FontCheck.getValidFont(family, style, size);
   }
 
@@ -116,8 +123,8 @@ public class JDomUtility {
     // be careful with alpha : high bits
     String s = Long.toHexString(0x100000000L | color.getRGB()).toUpperCase();
     s = s.substring(s.length() - (color.getAlpha() == 0xFF ? 6 : 8));
-    //s=s.substring(color.getAlpha()==0xFF ? 3 : 1);
-    //if(s.length()>6) s=s.substring(s.length()-6);
+    // s=s.substring(color.getAlpha()==0xFF ? 3 : 1);
+    // if(s.length()>6) s=s.substring(s.length()-6);
     return "0x" + s;
   }
 
@@ -130,18 +137,32 @@ public class JDomUtility {
   };
 
   public static final Color[] HTML_COLORS = {
-    Color.black, Color.lightGray, Color.gray, Color.white,
-    new Color(128, 0, 0), Color.red, new Color(128, 0, 128), Color.magenta,
-    new Color(0, 128, 0), Color.green, new Color(128, 128, 0), Color.yellow,
-    new Color(0, 0, 128), Color.blue, new Color(0, 128, 128), Color.cyan,
-    Color.pink, Color.orange, Color.darkGray
+    Color.black,
+    Color.lightGray,
+    Color.gray,
+    Color.white,
+    new Color(128, 0, 0),
+    Color.red,
+    new Color(128, 0, 128),
+    Color.magenta,
+    new Color(0, 128, 0),
+    Color.green,
+    new Color(128, 128, 0),
+    Color.yellow,
+    new Color(0, 0, 128),
+    Color.blue,
+    new Color(0, 128, 128),
+    Color.cyan,
+    Color.pink,
+    Color.orange,
+    Color.darkGray
   };
 
   public static Color stringToColor(String s) throws Exception {
-    //Color c=Color.black;
+    // Color c=Color.black;
     Color color = null;
     if (s.startsWith("0x")) {
-      //c=Color.decode(s);
+      // c=Color.decode(s);
       long v = Long.decode(s).longValue();
       color = new Color((int) v, s.length() > 8 || v >= 0x1000000);
     } else {
@@ -158,7 +179,8 @@ public class JDomUtility {
     return color;
   }
 
-  public static Color getColorAttr(org.jdom.Element e, String attr, Color defaultValue) throws Exception {
+  public static Color getColorAttr(org.jdom.Element e, String attr, Color defaultValue)
+      throws Exception {
     String s = e.getAttributeValue(attr);
     return s == null ? defaultValue : stringToColor(s);
   }
@@ -166,7 +188,14 @@ public class JDomUtility {
   // ----------------------------------------------------------------------
   // conversion functions for awt objects
   // ----------------------------------------------------------------------
-  public static final String LEFT = "left", RIGHT = "right", TOP = "top", BOTTOM = "bottom", WIDTH = "width", HEIGHT = "height", UP = "up", DOWN = "down";
+  public static final String LEFT = "left",
+      RIGHT = "right",
+      TOP = "top",
+      BOTTOM = "bottom",
+      WIDTH = "width",
+      HEIGHT = "height",
+      UP = "up",
+      DOWN = "down";
 
   public static org.jdom.Element getChildWithId(org.jdom.Element e, String name, String id) {
     org.jdom.Element result;
@@ -195,10 +224,10 @@ public class JDomUtility {
     }
     Rectangle r = (defaultValue == null ? new Rectangle() : new Rectangle(defaultValue));
     r.setBounds(
-            getIntAttr(e, LEFT, r.x),
-            getIntAttr(e, TOP, r.y),
-            getIntAttr(e, WIDTH, r.width),
-            getIntAttr(e, HEIGHT, r.height));
+        getIntAttr(e, LEFT, r.x),
+        getIntAttr(e, TOP, r.y),
+        getIntAttr(e, WIDTH, r.width),
+        getIntAttr(e, HEIGHT, r.height));
     return r;
   }
 
@@ -214,9 +243,7 @@ public class JDomUtility {
       return defaultValue;
     }
     Point p = (defaultValue == null ? new Point() : new Point(defaultValue));
-    p.setLocation(
-            getIntAttr(e, LEFT, p.x),
-            getIntAttr(e, TOP, p.y));
+    p.setLocation(getIntAttr(e, LEFT, p.x), getIntAttr(e, TOP, p.y));
     return p;
   }
 
@@ -232,9 +259,7 @@ public class JDomUtility {
       return defaultValue;
     }
     Dimension d = (defaultValue == null ? new Dimension() : new Dimension(defaultValue));
-    d.setSize(
-            getIntAttr(e, WIDTH, d.width),
-            getIntAttr(e, HEIGHT, d.height));
+    d.setSize(getIntAttr(e, WIDTH, d.width), getIntAttr(e, HEIGHT, d.height));
     return d;
   }
 
@@ -250,15 +275,15 @@ public class JDomUtility {
       return defaultValue;
     }
     Point p = (defaultValue == null ? new Point() : new Point(defaultValue));
-    p.setLocation(
-            getIntAttr(e, RIGHT, p.x),
-            getIntAttr(e, DOWN, p.y));
+    p.setLocation(getIntAttr(e, RIGHT, p.x), getIntAttr(e, DOWN, p.y));
     return p;
   }
 
   public static final String COLOR = "color", VALUE = "value";
 
-  public static Color getColorByPoint(org.jdom.Element e, String id, java.awt.image.BufferedImage img, Color defaultValue) throws Exception {
+  public static Color getColorByPoint(
+      org.jdom.Element e, String id, java.awt.image.BufferedImage img, Color defaultValue)
+      throws Exception {
     if (id != null) {
       e = getChildWithId(e, COLOR, id);
     } else if (e != null && !e.getName().equals(COLOR)) {
@@ -279,7 +304,10 @@ public class JDomUtility {
   }
 
   public static final String DIRECTION = "direction";
-  public static final int DIRECTION_UP = 0, DIRECTION_DOWN = 1, DIRECTION_LEFT = 2, DIRECTION_RIGHT = 3;
+  public static final int DIRECTION_UP = 0,
+      DIRECTION_DOWN = 1,
+      DIRECTION_LEFT = 2,
+      DIRECTION_RIGHT = 3;
   public static final String[] directionName = {UP, DOWN, LEFT, RIGHT};
 
   public static int getDirection(org.jdom.Element e, int defaultValue) throws Exception {
@@ -291,7 +319,11 @@ public class JDomUtility {
 
   public static final String ALIGNMENT = "alignment";
   public static final String HALIGN = "hAlign", VALIGN = "vAlign";
-  public static final int ALIGN_LEFT = 0, ALIGN_TOP = 0, ALIGN_MIDDLE = 1, ALIGN_RIGHT = 2, ALIGN_BOTTOM = 2;
+  public static final int ALIGN_LEFT = 0,
+      ALIGN_TOP = 0,
+      ALIGN_MIDDLE = 1,
+      ALIGN_RIGHT = 2,
+      ALIGN_BOTTOM = 2;
   public static final String[] hAlignName = {"left", "middle", "right"};
   public static final String[] vAlignName = {"top", "middle", "bottom"};
   public static final int[] DEFAULT_ALIGNMENT = {ALIGN_MIDDLE, ALIGN_MIDDLE};
@@ -310,7 +342,8 @@ public class JDomUtility {
     return getStrIndexAttr(e, VALIGN, vAlignName, defaultValue);
   }
 
-  public static int[] getAlignment(org.jdom.Element e, String id, int[] defaultValue) throws Exception {
+  public static int[] getAlignment(org.jdom.Element e, String id, int[] defaultValue)
+      throws Exception {
     if (defaultValue == null) {
       defaultValue = DEFAULT_ALIGNMENT;
     }
@@ -328,7 +361,8 @@ public class JDomUtility {
     return al;
   }
 
-  public static int[] getAlignProp(org.jdom.Element e, String id, int[] defaultValue) throws Exception {
+  public static int[] getAlignProp(org.jdom.Element e, String id, int[] defaultValue)
+      throws Exception {
     int[] result = new int[2];
     if (defaultValue == null) {
       defaultValue = DEFAULT_ALIGNMENT;
@@ -350,7 +384,8 @@ public class JDomUtility {
     return result;
   }
 
-  public static void setAlignProp(org.jdom.Element e, String id, int[] align, boolean omitIfDefault) {
+  public static void setAlignProp(
+      org.jdom.Element e, String id, int[] align, boolean omitIfDefault) {
     if (e != null && id != null && align != null && align.length == 2) {
       if (!omitIfDefault || !isDefaultAlign(align)) {
         e.setAttribute(id, hAlignName[align[0]] + "," + vAlignName[align[1]]);
@@ -365,7 +400,8 @@ public class JDomUtility {
   // ----------------------------------------------------------------------
   // conversion functions for paragraphs of plain text
   // ----------------------------------------------------------------------
-  public static org.jdom.Element addParagraphs(org.jdom.Element parent, String childName, String text) {
+  public static org.jdom.Element addParagraphs(
+      org.jdom.Element parent, String childName, String text) {
     org.jdom.Element result = null;
     if (text != null) {
       result = new org.jdom.Element(childName);
@@ -459,7 +495,8 @@ public class JDomUtility {
     return BOOL_STR[state];
   }
 
-  public static int getTriStateAttr(org.jdom.Element e, String attr, int defaultValue) throws Exception {
+  public static int getTriStateAttr(org.jdom.Element e, String attr, int defaultValue)
+      throws Exception {
     return getStrIndexAttr(e, attr, BOOL_STR, defaultValue);
   }
 
@@ -524,7 +561,8 @@ public class JDomUtility {
   // conversion functions for basic classes
   // ----------------------------------------------------------------------
   // String
-  public static String getStringAttr(org.jdom.Element e, String attr, String defaultValue, boolean allowEmpty) {
+  public static String getStringAttr(
+      org.jdom.Element e, String attr, String defaultValue, boolean allowEmpty) {
     String s = e.getAttributeValue(attr);
     String result = defaultValue;
     if (s != null && (allowEmpty || s.length() > 0)) {
@@ -533,7 +571,8 @@ public class JDomUtility {
     return result;
   }
 
-  public static void setStringAttr(org.jdom.Element e, String key, String value, boolean allowEmpty) {
+  public static void setStringAttr(
+      org.jdom.Element e, String key, String value, boolean allowEmpty) {
     String v = allowEmpty && (value == null || value.length() == 0) ? "" : value;
     if (key != null && v != null) {
       e.setAttribute(key, v);
@@ -541,7 +580,8 @@ public class JDomUtility {
   }
 
   // String array index
-  public static int getStrIndexAttr(org.jdom.Element e, String attr, String[] values, int defaultValue) throws Exception {
+  public static int getStrIndexAttr(
+      org.jdom.Element e, String attr, String[] values, int defaultValue) throws Exception {
     return getStrIndexAttr(e.getAttributeValue(attr), values, defaultValue);
   }
 
@@ -563,7 +603,8 @@ public class JDomUtility {
   // Dimension
   private static final int rare = -18634527;
 
-  public static Dimension getDimensionAttr(org.jdom.Element e, String atrW, String atrH, Dimension defaultValue) {
+  public static Dimension getDimensionAttr(
+      org.jdom.Element e, String atrW, String atrH, Dimension defaultValue) {
     Dimension result = defaultValue;
     int w = getIntAttr(e, atrW, rare);
     int h = getIntAttr(e, atrH, rare);
@@ -574,7 +615,8 @@ public class JDomUtility {
   }
 
   // Point
-  public static Point getPointAttr(org.jdom.Element e, String atrX, String atrY, Point defaultValue) {
+  public static Point getPointAttr(
+      org.jdom.Element e, String atrX, String atrY, Point defaultValue) {
     Point result = defaultValue;
     int x = getIntAttr(e, atrX, rare);
     int y = getIntAttr(e, atrY, rare);
@@ -589,7 +631,8 @@ public class JDomUtility {
     return DateFormat.getDateInstance(DateFormat.SHORT, Locale.US).format(date);
   }
 
-  public static Date getDateAttrShortUS(org.jdom.Element e, String attr, Date defaultValue) throws Exception {
+  public static Date getDateAttrShortUS(org.jdom.Element e, String attr, Date defaultValue)
+      throws Exception {
     Date result = defaultValue;
     String s;
     if ((s = getStringAttr(e, attr, null, false)) != null) {
@@ -615,7 +658,7 @@ public class JDomUtility {
           toRemove.add((org.jdom.Text) o);
         }
       }
-      //content.removeAll(toRemove);            
+      // content.removeAll(toRemove);
       if (toRemove != null) {
         for (org.jdom.Text o : toRemove) {
           content.remove(o);
@@ -627,12 +670,12 @@ public class JDomUtility {
   public static org.jdom.input.SAXBuilder getSAXBuilder() {
     if (saxBuilder == null) {
       /*
-            try{
-                saxBuilder=new org.jdom.input.SAXBuilder("org.apache.crimson.parser.XMLReaderImpl");
-            } catch(Exception ex){
-                saxBuilder=new org.jdom.input.SAXBuilder();                
-            }
-       */
+           try{
+               saxBuilder=new org.jdom.input.SAXBuilder("org.apache.crimson.parser.XMLReaderImpl");
+           } catch(Exception ex){
+               saxBuilder=new org.jdom.input.SAXBuilder();
+           }
+      */
       saxBuilder = new org.jdom.input.SAXBuilder();
     }
     return saxBuilder;
@@ -643,8 +686,9 @@ public class JDomUtility {
   }
 
   public static void saveDocument(OutputStream out, org.jdom.Document doc) throws Exception {
-    //org.jdom.output.XMLOutputter outputter=new org.jdom.output.XMLOutputter(" ", true, "UTF-8");
-    //org.jdom.output.SpecialXMLOutputter outputter=new org.jdom.output.SpecialXMLOutputter(" ", true, "UTF-8");
+    // org.jdom.output.XMLOutputter outputter=new org.jdom.output.XMLOutputter(" ", true, "UTF-8");
+    // org.jdom.output.SpecialXMLOutputter outputter=new org.jdom.output.SpecialXMLOutputter(" ",
+    // true, "UTF-8");
     getXMLOutputter().output(doc, out);
     out.flush();
   }
@@ -662,10 +706,12 @@ public class JDomUtility {
 
   public static void checkName(org.jdom.Element e, String expectedName) throws Exception {
     if (e == null) {
-      throw new org.jdom.JDOMException("Null element passed as argument, expecting: \"" + expectedName + "\"");
+      throw new org.jdom.JDOMException(
+          "Null element passed as argument, expecting: \"" + expectedName + "\"");
     }
     if (!e.getName().equals(expectedName)) {
-      throw new org.jdom.JDOMException("Find element \"" + e.getName() + "\" while expecting \"" + expectedName + "\"");
+      throw new org.jdom.JDOMException(
+          "Find element \"" + e.getName() + "\" while expecting \"" + expectedName + "\"");
     }
   }
 
@@ -675,5 +721,4 @@ public class JDomUtility {
     }
     return e.getAttributeValue(CLASS);
   }
-
 }

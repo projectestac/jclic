@@ -26,34 +26,31 @@ import edu.xtec.jclic.edit.EditorPanel;
 import edu.xtec.util.Options;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.09
  */
-public class ProjectSettingsEditor extends Editor{
-    
-    /** Creates a new instance of ProjectSettingsEditor */
-    public ProjectSettingsEditor(ProjectSettings ps) {
-        super(ps);
-    }
-    
-    protected void createChildren() {
-    }
-    
-    public EditorPanel createEditorPanel(Options options) {
-        return new ProjectSettingsEditorPanel(options);
-    }
-    
-    public Class getEditorPanelClass() {
-        return ProjectSettingsEditorPanel.class;
-    }
-    
-    public ProjectSettings getProjectSettings(){
-        return (ProjectSettings)getFirstObject(ProjectSettings.class);
-    }            
-    
-    public JClicProjectEditor getProjectEditor(){
-        return (JClicProjectEditor)getFirstParent(JClicProjectEditor.class);
-    }    
-    
+public class ProjectSettingsEditor extends Editor {
+
+  /** Creates a new instance of ProjectSettingsEditor */
+  public ProjectSettingsEditor(ProjectSettings ps) {
+    super(ps);
+  }
+
+  protected void createChildren() {}
+
+  public EditorPanel createEditorPanel(Options options) {
+    return new ProjectSettingsEditorPanel(options);
+  }
+
+  public Class getEditorPanelClass() {
+    return ProjectSettingsEditorPanel.class;
+  }
+
+  public ProjectSettings getProjectSettings() {
+    return (ProjectSettings) getFirstObject(ProjectSettings.class);
+  }
+
+  public JClicProjectEditor getProjectEditor() {
+    return (JClicProjectEditor) getFirstParent(JClicProjectEditor.class);
+  }
 }

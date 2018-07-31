@@ -23,26 +23,22 @@ package edu.xtec.jclic.beans;
 
 import java.beans.*;
 
-
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
  */
-public class RollPanelBeanInfo extends SimpleBeanInfo{
-    
-    /**
-     * Gets the bean's <code>BeanDescriptor</code>s.
-     *
-     * @return BeanDescriptor describing the editable
-     * properties of this bean.  May return null if the
-     * information should be obtained by automatic analysis.
-     */
-    @Override
-    public BeanDescriptor getBeanDescriptor() {
-        BeanDescriptor beanDescriptor = new BeanDescriptor  ( RollPanel.class , null );        
-        beanDescriptor.setValue("containerDelegate", "getMainPanel");
-        return beanDescriptor;
-    }        
-    
+public class RollPanelBeanInfo extends SimpleBeanInfo {
+
+  /**
+   * Gets the bean's <code>BeanDescriptor</code>s.
+   *
+   * @return BeanDescriptor describing the editable properties of this bean. May return null if the
+   *     information should be obtained by automatic analysis.
+   */
+  @Override
+  public BeanDescriptor getBeanDescriptor() {
+    BeanDescriptor beanDescriptor = new BeanDescriptor(RollPanel.class, null);
+    beanDescriptor.setValue("containerDelegate", "getMainPanel");
+    return beanDescriptor;
+  }
 }

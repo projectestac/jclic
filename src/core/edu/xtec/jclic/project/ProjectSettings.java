@@ -6,7 +6,7 @@
  * JClic - Authoring and playing system for educational activities
  *
  * Copyright (C) 2000 - 2005 Francesc Busquets & Departament
- * d'Educacio de la Generalitat de Catalunya                                        
+ * d'Educacio de la Generalitat de Catalunya
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -35,7 +35,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10
  */
@@ -67,38 +66,84 @@ public class ProjectSettings implements Editable, Domable {
 
   public static String UNTITLED = "untitled";
   public static String ELEMENT_NAME = "settings";
-  public static String TITLE = "title", LOCALE = "locale", LANGUAGE = "language", DESCRIPTION = "description",
-          DESCRIPTORS = "descriptors", SKIN = "skin", FILE = "file", AREA = "area", AREA_CODES = "area-codes", LEVEL = "level", LEVEL_CODES = "level-codes",
-          ICON = "icon", COVER = "cover", THUMB = "thumb", ICON16="icon16", ICON72="icon72", ICON192="icon192", META_LANGS = "meta_langs", DESCRIPTIONS = "descriptions", LICENSE = "license", TYPE = "type", URL = "url";
+  public static String TITLE = "title",
+      LOCALE = "locale",
+      LANGUAGE = "language",
+      DESCRIPTION = "description",
+      DESCRIPTORS = "descriptors",
+      SKIN = "skin",
+      FILE = "file",
+      AREA = "area",
+      AREA_CODES = "area-codes",
+      LEVEL = "level",
+      LEVEL_CODES = "level-codes",
+      ICON = "icon",
+      COVER = "cover",
+      THUMB = "thumb",
+      ICON16 = "icon16",
+      ICON72 = "icon72",
+      ICON192 = "icon192",
+      META_LANGS = "meta_langs",
+      DESCRIPTIONS = "descriptions",
+      LICENSE = "license",
+      TYPE = "type",
+      URL = "url";
 
   public static String[] KNOWN_META_LANGS = {"ca", "es", "en"};
 
   @SuppressWarnings("unchecked")
-  public static List<String>[] KNOWN_LEVEL_DESCS = (List<String>[]) new List[]{
-    Arrays.asList(new String[]{"Infantil (3-6)", "Infantil (3-6)", "Kindergarten (3-6)"}),
-    Arrays.asList(new String[]{"Primària (6-12)", "Primaria (6-12)", "Primary school (6-12)"}),
-    Arrays.asList(new String[]{"Secundària (12-16)", "Secundaria (12-16)", "Secondary school (12-16)"}),
-    Arrays.asList(new String[]{"Batxillerat (16-18)", "Bachillerato (16-18)", "High school (16-18)"})
-  };
+  public static List<String>[] KNOWN_LEVEL_DESCS =
+      (List<String>[])
+          new List[] {
+            Arrays.asList(new String[] {"Infantil (3-6)", "Infantil (3-6)", "Kindergarten (3-6)"}),
+            Arrays.asList(
+                new String[] {"Primària (6-12)", "Primaria (6-12)", "Primary school (6-12)"}),
+            Arrays.asList(
+                new String[] {
+                  "Secundària (12-16)", "Secundaria (12-16)", "Secondary school (12-16)"
+                }),
+            Arrays.asList(
+                new String[] {"Batxillerat (16-18)", "Bachillerato (16-18)", "High school (16-18)"})
+          };
+
   public static String[] KNOWN_LEVEL_CODES = {"INF", "PRI", "SEC", "BTX"};
 
   @SuppressWarnings("unchecked")
-  public static List<String>[] KNOWN_AREA_DESCS = (List<String>[]) new List[]{
-    Arrays.asList(new String[]{"Llengües", "Lenguas", "Languages"}),
-    Arrays.asList(new String[]{"Matemàtiques", "Matemáticas", "Mathematics"}),
-    Arrays.asList(new String[]{"Ciències socials", "Ciencias sociales", "Social sciences"}),
-    Arrays.asList(new String[]{"Ciències experimentals", "Ciencias experimentales", "Experimental sciences"}),
-    Arrays.asList(new String[]{"Música", "Música", "Music"}),
-    Arrays.asList(new String[]{"Visual i plàstica", "Plástica y visual", "Art & design"}),
-    Arrays.asList(new String[]{"Educació física", "Educación física", "Physical education"}),
-    Arrays.asList(new String[]{"Tecnologies", "Tecnología", "Design & technology"}),
-    Arrays.asList(new String[]{"Diversos", "Diversos", "Miscellaneous"})
-  };
-  public static String[] KNOWN_AREA_CODES = {"lleng", "mat", "soc", "exp", "mus", "vip", "ef", "tec", "div"};
+  public static List<String>[] KNOWN_AREA_DESCS =
+      (List<String>[])
+          new List[] {
+            Arrays.asList(new String[] {"Llengües", "Lenguas", "Languages"}),
+            Arrays.asList(new String[] {"Matemàtiques", "Matemáticas", "Mathematics"}),
+            Arrays.asList(
+                new String[] {"Ciències socials", "Ciencias sociales", "Social sciences"}),
+            Arrays.asList(
+                new String[] {
+                  "Ciències experimentals", "Ciencias experimentales", "Experimental sciences"
+                }),
+            Arrays.asList(new String[] {"Música", "Música", "Music"}),
+            Arrays.asList(new String[] {"Visual i plàstica", "Plástica y visual", "Art & design"}),
+            Arrays.asList(
+                new String[] {"Educació física", "Educación física", "Physical education"}),
+            Arrays.asList(new String[] {"Tecnologies", "Tecnología", "Design & technology"}),
+            Arrays.asList(new String[] {"Diversos", "Diversos", "Miscellaneous"})
+          };
 
-  public static String[] CC_LICENSES = {"by", "by-sa", "by-nd", "by-nc", "by-nc-sa", "by-nc-nd", "other"};
-  public static int CC_BY = 0, CC_BY_SA = 1, CC_BY_ND = 2, CC_BY_NC = 3, CC_BY_NC_SA = 4, CC_BY_NC_ND = 5, OTHER = 6;
-  public static String CC_URL = "https://creativecommons.org/licenses/%%CODE%%/4.0", OTHER_URL = "See 'description'";
+  public static String[] KNOWN_AREA_CODES = {
+    "lleng", "mat", "soc", "exp", "mus", "vip", "ef", "tec", "div"
+  };
+
+  public static String[] CC_LICENSES = {
+    "by", "by-sa", "by-nd", "by-nc", "by-nc-sa", "by-nc-nd", "other"
+  };
+  public static int CC_BY = 0,
+      CC_BY_SA = 1,
+      CC_BY_ND = 2,
+      CC_BY_NC = 3,
+      CC_BY_NC_SA = 4,
+      CC_BY_NC_ND = 5,
+      OTHER = 6;
+  public static String CC_URL = "https://creativecommons.org/licenses/%%CODE%%/4.0",
+      OTHER_URL = "See 'description'";
   public static String[] LICENSE_DESC = {
     "Aquesta obra està sota una llicència de Creative Commons <a href=\"%%URL%%\">%%CODE%%</a>",
     "Esta obra está bajo una licencia de Creative Commons <a href=\"%%URL%%\">%%CODE%%</a>",
@@ -110,9 +155,7 @@ public class ProjectSettings implements Editable, Domable {
     "License terms are specified in project description"
   };
 
-  /**
-   * Creates new ProjectSettings
-   */
+  /** Creates new ProjectSettings */
   public ProjectSettings() {
     title = UNTITLED;
     description = null;
@@ -123,7 +166,7 @@ public class ProjectSettings implements Editable, Domable {
     languages = null;
     authors = null;
     organizations = null;
-    revisions = new Revision[]{new Revision(new Date(), "created")};
+    revisions = new Revision[] {new Revision(new Date(), "created")};
     eventSounds = new EventSounds(null);
     skinFileName = null;
     iconFileName = null;
@@ -265,14 +308,17 @@ public class ProjectSettings implements Editable, Domable {
 
     child = new org.jdom.Element(DESCRIPTIONS);
     for (int i = 0; i < meta_langs.length; i++) {
-      child2 = JDomUtility.addParagraphs(child, DESCRIPTION, descriptions[i] == null ? "" : descriptions[i]);
+      child2 =
+          JDomUtility.addParagraphs(
+              child, DESCRIPTION, descriptions[i] == null ? "" : descriptions[i]);
       child2.setAttribute(LANGUAGE, meta_langs[i].toLanguageTag());
     }
     e.addContent(child);
 
     child = new org.jdom.Element(LICENSE);
     child.setAttribute(TYPE, CC_LICENSES[license]);
-    child.setAttribute(URL, license < OTHER ? CC_URL.replace("%%CODE%%", CC_LICENSES[license]) : OTHER_URL);
+    child.setAttribute(
+        URL, license < OTHER ? CC_URL.replace("%%CODE%%", CC_LICENSES[license]) : OTHER_URL);
     e.addContent(child);
 
     return e;
@@ -343,7 +389,10 @@ public class ProjectSettings implements Editable, Domable {
       }
     }
 
-    if (languages != null && languages.length > 0 && languages[0].length() > 1 && !languages[0].equals("und")) {
+    if (languages != null
+        && languages.length > 0
+        && languages[0].length() > 1
+        && !languages[0].equals("und")) {
       meta_langs[0] = Locale.forLanguageTag(languages[0]);
     }
 
@@ -467,7 +516,7 @@ public class ProjectSettings implements Editable, Domable {
     if ((child = e.getChild(ICON192)) != null) {
       icon192 = JDomUtility.getStringAttr(child, FILE, icon192, false);
     }
-    
+
     if ((child = e.getChild(META_LANGS)) != null) {
       String[] ml = child.getTextNormalize().split(",");
       meta_langs = new Locale[ml.length];
@@ -490,14 +539,13 @@ public class ProjectSettings implements Editable, Domable {
     if ((child = e.getChild(LICENSE)) != null) {
       license = JDomUtility.getStrIndexAttr(child, TYPE, CC_LICENSES, CC_BY_NC_SA);
     }
-
   }
 
   public String toHtmlString(edu.xtec.util.Messages msg) {
     String msgBase = "about_window_lb_";
     Html html = new Html(1000);
 
-    //html.doubleCell(msg.get(msgBase+"project"), true, name, true);
+    // html.doubleCell(msg.get(msgBase+"project"), true, name, true);
     html.doubleCell(msg.get(msgBase + "project"), true, title, true);
 
     if (area != null) {
@@ -594,7 +642,8 @@ public class ProjectSettings implements Editable, Domable {
     }
 
     // Load meta-languages
-    if (json.has("meta_langs") && (!preserve || (meta_langs.length == 1 && meta_langs[0] == Locale.getDefault()))) {
+    if (json.has("meta_langs")
+        && (!preserve || (meta_langs.length == 1 && meta_langs[0] == Locale.getDefault()))) {
       JSONArray langTags = json.getJSONArray("meta_langs");
       meta_langs = new Locale[langTags.length()];
       for (int i = 0; i < meta_langs.length; i++) {
@@ -605,7 +654,8 @@ public class ProjectSettings implements Editable, Domable {
     // TODO: must we read levels, areas and languages from descriptive, localized tags? They are
     // already present in ProjectSettings
     // Load descriptions
-    if (json.has("description") && (!preserve || (descriptions.length == 1 || descriptions[0].length() == 0))) {
+    if (json.has("description")
+        && (!preserve || (descriptions.length == 1 || descriptions[0].length() == 0))) {
       JSONObject descs = json.getJSONObject("description");
       descriptions = new String[meta_langs.length];
       for (int i = 0; i < meta_langs.length; i++) {
@@ -624,22 +674,22 @@ public class ProjectSettings implements Editable, Domable {
       thumbnailFileName = json.getString("thumbnail");
       parent.mediaBag.addElement(new MediaBagElement(thumbnailFileName));
     }
-    
+
     // Load icons if not defined
-    if(icon16 == null) {
+    if (icon16 == null) {
       icon16 = "favicon.ico";
-      parent.mediaBag.addElement(new MediaBagElement(icon16));      
+      parent.mediaBag.addElement(new MediaBagElement(icon16));
     }
 
-    if(icon72 == null) {
+    if (icon72 == null) {
       icon72 = "icon-72.png";
       parent.mediaBag.addElement(new MediaBagElement(icon72));
     }
 
-    if(icon192 == null) {
+    if (icon192 == null) {
       icon192 = "icon-192.png";
       parent.mediaBag.addElement(new MediaBagElement(icon192));
-    }    
+    }
   }
 
   public JSONObject toJSON(edu.xtec.util.Messages msg) throws JSONException {
@@ -708,7 +758,9 @@ public class ProjectSettings implements Editable, Domable {
         // Add language description for each meta_lang
         Locale loc = new Locale(code);
         for (int i = 0; i < numLangs; i++) {
-          langDescs[i] = StrUtils.addToEnum(langDescs[i] == null ? "" : langDescs[i], loc.getDisplayName(meta_langs[i]));
+          langDescs[i] =
+              StrUtils.addToEnum(
+                  langDescs[i] == null ? "" : langDescs[i], loc.getDisplayName(meta_langs[i]));
         }
       }
 
@@ -744,7 +796,7 @@ public class ProjectSettings implements Editable, Domable {
           areaDescs = StrUtils.getEnumeration(area_codes);
         }
 
-        // Add additional subjects        
+        // Add additional subjects
         if (area != null && area.length() > 0) {
           areaDescs = StrUtils.addToEnum(areaDescs, area);
         }
@@ -811,16 +863,20 @@ public class ProjectSettings implements Editable, Domable {
     String url = license < OTHER ? CC_URL.replace("%%CODE%%", CC_LICENSES[license]) : OTHER_URL;
     for (int i = 0; i < numLangs; i++) {
       int p = StrUtils.getIndexOf(langTags[i], KNOWN_META_LANGS);
-      if(p < 0)
-        p = 2;
-      String str = license < OTHER ? LICENSE_DESC[p].replace("%%URL%%", url).replace("%%CODE%%", CC_LICENSES[license].toUpperCase()) : LICENSE_OTHER[p];
+      if (p < 0) p = 2;
+      String str =
+          license < OTHER
+              ? LICENSE_DESC[p]
+                  .replace("%%URL%%", url)
+                  .replace("%%CODE%%", CC_LICENSES[license].toUpperCase())
+              : LICENSE_OTHER[p];
       jso.put(langTags[i], str);
     }
     json.put("license", jso);
-    
+
     // Fill in meta langs
     json.put("meta_langs", new JSONArray(langTags));
-    
+
     // Fill in cover and thumbnail images
     if (coverFileName != null) {
       json.put("cover", coverFileName);
@@ -845,5 +901,4 @@ public class ProjectSettings implements Editable, Domable {
   public Editor getEditor(Editor parent) {
     return Editor.createEditor(getClass().getName() + "Editor", this, parent);
   }
-
 }

@@ -6,7 +6,7 @@
  * JClic - Authoring and playing system for educational activities
  *
  * Copyright (C) 2000 - 2005 Francesc Busquets & Departament
- * d'Educacio de la Generalitat de Catalunya                                        
+ * d'Educacio de la Generalitat de Catalunya
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -62,9 +62,7 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
   private String metadata;
   public String normalizedFileName;
 
-  /**
-   * Creates new MediaBagElement
-   */
+  /** Creates new MediaBagElement */
   public MediaBagElement(String fileName) {
     this(fileName, null);
   }
@@ -83,7 +81,11 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
   }
 
   public static final String ELEMENT_NAME = "media";
-  public static final String FILE = "file", NAME = "name", SAVE = "save", USAGE = "usage", ANIMATED = "animated";
+  public static final String FILE = "file",
+      NAME = "name",
+      SAVE = "save",
+      USAGE = "usage",
+      ANIMATED = "animated";
 
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
@@ -96,7 +98,8 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
       e.setAttribute(USAGE, Integer.toString(usageCount));
     }
     if (isGif) {
-      e.setAttribute(ANIMATED, JDomUtility.BOOL_STR[animated ? JDomUtility.TRUE : JDomUtility.FALSE]);
+      e.setAttribute(
+          ANIMATED, JDomUtility.BOOL_STR[animated ? JDomUtility.TRUE : JDomUtility.FALSE]);
     }
     return e;
   }
@@ -205,8 +208,8 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
         if (fn.endsWith(".bmp")) {
 
           // Old edu.xtec.jclic.misc.Bmp replaced by image4j
-          //Bmp bmp=new Bmp(fs.getInputStream(fileName));
-          //setData(bmp.getImage());                    
+          // Bmp bmp=new Bmp(fs.getInputStream(fileName));
+          // setData(bmp.getImage());
           BufferedImage img = BMPDecoder.read(fs.getInputStream(fileName));
           setData(Toolkit.getDefaultToolkit().createImage(img.getSource()));
         } else if (fn.endsWith(".ico")) {
@@ -246,7 +249,7 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
         imgStatus = Toolkit.getDefaultToolkit().checkImage((Image) data, -1, -1, null);
         if ((imgStatus & (ImageObserver.ERROR | ImageObserver.ABORT)) != 0) {
           System.err.println(
-                  "Error loading " + getName() + " - Toolkit.checkImage returned status: " + imgStatus);
+              "Error loading " + getName() + " - Toolkit.checkImage returned status: " + imgStatus);
           data = null;
           break;
         } else if ((imgStatus & imgReadyFlag) == imgReadyFlag) {
@@ -279,7 +282,8 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
       try {
         result = fs.getFileLength(fileName);
       } catch (IOException ex) {
-        System.err.println("Error recovering the file size of \"" + fileName + "\": " + ex.getMessage());
+        System.err.println(
+            "Error recovering the file size of \"" + fileName + "\": " + ex.getMessage());
       }
     }
     return result;
@@ -324,7 +328,6 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
    * Getter for property name.
    *
    * @return Value of property name.
-   *
    */
   public java.lang.String getName() {
     return name;
@@ -334,7 +337,6 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
    * Setter for property name.
    *
    * @param name New value of property name.
-   *
    */
   public void setName(String name) {
     this.name = FileSystem.stdFn(name);
@@ -353,5 +355,4 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
     }
     return result;
   }
-
 }

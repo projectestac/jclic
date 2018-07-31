@@ -26,19 +26,18 @@ import edu.xtec.jclic.ActivityEditor;
 import edu.xtec.jclic.ActivityEditorPanel;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
 public class WrittenAnswerEditor extends ActivityEditor {
-    
-    /** Creates a new instance of SimpleAssociationEditor */
-    public WrittenAnswerEditor(Activity act) {
-        super(act);
-    }
-    
-    @Override
-    protected void createPanels(ActivityEditorPanel panel){        
-        panel.addInternalPanel(ActivityEditorPanel.DOUBLE_REL_ALT, null, null);
-    } 
+
+  /** Creates a new instance of SimpleAssociationEditor */
+  public WrittenAnswerEditor(Activity act) {
+    super(act);
+  }
+
+  @Override
+  protected void createPanels(ActivityEditorPanel panel) {
+    panel.addInternalPanel(ActivityEditorPanel.DOUBLE_REL_ALT, null, null);
+  }
 }

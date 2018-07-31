@@ -26,7 +26,6 @@ import java.util.ListIterator;
 import java.util.StringTokenizer;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.23
  */
@@ -68,7 +67,7 @@ public abstract class StrUtils {
   }
 
   public static String[] strToStrArray(String source, String separator) {
-    List<String> v =  StrUtils.enumerationToList(source, separator);
+    List<String> v = StrUtils.enumerationToList(source, separator);
     return v != null ? v.toArray(new String[v.size()]) : null;
   }
 
@@ -84,7 +83,7 @@ public abstract class StrUtils {
     }
     return result;
   }
-  
+
   public static List<String> enumerationToList(String source, String separator) {
     if (source == null || separator == null) {
       return null;
@@ -93,10 +92,9 @@ public abstract class StrUtils {
     List<String> v = new ArrayList<String>();
     while (st.hasMoreTokens()) {
       String s = st.nextToken().trim();
-      if(s.length()>0)
-        v.add(s);
+      if (s.length() > 0) v.add(s);
     }
-    return v;      
+    return v;
   }
 
   public static byte[] extractByteSeq(byte[] data, int line, byte searchFor, byte changeTo) {
@@ -222,8 +220,7 @@ public abstract class StrUtils {
     }
     StringTokenizer st = new StringTokenizer(check, "|");
     while (st.hasMoreTokens()) {
-      if (checkCase ? st.nextToken().equals(answer)
-              : st.nextToken().equalsIgnoreCase(answer)) {
+      if (checkCase ? st.nextToken().equals(answer) : st.nextToken().equalsIgnoreCase(answer)) {
         return true;
       }
     }
@@ -330,36 +327,34 @@ public abstract class StrUtils {
     }
     return result;
   }
-  
-  public static String safeHtml(String s){
-    return StrUtils.secureString(s).replaceAll("&", "&amp;")
-            .replaceAll("<", "&lt;")
-            .replaceAll(">", "&gt;")
-            .replaceAll("\"", "&quot;");
+
+  public static String safeHtml(String s) {
+    return StrUtils.secureString(s)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll("\"", "&quot;");
   }
-  
-  public static String getEnumeration(List<String> items){
+
+  public static String getEnumeration(List<String> items) {
     StringBuilder sb = new StringBuilder();
     ListIterator<String> it = items.listIterator();
-    
-    while(it.hasNext())
-      StrUtils.addToEnum(sb, it.next(), ", ");
-    
+
+    while (it.hasNext()) StrUtils.addToEnum(sb, it.next(), ", ");
+
     return sb.toString();
   }
-  
+
   public static String addToEnum(String str, String txt) {
     return addToEnum(new StringBuilder(str), txt, ", ").toString();
   }
-  
+
   public static StringBuilder addToEnum(StringBuilder sb, String txt) {
     return addToEnum(sb, txt, ", ");
   }
-  
+
   public static StringBuilder addToEnum(StringBuilder sb, String txt, String sep) {
-    if(sb.length()>0)
-      sb.append(sep);
+    if (sb.length() > 0) sb.append(sep);
     return sb.append(txt);
   }
-  
 }

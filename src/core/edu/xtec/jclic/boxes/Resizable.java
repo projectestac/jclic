@@ -26,18 +26,24 @@ import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
 
 /**
- * This interface applies to all the objects that have "bounds" (location,
- * witdh and height) and can be resized or moved.
+ * This interface applies to all the objects that have "bounds" (location, witdh and height) and can
+ * be resized or moved.
+ *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
  */
 public interface Resizable {
-    public Rectangle getBounds();
-    public Rectangle2D getBounds2D();
-    public Dimension getPreferredSize();
-    public Dimension getMinimumSize();
-    public Dimension getScaledSize(double scale);
-    public void setBounds(Rectangle2D r);
-    public void setBounds(double x, double y, double width, double height);
-}
+  public Rectangle getBounds();
 
+  public Rectangle2D getBounds2D();
+
+  public Dimension getPreferredSize();
+
+  public Dimension getMinimumSize();
+
+  public Dimension getScaledSize(double scale);
+
+  public void setBounds(Rectangle2D r);
+
+  public void setBounds(double x, double y, double width, double height);
+}

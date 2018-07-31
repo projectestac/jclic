@@ -1,4 +1,3 @@
 package edu.xtec.resources.messages;
 
-public class BasicMessages_gl {
-}
+public class BasicMessages_gl {}

@@ -26,26 +26,26 @@ import java.awt.Rectangle;
 import java.awt.image.ImageObserver;
 import javax.swing.JComponent;
 
-
 /**
- * This is the most simple implementation of {@link edu.xtec.jclic.boxes.AbstractBox}. It
- * does nor draws nothing.
+ * This is the most simple implementation of {@link edu.xtec.jclic.boxes.AbstractBox}. It does nor
+ * draws nothing.
+ *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
  */
-public class SimpleBox extends AbstractBox{
-    
-    /** Creates new SimpleBox */
-    public SimpleBox(AbstractBox parent, JComponent container, BoxBase boxBase) {
-        super(parent, container, boxBase);
-    }
-    
-    @Override
-    public boolean update(Graphics2D g2, Rectangle dirtyRegion, ImageObserver io){
-        return true;
-    }
-    
-    public boolean updateContent(Graphics2D g2, Rectangle dirtyRegion, ImageObserver io) {
-        return true;
-    }
+public class SimpleBox extends AbstractBox {
+
+  /** Creates new SimpleBox */
+  public SimpleBox(AbstractBox parent, JComponent container, BoxBase boxBase) {
+    super(parent, container, boxBase);
+  }
+
+  @Override
+  public boolean update(Graphics2D g2, Rectangle dirtyRegion, ImageObserver io) {
+    return true;
+  }
+
+  public boolean updateContent(Graphics2D g2, Rectangle dirtyRegion, ImageObserver io) {
+    return true;
+  }
 }

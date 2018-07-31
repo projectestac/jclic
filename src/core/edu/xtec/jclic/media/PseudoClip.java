@@ -6,7 +6,7 @@
  * JClic - Authoring and playing system for educational activities
  *
  * Copyright (C) 2000 - 2005 Francesc Busquets & Departament
- * d'Educacio de la Generalitat de Catalunya                                        
+ * d'Educacio de la Generalitat de Catalunya
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,26 +23,29 @@ package edu.xtec.jclic.media;
 
 import javax.sound.sampled.AudioFormat;
 
-/**
- *
- * @author Francesc Busquets (fbusquets@xtec.cat)
- */
+/** @author Francesc Busquets (fbusquets@xtec.cat) */
 public interface PseudoClip {
-    // Methods from Clip
-    public void loop(int count) throws Exception;
-    public void setFramePosition(int frames);
-    public void setLoopPoints(int start, int end);
-    // Methods from DataLine
-    public AudioFormat getFormat();
-    public boolean isActive();
-    public boolean isRunning();
-    public void start() throws Exception;
-    public void stop();
-    // Methods from Line
-    public void close();
-    public boolean isOpen();
-        
-    // Special methods
-    public void open() throws Exception;    
-    
+  // Methods from Clip
+  public void loop(int count) throws Exception;
+
+  public void setFramePosition(int frames);
+
+  public void setLoopPoints(int start, int end);
+  // Methods from DataLine
+  public AudioFormat getFormat();
+
+  public boolean isActive();
+
+  public boolean isRunning();
+
+  public void start() throws Exception;
+
+  public void stop();
+  // Methods from Line
+  public void close();
+
+  public boolean isOpen();
+
+  // Special methods
+  public void open() throws Exception;
 }

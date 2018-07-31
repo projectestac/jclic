@@ -41,7 +41,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.10.04
  */
@@ -56,9 +55,7 @@ public class LibraryManager implements Domable {
   private static final String MSG_ID = "libraryManager_";
   public static final String PROJECT_LIBRARIES = "project.libraries";
 
-  /**
-   * Creates new LibraryManager
-   */
+  /** Creates new LibraryManager */
   public LibraryManager(PlayerSettings settings) {
     this.settings = settings;
     libraries = new DefaultListModel<Object>();
@@ -66,7 +63,8 @@ public class LibraryManager implements Domable {
     autoRun = true;
   }
 
-  public static LibraryManager getLibraryManager(PlayerSettings st, org.jdom.Element e) throws Exception {
+  public static LibraryManager getLibraryManager(PlayerSettings st, org.jdom.Element e)
+      throws Exception {
     LibraryManager lm = new LibraryManager(st);
     lm.setProperties(e, null);
     return lm;
@@ -80,7 +78,8 @@ public class LibraryManager implements Domable {
 
     if (sysLibs != null) {
       for (int i = 0; i < sysLibs.length; i++) {
-        LibraryManagerElement lme = new LibraryManagerElement(sysLibs[i][0], sysLibs[i][1], settings.rb.getOptions());
+        LibraryManagerElement lme =
+            new LibraryManagerElement(sysLibs[i][0], sysLibs[i][1], settings.rb.getOptions());
         lme.setSystemLib(true);
         libraries.addElement(lme);
       }
@@ -88,7 +87,9 @@ public class LibraryManager implements Domable {
 
     Iterator it = e.getChildren(LibraryManagerElement.ELEMENT_NAME).iterator();
     while (it.hasNext()) {
-      libraries.addElement(LibraryManagerElement.getLibraryManagerElement((org.jdom.Element) it.next(), settings.rb.getOptions()));
+      libraries.addElement(
+          LibraryManagerElement.getLibraryManagerElement(
+              (org.jdom.Element) it.next(), settings.rb.getOptions()));
     }
   }
 
@@ -130,7 +131,9 @@ public class LibraryManager implements Domable {
       if (libraries.size() > 1) {
         result = selectProjectLibrary(false, false);
       } else {
-        result = ProjectLibrary.loadProjectLibrary(((LibraryManagerElement) libraries.get(0)).path, settings.rb);
+        result =
+            ProjectLibrary.loadProjectLibrary(
+                ((LibraryManagerElement) libraries.get(0)).path, settings.rb);
         if (result != null) {
           Menu m = result.getRootMenu();
           if (m == null || m.getMenuElementCount() < 1) {
@@ -142,7 +145,8 @@ public class LibraryManager implements Domable {
     return result;
   }
 
-  public ProjectLibrary selectProjectLibrary(boolean allowEdit, boolean selectOnlyEditable) throws Exception {
+  public ProjectLibrary selectProjectLibrary(boolean allowEdit, boolean selectOnlyEditable)
+      throws Exception {
     ProjectLibrary result = null;
     if (!libraries.isEmpty() || allowEdit) {
       LibraryDialog plDlg = new LibraryDialog(allowEdit, selectOnlyEditable);
@@ -166,7 +170,15 @@ public class LibraryManager implements Domable {
 
     if (path == null) {
       int[] filters = {Utils.JCLIC_FF};
-      String s = settings.fileSystem.chooseFile(settings.rootPath + File.separator + ".", false, filters, rb.getOptions(), null, rb.getComponent(), false);
+      String s =
+          settings.fileSystem.chooseFile(
+              settings.rootPath + File.separator + ".",
+              false,
+              filters,
+              rb.getOptions(),
+              null,
+              rb.getComponent(),
+              false);
       if (s != null) {
         path = settings.fileSystem.getFullFileNamePath(s);
       }
@@ -177,7 +189,11 @@ public class LibraryManager implements Domable {
         pl = ProjectLibrary.loadProjectLibrary(path, rb);
         result = new LibraryManagerElement(pl.settings.title, path, rb.getOptions());
       } catch (Exception ex) {
-        settings.rb.getOptions().getMessages().showErrorWarning(rb.getComponent(), "FILE_ERR_READING", path, ex, null);
+        settings
+            .rb
+            .getOptions()
+            .getMessages()
+            .showErrorWarning(rb.getComponent(), "FILE_ERR_READING", path, ex, null);
       }
     }
     return result;
@@ -193,7 +209,15 @@ public class LibraryManager implements Domable {
     //    name=rb.getMsg("library_newLibraryName");
     if (path == null) {
       int[] filters = {Utils.JCLIC_FF};
-      String s = settings.fileSystem.chooseFile(settings.rootPath + File.separator + "library.jclic", true, filters, rb.getOptions(), null, rb.getComponent(), false);
+      String s =
+          settings.fileSystem.chooseFile(
+              settings.rootPath + File.separator + "library.jclic",
+              true,
+              filters,
+              rb.getOptions(),
+              null,
+              rb.getComponent(),
+              false);
       if (s != null) {
         path = settings.fileSystem.getFullFileNamePath(s);
       }
@@ -205,7 +229,11 @@ public class LibraryManager implements Domable {
         pl.save(path);
         result = new LibraryManagerElement(pl.settings.title, path, rb.getOptions());
       } catch (Exception ex) {
-        settings.rb.getOptions().getMessages().showErrorWarning(rb.getComponent(), "FILE_ERR_SAVING", path, ex, null);
+        settings
+            .rb
+            .getOptions()
+            .getMessages()
+            .showErrorWarning(rb.getComponent(), "FILE_ERR_SAVING", path, ex, null);
       }
     }
     return result;
@@ -218,7 +246,11 @@ public class LibraryManager implements Domable {
       if (path.equals(settings.fileSystem.getFullFileNamePath(lme.path))) {
         result = true;
         if (warn) {
-          settings.rb.getOptions().getMessages().showAlert(settings.rb.getComponent(), "libraryManager_new_exists");
+          settings
+              .rb
+              .getOptions()
+              .getMessages()
+              .showAlert(settings.rb.getComponent(), "libraryManager_new_exists");
         }
         break;
       }
@@ -248,20 +280,22 @@ public class LibraryManager implements Domable {
       if (list.getModel().getSize() > 0) {
         list.setSelectedIndex(0);
       }
-      list.setCellRenderer(new DefaultListCellRenderer() {
-        @Override
-        public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-          super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-          if (value instanceof LibraryManagerElement) {
-            LibraryManagerElement lme = (LibraryManagerElement) value;
-            setIcon(lme.getIcon());
-            if (!lme.exists || (!lme.editable && onlyEditable) || lme.isSystemLib()) {
-              setForeground(java.awt.SystemColor.textInactiveText);
+      list.setCellRenderer(
+          new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(
+                JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+              super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+              if (value instanceof LibraryManagerElement) {
+                LibraryManagerElement lme = (LibraryManagerElement) value;
+                setIcon(lme.getIcon());
+                if (!lme.exists || (!lme.editable && onlyEditable) || lme.isSystemLib()) {
+                  setForeground(java.awt.SystemColor.textInactiveText);
+                }
+              }
+              return this;
             }
-          }
-          return this;
-        }
-      });
+          });
       add(new JScrollPane(list), BorderLayout.CENTER);
       if (allowEdit) {
         JPanel buttonsPanel = new JPanel();
@@ -275,92 +309,102 @@ public class LibraryManager implements Domable {
 
     void buildActions() {
       final edu.xtec.util.Options options = settings.rb.getOptions();
-      editAction = new AbstractAction(
+      editAction =
+          new AbstractAction(
               options.getMsg(MSG_ID + "edit_caption"),
               ResourceManager.getImageIcon("icons/edit.gif")) {
-        public void actionPerformed(ActionEvent ev) {
-          LibraryManagerElement lme = (LibraryManagerElement) list.getSelectedValue();
-          if (lme != null) {
-            try {
+            public void actionPerformed(ActionEvent ev) {
+              LibraryManagerElement lme = (LibraryManagerElement) list.getSelectedValue();
+              if (lme != null) {
+                try {
+                  if (!settings.promptPassword(LibraryPane.this, null)) {
+                    return;
+                  }
+                  ProjectLibrary pl = ProjectLibrary.loadProjectLibrary(lme.path, settings.rb);
+                  if (pl.editProjectLibrary(LibraryPane.this)) {
+                    if (!pl.settings.title.equals(lme.name)) {
+                      lme.name = pl.settings.title;
+                      modified = true;
+                      list.repaint();
+                    }
+                  }
+                } catch (Exception ex) {
+                  System.err.println("Unable edit projectLibrary:\n" + ex);
+                }
+              }
+            }
+          };
+      editAction.putValue(
+          AbstractAction.SHORT_DESCRIPTION, options.getMsg(MSG_ID + "edit_tooltip"));
+      editAction.setEnabled(false);
+
+      deleteAction =
+          new AbstractAction(
+              options.getMsg(MSG_ID + "delete_caption"),
+              ResourceManager.getImageIcon("icons/delete.gif")) {
+            public void actionPerformed(ActionEvent ev) {
+              LibraryManagerElement lme = (LibraryManagerElement) list.getSelectedValue();
+              if (lme != null) {
+                int currentIndex = list.getSelectedIndex();
+                try {
+                  if (!settings.promptPassword(LibraryPane.this, null)
+                      || !(options
+                              .getMessages()
+                              .showQuestionDlg(null, MSG_ID + "delete_confirm", null, "yn")
+                          == Messages.YES)) {
+                    return;
+                  }
+                  libraries.removeElement(lme);
+                  modified = true;
+                  list.setSelectedIndex(Math.max(0, currentIndex - 1));
+                } catch (Exception ex) {
+                  System.err.println("Unable to delete projectLibrary:\n" + ex);
+                }
+              }
+            }
+          };
+      deleteAction.putValue(
+          AbstractAction.SHORT_DESCRIPTION, options.getMsg(MSG_ID + "delete_tooltip"));
+      deleteAction.setEnabled(false);
+
+      newLibraryAction =
+          new AbstractAction(
+              options.getMsg(MSG_ID + "new_caption"),
+              ResourceManager.getImageIcon("icons/database_new.gif")) {
+            public void actionPerformed(ActionEvent ev) {
               if (!settings.promptPassword(LibraryPane.this, null)) {
                 return;
               }
-              ProjectLibrary pl = ProjectLibrary.loadProjectLibrary(lme.path, settings.rb);
-              if (pl.editProjectLibrary(LibraryPane.this)) {
-                if (!pl.settings.title.equals(lme.name)) {
-                  lme.name = pl.settings.title;
-                  modified = true;
-                  list.repaint();
-                }
+
+              /*
+                        Object[] opcions = { options.getMsg(MSG_ID+"createNewLibrary"), options.getMsg(MSG_ID+"connectToLibrary"), options.getMsg("CANCEL")};
+                        int n = JOptionPane.showOptionDialog(LibraryPane.this,
+                        options.getMsg(MSG_ID+"new_prompt"),
+                        null,
+                        JOptionPane.YES_NO_CANCEL_OPTION,
+                        JOptionPane.QUESTION_MESSAGE,
+                        null,
+                        opcions,
+                        opcions[0]);
+
+                        LibraryManagerElement lme=null;
+                        if(n==JOptionPane.YES_OPTION)
+                        lme=createNewProjectLibrary(null, null);
+                        else if(n==JOptionPane.NO_OPTION)
+                        lme=locateNewProjectLibrary(null);
+
+              */
+              LibraryManagerElement lme =
+                  NewLibraryDlg.getLibraryManagerElement(LibraryManager.this, LibraryPane.this);
+              if (lme != null) {
+                modified = true;
+                libraries.addElement(lme);
+                list.setSelectedValue(lme, true);
               }
-            } catch (Exception ex) {
-              System.err.println("Unable edit projectLibrary:\n" + ex);
             }
-          }
-        }
-      };
-      editAction.putValue(AbstractAction.SHORT_DESCRIPTION, options.getMsg(MSG_ID + "edit_tooltip"));
-      editAction.setEnabled(false);
-
-      deleteAction = new AbstractAction(
-              options.getMsg(MSG_ID + "delete_caption"),
-              ResourceManager.getImageIcon("icons/delete.gif")) {
-        public void actionPerformed(ActionEvent ev) {
-          LibraryManagerElement lme = (LibraryManagerElement) list.getSelectedValue();
-          if (lme != null) {
-            int currentIndex = list.getSelectedIndex();
-            try {
-              if (!settings.promptPassword(LibraryPane.this, null)
-                      || !(options.getMessages().showQuestionDlg(null, MSG_ID + "delete_confirm", null, "yn") == Messages.YES)) {
-                return;
-              }
-              libraries.removeElement(lme);
-              modified = true;
-              list.setSelectedIndex(Math.max(0, currentIndex - 1));
-            } catch (Exception ex) {
-              System.err.println("Unable to delete projectLibrary:\n" + ex);
-            }
-          }
-        }
-      };
-      deleteAction.putValue(AbstractAction.SHORT_DESCRIPTION, options.getMsg(MSG_ID + "delete_tooltip"));
-      deleteAction.setEnabled(false);
-
-      newLibraryAction = new AbstractAction(
-              options.getMsg(MSG_ID + "new_caption"),
-              ResourceManager.getImageIcon("icons/database_new.gif")) {
-        public void actionPerformed(ActionEvent ev) {
-          if (!settings.promptPassword(LibraryPane.this, null)) {
-            return;
-          }
-
-          /*
-                     Object[] opcions = { options.getMsg(MSG_ID+"createNewLibrary"), options.getMsg(MSG_ID+"connectToLibrary"), options.getMsg("CANCEL")};
-                     int n = JOptionPane.showOptionDialog(LibraryPane.this,
-                     options.getMsg(MSG_ID+"new_prompt"),
-                     null,
-                     JOptionPane.YES_NO_CANCEL_OPTION,
-                     JOptionPane.QUESTION_MESSAGE,
-                     null,
-                     opcions,
-                     opcions[0]);
-
-                     LibraryManagerElement lme=null;
-                     if(n==JOptionPane.YES_OPTION)
-                     lme=createNewProjectLibrary(null, null);
-                     else if(n==JOptionPane.NO_OPTION)
-                     lme=locateNewProjectLibrary(null);
-
-           */
-          LibraryManagerElement lme = NewLibraryDlg.getLibraryManagerElement(LibraryManager.this, LibraryPane.this);
-          if (lme != null) {
-            modified = true;
-            libraries.addElement(lme);
-            list.setSelectedValue(lme, true);
-          }
-        }
-      };
-      newLibraryAction.putValue(AbstractAction.SHORT_DESCRIPTION, options.getMsg(MSG_ID + "new_tooltip"));
+          };
+      newLibraryAction.putValue(
+          AbstractAction.SHORT_DESCRIPTION, options.getMsg(MSG_ID + "new_tooltip"));
     }
 
     public LibraryManagerElement getCurrentSelected() {
@@ -376,7 +420,7 @@ public class LibraryManager implements Domable {
         current = (LibraryManagerElement) list.getSelectedValue();
         editAction.setEnabled(current != null && current.editable);
         deleteAction.setEnabled(current != null && !current.isSystemLib());
-        //list.setToolTipText(item==null ? null : item.settings.description);
+        // list.setToolTipText(item==null ? null : item.settings.description);
       }
     }
   }
@@ -399,7 +443,7 @@ public class LibraryManager implements Domable {
       getContentPane().add(pane, BorderLayout.CENTER);
       JPanel buttonsPanel = new JPanel();
       buttonsPanel.setOpaque(false);
-      //buttonsPanel.add(new JButton(selectAction));
+      // buttonsPanel.add(new JButton(selectAction));
       JButton btSelect = new JButton(selectAction);
       btSelect.setDefaultCapable(true);
       buttonsPanel.add(btSelect);
@@ -430,26 +474,30 @@ public class LibraryManager implements Domable {
 
     void buildActions() {
       final edu.xtec.util.Options options = settings.rb.getOptions();
-      selectAction = new AbstractAction(
+      selectAction =
+          new AbstractAction(
               options.getMsg(MSG_ID + "select_caption"),
               ResourceManager.getImageIcon("icons/file_open.gif")) {
-        public void actionPerformed(ActionEvent ev) {
-          result = (LibraryManagerElement) pane.list.getSelectedValue();
-          closeDialog();
-        }
-      };
-      selectAction.putValue(AbstractAction.SHORT_DESCRIPTION, options.getMsg(MSG_ID + "select_tooltip"));
+            public void actionPerformed(ActionEvent ev) {
+              result = (LibraryManagerElement) pane.list.getSelectedValue();
+              closeDialog();
+            }
+          };
+      selectAction.putValue(
+          AbstractAction.SHORT_DESCRIPTION, options.getMsg(MSG_ID + "select_tooltip"));
       selectAction.setEnabled(false);
 
-      cancelAction = new AbstractAction(
+      cancelAction =
+          new AbstractAction(
               options.getMsg(MSG_ID + "cancel_caption"),
               ResourceManager.getImageIcon("icons/cancel.gif")) {
-        public void actionPerformed(ActionEvent ev) {
-          result = null;
-          closeDialog();
-        }
-      };
-      cancelAction.putValue(AbstractAction.SHORT_DESCRIPTION, options.getMsg(MSG_ID + "cancel_tooltip"));
+            public void actionPerformed(ActionEvent ev) {
+              result = null;
+              closeDialog();
+            }
+          };
+      cancelAction.putValue(
+          AbstractAction.SHORT_DESCRIPTION, options.getMsg(MSG_ID + "cancel_tooltip"));
     }
   }
 
@@ -493,7 +541,7 @@ public class LibraryManager implements Domable {
 
     boolean err = false;
     for (String s : args) {
-      if(s.equals("-silent")) {
+      if (s.equals("-silent")) {
         silent = true;
       } else if (s.startsWith("-")) {
         if (command != null || s.length() == 1) {
@@ -583,8 +631,7 @@ public class LibraryManager implements Domable {
         }
       } else if (command.equals("list")) {
         if (sysLibs == null || sysLibs.length == 0) {
-          if (!silent)
-            System.out.println("There are no system libraries defined!");
+          if (!silent) System.out.println("There are no system libraries defined!");
         } else if (!silent) {
           for (int i = 0; i < sysLibs.length; i++) {
             System.out.println(sysLibs[i][0] + ": " + sysLibs[i][1]);
@@ -599,12 +646,11 @@ public class LibraryManager implements Domable {
     }
 
     System.exit(err ? -1 : 0);
-
   }
 
   protected static void printUsage() {
     System.out.println(
-            "JClic System Libraries Manager\n"
+        "JClic System Libraries Manager\n"
             + "\n"
             + "usage: java -cp jclic.jar edu.xtec.jclic.project.LibraryManager -[option] [name] [path]\n"
             + "\n"

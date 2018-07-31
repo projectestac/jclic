@@ -26,34 +26,34 @@ import javax.swing.JComponent;
 
 /**
  * This class is the most basic implementation of edu.xtec.util.ResourceBridge.
+ *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
-public class BasicResourceBridge implements ResourceBridge{
-    
-    Options options;
-    
-    /** Creates a new instance of BasicResourceBridge */
-    public BasicResourceBridge(Options options) {
-        this.options=options;
-    }
-    
-    public JComponent getComponent() {
-        return (JComponent)options.getMainComponent();
-    }
-    
-    public String getMsg(String key) {
-        return options.getMessages().get(key);
-    }
-    
-    public edu.xtec.util.Options getOptions() {
-        return options;
-    }
-    
-    public InputStream getProgressInputStream(InputStream is, int expectedLength, String name) {
-        return new ProgressInputStream(is, expectedLength, name);
-    }
-    
-    public void displayUrl(String url, boolean inFrame) {
-    }    
+public class BasicResourceBridge implements ResourceBridge {
+
+  Options options;
+
+  /** Creates a new instance of BasicResourceBridge */
+  public BasicResourceBridge(Options options) {
+    this.options = options;
+  }
+
+  public JComponent getComponent() {
+    return (JComponent) options.getMainComponent();
+  }
+
+  public String getMsg(String key) {
+    return options.getMessages().get(key);
+  }
+
+  public edu.xtec.util.Options getOptions() {
+    return options;
+  }
+
+  public InputStream getProgressInputStream(InputStream is, int expectedLength, String name) {
+    return new ProgressInputStream(is, expectedLength, name);
+  }
+
+  public void displayUrl(String url, boolean inFrame) {}
 }

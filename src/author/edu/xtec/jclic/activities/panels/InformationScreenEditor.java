@@ -26,19 +26,18 @@ import edu.xtec.jclic.ActivityEditor;
 import edu.xtec.jclic.ActivityEditorPanel;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
  */
 public class InformationScreenEditor extends ActivityEditor {
-    
-    /** Creates a new instance of ExchangePuzzleEditor */
-    public InformationScreenEditor(Activity act) {
-        super(act);
-    }
-    
-    @Override
-    protected void createPanels(ActivityEditorPanel panel){        
-        panel.addInternalPanel(ActivityEditorPanel.SINGLE, null, null);
-    } 
+
+  /** Creates a new instance of ExchangePuzzleEditor */
+  public InformationScreenEditor(Activity act) {
+    super(act);
+  }
+
+  @Override
+  protected void createPanels(ActivityEditorPanel panel) {
+    panel.addInternalPanel(ActivityEditorPanel.SINGLE, null, null);
+  }
 }

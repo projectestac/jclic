@@ -22,14 +22,14 @@
 package edu.xtec.jclic;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
 public interface TestPlayerContainer {
-    
-    public Player getTestPlayer();
-    public void test();
-    public void editActivity(String activityName);
-    
+
+  public Player getTestPlayer();
+
+  public void test();
+
+  public void editActivity(String activityName);
 }

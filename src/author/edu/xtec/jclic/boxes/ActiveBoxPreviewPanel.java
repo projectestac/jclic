@@ -28,59 +28,58 @@ import java.awt.RenderingHints;
 import javax.swing.JPanel;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.09
  */
-public class ActiveBoxPreviewPanel extends JPanel{
-    
-    ActiveBox ab;
-    ActiveBoxContent abc;
-        
-    /** Creates a new instance of ActiveBoxPreviewPanel */
-    public ActiveBoxPreviewPanel(AbstractBox parent) {
-        super();
-        //setOpaque(false);
-        ab=new ActiveBox(parent, this, null);
-        abc=new ActiveBoxContent();
-        ab.setContent(abc);
-        ab.setAltContent(abc);
+public class ActiveBoxPreviewPanel extends JPanel {
+
+  ActiveBox ab;
+  ActiveBoxContent abc;
+
+  /** Creates a new instance of ActiveBoxPreviewPanel */
+  public ActiveBoxPreviewPanel(AbstractBox parent) {
+    super();
+    // setOpaque(false);
+    ab = new ActiveBox(parent, this, null);
+    abc = new ActiveBoxContent();
+    ab.setContent(abc);
+    ab.setAltContent(abc);
+  }
+
+  public void setActiveBoxContent(ActiveBoxContent b) {
+    abc = (b == null ? new ActiveBoxContent() : b);
+    ab.setContent(abc);
+    ab.setAltContent(abc);
+  }
+
+  public ActiveBox getActiveBox() {
+    return ab;
+  }
+
+  public ActiveBoxContent getActiveBoxContent() {
+    return abc;
+  }
+
+  @Override
+  public void setBounds(int x, int y, int width, int height) {
+    super.setBounds(x, y, width, height);
+    ab.setBounds(getVisibleRect());
+    BoxBase.resetAllFonts();
+  }
+
+  @Override
+  public void paintComponent(Graphics g) {
+    Graphics2D g2 = (Graphics2D) g;
+
+    super.paintComponent(g);
+
+    RenderingHints rh = g2.getRenderingHints();
+    g2.setRenderingHints(Constants.DEFAULT_RENDERING_HINTS);
+    while (true) {
+      BoxBase.flagFontReduced = false;
+      ab.update(g2, g2.getClipBounds(), this);
+      if (!BoxBase.flagFontReduced) break;
     }
-    
-    public void setActiveBoxContent(ActiveBoxContent b){
-        abc=(b==null ? new ActiveBoxContent() : b);
-        ab.setContent(abc);        
-        ab.setAltContent(abc);
-    }
-    
-    public ActiveBox getActiveBox(){
-        return ab;
-    }
-    
-    public ActiveBoxContent getActiveBoxContent(){
-        return abc;
-    }
-    
-    @Override
-    public void setBounds(int x, int y, int width, int height){
-        super.setBounds(x, y, width, height);
-        ab.setBounds(getVisibleRect());
-        BoxBase.resetAllFonts();
-    }
-    
-    @Override
-    public void paintComponent(Graphics g){
-        Graphics2D g2=(Graphics2D)g;
-        
-        super.paintComponent(g);
-        
-        RenderingHints rh=g2.getRenderingHints();
-        g2.setRenderingHints(Constants.DEFAULT_RENDERING_HINTS);        
-        while(true){
-            BoxBase.flagFontReduced=false;
-            ab.update(g2, g2.getClipBounds(), this);
-            if(!BoxBase.flagFontReduced) break;
-        }
-        g2.setRenderingHints(rh);
-    }            
+    g2.setRenderingHints(rh);
+  }
 }

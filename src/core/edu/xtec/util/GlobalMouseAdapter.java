@@ -25,71 +25,69 @@ import java.awt.Component;
 import java.awt.event.*;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
  */
-public class GlobalMouseAdapter implements MouseListener, MouseMotionListener{
-    
-    protected Component parent;
+public class GlobalMouseAdapter implements MouseListener, MouseMotionListener {
 
-    /** Creates new GlobalMouseAdapter */
-    public GlobalMouseAdapter(Component parent) {
-        this.parent=parent;
-    }
-    
-    public void attachTo(Component cmp, boolean catchMotion){
-        cmp.addMouseListener(this);
-        if(catchMotion)
-            cmp.addMouseMotionListener(this);        
-    }
-    
-    public Component getParent(){
-        return parent;
-    }
-    
-    public void setParent(Component parent){
-        this.parent=parent;
-    }
-    
-    public void detach(Component cmp){
-        if(cmp!=null){
-            cmp.removeMouseListener(this);
-            cmp.removeMouseMotionListener(this);
-        }
-    }
-    
-    protected void processEvent(MouseEvent e){
-        java.awt.Point pt=e.getComponent().getLocation();
-        e.translatePoint(pt.x, pt.y);
-        parent.dispatchEvent(e);
-    }
+  protected Component parent;
 
-    public void mouseDragged(java.awt.event.MouseEvent e) {
-        processEvent(e);
+  /** Creates new GlobalMouseAdapter */
+  public GlobalMouseAdapter(Component parent) {
+    this.parent = parent;
+  }
+
+  public void attachTo(Component cmp, boolean catchMotion) {
+    cmp.addMouseListener(this);
+    if (catchMotion) cmp.addMouseMotionListener(this);
+  }
+
+  public Component getParent() {
+    return parent;
+  }
+
+  public void setParent(Component parent) {
+    this.parent = parent;
+  }
+
+  public void detach(Component cmp) {
+    if (cmp != null) {
+      cmp.removeMouseListener(this);
+      cmp.removeMouseMotionListener(this);
     }
-    
-    public void mouseExited(java.awt.event.MouseEvent e) {
-        processEvent(e);
-    }
-    
-    public void mouseReleased(java.awt.event.MouseEvent e) {
-        processEvent(e);
-    }
-    
-    public void mouseMoved(java.awt.event.MouseEvent e) {
-        processEvent(e);
-    }
-    
-    public void mousePressed(java.awt.event.MouseEvent e) {
-        processEvent(e);
-    }
-    
-    public void mouseClicked(java.awt.event.MouseEvent e) {
-        processEvent(e);
-    }
-    
-    public void mouseEntered(java.awt.event.MouseEvent e) {
-        processEvent(e);
-    }    
+  }
+
+  protected void processEvent(MouseEvent e) {
+    java.awt.Point pt = e.getComponent().getLocation();
+    e.translatePoint(pt.x, pt.y);
+    parent.dispatchEvent(e);
+  }
+
+  public void mouseDragged(java.awt.event.MouseEvent e) {
+    processEvent(e);
+  }
+
+  public void mouseExited(java.awt.event.MouseEvent e) {
+    processEvent(e);
+  }
+
+  public void mouseReleased(java.awt.event.MouseEvent e) {
+    processEvent(e);
+  }
+
+  public void mouseMoved(java.awt.event.MouseEvent e) {
+    processEvent(e);
+  }
+
+  public void mousePressed(java.awt.event.MouseEvent e) {
+    processEvent(e);
+  }
+
+  public void mouseClicked(java.awt.event.MouseEvent e) {
+    processEvent(e);
+  }
+
+  public void mouseEntered(java.awt.event.MouseEvent e) {
+    processEvent(e);
+  }
 }

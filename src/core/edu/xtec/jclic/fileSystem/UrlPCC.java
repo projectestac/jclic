@@ -6,7 +6,7 @@
  * JClic - Authoring and playing system for educational activities
  *
  * Copyright (C) 2000 - 2005 Francesc Busquets & Departament
- * d'Educacio de la Generalitat de Catalunya                                        
+ * d'Educacio de la Generalitat de Catalunya
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,35 +25,33 @@ import edu.xtec.util.ResourceBridge;
 import java.io.*;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
  */
 public class UrlPCC extends PCCFileSystem {
-    
-    byte[] pccBytes= null;
-    
-    public UrlPCC(String rootPath, String fName, ResourceBridge rb) throws Exception {
-        super(rootPath, fName, rb);
-        pccBytes= super.getBytes(pccName);
-        ByteArrayInputStream bais = new ByteArrayInputStream(pccBytes);
-        DataInputStream dis = new DataInputStream(bais);
-        initPCC(dis);
-        dis.close();
-    }
-    
-    protected byte[] getBytes(int entryNum) throws IOException {
-        long fileSize=fe[entryNum].size;
-        long offset=fe[entryNum].offset;
-        byte[] b=new byte[(int)fileSize];
-        if(fileSize>0)
-            System.arraycopy(pccBytes, (int)offset, b, 0, (int)fileSize);
-        return b;
-    }
-    
-    @Override
-    public void close(){
-        pccBytes=null;
-        super.close();
-    }
+
+  byte[] pccBytes = null;
+
+  public UrlPCC(String rootPath, String fName, ResourceBridge rb) throws Exception {
+    super(rootPath, fName, rb);
+    pccBytes = super.getBytes(pccName);
+    ByteArrayInputStream bais = new ByteArrayInputStream(pccBytes);
+    DataInputStream dis = new DataInputStream(bais);
+    initPCC(dis);
+    dis.close();
+  }
+
+  protected byte[] getBytes(int entryNum) throws IOException {
+    long fileSize = fe[entryNum].size;
+    long offset = fe[entryNum].offset;
+    byte[] b = new byte[(int) fileSize];
+    if (fileSize > 0) System.arraycopy(pccBytes, (int) offset, b, 0, (int) fileSize);
+    return b;
+  }
+
+  @Override
+  public void close() {
+    pccBytes = null;
+    super.close();
+  }
 }

@@ -39,133 +39,131 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 /**
- * This class is a {@link javax.swing.JPanel} tha contains a single {@link edu.xtec.jclic.boxes.ActiveBox}.
- * It is used when the ActiveBox must be integrated in a complex Swing container (for example,
- * to place ActiveBoxes into {@link javax.swing.JTextPane} objects), or when the active
- * content of the ActiveBox needs to be reresented into a swing panel (for example, in boxes with HTML
- * content or with boxes that have standard multimedia controllers).
+ * This class is a {@link javax.swing.JPanel} tha contains a single {@link
+ * edu.xtec.jclic.boxes.ActiveBox}. It is used when the ActiveBox must be integrated in a complex
+ * Swing container (for example, to place ActiveBoxes into {@link javax.swing.JTextPane} objects),
+ * or when the active content of the ActiveBox needs to be reresented into a swing panel (for
+ * example, in boxes with HTML content or with boxes that have standard multimedia controllers).
+ *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
  */
 public class JPanelActiveBox extends JPanel {
-    
-    Panel parentActivityPanel=null;
-    PlayStation ps;
-    public ActiveBox ab;
-    public boolean catchMouseEvents;
-    Component mouseListener=null;
-    ImageObserver io;
-    
-    /** Creates new JPanelActiveBox */
-    public JPanelActiveBox(AbstractBox parent, BoxBase boxBase, ImageObserver io) {
-        super();
-        this.io=io;
-        if(io instanceof Panel){
-            parentActivityPanel=(Panel)io;
-            ps=parentActivityPanel.getPs();
-        }
-        else if(io instanceof PlayStation){
-            ps=(PlayStation)io;
-        }
-        enableEvents(AWTEvent.MOUSE_EVENT_MASK);
-        setBorder(BorderFactory.createEmptyBorder());
-        ab=new ActiveBox(parent, this, boxBase);
-        catchMouseEvents=true;
+
+  Panel parentActivityPanel = null;
+  PlayStation ps;
+  public ActiveBox ab;
+  public boolean catchMouseEvents;
+  Component mouseListener = null;
+  ImageObserver io;
+
+  /** Creates new JPanelActiveBox */
+  public JPanelActiveBox(AbstractBox parent, BoxBase boxBase, ImageObserver io) {
+    super();
+    this.io = io;
+    if (io instanceof Panel) {
+      parentActivityPanel = (Panel) io;
+      ps = parentActivityPanel.getPs();
+    } else if (io instanceof PlayStation) {
+      ps = (PlayStation) io;
     }
-    
-    public void notifyMouseEventsTo(Component cmp){
-        mouseListener=cmp;
+    enableEvents(AWTEvent.MOUSE_EVENT_MASK);
+    setBorder(BorderFactory.createEmptyBorder());
+    ab = new ActiveBox(parent, this, boxBase);
+    catchMouseEvents = true;
+  }
+
+  public void notifyMouseEventsTo(Component cmp) {
+    mouseListener = cmp;
+  }
+
+  public void setPanelParent(Panel parent) {
+    parentActivityPanel = parent;
+    ps = (parent == null ? null : parent.getPs());
+    repaint();
+  }
+
+  public void setPlayStation(PlayStation ps) {
+    this.ps = ps;
+  }
+
+  @Override
+  protected void processEvent(AWTEvent e) {
+    if (catchMouseEvents && e instanceof MouseEvent) {
+      MouseEvent me = (MouseEvent) e;
+      if (e.getID() == MouseEvent.MOUSE_PRESSED
+          && ab != null
+          && ps != null
+          && (parentActivityPanel == null || parentActivityPanel.isPlaying())) {
+        ps.stopMedia(1);
+        ab.playMedia(ps);
+      }
+      if (mouseListener != null
+          && (ab == null
+              || ab.getContent().mediaContent == null
+              || ab.getContent().mediaContent.catchMouseEvents == false)) {
+        Point bkPt = me.getPoint();
+        Point pt = Utils.mapPointTo(this, bkPt, mouseListener);
+        me.translatePoint(pt.x - bkPt.x, pt.y - bkPt.y);
+        mouseListener.dispatchEvent(e);
+      }
+      me.consume();
+      return;
     }
-    
-    public void setPanelParent(Panel parent) {
-        parentActivityPanel=parent;
-        ps=(parent==null ? null : parent.getPs());
-        repaint();
+    super.processEvent(e);
+  }
+
+  public JPanel setActiveBoxContent(ActiveBoxContent abc) {
+    if (abc == null) abc = new ActiveBoxContent();
+    if (abc.dimension != null) ab.setBounds(0, 0, abc.dimension.width, abc.dimension.height);
+    ab.setContent(abc);
+    if (abc.mediaContent != null) {
+      setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+    } else {
+      setCursor(null);
     }
-    
-    public void setPlayStation(PlayStation ps){
-        this.ps=ps;
+    adjustSize();
+    return this;
+  }
+
+  public ActiveBoxContent getActiveBoxContent() {
+    return ab.getContent();
+  }
+
+  @Override
+  public void setBounds(int x, int y, int width, int height) {
+    super.setBounds(x, y, width, height);
+    ab.setBounds(0, 0, width, height);
+  }
+
+  public ActiveBox getActiveBox() {
+    return ab;
+  }
+
+  public void adjustSize() {
+    if (ab != null) {
+      Dimension size = ab.getBorderBounds().getSize();
+      setPreferredSize(size);
+      setMaximumSize(size);
     }
-    
-    @Override
-    protected void processEvent(AWTEvent e){
-        if(catchMouseEvents && e instanceof MouseEvent){
-            MouseEvent me=(MouseEvent)e;
-            if(e.getID()==MouseEvent.MOUSE_PRESSED && ab!=null && ps!=null
-            && (parentActivityPanel==null || parentActivityPanel.isPlaying())){
-                ps.stopMedia(1);
-                ab.playMedia(ps);
-            }
-            if(mouseListener!=null &&
-            (ab==null ||
-            ab.getContent().mediaContent==null ||
-            ab.getContent().mediaContent.catchMouseEvents==false)){
-                Point bkPt=me.getPoint();
-                Point pt=Utils.mapPointTo(this, bkPt, mouseListener);
-                me.translatePoint(pt.x-bkPt.x, pt.y-bkPt.y);
-                mouseListener.dispatchEvent(e);
-            }
-            me.consume();
-            return;
-        }
-        super.processEvent(e);
+  }
+
+  @Override
+  public void paintComponent(Graphics g) {
+    Graphics2D g2 = (Graphics2D) g;
+
+    RenderingHints rh = g2.getRenderingHints();
+    g2.setRenderingHints(Constants.DEFAULT_RENDERING_HINTS);
+
+    if (ab == null) {
+      super.paintComponent(g2);
+    } else {
+      while (true) {
+        BoxBase.flagFontReduced = false;
+        ab.update(g2, g2.getClipBounds(), io);
+        if (!BoxBase.flagFontReduced) break;
+      }
     }
-    
-    public JPanel setActiveBoxContent(ActiveBoxContent abc){
-        if(abc==null)
-            abc=new ActiveBoxContent();
-        if(abc.dimension!=null)
-            ab.setBounds(0, 0, abc.dimension.width, abc.dimension.height);
-        ab.setContent(abc);
-        if(abc.mediaContent!=null){
-            setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        } else{
-            setCursor(null);
-        }
-        adjustSize();
-        return this;
-    }
-    
-    public ActiveBoxContent getActiveBoxContent(){
-        return ab.getContent();
-    }
-    
-    @Override
-    public void setBounds(int x, int y, int width, int height){
-        super.setBounds(x, y, width, height);
-        ab.setBounds(0, 0, width, height);
-    }
-    
-    public ActiveBox getActiveBox(){
-        return ab;
-    }
-    
-    public void adjustSize(){
-        if(ab!=null){
-            Dimension size=ab.getBorderBounds().getSize();
-            setPreferredSize(size);
-            setMaximumSize(size);
-        }
-    }
-    
-    @Override
-    public void paintComponent(Graphics g){
-        Graphics2D g2=(Graphics2D)g;
-        
-        RenderingHints rh=g2.getRenderingHints();
-        g2.setRenderingHints(Constants.DEFAULT_RENDERING_HINTS);
-        
-        if(ab==null){
-            super.paintComponent(g2);
-        }
-        else{
-            while(true){
-                BoxBase.flagFontReduced=false;
-                ab.update(g2, g2.getClipBounds(), io);
-                if(!BoxBase.flagFontReduced)
-                    break;
-            }
-        }
-        g2.setRenderingHints(rh);
-    }
+    g2.setRenderingHints(rh);
+  }
 }

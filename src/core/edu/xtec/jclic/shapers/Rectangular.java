@@ -6,7 +6,7 @@
  * JClic - Authoring and playing system for educational activities
  *
  * Copyright (C) 2000 - 2005 Francesc Busquets & Departament
- * d'Educacio de la Generalitat de Catalunya                                        
+ * d'Educacio de la Generalitat de Catalunya
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,39 +22,38 @@
 package edu.xtec.jclic.shapers;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
  */
 public class Rectangular extends Shaper {
 
-    
-    public Rectangular(int nx,int ny){
-        super(nx, ny);
+  public Rectangular(int nx, int ny) {
+    super(nx, ny);
+  }
+
+  @Override
+  public boolean rectangularShapes() {
+    return true;
+  }
+
+  protected void buildShapes() {
+    int r, c;
+    double w = WIDTH / nCols;
+    double h = HEIGHT / nRows;
+    double x, y;
+    for (r = 0; r < nRows; r++) {
+      for (c = 0; c < nCols; c++) {
+        ShapeData sh = shapeData[r * nCols + c];
+        x = c * w;
+        y = r * h;
+        sh.moveTo(x, y);
+        sh.lineTo(x + w, y);
+        sh.lineTo(x + w, y + h);
+        sh.lineTo(x, y + h);
+        sh.lineTo(x, y);
+        sh.closePath();
+      }
     }
-    
-    @Override
-    public boolean rectangularShapes(){
-        return true;
-    }
-    
-    protected void buildShapes(){
-        int r, c;
-        double w=WIDTH/nCols;
-        double h=HEIGHT/nRows;
-        double x, y;        
-        for(r=0; r<nRows; r++){
-            for(c=0; c<nCols; c++){
-                ShapeData sh=shapeData[r*nCols+c];
-                x=c*w; y=r*h;
-                sh.moveTo(x, y);
-                sh.lineTo(x+w, y);
-                sh.lineTo(x+w, y+h);
-                sh.lineTo(x, y+h);
-                sh.lineTo(x, y);
-                sh.closePath();
-            }
-        }        
-        initiated=true;
-    }
+    initiated = true;
+  }
 }

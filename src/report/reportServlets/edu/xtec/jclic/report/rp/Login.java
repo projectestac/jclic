@@ -24,47 +24,53 @@ package edu.xtec.jclic.report.rp;
 import java.util.ResourceBundle;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.09
  */
-public class Login extends Basic{
-    
-    public static String TITLE="login_title";
-    public static String URL="login";
-    
-    public Login(){
-        super();
-        //auth=true;
-    }
-    
-    public String getTitle(ResourceBundle bundle){
-        return bundle.getString(TITLE);
-    }
-    
-    public String getUrl(){
-        return URL;
-    }
-    
-    @Override
-    protected boolean checkAuth(){
-        return true;
-    }
-        
-    @Override
-    public void body(java.io.PrintWriter out) throws Exception{
-        super.body(out);
-        standardHeader(out, getMsg("login_title"), "");
-        StringBuilder sb=new StringBuilder(2000);
-        if(TRUE.equals(getParam(RETRY)))
-            sb.append("<p><strong>").append(getMsg("login_incorrect")).append("</strong></p>\n");
-        sb.append("<p>").append(getMsg("login_desc")).append("</p>\n");
-        sb.append("<form class=\"inputForm\" action=\"main\" method=\"post\">\n");
-        sb.append("<input type=\"hidden\" name=\"").append(LANG).append("\" value=\"").append(lang).append("\">\n");
-        sb.append("<p>").append(getMsg("login_pwd")).append(" <input type=\"password\" length=\"20\" name=\"").append(PWD).append("\"></p>\n");
-        sb.append("<p><input type=\"submit\" value=\"").append(getMsg("submit")).append("\"></p>\n");
-        sb.append("</form>");
-        out.println(sb.substring(0));
-    };
-    
+public class Login extends Basic {
+
+  public static String TITLE = "login_title";
+  public static String URL = "login";
+
+  public Login() {
+    super();
+    // auth=true;
+  }
+
+  public String getTitle(ResourceBundle bundle) {
+    return bundle.getString(TITLE);
+  }
+
+  public String getUrl() {
+    return URL;
+  }
+
+  @Override
+  protected boolean checkAuth() {
+    return true;
+  }
+
+  @Override
+  public void body(java.io.PrintWriter out) throws Exception {
+    super.body(out);
+    standardHeader(out, getMsg("login_title"), "");
+    StringBuilder sb = new StringBuilder(2000);
+    if (TRUE.equals(getParam(RETRY)))
+      sb.append("<p><strong>").append(getMsg("login_incorrect")).append("</strong></p>\n");
+    sb.append("<p>").append(getMsg("login_desc")).append("</p>\n");
+    sb.append("<form class=\"inputForm\" action=\"main\" method=\"post\">\n");
+    sb.append("<input type=\"hidden\" name=\"")
+        .append(LANG)
+        .append("\" value=\"")
+        .append(lang)
+        .append("\">\n");
+    sb.append("<p>")
+        .append(getMsg("login_pwd"))
+        .append(" <input type=\"password\" length=\"20\" name=\"")
+        .append(PWD)
+        .append("\"></p>\n");
+    sb.append("<p><input type=\"submit\" value=\"").append(getMsg("submit")).append("\"></p>\n");
+    sb.append("</form>");
+    out.println(sb.substring(0));
+  };
 }

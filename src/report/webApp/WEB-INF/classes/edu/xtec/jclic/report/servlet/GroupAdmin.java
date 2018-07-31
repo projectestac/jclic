@@ -24,14 +24,12 @@ package edu.xtec.jclic.report.servlet;
 import edu.xtec.servlet.*;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
  */
 public class GroupAdmin extends AbstractServlet {
-    
-    protected RequestProcessor createRP() throws Exception {
-        return new edu.xtec.jclic.report.rp.GroupAdmin();
-    }    
-    
+
+  protected RequestProcessor createRP() throws Exception {
+    return new edu.xtec.jclic.report.rp.GroupAdmin();
+  }
 }

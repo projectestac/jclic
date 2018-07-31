@@ -26,20 +26,19 @@ import edu.xtec.jclic.ActivityEditor;
 import edu.xtec.jclic.ActivityEditorPanel;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
 public class ExploreEditor extends ActivityEditor {
-    
-    /** Creates a new instance of ExchangePuzzleEditor */
-    public ExploreEditor(Activity act) {
-        super(act);
-    }
-    
-    @Override
-    protected void createPanels(ActivityEditorPanel panel){        
-        //panel.addInternalPanel(ActivityEditorPanel.GRID_A, null, null);
-        panel.addInternalPanel(ActivityEditorPanel.DOUBLE_REL, null, null);
-    } 
+
+  /** Creates a new instance of ExchangePuzzleEditor */
+  public ExploreEditor(Activity act) {
+    super(act);
+  }
+
+  @Override
+  protected void createPanels(ActivityEditorPanel panel) {
+    // panel.addInternalPanel(ActivityEditorPanel.GRID_A, null, null);
+    panel.addInternalPanel(ActivityEditorPanel.DOUBLE_REL, null, null);
+  }
 }

@@ -36,77 +36,74 @@ import javax.swing.table.TableModel;
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
-public class ActivitySequenceTable extends JTable{
-    
-    public static final Color DIVIDER_COLOR=Color.red;
-    public static final int DIVIDER_WIDTH=1;
-    
-    private BasicStroke stroke;
-    
-    /** Creates a new instance of ActivitySequenceTable */
-    public ActivitySequenceTable(TableModel model) {
-        super(model);
-        stroke=new BasicStroke((float)DIVIDER_WIDTH);
+public class ActivitySequenceTable extends JTable {
+
+  public static final Color DIVIDER_COLOR = Color.red;
+  public static final int DIVIDER_WIDTH = 1;
+
+  private BasicStroke stroke;
+
+  /** Creates a new instance of ActivitySequenceTable */
+  public ActivitySequenceTable(TableModel model) {
+    super(model);
+    stroke = new BasicStroke((float) DIVIDER_WIDTH);
+  }
+
+  @Override
+  public void paintComponent(Graphics g) {
+    super.paintComponent(g);
+
+    ActivitySequenceEditorPanel.SeqTableModel model;
+    if (getModel() instanceof ActivitySequenceEditorPanel.SeqTableModel)
+      model = (ActivitySequenceEditorPanel.SeqTableModel) getModel();
+    else return;
+
+    if (getRowCount() <= 0 || getColumnCount() <= 0) {
+      return;
     }
-    
-    @Override
-    public void paintComponent(Graphics g){
-        super.paintComponent(g);
-        
-        ActivitySequenceEditorPanel.SeqTableModel model;
-        if(getModel() instanceof ActivitySequenceEditorPanel.SeqTableModel)
-            model=(ActivitySequenceEditorPanel.SeqTableModel)getModel();
-        else
-            return;
-        
-        if (getRowCount() <= 0 || getColumnCount() <= 0) {
-            return;
-        }
-        
-        Rectangle clip = g.getClipBounds();
-        Point minLocation = clip.getLocation();
-        Point maxLocation = new Point(clip.x + clip.width - 1, clip.y + clip.height - 1);
-        int rMin = rowAtPoint(minLocation);
-        int rMax = rowAtPoint(maxLocation);
-        // This should never happen.
-        if (rMin == -1) {
-            rMin = 0;
-        }
-        // If the table does not have enough rows to fill the view we'll get -1.
-        // Replace this with the index of the last row.
-        if (rMax == -1) {
-            rMax = getRowCount()-1;
-        }
-        int cMin = columnAtPoint(minLocation);
-        int cMax = columnAtPoint(maxLocation);
-        // This should never happen.
-        if (cMin == -1) {
-            cMin = 0;
-        }
-        // If the table does not have enough columns to fill the view we'll get -1.
-        // Replace this with the index of the last column.
-        if (cMax == -1) {
-            cMax = getColumnCount()-1;
-        }
-        
-        // ***************
-        
-        //g.setColor(table.getGridColor());
-        g.setColor(DIVIDER_COLOR);
-        ((Graphics2D)g).setStroke(stroke);
-        
-        Rectangle minCell = getCellRect(rMin, cMin, true);
-        Rectangle maxCell = getCellRect(rMax, cMax, true);
-        
-        int tableWidth = maxCell.x + maxCell.width;
-        int y = minCell.y;
-        
-        for (int row = rMin; row <= rMax; row++) {
-            int rh=getRowHeight(row);
-            y += rh;
-            if(model.drawDivider(row))
-                g.drawLine(0, y - 1, tableWidth - 1, y - 1);
-        }
+
+    Rectangle clip = g.getClipBounds();
+    Point minLocation = clip.getLocation();
+    Point maxLocation = new Point(clip.x + clip.width - 1, clip.y + clip.height - 1);
+    int rMin = rowAtPoint(minLocation);
+    int rMax = rowAtPoint(maxLocation);
+    // This should never happen.
+    if (rMin == -1) {
+      rMin = 0;
     }
-    
+    // If the table does not have enough rows to fill the view we'll get -1.
+    // Replace this with the index of the last row.
+    if (rMax == -1) {
+      rMax = getRowCount() - 1;
+    }
+    int cMin = columnAtPoint(minLocation);
+    int cMax = columnAtPoint(maxLocation);
+    // This should never happen.
+    if (cMin == -1) {
+      cMin = 0;
+    }
+    // If the table does not have enough columns to fill the view we'll get -1.
+    // Replace this with the index of the last column.
+    if (cMax == -1) {
+      cMax = getColumnCount() - 1;
+    }
+
+    // ***************
+
+    // g.setColor(table.getGridColor());
+    g.setColor(DIVIDER_COLOR);
+    ((Graphics2D) g).setStroke(stroke);
+
+    Rectangle minCell = getCellRect(rMin, cMin, true);
+    Rectangle maxCell = getCellRect(rMax, cMax, true);
+
+    int tableWidth = maxCell.x + maxCell.width;
+    int y = minCell.y;
+
+    for (int row = rMin; row <= rMax; row++) {
+      int rh = getRowHeight(row);
+      y += rh;
+      if (model.drawDivider(row)) g.drawLine(0, y - 1, tableWidth - 1, y - 1);
+    }
+  }
 }

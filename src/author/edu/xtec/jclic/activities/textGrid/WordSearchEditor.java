@@ -26,20 +26,18 @@ import edu.xtec.jclic.ActivityEditor;
 import edu.xtec.jclic.ActivityEditorPanel;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
  */
-public class WordSearchEditor extends ActivityEditor{
-    
-    /** Creates a new instance of WordSearchEditor */
-    public WordSearchEditor(Activity act) {
-        super(act);
-    }
-    
-    @Override
-    protected void createPanels(ActivityEditorPanel panel){        
-        panel.addInternalPanel(ActivityEditorPanel.TEXTGRID_ALT, null, null);
-    }     
-    
+public class WordSearchEditor extends ActivityEditor {
+
+  /** Creates a new instance of WordSearchEditor */
+  public WordSearchEditor(Activity act) {
+    super(act);
+  }
+
+  @Override
+  protected void createPanels(ActivityEditorPanel panel) {
+    panel.addInternalPanel(ActivityEditorPanel.TEXTGRID_ALT, null, null);
+  }
 }

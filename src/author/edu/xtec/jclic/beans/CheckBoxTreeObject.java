@@ -24,67 +24,68 @@ package edu.xtec.jclic.beans;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
-public class CheckBoxTreeObject extends DefaultMutableTreeNode{
-    
-    protected String label;
-    protected boolean selected;
-    
-    /** Creates a new instance of CheckBoxTreeObject */
-    public CheckBoxTreeObject(String label, boolean selected) {
-        super();
-        this.label=label;
-        this.selected=selected;
-    }
-    
-    /** Creates a new instance of CheckBoxTreeObject */
-    public CheckBoxTreeObject() {
-        this("", false);
-    }
+public class CheckBoxTreeObject extends DefaultMutableTreeNode {
 
-    
-    public void switchSelected(){
-        selected=!selected;
-    }
-    
-    @Override
-    public String toString(){
-        return label==null ? "" : label;
-    }
-    
-    /**
-     * Getter for property selecetd.
-     * @return Value of property selected.
-     */
-    public boolean isSelected() {
-        return selected;
-    }
-    
-    /**
-     * Setter for property selected.
-     * @param selected New value of property selected.
-     */
-    public void setSelected(boolean selected) {
-        this.selected = selected;
-    }
-    
-    /**
-     * Getter for property label.
-     * @return Value of property label.
-     */
-    public java.lang.String getLabel() {
-        return label;
-    }
-    
-    /**
-     * Setter for property label.
-     * @param label New value of property label.
-     */
-    public void setLabel(java.lang.String label) {
-        this.label = label;
-    }
-    
+  protected String label;
+  protected boolean selected;
+
+  /** Creates a new instance of CheckBoxTreeObject */
+  public CheckBoxTreeObject(String label, boolean selected) {
+    super();
+    this.label = label;
+    this.selected = selected;
+  }
+
+  /** Creates a new instance of CheckBoxTreeObject */
+  public CheckBoxTreeObject() {
+    this("", false);
+  }
+
+  public void switchSelected() {
+    selected = !selected;
+  }
+
+  @Override
+  public String toString() {
+    return label == null ? "" : label;
+  }
+
+  /**
+   * Getter for property selecetd.
+   *
+   * @return Value of property selected.
+   */
+  public boolean isSelected() {
+    return selected;
+  }
+
+  /**
+   * Setter for property selected.
+   *
+   * @param selected New value of property selected.
+   */
+  public void setSelected(boolean selected) {
+    this.selected = selected;
+  }
+
+  /**
+   * Getter for property label.
+   *
+   * @return Value of property label.
+   */
+  public java.lang.String getLabel() {
+    return label;
+  }
+
+  /**
+   * Setter for property label.
+   *
+   * @param label New value of property label.
+   */
+  public void setLabel(java.lang.String label) {
+    this.label = label;
+  }
 }

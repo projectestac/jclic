@@ -22,12 +22,11 @@
 package edu.xtec.jclic.shapers;
 
 /**
- *
- * @author  allastar
- * @version 
+ * @author allastar
+ * @version
  */
 public interface PointListener {
-    public void pointMoved(java.awt.geom.Point2D p);
-    public void shapeChanged();
-}
+  public void pointMoved(java.awt.geom.Point2D p);
 
+  public void shapeChanged();
+}

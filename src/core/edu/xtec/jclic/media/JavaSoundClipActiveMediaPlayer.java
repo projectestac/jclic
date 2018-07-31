@@ -6,7 +6,7 @@
  * JClic - Authoring and playing system for educational activities
  *
  * Copyright (C) 2000 - 2005 Francesc Busquets & Departament
- * d'Educacio de la Generalitat de Catalunya                                        
+ * d'Educacio de la Generalitat de Catalunya
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,14 +21,9 @@
 
 package edu.xtec.jclic.media;
 
-/**
- *
- * @author Francesc Busquets (fbusquets@xtec.cat)
- */
+/** @author Francesc Busquets (fbusquets@xtec.cat) */
 public class JavaSoundClipActiveMediaPlayer {
-    
-    /** Creates a new instance of JavaSoundClipActiveMediaPlayer */
-    public JavaSoundClipActiveMediaPlayer() {
-    }
-    
+
+  /** Creates a new instance of JavaSoundClipActiveMediaPlayer */
+  public JavaSoundClipActiveMediaPlayer() {}
 }

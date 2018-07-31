@@ -27,37 +27,36 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
 public class ImgPanel extends JLabel {
-        
-    private boolean missingPicture = false;
 
-    public ImgPanel(Image img){
-        this(new ImageIcon(img));
-    }
-    
-    public ImgPanel(ImageIcon i) {
-        super(i);
-        if (i == null) {
-            missingPicture = true;
-            setText("No picture found.");
-            setHorizontalAlignment(CENTER);
-            setOpaque(true);
-            //setBackground(Color.white);
-        }
+  private boolean missingPicture = false;
 
-        setAutoscrolls(true); //enable synthetic drag events
+  public ImgPanel(Image img) {
+    this(new ImageIcon(img));
+  }
+
+  public ImgPanel(ImageIcon i) {
+    super(i);
+    if (i == null) {
+      missingPicture = true;
+      setText("No picture found.");
+      setHorizontalAlignment(CENTER);
+      setOpaque(true);
+      // setBackground(Color.white);
     }
 
-    @Override
-    public Dimension getPreferredSize() {
-        if (missingPicture) {
-            return new Dimension(320, 480);
-        } else {
-            return super.getPreferredSize();
-        }
+    setAutoscrolls(true); // enable synthetic drag events
+  }
+
+  @Override
+  public Dimension getPreferredSize() {
+    if (missingPicture) {
+      return new Dimension(320, 480);
+    } else {
+      return super.getPreferredSize();
     }
+  }
 }

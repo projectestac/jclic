@@ -32,87 +32,82 @@ import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 
 /**
- * This abstract class provides a base to create {@link javax.swing.Action} objects
- * related to {@link edu.xtec.jclic.edit.Editor}s. Derived classes must implement
- * only the <CODE>doAction</CODE> method, executing the required operations on the
- * supplied <CODE>Editor</CODE>.
+ * This abstract class provides a base to create {@link javax.swing.Action} objects related to
+ * {@link edu.xtec.jclic.edit.Editor}s. Derived classes must implement only the <CODE>doAction
+ * </CODE> method, executing the required operations on the supplied <CODE>Editor</CODE>.
+ *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
  */
-public abstract class EditorAction extends AbstractAction{
-    
-    ActionEvent ev;
-    Editor editor;
-    public Options options;
-    
-    public EditorAction(String nameKey, String iconKey, String toolTipKey, Options options){
-        super(options.getMsg(nameKey), ResourceManager.getImageIcon(iconKey));
-        this.options=options;
-        if(toolTipKey!=null)
-            putValue(AbstractAction.SHORT_DESCRIPTION, options.getMsg(toolTipKey));
-        
-        String s=options.getMessages().get(nameKey+"_keys");
-        if(s!=null && s.length()>=2 && !s.startsWith(nameKey)){
-            putValue(Action.MNEMONIC_KEY, new Integer(s.charAt(0)));
-            if(s.charAt(1)!='*'){
-                char ch=s.charAt(1);
-                int key=(int)ch;
-                int keyMod=KeyEvent.CTRL_MASK;
-                if(ch=='#' && s.length()>2){
-                    try{
-                        int sep=s.indexOf('#', 2);
-                        String k;
-                        if(sep>0){
-                            keyMod=Integer.parseInt(s.substring(sep+1));
-                            k=s.substring(2, sep);
-                        } else{
-                            k=s.substring(2);
-                        }
-                        key=Integer.parseInt(k);
-                    } catch(Exception ex){
-                        System.err.println("Error initializing action keys\nBad expression: "+s);
-                    }
-                }
-                putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(key, keyMod));
+public abstract class EditorAction extends AbstractAction {
+
+  ActionEvent ev;
+  Editor editor;
+  public Options options;
+
+  public EditorAction(String nameKey, String iconKey, String toolTipKey, Options options) {
+    super(options.getMsg(nameKey), ResourceManager.getImageIcon(iconKey));
+    this.options = options;
+    if (toolTipKey != null) putValue(AbstractAction.SHORT_DESCRIPTION, options.getMsg(toolTipKey));
+
+    String s = options.getMessages().get(nameKey + "_keys");
+    if (s != null && s.length() >= 2 && !s.startsWith(nameKey)) {
+      putValue(Action.MNEMONIC_KEY, new Integer(s.charAt(0)));
+      if (s.charAt(1) != '*') {
+        char ch = s.charAt(1);
+        int key = (int) ch;
+        int keyMod = KeyEvent.CTRL_MASK;
+        if (ch == '#' && s.length() > 2) {
+          try {
+            int sep = s.indexOf('#', 2);
+            String k;
+            if (sep > 0) {
+              keyMod = Integer.parseInt(s.substring(sep + 1));
+              k = s.substring(2, sep);
+            } else {
+              k = s.substring(2);
             }
+            key = Integer.parseInt(k);
+          } catch (Exception ex) {
+            System.err.println("Error initializing action keys\nBad expression: " + s);
+          }
         }
-        setEnabled(false);
+        putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(key, keyMod));
+      }
     }
-    
-    public final void actionPerformed(ActionEvent ev) {
-        this.ev=ev;
-        if(editor!=null)
-            doAction(editor);
+    setEnabled(false);
+  }
+
+  public final void actionPerformed(ActionEvent ev) {
+    this.ev = ev;
+    if (editor != null) doAction(editor);
+  }
+
+  protected abstract void doAction(Editor e);
+
+  protected Component getComponentSrc() {
+    Component result = null;
+    if (ev != null && ev.getSource() instanceof Component) result = (Component) ev.getSource();
+    return result;
+  }
+
+  protected JComponent getJComponentSrc() {
+    JComponent result = null;
+    if (ev != null && ev.getSource() instanceof JComponent) result = (JComponent) ev.getSource();
+    return result;
+  }
+
+  protected EditorPanel getEditorPanelSrc() {
+    Component cmp = getComponentSrc();
+    while (cmp != null) {
+      if (cmp instanceof EditorPanel) break;
+      cmp = cmp.getParent();
     }
-    
-    protected abstract void doAction(Editor e);
-    
-    protected Component getComponentSrc(){
-        Component result=null;
-        if(ev!=null && ev.getSource() instanceof Component)
-            result=(Component)ev.getSource();
-        return result;
-    }
-    
-    protected JComponent getJComponentSrc(){
-        JComponent result=null;
-        if(ev!=null && ev.getSource() instanceof JComponent)
-            result=(JComponent)ev.getSource();
-        return result;
-    }
-    
-    protected EditorPanel getEditorPanelSrc(){
-        Component cmp=getComponentSrc();
-        while(cmp!=null){
-            if(cmp instanceof EditorPanel)
-                break;
-            cmp=cmp.getParent();
-        }
-        return (EditorPanel)cmp;
-    }
-    
-    public void setActionOwner(Editor e){
-        editor=e;
-        setEnabled(editor!=null);
-    }
+    return (EditorPanel) cmp;
+  }
+
+  public void setActionOwner(Editor e) {
+    editor = e;
+    setEnabled(editor != null);
+  }
 }

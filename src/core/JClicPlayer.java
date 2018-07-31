@@ -22,31 +22,27 @@
 import edu.xtec.jclic.SingleInstanceJFrame;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
  */
-public abstract class JClicPlayer {    
-                
-    public static final int INSTANCE_PORT=5872;
-    
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        SingleInstanceJFrame jcp=new SingleInstanceJFrame(
-        "edu.xtec.jclic.ExtendedPlayer", args, 
-        "JClic player", 
-        //"icons/logo_player.png", 
-        "icons/logo.png", 
-        //"icons/jclic_64x64.png", 
-        "icons/miniclic.png", 
-        INSTANCE_PORT);
-        if(jcp.isArmed())
-            //jcp.show();
-            jcp.setVisible(true);
-        else
-            System.exit(0);
-    }
-    
+public abstract class JClicPlayer {
+
+  public static final int INSTANCE_PORT = 5872;
+
+  /** @param args the command line arguments */
+  public static void main(String args[]) {
+    SingleInstanceJFrame jcp =
+        new SingleInstanceJFrame(
+            "edu.xtec.jclic.ExtendedPlayer",
+            args,
+            "JClic player",
+            // "icons/logo_player.png",
+            "icons/logo.png",
+            // "icons/jclic_64x64.png",
+            "icons/miniclic.png",
+            INSTANCE_PORT);
+    if (jcp.isArmed())
+      jcp.setVisible(true);
+    else System.exit(0);
+  }
 }

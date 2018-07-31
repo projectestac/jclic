@@ -20,70 +20,65 @@
  */
 
 package edu.xtec.util;
+
 import java.io.File;
 import java.io.FilenameFilter;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
  */
-public class SimpleFileFilter extends javax.swing.filechooser.FileFilter implements java.io.FileFilter{
-    
-    private String m_description = null;
-    private String[] m_extension = null;
-    
-    public SimpleFileFilter(String extension, String description) {
-        this(new String[]{extension}, description);
-    }
-    
-    public SimpleFileFilter(String[] extension, String description) {
-        m_description = description;
-        m_extension=extension;
-        if(m_extension!=null)
-            for(int i=0; i<m_extension.length; i++)
-                if(!m_extension[i].startsWith("."))
-                    m_extension[i] = "." + m_extension[i];
-    }
-    
-    public String getDescription() {
-        return m_description;
-    }
-    
-    public boolean accept(File f) {
-        boolean result=false;
-        if (f == null)
-            result=false;
-        else if (f.isDirectory())
-            result=true;
-        else if(m_extension!=null){
-            String s=f.getName().toLowerCase();
-            for(String ex : m_extension)
-                if(ex.equals(".*") || s.endsWith(ex)){
-                    result=true;
-                    break;
-                }
-        }        
-        return result;
-    }
-    
-    public FilenameFilter getFilenameFilter(){
-        return new FilenameFilter(){
-            public boolean accept(File f, String name){
-                return SimpleFileFilter.this.accept(new File(f, name));
-            }
-        };
-    }
-    
-    
-    
-    public File checkFileExtension(File f){
-        File result=f;
-        if(!accept(result)){
-            for(String ex : m_extension)
-                if(!ex.equals(".*"))
-                    result=new File(f.getAbsolutePath()+ex);
+public class SimpleFileFilter extends javax.swing.filechooser.FileFilter
+    implements java.io.FileFilter {
+
+  private String m_description = null;
+  private String[] m_extension = null;
+
+  public SimpleFileFilter(String extension, String description) {
+    this(new String[] {extension}, description);
+  }
+
+  public SimpleFileFilter(String[] extension, String description) {
+    m_description = description;
+    m_extension = extension;
+    if (m_extension != null)
+      for (int i = 0; i < m_extension.length; i++)
+        if (!m_extension[i].startsWith(".")) m_extension[i] = "." + m_extension[i];
+  }
+
+  public String getDescription() {
+    return m_description;
+  }
+
+  public boolean accept(File f) {
+    boolean result = false;
+    if (f == null) result = false;
+    else if (f.isDirectory()) result = true;
+    else if (m_extension != null) {
+      String s = f.getName().toLowerCase();
+      for (String ex : m_extension)
+        if (ex.equals(".*") || s.endsWith(ex)) {
+          result = true;
+          break;
         }
-        return result;
     }
+    return result;
+  }
+
+  public FilenameFilter getFilenameFilter() {
+    return new FilenameFilter() {
+      public boolean accept(File f, String name) {
+        return SimpleFileFilter.this.accept(new File(f, name));
+      }
+    };
+  }
+
+  public File checkFileExtension(File f) {
+    File result = f;
+    if (!accept(result)) {
+      for (String ex : m_extension)
+        if (!ex.equals(".*")) result = new File(f.getAbsolutePath() + ex);
+    }
+    return result;
+  }
 }

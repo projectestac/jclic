@@ -24,7 +24,6 @@ import edu.xtec.jclic.project.ProjectFileUtils;
 import edu.xtec.util.StrUtils;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
@@ -32,9 +31,7 @@ public abstract class JClicAuthor {
 
   public static final int INSTANCE_PORT = 5874;
 
-  /**
-   * @param args the command line arguments
-   */
+  /** @param args the command line arguments */
   public static void main(String args[]) {
     long[] counters = {0, 0, 0};
     int p = StrUtils.getIndexOf("-processZip", args);
@@ -60,12 +57,15 @@ public abstract class JClicAuthor {
       return;
     }
 
-    SingleInstanceJFrame jcp = new SingleInstanceJFrame(
-            "edu.xtec.jclic.AuthorSingleFrame", args,
-            "JClic author", "icons/logo_author.png",
+    SingleInstanceJFrame jcp =
+        new SingleInstanceJFrame(
+            "edu.xtec.jclic.AuthorSingleFrame",
+            args,
+            "JClic author",
+            "icons/logo_author.png",
             "icons/miniauthor.png",
             INSTANCE_PORT);
-    if (jcp.isArmed()) //jcp.show();
+    if (jcp.isArmed()) // jcp.show();
     {
       jcp.setVisible(true);
     } else {

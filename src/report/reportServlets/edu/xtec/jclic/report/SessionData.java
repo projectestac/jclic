@@ -28,76 +28,76 @@ import java.util.List;
 import java.util.Set;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.17
  */
-public class SessionData extends Object implements java.io.Serializable{
-    
-    public String id;
-    public Date date;
-    public String project;
-    public int numActs;
-    public int actsSolved;
-    public int totalPrec;
-    public int totalTime;
-    public int sessionCount;
-    public Set<String> users;
-    public List<ActivityData> actData;
-    
-    /** Creates a new instance of SessionData */
-    public SessionData(String id, String usr, String project, Date date, int numActs, int actsSolved, int totalPrec, int totalTime){
-        this.id= id!=null ? id.trim() : null;
-        users=new HashSet<String>(1);
-        users.add(usr!=null ? usr.trim() : null);
-        this.project = project!=null ? project.trim() : null;
-        this.date = date;
-        this.numActs = numActs;
-        this.actsSolved = actsSolved;
-        this.totalPrec = totalPrec;
-        this.totalTime = Math.max(0, totalTime);
-        sessionCount=1;
+public class SessionData extends Object implements java.io.Serializable {
+
+  public String id;
+  public Date date;
+  public String project;
+  public int numActs;
+  public int actsSolved;
+  public int totalPrec;
+  public int totalTime;
+  public int sessionCount;
+  public Set<String> users;
+  public List<ActivityData> actData;
+
+  /** Creates a new instance of SessionData */
+  public SessionData(
+      String id,
+      String usr,
+      String project,
+      Date date,
+      int numActs,
+      int actsSolved,
+      int totalPrec,
+      int totalTime) {
+    this.id = id != null ? id.trim() : null;
+    users = new HashSet<String>(1);
+    users.add(usr != null ? usr.trim() : null);
+    this.project = project != null ? project.trim() : null;
+    this.date = date;
+    this.numActs = numActs;
+    this.actsSolved = actsSolved;
+    this.totalPrec = totalPrec;
+    this.totalTime = Math.max(0, totalTime);
+    sessionCount = 1;
+  }
+
+  public void acumula(SessionData d) {
+    actsSolved += d.actsSolved;
+    totalPrec += d.totalPrec;
+    numActs += d.numActs;
+    totalTime += d.totalTime;
+    users.addAll(d.users);
+    if (project != null && !project.equals(d.project)) project = "";
+    id = "";
+    sessionCount += d.sessionCount;
+    if (actData == null) actData = d.actData;
+    else if (d.actData != null) actData.addAll(d.actData);
+  }
+
+  public boolean sameDate(SessionData d) {
+    return date != null && d != null && date.equals(d.date);
+  }
+
+  public int percentSolved() {
+    return numActs > 0 ? (100 * actsSolved) / numActs : 0;
+  }
+
+  public int percentPrec() {
+    return numActs > 0 ? totalPrec / numActs : 0;
+  }
+
+  public String getUsr() {
+    String result = "";
+    if (users.size() > 1) result = "*";
+    else {
+      Iterator it = users.iterator();
+      if (it.hasNext()) result = (String) it.next();
     }
-    
-    public void acumula(SessionData d){
-        actsSolved+=d.actsSolved;
-        totalPrec+=d.totalPrec;
-        numActs+=d.numActs;
-        totalTime+=d.totalTime;
-        users.addAll(d.users);
-        if(project!=null && !project.equals(d.project))
-            project="";
-        id="";
-        sessionCount+=d.sessionCount;
-        if(actData==null)
-            actData=d.actData;
-        else if(d.actData!=null)
-            actData.addAll(d.actData);
-            
-    }
-    
-    public boolean sameDate(SessionData d){
-        return date!=null && d!=null && date.equals(d.date);
-    }
-    
-    public int percentSolved(){
-        return numActs>0 ? (100*actsSolved)/numActs : 0;
-    }
-    
-    public int percentPrec(){
-        return numActs>0 ? totalPrec/numActs : 0;
-    }
-    
-    public String getUsr(){
-        String result="";
-        if(users.size()>1)
-            result="*";
-        else{
-            Iterator it=users.iterator();
-            if(it.hasNext())
-                result=(String)it.next();
-        }
-        return result;
-    }
-   
+    return result;
+  }
 }

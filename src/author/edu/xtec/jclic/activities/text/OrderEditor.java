@@ -27,68 +27,70 @@ import java.awt.Component;
 import java.util.HashMap;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.16
  */
 public class OrderEditor extends TextActivityBaseEditor {
-    
-    /** Creates a new instance of OrderEditor */
-    public OrderEditor(Order act) {
-        super(act);
-    }    
-    
-    protected static HashMap<Options, OrderCheckPanel> panelMap=new HashMap<Options, OrderCheckPanel>(1);
-    
-    @Override
-    protected void editCheckOptions(Options options, Component parent){
-        Order ord=(Order)getTextActivity();
-        if(ord!=null){
-            OrderCheckPanel checkPanel=panelMap.get(options);
-            if(checkPanel==null){
-                checkPanel=new OrderCheckPanel(options);
-                panelMap.put(options, checkPanel);
-            }
-            checkPanel.setOptions(ord);
-            if(options.getMessages().showInputDlg(parent, checkPanel, "edit_text_act_check_title")){
-                checkPanel.collectData(ord);
-                setModified(true);
-            }
-        }
-    }                    
-    
-    @Override
-    protected boolean hasType(){
-        return true;
+
+  /** Creates a new instance of OrderEditor */
+  public OrderEditor(Order act) {
+    super(act);
+  }
+
+  protected static HashMap<Options, OrderCheckPanel> panelMap =
+      new HashMap<Options, OrderCheckPanel>(1);
+
+  @Override
+  protected void editCheckOptions(Options options, Component parent) {
+    Order ord = (Order) getTextActivity();
+    if (ord != null) {
+      OrderCheckPanel checkPanel = panelMap.get(options);
+      if (checkPanel == null) {
+        checkPanel = new OrderCheckPanel(options);
+        panelMap.put(options, checkPanel);
+      }
+      checkPanel.setOptions(ord);
+      if (options.getMessages().showInputDlg(parent, checkPanel, "edit_text_act_check_title")) {
+        checkPanel.collectData(ord);
+        setModified(true);
+      }
     }
-    
-    @Override
-    protected boolean editType(Options options, Component parent){
-        Order ord=(Order)getActivity();
-        int t=ord.type;
-        boolean b=ord.amongParagraphs;
-        boolean result=OrderTypePanel.editOrder(ord, options, parent);
-        if(result){            
-            if(ord.type!=t && ord.tad.tmb.size()>0){                
-                if(options.getMessages().showQuestionDlg(parent, "edit_text_act_warnChangeType", null, "yn")==Messages.YES){
-                    ord.tad.clearAllTargets();
-                }
-                else{
-                    result=false;
-                    ord.type=t;
-                    ord.amongParagraphs=b;
-                }
-            }
+  }
+
+  @Override
+  protected boolean hasType() {
+    return true;
+  }
+
+  @Override
+  protected boolean editType(Options options, Component parent) {
+    Order ord = (Order) getActivity();
+    int t = ord.type;
+    boolean b = ord.amongParagraphs;
+    boolean result = OrderTypePanel.editOrder(ord, options, parent);
+    if (result) {
+      if (ord.type != t && ord.tad.tmb.size() > 0) {
+        if (options
+                .getMessages()
+                .showQuestionDlg(parent, "edit_text_act_warnChangeType", null, "yn")
+            == Messages.YES) {
+          ord.tad.clearAllTargets();
+        } else {
+          result = false;
+          ord.type = t;
+          ord.amongParagraphs = b;
         }
-        
-        if(result){
-            ord.tad.targetType=(ord.type==Order.ORDER_PARAGRAPHS)
-            ? TextActivityDocument.TT_PARAGRAPH
-            : TextActivityDocument.TT_WORD;
-            setModified(true);
-        }
-        
-        return result;
+      }
     }
-    
+
+    if (result) {
+      ord.tad.targetType =
+          (ord.type == Order.ORDER_PARAGRAPHS)
+              ? TextActivityDocument.TT_PARAGRAPH
+              : TextActivityDocument.TT_WORD;
+      setModified(true);
+    }
+
+    return result;
+  }
 }

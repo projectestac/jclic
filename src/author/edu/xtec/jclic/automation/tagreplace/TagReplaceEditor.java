@@ -28,28 +28,28 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.16
  */
-public class TagReplaceEditor extends AutoContentProviderEditor{
-    
-    /** Creates a new instance of TagReplaceEditor */
-    public TagReplaceEditor(TagReplace tagReplace) {
-        super(tagReplace);
+public class TagReplaceEditor extends AutoContentProviderEditor {
+
+  /** Creates a new instance of TagReplaceEditor */
+  public TagReplaceEditor(TagReplace tagReplace) {
+    super(tagReplace);
+  }
+
+  private static Map<Options, EditorPanel> panels = new HashMap<Options, EditorPanel>();
+
+  public EditorPanel createEditorPanel(Options options) {
+    EditorPanel panel = panels.get(options);
+    if (panel == null) {
+      panel = new TagReplaceEditorPanel(options);
+      panels.put(options, panel);
     }
-        
-    private static Map<Options, EditorPanel> panels=new HashMap<Options, EditorPanel>();
-    public EditorPanel createEditorPanel(Options options){
-        EditorPanel panel=panels.get(options);
-        if(panel==null){
-            panel=new TagReplaceEditorPanel(options);
-            panels.put(options, panel);
-        }
-        return panel;
-    }
-    
-    public Class getEditorPanelClass(){
-        return TagReplaceEditorPanel.class;
-    }        
+    return panel;
+  }
+
+  public Class getEditorPanelClass() {
+    return TagReplaceEditorPanel.class;
+  }
 }

@@ -26,19 +26,18 @@ import edu.xtec.jclic.ActivityEditor;
 import edu.xtec.jclic.ActivityEditorPanel;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
 public class HolePuzzleEditor extends ActivityEditor {
-    
-    /** Creates a new instance of ExchangePuzzleEditor */
-    public HolePuzzleEditor(Activity act) {
-        super(act);
-    }
-    
-    @Override
-    protected void createPanels(ActivityEditorPanel panel){        
-        panel.addInternalPanel(ActivityEditorPanel.SINGLE_LAYOUT, null, null);
-    } 
+
+  /** Creates a new instance of ExchangePuzzleEditor */
+  public HolePuzzleEditor(Activity act) {
+    super(act);
+  }
+
+  @Override
+  protected void createPanels(ActivityEditorPanel panel) {
+    panel.addInternalPanel(ActivityEditorPanel.SINGLE_LAYOUT, null, null);
+  }
 }

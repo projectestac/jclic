@@ -26,18 +26,16 @@ import java.io.*;
 import javax.swing.*;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
 public class StreamIO {
 
   private static boolean cancel = false;
-  //public static final int DEFAULT_READ_STEP_SIZE=1024;
+  // public static final int DEFAULT_READ_STEP_SIZE=1024;
   public static final int DEFAULT_READ_STEP_SIZE = 4096;
 
-  private StreamIO() {
-  }
+  private StreamIO() {}
 
   public static void setCancel(boolean value) {
     cancel = value;
@@ -52,7 +50,8 @@ public class StreamIO {
     return readInputStream(is, null, DEFAULT_READ_STEP_SIZE);
   }
 
-  public static byte[] readInputStream(InputStream is, InputStreamListener lst, int stepSize) throws IOException {
+  public static byte[] readInputStream(InputStream is, InputStreamListener lst, int stepSize)
+      throws IOException {
     cancel = false;
     BufferedInputStream bufferedStream;
     if (is instanceof BufferedInputStream) {
@@ -64,7 +63,7 @@ public class StreamIO {
     ByteArrayOutputStream os = new ByteArrayOutputStream();
     byte[] buffer = new byte[stepSize];
     while (!cancel) {
-      //bytesRead=is.read(buffer);
+      // bytesRead=is.read(buffer);
       int bytesRead = bufferedStream.read(buffer);
       if (lst != null) {
         lst.notify(is, bytesRead);
@@ -77,7 +76,7 @@ public class StreamIO {
     }
     buffer = os.toByteArray();
     os.close();
-    //is.close();
+    // is.close();
     bufferedStream.close();
     if (cancel) {
       throw new InterruptedIOException("Cancelled by user");
@@ -89,10 +88,12 @@ public class StreamIO {
     return readFile(file, null, 0);
   }
 
-  public static byte[] readFile(File file, InputStreamListener lst, int stepSize) throws IOException {
+  public static byte[] readFile(File file, InputStreamListener lst, int stepSize)
+      throws IOException {
     cancel = false;
     long fileLength = file.length();
-    if (/*fileLength<1 ||*/fileLength > Integer.MAX_VALUE) {
+    if (
+    /*fileLength<1 ||*/ fileLength > Integer.MAX_VALUE) {
       throw new IOException();
     }
     int intFileLength = (int) fileLength;
@@ -120,7 +121,8 @@ public class StreamIO {
     return result;
   }
 
-  public static byte[] getResourceBytes(Object caller, String packageName, String resourceName) throws IOException {
+  public static byte[] getResourceBytes(Object caller, String packageName, String resourceName)
+      throws IOException {
     return readInputStream(caller.getClass().getResourceAsStream(packageName + "/" + resourceName));
   }
 
@@ -128,7 +130,8 @@ public class StreamIO {
     return writeStreamTo(is, os, null, DEFAULT_READ_STEP_SIZE);
   }
 
-  public static long writeStreamTo(InputStream is, OutputStream os, InputStreamListener lst, int stepSize) throws IOException {
+  public static long writeStreamTo(
+      InputStream is, OutputStream os, InputStreamListener lst, int stepSize) throws IOException {
     cancel = false;
     long result = 0;
     BufferedInputStream bufferedStream;
@@ -166,7 +169,13 @@ public class StreamIO {
     java.io.InputStream getInputStream(String resourceName) throws Exception;
   }
 
-  public static boolean writeStreamDlg(final InputStream is, final OutputStream os, int knownSize, String mainMsg, Component dlgOwner, Options options) {
+  public static boolean writeStreamDlg(
+      final InputStream is,
+      final OutputStream os,
+      int knownSize,
+      String mainMsg,
+      Component dlgOwner,
+      Options options) {
 
     final Messages msg = options.getMessages();
     String title = msg.get("WRITING_FILE");
@@ -193,43 +202,45 @@ public class StreamIO {
       progress.setIndeterminate(true);
     }
 
-    InputStreamListener isl = new InputStreamListener() {
-      public void notify(InputStream in, int bytesRead) {
-        progress.setValue(bytesRead);
-      }
-    };
+    InputStreamListener isl =
+        new InputStreamListener() {
+          public void notify(InputStream in, int bytesRead) {
+            progress.setValue(bytesRead);
+          }
+        };
     dialog.getContentPane().add(progress);
 
     final InputStreamListener iis = isl;
 
     JButton cancelButton = new JButton(msg.get("CANCEL"));
-    cancelButton.addActionListener(new ActionListener() {
-      public void actionPerformed(ActionEvent ev) {
-        cancel = true;
-      }
-    });
+    cancelButton.addActionListener(
+        new ActionListener() {
+          public void actionPerformed(ActionEvent ev) {
+            cancel = true;
+          }
+        });
     dialog.getContentPane().add(cancelButton);
 
     dialog.pack();
 
     final JDialog dlg = dialog;
-    edu.xtec.util.SwingWorker sw = new edu.xtec.util.SwingWorker() {
-      private boolean result = false;
+    edu.xtec.util.SwingWorker sw =
+        new edu.xtec.util.SwingWorker() {
+          private boolean result = false;
 
-      @Override
-      public Object construct() {
-        try {
-          writeStreamTo(is, os, iis, DEFAULT_READ_STEP_SIZE);
-          result = !cancel;
-        } catch (Exception ex) {
-          result = false;
-          msg.showErrorWarning(dlg, "ERROR", ex);
-        }
-        //dlg.setVisible(false);
-        dlg.dispose();;
-        return result;
-      }
-    };
+          @Override
+          public Object construct() {
+            try {
+              writeStreamTo(is, os, iis, DEFAULT_READ_STEP_SIZE);
+              result = !cancel;
+            } catch (Exception ex) {
+              result = false;
+              msg.showErrorWarning(dlg, "ERROR", ex);
+            }
+            dlg.setVisible(false);
+            return result;
+          }
+        };
     sw.startLater();
     dialog.setVisible(true);
     return ((Boolean) sw.get()).booleanValue();

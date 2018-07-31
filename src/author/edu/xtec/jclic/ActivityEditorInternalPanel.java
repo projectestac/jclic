@@ -24,48 +24,46 @@ package edu.xtec.jclic;
 import edu.xtec.util.Options;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
  */
 public abstract class ActivityEditorInternalPanel extends edu.xtec.util.CtrlPanel {
-    
-    protected Options options;
-    protected ActivityEditorPanel parent;
-    
-    /** Creates a new instance of ActivityEditorInternalPane */
-    public ActivityEditorInternalPanel(ActivityEditorPanel parent) {
-        this.parent=parent;
-        this.options=parent.getOptions();
-        //setOpaque(false);
-    }
-    
-    public Options getOptions(){
-        return options;
-    };    
-    
-    public ActivityEditor getActivityEditor(){
-        return parent.getActivityEditor();
-    }
-    
-    public Activity getActivity(){
-        ActivityEditor ae=getActivityEditor();
-        return ae==null ? null : ae.getActivity();
-    }
-    
-    protected abstract void fillData();
-    
-    protected abstract void saveData();
-    
-    protected abstract javax.swing.Icon getIcon();
-    
-    protected abstract String getTitle();    
-    
-    protected abstract String getTooltip();
 
-    // A ELIMINAR:
-    protected final void resetPanel(java.util.EventObject ev){
-    }    
-    protected final void clear(){
-    };    
+  protected Options options;
+  protected ActivityEditorPanel parent;
+
+  /** Creates a new instance of ActivityEditorInternalPane */
+  public ActivityEditorInternalPanel(ActivityEditorPanel parent) {
+    this.parent = parent;
+    this.options = parent.getOptions();
+    // setOpaque(false);
+  }
+
+  public Options getOptions() {
+    return options;
+  };
+
+  public ActivityEditor getActivityEditor() {
+    return parent.getActivityEditor();
+  }
+
+  public Activity getActivity() {
+    ActivityEditor ae = getActivityEditor();
+    return ae == null ? null : ae.getActivity();
+  }
+
+  protected abstract void fillData();
+
+  protected abstract void saveData();
+
+  protected abstract javax.swing.Icon getIcon();
+
+  protected abstract String getTitle();
+
+  protected abstract String getTooltip();
+
+  // A ELIMINAR:
+  protected final void resetPanel(java.util.EventObject ev) {}
+
+  protected final void clear() {};
 }

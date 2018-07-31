@@ -25,20 +25,18 @@ import edu.xtec.jclic.Activity;
 import edu.xtec.jclic.ActivityEditorPanel;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
 public class ComplexAssociationEditor extends SimpleAssociationEditor {
-    
-    /** Creates a new instance of ComplexAssociationEditor */
-    public ComplexAssociationEditor(Activity act) {
-        super(act);
-    }
-    
-    @Override
-    protected void createPanels(ActivityEditorPanel panel){
-        panel.addInternalPanel(ActivityEditorPanel.DOUBLE_REL_ALT, null, null);
-    } 
-    
+
+  /** Creates a new instance of ComplexAssociationEditor */
+  public ComplexAssociationEditor(Activity act) {
+    super(act);
+  }
+
+  @Override
+  protected void createPanels(ActivityEditorPanel panel) {
+    panel.addInternalPanel(ActivityEditorPanel.DOUBLE_REL_ALT, null, null);
+  }
 }

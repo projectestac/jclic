@@ -1,4 +1,3 @@
 package edu.xtec.resources.messages;
 
-public class JClicMessages_es {
-}
+public class JClicMessages_es {}

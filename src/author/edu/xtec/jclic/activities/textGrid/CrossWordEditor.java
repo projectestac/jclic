@@ -26,20 +26,18 @@ import edu.xtec.jclic.ActivityEditor;
 import edu.xtec.jclic.ActivityEditorPanel;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
-public class CrossWordEditor extends ActivityEditor{
-    
-    /** Creates a new instance of CrossWordEditor */
-    public CrossWordEditor(Activity act) {
-        super(act);
-    }
-    
-    @Override
-    protected void createPanels(ActivityEditorPanel panel){        
-        panel.addInternalPanel(ActivityEditorPanel.TEXTGRID_CRW, null, null);
-    }    
-    
+public class CrossWordEditor extends ActivityEditor {
+
+  /** Creates a new instance of CrossWordEditor */
+  public CrossWordEditor(Activity act) {
+    super(act);
+  }
+
+  @Override
+  protected void createPanels(ActivityEditorPanel panel) {
+    panel.addInternalPanel(ActivityEditorPanel.TEXTGRID_CRW, null, null);
+  }
 }

@@ -27,34 +27,33 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.16
  */
 public class CompleteEditor extends TextActivityBaseEditor {
-    
-    /** Creates a new instance of SimpleAssociationEditor */
-    public CompleteEditor(Complete act) {
-        super(act);
-    }    
-    
-    protected static Map<Options, CompleteCheckPanel> panelMap=new HashMap<Options, CompleteCheckPanel>(1);
-    
-    @Override
-    protected void editCheckOptions(Options options, Component parent){
-        Complete cmp=(Complete)getTextActivity();
-        if(cmp!=null){
-            CompleteCheckPanel checkPanel=panelMap.get(options);
-            if(checkPanel==null){
-                checkPanel=new CompleteCheckPanel(options);
-                panelMap.put(options, checkPanel);
-            }
-            checkPanel.setOptions(cmp);
-            if(options.getMessages().showInputDlg(parent, checkPanel, "edit_text_act_check_title")){
-                checkPanel.collectData(cmp);
-                setModified(true);
-            }
-        }
-    }                    
-    
+
+  /** Creates a new instance of SimpleAssociationEditor */
+  public CompleteEditor(Complete act) {
+    super(act);
+  }
+
+  protected static Map<Options, CompleteCheckPanel> panelMap =
+      new HashMap<Options, CompleteCheckPanel>(1);
+
+  @Override
+  protected void editCheckOptions(Options options, Component parent) {
+    Complete cmp = (Complete) getTextActivity();
+    if (cmp != null) {
+      CompleteCheckPanel checkPanel = panelMap.get(options);
+      if (checkPanel == null) {
+        checkPanel = new CompleteCheckPanel(options);
+        panelMap.put(options, checkPanel);
+      }
+      checkPanel.setOptions(cmp);
+      if (options.getMessages().showInputDlg(parent, checkPanel, "edit_text_act_check_title")) {
+        checkPanel.collectData(cmp);
+        setModified(true);
+      }
+    }
+  }
 }

@@ -23,42 +23,39 @@ import java.awt.Rectangle;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-/**
- *
- * @author jlagares
- */
+/** @author jlagares */
 public class TFormExchange extends JFrame {
 
-    public JButton exchangeBtn;
-    public static final Color DEFAULT_COLOR_A = Color.BLUE;
-    public static final Color DEFAULT_COLOR_B = Color.RED;
-    Color colorA = DEFAULT_COLOR_A;
-    Color colorB = DEFAULT_COLOR_B;
+  public JButton exchangeBtn;
+  public static final Color DEFAULT_COLOR_A = Color.BLUE;
+  public static final Color DEFAULT_COLOR_B = Color.RED;
+  Color colorA = DEFAULT_COLOR_A;
+  Color colorB = DEFAULT_COLOR_B;
 
-    public TFormExchange(Rectangle r, String btnText) {
-        this(r.x, r.y, r.width, r.height, btnText);
-    }
+  public TFormExchange(Rectangle r, String btnText) {
+    this(r.x, r.y, r.width, r.height, btnText);
+  }
 
-    public TFormExchange(int x, int y, int dx, int dy, String btnText) {
-        this(x, y, dx, dy, btnText, DEFAULT_COLOR_A, DEFAULT_COLOR_B);
-    }
+  public TFormExchange(int x, int y, int dx, int dy, String btnText) {
+    this(x, y, dx, dy, btnText, DEFAULT_COLOR_A, DEFAULT_COLOR_B);
+  }
 
-    public TFormExchange(int x, int y, int dx, int dy, String btnText, Color c1, Color c2) {
-        setUndecorated(true);
-        setResizable(false);
-        setLocation(x, y);
-        setSize(dx, dy);
-        colorA = c1;
-        colorB = c2;
-        exchangeBtn = new JButton();
-        exchangeBtn.setText(btnText);
-        exchangeBtn.setBackground(colorA);
-        getContentPane().add(exchangeBtn);
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setAlwaysOnTop(true);
-    }
+  public TFormExchange(int x, int y, int dx, int dy, String btnText, Color c1, Color c2) {
+    setUndecorated(true);
+    setResizable(false);
+    setLocation(x, y);
+    setSize(dx, dy);
+    colorA = c1;
+    colorB = c2;
+    exchangeBtn = new JButton();
+    exchangeBtn.setText(btnText);
+    exchangeBtn.setBackground(colorA);
+    getContentPane().add(exchangeBtn);
+    setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+    setAlwaysOnTop(true);
+  }
 
-    public void changeBgColor(int curZone) {
-        exchangeBtn.setBackground(curZone == 0 ? colorA : colorB);
-    }
+  public void changeBgColor(int curZone) {
+    exchangeBtn.setBackground(curZone == 0 ? colorA : colorB);
+  }
 }

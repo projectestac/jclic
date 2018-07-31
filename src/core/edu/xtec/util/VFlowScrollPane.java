@@ -28,36 +28,35 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
-public class VFlowScrollPane extends JScrollPane{
-    
-    JPanel panel;
-    int panelHGap, panelVGap;
-    
-    public VFlowScrollPane(JPanel view){
-        super(view, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        panel=view;
-        if(panel.getLayout() instanceof FlowLayout){
-            panelHGap=((FlowLayout)panel.getLayout()).getHgap();
-            panelVGap=((FlowLayout)panel.getLayout()).getVgap();
-        }
+public class VFlowScrollPane extends JScrollPane {
+
+  JPanel panel;
+  int panelHGap, panelVGap;
+
+  public VFlowScrollPane(JPanel view) {
+    super(view, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    panel = view;
+    if (panel.getLayout() instanceof FlowLayout) {
+      panelHGap = ((FlowLayout) panel.getLayout()).getHgap();
+      panelVGap = ((FlowLayout) panel.getLayout()).getVgap();
     }
-    
-    @Override
-    public void doLayout(){
-        int n=panel.getComponentCount();
-        if(n>0){
-            Dimension minSize=getMinimumSize();
-            Component lastCmp=panel.getComponent(n-1);
-            int w=Math.max(minSize.width, getWidth()-getVerticalScrollBar().getWidth()-panelHGap);
-            panel.setPreferredSize(new Dimension(w, 9999));
-            super.doLayout();
-            panel.setPreferredSize(new Dimension(w, lastCmp.getY()+lastCmp.getHeight()+panelVGap));
-            invalidate();
-        }
-        super.doLayout();
+  }
+
+  @Override
+  public void doLayout() {
+    int n = panel.getComponentCount();
+    if (n > 0) {
+      Dimension minSize = getMinimumSize();
+      Component lastCmp = panel.getComponent(n - 1);
+      int w = Math.max(minSize.width, getWidth() - getVerticalScrollBar().getWidth() - panelHGap);
+      panel.setPreferredSize(new Dimension(w, 9999));
+      super.doLayout();
+      panel.setPreferredSize(new Dimension(w, lastCmp.getY() + lastCmp.getHeight() + panelVGap));
+      invalidate();
     }
+    super.doLayout();
+  }
 }

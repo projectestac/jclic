@@ -26,93 +26,89 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.09
  */
-public class JDomTreeObject extends AbstractTableModel{
-    
-    org.jdom.Element element;
-    Options options;
-    
-    JDomTreeObject(org.jdom.Element element, Options options){
-        super();
-        this.element=element;
-        this.options=options;
+public class JDomTreeObject extends AbstractTableModel {
+
+  org.jdom.Element element;
+  Options options;
+
+  JDomTreeObject(org.jdom.Element element, Options options) {
+    super();
+    this.element = element;
+    this.options = options;
+  }
+
+  @Override
+  public String getColumnName(int column) {
+    return options.getMsg(column == 0 ? "XML_ATTRIBUTE" : "XML_VALUE");
+  }
+
+  @Override
+  public boolean isCellEditable(int rowIndex, int columnIndex) {
+    return (columnIndex != 0);
+  }
+
+  @Override
+  public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+    if (aValue == null) return;
+    if (rowIndex == 0) {
+      if (element.getChildren().isEmpty()) element.setText(aValue.toString());
+      else options.getMessages().showAlert(options.getMainComponent(), "XML_NOT_EDITABLE");
+    } else {
+      org.jdom.Attribute atr = (org.jdom.Attribute) element.getAttributes().get(rowIndex - 1);
+      atr.setValue(aValue.toString());
     }
-    
-    @Override
-    public String getColumnName(int column){
-        return options.getMsg(column==0 ? "XML_ATTRIBUTE" : "XML_VALUE");
+  }
+
+  public int getRowCount() {
+    return 1 + element.getAttributes().size();
+  }
+
+  public int getColumnCount() {
+    return 2;
+  }
+
+  public Object getValueAt(int row, int column) {
+    if (row == 0) {
+      return (column == 0 ? options.getMsg("XML_TEXT") : element.getText());
     }
-    
-    @Override
-    public boolean isCellEditable(int rowIndex, int columnIndex){
-        return (columnIndex!=0);
+    org.jdom.Attribute atr = (org.jdom.Attribute) element.getAttributes().get(row - 1);
+    return (column == 0 ? atr.getName() : atr.getValue());
+  }
+
+  @Override
+  public String toString() {
+    org.jdom.Attribute atr;
+    StringBuilder result = new StringBuilder(element.getName());
+    if ((atr = element.getAttribute(JDomUtility.NAME)) != null)
+      result.append(" ").append(atr.getValue());
+    if ((atr = element.getAttribute(JDomUtility.ID)) != null)
+      result.append(" - ").append(atr.getValue());
+    if ((atr = element.getAttribute(JDomUtility.TYPE)) != null)
+      result.append(" - ").append(atr.getValue());
+    return result.substring(0);
+  }
+
+  public static DefaultMutableTreeNode processNode(
+      DefaultMutableTreeNode parent, org.jdom.Element element, Options options) {
+    JDomTreeObject te = new JDomTreeObject(element, options);
+    DefaultMutableTreeNode node = new DefaultMutableTreeNode(te);
+    Iterator iter = element.getChildren().iterator();
+    while (iter.hasNext()) {
+      processNode(node, (org.jdom.Element) iter.next(), options);
     }
-    
-    @Override
-    public void setValueAt(Object aValue, int rowIndex, int columnIndex){
-        if(aValue==null)
-            return;
-        if(rowIndex==0){
-            if(element.getChildren().isEmpty())
-                element.setText(aValue.toString());
-            else
-                options.getMessages().showAlert(options.getMainComponent(), "XML_NOT_EDITABLE");
-        }
-        else{
-            org.jdom.Attribute atr=(org.jdom.Attribute)element.getAttributes().get(rowIndex-1);
-            atr.setValue(aValue.toString());
-        }
-    }
-    
-    public int getRowCount(){
-        return 1+element.getAttributes().size();
-    }
-    
-    public int getColumnCount(){
-        return 2;
-    }
-    
-    public Object getValueAt(int row, int column){
-        if(row==0){
-            return (column==0 ? options.getMsg("XML_TEXT") : element.getText());
-        }        
-        org.jdom.Attribute atr=(org.jdom.Attribute)element.getAttributes().get(row-1);
-        return(column==0 ? atr.getName() : atr.getValue());
-    }
-    
-    @Override
-    public String toString(){
-        org.jdom.Attribute atr;
-        StringBuilder result=new StringBuilder(element.getName());
-        if((atr=element.getAttribute(JDomUtility.NAME))!=null)
-            result.append(" ").append(atr.getValue());
-        if((atr=element.getAttribute(JDomUtility.ID))!=null)
-            result.append(" - ").append(atr.getValue());
-        if((atr=element.getAttribute(JDomUtility.TYPE))!=null)
-            result.append(" - ").append(atr.getValue());
-        return result.substring(0);
-    }
-    
-    public static DefaultMutableTreeNode processNode(DefaultMutableTreeNode parent, org.jdom.Element element, Options options){
-        JDomTreeObject te=new JDomTreeObject(element, options);
-        DefaultMutableTreeNode node=new DefaultMutableTreeNode(te);
-        Iterator iter =element.getChildren().iterator();
-        while(iter.hasNext()){
-            processNode(node, (org.jdom.Element)iter.next(), options);
-        }
-        if(parent!=null)
-            parent.add(node);
-        return node;
-    }
-    
-    /** Getter for property element.
-     * @return Value of property element.
-     */
-    public org.jdom.Element getElement() {
-        return element;
-    }
-    
+    if (parent != null) parent.add(node);
+    return node;
+  }
+
+  /**
+   * Getter for property element.
+   *
+   * @return Value of property element.
+   */
+  public org.jdom.Element getElement() {
+    return element;
+  }
 }

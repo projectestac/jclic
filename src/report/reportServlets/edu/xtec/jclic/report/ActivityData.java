@@ -22,33 +22,38 @@
 package edu.xtec.jclic.report;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.09
  */
-public class ActivityData implements java.io.Serializable{
-    
-    public String project, activityName, id;
-    public int time, actions, score, qualification;
-    public boolean solved;
-    
-    /** Creates a new instance of ActivityData */
-    public ActivityData(String project, String activityName, String id, int time, int actions, int score, boolean solved, int qualification){
-        this.project = project!=null ? project.trim() : null;
-        this.activityName = activityName!=null ? activityName.trim() : null;
-        this.id = id!=null ? id.trim() : null;
-        this.time=time;
-        this.actions=actions;
-        this.score=score;
-        this.solved=solved;
-        this.qualification=qualification;
-    }
-    
-    public int percentSolved(){
-        int result=0;
-        if(actions>0)
-            result=(score*100)/actions;
-        return result;
-    }
+public class ActivityData implements java.io.Serializable {
 
+  public String project, activityName, id;
+  public int time, actions, score, qualification;
+  public boolean solved;
+
+  /** Creates a new instance of ActivityData */
+  public ActivityData(
+      String project,
+      String activityName,
+      String id,
+      int time,
+      int actions,
+      int score,
+      boolean solved,
+      int qualification) {
+    this.project = project != null ? project.trim() : null;
+    this.activityName = activityName != null ? activityName.trim() : null;
+    this.id = id != null ? id.trim() : null;
+    this.time = time;
+    this.actions = actions;
+    this.score = score;
+    this.solved = solved;
+    this.qualification = qualification;
+  }
+
+  public int percentSolved() {
+    int result = 0;
+    if (actions > 0) result = (score * 100) / actions;
+    return result;
+  }
 }

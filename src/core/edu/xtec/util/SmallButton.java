@@ -26,49 +26,46 @@ import javax.swing.Action;
 import javax.swing.JButton;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
 public class SmallButton extends JButton implements MouseListener {
-    
-    SmallButtonBorder smb;
-    
-    public SmallButton(Action act) {
-        super(act);
-        setText(null);
-        
-        setToolTipText((String)act.getValue(javax.swing.Action.SHORT_DESCRIPTION));
-        
-        addMouseListener(this);
-        setRequestFocusEnabled(false);
-        smb=new SmallButtonBorder(getBorder(), false);
-        setBorder(smb);
-        setOpaque(false);
-    }
-    
-    @Override
-    public float getAlignmentY() { return 0.5f; }
-    
-    public void mousePressed(MouseEvent e) {
-    }
-    
-    public void mouseReleased(MouseEvent e) {
-    }
-    
-    public void mouseClicked(MouseEvent e) {}
-    
-    public void mouseEntered(MouseEvent e) {
-        if(isEnabled())
-            smb.borderOn=true;
-        setOpaque(true);
-        repaint();
-    }
-    
-    public void mouseExited(MouseEvent e) {
-        smb.borderOn=false;
-        setOpaque(false);
-        repaint();
-    }
-    
+
+  SmallButtonBorder smb;
+
+  public SmallButton(Action act) {
+    super(act);
+    setText(null);
+
+    setToolTipText((String) act.getValue(javax.swing.Action.SHORT_DESCRIPTION));
+
+    addMouseListener(this);
+    setRequestFocusEnabled(false);
+    smb = new SmallButtonBorder(getBorder(), false);
+    setBorder(smb);
+    setOpaque(false);
+  }
+
+  @Override
+  public float getAlignmentY() {
+    return 0.5f;
+  }
+
+  public void mousePressed(MouseEvent e) {}
+
+  public void mouseReleased(MouseEvent e) {}
+
+  public void mouseClicked(MouseEvent e) {}
+
+  public void mouseEntered(MouseEvent e) {
+    if (isEnabled()) smb.borderOn = true;
+    setOpaque(true);
+    repaint();
+  }
+
+  public void mouseExited(MouseEvent e) {
+    smb.borderOn = false;
+    setOpaque(false);
+    repaint();
+  }
 }

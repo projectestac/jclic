@@ -22,20 +22,19 @@
 package edu.xtec.util;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
 public interface ResourceBridge {
-    
-    public java.io.InputStream getProgressInputStream(java.io.InputStream is, int expectedLength, String name);
-        
-    public void displayUrl(String url, boolean inFrame);
-    
-    public edu.xtec.util.Options getOptions();
-    
-    public String getMsg(String key);
-    
-    public javax.swing.JComponent getComponent();
-    
+
+  public java.io.InputStream getProgressInputStream(
+      java.io.InputStream is, int expectedLength, String name);
+
+  public void displayUrl(String url, boolean inFrame);
+
+  public edu.xtec.util.Options getOptions();
+
+  public String getMsg(String key);
+
+  public javax.swing.JComponent getComponent();
 }

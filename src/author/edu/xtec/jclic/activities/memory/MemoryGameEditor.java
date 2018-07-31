@@ -26,23 +26,21 @@ import edu.xtec.jclic.ActivityEditor;
 import edu.xtec.jclic.ActivityEditorPanel;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
  */
 public class MemoryGameEditor extends ActivityEditor {
-    
-    // CANVIAR SISTEMA: EN COMPTES DE GRID 0 i GRID 1, GRID 0 i GRID 2
-    
-    
-    /** Creates a new instance of ExchangePuzzleEditor */
-    public MemoryGameEditor(Activity act) {
-        super(act);
-    }
-    
-    @Override
-    protected void createPanels(ActivityEditorPanel panel){        
-        //panel.addInternalPanel(ActivityEditorPanel.GRID_A, null, null);
-        panel.addInternalPanel(ActivityEditorPanel.SINGLE_ALT, null, null);
-    } 
+
+  // CANVIAR SISTEMA: EN COMPTES DE GRID 0 i GRID 1, GRID 0 i GRID 2
+
+  /** Creates a new instance of ExchangePuzzleEditor */
+  public MemoryGameEditor(Activity act) {
+    super(act);
+  }
+
+  @Override
+  protected void createPanels(ActivityEditorPanel panel) {
+    // panel.addInternalPanel(ActivityEditorPanel.GRID_A, null, null);
+    panel.addInternalPanel(ActivityEditorPanel.SINGLE_ALT, null, null);
+  }
 }

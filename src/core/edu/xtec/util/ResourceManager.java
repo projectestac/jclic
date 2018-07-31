@@ -29,85 +29,82 @@ import java.util.Map;
 import javax.swing.ImageIcon;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.16
  */
-public abstract class ResourceManager{
-    
-    public static final String RESOURCE_ROOT="/edu/xtec/resources/";
-    public static final String RESOURCE_CLASS_ROOT="edu.xtec.resources.";
-    public static final StreamIO.InputStreamProvider STREAM_PROVIDER=new StreamIO.InputStreamProvider(){
-        public java.io.InputStream getInputStream(String resourceName) throws Exception{
-            return getResourceAsStream(resourceName);
+public abstract class ResourceManager {
+
+  public static final String RESOURCE_ROOT = "/edu/xtec/resources/";
+  public static final String RESOURCE_CLASS_ROOT = "edu.xtec.resources.";
+  public static final StreamIO.InputStreamProvider STREAM_PROVIDER =
+      new StreamIO.InputStreamProvider() {
+        public java.io.InputStream getInputStream(String resourceName) throws Exception {
+          return getResourceAsStream(resourceName);
         }
-    };
-    public static final String DEFAULT_LOCALE="en";
-    private static Map<String, ImageIcon> icons=new HashMap<String, ImageIcon>();
-    
-    public static ImageIcon getImageIcon(String name){
-        ImageIcon result=(ImageIcon)icons.get(name);
-        if(result==null){
-            try{
-                result=new ImageIcon(getResource(name));
-                String s=name;
-                if(s.startsWith("icons/"))
-                    s=new StringBuilder("@").append(s.substring(6)).substring(0);
-                result.setDescription(s);
-                icons.put(name, result);
-            } catch(Exception ex){
-                System.err.println("unable to get image "+name);
-                System.err.println(ex);
-            }
-        }
-        return result;
+      };
+  public static final String DEFAULT_LOCALE = "en";
+  private static Map<String, ImageIcon> icons = new HashMap<String, ImageIcon>();
+
+  public static ImageIcon getImageIcon(String name) {
+    ImageIcon result = (ImageIcon) icons.get(name);
+    if (result == null) {
+      try {
+        result = new ImageIcon(getResource(name));
+        String s = name;
+        if (s.startsWith("icons/")) s = new StringBuilder("@").append(s.substring(6)).substring(0);
+        result.setDescription(s);
+        icons.put(name, result);
+      } catch (Exception ex) {
+        System.err.println("unable to get image " + name);
+        System.err.println(ex);
+      }
     }
-    
-    public static java.net.URL getResource(String name) throws Exception{
-        java.net.URL result=ResourceManager.class.getResource(RESOURCE_ROOT+name);
-        if(result==null)
-            throw buildException(name);
-        return result;
+    return result;
+  }
+
+  public static java.net.URL getResource(String name) throws Exception {
+    java.net.URL result = ResourceManager.class.getResource(RESOURCE_ROOT + name);
+    if (result == null) throw buildException(name);
+    return result;
+  }
+
+  public static java.io.InputStream getResourceAsStream(String name) throws Exception {
+    java.io.InputStream result = ResourceManager.class.getResourceAsStream(RESOURCE_ROOT + name);
+    if (result == null) throw buildException(name);
+    return result;
+  }
+
+  public static byte[] getResourceBytes(String name) throws Exception {
+    return StreamIO.readInputStream(getResourceAsStream(name));
+  }
+
+  public static ExtendedByteArrayInputStream getResourceAsByteArray(String name) throws Exception {
+    return new ExtendedByteArrayInputStream(getResourceBytes(name), name);
+  }
+
+  public static String getResourceText(String name, boolean useCRLF) throws Exception {
+
+    String lineEnding = useCRLF ? "\r\n" : System.getProperty("line.separator");
+    BufferedReader in = new BufferedReader(new InputStreamReader(getResourceAsStream(name)));
+    StringBuilder sb = new StringBuilder();
+    String line;
+    while ((line = in.readLine()) != null) {
+      sb.append(line).append(lineEnding);
     }
-    
-    public static java.io.InputStream getResourceAsStream(String name) throws Exception{
-        java.io.InputStream result=ResourceManager.class.getResourceAsStream(RESOURCE_ROOT+name);
-        if(result==null)
-            throw buildException(name);
-        return result;
-    }
-    
-    public static byte[] getResourceBytes(String name) throws Exception{
-        return StreamIO.readInputStream(getResourceAsStream(name));
-    }
-    
-    public static ExtendedByteArrayInputStream getResourceAsByteArray(String name) throws Exception{
-        return new ExtendedByteArrayInputStream(getResourceBytes(name), name);
-    }
-    
-    public static String getResourceText(String name, boolean useCRLF) throws Exception{
-        
-        String lineEnding = useCRLF ? "\r\n" : System.getProperty("line.separator");        
-        BufferedReader in=new BufferedReader(new InputStreamReader(getResourceAsStream(name)));
-        StringBuilder sb=new StringBuilder();
-        String line;
-        while((line=in.readLine())!=null){
-            sb.append(line).append(lineEnding);                    
-        }
-        in.close();
-        return sb.substring(0);        
-    }
-        
-    public static java.util.ResourceBundle getBundle(String name, java.util.Locale locale) throws Exception{
-        if(locale!=null && DEFAULT_LOCALE.equals(locale.getLanguage()))
-            Locale.setDefault(locale);
-        java.util.ResourceBundle result=java.util.ResourceBundle.getBundle(RESOURCE_CLASS_ROOT+name, locale);            
-        if(result==null)
-            throw buildException(name);
-        return result;
-    }
-    
-    private static Exception buildException(String name){
-        return new Exception("Unable to load resource: "+name);
-    }    
+    in.close();
+    return sb.substring(0);
+  }
+
+  public static java.util.ResourceBundle getBundle(String name, java.util.Locale locale)
+      throws Exception {
+    if (locale != null && DEFAULT_LOCALE.equals(locale.getLanguage())) Locale.setDefault(locale);
+    java.util.ResourceBundle result =
+        java.util.ResourceBundle.getBundle(RESOURCE_CLASS_ROOT + name, locale);
+    if (result == null) throw buildException(name);
+    return result;
+  }
+
+  private static Exception buildException(String name) {
+    return new Exception("Unable to load resource: " + name);
+  }
 }

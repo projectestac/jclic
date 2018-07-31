@@ -27,49 +27,48 @@ import javax.swing.ListModel;
 import javax.swing.event.ListDataListener;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
-public class ListComboModel extends Object implements ComboBoxModel<Object>{
-    
-    private ListModel<Object> model;
-    private Object current;
-    
-    /** Creates a new instance of ListComboModel */
-    public ListComboModel(ListModel<Object> model) {
-        this.model=model;
-    }
-    
-    public ListComboModel() {
-        this(new DefaultListModel<Object>());
-    }
-    
-    public ListModel<Object> getListModel(){
-        return model;
-    }
-    
-    public Object getSelectedItem(){
-        return current;
-    }
-    
-    public void setSelectedItem(Object anItem){
-        current=anItem;
-    }
-    
-    public void addListDataListener(ListDataListener l){
-        model.addListDataListener(l);
-    }
-    
-    public Object getElementAt(int index){
-        return index<0 ? null : model.getElementAt(index);
-    }
-    
-    public int getSize() {
-        return model.getSize();
-    }
-    
-    public void removeListDataListener(ListDataListener l) {
-        model.removeListDataListener(l);
-    }
+public class ListComboModel extends Object implements ComboBoxModel<Object> {
+
+  private ListModel<Object> model;
+  private Object current;
+
+  /** Creates a new instance of ListComboModel */
+  public ListComboModel(ListModel<Object> model) {
+    this.model = model;
+  }
+
+  public ListComboModel() {
+    this(new DefaultListModel<Object>());
+  }
+
+  public ListModel<Object> getListModel() {
+    return model;
+  }
+
+  public Object getSelectedItem() {
+    return current;
+  }
+
+  public void setSelectedItem(Object anItem) {
+    current = anItem;
+  }
+
+  public void addListDataListener(ListDataListener l) {
+    model.addListDataListener(l);
+  }
+
+  public Object getElementAt(int index) {
+    return index < 0 ? null : model.getElementAt(index);
+  }
+
+  public int getSize() {
+    return model.getSize();
+  }
+
+  public void removeListDataListener(ListDataListener l) {
+    model.removeListDataListener(l);
+  }
 }

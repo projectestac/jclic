@@ -26,108 +26,102 @@ import edu.xtec.util.JDomUtility;
 import edu.xtec.util.Options;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
-public class LibraryManagerElement implements Domable{
-    
-    protected String name;
-    protected String path;
-    protected Options options;
-    protected boolean exists;
-    protected boolean editable;
-    protected boolean isUrl;
-    protected boolean systemLib;
-    
-    public static final String ELEMENT_NAME="library";
-    public static final String NAME="name", PATH="path";
-        
-    public LibraryManagerElement(Options options){
-        this.options=options;
-        name=options.getMsg("UNNAMED");
-        path=null;
-        exists=false;
-        editable=false;
-        isUrl=false;
-        systemLib=false;
-    }
-    
-    public LibraryManagerElement(String name, String path, Options options){
-        this.name=name;
-        this.path=path;
-        this.options=options;
-        checkAttributes();
-    }
-    
-    public static LibraryManagerElement getLibraryManagerElement(org.jdom.Element e, Options options) throws Exception{
-        LibraryManagerElement lme=new LibraryManagerElement(options);
-        lme.setProperties(e, null);
-        return lme;
-    }
-    
-    public void setProperties(org.jdom.Element e, Object aux) throws Exception{
-        JDomUtility.checkName(e, ELEMENT_NAME);
-        name=JDomUtility.getStringAttr(e, NAME, name, false);
-        path=JDomUtility.getStringAttr(e, PATH, path, false);
-        checkAttributes();
-    }
-    
-    public org.jdom.Element getJDomElement(){
-        org.jdom.Element e=new org.jdom.Element(ELEMENT_NAME);
-        e.setAttribute(NAME, name);
-        e.setAttribute(PATH, path);
-        return e;
-    }
-    
-    public javax.swing.Icon getIcon(){
-        String base="icons/database";
-        
-        if(exists){
-            if(!editable)
-                base=base+"_locked";        
+public class LibraryManagerElement implements Domable {
+
+  protected String name;
+  protected String path;
+  protected Options options;
+  protected boolean exists;
+  protected boolean editable;
+  protected boolean isUrl;
+  protected boolean systemLib;
+
+  public static final String ELEMENT_NAME = "library";
+  public static final String NAME = "name", PATH = "path";
+
+  public LibraryManagerElement(Options options) {
+    this.options = options;
+    name = options.getMsg("UNNAMED");
+    path = null;
+    exists = false;
+    editable = false;
+    isUrl = false;
+    systemLib = false;
+  }
+
+  public LibraryManagerElement(String name, String path, Options options) {
+    this.name = name;
+    this.path = path;
+    this.options = options;
+    checkAttributes();
+  }
+
+  public static LibraryManagerElement getLibraryManagerElement(org.jdom.Element e, Options options)
+      throws Exception {
+    LibraryManagerElement lme = new LibraryManagerElement(options);
+    lme.setProperties(e, null);
+    return lme;
+  }
+
+  public void setProperties(org.jdom.Element e, Object aux) throws Exception {
+    JDomUtility.checkName(e, ELEMENT_NAME);
+    name = JDomUtility.getStringAttr(e, NAME, name, false);
+    path = JDomUtility.getStringAttr(e, PATH, path, false);
+    checkAttributes();
+  }
+
+  public org.jdom.Element getJDomElement() {
+    org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
+    e.setAttribute(NAME, name);
+    e.setAttribute(PATH, path);
+    return e;
+  }
+
+  public javax.swing.Icon getIcon() {
+    String base = "icons/database";
+
+    if (exists) {
+      if (!editable) base = base + "_locked";
+    } else base = base + "_unavailable";
+
+    return edu.xtec.util.ResourceManager.getImageIcon(base + ".gif");
+  }
+
+  protected void checkAttributes() {
+    exists = false;
+    editable = false;
+    isUrl = false;
+    if (path != null) {
+      if (path.startsWith("http:") || path.startsWith("https:")) {
+        isUrl = true;
+        try {
+          java.net.URL url = new java.net.URL(path.replace(" ", "%20"));
+          java.net.URLConnection con = url.openConnection();
+          exists = (con != null);
+        } catch (Exception ex) {
+          //
         }
-        else
-            base=base+"_unavailable";
-        
-        return edu.xtec.util.ResourceManager.getImageIcon(base+".gif");
+      } else {
+        java.io.File file = new java.io.File(path);
+        exists = file.exists() && !file.isDirectory() && file.canRead();
+        if (exists) editable = file.canWrite();
+      }
     }
-    
-    protected void checkAttributes(){
-        exists=false;
-        editable=false;
-        isUrl=false;
-        if(path!=null){
-            if(path.startsWith("http:") || path.startsWith("https:")){
-                isUrl=true;
-                try{
-                    java.net.URL url=new java.net.URL(path.replace(" ", "%20"));
-                    java.net.URLConnection con=url.openConnection();                    
-                    exists=(con!=null);
-                } catch(Exception ex){
-                    //
-                }
-            }
-            else{
-                java.io.File file=new java.io.File(path);
-                exists=file.exists() && !file.isDirectory() && file.canRead();
-                if(exists)
-                    editable=file.canWrite();
-            }
-        }
-    }
-    
-    public void setSystemLib(boolean setting){
-        systemLib=setting;
-    }
-    
-    public boolean isSystemLib(){
-        return systemLib;
-    }
-    
-    @Override
-    public String toString(){
-        return name;
-    }
-    
+  }
+
+  public void setSystemLib(boolean setting) {
+    systemLib = setting;
+  }
+
+  public boolean isSystemLib() {
+    return systemLib;
+  }
+
+  @Override
+  public String toString() {
+    return name;
+  }
 }

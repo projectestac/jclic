@@ -6,7 +6,7 @@
  * JClic - Authoring and playing system for educational activities
  *
  * Copyright (C) 2000 - 2005 Francesc Busquets & Departament
- * d'Educacio de la Generalitat de Catalunya                                        
+ * d'Educacio de la Generalitat de Catalunya
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -41,9 +41,10 @@ public class FileSystem extends Object {
   public static final String FS = "/", WINFS = "\\";
   public static final char FSCH = '/', WINFSCH = '\\';
   protected static FileChooserForFiles fileChooser;
-  //private static final String SEP_FILE_BAK=File.separator+"..";
+  // private static final String SEP_FILE_BAK=File.separator+"..";
   private static final String FS_BAK = FS + "..";
-  public static java.util.HashMap<String, String> altFileNames = new java.util.HashMap<String, String>();
+  public static java.util.HashMap<String, String> altFileNames =
+      new java.util.HashMap<String, String>();
 
   public String root;
   protected boolean isURL = false;
@@ -65,9 +66,9 @@ public class FileSystem extends Object {
       if (isStrUrl(root)) {
         isURL = true;
         ISURL = isURL;
-        //if(root.indexOf('\\')>=0)
+        // if(root.indexOf('\\')>=0)
         //    root=root.replace('\\', '/');
-        //if(!root.endsWith("/")) root = root + "/";
+        // if(!root.endsWith("/")) root = root + "/";
         if (!root.endsWith(FS)) {
           root = root + FS;
         }
@@ -80,7 +81,7 @@ public class FileSystem extends Object {
         } catch (Exception e) {
           root = saveRoot;
         }
-        //if(!root.endsWith(File.separator))
+        // if(!root.endsWith(File.separator))
         //    root=root+File.separator;
         if (!root.endsWith(FS)) {
           root = root + FS;
@@ -121,7 +122,8 @@ public class FileSystem extends Object {
     return result;
   }
 
-  public static FileSystem createFileSystem(String rootPath, String fileName, ResourceBridge rb) throws Exception {
+  public static FileSystem createFileSystem(String rootPath, String fileName, ResourceBridge rb)
+      throws Exception {
     if (fileName == null) {
       return new FileSystem(rootPath, rb);
     } else if (fileName.endsWith(".pcc")) {
@@ -136,7 +138,7 @@ public class FileSystem extends Object {
   public static FileSystem createFileSystem(String fullPath, ResourceBridge rb) throws Exception {
     fullPath = getCanonicalNameOf(fullPath, null);
     String fileName = null;
-    //String rootPath=getPathOf(fullPath);
+    // String rootPath=getPathOf(fullPath);
     String rootPath = getPathPartOf(fullPath);
     if (fullPath.endsWith(".pcc") || fullPath.endsWith(".zip")) {
       fileName = getFileNameOf(fullPath);
@@ -165,8 +167,8 @@ public class FileSystem extends Object {
   public String getRelativeFileNamePath(String fName) {
     String s = stdFn(fName);
     if (s == null
-            || s.length() < root.length()
-            || !s.substring(0, root.length()).equalsIgnoreCase(root)) {
+        || s.length() < root.length()
+        || !s.substring(0, root.length()).equalsIgnoreCase(root)) {
       return s;
     } else {
       return s.substring(root.length());
@@ -182,7 +184,11 @@ public class FileSystem extends Object {
   }
 
   public static boolean isStrUrl(String s) {
-    return s != null && (s.startsWith("http:") || s.startsWith("https:") || s.startsWith("ftp:") || s.startsWith("mailto:"));
+    return s != null
+        && (s.startsWith("http:")
+            || s.startsWith("https:")
+            || s.startsWith("ftp:")
+            || s.startsWith("mailto:"));
   }
 
   public String getUrl(String fileName) {
@@ -211,14 +217,14 @@ public class FileSystem extends Object {
     String fn = stdFn(fileName);
     boolean flagUrl = (isUrl != null ? isUrl.booleanValue() : isStrUrl(fn));
 
-    //char sep= flagUrl ? '/' : File.separatorChar;
-    //String sepStr= flagUrl ? "/" : File.separator;
-    //String fn=normalizePath(fileName, sep);
+    // char sep= flagUrl ? '/' : File.separatorChar;
+    // String sepStr= flagUrl ? "/" : File.separator;
+    // String fn=normalizePath(fileName, sep);
     String prefix = "";
     int cut = -1;
 
     if (fn.startsWith("file:")) {
-      //fileName=fileName.substring(5);            
+      // fileName=fileName.substring(5);
       fn = fn.substring(5);
     }
 
@@ -228,10 +234,10 @@ public class FileSystem extends Object {
         k = 7;
       }
       cut = fn.indexOf(FSCH, k);
-      //cut=fn.indexOf(sep, k);
+      // cut=fn.indexOf(sep, k);
     } else if (fn.length() > 2 && fn.charAt(1) == ':') {
       cut = (fn.charAt(2) == FSCH ? 2 : 1);
-    } //else if(fileName.startsWith("\\\\")){
+    } // else if(fileName.startsWith("\\\\")){
     else if (fn.startsWith("//")) {
       int i = fn.indexOf(FSCH, 2);
       cut = fn.indexOf(FSCH, i + 1);
@@ -245,7 +251,7 @@ public class FileSystem extends Object {
     }
 
     // interceptar '\...'
-    //String back= flagUrl ? "/.." : SEP_FILE_BAK;
+    // String back= flagUrl ? "/.." : SEP_FILE_BAK;
     int r;
     while ((r = fn.indexOf(FS_BAK)) >= 0) {
       int p;
@@ -270,36 +276,36 @@ public class FileSystem extends Object {
   public static String getPathPartOf(String fullPath) {
     String s = stdFn(fullPath);
     int i = s.lastIndexOf(FS);
-    //if((i=fullPath.lastIndexOf('\\'))<0) i=fullPath.lastIndexOf('/');
+    // if((i=fullPath.lastIndexOf('\\'))<0) i=fullPath.lastIndexOf('/');
     return i < 0 ? "" : s.substring(0, i + 1);
   }
 
   public static String getFileNameOf(String fullPath) {
     String s = stdFn(fullPath);
     int i = s.lastIndexOf(FS);
-    //if((i=fullPath.lastIndexOf('\\'))<0)
+    // if((i=fullPath.lastIndexOf('\\'))<0)
     //    i=fullPath.lastIndexOf('/');
     return i < 0 ? s : s.substring(i + 1);
   }
 
   /*
-   public static String normalizePath(String path){
-   return normalizePath(path, File.separatorChar);
-   }
-    
-   public static String normalizePathToURL(String path){
-   return normalizePath(path, '/');
-   }
-   */
+  public static String normalizePath(String path){
+  return normalizePath(path, File.separatorChar);
+  }
+
+  public static String normalizePathToURL(String path){
+  return normalizePath(path, '/');
+  }
+  */
   /*
-   public static String normalizePath(String path, char newSeparator){
-   if(path==null) return null;
-   String result=new String(path);
-   if(newSeparator!='\\') result=result.replace('\\', newSeparator);
-   if(newSeparator!='/') result=result.replace('/', newSeparator);
-   return result;
-   }
-   */
+  public static String normalizePath(String path, char newSeparator){
+  if(path==null) return null;
+  String result=new String(path);
+  if(newSeparator!='\\') result=result.replace('\\', newSeparator);
+  if(newSeparator!='/') result=result.replace('/', newSeparator);
+  return result;
+  }
+  */
   public byte[] getBytes(String fileName) throws IOException {
     return StreamIO.readInputStream(getInputStream(fileName));
   }
@@ -342,7 +348,7 @@ public class FileSystem extends Object {
     }
     return result;
   }
-  
+
   public boolean realFileExists(String fName) {
     return fileExists(fName);
   }
@@ -358,7 +364,7 @@ public class FileSystem extends Object {
       length = c.getContentLength();
       result = c.getInputStream();
     } else {
-      //File f=new File(getCanonicalNameOf(root + fName));
+      // File f=new File(getCanonicalNameOf(root + fName));
       File f = new File(sysFn(getFullFileNamePath(fName)));
       if (!f.exists()) {
         String alt = (String) altFileNames.get(fName);
@@ -385,7 +391,8 @@ public class FileSystem extends Object {
     return new StringBuilder("file:").append(getFullFileNamePath(fName)).substring(0);
   }
 
-  public edu.xtec.util.ExtendedByteArrayInputStream getExtendedByteArrayInputStream(String fName) throws Exception {
+  public edu.xtec.util.ExtendedByteArrayInputStream getExtendedByteArrayInputStream(String fName)
+      throws Exception {
     return new edu.xtec.util.ExtendedByteArrayInputStream(getBytes(fName), fName);
   }
 
@@ -401,7 +408,8 @@ public class FileSystem extends Object {
     return doc;
   }
 
-  protected org.jdom.Document buildDoc(String fName, org.jdom.input.SAXBuilder builder) throws Exception {
+  protected org.jdom.Document buildDoc(String fName, org.jdom.input.SAXBuilder builder)
+      throws Exception {
     return builder.build(getInputStream(fName));
   }
 
@@ -433,115 +441,131 @@ public class FileSystem extends Object {
   }
 
   /*
-   public String chooseFile(String defaultValue, boolean save, int[] filters, edu.xtec.util.Options options, String titleKey, java.awt.Component dlgOwner, boolean proposeMove){
-   String result=null;
-   FileChooserForFiles chooser;
-   if(options!=null){
-   Messages msg=options.getMessages();
-   if(isURL){
-   if(save){
-   msg.showErrorWarning(dlgOwner, "filesystem_saveURLerror", null);
-   }
-   else{
-   result=msg.showInputDlg(dlgOwner, "filesystem_enterURL", "URL", "http://", titleKey!=null ? titleKey : "filesystem_openURL", false);
-   }
-   }
-   else if((chooser=getFileChooser())!=null){
-   chooser.setCurrentDirectory(new File(sysFn(root)));
-   chooser.setDialogType(save ? JFileChooser.SAVE_DIALOG : JFileChooser.OPEN_DIALOG);                
-   chooser.setDialogTitle(msg.get(titleKey!=null ? titleKey : save ? "FILE_SAVE" : "FILE_OPEN"));
-   chooser.resetChoosableFileFilters();
-   if(filters!=null){
-   chooser.setAcceptAllFileFilterUsed(false);
-   for(int i=0; i<filters.length; i++){
-   if(i==filters.length-1)
-   chooser.setFileFilter(Utils.getFileFilter(filters[i], msg));
-   else
-   chooser.addChoosableFileFilter(Utils.getFileFilter(filters[i], msg));
-   }
-   }
-   else
-   chooser.setAcceptAllFileFilterUsed(true);
-                
-   String s=StrUtils.nullableString(defaultValue);
-   boolean dummyFile=false;
-   if(s==null){
-   s=".";
-   dummyFile=true;
-   }   
-   chooser.directSetSelectedFile(new File(sysFn(getFullFileNamePath(s))));
-   if(dummyFile)
-   chooser.directSetSelectedFile(null);
-                
-   int retVal;
-   boolean done=false;
-   while(!done){
-   if(save)
-   retVal = chooser.showSaveDialog(dlgOwner);
-   else
-   retVal = chooser.showOpenDialog(dlgOwner);
-                    
-   if(retVal == JFileChooser.APPROVE_OPTION) {
-   File f=chooser.getSelectedFile().getAbsoluteFile();
-   result=getRelativeFileNamePath(stdFn(f.getAbsolutePath()));
-   if(save){                            
-   FileFilter filter=chooser.getFileFilter();
-   if(filter instanceof SimpleFileFilter){
-   f=((SimpleFileFilter)filter).checkFileExtension(f);
-   result=getRelativeFileNamePath(stdFn(f.getAbsolutePath()));
-   }
-   done=msg.confirmOverwriteFile(dlgOwner, f);
-   }
-   else{
-   done=msg.confirmReadableFile(dlgOwner, f);
-   if(done 
-   && proposeMove 
-   && root.length()>0 
-   && result.indexOf(FS)>=0
-   && msg.showQuestionDlgObj(dlgOwner, new String[]
-   { msg.get("filesystem_copyToRoot_1")+" "+result,
-   msg.get("filesystem_copyToRoot_2"),
-   msg.get("filesystem_copyToRoot_3"),
-   msg.get("filesystem_copyToRoot_4"),
-   }, "CONFIRM")){
-   String name=stdFn(f.getName());
-   File destFile=new File(sysFn(getFullFileNamePath(name)));
-   if(msg.confirmOverwriteFile(dlgOwner, destFile)){
-   try{
-   OutputStream os=createSecureFileOutputStream(name); 
-   InputStream is=getInputStream(result);
-   if(StreamIO.writeStreamDlg(is, os, (int)f.length(), msg.get("filesystem_copyFile"), dlgOwner, options))
-   result=name;
-   else
-   if(destFile.exists())
-   destFile.delete();
-   } catch(Exception ex){
-   msg.showErrorWarning(dlgOwner, "ERROR", ex);
-   }
-   }
-   }
-   }
-   }
-   else{
-   result=null;
-   done=true;
-   }
-   }
-   }
-   }
-   return result;
-   }
-   */
-  public String chooseFile(String defaultValue, boolean save, int[] filters, Options options, String titleKey, Component dlgOwner, boolean proposeMove) {
+  public String chooseFile(String defaultValue, boolean save, int[] filters, edu.xtec.util.Options options, String titleKey, java.awt.Component dlgOwner, boolean proposeMove){
+  String result=null;
+  FileChooserForFiles chooser;
+  if(options!=null){
+  Messages msg=options.getMessages();
+  if(isURL){
+  if(save){
+  msg.showErrorWarning(dlgOwner, "filesystem_saveURLerror", null);
+  }
+  else{
+  result=msg.showInputDlg(dlgOwner, "filesystem_enterURL", "URL", "http://", titleKey!=null ? titleKey : "filesystem_openURL", false);
+  }
+  }
+  else if((chooser=getFileChooser())!=null){
+  chooser.setCurrentDirectory(new File(sysFn(root)));
+  chooser.setDialogType(save ? JFileChooser.SAVE_DIALOG : JFileChooser.OPEN_DIALOG);
+  chooser.setDialogTitle(msg.get(titleKey!=null ? titleKey : save ? "FILE_SAVE" : "FILE_OPEN"));
+  chooser.resetChoosableFileFilters();
+  if(filters!=null){
+  chooser.setAcceptAllFileFilterUsed(false);
+  for(int i=0; i<filters.length; i++){
+  if(i==filters.length-1)
+  chooser.setFileFilter(Utils.getFileFilter(filters[i], msg));
+  else
+  chooser.addChoosableFileFilter(Utils.getFileFilter(filters[i], msg));
+  }
+  }
+  else
+  chooser.setAcceptAllFileFilterUsed(true);
+
+  String s=StrUtils.nullableString(defaultValue);
+  boolean dummyFile=false;
+  if(s==null){
+  s=".";
+  dummyFile=true;
+  }
+  chooser.directSetSelectedFile(new File(sysFn(getFullFileNamePath(s))));
+  if(dummyFile)
+  chooser.directSetSelectedFile(null);
+
+  int retVal;
+  boolean done=false;
+  while(!done){
+  if(save)
+  retVal = chooser.showSaveDialog(dlgOwner);
+  else
+  retVal = chooser.showOpenDialog(dlgOwner);
+
+  if(retVal == JFileChooser.APPROVE_OPTION) {
+  File f=chooser.getSelectedFile().getAbsoluteFile();
+  result=getRelativeFileNamePath(stdFn(f.getAbsolutePath()));
+  if(save){
+  FileFilter filter=chooser.getFileFilter();
+  if(filter instanceof SimpleFileFilter){
+  f=((SimpleFileFilter)filter).checkFileExtension(f);
+  result=getRelativeFileNamePath(stdFn(f.getAbsolutePath()));
+  }
+  done=msg.confirmOverwriteFile(dlgOwner, f);
+  }
+  else{
+  done=msg.confirmReadableFile(dlgOwner, f);
+  if(done
+  && proposeMove
+  && root.length()>0
+  && result.indexOf(FS)>=0
+  && msg.showQuestionDlgObj(dlgOwner, new String[]
+  { msg.get("filesystem_copyToRoot_1")+" "+result,
+  msg.get("filesystem_copyToRoot_2"),
+  msg.get("filesystem_copyToRoot_3"),
+  msg.get("filesystem_copyToRoot_4"),
+  }, "CONFIRM")){
+  String name=stdFn(f.getName());
+  File destFile=new File(sysFn(getFullFileNamePath(name)));
+  if(msg.confirmOverwriteFile(dlgOwner, destFile)){
+  try{
+  OutputStream os=createSecureFileOutputStream(name);
+  InputStream is=getInputStream(result);
+  if(StreamIO.writeStreamDlg(is, os, (int)f.length(), msg.get("filesystem_copyFile"), dlgOwner, options))
+  result=name;
+  else
+  if(destFile.exists())
+  destFile.delete();
+  } catch(Exception ex){
+  msg.showErrorWarning(dlgOwner, "ERROR", ex);
+  }
+  }
+  }
+  }
+  }
+  else{
+  result=null;
+  done=true;
+  }
+  }
+  }
+  }
+  return result;
+  }
+  */
+  public String chooseFile(
+      String defaultValue,
+      boolean save,
+      int[] filters,
+      Options options,
+      String titleKey,
+      Component dlgOwner,
+      boolean proposeMove) {
     String result = null;
-    String[] files = chooseFiles(defaultValue, save, filters, options, titleKey, dlgOwner, proposeMove, false);
+    String[] files =
+        chooseFiles(defaultValue, save, filters, options, titleKey, dlgOwner, proposeMove, false);
     if (files != null && files.length > 0) {
       result = files[0];
     }
     return result;
   }
 
-  public String[] chooseFiles(String defaultValue, boolean save, int[] filters, Options options, String titleKey, Component dlgOwner, boolean proposeMove, boolean multiSelection) {
+  public String[] chooseFiles(
+      String defaultValue,
+      boolean save,
+      int[] filters,
+      Options options,
+      String titleKey,
+      Component dlgOwner,
+      boolean proposeMove,
+      boolean multiSelection) {
     String[] result = null;
     FileChooserForFiles chooser;
     if (save) {
@@ -553,18 +577,27 @@ public class FileSystem extends Object {
         if (save) {
           msg.showErrorWarning(dlgOwner, "filesystem_saveURLerror", null);
         } else {
-          String s = msg.showInputDlg(dlgOwner, "filesystem_enterURL", "URL", "http://", titleKey != null ? titleKey : "filesystem_openURL", false);
+          String s =
+              msg.showInputDlg(
+                  dlgOwner,
+                  "filesystem_enterURL",
+                  "URL",
+                  "http://",
+                  titleKey != null ? titleKey : "filesystem_openURL",
+                  false);
           if (s != null) {
-            result = new String[]{s};
+            result = new String[] {s};
           }
         }
       } else if ((chooser = getFileChooser(root)) != null) {
-        chooser.setApproveButtonToolTipText(msg.get(save ? "FILE_SAVE_TOOLTIP" : "FILE_OPEN_TOOLTIP"));
+        chooser.setApproveButtonToolTipText(
+            msg.get(save ? "FILE_SAVE_TOOLTIP" : "FILE_OPEN_TOOLTIP"));
         chooser.setDialogType(save ? JFileChooser.SAVE_DIALOG : JFileChooser.OPEN_DIALOG);
         chooser.setApproveButtonText(msg.get(save ? "SAVE" : "OPEN"));
         chooser.setMultiSelectionEnabled(multiSelection);
-        //chooser.setCurrentDirectory(new File(sysFn(root)));
-        chooser.setDialogTitle(msg.get(titleKey != null ? titleKey : save ? "FILE_SAVE" : "FILE_OPEN"));
+        // chooser.setCurrentDirectory(new File(sysFn(root)));
+        chooser.setDialogTitle(
+            msg.get(titleKey != null ? titleKey : save ? "FILE_SAVE" : "FILE_OPEN"));
         chooser.resetChoosableFileFilters();
         if (filters != null) {
           chooser.setAcceptAllFileFilterUsed(false);
@@ -600,9 +633,10 @@ public class FileSystem extends Object {
           }
 
           if (retVal == JFileChooser.APPROVE_OPTION) {
-            File[] files = multiSelection
+            File[] files =
+                multiSelection
                     ? chooser.getSelectedFiles()
-                    : new File[]{chooser.getSelectedFile()};
+                    : new File[] {chooser.getSelectedFile()};
             result = new String[files.length];
             for (int i = 0; i < files.length; i++) {
               File f = files[i].getAbsoluteFile();
@@ -617,20 +651,33 @@ public class FileSystem extends Object {
               } else {
                 done = msg.confirmReadableFile(dlgOwner, f);
                 if (done
-                        && proposeMove
-                        && root.length() > 0
-                        && result[i].indexOf(FS) >= 0
-                        && msg.showQuestionDlgObj(dlgOwner, new String[]{msg.get("filesystem_copyToRoot_1") + " " + result[i],
-                          msg.get("filesystem_copyToRoot_2"),
-                          msg.get("filesystem_copyToRoot_3"),
-                          msg.get("filesystem_copyToRoot_4"),}, "CONFIRM", "yn") == Messages.YES) {
+                    && proposeMove
+                    && root.length() > 0
+                    && result[i].indexOf(FS) >= 0
+                    && msg.showQuestionDlgObj(
+                            dlgOwner,
+                            new String[] {
+                              msg.get("filesystem_copyToRoot_1") + " " + result[i],
+                              msg.get("filesystem_copyToRoot_2"),
+                              msg.get("filesystem_copyToRoot_3"),
+                              msg.get("filesystem_copyToRoot_4"),
+                            },
+                            "CONFIRM",
+                            "yn")
+                        == Messages.YES) {
                   String name = stdFn(f.getName());
                   File destFile = new File(sysFn(getFullFileNamePath(name)));
                   if (msg.confirmOverwriteFile(dlgOwner, destFile, "yn") == Messages.YES) {
                     try {
                       OutputStream os = createSecureFileOutputStream(name);
                       InputStream is = getInputStream(result[i]);
-                      if (StreamIO.writeStreamDlg(is, os, (int) f.length(), msg.get("filesystem_copyFile"), dlgOwner, options)) {
+                      if (StreamIO.writeStreamDlg(
+                          is,
+                          os,
+                          (int) f.length(),
+                          msg.get("filesystem_copyFile"),
+                          dlgOwner,
+                          options)) {
                         result[i] = name;
                       } else if (destFile.exists()) {
                         destFile.delete();
@@ -661,9 +708,7 @@ public class FileSystem extends Object {
     File tempFile;
     File destFile;
 
-    /**
-     * Creates new SecureFileOutputStream
-     */
+    /** Creates new SecureFileOutputStream */
     private SecureFileOutputStream(File tempFile, File destFile) throws FileNotFoundException {
       super(tempFile);
       this.tempFile = tempFile;
@@ -686,7 +731,8 @@ public class FileSystem extends Object {
           }
           boolean renamed = tempFile.renameTo(destFile);
           if (!renamed) {
-            System.err.println("WARNING: Unable to rename " + tempFile + " to " + destFile.getName());
+            System.err.println(
+                "WARNING: Unable to rename " + tempFile + " to " + destFile.getName());
           }
           if (isCurrentFs) {
             try {
@@ -710,22 +756,29 @@ public class FileSystem extends Object {
 
     // 27-Sept-2006: Create parent directories if they don't exists
     file.getParentFile().mkdirs();
-        // ---------
+    // ---------
 
     // Fatal errrors detected probably caused by bad info on file.exists
     // Try to use SecureFileOutputStream always
-    // 
-    //if(file.exists()){
+    //
+    // if(file.exists()){
     File tmp = File.createTempFile("tmp", ".tmp", file.getParentFile());
     result = new SecureFileOutputStream(tmp, file);
-    //} else{
+    // } else{
     //    result=new FileOutputStream(file);
-    //}
+    // }
     return result;
   }
 
   // 16-Mar-2015: Added maxRecursion and maxFiles to prevent hangs in large file systems
-  public static void exploreFiles(String prefix, File f, List<String> v, char pathSep, FileFilter filter, int maxRecursion, int maxFiles) {
+  public static void exploreFiles(
+      String prefix,
+      File f,
+      List<String> v,
+      char pathSep,
+      FileFilter filter,
+      int maxRecursion,
+      int maxFiles) {
     File[] files = filter == null ? f.listFiles() : f.listFiles(filter);
     StringBuilder sb = new StringBuilder();
     for (File file : files) {
@@ -744,8 +797,7 @@ public class FileSystem extends Object {
         }
         v.add(sb.append(file.getName()).substring(0));
       }
-      if (maxFiles > 0 && v.size() >= maxFiles)
-        break;
+      if (maxFiles > 0 && v.size() >= maxFiles) break;
     }
   }
 
@@ -753,11 +805,13 @@ public class FileSystem extends Object {
   // Allow only plain ASCII characters, dot, numbers and underscore
   // private static final String FNAME_VALID_CHARS = "_!~0123456789abcdefghijklmnopqrstuvwxyz";
   private static final String FNAME_VALID_CHARS = "_-.0123456789abcdefghijklmnopqrstuvwxyz";
-  
+
   // Modified 26-jul0-2006
   // Scope of character conversion limited to the basic ANSI (Latin1) set
-  public static final String FNAME_CONVERTIBLE_CHARS = "\u00e1\u00e0\u00e4\u00e2\u00e3\u00e9\u00e8\u00eb\u00ea\u00ed\u00ec\u00ef\u00ee\u00f3\u00f2\u00f6\u00f4\u00f5\u00fa\u00f9\u00fc\u00fb\u00f1\u00e7\u20ac\u00ba\u00aa\u00e5\u00e6\u00f8\u00fd\u00fe\u00ff\u03b1\u03b2\u03b3\u03b4\u03b5\u03b6\u03b7\u03b8\u03b9\u03ba\u03bb\u03bc\u03bd\u03be\u03bf\u03c0\u03c1\u03c2\u03c3\u03c4\u03c5\u03c6\u03c7\u03c8\u03c9";
-  private static final String FNAME_EQUIVALENT_CHARS = "aaaaaeeeeiiiiooooouuuunceoaaaoypyabgdezhtjklmnkoprsstufxpo";
+  public static final String FNAME_CONVERTIBLE_CHARS =
+      "\u00e1\u00e0\u00e4\u00e2\u00e3\u00e9\u00e8\u00eb\u00ea\u00ed\u00ec\u00ef\u00ee\u00f3\u00f2\u00f6\u00f4\u00f5\u00fa\u00f9\u00fc\u00fb\u00f1\u00e7\u20ac\u00ba\u00aa\u00e5\u00e6\u00f8\u00fd\u00fe\u00ff\u03b1\u03b2\u03b3\u03b4\u03b5\u03b6\u03b7\u03b8\u03b9\u03ba\u03bb\u03bc\u03bd\u03be\u03bf\u03c0\u03c1\u03c2\u03c3\u03c4\u03c5\u03c6\u03c7\u03c8\u03c9";
+  private static final String FNAME_EQUIVALENT_CHARS =
+      "aaaaaeeeeiiiiooooouuuunceoaaaoypyabgdezhtjklmnkoprsstufxpo";
 
   public static String getValidFileName(String fn) {
     String result = null;
@@ -779,5 +833,4 @@ public class FileSystem extends Object {
     }
     return result;
   }
-
 }

@@ -34,95 +34,95 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.09
  */
-public class JClicProjectEditor extends Editor{
-    
-    protected static ImageIcon icon;
-    
-    ActivityBagEditor abe;
-    ActivitySequenceEditor ase;
-    MediaBagEditor mbe;
-    ProjectSettingsEditor pse;
-    TestPlayerContainer testPlayerContainer;
+public class JClicProjectEditor extends Editor {
 
-    /** Creates a new instance of JClicProjectEditor */
-    public JClicProjectEditor(JClicProject project) {
-        super(project);
-    }
-    
-    protected void createChildren() {
-        JClicProject jcp=getProject();
-        jcp.mediaBag.addListener(jcp.activityBag);
-        abe=(ActivityBagEditor)jcp.activityBag.getEditor(this);
-        ase=(ActivitySequenceEditor)jcp.activitySequence.getEditor(this);
-        mbe=(MediaBagEditor)jcp.mediaBag.getEditor(this);
-        pse=(ProjectSettingsEditor)jcp.settings.getEditor(this);
-    }
-    
-    public EditorPanel createEditorPanel(Options options) {
-        // todo: create editor panel
-        return null;
-    }
-    
-    public Class getEditorPanelClass() {
-        // todo: create panel class
-        return null;
-    }
-    
-    public JClicProject getProject(){
-        return (JClicProject)getFirstObject(JClicProject.class);
-    }
-    
-    public ActivityBagEditor getActivityBagEditor(){
-        return abe;
-    }
-    
-    public ActivitySequenceEditor getActivitySequenceEditor(){
-        return ase;
-    }
-    
-    public MediaBagEditor getMediaBagEditor(){
-        return mbe;
-    }
-    
-    public ProjectSettingsEditor getProjectSettingsEditor(){
-        return pse;
-    }
-    
-    public void setTestPlayerContainer(TestPlayerContainer tpc){
-        testPlayerContainer=tpc;
-    }
-    
-    public TestPlayerContainer getTestPlayerContainer(){
-        return testPlayerContainer;
-    }
-    
-    public boolean nameChanged(int type, String oldName, String newName){
-        boolean result= getActivityBagEditor().nameChanged(type, oldName, newName)
-        | getActivitySequenceEditor().nameChanged(type, oldName, newName)
-        | getMediaBagEditor().nameChanged(type, oldName, newName);
-        return result;
-    }
+  protected static ImageIcon icon;
 
-    public static Icon getIcon(){
-        if(icon==null)
-            icon=edu.xtec.util.ResourceManager.getImageIcon("icons/project_settings.gif");
-        return icon;
-    }
-    
-    public void saveProject(String fileName) throws Exception{
-        collectData();
-        getProject().setName(fileName);
-        getProject().saveProject(fileName);
-        setModified(false);
-    }    
-    
-    public boolean checkProject(Options options, Component parent, boolean prompt){
-        collectData();
-        return getActivityBagEditor().checkOrphanElements(options, parent, prompt)!=Messages.CANCEL
-        && getMediaBagEditor().checkOrphanElements(options, parent, prompt)!=Messages.CANCEL;
-    }
+  ActivityBagEditor abe;
+  ActivitySequenceEditor ase;
+  MediaBagEditor mbe;
+  ProjectSettingsEditor pse;
+  TestPlayerContainer testPlayerContainer;
+
+  /** Creates a new instance of JClicProjectEditor */
+  public JClicProjectEditor(JClicProject project) {
+    super(project);
+  }
+
+  protected void createChildren() {
+    JClicProject jcp = getProject();
+    jcp.mediaBag.addListener(jcp.activityBag);
+    abe = (ActivityBagEditor) jcp.activityBag.getEditor(this);
+    ase = (ActivitySequenceEditor) jcp.activitySequence.getEditor(this);
+    mbe = (MediaBagEditor) jcp.mediaBag.getEditor(this);
+    pse = (ProjectSettingsEditor) jcp.settings.getEditor(this);
+  }
+
+  public EditorPanel createEditorPanel(Options options) {
+    // todo: create editor panel
+    return null;
+  }
+
+  public Class getEditorPanelClass() {
+    // todo: create panel class
+    return null;
+  }
+
+  public JClicProject getProject() {
+    return (JClicProject) getFirstObject(JClicProject.class);
+  }
+
+  public ActivityBagEditor getActivityBagEditor() {
+    return abe;
+  }
+
+  public ActivitySequenceEditor getActivitySequenceEditor() {
+    return ase;
+  }
+
+  public MediaBagEditor getMediaBagEditor() {
+    return mbe;
+  }
+
+  public ProjectSettingsEditor getProjectSettingsEditor() {
+    return pse;
+  }
+
+  public void setTestPlayerContainer(TestPlayerContainer tpc) {
+    testPlayerContainer = tpc;
+  }
+
+  public TestPlayerContainer getTestPlayerContainer() {
+    return testPlayerContainer;
+  }
+
+  public boolean nameChanged(int type, String oldName, String newName) {
+    boolean result =
+        getActivityBagEditor().nameChanged(type, oldName, newName)
+            | getActivitySequenceEditor().nameChanged(type, oldName, newName)
+            | getMediaBagEditor().nameChanged(type, oldName, newName);
+    return result;
+  }
+
+  public static Icon getIcon() {
+    if (icon == null)
+      icon = edu.xtec.util.ResourceManager.getImageIcon("icons/project_settings.gif");
+    return icon;
+  }
+
+  public void saveProject(String fileName) throws Exception {
+    collectData();
+    getProject().setName(fileName);
+    getProject().saveProject(fileName);
+    setModified(false);
+  }
+
+  public boolean checkProject(Options options, Component parent, boolean prompt) {
+    collectData();
+    return getActivityBagEditor().checkOrphanElements(options, parent, prompt) != Messages.CANCEL
+        && getMediaBagEditor().checkOrphanElements(options, parent, prompt) != Messages.CANCEL;
+  }
 }

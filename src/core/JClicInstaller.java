@@ -34,47 +34,46 @@ import edu.xtec.util.PersistentSettings;
  *
  * Created on 20 / febrer / 2004, 16:21
  */
-/**
- *
- * @author Francesc Busquets (fbusquets@xtec.cat)
- */
+/** @author Francesc Busquets (fbusquets@xtec.cat) */
 public abstract class JClicInstaller {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        boolean exit = true;
-        try {
-            Options options = new Options((java.awt.Component) null);
-            Messages messages = PersistentSettings.getMessages(options, Constants.DEFAULT_BUNDLE);
-            messages.addBundle(Constants.COMMON_SETTINGS);
-            messages.addBundle(ExtendedPlayer.MESSAGES_BUNDLE);
-            String installer = SingleInstanceJFrame.loadArgs(args, options);
-            if (installer == null) {
-                System.err.println("Error: no installer file specified!");
-            } else if (!installer.endsWith(".jclic.inst")) {
-                System.err.println("Error: " + installer + " isn't a JClic package install script.\nJClic package install scripts end always with .jclic.inst");
-            } else {
-                BasicResourceBridge rb = new BasicResourceBridge(options);
-                PlayerSettings settings = PlayerSettings.loadPlayerSettings(rb);
-                if (settings.promptPassword(null, null)) {
-                    settings.checkLibrary();
-                    ProjectInstallerDlg pi = ProjectInstallerDlg.getProjectInstallerDlg(null, settings.libraryManager, installer);
-                    if (pi != null) {
-                        pi.setVisible(true);
-                        if (!pi.cancel && pi.launchNow && pi.pathToMainProject != null) {
-                            JClicPlayer.main(new String[]{pi.pathToMainProject});
-                            exit = false;
-                        }
-                    }
-                }
+  /** @param args the command line arguments */
+  public static void main(String[] args) {
+    boolean exit = true;
+    try {
+      Options options = new Options((java.awt.Component) null);
+      Messages messages = PersistentSettings.getMessages(options, Constants.DEFAULT_BUNDLE);
+      messages.addBundle(Constants.COMMON_SETTINGS);
+      messages.addBundle(ExtendedPlayer.MESSAGES_BUNDLE);
+      String installer = SingleInstanceJFrame.loadArgs(args, options);
+      if (installer == null) {
+        System.err.println("Error: no installer file specified!");
+      } else if (!installer.endsWith(".jclic.inst")) {
+        System.err.println(
+            "Error: "
+                + installer
+                + " isn't a JClic package install script.\nJClic package install scripts end always with .jclic.inst");
+      } else {
+        BasicResourceBridge rb = new BasicResourceBridge(options);
+        PlayerSettings settings = PlayerSettings.loadPlayerSettings(rb);
+        if (settings.promptPassword(null, null)) {
+          settings.checkLibrary();
+          ProjectInstallerDlg pi =
+              ProjectInstallerDlg.getProjectInstallerDlg(null, settings.libraryManager, installer);
+          if (pi != null) {
+            pi.setVisible(true);
+            if (!pi.cancel && pi.launchNow && pi.pathToMainProject != null) {
+              JClicPlayer.main(new String[] {pi.pathToMainProject});
+              exit = false;
             }
-        } catch (Exception ex) {
-            System.err.println("Error installing:\n" + ex);
+          }
         }
-        if (exit) {
-            System.exit(0);
-        }
+      }
+    } catch (Exception ex) {
+      System.err.println("Error installing:\n" + ex);
     }
+    if (exit) {
+      System.exit(0);
+    }
+  }
 }

@@ -6,7 +6,7 @@
  * JClic - Authoring and playing system for educational activities
  *
  * Copyright (C) 2000 - 2005 Francesc Busquets & Departament
- * d'Educacio de la Generalitat de Catalunya                                        
+ * d'Educacio de la Generalitat de Catalunya
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,14 +24,17 @@ package edu.xtec.jclic.media;
 import edu.xtec.jclic.bags.MediaBag;
 
 /**
- *
- * @author  Francesc Busquets (fbusquets@xtec.cat)
+ * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
  */
 public interface AudioPlayer {
-    public boolean setDataSource(Object source) throws Exception;    
-    public void realize(String fileName, MediaBag mediaBag) throws Exception;
-    public void close();    
-    public void play();    
-    public void stop();    
+  public boolean setDataSource(Object source) throws Exception;
+
+  public void realize(String fileName, MediaBag mediaBag) throws Exception;
+
+  public void close();
+
+  public void play();
+
+  public void stop();
 }

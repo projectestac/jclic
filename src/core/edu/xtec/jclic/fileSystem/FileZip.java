@@ -6,7 +6,7 @@
  * JClic - Authoring and playing system for educational activities
  *
  * Copyright (C) 2000 - 2005 Francesc Busquets & Departament
- * d'Educacio de la Generalitat de Catalunya                                        
+ * d'Educacio de la Generalitat de Catalunya
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -30,70 +30,67 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10
  */
-public class FileZip extends ZipFileSystem{
+public class FileZip extends ZipFileSystem {
 
-    protected ZipFile zip;
-    
-    /** Creates new ZipFileSystem */
-    public FileZip(String rootPath, String fName, ResourceBridge rb) throws Exception{
-        super(rootPath, fName, rb);
-        open();
+  protected ZipFile zip;
+
+  /** Creates new ZipFileSystem */
+  public FileZip(String rootPath, String fName, ResourceBridge rb) throws Exception {
+    super(rootPath, fName, rb);
+    open();
+  }
+
+  @Override
+  protected void open() throws Exception {
+    if (zip == null) {
+      // zip=new ZipFile(sysFn(root+zipName));
+      zip = new ZipFile(sysFn(root + zipName));
+      Enumeration en = zip.entries();
+      ArrayList<FileZipEntry> v = new ArrayList<FileZipEntry>();
+      while (en.hasMoreElements()) v.add(new FileZipEntry((ZipEntry) en.nextElement()));
+      entries = v.toArray(new FileZipEntry[v.size()]);
     }
-    
-    @Override
-    protected void open() throws Exception{
-        if(zip==null){
-            //zip=new ZipFile(sysFn(root+zipName));
-            zip=new ZipFile(sysFn(root+zipName));
-            Enumeration en=zip.entries();
-            ArrayList<FileZipEntry> v=new ArrayList<FileZipEntry>();
-            while(en.hasMoreElements())
-                v.add(new FileZipEntry((ZipEntry)en.nextElement()));
-            entries=v.toArray(new FileZipEntry[v.size()]);
-        }
+  }
+
+  protected class FileZipEntry extends ExtendedZipEntry {
+    FileZipEntry(ZipEntry entry) {
+      super(entry);
     }
-    
-    protected class FileZipEntry extends ExtendedZipEntry{
-        FileZipEntry(ZipEntry entry){
-            super(entry);
-        }
-        public byte[] getBytes() throws IOException{
-            return StreamIO.readInputStream(getInputStream());
-        }        
-        public InputStream getInputStream() throws IOException{
-            InputStream is=zip.getInputStream(this);
-            if(rb!=null)
-                is=rb.getProgressInputStream(is, (int)getSize(), getName());
-            return is;
-        }
+
+    public byte[] getBytes() throws IOException {
+      return StreamIO.readInputStream(getInputStream());
     }
-        
-    @Override
-    public void close(){
-        if(zip!=null){
-            try{
-                zip.close();
-            }catch(Exception ex){
-                // eat exception
-            }            
-            zip=null;
-        }
-        super.close();
-    }    
-    
-    @Override
-    protected void changeBase(String newRoot, String newFileName) throws Exception{
-        if(zip!=null)
-            throw new Exception("Unable to change base fileName: FileSystem is open!");
-        super.changeBase(newRoot, newFileName);
-        zipName = getCanonicalNameOf(newFileName);
-        entries=null;
-        loaded=false;        
+
+    public InputStream getInputStream() throws IOException {
+      InputStream is = zip.getInputStream(this);
+      if (rb != null) is = rb.getProgressInputStream(is, (int) getSize(), getName());
+      return is;
     }
+  }
+
+  @Override
+  public void close() {
+    if (zip != null) {
+      try {
+        zip.close();
+      } catch (Exception ex) {
+        // eat exception
+      }
+      zip = null;
+    }
+    super.close();
+  }
+
+  @Override
+  protected void changeBase(String newRoot, String newFileName) throws Exception {
+    if (zip != null) throw new Exception("Unable to change base fileName: FileSystem is open!");
+    super.changeBase(newRoot, newFileName);
+    zipName = getCanonicalNameOf(newFileName);
+    entries = null;
+    loaded = false;
+  }
 }

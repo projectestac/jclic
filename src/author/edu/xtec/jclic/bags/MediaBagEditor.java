@@ -46,7 +46,6 @@ import javax.swing.Icon;
 import javax.swing.JComponent;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.16
  */
@@ -57,7 +56,7 @@ public class MediaBagEditor extends Editor {
   public static final int IMG_MIN_SIZE = 10;
   public static final String RESIZED = "resized";
 
-  //public static EditorAction newMediaAction;
+  // public static EditorAction newMediaAction;
   public static boolean actionsCreated;
   private boolean initializing;
   public static EditorAction newMediaBagElementAction, updateAllMediaAction, exportAllMediaAction;
@@ -65,9 +64,7 @@ public class MediaBagEditor extends Editor {
   protected static int imgMaxWidth = DEFAULT_IMG_MAX_WIDTH;
   protected static int imgMaxHeight = DEFAULT_IMG_MAX_HEIGHT;
 
-  /**
-   * Creates a new instance of MediaBagEditor
-   */
+  /** Creates a new instance of MediaBagEditor */
   public MediaBagEditor(MediaBag mb) {
     super(mb);
   }
@@ -106,16 +103,27 @@ public class MediaBagEditor extends Editor {
     return (JClicProjectEditor) getFirstParent(JClicProjectEditor.class);
   }
 
-  public static String[] selectMediaFiles(MediaBag mediaBag, Options options, Component dlgOwner, int fileFilters, String defaultFile) {
+  public static String[] selectMediaFiles(
+      MediaBag mediaBag, Options options, Component dlgOwner, int fileFilters, String defaultFile) {
     String[] result;
     FileSystem fs = mediaBag.getProject().getFileSystem();
-    //int[] filters=new int[]{fileFilters};
-    //if(fileFilters<0){
-    int[] filters = new int[]{Utils.ALL_IMAGES_FF, Utils.ALL_SOUNDS_FF, Utils.MIDI_FF,
-      Utils.ALL_VIDEO_FF, Utils.ALL_ANIM_FF, Utils.FONTS_FF, Utils.SKINS_FF,
-      Utils.ALL_MEDIA_FF};
-    //}
-    result = fs.chooseFiles(defaultFile, false, filters, options, "edit_find_media", dlgOwner, true, true);
+    // int[] filters=new int[]{fileFilters};
+    // if(fileFilters<0){
+    int[] filters =
+        new int[] {
+          Utils.ALL_IMAGES_FF,
+          Utils.ALL_SOUNDS_FF,
+          Utils.MIDI_FF,
+          Utils.ALL_VIDEO_FF,
+          Utils.ALL_ANIM_FF,
+          Utils.FONTS_FF,
+          Utils.SKINS_FF,
+          Utils.ALL_MEDIA_FF
+        };
+    // }
+    result =
+        fs.chooseFiles(
+            defaultFile, false, filters, options, "edit_find_media", dlgOwner, true, true);
     if (result != null) {
       for (int i = 0; i < result.length; i++) {
         if (result[i] != null) {
@@ -144,7 +152,8 @@ public class MediaBagEditor extends Editor {
     return result;
   }
 
-  public MediaBagElementEditor[] createNewMediaBagElements(Options options, Component dlgOwner, int fileFilters) {
+  public MediaBagElementEditor[] createNewMediaBagElements(
+      Options options, Component dlgOwner, int fileFilters) {
     MediaBagElementEditor[] result = null;
     Messages msg = options.getMessages();
     MediaBag mb = getMediaBag();
@@ -154,11 +163,11 @@ public class MediaBagEditor extends Editor {
       List<MediaBagElementEditor> v = new ArrayList<MediaBagElementEditor>();
       for (int i = 0; i < fNames.length; i++) {
         if (mb.getElementByFileName(fNames[i]) != null) {
-          msg.showAlert(dlgOwner, new String[]{
-            msg.get("edit_media_exists_1"),
-            fNames[i],
-            msg.get("edit_media_exists_2")
-          });
+          msg.showAlert(
+              dlgOwner,
+              new String[] {
+                msg.get("edit_media_exists_1"), fNames[i], msg.get("edit_media_exists_2")
+              });
         } else {
           MediaBagElement mbe = new MediaBagElement(fNames[i], null, getValidMediaName(fNames[i]));
           boolean cancel = false;
@@ -181,16 +190,19 @@ public class MediaBagEditor extends Editor {
               int imgHeight = img.getHeight(null);
 
               if ((imgWidth > imgMaxWidth || imgHeight > imgMaxHeight)) {
-                int answer = msg.showQuestionDlgObj(
+                int answer =
+                    msg.showQuestionDlgObj(
                         dlgOwner,
-                        new String[]{StrUtils.replace(
-                                  msg.get("img_resize_prompt"),
-                                  "%s",
-                                  new String[]{
-                                    fNames[i],
-                                    "" + imgWidth + "x" + imgHeight,
-                                    "" + imgMaxWidth + "x" + imgMaxHeight
-                                  })},
+                        new String[] {
+                          StrUtils.replace(
+                              msg.get("img_resize_prompt"),
+                              "%s",
+                              new String[] {
+                                fNames[i],
+                                "" + imgWidth + "x" + imgHeight,
+                                "" + imgMaxWidth + "x" + imgMaxHeight
+                              })
+                        },
                         "CONFIRM",
                         "ync");
 
@@ -214,8 +226,10 @@ public class MediaBagEditor extends Editor {
                   }
 
                   try {
-                    javax.swing.ImageIcon resizedImg = mbe.getThumbNail(imgMaxWidth, imgMaxHeight, fs);
-                    BufferedImage bimg = Utils.toBufferedImage(resizedImg.getImage(), Color.white, null);
+                    javax.swing.ImageIcon resizedImg =
+                        mbe.getThumbNail(imgMaxWidth, imgMaxHeight, fs);
+                    BufferedImage bimg =
+                        Utils.toBufferedImage(resizedImg.getImage(), Color.white, null);
                     javax.imageio.ImageIO.write(bimg, "jpg", destFile);
                     fNames[i] = newName;
                     mbe = new MediaBagElement(fNames[i], null, getValidMediaName(fNames[i]));
@@ -223,7 +237,6 @@ public class MediaBagEditor extends Editor {
                     cancel = true;
                     msg.showErrorWarning(dlgOwner, "err_file_save", ex);
                   }
-
                 }
               }
             }
@@ -231,7 +244,7 @@ public class MediaBagEditor extends Editor {
 
           if (!cancel && mb.addElement(mbe)) {
             v.add((MediaBagElementEditor) mbe.getEditor(this));
-            //fireEditorDataChanged(null);
+            // fireEditorDataChanged(null);
           }
         }
       }
@@ -245,125 +258,131 @@ public class MediaBagEditor extends Editor {
 
   public void updateAllElements(JComponent parent) {
     final ProgressDialog progressDialog = new ProgressDialog(parent, getOptions());
-    edu.xtec.util.SwingWorker sw = new edu.xtec.util.SwingWorker() {
+    edu.xtec.util.SwingWorker sw =
+        new edu.xtec.util.SwingWorker() {
 
-      @Override
-      public Object construct() {
-        FileSystem fs = getMediaBag().getProject().getFileSystem();
-        ZipFileSystem zfs = (fs instanceof ZipFileSystem) ? (ZipFileSystem) fs : null;
-        int count = 0, updated = 0;
-        progressDialog.setProgressMax(getChildCount());
-        progressDialog.setProgressValue(count);
+          @Override
+          public Object construct() {
+            FileSystem fs = getMediaBag().getProject().getFileSystem();
+            ZipFileSystem zfs = (fs instanceof ZipFileSystem) ? (ZipFileSystem) fs : null;
+            int count = 0, updated = 0;
+            progressDialog.setProgressMax(getChildCount());
+            progressDialog.setProgressValue(count);
 
-        Enumeration en = children();
-        while (en.hasMoreElements() && !isCancelled()) {
-          MediaBagElementEditor mbeled = (MediaBagElementEditor) en.nextElement();
-          String fName = mbeled.getMediaBagElement().getFileName();
-          progressDialog.setFileLabel(fName);
-          if (fs.realFileExists(fName)) {
-            if (zfs != null) {
-              ZipFileSystem.ExtendedZipEntry ze = zfs.getEntry(fName);
-              if (ze != null && zfs.fileExists(fName)) {
-                ze.ignore = true;
+            Enumeration en = children();
+            while (en.hasMoreElements() && !isCancelled()) {
+              MediaBagElementEditor mbeled = (MediaBagElementEditor) en.nextElement();
+              String fName = mbeled.getMediaBagElement().getFileName();
+              progressDialog.setFileLabel(fName);
+              if (fs.realFileExists(fName)) {
+                if (zfs != null) {
+                  ZipFileSystem.ExtendedZipEntry ze = zfs.getEntry(fName);
+                  if (ze != null && zfs.fileExists(fName)) {
+                    ze.ignore = true;
+                  }
+                }
+                mbeled.updateContent(null);
+                updated++;
               }
-            }            
-            mbeled.updateContent(null);
-            updated++;
+              progressDialog.setProgressValue(++count);
+            }
+            progressDialog.setFileLabel(null);
+            if (updated > 0) {
+              setModified(true);
+              fireEditorDataChanged(null);
+            }
+            return null;
           }
-          progressDialog.setProgressValue(++count);
-        }        
-        progressDialog.setFileLabel(null);
-        if(updated > 0){
-          setModified(true);
-          fireEditorDataChanged(null);
-        }
-        return null;
-      }
 
-      @Override
-      public void finished() {
-        progressDialog.setVisible(false);
-      }
-    };
-    progressDialog.start("edit_media_refreshAll", "edit_media_refreshAll_working", sw, true, true, false);
+          @Override
+          public void finished() {
+            progressDialog.setVisible(false);
+          }
+        };
+    progressDialog.start(
+        "edit_media_refreshAll", "edit_media_refreshAll_working", sw, true, true, false);
   }
 
   public void exportAllElements(final JComponent parent) {
     final Options options = getOptions();
     final ProgressDialog progressDialog = new ProgressDialog(parent, options);
-    edu.xtec.util.SwingWorker sw = new edu.xtec.util.SwingWorker() {
+    edu.xtec.util.SwingWorker sw =
+        new edu.xtec.util.SwingWorker() {
 
-      @Override
-      public Object construct() {
-        FileSystem fs = getMediaBag().getProject().getFileSystem();
-        ZipFileSystem zfs = (fs instanceof ZipFileSystem) ? (ZipFileSystem) fs : null;
-        String dlgMsg = options.getMessages().get("filesystem_copyFile");
-        int count = 0;
-        progressDialog.setProgressMax(getChildCount());
-        progressDialog.setProgressValue(count);
-        Enumeration en = children();
-        boolean overwriteAll = false;
-        boolean overwriteNone = false;
-        while (en.hasMoreElements() && !isCancelled()) {
-          MediaBagElementEditor mbeled = (MediaBagElementEditor) en.nextElement();
-          String fName = mbeled.getMediaBagElement().getFileName();
-          if (zfs != null) {
-            ZipFileSystem.ExtendedZipEntry ze = zfs.getEntry(fName);
-            if (ze != null && !ze.ignore) {
-              progressDialog.setFileLabel(fName);
-              String fNameDest = zfs.getFullFileNamePath(fName);
-              File fileDest = new File(fNameDest);
-              boolean prompt = true;
-              if (fileDest.exists()) {
-                if (overwriteNone) {
-                  continue;
-                } else if (!overwriteAll) {
-                  boolean next = false;
-                  boolean cancel = false;
-                  switch (options.getMessages().confirmOverwriteFile(parent, fileDest, "yYnNc")) {
-                    case Messages.NO_TO_ALL:
-                      overwriteNone = true;
-                    case Messages.NO:
-                      next = true;
-                      break;
-                    case Messages.YES_TO_ALL:
-                      overwriteAll = true;
-                    case Messages.YES:
-                      break;
-                    default:
-                      cancel = true;
+          @Override
+          public Object construct() {
+            FileSystem fs = getMediaBag().getProject().getFileSystem();
+            ZipFileSystem zfs = (fs instanceof ZipFileSystem) ? (ZipFileSystem) fs : null;
+            String dlgMsg = options.getMessages().get("filesystem_copyFile");
+            int count = 0;
+            progressDialog.setProgressMax(getChildCount());
+            progressDialog.setProgressValue(count);
+            Enumeration en = children();
+            boolean overwriteAll = false;
+            boolean overwriteNone = false;
+            while (en.hasMoreElements() && !isCancelled()) {
+              MediaBagElementEditor mbeled = (MediaBagElementEditor) en.nextElement();
+              String fName = mbeled.getMediaBagElement().getFileName();
+              if (zfs != null) {
+                ZipFileSystem.ExtendedZipEntry ze = zfs.getEntry(fName);
+                if (ze != null && !ze.ignore) {
+                  progressDialog.setFileLabel(fName);
+                  String fNameDest = zfs.getFullFileNamePath(fName);
+                  File fileDest = new File(fNameDest);
+                  boolean prompt = true;
+                  if (fileDest.exists()) {
+                    if (overwriteNone) {
+                      continue;
+                    } else if (!overwriteAll) {
+                      boolean next = false;
+                      boolean cancel = false;
+                      switch (options
+                          .getMessages()
+                          .confirmOverwriteFile(parent, fileDest, "yYnNc")) {
+                        case Messages.NO_TO_ALL:
+                          overwriteNone = true;
+                        case Messages.NO:
+                          next = true;
+                          break;
+                        case Messages.YES_TO_ALL:
+                          overwriteAll = true;
+                        case Messages.YES:
+                          break;
+                        default:
+                          cancel = true;
+                      }
+                      if (next) {
+                        continue;
+                      } else if (cancel) {
+                        break;
+                      }
+                    }
                   }
-                  if (next) {
-                    continue;
-                  } else if (cancel) {
+                  try {
+                    OutputStream os = zfs.createSecureFileOutputStream(fNameDest);
+                    // int len=(int)zfs.getFileLength(fName);
+                    InputStream is = zfs.getInputStream(fName);
+                    StreamIO.writeStreamTo(is, os);
+                    // StreamIO.writeStreamDlg(is, os, len, dlgMsg, progressDialog, options);
+                  } catch (Exception ex) {
+                    options.getMessages().showErrorWarning(progressDialog, "FILE_ERR_SAVING", ex);
                     break;
                   }
                 }
-              }
-              try {
-                OutputStream os = zfs.createSecureFileOutputStream(fNameDest);
-                //int len=(int)zfs.getFileLength(fName);
-                InputStream is = zfs.getInputStream(fName);
-                StreamIO.writeStreamTo(is, os);
-                //StreamIO.writeStreamDlg(is, os, len, dlgMsg, progressDialog, options);
-              } catch (Exception ex) {
-                options.getMessages().showErrorWarning(progressDialog, "FILE_ERR_SAVING", ex);
-                break;
+                progressDialog.setProgressValue(++count);
               }
             }
-            progressDialog.setProgressValue(++count);
+            progressDialog.setFileLabel(null);
+            return null;
           }
-        }
-        progressDialog.setFileLabel(null);
-        return null;
-      }
 
-      @Override
-      public void finished() {
-        progressDialog.setVisible(false);
-      }
-    };
-    progressDialog.start("edit_media_refreshAll", "edit_media_refreshAll_working", sw, true, true, false);
+          @Override
+          public void finished() {
+            progressDialog.setVisible(false);
+          }
+        };
+    progressDialog.start(
+        "edit_media_refreshAll", "edit_media_refreshAll_working", sw, true, true, false);
   }
 
   @Override
@@ -392,41 +411,54 @@ public class MediaBagEditor extends Editor {
   public static void createActions(Options opt) {
     createBasicActions(opt);
     if (!actionsCreated) {
-      newMediaBagElementAction = new EditorAction("edit_media_new", "icons/media_new.gif", "edit_media_new_tooltip", opt) {
-        protected void doAction(Editor e) {
-          Editor ch = null;
-          if (e instanceof MediaBagElementEditor) {
-            ch = e;
-            e = e.getEditorParent();
-          }
-          if (e instanceof MediaBagEditor) {
-            EditorPanel ep = getEditorPanelSrc();
-            MediaBagMultiEditorPanel mbep = null;
-            if (ep instanceof MediaBagMultiEditorPanel) {
-              mbep = (MediaBagMultiEditorPanel) ep;
+      newMediaBagElementAction =
+          new EditorAction("edit_media_new", "icons/media_new.gif", "edit_media_new_tooltip", opt) {
+            protected void doAction(Editor e) {
+              Editor ch = null;
+              if (e instanceof MediaBagElementEditor) {
+                ch = e;
+                e = e.getEditorParent();
+              }
+              if (e instanceof MediaBagEditor) {
+                EditorPanel ep = getEditorPanelSrc();
+                MediaBagMultiEditorPanel mbep = null;
+                if (ep instanceof MediaBagMultiEditorPanel) {
+                  mbep = (MediaBagMultiEditorPanel) ep;
+                }
+                int filters = (mbep == null ? -1 : mbep.getFilters());
+                MediaBagElementEditor[] mbed =
+                    ((MediaBagEditor) e)
+                        .createNewMediaBagElements(options, getComponentSrc(), filters);
+                if (mbed != null && mbed.length > 0 && mbep != null) {
+                  mbep.setSelected(mbed[0]);
+                }
+              }
             }
-            int filters = (mbep == null ? -1 : mbep.getFilters());
-            MediaBagElementEditor[] mbed = ((MediaBagEditor) e).createNewMediaBagElements(options, getComponentSrc(), filters);
-            if (mbed != null && mbed.length > 0 && mbep != null) {
-              mbep.setSelected(mbed[0]);
+          };
+      updateAllMediaAction =
+          new EditorAction(
+              "edit_media_refreshAll",
+              "icons/reset_all.gif",
+              "edit_media_refreshAll_tooltip",
+              opt) {
+            protected void doAction(Editor e) {
+              if (e instanceof MediaBagEditor) {
+                ((MediaBagEditor) e).updateAllElements(getJComponentSrc());
+              }
             }
-          }
-        }
-      };
-      updateAllMediaAction = new EditorAction("edit_media_refreshAll", "icons/reset_all.gif", "edit_media_refreshAll_tooltip", opt) {
-        protected void doAction(Editor e) {
-          if (e instanceof MediaBagEditor) {
-            ((MediaBagEditor) e).updateAllElements(getJComponentSrc());
-          }
-        }
-      };
-      exportAllMediaAction = new EditorAction("edit_media_exportAll", "icons/file_save_all.gif", "edit_media_exportAll_tooltip", opt) {
-        protected void doAction(Editor e) {
-          if (e instanceof MediaBagEditor) {
-            ((MediaBagEditor) e).exportAllElements(getJComponentSrc());
-          }
-        }
-      };
+          };
+      exportAllMediaAction =
+          new EditorAction(
+              "edit_media_exportAll",
+              "icons/file_save_all.gif",
+              "edit_media_exportAll_tooltip",
+              opt) {
+            protected void doAction(Editor e) {
+              if (e instanceof MediaBagEditor) {
+                ((MediaBagEditor) e).exportAllElements(getJComponentSrc());
+              }
+            }
+          };
       actionsCreated = true;
     }
   }
@@ -501,12 +533,21 @@ public class MediaBagEditor extends Editor {
     if (!v.isEmpty()) {
       boolean doIt = !prompt;
       if (!doIt) {
-        //result=options.getMessages().showQuestionDlg(parent, "edit_project_orphanMedia", null, true);
-        Object[] object = new Object[]{
-          options.getMsg("edit_project_orphanMedia"),
-          v.size() > 10 ? (Object) (new javax.swing.JScrollPane(new javax.swing.JList<Object>(v.toArray()))) : (Object) v,
-          options.getMsg("edit_project_orphanMedia_prompt"),};
-        result = options.getMessages().showQuestionDlgObj(parent, object, "edit_project_orphanMedia_title", "ync");
+        // result=options.getMessages().showQuestionDlg(parent, "edit_project_orphanMedia", null,
+        // true);
+        Object[] object =
+            new Object[] {
+              options.getMsg("edit_project_orphanMedia"),
+              v.size() > 10
+                  ? (Object)
+                      (new javax.swing.JScrollPane(new javax.swing.JList<Object>(v.toArray())))
+                  : (Object) v,
+              options.getMsg("edit_project_orphanMedia_prompt"),
+            };
+        result =
+            options
+                .getMessages()
+                .showQuestionDlgObj(parent, object, "edit_project_orphanMedia_title", "ync");
         doIt = (result == Messages.YES);
       }
       if (doIt) {
@@ -534,5 +575,4 @@ public class MediaBagEditor extends Editor {
   public static void setImgMaxHeight(int height) {
     imgMaxHeight = Math.max(IMG_MIN_SIZE, height);
   }
-
 }

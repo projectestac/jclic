@@ -25,38 +25,36 @@ import javax.swing.JComponent;
 import javax.swing.border.Border;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
-public class SmallButtonBorder implements Border{
-    
-    boolean borderOn;
-    Border m_border;
-    
-    public SmallButtonBorder(Border border, boolean borderOn){
-        m_border=border;
-        this.borderOn=borderOn;
-    }
-    
-    public SmallButtonBorder(JComponent jc, boolean borderOn){
-        this(jc.getBorder(), borderOn);
-    }
-    
-    public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
-        if(borderOn)
-            m_border.paintBorder(c, g, x, y, width, height);
-    }
-    
-    public java.awt.Insets getBorderInsets(java.awt.Component component) {
-        java.awt.Insets i=(java.awt.Insets)m_border.getBorderInsets(component).clone();
-        i.left=i.top;
-        i.right=i.bottom;
-        return i;
-    }
-    
-    public boolean isBorderOpaque() {
-        return m_border.isBorderOpaque();
-    }    
-    
+public class SmallButtonBorder implements Border {
+
+  boolean borderOn;
+  Border m_border;
+
+  public SmallButtonBorder(Border border, boolean borderOn) {
+    m_border = border;
+    this.borderOn = borderOn;
+  }
+
+  public SmallButtonBorder(JComponent jc, boolean borderOn) {
+    this(jc.getBorder(), borderOn);
+  }
+
+  public void paintBorder(
+      java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
+    if (borderOn) m_border.paintBorder(c, g, x, y, width, height);
+  }
+
+  public java.awt.Insets getBorderInsets(java.awt.Component component) {
+    java.awt.Insets i = (java.awt.Insets) m_border.getBorderInsets(component).clone();
+    i.left = i.top;
+    i.right = i.bottom;
+    return i;
+  }
+
+  public boolean isBorderOpaque() {
+    return m_border.isBorderOpaque();
+  }
 }

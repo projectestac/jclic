@@ -31,51 +31,48 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.16
  */
-public abstract class AutoContentProviderEditor extends Editor{
-    
-    protected static ImageIcon icon;
-    
-    /** Creates a new instance of AutoContentProviderEditor */
-    public AutoContentProviderEditor(AutoContentProvider acp) {
-        super(acp);
+public abstract class AutoContentProviderEditor extends Editor {
+
+  protected static ImageIcon icon;
+
+  /** Creates a new instance of AutoContentProviderEditor */
+  public AutoContentProviderEditor(AutoContentProvider acp) {
+    super(acp);
+  }
+
+  protected void createChildren() {}
+
+  public AutoContentProvider getAutoContentProvider() {
+    return (AutoContentProvider) userObject;
+  }
+
+  @Override
+  public String getTitleKey() {
+    return "edit_acp";
+  }
+
+  public static Icon getIcon() {
+    if (icon == null) icon = edu.xtec.util.ResourceManager.getImageIcon("icons/miniclic.png");
+    return icon;
+  }
+
+  public static final String SYSTEM_LIST = "automation.contentproviders";
+
+  public static List<TripleString> getSystemContentProvidersList(Options options) {
+    List<TripleString> result;
+    try {
+      result = TripleString.getTripleList(SYSTEM_LIST, options, true, true, true);
+    } catch (Exception ex) {
+      System.err.println("Error reading list of content providers!\n" + ex);
+      result = new ArrayList<TripleString>();
     }
-    
-    protected void createChildren() {
-    }
-    
-    public AutoContentProvider getAutoContentProvider(){
-        return (AutoContentProvider)userObject;
-    }
-    
-    @Override
-    public String getTitleKey(){
-        return "edit_acp";
-    }
-    
-    public static Icon getIcon(){
-        if(icon==null)
-            icon=edu.xtec.util.ResourceManager.getImageIcon("icons/miniclic.png");
-        return icon;
-    }    
-    
-    public static final String SYSTEM_LIST="automation.contentproviders";
-    public static List<TripleString> getSystemContentProvidersList(Options options){
-        List<TripleString> result;
-        try{
-            result=TripleString.getTripleList(SYSTEM_LIST, options, true, true, true);
-        } catch(Exception ex){
-            System.err.println("Error reading list of content providers!\n"+ex);
-            result=new ArrayList<TripleString>();
-        }
-        return  result;
-    }
-    
-    public Activity getActivity(){
-        return (Activity)getFirstObject(Activity.class);
-    }
-            
+    return result;
+  }
+
+  public Activity getActivity() {
+    return (Activity) getFirstObject(Activity.class);
+  }
 }

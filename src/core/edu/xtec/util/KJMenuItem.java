@@ -27,29 +27,26 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 
 /**
- *
- * @author  Francesc Busquets (fbusquets@xtec.cat)
+ * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
-public class KJMenuItem extends JMenuItem{
-    
-    /** Creates a new instance of KJMenuItem */
-    public KJMenuItem(Action a) {
-        super(a);
+public class KJMenuItem extends JMenuItem {
+
+  /** Creates a new instance of KJMenuItem */
+  public KJMenuItem(Action a) {
+    super(a);
+  }
+
+  @Override
+  protected void configurePropertiesFromAction(Action a) {
+    setText((a != null ? (String) a.getValue(Action.NAME) : null));
+    setIcon((a != null ? (Icon) a.getValue(Action.SMALL_ICON) : null));
+    setEnabled((a != null ? a.isEnabled() : true));
+    if (a != null) {
+      Object o = a.getValue(Action.ACCELERATOR_KEY);
+      if (o != null && o instanceof KeyStroke) setAccelerator((KeyStroke) o);
+      o = a.getValue(Action.MNEMONIC_KEY);
+      if (o != null && o instanceof Integer) setMnemonic(((Integer) o).intValue());
     }
-    
-    @Override
-    protected void configurePropertiesFromAction(Action a) {
-        setText((a!=null?(String)a.getValue(Action.NAME):null));
-        setIcon((a!=null?(Icon)a.getValue(Action.SMALL_ICON):null));
-        setEnabled((a!=null?a.isEnabled():true));
-        if(a!=null){
-            Object o=a.getValue(Action.ACCELERATOR_KEY);
-            if(o!=null && o instanceof KeyStroke)
-                setAccelerator((KeyStroke)o);
-            o=a.getValue(Action.MNEMONIC_KEY);
-            if(o!=null && o instanceof Integer)
-                setMnemonic(((Integer)o).intValue());
-        }
-    }
+  }
 }

@@ -30,37 +30,35 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
  */
 public class ResizerPanel extends JPanel {
-    
-    public static final String DEFAULT_TEXTURE="textures/diagonal.gif";
-    TexturePaint tp;
-    
-    public ResizerPanel(){
-        this(DEFAULT_TEXTURE);
-    }
-    
-    public ResizerPanel(String texture){
-        super();
-        ImageIcon img=edu.xtec.util.ResourceManager.getImageIcon(texture);
-        int w=img.getIconWidth();
-        int h=img.getIconHeight();
-        BufferedImage bi = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
-        Graphics2D big = bi.createGraphics();
-        big.setBackground(getBackground());
-        big.drawImage(img.getImage(), 0, 0, getBackground(), null);
-        Rectangle r = new Rectangle(0, 0, w, h);
-	tp=new TexturePaint(bi, r);
-    }
-    
-    @Override
-    protected void paintComponent(Graphics g){
-        Graphics2D g2=(Graphics2D)g;
-        g2.setPaint(tp);
-        g2.fill(g2.getClipBounds());
-    }
-    
+
+  public static final String DEFAULT_TEXTURE = "textures/diagonal.gif";
+  TexturePaint tp;
+
+  public ResizerPanel() {
+    this(DEFAULT_TEXTURE);
+  }
+
+  public ResizerPanel(String texture) {
+    super();
+    ImageIcon img = edu.xtec.util.ResourceManager.getImageIcon(texture);
+    int w = img.getIconWidth();
+    int h = img.getIconHeight();
+    BufferedImage bi = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+    Graphics2D big = bi.createGraphics();
+    big.setBackground(getBackground());
+    big.drawImage(img.getImage(), 0, 0, getBackground(), null);
+    Rectangle r = new Rectangle(0, 0, w, h);
+    tp = new TexturePaint(bi, r);
+  }
+
+  @Override
+  protected void paintComponent(Graphics g) {
+    Graphics2D g2 = (Graphics2D) g;
+    g2.setPaint(tp);
+    g2.fill(g2.getClipBounds());
+  }
 }

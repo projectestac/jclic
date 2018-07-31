@@ -6,7 +6,7 @@
  * JClic - Authoring and playing system for educational activities
  *
  * Copyright (C) 2000 - 2005 Francesc Busquets & Departament
- * d'Educacio de la Generalitat de Catalunya                                        
+ * d'Educacio de la Generalitat de Catalunya
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,137 +26,132 @@ import edu.xtec.util.Check;
 import edu.xtec.util.Options;
 
 /**
- *
- * @author  Francesc Busquets (fbusquets@xtec.cat)
+ * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
  */
 public final class CheckMediaSystem {
-    
-    public static final String QTLOCK="QTLOCK";
-    static final String BUNDLE="messages.CheckMediaSystemMessages";
-    public static Object qtLock=null;
-    public static Object qt61Lock=null;
-            
-    public static boolean check(Options options, boolean showWarning){
-        
-        boolean result=false;
-        
-        boolean qt=(qtLock!=null);        
-        boolean qt61=(qt61Lock!=null);
-        
-        // Modified 18-oct-2005
-        // Problems with QTJava for Windows: security exception "QTJava has expired" 
-        // makes Java crash. Use QT only with Mac OS X.
-        boolean checkQT=(options.getBoolean(Options.MAC) && !options.getBoolean(Options.ARCH64BIT))
-        || Constants.TRUE.equalsIgnoreCase(System.getProperty("FORCE_USE_QT"));
-        
-        if(checkQT && !qt61){
-            try{
-                // 03-Apr-2008: Perform a previous check of the class as resource in order to avoid
-                // uncatchable exceptions in applets                
-                if(CheckMediaSystem.class.getResource("/quicktime/app/view/QTFactory.class")!=null){
-                    Class.forName("quicktime.app.view.QTFactory");
-                    qt61=true;
-                    qt=false;
-                }
-            }catch(Exception ex){
-                // No quicktime 6.1 available
-            }
-        }
-        options.put(Constants.QT61, qt61);
-        
-        // 27-Nov-2007: QuickTime 6.0 or previous is not yet supported by JClic
-		/*
-        if(checkQT && !qt && !qt61 &&
-            !options.getBoolean(Options.JAVA14)){
-                // QuickTime for java doesn't work with Java 1.4!!!
-            //((options.getBoolean(Options.WIN) && !options.getBoolean(Options.JAVA14))
-            //||(options.getBoolean(Options.MAC)))){
-            try{
-		Class.forName("quicktime.QTSession");
-                qt=true;
-            } catch(Exception ex){
-                // no quicktime available
-            }
-        }
-		*/
-        options.put(Constants.QT, qt);
 
-        boolean jmf=false;
-        try{
-            // 03-Apr-2008: Perform a previous check of the class as resource in order to avoid
-            // uncatchable exceptions in applets
-            if(CheckMediaSystem.class.getResource("/javax/media/Player.class")!=null){
-                Class.forName("javax.media.Player");
-                jmf=true;
-            }
-        } catch(Exception ex){
-            // no JMF available
+  public static final String QTLOCK = "QTLOCK";
+  static final String BUNDLE = "messages.CheckMediaSystemMessages";
+  public static Object qtLock = null;
+  public static Object qt61Lock = null;
+
+  public static boolean check(Options options, boolean showWarning) {
+
+    boolean result = false;
+
+    boolean qt = (qtLock != null);
+    boolean qt61 = (qt61Lock != null);
+
+    // Modified 18-oct-2005
+    // Problems with QTJava for Windows: security exception "QTJava has expired"
+    // makes Java crash. Use QT only with Mac OS X.
+    boolean checkQT =
+        (options.getBoolean(Options.MAC) && !options.getBoolean(Options.ARCH64BIT))
+            || Constants.TRUE.equalsIgnoreCase(System.getProperty("FORCE_USE_QT"));
+
+    if (checkQT && !qt61) {
+      try {
+        // 03-Apr-2008: Perform a previous check of the class as resource in order to avoid
+        // uncatchable exceptions in applets
+        if (CheckMediaSystem.class.getResource("/quicktime/app/view/QTFactory.class") != null) {
+          Class.forName("quicktime.app.view.QTFactory");
+          qt61 = true;
+          qt = false;
         }
-        options.put(Constants.JMF, jmf);
-        
-        String mediaSystem=(String)options.get(Constants.MEDIA_SYSTEM);
-        if(mediaSystem!=null){
-            if(mediaSystem.equals(Constants.QT)){
-                if(qt61)
-                    mediaSystem=Constants.QT61;
-                else if(!qt)
-                    mediaSystem=null;
-            }
-            else if(mediaSystem.equals(Constants.JMF)){
-                if(!jmf)
-                    mediaSystem=null;
-            }
-            else
-                mediaSystem=null;
-        }
-        if(mediaSystem==null)
-            mediaSystem=qt61 ? Constants.QT61 : /*qt ? Constants.QT : */ jmf ? Constants.JMF : null;
-            
-        if(mediaSystem!=null && mediaSystem.equals(Constants.QT61) && qt61Lock==null){
-            try{
-                // 03-Apr-2008
-                // QT61Tools are now included in jclic.jar, so the direct constructor
-                // can be used.
-                //Class cl=Class.forName("edu.xtec.jclic.media.QT61Tools");
-                //qt61Lock=cl.newInstance();
-                qt61Lock=new edu.xtec.jclic.media.QT61Tools();
-                //qt61=(qt61Lock!=null);
-                options.put(QTLOCK, qt61Lock);
-            } catch(Exception ex){
-                options.getMessages().showErrorWarning(options.getMainComponent(), "media_qt_error_initializing", ex);
-                mediaSystem=jmf ? Constants.JMF : null;
-            }
-        }
-		// 27-Nov-2007: QuickTime 6.0 or previous is not yet supported by JClic
-		/*
-        if(mediaSystem==Constants.QT && qtLock==null){
-            try{
-                Class cl=Class.forName("edu.xtec.jclic.media.QTTools");
-                qtLock=cl.newInstance();
-                qt=(qtLock!=null);
-                options.put(QTLOCK, qtLock);
-            } catch(Exception ex){
-                options.getMessages().showErrorWarning(options.getMainComponent(), "media_qt_error_initializing", ex);
-                mediaSystem=jmf ? Constants.JMF : null;
-            }
-        }
-		*/
-        
-        options.put(Constants.MEDIA_SYSTEM, mediaSystem);
-        
-        if(showWarning && mediaSystem==null)
-            warn(options);
-        
-        return mediaSystem!=null;
+      } catch (Exception ex) {
+        // No quicktime 6.1 available
+      }
     }
-    
-    public static void warn(Options options){
-        //if(options.get(Constants.MEDIA_SYSTEM)==null){
-            if(!options.getBoolean(Constants.NO_MEDIASYSTEM_WARN)){
-                Check.showUrlPane(options, "media_check_url");
-                options.putBoolean(Constants.NO_MEDIASYSTEM_WARN, true);
-            }            
-        //}
-    }    
+    options.put(Constants.QT61, qt61);
+
+    // 27-Nov-2007: QuickTime 6.0 or previous is not yet supported by JClic
+    /*
+          if(checkQT && !qt && !qt61 &&
+              !options.getBoolean(Options.JAVA14)){
+                  // QuickTime for java doesn't work with Java 1.4!!!
+              //((options.getBoolean(Options.WIN) && !options.getBoolean(Options.JAVA14))
+              //||(options.getBoolean(Options.MAC)))){
+              try{
+    Class.forName("quicktime.QTSession");
+                  qt=true;
+              } catch(Exception ex){
+                  // no quicktime available
+              }
+          }
+    */
+    options.put(Constants.QT, qt);
+
+    boolean jmf = false;
+    try {
+      // 03-Apr-2008: Perform a previous check of the class as resource in order to avoid
+      // uncatchable exceptions in applets
+      if (CheckMediaSystem.class.getResource("/javax/media/Player.class") != null) {
+        Class.forName("javax.media.Player");
+        jmf = true;
+      }
+    } catch (Exception ex) {
+      // no JMF available
+    }
+    options.put(Constants.JMF, jmf);
+
+    String mediaSystem = (String) options.get(Constants.MEDIA_SYSTEM);
+    if (mediaSystem != null) {
+      if (mediaSystem.equals(Constants.QT)) {
+        if (qt61) mediaSystem = Constants.QT61;
+        else if (!qt) mediaSystem = null;
+      } else if (mediaSystem.equals(Constants.JMF)) {
+        if (!jmf) mediaSystem = null;
+      } else mediaSystem = null;
+    }
+    if (mediaSystem == null)
+      mediaSystem = qt61 ? Constants.QT61 : /*qt ? Constants.QT : */ jmf ? Constants.JMF : null;
+
+    if (mediaSystem != null && mediaSystem.equals(Constants.QT61) && qt61Lock == null) {
+      try {
+        // 03-Apr-2008
+        // QT61Tools are now included in jclic.jar, so the direct constructor
+        // can be used.
+        // Class cl=Class.forName("edu.xtec.jclic.media.QT61Tools");
+        // qt61Lock=cl.newInstance();
+        qt61Lock = new edu.xtec.jclic.media.QT61Tools();
+        // qt61=(qt61Lock!=null);
+        options.put(QTLOCK, qt61Lock);
+      } catch (Exception ex) {
+        options
+            .getMessages()
+            .showErrorWarning(options.getMainComponent(), "media_qt_error_initializing", ex);
+        mediaSystem = jmf ? Constants.JMF : null;
+      }
+    }
+    // 27-Nov-2007: QuickTime 6.0 or previous is not yet supported by JClic
+    /*
+          if(mediaSystem==Constants.QT && qtLock==null){
+              try{
+                  Class cl=Class.forName("edu.xtec.jclic.media.QTTools");
+                  qtLock=cl.newInstance();
+                  qt=(qtLock!=null);
+                  options.put(QTLOCK, qtLock);
+              } catch(Exception ex){
+                  options.getMessages().showErrorWarning(options.getMainComponent(), "media_qt_error_initializing", ex);
+                  mediaSystem=jmf ? Constants.JMF : null;
+              }
+          }
+    */
+
+    options.put(Constants.MEDIA_SYSTEM, mediaSystem);
+
+    if (showWarning && mediaSystem == null) warn(options);
+
+    return mediaSystem != null;
+  }
+
+  public static void warn(Options options) {
+    // if(options.get(Constants.MEDIA_SYSTEM)==null){
+    if (!options.getBoolean(Constants.NO_MEDIASYSTEM_WARN)) {
+      Check.showUrlPane(options, "media_check_url");
+      options.putBoolean(Constants.NO_MEDIASYSTEM_WARN, true);
+    }
+    // }
+  }
 }

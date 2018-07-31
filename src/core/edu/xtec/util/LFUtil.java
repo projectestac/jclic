@@ -27,83 +27,77 @@ import java.awt.Font;
 import javax.swing.SwingUtilities;
 
 /**
- *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
  */
 public abstract class LFUtil {
-    
-    /** Key for Options
-     */
-    public static final String LOOK_AND_FEEL="lookAndFeel";
-    
-    /** Default look &amp; feel name
-     */
-    public static final String DEFAULT="default";
-    /** System look &amp; feel name
-     */
-    public static final String SYSTEM="system";
-    /** Metal look &amp; feel name
-     */
-    public static final String METAL="metal";
-    /** Motif look &amp; feel name
-     */
-    public static final String MOTIF="motif";
-    /** Windows look &amp; feel name
-     */
-    public static final String WINDOWS="windows";
-    
-    public static final String[] VALUES={DEFAULT, SYSTEM, METAL, MOTIF};
-    
-    /** Sets the app look &amp; feel
-     * @param friendlyName Look &amp; feel name. If null, empty or not recognized this function does nohing.
-     */
-    public static void setLookAndFeel(String friendlyName, Component rootComponent){
-        if(friendlyName!=null){
-            try{
-                if(friendlyName.equals(DEFAULT))
-                    setLookAndFeel(null, javax.swing.UIManager.getCrossPlatformLookAndFeelClassName(), rootComponent);
-                else if(friendlyName.equals(SYSTEM))
-                    setLookAndFeel(null, javax.swing.UIManager.getSystemLookAndFeelClassName(), rootComponent);
-                else if(friendlyName.equals(METAL))
-                    setLookAndFeel("javax.swing.plaf", "metal.MetalLookAndFeel", rootComponent);
-                else if(friendlyName.equals(MOTIF))
-                    setLookAndFeel("com.sun.java.swing.plaf", "motif.MotifLookAndFeel", rootComponent);
-                else if(friendlyName.equals(WINDOWS))
-                    setLookAndFeel("com.sun.java.swing.plaf", "windows.WindowsLookAndFeel", rootComponent);
-            }
-            catch(Exception ex){
-                System.err.println("unable to set lookAndFeel to: \""+friendlyName+"\"\n"+ex);
-            }
-        }
-    }
-    
-    private static void setLookAndFeel(String prefix, String className, Component rootComponent) throws Exception{
-        String cl=(prefix!=null && prefix.length()>0) ? prefix+"."+className : className;
-        javax.swing.UIManager.setLookAndFeel(cl);
-        if(rootComponent!=null)
-            SwingUtilities.updateComponentTreeUI(rootComponent);
-    }
 
-    public static Color getSysColor(String key, Color defaultValue){
-        Color result=javax.swing.UIManager.getColor(key);
-        return result==null ? defaultValue : result;
+  /** Key for Options */
+  public static final String LOOK_AND_FEEL = "lookAndFeel";
+
+  /** Default look &amp; feel name */
+  public static final String DEFAULT = "default";
+  /** System look &amp; feel name */
+  public static final String SYSTEM = "system";
+  /** Metal look &amp; feel name */
+  public static final String METAL = "metal";
+  /** Motif look &amp; feel name */
+  public static final String MOTIF = "motif";
+  /** Windows look &amp; feel name */
+  public static final String WINDOWS = "windows";
+
+  public static final String[] VALUES = {DEFAULT, SYSTEM, METAL, MOTIF};
+
+  /**
+   * Sets the app look &amp; feel
+   *
+   * @param friendlyName Look &amp; feel name. If null, empty or not recognized this function does
+   *     nohing.
+   */
+  public static void setLookAndFeel(String friendlyName, Component rootComponent) {
+    if (friendlyName != null) {
+      try {
+        if (friendlyName.equals(DEFAULT))
+          setLookAndFeel(
+              null, javax.swing.UIManager.getCrossPlatformLookAndFeelClassName(), rootComponent);
+        else if (friendlyName.equals(SYSTEM))
+          setLookAndFeel(
+              null, javax.swing.UIManager.getSystemLookAndFeelClassName(), rootComponent);
+        else if (friendlyName.equals(METAL))
+          setLookAndFeel("javax.swing.plaf", "metal.MetalLookAndFeel", rootComponent);
+        else if (friendlyName.equals(MOTIF))
+          setLookAndFeel("com.sun.java.swing.plaf", "motif.MotifLookAndFeel", rootComponent);
+        else if (friendlyName.equals(WINDOWS))
+          setLookAndFeel("com.sun.java.swing.plaf", "windows.WindowsLookAndFeel", rootComponent);
+      } catch (Exception ex) {
+        System.err.println("unable to set lookAndFeel to: \"" + friendlyName + "\"\n" + ex);
+      }
     }
-    
-    public static Color getColor(String key, Color defaultValue){
-        Color result=defaultValue;
-        Object o=javax.swing.UIManager.get(key);
-        if(o!=null && o instanceof Color)
-            result=(Color)o;
-        return result;            
-    }
-    
-    public static Font getFont(String key, Font defaultValue){
-        Font result=defaultValue;
-        Object o=javax.swing.UIManager.get(key);
-        if(o!=null && o instanceof Font)
-            result=(Font)o;
-        return result;            
-    }
-    
+  }
+
+  private static void setLookAndFeel(String prefix, String className, Component rootComponent)
+      throws Exception {
+    String cl = (prefix != null && prefix.length() > 0) ? prefix + "." + className : className;
+    javax.swing.UIManager.setLookAndFeel(cl);
+    if (rootComponent != null) SwingUtilities.updateComponentTreeUI(rootComponent);
+  }
+
+  public static Color getSysColor(String key, Color defaultValue) {
+    Color result = javax.swing.UIManager.getColor(key);
+    return result == null ? defaultValue : result;
+  }
+
+  public static Color getColor(String key, Color defaultValue) {
+    Color result = defaultValue;
+    Object o = javax.swing.UIManager.get(key);
+    if (o != null && o instanceof Color) result = (Color) o;
+    return result;
+  }
+
+  public static Font getFont(String key, Font defaultValue) {
+    Font result = defaultValue;
+    Object o = javax.swing.UIManager.get(key);
+    if (o != null && o instanceof Font) result = (Font) o;
+    return result;
+  }
 }
