@@ -28,14 +28,13 @@ import java.io.FilenameFilter;
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
  */
-public class SimpleFileFilter extends javax.swing.filechooser.FileFilter
-    implements java.io.FileFilter {
+public class SimpleFileFilter extends javax.swing.filechooser.FileFilter implements java.io.FileFilter {
 
   private String m_description = null;
   private String[] m_extension = null;
 
   public SimpleFileFilter(String extension, String description) {
-    this(new String[] {extension}, description);
+    this(new String[] { extension }, description);
   }
 
   public SimpleFileFilter(String[] extension, String description) {
@@ -43,7 +42,8 @@ public class SimpleFileFilter extends javax.swing.filechooser.FileFilter
     m_extension = extension;
     if (m_extension != null)
       for (int i = 0; i < m_extension.length; i++)
-        if (!m_extension[i].startsWith(".")) m_extension[i] = "." + m_extension[i];
+        if (!m_extension[i].startsWith("."))
+          m_extension[i] = "." + m_extension[i];
   }
 
   public String getDescription() {
@@ -52,8 +52,10 @@ public class SimpleFileFilter extends javax.swing.filechooser.FileFilter
 
   public boolean accept(File f) {
     boolean result = false;
-    if (f == null) result = false;
-    else if (f.isDirectory()) result = true;
+    if (f == null)
+      result = false;
+    else if (f.isDirectory())
+      result = true;
     else if (m_extension != null) {
       String s = f.getName().toLowerCase();
       for (String ex : m_extension)
@@ -77,7 +79,8 @@ public class SimpleFileFilter extends javax.swing.filechooser.FileFilter
     File result = f;
     if (!accept(result)) {
       for (String ex : m_extension)
-        if (!ex.equals(".*")) result = new File(f.getAbsolutePath() + ex);
+        if (!ex.equals(".*"))
+          result = new File(f.getAbsolutePath() + ex);
     }
     return result;
   }

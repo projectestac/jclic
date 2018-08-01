@@ -29,9 +29,10 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 /**
- * This class is just a {@link javax.swing.JDialog} with a {@link java.awt.event.WindowAdapter} that
- * checks for focus lost. It also provides an utility method to place the dialog window centered
- * over another swing object.
+ * This class is just a {@link javax.swing.JDialog} with a
+ * {@link java.awt.event.WindowAdapter} that checks for focus lost. It also
+ * provides an utility method to place the dialog window centered over another
+ * swing object.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
@@ -60,11 +61,8 @@ public class ExtendedJDialog extends JDialog {
     /*
      * Removed due to problems with MAC OSX
      *
-    wa=new java.awt.event.WindowAdapter(){
-        public void windowDeactivated(java.awt.event.WindowEvent e){
-            requestFocus();
-        }
-    };
+     * wa=new java.awt.event.WindowAdapter(){ public void
+     * windowDeactivated(java.awt.event.WindowEvent e){ requestFocus(); } };
      */
   }
 

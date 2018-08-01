@@ -62,7 +62,8 @@ public class ImgButton extends NullableObject {
   @Override
   public void setObject(Object value) {
     super.setObject(value);
-    if (nullValue || object == null || mbe == null) button.setIcon(null);
+    if (nullValue || object == null || mbe == null)
+      button.setIcon(null);
     else {
       try {
         Rectangle r = button.getVisibleRect();
@@ -86,8 +87,8 @@ public class ImgButton extends NullableObject {
 
   @Override
   protected Object editObject(Object o) {
-    if (options == null || mbe == null) return null;
-    // return MediaBagEditorPanel.getMediaName((String)o, options, this, mbe, Utils.ALL_IMAGES_FF);
+    if (options == null || mbe == null)
+      return null;
     return MediaBagSelector.getMediaName((String) o, options, this, mbe, Utils.ALL_IMAGES_FF);
   }
 }

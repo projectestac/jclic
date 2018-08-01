@@ -114,10 +114,11 @@ public class TextActivityDocument extends DefaultStyledDocument {
       try {
         t = st.nextToken();
       } catch (java.util.NoSuchElementException ex) {
-        t = new String(new char[] {Clic3.CHINC});
+        t = new String(new char[] { Clic3.CHINC });
         targetElementCount = 6;
       }
-      if (t.charAt(0) == Clic3.CHBLOCK) intoBlock = intoBlock ? false : true;
+      if (t.charAt(0) == Clic3.CHBLOCK)
+        intoBlock = intoBlock ? false : true;
       else if (t.charAt(0) == Clic3.CHINC) {
         if (multiTarget) {
           targetElementCount++;
@@ -160,81 +161,82 @@ public class TextActivityDocument extends DefaultStyledDocument {
         ab.imgAlign[0] = ab.txtAlign[0];
         c3a.setActiveBoxTextContent(ab, stb.nextToken("").substring(1));
 
-        // ab.setBoxBase(tab.boxesContent.bb);
         ab.setBoxBase(boxesContent.bb);
 
         ab.userData = getEndPosition();
 
         boxesContent.addActiveBoxContent(ab);
 
-        JPanelActiveBox jpab =
-            new JPanelActiveBox(null, null, tab.getProject().getBridge().getComponent());
+        JPanelActiveBox jpab = new JPanelActiveBox(null, null, tab.getProject().getBridge().getComponent());
         jpab.setAlignmentY(0.9f);
         jpab.setActiveBoxContent(ab);
         MutableAttributeSet attr = new SimpleAttributeSet(regular);
         StyleConstants.setComponent(attr, jpab);
         insertString(getLength(), " ", attr);
       } else if (intoTarget) {
-        if (targetElementCount == 0) insertString(getLength(), t, getStyle(TARGET));
+        if (targetElementCount == 0)
+          insertString(getLength(), t, getStyle(TARGET));
         else
           switch (targetElementCount) {
-            case 1:
-              StringTokenizer stx = new StringTokenizer(t, ",");
-              if (tm != null) {
-                tm.target.iniChar = stx.nextToken().charAt(0);
-                tm.target.isList = (stx.nextToken().compareTo("1") == 0);
-                tm.target.numIniChars = Integer.parseInt(stx.nextToken());
-                tm.target.maxLenResp = Integer.parseInt(stx.nextToken());
-                tm.target.infoMode = Integer.parseInt(stx.nextToken());
-                int v = Integer.parseInt(stx.nextToken());
-                tm.target.popupDelay = v & 0xFF;
-                tm.target.popupMaxTime = (v & 0xFF00) >> 8;
+          case 1:
+            StringTokenizer stx = new StringTokenizer(t, ",");
+            if (tm != null) {
+              tm.target.iniChar = stx.nextToken().charAt(0);
+              tm.target.isList = (stx.nextToken().compareTo("1") == 0);
+              tm.target.numIniChars = Integer.parseInt(stx.nextToken());
+              tm.target.maxLenResp = Integer.parseInt(stx.nextToken());
+              tm.target.infoMode = Integer.parseInt(stx.nextToken());
+              int v = Integer.parseInt(stx.nextToken());
+              tm.target.popupDelay = v & 0xFF;
+              tm.target.popupMaxTime = (v & 0xFF00) >> 8;
+            }
+            w = Integer.parseInt(stx.nextToken());
+            h = Integer.parseInt(stx.nextToken());
+            int flags = Integer.parseInt(stx.nextToken());
+            leftAlign = ((flags & 1) == 1);
+            onlyPlay = ((flags & 2) == 2);
+            break;
+          case 2:
+            if (tm != null && t.length() > 0)
+              tm.target.setAnswer(t);
+            break;
+          case 3:
+            StringTokenizer sty = new StringTokenizer(t, "\n\r");
+            ArrayList<String> al = new ArrayList<String>();
+            while (sty.hasMoreTokens()) {
+              String s = sty.nextToken();
+              if (s.length() > 0)
+                al.add(s);
+            }
+            if (tm != null && al.size() > 0) {
+              tm.target.options = new String[al.size()];
+              for (int i = 0; i < al.size(); i++) {
+                tm.target.options[i] = (String) (al.get(i));
               }
-              w = Integer.parseInt(stx.nextToken());
-              h = Integer.parseInt(stx.nextToken());
-              int flags = Integer.parseInt(stx.nextToken());
-              leftAlign = ((flags & 1) == 1);
-              onlyPlay = ((flags & 2) == 2);
-              break;
-            case 2:
-              if (tm != null && t.length() > 0) tm.target.setAnswer(t);
-              break;
-            case 3:
-              StringTokenizer sty = new StringTokenizer(t, "\n\r");
-              ArrayList<String> al = new ArrayList<String>();
-              while (sty.hasMoreTokens()) {
-                String s = sty.nextToken();
-                if (s.length() > 0) al.add(s);
-              }
-              if (tm != null && al.size() > 0) {
-                tm.target.options = new String[al.size()];
-                for (int i = 0; i < al.size(); i++) {
-                  tm.target.options[i] = (String) (al.get(i));
-                }
-              }
-              break;
-            case 4:
-              if (tm != null && t.length() > 0) tm.target.iniText = t;
-              break;
-            case 5:
-              if (tm != null && t.length() > 0) {
-                tm.target.popupContent = new ActiveBoxContent();
-                tm.target.popupContent.setDimension(new Dimension(w, h));
-                c3a.setActiveBoxTextContent(tm.target.popupContent, t);
+            }
+            break;
+          case 4:
+            if (tm != null && t.length() > 0)
+              tm.target.iniText = t;
+            break;
+          case 5:
+            if (tm != null && t.length() > 0) {
+              tm.target.popupContent = new ActiveBoxContent();
+              tm.target.popupContent.setDimension(new Dimension(w, h));
+              c3a.setActiveBoxTextContent(tm.target.popupContent, t);
 
-                tm.target.popupContent.setBoxBase(popupsContent.bb);
+              tm.target.popupContent.setBoxBase(popupsContent.bb);
 
-                tm.target.popupContent.txtAlign[0] =
-                    leftAlign ? JDomUtility.ALIGN_LEFT : JDomUtility.ALIGN_MIDDLE;
-                tm.target.popupContent.imgAlign[0] = tm.target.popupContent.txtAlign[0];
-                tm.target.onlyPlay = onlyPlay;
+              tm.target.popupContent.txtAlign[0] = leftAlign ? JDomUtility.ALIGN_LEFT : JDomUtility.ALIGN_MIDDLE;
+              tm.target.popupContent.imgAlign[0] = tm.target.popupContent.txtAlign[0];
+              tm.target.onlyPlay = onlyPlay;
 
-                popupsContent.addActiveBoxContent(tm.target.popupContent);
-              }
-              break;
-            case 6:
-              insertString(getLength(), t, getStyle(TARGET));
-              break;
+              popupsContent.addActiveBoxContent(tm.target.popupContent);
+            }
+            break;
+          case 6:
+            insertString(getLength(), t, getStyle(TARGET));
+            break;
           }
       } else {
         insertString(getLength(), t, getStyle(StyleContext.DEFAULT_STYLE));
@@ -243,22 +245,18 @@ public class TextActivityDocument extends DefaultStyledDocument {
     tmb.setPositions();
   }
 
-  public static JPanelActiveBox insertBox(
-      ActiveBoxContent ab,
-      int atPos,
-      TextActivityDocument doc,
-      TextActivityBase tab,
-      AttributeSet atr)
-      throws Exception {
+  public static JPanelActiveBox insertBox(ActiveBoxContent ab, int atPos, TextActivityDocument doc,
+      TextActivityBase tab, AttributeSet atr) throws Exception {
 
-    if (atr == null) atr = doc.getStyle(StyleContext.DEFAULT_STYLE);
+    if (atr == null)
+      atr = doc.getStyle(StyleContext.DEFAULT_STYLE);
 
-    if (atPos < 0) atPos = doc.getLength();
+    if (atPos < 0)
+      atPos = doc.getLength();
 
     doc.boxesContent.addActiveBoxContent(ab);
 
-    JPanelActiveBox jpab =
-        new JPanelActiveBox(null, ab.bb, tab.getProject().getBridge().getComponent());
+    JPanelActiveBox jpab = new JPanelActiveBox(null, ab.bb, tab.getProject().getBridge().getComponent());
     jpab.setAlignmentY(0.9f);
     jpab.setActiveBoxContent(ab);
     SimpleAttributeSet satr = new SimpleAttributeSet(atr);
@@ -287,16 +285,18 @@ public class TextActivityDocument extends DefaultStyledDocument {
     setStyledDocumentTabSpc(tabSpc, this, styleContext);
   }
 
-  protected static AttributeSet getAttributes(
-      TextActivityDocument doc, AttributeSet a, org.jdom.Element e) throws Exception {
+  protected static AttributeSet getAttributes(TextActivityDocument doc, AttributeSet a, org.jdom.Element e)
+      throws Exception {
 
     int nAttributes = e.getAttributes().size();
 
-    if (nAttributes < 1) return a;
+    if (nAttributes < 1)
+      return a;
 
     String parentStyle = e.getAttributeValue(STYLE);
     Style style = (parentStyle != null ? doc.getStyle(parentStyle) : null);
-    if (style != null && nAttributes == 1) return style;
+    if (style != null && nAttributes == 1)
+      return style;
 
     MutableAttributeSet atr = new SimpleAttributeSet();
     atr.setResolveParent(style != null ? style : a);
@@ -313,8 +313,7 @@ public class TextActivityDocument extends DefaultStyledDocument {
       org.jdom.Attribute atr = (org.jdom.Attribute) atrList.get(i);
       String atrName = atr.getName();
       if (atrName.equals(StyleConstants.FontFamily.toString()))
-        StyleConstants.setFontFamily(
-            a, edu.xtec.util.FontCheck.getValidFontFamilyName(atr.getValue()));
+        StyleConstants.setFontFamily(a, edu.xtec.util.FontCheck.getValidFontFamilyName(atr.getValue()));
       else if (atrName.equals(StyleConstants.FontSize.toString()))
         StyleConstants.setFontSize(a, atr.getIntValue());
       else if (atrName.equals(StyleConstants.Bold.toString()))
@@ -326,7 +325,8 @@ public class TextActivityDocument extends DefaultStyledDocument {
       else if (atrName.equals(StyleConstants.Foreground.toString()))
         StyleConstants.setForeground(a, JDomUtility.stringToColor(atr.getValue()));
       // other attributes:
-      else if (atrName.equals(TARGET)) a.addAttribute(atrName, atr.getBooleanValue());
+      else if (atrName.equals(TARGET))
+        a.addAttribute(atrName, atr.getBooleanValue());
       // Paragraph attributes:
       else if (atrName.equals(StyleConstants.BidiLevel.toString()))
         StyleConstants.setBidiLevel(a, atr.getIntValue());
@@ -366,7 +366,8 @@ public class TextActivityDocument extends DefaultStyledDocument {
     String tabStr = Integer.toString(tab);
     Object o = regular.getAttribute(TABSPC);
     if (o == null || !tabStr.equals(o)) {
-      if (o != null) regular.removeAttribute(TABSPC);
+      if (o != null)
+        regular.removeAttribute(TABSPC);
       regular.addAttribute(TABSPC, tabStr);
     }
   }
@@ -375,15 +376,8 @@ public class TextActivityDocument extends DefaultStyledDocument {
     return tabSpc;
   }
 
-  public static StyleContext copyStylesFrom(
-      StyleContext src,
-      StyleContext dest,
-      boolean fontFace,
-      boolean fontSize,
-      boolean style,
-      boolean colour,
-      boolean targetColour,
-      boolean errorColour) {
+  public static StyleContext copyStylesFrom(StyleContext src, StyleContext dest, boolean fontFace, boolean fontSize,
+      boolean style, boolean colour, boolean targetColour, boolean errorColour) {
 
     boolean result = false;
     StyleContext clon;
@@ -399,9 +393,7 @@ public class TextActivityDocument extends DefaultStyledDocument {
 
     if (fontFace) {
       String font = StyleConstants.getFontFamily(srcMainStyle);
-      if (font != null
-          && font.length() > 0
-          && !font.equals(StyleConstants.getFontFamily(mainStyle))) {
+      if (font != null && font.length() > 0 && !font.equals(StyleConstants.getFontFamily(mainStyle))) {
         StyleConstants.setFontFamily(mainStyle, font);
         result = true;
       }
@@ -485,12 +477,7 @@ public class TextActivityDocument extends DefaultStyledDocument {
   }
 
   public static final String ELEMENT_NAME = "document";
-  public static final String STYLE = "style",
-      TABSPC = "tabWidth",
-      TEXT = "text",
-      P = "p",
-      BASE = "base",
-      NAME = "name";
+  public static final String STYLE = "style", TABSPC = "tabWidth", TEXT = "text", P = "p", BASE = "base", NAME = "name";
 
   public org.jdom.Element getJDomElement() throws Exception {
     return getJDomElement(styleContext);
@@ -504,12 +491,12 @@ public class TextActivityDocument extends DefaultStyledDocument {
     return e;
   }
 
-  public static void addStylesToElement(org.jdom.Element e, StyleContext sc, int tabSpc)
-      throws Exception {
+  public static void addStylesToElement(org.jdom.Element e, StyleContext sc, int tabSpc) throws Exception {
     java.util.Enumeration<?> styleNamesEnum = sc.getStyleNames();
     // use Stack for reverse order
     java.util.Stack<String> styleNames = new java.util.Stack<String>();
-    while (styleNamesEnum.hasMoreElements()) styleNames.push((String) styleNamesEnum.nextElement());
+    while (styleNamesEnum.hasMoreElements())
+      styleNames.push((String) styleNamesEnum.nextElement());
 
     while (!styleNames.empty()) {
       org.jdom.Element s = new org.jdom.Element(STYLE);
@@ -517,7 +504,8 @@ public class TextActivityDocument extends DefaultStyledDocument {
       s.setAttribute(NAME, styleName);
       Style style = sc.getStyle(styleName);
       Style parent = (Style) style.getAttribute(AttributeSet.ResolveAttribute);
-      if (parent != null) s.setAttribute(BASE, parent.getName());
+      if (parent != null)
+        s.setAttribute(BASE, parent.getName());
       setJDomElementAttributes(s, style, true);
       if (styleName.equals(StyleContext.DEFAULT_STYLE) && s.getAttribute(TABSPC) == null)
         s.setAttribute(TABSPC, Integer.toString(tabSpc));
@@ -550,8 +538,10 @@ public class TextActivityDocument extends DefaultStyledDocument {
       }
     }
 
-    if (elementName.equals("content")) elementName = TEXT;
-    else if (elementName.equals("paragraph")) elementName = P;
+    if (elementName.equals("content"))
+      elementName = TEXT;
+    else if (elementName.equals("paragraph"))
+      elementName = P;
 
     e = new org.jdom.Element(elementName);
 
@@ -565,14 +555,17 @@ public class TextActivityDocument extends DefaultStyledDocument {
     int count = element.getElementCount();
     if (count == 0) {
       String s = getElementText(element);
-      if (s != null && s.length() > 0) e.setText(getElementText(element));
+      if (s != null && s.length() > 0)
+        e.setText(getElementText(element));
       else {
-        if (elementName.equals(TEXT)) return null;
+        if (elementName.equals(TEXT))
+          return null;
       }
     } else {
       for (int i = 0; i < count; i++) {
         org.jdom.Element child = getJDomElement(element.getElement(i));
-        if (child != null) e.addContent(child);
+        if (child != null)
+          e.addContent(child);
       }
     }
     return e;
@@ -582,18 +575,17 @@ public class TextActivityDocument extends DefaultStyledDocument {
     String s = new String();
     int offset = element.getStartOffset();
     int length = element.getEndOffset() - offset;
-    if (length > 0) s = element.getDocument().getText(offset, length);
+    if (length > 0)
+      s = element.getDocument().getText(offset, length);
     return edu.xtec.util.StrUtils.replace(s, "\n", "");
   }
 
-  protected static void setJDomElementAttributes(
-      org.jdom.Element e, AttributeSet atr, boolean isParagraph) {
+  protected static void setJDomElementAttributes(org.jdom.Element e, AttributeSet atr, boolean isParagraph) {
     java.util.Enumeration atrNames = atr.getAttributeNames();
     if (atrNames != null) {
       while (atrNames.hasMoreElements()) {
         Object attribute = atrNames.nextElement();
-        if (attribute != null
-            && atr.isDefined(attribute)
+        if (attribute != null && atr.isDefined(attribute)
             && (isParagraph || !(attribute instanceof AttributeSet.ParagraphAttribute))) {
           JDomUtility.addGenericAttribute(e, attribute.toString(), atr.getAttribute(attribute));
         }
@@ -601,8 +593,8 @@ public class TextActivityDocument extends DefaultStyledDocument {
     }
   }
 
-  public static TextActivityDocument getTextActivityDocument(
-      org.jdom.Element e, TextActivityBase tab) throws Exception {
+  public static TextActivityDocument getTextActivityDocument(org.jdom.Element e, TextActivityBase tab)
+      throws Exception {
     TextActivityDocument doc = new TextActivityDocument(tab.styleContext);
     org.jdom.Element child, child2;
 
@@ -617,10 +609,13 @@ public class TextActivityDocument extends DefaultStyledDocument {
         styleName = child.getAttributeValue(NAME);
         styleParent = JDomUtility.getStringAttr(child, BASE, StyleContext.DEFAULT_STYLE, false);
         boolean isDefault = styleName.equals(StyleContext.DEFAULT_STYLE);
-        if (isDefault) s = doc.getStyle(styleName);
-        else s = doc.addStyle(styleName, doc.getStyle(styleParent));
+        if (isDefault)
+          s = doc.getStyle(styleName);
+        else
+          s = doc.addStyle(styleName, doc.getStyle(styleParent));
         fillAttributes(s, child);
-        if (isDefault) doc.setTabSpc(JDomUtility.getIntAttr(child, TABSPC, DEFAULT_TAB));
+        if (isDefault)
+          doc.setTabSpc(JDomUtility.getIntAttr(child, TABSPC, DEFAULT_TAB));
       }
     }
 
@@ -633,9 +628,8 @@ public class TextActivityDocument extends DefaultStyledDocument {
     return doc;
   }
 
-  private static void processChilds(
-      java.util.List childs, TextActivityDocument doc, TextActivityBase tab, AttributeSet atr)
-      throws Exception {
+  private static void processChilds(java.util.List childs, TextActivityDocument doc, TextActivityBase tab,
+      AttributeSet atr) throws Exception {
     org.jdom.Element child;
     AttributeSet atrBase = atr;
 
@@ -647,8 +641,8 @@ public class TextActivityDocument extends DefaultStyledDocument {
         int p = doc.getLength();
         atr = getAttributes(doc, atrBase, e);
         processChilds(e.getChildren(), doc, tab, atr);
-        if (i < childs.size() - 1) doc.insertString(doc.getLength(), "\n", atr);
-        // if(p>=0)
+        if (i < childs.size() - 1)
+          doc.insertString(doc.getLength(), "\n", atr);
         doc.setParagraphAttributes(p, doc.getLength() - p, atr, true);
       } else if (elementName.equals(TEXT)) {
         doc.insertString(doc.getLength(), e.getText(), getAttributes(doc, atrBase, e));
@@ -666,12 +660,8 @@ public class TextActivityDocument extends DefaultStyledDocument {
         doc.tmb.add(tm);
       } else if (elementName.equals(ActiveBoxContent.ELEMENT_NAME)) {
         ActiveBoxContent ab = ActiveBoxContent.getActiveBoxContent(e, tab.getProject().mediaBag);
-
-        // tab.boxesContent.addActiveBoxContent(ab);
         doc.boxesContent.addActiveBoxContent(ab);
-
-        JPanelActiveBox jpab =
-            new JPanelActiveBox(null, ab.bb, tab.getProject().getBridge().getComponent());
+        JPanelActiveBox jpab = new JPanelActiveBox(null, ab.bb, tab.getProject().getBridge().getComponent());
         jpab.setAlignmentY(0.9f);
         jpab.setActiveBoxContent(ab);
         SimpleAttributeSet satr = new SimpleAttributeSet(atr);
@@ -681,12 +671,12 @@ public class TextActivityDocument extends DefaultStyledDocument {
     }
   }
 
-  public TextActivityDocument cloneDoc(
-      TextActivityDocument dest, boolean hideTargets, boolean initTargets, boolean hideTargetStyle)
-      throws Exception {
+  public TextActivityDocument cloneDoc(TextActivityDocument dest, boolean hideTargets, boolean initTargets,
+      boolean hideTargetStyle) throws Exception {
     tmb.updateOffsets();
     TextActivityDocument d = dest;
-    if (d == null) d = new TextActivityDocument(styleContext);
+    if (d == null)
+      d = new TextActivityDocument(styleContext);
 
     AttributeSet s, s2;
     s = getStyle(StyleContext.DEFAULT_STYLE);
@@ -711,14 +701,16 @@ public class TextActivityDocument extends DefaultStyledDocument {
       // Bug: getEndOffset() fails!
       // int l=ep.getEndOffset()+1;
       int l = ip;
-      while (l < currentChars.length && currentChars[l] != '\n') l++;
+      while (l < currentChars.length && currentChars[l] != '\n')
+        l++;
       l++;
       s = getCharacterElement(i).getAttributes();
       s2 = null;
       while (i < l) {
         for (j = i + 1; j < l; j++) {
           s2 = getCharacterElement(j).getAttributes();
-          if (s != null && !s.isEqual(s2)) break;
+          if (s != null && !s.isEqual(s2))
+            break;
         }
         attr = null;
         si = null;
@@ -780,8 +772,7 @@ public class TextActivityDocument extends DefaultStyledDocument {
   }
 
   public static Font attributesToFont(AttributeSet s) {
-    int style =
-        (StyleConstants.isBold(s) ? Font.BOLD : 0) | (StyleConstants.isItalic(s) ? Font.ITALIC : 0);
+    int style = (StyleConstants.isBold(s) ? Font.BOLD : 0) | (StyleConstants.isItalic(s) ? Font.ITALIC : 0);
     return new Font(StyleConstants.getFontFamily(s), style, StyleConstants.getFontSize(s));
   }
 
@@ -789,7 +780,8 @@ public class TextActivityDocument extends DefaultStyledDocument {
     ArrayList<JPanelActiveBox> v = new ArrayList<JPanelActiveBox>();
     for (int i = 0; i < getLength(); i++) {
       Component c = StyleConstants.getComponent(getCharacterElement(i).getAttributes());
-      if (c != null && c instanceof JPanelActiveBox) v.add((JPanelActiveBox) c);
+      if (c != null && c instanceof JPanelActiveBox)
+        v.add((JPanelActiveBox) c);
     }
     return v.toArray(new JPanelActiveBox[v.size()]);
   }
@@ -821,9 +813,9 @@ public class TextActivityDocument extends DefaultStyledDocument {
     return attr;
   }
 
-  public void applyStyleToTarget(
-      TargetMarker tm, String style, boolean invertColors, boolean replace) {
-    if (style == null) style = StyleContext.DEFAULT_STYLE;
+  public void applyStyleToTarget(TargetMarker tm, String style, boolean invertColors, boolean replace) {
+    if (style == null)
+      style = StyleContext.DEFAULT_STYLE;
     MutableAttributeSet attr = new SimpleAttributeSet(styleContext.getStyle(style));
     if (invertColors) {
       Color bg = StyleConstants.getBackground(attr);
@@ -858,12 +850,15 @@ public class TextActivityDocument extends DefaultStyledDocument {
       Iterator it = e.getAttributes().iterator();
       while (it.hasNext()) {
         org.jdom.Attribute at = (org.jdom.Attribute) it.next();
-        if (!TEXT.equals(at.getName())) set.add(at);
+        if (!TEXT.equals(at.getName()))
+          set.add(at);
       }
-      for (org.jdom.Attribute atr : set) e.removeAttribute(atr);
+      for (org.jdom.Attribute atr : set)
+        e.removeAttribute(atr);
     }
     Iterator it = e.getChildren().iterator();
-    while (it.hasNext()) clearElementStyles((org.jdom.Element) it.next());
+    while (it.hasNext())
+      clearElementStyles((org.jdom.Element) it.next());
   }
 
   /**

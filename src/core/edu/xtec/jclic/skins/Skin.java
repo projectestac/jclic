@@ -38,15 +38,14 @@ import javax.swing.*;
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10
  */
-public abstract class Skin extends JPanel
-    implements ProgressInputStream.ProgressInputStreamListener {
+public abstract class Skin extends JPanel implements ProgressInputStream.ProgressInputStreamListener {
 
   public static final int DEFAULT_PROGRESS_WAKE_ON = 1000;
   public static final String RESOURCE_FOLDER = "skins";
   public static final String RESOURCE_LIST_FILE = "listskins.properties";
 
   public static final int MAIN = 0, AUX = 1, MEM = 2, NUM_MSG_AREAS = 3;
-  public static final String[] msgAreaNames = {"main", "aux", "mem"};
+  public static final String[] msgAreaNames = { "main", "aux", "mem" };
 
   public String name;
   public String fileName;
@@ -73,7 +72,6 @@ public abstract class Skin extends JPanel
     name = null;
     fileName = null;
     setEnabled(false);
-    // setDoubleBuffered(true);
     readyToPaint = false;
     setLayout(null);
     player = null;
@@ -93,14 +91,13 @@ public abstract class Skin extends JPanel
   }
 
   public void attach(Component setPlayer) {
-    if (player != null) detach();
+    if (player != null)
+      detach();
     player = setPlayer;
     add(player);
     /*
-    if(player instanceof ActionListener)
-        for(int i=0; i<NUM_BUTTONS; i++)
-            if(buttons[i]!=null)
-                buttons[i].addActionListener((ActionListener)player);
+     * if(player instanceof ActionListener) for(int i=0; i<NUM_BUTTONS; i++)
+     * if(buttons[i]!=null) buttons[i].addActionListener((ActionListener)player);
      */
     setWaitCursor();
     setEnabled(true);
@@ -110,20 +107,12 @@ public abstract class Skin extends JPanel
   public void detach() {
     if (player != null) {
       remove(player);
-      /*
-      if(player instanceof ActivityContainer)
-          for(int i=0; i<ActivityContainer.NUM_ACTIONS; i++){
-              if(buttons[i]!=null){
-                  //buttons[i].removeActionListener((ActionListener)player);
-                  //buttons[i].removeActionListener(((ActivityContainer)player).getAction(i));
-                  //buttons[i].setAction(null);
-              }
-          }
-       */
       player = null;
     }
-    if (currentHelpWindow != null) currentHelpWindow.setVisible(false);
-    if (currentAboutWindow != null) currentAboutWindow.setVisible(false);
+    if (currentHelpWindow != null)
+      currentHelpWindow.setVisible(false);
+    if (currentAboutWindow != null)
+      currentAboutWindow.setVisible(false);
     setEnabled(false);
   }
 
@@ -135,18 +124,19 @@ public abstract class Skin extends JPanel
     Iterator it = skinStack.iterator();
     while (it.hasNext()) {
       Skin s = (Skin) it.next();
-      if (s != null && skinName.equals(s.fileName) && ps.equals(s.ps)) return s;
+      if (s != null && skinName.equals(s.fileName) && ps.equals(s.ps))
+        return s;
     }
 
     org.jdom.Element e;
     if (skinName.startsWith(INTERNAL_SKIN_PREFIX)) {
-      e =
-          FileSystem.getXMLDocument(
-                  ResourceManager.getResourceAsStream(
-                      RESOURCE_FOLDER + "/" + skinName.substring(INTERNAL_SKIN_PREFIX.length())))
-              .getRootElement();
+      e = FileSystem
+          .getXMLDocument(ResourceManager
+              .getResourceAsStream(RESOURCE_FOLDER + "/" + skinName.substring(INTERNAL_SKIN_PREFIX.length())))
+          .getRootElement();
       fs = null;
-    } else e = fs.getXMLDocument(skinName).getRootElement();
+    } else
+      e = fs.getXMLDocument(skinName).getRootElement();
 
     JDomUtility.checkName(e, ELEMENT_NAME);
     Class skinClass = Class.forName(JDomUtility.getClassName(e));
@@ -168,7 +158,8 @@ public abstract class Skin extends JPanel
       g2.setRenderingHints(Constants.DEFAULT_RENDERING_HINTS);
     }
     render(g2, g2.getClipBounds());
-    if (rh != null) g2.setRenderingHints(rh);
+    if (rh != null)
+      g2.setRenderingHints(rh);
   }
 
   public abstract void render(Graphics2D g2, Rectangle clip);
@@ -194,7 +185,8 @@ public abstract class Skin extends JPanel
 
     ArrayList<ActiveBox> v = new ArrayList<ActiveBox>();
 
-    if (msgBox != null) v.add(msgBox);
+    if (msgBox != null)
+      v.add(msgBox);
 
     return v.iterator();
   }
@@ -208,9 +200,7 @@ public abstract class Skin extends JPanel
   }
 
   public void setProgressName(String name) {
-    setSystemMessage(
-        null,
-        name == null ? null : ps.getMsg("LOADING_FILE") + " " + FileSystem.getFileNameOf(name));
+    setSystemMessage(null, name == null ? null : ps.getMsg("LOADING_FILE") + " " + FileSystem.getFileNameOf(name));
   }
 
   public void startProgress(String name) {
@@ -245,7 +235,8 @@ public abstract class Skin extends JPanel
 
   public void enableCounter(int counterId, boolean bEnabled) {
     Counter counter = getCounter(counterId);
-    if (counter != null) counter.setEnabled(bEnabled);
+    if (counter != null)
+      counter.setEnabled(bEnabled);
   }
 
   public void resetAllCounters(boolean bEnabled) {
@@ -262,11 +253,8 @@ public abstract class Skin extends JPanel
   }
 
   /*
-  public void enableButton(int buttonId, boolean state){
-      AbstractButton button=getButton(buttonId);
-      if(button!=null)
-          button.setEnabled(state);
-  }
+   * public void enableButton(int buttonId, boolean state){ AbstractButton
+   * button=getButton(buttonId); if(button!=null) button.setEnabled(state); }
    */
 
   public Object[] getCurrentSettings() {
@@ -283,7 +271,6 @@ public abstract class Skin extends JPanel
       AbstractButton[] buttonSettings = (AbstractButton[]) settings[0];
       for (int i = 0; i < Constants.NUM_ACTIONS; i++) {
         if (i < buttonSettings.length && buttonSettings[i] != null && buttons[i] != null) {
-          // buttons[i].setEnabled(buttonSettings[i].isEnabled());
           buttons[i].setVisible(buttonSettings[i].isVisible());
         }
       }
@@ -309,15 +296,8 @@ public abstract class Skin extends JPanel
     }
   }
 
-  protected void drawSlicedFrame(
-      Graphics g,
-      Rectangle dest,
-      Rectangle source,
-      Image img,
-      int leftSlicer,
-      int rightSlicer,
-      int topSlicer,
-      int bottomSlicer) {
+  protected void drawSlicedFrame(Graphics g, Rectangle dest, Rectangle source, Image img, int leftSlicer,
+      int rightSlicer, int topSlicer, int bottomSlicer) {
     Rectangle rs = new Rectangle();
     Rectangle rd = new Rectangle();
 
@@ -340,11 +320,7 @@ public abstract class Skin extends JPanel
 
     // second row
     rs.setBounds(source.x, source.y + topSlicer, leftSlicer, bottomSlicer - topSlicer);
-    rd.setBounds(
-        dest.x,
-        dest.y + topSlicer,
-        leftSlicer,
-        dest.height - topSlicer - (source.height - bottomSlicer));
+    rd.setBounds(dest.x, dest.y + topSlicer, leftSlicer, dest.height - topSlicer - (source.height - bottomSlicer));
     Utils.tileImage(g, img, rd, rs, this);
 
     rs.x += leftSlicer;
@@ -361,8 +337,7 @@ public abstract class Skin extends JPanel
 
     // third row
     rs.setBounds(source.x, source.y + bottomSlicer, leftSlicer, source.height - bottomSlicer);
-    rd.setBounds(
-        dest.x, dest.y + dest.height - (source.height - bottomSlicer), rs.width, rs.height);
+    rd.setBounds(dest.x, dest.y + dest.height - (source.height - bottomSlicer), rs.width, rs.height);
     Utils.drawImage(g, img, rd, rs, this);
 
     rs.x += leftSlicer;
@@ -391,22 +366,21 @@ public abstract class Skin extends JPanel
   }
 
   public void setSystemMessage(String msg1, String msg2) {
-    if (/*!isEnabled() ||*/ !isVisible()) return;
+    if (/* !isEnabled() || */ !isVisible())
+      return;
     if (msgArea[MAIN] != null && msg1 != null) {
       msgArea[MAIN].setTextContent(msg1);
-      // if(readyToPaint)
-      //    msgArea[MAIN].paintImmediatelly();
     }
     if (msgArea[AUX] != null) {
       msgArea[AUX].setTextContent(msg2 == null ? "" : msg2);
-      // if(readyToPaint)
-      //    msgArea[AUX].paintImmediatelly();
     }
   }
 
-  public void startAnimation() {}
+  public void startAnimation() {
+  }
 
-  public void stopAnimation() {}
+  public void stopAnimation() {
+  }
 
   public void setWaitCursor(boolean status) {
     if (status) {
@@ -422,9 +396,7 @@ public abstract class Skin extends JPanel
 
   public void setWaitCursor() {
     setCursor(
-        waitCursorCount > 0
-            ? Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR)
-            : /*Cursor.getDefaultCursor()*/ null);
+        waitCursorCount > 0 ? Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR) : /* Cursor.getDefaultCursor() */ null);
   }
 
   public void showHelp(JComponent solution, String msg) {
@@ -439,24 +411,21 @@ public abstract class Skin extends JPanel
     HelpWindow(Component parent, JComponent solution, String msg) {
       super(parent, ps.getMsg("help_window_caption"), true);
       getContentPane().setLayout(new BorderLayout());
-      if (solution != null) getContentPane().add(solution, BorderLayout.CENTER);
+      if (solution != null)
+        getContentPane().add(solution, BorderLayout.CENTER);
       else {
         JLabel lb = new JLabel(msg == null || msg.trim().length() == 0 ? "?" : msg.trim());
         getContentPane().add(lb, BorderLayout.NORTH);
       }
-      JButton btClose =
-          new JButton(
-              ps.getMsg("help_window_close_button"),
-              ResourceManager.getImageIcon("icons/exit_small.gif"));
-      btClose.addActionListener(
-          new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-              setVisible(false);
-            }
-          });
+      JButton btClose = new JButton(ps.getMsg("help_window_close_button"),
+          ResourceManager.getImageIcon("icons/exit_small.gif"));
+      btClose.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+          setVisible(false);
+        }
+      });
       getContentPane().add(btClose, BorderLayout.SOUTH);
 
-      // setLocationRelativeTo(Skin.this);
       pack();
       Point p = null;
       if (solution != null) {
@@ -468,7 +437,8 @@ public abstract class Skin extends JPanel
           p.translate(-dx, -dy);
         }
       }
-      if (p == null) p = parent.getLocationOnScreen();
+      if (p == null)
+        p = parent.getLocationOnScreen();
       setLocation(p);
     }
   }
@@ -486,7 +456,8 @@ public abstract class Skin extends JPanel
 
   @Override
   public void requestFocus() {
-    if (player != null) player.requestFocus();
+    if (player != null)
+      player.requestFocus();
   }
 
   public static String[] getSystemSkinList(boolean withEmptyEntry) {
@@ -496,21 +467,18 @@ public abstract class Skin extends JPanel
       prop.load(ResourceManager.getResourceAsStream(RESOURCE_FOLDER + "/" + RESOURCE_LIST_FILE));
     } catch (Exception e) {
       System.err.println(
-          "Unable to open "
-              + ResourceManager.RESOURCE_ROOT
-              + RESOURCE_FOLDER
-              + "/"
-              + RESOURCE_LIST_FILE
-              + ":\n"
-              + e);
+          "Unable to open " + ResourceManager.RESOURCE_ROOT + RESOURCE_FOLDER + "/" + RESOURCE_LIST_FILE + ":\n" + e);
     }
-    if (withEmptyEntry) v.add("");
-    for (java.util.Enumeration e = prop.propertyNames(); e.hasMoreElements(); ) {
+    if (withEmptyEntry)
+      v.add("");
+    for (java.util.Enumeration e = prop.propertyNames(); e.hasMoreElements();) {
       String key = (String) e.nextElement();
       String value = "@" + prop.getProperty(key).trim();
       v.add(value);
     }
-    if (v.size() > 0) return (String[]) v.toArray(new String[v.size()]);
-    else return new String[0];
+    if (v.size() > 0)
+      return (String[]) v.toArray(new String[v.size()]);
+    else
+      return new String[0];
   }
 }

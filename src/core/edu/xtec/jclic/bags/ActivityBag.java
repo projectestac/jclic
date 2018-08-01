@@ -41,9 +41,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * This class stores the complete collection of activities of a {@link
- * edu.xtec.jclic.project.JClicProject}. The collection is managed through a private {@link
- * java.util.ArrayList} of objects of type {@link edu.xtec.jclic.bags.ActivityBagElement}.
+ * This class stores the complete collection of activities of a
+ * {@link edu.xtec.jclic.project.JClicProject}. The collection is managed
+ * through a private {@link java.util.ArrayList} of objects of type
+ * {@link edu.xtec.jclic.bags.ActivityBagElement}.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10
@@ -80,28 +81,22 @@ public class ActivityBag extends Object implements Editable, Domable, Listener {
 
   public ActivityBagElement elementAt(int index) throws ArrayIndexOutOfBoundsException {
     return elements.get(index);
-    // return (ActivityBagElement)elements.elementAt(index);
   }
 
-  public void insertElementAt(ActivityBagElement el, int index)
-      throws ArrayIndexOutOfBoundsException {
+  public void insertElementAt(ActivityBagElement el, int index) throws ArrayIndexOutOfBoundsException {
     elements.add(index, el);
-    // elements.insertElementAt(el, index);
   }
 
   public void removeElementAt(int index) throws ArrayIndexOutOfBoundsException {
     elements.remove(index);
-    // elements.removeElementAt(index);
   }
 
   public void addElement(ActivityBagElement el) {
     elements.add(el);
-    // elements.addElement(el);
   }
 
   public boolean removeElement(ActivityBagElement el) {
     return elements.remove(el);
-    // return elements.removeElement(el);
   }
 
   public int getElementIndex(String name) {
@@ -150,52 +145,48 @@ public class ActivityBag extends Object implements Editable, Domable, Listener {
   }
 
   public void addActivity(Activity act) {
-    if (act != null) addJDomElement(act.getJDomElement());
+    if (act != null)
+      addJDomElement(act.getJDomElement());
   }
 
   public void addJDomElement(org.jdom.Element e) {
     if (e != null) {
       ActivityBagElement abe = getElementByName(e.getAttributeValue(Activity.NAME));
-      if (abe != null) abe.setData(e);
-      else addElement(new ActivityBagElement(e));
+      if (abe != null)
+        abe.setData(e);
+      else
+        addElement(new ActivityBagElement(e));
     }
   }
 
   public ActivityBagElement[] getElements() {
     return elements.toArray(new ActivityBagElement[size()]);
-    // ActivityBagElement[] result=new ActivityBagElement[size()];
-    // elements.copyInto(result);
-    // return result;
   }
 
   public void sortByName() {
-    Collections.sort(
-        elements,
-        new Comparator<ActivityBagElement>() {
-          public int compare(ActivityBagElement o1, ActivityBagElement o2) {
-            return o1.getName().compareTo(o2.getName());
-          }
-        });
+    Collections.sort(elements, new Comparator<ActivityBagElement>() {
+      public int compare(ActivityBagElement o1, ActivityBagElement o2) {
+        return o1.getName().compareTo(o2.getName());
+      }
+    });
   }
 
   public void sortByClassAndName() {
     final StringBuilder sb1 = new StringBuilder(200);
     final StringBuilder sb2 = new StringBuilder(200);
-    Collections.sort(
-        elements,
-        new Comparator<ActivityBagElement>() {
-          public int compare(ActivityBagElement o1, ActivityBagElement o2) {
-            org.jdom.Element e1 = o1.getData();
-            org.jdom.Element e2 = o2.getData();
-            sb1.setLength(0);
-            sb1.append(e1.getAttributeValue(JDomUtility.CLASS));
-            sb1.append(e1.getAttributeValue(Activity.NAME));
-            sb2.setLength(0);
-            sb2.append(e2.getAttributeValue(JDomUtility.CLASS));
-            sb2.append(e2.getAttributeValue(Activity.NAME));
-            return sb1.substring(0).compareTo(sb2.substring(0));
-          }
-        });
+    Collections.sort(elements, new Comparator<ActivityBagElement>() {
+      public int compare(ActivityBagElement o1, ActivityBagElement o2) {
+        org.jdom.Element e1 = o1.getData();
+        org.jdom.Element e2 = o2.getData();
+        sb1.setLength(0);
+        sb1.append(e1.getAttributeValue(JDomUtility.CLASS));
+        sb1.append(e1.getAttributeValue(Activity.NAME));
+        sb2.setLength(0);
+        sb2.append(e2.getAttributeValue(JDomUtility.CLASS));
+        sb2.append(e2.getAttributeValue(Activity.NAME));
+        return sb1.substring(0).compareTo(sb2.substring(0));
+      }
+    });
   }
 
   public void setProperties(org.jdom.Element e, Object aux) throws Exception {
@@ -203,7 +194,6 @@ public class ActivityBag extends Object implements Editable, Domable, Listener {
 
     org.jdom.Element child;
     List lst = e.getChildren(Activity.ELEMENT_NAME);
-    // elements.ensureCapacity(lst.size());
     Iterator it = lst.iterator();
     while (it.hasNext()) {
       child = (org.jdom.Element) it.next();
@@ -218,7 +208,8 @@ public class ActivityBag extends Object implements Editable, Domable, Listener {
 
   public void removeElementByName(String name) {
     ActivityBagElement abe = getElementByName(name);
-    if (abe != null) removeElement(abe);
+    if (abe != null)
+      removeElement(abe);
   }
 
   public Editor getEditor(Editor parent) {
@@ -241,28 +232,32 @@ public class ActivityBag extends Object implements Editable, Domable, Listener {
 
     if (project.settings.coverFileName != null) {
       MediaBagElement mbe = project.mediaBag.getElementByFileName(project.settings.coverFileName);
-      if (mbe != null && name.equals(mbe.getName())) map.put(name, Constants.PROJECT_OBJECT);
+      if (mbe != null && name.equals(mbe.getName()))
+        map.put(name, Constants.PROJECT_OBJECT);
     }
 
     if (project.settings.thumbnailFileName != null) {
-      MediaBagElement mbe =
-          project.mediaBag.getElementByFileName(project.settings.thumbnailFileName);
-      if (mbe != null && name.equals(mbe.getName())) map.put(name, Constants.PROJECT_OBJECT);
+      MediaBagElement mbe = project.mediaBag.getElementByFileName(project.settings.thumbnailFileName);
+      if (mbe != null && name.equals(mbe.getName()))
+        map.put(name, Constants.PROJECT_OBJECT);
     }
 
     if (project.settings.icon16 != null) {
       MediaBagElement mbe = project.mediaBag.getElementByFileName(project.settings.icon16);
-      if (mbe != null && name.equals(mbe.getName())) map.put(name, Constants.PROJECT_OBJECT);
+      if (mbe != null && name.equals(mbe.getName()))
+        map.put(name, Constants.PROJECT_OBJECT);
     }
 
     if (project.settings.icon72 != null) {
       MediaBagElement mbe = project.mediaBag.getElementByFileName(project.settings.icon72);
-      if (mbe != null && name.equals(mbe.getName())) map.put(name, Constants.PROJECT_OBJECT);
+      if (mbe != null && name.equals(mbe.getName()))
+        map.put(name, Constants.PROJECT_OBJECT);
     }
 
     if (project.settings.icon192 != null) {
       MediaBagElement mbe = project.mediaBag.getElementByFileName(project.settings.icon192);
-      if (mbe != null && name.equals(mbe.getName())) map.put(name, Constants.PROJECT_OBJECT);
+      if (mbe != null && name.equals(mbe.getName()))
+        map.put(name, Constants.PROJECT_OBJECT);
     }
   }
 
@@ -274,12 +269,14 @@ public class ActivityBag extends Object implements Editable, Domable, Listener {
         map.put(abe.getName(), Constants.ACTIVITY_OBJECT);
       Map<String, String> dp = abe.getReferences();
       if (dp != null) {
-        if (type == null) map.putAll(dp);
+        if (type == null)
+          map.putAll(dp);
         else {
           Iterator<String> it = dp.keySet().iterator();
           while (it.hasNext()) {
             String key = it.next();
-            if (type.equals(dp.get(key))) map.put(key, type);
+            if (type.equals(dp.get(key)))
+              map.put(key, type);
           }
         }
       }

@@ -1,3 +1,4 @@
+
 /*
  * File    : JClicApplet.java
  * Created : 01-feb-2001 13:39
@@ -34,8 +35,8 @@ import java.net.URL;
 import javax.swing.RootPaneContainer;
 
 /**
- * Default JClic applet. Shows a splash screen at startup and loads a {@link Player} in a separate
- * process.
+ * Default JClic applet. Shows a splash screen at startup and loads a
+ * {@link Player} in a separate process.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.10.02
@@ -57,33 +58,21 @@ public class JClicApplet extends javax.swing.JApplet implements edu.xtec.jclic.C
   private static final String SEQUENCE = "sequence";
   private static final int NUM_PRIVATE_PARAMS = 2;
   private static final String[][] pInfo = {
-    {ACTIVITY_PACK, STRING, "absolute or relative URL of the JClic project to load"},
-    {SEQUENCE, STRING, "optional project's starting sequence name"},
-    {Messages.LANGUAGE, STRING, "two-char language code"},
-    {Messages.COUNTRY, STRING, "two-char country code"},
-    {Messages.VARIANT, STRING, "locale variant code"},
-    {SKIN, STRING, "skin to be used"},
-    {COOKIE, STRING, "optional session cookie value. currently not used"},
-    {REPORTER_CLASS, STRING, "reporter class name"},
-    {REPORTER_PARAMS, STRING, "reporter parameters"},
-    {EXIT_URL, URL, "URL where to redirect navigation at end"},
-    {
-      INFO_URL_FRAME,
-      STRING,
-      "optional frame where to display info documents. If unespecified, _BLANK will be used"
-    },
-    {SYSTEM_SOUNDS, BOOL, "to play or not system sounds"},
-    {COMPRESS_IMAGES, BOOL, "to compress or not images in cells"},
-    {LFUtil.LOOK_AND_FEEL, STRING, "look & feel to use"},
-    {AUDIO_ENABLED, BOOL, "to have audio enabled or not"},
-    {
-      MEDIA_SYSTEM,
-      STRING,
-      "preferred multimedia system: 'JMF' for Java Media Framework or 'QT' for QuickTime"
-    },
-    {TRACE, BOOL, "show debug messages in console"},
-    {MYURL, STRING, "URL of the document containing the applet, used as a base for relative paths"}
-  };
+      { ACTIVITY_PACK, STRING, "absolute or relative URL of the JClic project to load" },
+      { SEQUENCE, STRING, "optional project's starting sequence name" },
+      { Messages.LANGUAGE, STRING, "two-char language code" }, { Messages.COUNTRY, STRING, "two-char country code" },
+      { Messages.VARIANT, STRING, "locale variant code" }, { SKIN, STRING, "skin to be used" },
+      { COOKIE, STRING, "optional session cookie value. currently not used" },
+      { REPORTER_CLASS, STRING, "reporter class name" }, { REPORTER_PARAMS, STRING, "reporter parameters" },
+      { EXIT_URL, URL, "URL where to redirect navigation at end" },
+      { INFO_URL_FRAME, STRING,
+          "optional frame where to display info documents. If unespecified, _BLANK will be used" },
+      { SYSTEM_SOUNDS, BOOL, "to play or not system sounds" },
+      { COMPRESS_IMAGES, BOOL, "to compress or not images in cells" },
+      { LFUtil.LOOK_AND_FEEL, STRING, "look & feel to use" }, { AUDIO_ENABLED, BOOL, "to have audio enabled or not" },
+      { MEDIA_SYSTEM, STRING, "preferred multimedia system: 'JMF' for Java Media Framework or 'QT' for QuickTime" },
+      { TRACE, BOOL, "show debug messages in console" },
+      { MYURL, STRING, "URL of the document containing the applet, used as a base for relative paths" } };
 
   /** Creates new JClicApplet */
   public JClicApplet() {
@@ -94,11 +83,8 @@ public class JClicApplet extends javax.swing.JApplet implements edu.xtec.jclic.C
     activityPack = null;
     sequence = null;
     options = new Options(this);
-    splashLabel =
-        new javax.swing.JLabel(
-            " ",
-            ResourceManager.getImageIcon("icons/logo_applet.png"),
-            javax.swing.SwingConstants.CENTER);
+    splashLabel = new javax.swing.JLabel(" ", ResourceManager.getImageIcon("icons/logo_applet.png"),
+        javax.swing.SwingConstants.CENTER);
     splashLabel.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
     splashLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     splashLabel.setBackground(BG_COLOR);
@@ -121,182 +107,170 @@ public class JClicApplet extends javax.swing.JApplet implements edu.xtec.jclic.C
     final StringBuilder sb = new StringBuilder();
     final RootPaneContainer rpc = this;
 
-    edu.xtec.util.SwingWorker sw =
-        new edu.xtec.util.SwingWorker() {
+    edu.xtec.util.SwingWorker sw = new edu.xtec.util.SwingWorker() {
 
-          @Override
-          public Object construct() {
-            // get parameters
-            for (int i = NUM_PRIVATE_PARAMS; i < pInfo.length; i++) {
-              options.put(pInfo[i][0], getParameter(pInfo[i][0]));
+      @Override
+      public Object construct() {
+        // get parameters
+        for (int i = NUM_PRIVATE_PARAMS; i < pInfo.length; i++) {
+          options.put(pInfo[i][0], getParameter(pInfo[i][0]));
+          if (trace) {
+            System.out.println(">>> param " + pInfo[i][0] + " is " + getParameter(pInfo[i][0]));
+          }
+        }
+
+        Messages messages;
+        try {
+          messages = edu.xtec.util.PersistentSettings.getMessages(options, DEFAULT_BUNDLE);
+        } catch (Exception ex) {
+          System.err.println("Unable to get default user messages language!\n" + ex);
+          messages = Messages.getMessages(options, DEFAULT_BUNDLE);
+        }
+        messages.addBundle(COMMON_SETTINGS);
+
+        if (splashLabel != null) {
+          splashLabel.setText(messages.get("LOADING"));
+        }
+
+        if (!Check.checkSignature(options, true)) {
+          return null;
+        }
+
+        CheckMediaSystem.check(options, false);
+
+        // process JClic project parameters
+        activityPack = getParameter(ACTIVITY_PACK);
+        sequence = getParameter(SEQUENCE);
+        if (activityPack != null) {
+          if (activityPack.indexOf("http://") < 0 && activityPack.indexOf("https://") < 0
+              && activityPack.indexOf(":") < 1 && activityPack.indexOf("\\\\") < 0) {
+            String base = "";
+            URL baseURL = getDocumentBase();
+            if (baseURL != null)
+              base = baseURL.toString();
+            else if (options.getString(MYURL) != null)
+              base = options.getString(MYURL);
+
+            if (trace) {
+              System.out.println(">>> original base is: " + base);
+            }
+            int i = base.indexOf("file:/");
+            if (i >= 0) {
+              base = base.substring(i + 6);
               if (trace) {
-                System.out.println(">>> param " + pInfo[i][0] + " is " + getParameter(pInfo[i][0]));
+                System.out.println(">>> protocol is 'file', so base is: " + base);
+              }
+              // Mozilla in Linux
+              if (!options.getBoolean(Options.WIN) && !base.startsWith(java.io.File.pathSeparator)) {
+                base = "/" + base;
+                if (trace) {
+                  System.out.println(">>> non-Windows and not starts with '/', so base is: " + base);
+                }
               }
             }
+            // Opera
+            if (base.startsWith("/localhost/")) {
+              base = base.substring(11);
+            }
+            // Opera
 
-            Messages messages;
+            if (base.endsWith(".htm") || base.endsWith(".html")) {
+              i = base.lastIndexOf('/');
+              if (i < 0) {
+                i = base.lastIndexOf('\\');
+              }
+              if (i > 0) {
+                base = base.substring(0, i + 1);
+              }
+            }
+            options.put(URL_BASE, base);
+            if (trace) {
+              System.out.println(">>> corrected base is: " + base);
+            }
+            activityPack = base + activityPack;
+            if (trace) {
+              System.out.println(">>> project path is: " + activityPack);
+            }
+            String s = options.getString(SKIN);
+            if (s != null && !s.startsWith("@") && !s.startsWith(HTTP) && !s.startsWith(HTTPS) && !s.startsWith(FILE)) {
+              options.put(SKIN, base + s);
+            }
+            s = options.getString(EXIT_URL);
+            if (s != null && !s.startsWith(HTTP) && !s.startsWith(HTTPS) && !s.startsWith(FILE)) {
+              options.put(EXIT_URL, base + s);
+            }
+          }
+          // Check if activityPack is an installer
+          if (activityPack.endsWith(".jclic.inst")) {
+            isInstaller = true;
+            messages.addBundle(edu.xtec.jclic.ExtendedPlayer.MESSAGES_BUNDLE);
+          }
+        }
+        // build player
+        try {
+          if (isInstaller) {
+            String installer = activityPack;
+            activityPack = null;
+            BasicResourceBridge rb = new BasicResourceBridge(options);
+            PlayerSettings settings = PlayerSettings.loadPlayerSettings(rb);
+            if (settings.promptPassword(null, null)) {
+              settings.checkLibrary();
+              ProjectInstallerDlg pi = ProjectInstallerDlg.getProjectInstallerDlg(null, settings.libraryManager,
+                  installer);
+              if (pi != null) {
+                pi.setVisible(true);
+                if (!pi.cancel && pi.launchNow && pi.pathToMainProject != null) {
+                  activityPack = pi.pathToMainProject;
+                }
+              }
+            }
+          }
+
+          if (activityPack != null) {
+            rc = new Player(options);
+          }
+        } catch (Exception ex) {
+          sb.append("ERROR: ").append(ex);
+        }
+        return rc;
+      }
+
+      @Override
+      public void finished() {
+        if (getValue() == null) {
+          if (isInstaller && options.getString(EXIT_URL) != null) {
             try {
-              messages = edu.xtec.util.PersistentSettings.getMessages(options, DEFAULT_BUNDLE);
-            } catch (Exception ex) {
-              System.err.println("Unable to get default user messages language!\n" + ex);
-              messages = Messages.getMessages(options, DEFAULT_BUNDLE);
-            }
-            messages.addBundle(COMMON_SETTINGS);
-
-            if (splashLabel != null) {
-              splashLabel.setText(messages.get("LOADING"));
-            }
-
-            if (!Check.checkSignature(options, true)) {
-              return null;
-            }
-
-            CheckMediaSystem.check(options, false);
-
-            // process JClic project parameters
-            activityPack = getParameter(ACTIVITY_PACK);
-            sequence = getParameter(SEQUENCE);
-            if (activityPack != null) {
-              if (activityPack.indexOf("http://") < 0
-                  && activityPack.indexOf("https://") < 0
-                  && activityPack.indexOf(":") < 1
-                  && activityPack.indexOf("\\\\") < 0) {
-                String base = "";
-                URL baseURL = getDocumentBase();
-                if (baseURL != null) base = baseURL.toString();
-                else if (options.getString(MYURL) != null) base = options.getString(MYURL);
-
-                if (trace) {
-                  System.out.println(">>> original base is: " + base);
-                }
-                int i = base.indexOf("file:/");
-                if (i >= 0) {
-                  base = base.substring(i + 6);
-                  if (trace) {
-                    System.out.println(">>> protocol is 'file', so base is: " + base);
-                  }
-                  // Mozilla in Linux
-                  if (!options.getBoolean(Options.WIN)
-                      && !base.startsWith(java.io.File.pathSeparator)) {
-                    base = "/" + base;
-                    if (trace) {
-                      System.out.println(
-                          ">>> non-Windows and not starts with '/', so base is: " + base);
-                    }
-                  }
-                }
-                // Opera
-                if (base.startsWith("/localhost/")) {
-                  base = base.substring(11);
-                }
-                // Opera
-
-                if (base.endsWith(".htm") || base.endsWith(".html")) {
-                  i = base.lastIndexOf('/');
-                  if (i < 0) {
-                    i = base.lastIndexOf('\\');
-                  }
-                  if (i > 0) {
-                    base = base.substring(0, i + 1);
-                  }
-                }
-                options.put(URL_BASE, base);
-                if (trace) {
-                  System.out.println(">>> corrected base is: " + base);
-                }
-                activityPack = base + activityPack;
-                if (trace) {
-                  System.out.println(">>> project path is: " + activityPack);
-                }
-                String s = options.getString(SKIN);
-                if (s != null
-                    && !s.startsWith("@")
-                    && !s.startsWith(HTTP)
-                    && !s.startsWith(HTTPS)
-                    && !s.startsWith(FILE)) {
-                  options.put(SKIN, base + s);
-                }
-                s = options.getString(EXIT_URL);
-                if (s != null
-                    && !s.startsWith(HTTP)
-                    && !s.startsWith(HTTPS)
-                    && !s.startsWith(FILE)) {
-                  options.put(EXIT_URL, base + s);
-                }
+              String url = options.getString(EXIT_URL);
+              if (url.indexOf(':') < 0) // no protocol, assume "file://"
+              {
+                url = "file://" + url;
               }
-              // Check if activityPack is an installer
-              if (activityPack.endsWith(".jclic.inst")) {
-                isInstaller = true;
-                messages.addBundle(edu.xtec.jclic.ExtendedPlayer.MESSAGES_BUNDLE);
-              }
-            }
-            // build player
-            try {
-              if (isInstaller) {
-                String installer = activityPack;
-                activityPack = null;
-                BasicResourceBridge rb = new BasicResourceBridge(options);
-                PlayerSettings settings = PlayerSettings.loadPlayerSettings(rb);
-                if (settings.promptPassword(null, null)) {
-                  settings.checkLibrary();
-                  ProjectInstallerDlg pi =
-                      ProjectInstallerDlg.getProjectInstallerDlg(
-                          null, settings.libraryManager, installer);
-                  if (pi != null) {
-                    pi.setVisible(true);
-                    if (!pi.cancel && pi.launchNow && pi.pathToMainProject != null) {
-                      activityPack = pi.pathToMainProject;
-                    }
-                  }
-                }
-              }
-
-              if (activityPack != null) {
-                rc = new Player(options);
-              }
+              getAppletContext().showDocument(new URL(url));
             } catch (Exception ex) {
               sb.append("ERROR: ").append(ex);
             }
-            return rc;
           }
-
-          @Override
-          public void finished() {
-            if (getValue() == null) {
-              if (isInstaller && options.getString(EXIT_URL) != null) {
-                try {
-                  String url = options.getString(EXIT_URL);
-                  if (url.indexOf(':') < 0) // no protocol, assume "file://"
-                  {
-                    url = "file://" + url;
-                  }
-                  getAppletContext().showDocument(new URL(url));
-                } catch (Exception ex) {
-                  sb.append("ERROR: ").append(ex);
-                }
-              }
-              // no player build!
-              if (splashLabel != null) {
-                String s = sb.substring(0);
-                splashLabel.setText(s);
-                System.err.println(s);
-              }
-            } else {
-              // remove label and place player
-              getContentPane().removeAll();
-              splashLabel = null;
-              rc.addTo(rpc, java.awt.BorderLayout.CENTER);
-              getRootPane().revalidate();
-              // load project
-              javax.swing.SwingUtilities.invokeLater(
-                  new Runnable() {
-                    public void run() {
-                      rc.start(activityPack, sequence);
-                    }
-                  });
+          // no player build!
+          if (splashLabel != null) {
+            String s = sb.substring(0);
+            splashLabel.setText(s);
+            System.err.println(s);
+          }
+        } else {
+          // remove label and place player
+          getContentPane().removeAll();
+          splashLabel = null;
+          rc.addTo(rpc, java.awt.BorderLayout.CENTER);
+          getRootPane().revalidate();
+          // load project
+          javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+              rc.start(activityPack, sequence);
             }
-          }
-        };
+          });
+        }
+      }
+    };
 
     if (trace) {
       System.out.println(">>> initializing...");

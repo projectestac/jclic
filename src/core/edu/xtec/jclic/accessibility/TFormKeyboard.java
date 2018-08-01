@@ -33,7 +33,9 @@ import javax.swing.JPanel;
 
 /**
  * @author jlagares
- *     <p>TODO: Allow different keyboard layouts TODO: Normalize the creation of icons
+ *         <p>
+ *         TODO: Allow different keyboard layouts TODO: Normalize the creation
+ *         of icons
  */
 public class TFormKeyboard extends JFrame {
 
@@ -69,8 +71,7 @@ public class TFormKeyboard extends JFrame {
     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     panelPlaphoons = new JPanel();
     panelPlaphoons.setBackground(Color.white);
-    panelPlaphoons.setBorder(
-        BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+    panelPlaphoons.setBorder(BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
     add(panelPlaphoons, BorderLayout.CENTER);
     panelPlaphoons.setLayout(null);
     setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
@@ -79,16 +80,15 @@ public class TFormKeyboard extends JFrame {
     font = font.deriveFont(font.getSize2D() + FONT_SIZE_INCREMENT);
     boldFont = font.deriveFont(Font.BOLD);
 
-    java.awt.event.MouseAdapter mAdapter =
-        new java.awt.event.MouseAdapter() {
+    java.awt.event.MouseAdapter mAdapter = new java.awt.event.MouseAdapter() {
 
-          @Override
-          public void mouseReleased(java.awt.event.MouseEvent me) {
-            if (me.getButton() == java.awt.event.MouseEvent.BUTTON1) {
-              plafonsOnClick(me);
-            }
-          }
-        };
+      @Override
+      public void mouseReleased(java.awt.event.MouseEvent me) {
+        if (me.getButton() == java.awt.event.MouseEvent.BUTTON1) {
+          plafonsOnClick(me);
+        }
+      }
+    };
 
     for (int i = 0; i < CELLS_X; i++) {
       for (int n = 0; n < CELLS_Y; n++) {
@@ -120,14 +120,13 @@ public class TFormKeyboard extends JFrame {
     setLocation((screenSize.width - frameSize.width) / 2, (screenSize.height - frameSize.height));
     calcFrameSize();
 
-    addComponentListener(
-        new java.awt.event.ComponentAdapter() {
+    addComponentListener(new java.awt.event.ComponentAdapter() {
 
-          @Override
-          public void componentResized(java.awt.event.ComponentEvent evt) {
-            calcFrameSize();
-          }
-        });
+      @Override
+      public void componentResized(java.awt.event.ComponentEvent evt) {
+        calcFrameSize();
+      }
+    });
   }
 
   void sendKey(int t) {
@@ -474,10 +473,7 @@ public class TFormKeyboard extends JFrame {
     for (int i = 0; i < CELLS_X; i++) {
       for (int n = 0; n < CELLS_Y; n++) {
         keys[i][n].setVisible(false);
-        keys[i][n].setBounds(
-            frameSpan + cellWidth * i,
-            frameSpan + cellHeight * n,
-            cellWidth - frameSpan,
+        keys[i][n].setBounds(frameSpan + cellWidth * i, frameSpan + cellHeight * n, cellWidth - frameSpan,
             cellHeight - frameSpan);
         keys[i][n].setVisible(true);
       }

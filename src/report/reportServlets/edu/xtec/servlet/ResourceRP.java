@@ -77,14 +77,17 @@ public class ResourceRP extends RequestProcessor {
     super.header(v);
     if (objectData != null) {
       String ct = null;
-      if (objectName.endsWith(".gif")) ct = "image/gif";
-      else if (objectName.endsWith(".jpg")) ct = "text/jpg";
-      else if (objectName.endsWith(".css")) ct = "text/css";
+      if (objectName.endsWith(".gif"))
+        ct = "image/gif";
+      else if (objectName.endsWith(".jpg"))
+        ct = "text/jpg";
+      else if (objectName.endsWith(".css"))
+        ct = "text/css";
       if (ct != null) {
-        v.add(new String[] {CONTENT_TYPE, ct});
+        v.add(new String[] { CONTENT_TYPE, ct });
       }
-      v.add(new String[] {CONTENT_LENGTH, Integer.toString(objectData.length)});
-      v.add(new String[] {EXTRA, LAST_MODIFIED, dateStr});
+      v.add(new String[] { CONTENT_LENGTH, Integer.toString(objectData.length) });
+      v.add(new String[] { EXTRA, LAST_MODIFIED, dateStr });
     }
   }
 
@@ -95,6 +98,7 @@ public class ResourceRP extends RequestProcessor {
 
   @Override
   public void process(java.io.OutputStream out) throws Exception {
-    if (objectData != null) out.write(objectData, 0, objectData.length);
+    if (objectData != null)
+      out.write(objectData, 0, objectData.length);
   }
 }

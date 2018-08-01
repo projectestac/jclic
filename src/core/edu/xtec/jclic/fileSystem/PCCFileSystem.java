@@ -49,10 +49,12 @@ public abstract class PCCFileSystem extends FileSystem {
     pccName = getCanonicalNameOf(pccFileName);
   }
 
-  public static PCCFileSystem createPCCFileSystem(
-      String rootPath, String pccFileName, ResourceBridge rb) throws Exception {
-    if (isStrUrl(rootPath)) return new UrlPCC(rootPath, pccFileName, rb);
-    else return new FilePCC(rootPath, pccFileName, rb);
+  public static PCCFileSystem createPCCFileSystem(String rootPath, String pccFileName, ResourceBridge rb)
+      throws Exception {
+    if (isStrUrl(rootPath))
+      return new UrlPCC(rootPath, pccFileName, rb);
+    else
+      return new FilePCC(rootPath, pccFileName, rb);
   }
 
   @Override
@@ -78,13 +80,10 @@ public abstract class PCCFileSystem extends FileSystem {
       baseOffset = (int) extractShortLong(dis);
       fe = new PCCFileEntry[numFiles];
       for (int i = 0; i < numFiles; i++) {
-        // fe[i]=new PCCFileEntry(Clic3.validFileName(normalizePath(extractSzString(dis))),
-        fe[i] =
-            new PCCFileEntry(
-                Clic3.validFileName(extractSzString(dis)),
-                extractShortLong(dis),
-                extractShortLong(dis));
-        if (fe[i].fileName.length() == 0) break;
+        fe[i] = new PCCFileEntry(Clic3.validFileName(extractSzString(dis)), extractShortLong(dis),
+            extractShortLong(dis));
+        if (fe[i].fileName.length() == 0)
+          break;
       }
     }
   }
@@ -103,14 +102,16 @@ public abstract class PCCFileSystem extends FileSystem {
 
     if (numFiles > 0) {
       for (i = 0; i < numFiles; i++) {
-        if (fe[i].fileName.equals(normalizedFName)) break;
+        if (fe[i].fileName.equals(normalizedFName))
+          break;
       }
     }
     if (i == numFiles && altFileNames.get(fName) != null) {
       // not found, but found in altFileNames!
       normalizedFName = stdFn((String) altFileNames.get(fName));
       for (i = 0; i < numFiles; i++) {
-        if (fe[i].fileName.equals(normalizedFName)) break;
+        if (fe[i].fileName.equals(normalizedFName))
+          break;
       }
     }
     return (i == numFiles ? -1 : i);
@@ -121,23 +122,21 @@ public abstract class PCCFileSystem extends FileSystem {
   @Override
   public byte[] getBytes(String fileName) throws IOException {
     int entryNum;
-    if ((entryNum = getEntryNum(fileName)) == -1) return super.getBytes(fileName);
+    if ((entryNum = getEntryNum(fileName)) == -1)
+      return super.getBytes(fileName);
     return getBytes(entryNum);
   }
 
   @Override
   public long getFileLength(String fileName) throws IOException {
     int entryNum;
-    return (entryNum = getEntryNum(fileName)) == -1
-        ? super.getFileLength(fileName)
-        : fe[entryNum].size;
+    return (entryNum = getEntryNum(fileName)) == -1 ? super.getFileLength(fileName) : fe[entryNum].size;
   }
 
   @Override
   public Image getImageFile(String fName) throws Exception {
     int entryNum;
-    return (entryNum = getEntryNum(fName)) == -1
-        ? super.getImageFile(fName)
+    return (entryNum = getEntryNum(fName)) == -1 ? super.getImageFile(fName)
         : Toolkit.getDefaultToolkit().createImage(getBytes(entryNum));
   }
 
@@ -154,9 +153,12 @@ public abstract class PCCFileSystem extends FileSystem {
     boolean skipNext = false;
     while (true) {
       byte b = dis.readByte();
-      if (skipNext) break;
-      else if (b == 0x0D) skipNext = true;
-      else str.append((char) b);
+      if (skipNext)
+        break;
+      else if (b == 0x0D)
+        skipNext = true;
+      else
+        str.append((char) b);
     }
     return str.substring(0);
   }
@@ -166,8 +168,10 @@ public abstract class PCCFileSystem extends FileSystem {
     char b[] = new char[1];
     while (true) {
       bfr.read(b, 0, 1);
-      if (b[0] == 0) break;
-      else str.append(b[0]);
+      if (b[0] == 0)
+        break;
+      else
+        str.append(b[0]);
     }
     return str.substring(0);
   }
@@ -176,8 +180,10 @@ public abstract class PCCFileSystem extends FileSystem {
     StringBuilder str = new StringBuilder();
     while (true) {
       byte b = dis.readByte();
-      if (b == 0) break;
-      else str.append((char) b);
+      if (b == 0)
+        break;
+      else
+        str.append((char) b);
     }
     return str.substring(0);
   }

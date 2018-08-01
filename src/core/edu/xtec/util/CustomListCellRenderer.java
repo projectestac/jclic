@@ -28,9 +28,10 @@ import javax.swing.JList;
 import javax.swing.ListCellRenderer;
 
 /**
- * This class is a {@link javax.swing.ListCellRenderer} that can use an array of strings and another
- * array of icons to display its content based on the value of the <CODE>index</CODE> param passed
- * to <CODE>getListCellRendererComponent</CODE>.
+ * This class is a {@link javax.swing.ListCellRenderer} that can use an array of
+ * strings and another array of icons to display its content based on the value
+ * of the <CODE>index</CODE> param passed to
+ * <CODE>getListCellRendererComponent</CODE>.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
@@ -60,8 +61,8 @@ public class CustomListCellRenderer extends JLabel implements ListCellRenderer<O
     this.icons = icons;
   }
 
-  public Component getListCellRendererComponent(
-      JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+  public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected,
+      boolean cellHasFocus) {
     if (isSelected) {
       setBackground(list.getSelectionBackground());
       setForeground(list.getSelectionForeground());
@@ -71,16 +72,21 @@ public class CustomListCellRenderer extends JLabel implements ListCellRenderer<O
     }
 
     String s = "";
-    if (value instanceof String) s = (String) value;
-    else if (labels != null && index >= 0 && index < labels.length) s = labels[index];
+    if (value instanceof String)
+      s = (String) value;
+    else if (labels != null && index >= 0 && index < labels.length)
+      s = labels[index];
 
     Icon icon = null;
-    if (value instanceof Icon) icon = (Icon) value;
-    else if (icons != null && index >= 0 && index < icons.length) icon = icons[index];
+    if (value instanceof Icon)
+      icon = (Icon) value;
+    else if (icons != null && index >= 0 && index < icons.length)
+      icon = icons[index];
     else if (icons != null && labels != null && index < 0 && value != null) {
       for (int i = 0; i < labels.length; i++) {
         if (value.equals(labels[i])) {
-          if (i < icons.length) icon = icons[i];
+          if (i < icons.length)
+            icon = icons[i];
           break;
         }
       }

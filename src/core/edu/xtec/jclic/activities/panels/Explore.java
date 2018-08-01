@@ -43,7 +43,7 @@ public class Explore extends Activity implements ActiveBagContentKit.Compatible 
     boxGridPos = AB;
     abc = new ActiveBagContent[2];
     // for(int i=0; i<2; i++)
-    //    abc[i]=null;
+    // abc[i]=null;
     scramble[0] = false;
     bTimeCounter = bScoreCounter = bActionsCounter = false;
     includeInReports = false;
@@ -61,7 +61,8 @@ public class Explore extends Activity implements ActiveBagContentKit.Compatible 
   public org.jdom.Element getJDomElement() {
     org.jdom.Element ex;
 
-    if (abc[0] == null || abc[1] == null) return null;
+    if (abc[0] == null || abc[1] == null)
+      return null;
 
     org.jdom.Element e = super.getJDomElement();
 
@@ -92,8 +93,10 @@ public class Explore extends Activity implements ActiveBagContentKit.Compatible 
       child = ((org.jdom.Element) itr.next());
       bag = ActiveBagContent.getActiveBagContent(child, project.mediaBag);
       String id = JDomUtility.getStringAttr(child, ID, PRIMARY, false);
-      if (PRIMARY.equals(id)) abc[0] = bag;
-      else if (SECONDARY.equals(id)) abc[1] = bag;
+      if (PRIMARY.equals(id))
+        abc[0] = bag;
+      else if (SECONDARY.equals(id))
+        abc[1] = bag;
     }
     if (abc[0] == null || abc[1] == null)
       throw new IllegalArgumentException("Explore activity without content!");
@@ -151,7 +154,8 @@ public class Explore extends Activity implements ActiveBagContentKit.Compatible 
 
     protected Panel(PlayStation ps) {
       super(ps);
-      for (int i = 0; i < 2; i++) bg[i] = null;
+      for (int i = 0; i < 2; i++)
+        bg[i] = null;
     }
 
     public void clear() {
@@ -165,7 +169,8 @@ public class Explore extends Activity implements ActiveBagContentKit.Compatible 
     @Override
     public void buildVisualComponents() throws Exception {
 
-      if (firstRun) super.buildVisualComponents();
+      if (firstRun)
+        super.buildVisualComponents();
 
       clear();
 
@@ -177,17 +182,10 @@ public class Explore extends Activity implements ActiveBagContentKit.Compatible 
         bg[0] = ActiveBoxGrid.createEmptyGrid(null, this, margin, margin, abc[0]);
         // Clic3 behavior!!!
         double w = abc[1].w;
-        if (boxGridPos == AUB || boxGridPos == BUA) w = abc[0].getTotalWidth();
-        bg[1] =
-            new ActiveBoxGrid(
-                null,
-                this,
-                margin,
-                margin,
-                w,
-                abc[1].h,
-                new edu.xtec.jclic.shapers.Rectangular(1, 1),
-                abc[1].bb);
+        if (boxGridPos == AUB || boxGridPos == BUA)
+          w = abc[0].getTotalWidth();
+        bg[1] = new ActiveBoxGrid(null, this, margin, margin, w, abc[1].h, new edu.xtec.jclic.shapers.Rectangular(1, 1),
+            abc[1].bb);
 
         bg[0].setContent(abc[0]);
         bg[0].setDefaultIdAss();
@@ -202,23 +200,25 @@ public class Explore extends Activity implements ActiveBagContentKit.Compatible 
     public void initActivity() throws Exception {
       super.initActivity();
 
-      if (!firstRun) buildVisualComponents();
-      else firstRun = false;
+      if (!firstRun)
+        buildVisualComponents();
+      else
+        firstRun = false;
 
       setAndPlayMsg(MAIN, EventSounds.START);
-      // ps.setMsg(messages[MAIN]);
       if (bg[0] != null && bg[1] != null) {
-        if (scramble[0]) shuffle(new ActiveBoxBag[] {bg[0]}, true, true);
-        // ps.playMsg();
-        // if(messages[MAIN]==null || messages[MAIN].mediaContent==null)
-        //    playEvent(EventSounds.START);
-        if (useOrder) currentItem = bg[0].getNextItem(-1);
+        if (scramble[0])
+          shuffle(new ActiveBoxBag[] { bg[0] }, true, true);
+        if (useOrder)
+          currentItem = bg[0].getNextItem(-1);
         playing = true;
       }
     }
 
     public void render(Graphics2D g2, Rectangle dirtyRegion) {
-      for (int i = 0; i < 2; i++) if (bg[i] != null) bg[i].update(g2, dirtyRegion, this);
+      for (int i = 0; i < 2; i++)
+        if (bg[i] != null)
+          bg[i].update(g2, dirtyRegion, this);
     }
 
     public Dimension setDimension(Dimension preferredMaxSize) {
@@ -234,40 +234,32 @@ public class Explore extends Activity implements ActiveBagContentKit.Compatible 
 
       if (playing)
         switch (e.getID()) {
-          case MouseEvent.MOUSE_PRESSED:
-            ps.stopMedia(1);
-            if ((bx1 = bg[0].findActiveBox(e.getPoint())) != null) {
-              bx2 = bg[1].getActiveBox(0);
-              if (bx1.idAss != -1 && (!useOrder || bx1.idOrder == currentItem)) {
-                bx2.setContent(abc[1], bx1.idAss);
-                if (!bx2.playMedia(ps) && !bx1.playMedia(ps)) playEvent(EventSounds.CLICK);
-                if (useOrder) currentItem = bg[0].getNextItem(currentItem);
-                ps.reportNewAction(
-                    getActivity(),
-                    ACTION_SELECT,
-                    bx1.getDescription(),
-                    bx2.getDescription(),
-                    true,
-                    0);
+        case MouseEvent.MOUSE_PRESSED:
+          ps.stopMedia(1);
+          if ((bx1 = bg[0].findActiveBox(e.getPoint())) != null) {
+            bx2 = bg[1].getActiveBox(0);
+            if (bx1.idAss != -1 && (!useOrder || bx1.idOrder == currentItem)) {
+              bx2.setContent(abc[1], bx1.idAss);
+              if (!bx2.playMedia(ps) && !bx1.playMedia(ps))
+                playEvent(EventSounds.CLICK);
+              if (useOrder)
+                currentItem = bg[0].getNextItem(currentItem);
+              ps.reportNewAction(getActivity(), ACTION_SELECT, bx1.getDescription(), bx2.getDescription(), true, 0);
 
-                // Clic 3.0 behavior:
-                if (bx1.idAss >= 0 && bx1.idAss < abc[1].getNumCells()) {
-                  ActivitySequenceElement ase = project.activitySequence.getCurrentAct();
-                  if (ase != null
-                      && project.activitySequence.hasNextAct(true)
-                      && ase.delay > 0
-                      && (project.activitySequence.getNavButtonsFlag()
-                              & ActivitySequenceElement.NAV_FWD)
-                          == 0) {
-                    finishActivity(true);
-                  }
+              // Clic 3.0 behavior:
+              if (bx1.idAss >= 0 && bx1.idAss < abc[1].getNumCells()) {
+                ActivitySequenceElement ase = project.activitySequence.getCurrentAct();
+                if (ase != null && project.activitySequence.hasNextAct(true) && ase.delay > 0
+                    && (project.activitySequence.getNavButtonsFlag() & ActivitySequenceElement.NAV_FWD) == 0) {
+                  finishActivity(true);
                 }
-              } else {
-                bx2.clear();
-                bx2.setInactive(false);
               }
+            } else {
+              bx2.clear();
+              bx2.setInactive(false);
             }
-            break;
+          }
+          break;
         }
     }
   }

@@ -60,12 +60,13 @@ import javax.swing.JPanel;
 import javax.swing.border.BevelBorder;
 
 /**
- * <CODE>Activity</CODE> is the abstract base class for JClic activities. It defines also the inner
- * class {@link edu.xtec.jclic.Activity.Panel}, wich is responsible of the user interaction with the
- * activity content. Activities should extend both <CODE>Activity</CODE> and <CODE>Activity.Panel
- * </CODE> classes in order to become fully operative. JClic stores activities in memory as {@link
- * org.jdom.Element} objects. So, all non-transient data must be stored to and retrieved from JDom
- * elements.
+ * <CODE>Activity</CODE> is the abstract base class for JClic activities. It
+ * defines also the inner class {@link edu.xtec.jclic.Activity.Panel}, wich is
+ * responsible of the user interaction with the activity content. Activities
+ * should extend both <CODE>Activity</CODE> and <CODE>Activity.Panel
+ * </CODE> classes in order to become fully operative. JClic stores activities
+ * in memory as {@link org.jdom.Element} objects. So, all non-transient data
+ * must be stored to and retrieved from JDom elements.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10
@@ -97,15 +98,19 @@ public abstract class Activity extends Object implements Constants, Editable, Do
   /** Whether the bgImage (if any) has to be tiled across the panel background. */
   public boolean tiledBgImg;
 
-  /** Filename of the image painted in the panel background. Default is <I>null</I>. */
+  /**
+   * Filename of the image painted in the panel background. Default is
+   * <I>null</I>.
+   */
   public String bgImageFile;
 
   /** Whether to draw a border around the activity panel. */
   public boolean border = true;
 
   /**
-   * Whether to place the activity panel at the point specified by {@link absolutePosition}, or
-   * leave it centered in the main window of the player.
+   * Whether to place the activity panel at the point specified by
+   * {@link absolutePosition}, or leave it centered in the main window of the
+   * player.
    */
   public boolean absolutePositioned;
 
@@ -115,7 +120,9 @@ public abstract class Activity extends Object implements Constants, Editable, Do
   /** Whether to generate usage reports. */
   public boolean includeInReports = true;
 
-  /** Whether to send action events to the {@link edu.xtec.jclic.report.Reporter}. */
+  /**
+   * Whether to send action events to the {@link edu.xtec.jclic.report.Reporter}.
+   */
   public boolean reportActions;
 
   /** Whether to have a help window or not. */
@@ -124,76 +131,94 @@ public abstract class Activity extends Object implements Constants, Editable, Do
   /** Whether to show the solution on the help window. */
   public boolean showSolution;
 
-  /** Message to show in the help window when {@link showSolution} is <CODE>false</CODE>. */
+  /**
+   * Message to show in the help window when {@link showSolution} is
+   * <CODE>false</CODE>.
+   */
   public String helpMsg;
 
   /**
-   * Specific set of {@link EventSounds} used in the activity. The default is <CODE>null</CODE>,
-   * meaning to use the {@link edu.xtec.jclic.Player} sounds.
+   * Specific set of {@link EventSounds} used in the activity. The default is
+   * <CODE>null</CODE>, meaning to use the {@link edu.xtec.jclic.Player} sounds.
    */
   public EventSounds eventSounds = new EventSounds(null);
 
-  /** Wheter the activity must be solved in a specific order. The default is <CODE>false</CODE>. */
+  /**
+   * Wheter the activity must be solved in a specific order. The default is
+   * <CODE>false</CODE>.
+   */
   public boolean useOrder;
 
   /**
-   * Wheter the cells of the activity will be dragged across the screen. When <CODE>false</CODE>, a
-   * line will be painted to link elements.
+   * Wheter the cells of the activity will be dragged across the screen. When
+   * <CODE>false</CODE>, a line will be painted to link elements.
    */
   public boolean dragCells;
 
   /**
-   * File name of the Skin used by the activity. The default value is null, meaning that the
-   * activity will use the skin specified for the project.
+   * File name of the Skin used by the activity. The default value is null,
+   * meaning that the activity will use the skin specified for the project.
    */
   public String skinFileName;
   /**
-   * Maximum amount of time (seconds) to solve the activity. The default value is <CODE>0</CODE>,
-   * meaning unlimited time.
+   * Maximum amount of time (seconds) to solve the activity. The default value is
+   * <CODE>0</CODE>, meaning unlimited time.
    */
   public int maxTime;
-  /** Whether the time counter should display a countdown when {@link #maxTime} &gt; 0. */
+  /**
+   * Whether the time counter should display a countdown when {@link #maxTime}
+   * &gt; 0.
+   */
   public boolean countDownTime;
   /**
-   * Maximum number of actions allowed to solve the activity. The default value is <CODE>0</CODE>,
-   * meaning unlimited actions.
+   * Maximum number of actions allowed to solve the activity. The default value is
+   * <CODE>0</CODE>, meaning unlimited actions.
    */
   public int maxActions;
-  /** Whether the actions counter should display a countdown when {@link #maxActions} &gt; 0. */
+  /**
+   * Whether the actions counter should display a countdown when
+   * {@link #maxActions} &gt; 0.
+   */
   public boolean countDownActions;
   /**
-   * String with the URL to be displayed when the user clicks on the <I>info</I> button. Default is
-   * <CODE>null</CODE>.
+   * String with the URL to be displayed when the user clicks on the <I>info</I>
+   * button. Default is <CODE>null</CODE>.
    */
   public String infoUrl;
   /**
-   * System command to be executed when the user clicks the <I>info</I> button. Default is <CODE>
+   * System command to be executed when the user clicks the <I>info</I> button.
+   * Default is <CODE>
    * null</CODE>. Applets have this function disabled.
    */
   public String infoCmd;
 
   // protected fields
   /**
-   * String labels corresponding to the four identifiers of JClic messages: PREVIOUS, MAIN, END and
-   * END_ERROR.
+   * String labels corresponding to the four identifiers of JClic messages:
+   * PREVIOUS, MAIN, END and END_ERROR.
    */
-  public static final String[] MSG_TYPE = {"previous", "initial", "final", "finalError"};
+  public static final String[] MSG_TYPE = { "previous", "initial", "final", "finalError" };
 
   /**
-   * Identifier of the message displayed before the activity starts. Used only in certain types of
-   * activities.
+   * Identifier of the message displayed before the activity starts. Used only in
+   * certain types of activities.
    */
   public static final int PREVIOUS = 0;
 
-  /** Identifier of the main message, displayed as long as the activity is playing. */
+  /**
+   * Identifier of the main message, displayed as long as the activity is playing.
+   */
   public static final int MAIN = 1;
 
-  /** Identifier of the message displayed when the user successfully ends the activity. */
+  /**
+   * Identifier of the message displayed when the user successfully ends the
+   * activity.
+   */
   public static final int END = 2;
 
   /**
-   * Identifier of the message displayed when the user exceeds the maximum amount of time or actions
-   * allowed.
+   * Identifier of the message displayed when the user exceeds the maximum amount
+   * of time or actions allowed.
    *
    * @see maxTime
    * @see maxActions
@@ -225,7 +250,7 @@ public abstract class Activity extends Object implements Constants, Editable, Do
 
   // layout constants
   public static final int AB = 0, BA = 1, AUB = 2, BUA = 3;
-  public static final String[] LAYOUT_NAMES = {"AB", "BA", "AUB", "BUA"};
+  public static final String[] LAYOUT_NAMES = { "AB", "BA", "AUB", "BUA" };
 
   public static final int DEFAULT_WIDTH = 400;
   public static final int DEFAULT_HEIGHT = 300;
@@ -238,85 +263,31 @@ public abstract class Activity extends Object implements Constants, Editable, Do
   public static final Color DEFAULT_BG_COLOR = Color.lightGray;
 
   // Constants for actions
-  public static final String ACTION_MATCH = "MATCH",
-      ACTION_PLACE = "PLACE",
-      ACTION_WRITE = "WRITE",
-      ACTION_SELECT = "SELECT",
-      ACTION_HELP = "HELP";
+  public static final String ACTION_MATCH = "MATCH", ACTION_PLACE = "PLACE", ACTION_WRITE = "WRITE",
+      ACTION_SELECT = "SELECT", ACTION_HELP = "HELP";
 
   // Constants for XML fields
   public static final String ELEMENT_NAME = "activity", NAME = "name";
   public static final String BASE_CLASS = "edu.xtec.jclic.activities.", BASE_CLASS_TAG = "@";
   // Already defined in edu.xtec.jclic.Constants:
   // public static final String ID="id", SKIN="skin";
-  public static final String CODE = "code",
-      DESCRIPTION = "description",
-      MESSAGES = "messages",
-      TYPE = "type",
-      // PREVIOUS="previous", INITIAL="initial", FINAL="final", FINAL_ERROR="finalError",
-      SETTINGS = "settings",
-      LAYOUT = "layout",
-      MARGIN = "margin",
-      CONTAINER = "container",
-      BGCOLOR = "bgColor",
-      IMAGE = "image",
-      TILED = "tiled",
-      COUNTERS = "counters",
-      TIME = "time",
-      ACTIONS = "actions",
-      SCORE = "score",
-      WINDOW = "window",
-      TRANSPARENT = "transparent",
-      BORDER = "border",
-      POSITION = "position",
-      X = "x",
-      Y = "y",
-      SIZE = "size",
-      WIDTH = "width",
-      HEIGHT = "height",
-      PRIMARY = "primary",
-      SECONDARY = "secondary",
-      SOLVED_PRIMARY = "solvedPrimary",
-      SOLVED_SECONDARY = "solved_secondary",
-      GRID = "grid",
-      ROW = "row",
-      CLUES = "clues",
-      CLUE = "clue",
-      RANDOM_CHARS = "random_chars",
-      SCRAMBLE = "scramble",
-      TIMES = "times",
-      REPORT = "report",
-      REPORT_ACTIONS = "reportActions",
-      HELP_WINDOW = "helpWindow",
-      HELP_SHOW_SOLUTION = "showSolution",
-      USE_ORDER = "useOrder",
-      DRAG_CELLS = "dragCells",
-      FILE = "file",
-      MAX_TIME = "maxTime",
-      COUNT_DOWN_TIME = "countDownTime",
-      MAX_ACTIONS = "maxActions",
-      COUNT_DOWN_ACTIONS = "countDownActions",
-      INFO_URL = "infoUrl",
-      INFO_CMD = "infoCmd";
+  public static final String CODE = "code", DESCRIPTION = "description", MESSAGES = "messages", TYPE = "type",
+      SETTINGS = "settings", LAYOUT = "layout", MARGIN = "margin", CONTAINER = "container", BGCOLOR = "bgColor",
+      IMAGE = "image", TILED = "tiled", COUNTERS = "counters", TIME = "time", ACTIONS = "actions", SCORE = "score",
+      WINDOW = "window", TRANSPARENT = "transparent", BORDER = "border", POSITION = "position", X = "x", Y = "y",
+      SIZE = "size", WIDTH = "width", HEIGHT = "height", PRIMARY = "primary", SECONDARY = "secondary",
+      SOLVED_PRIMARY = "solvedPrimary", SOLVED_SECONDARY = "solved_secondary", GRID = "grid", ROW = "row",
+      CLUES = "clues", CLUE = "clue", RANDOM_CHARS = "random_chars", SCRAMBLE = "scramble", TIMES = "times",
+      REPORT = "report", REPORT_ACTIONS = "reportActions", HELP_WINDOW = "helpWindow",
+      HELP_SHOW_SOLUTION = "showSolution", USE_ORDER = "useOrder", DRAG_CELLS = "dragCells", FILE = "file",
+      MAX_TIME = "maxTime", COUNT_DOWN_TIME = "countDownTime", MAX_ACTIONS = "maxActions",
+      COUNT_DOWN_ACTIONS = "countDownActions", INFO_URL = "infoUrl", INFO_CMD = "infoCmd";
 
-  public static final String[][] COMPATIBLE_ACTIVITIES =
-      new String[][] {
-        new String[] {
-          "@puzzles.DoublePuzzle",
-          "@puzzles.ExchangePuzzle",
-          "@puzzles.HolePuzzle",
-          "@memory.MemoryGame",
-          "@associations.SimpleAssociation",
-          "@associations.ComplexAssociation",
-          "@panels.Explore",
-          "@panels.Identify",
-          "@panels.InformationScreen",
-          "@text.WrittenAnswer"
-        },
-        new String[] {
-          "@text.FillInBlanks", "@text.Identify", "@text.Order", "@text.Complete",
-        }
-      };
+  public static final String[][] COMPATIBLE_ACTIVITIES = new String[][] {
+      new String[] { "@puzzles.DoublePuzzle", "@puzzles.ExchangePuzzle", "@puzzles.HolePuzzle", "@memory.MemoryGame",
+          "@associations.SimpleAssociation", "@associations.ComplexAssociation", "@panels.Explore", "@panels.Identify",
+          "@panels.InformationScreen", "@text.WrittenAnswer" },
+      new String[] { "@text.FillInBlanks", "@text.Identify", "@text.Order", "@text.Complete", } };
 
   /** Creates new edu.xtec.jclicActivity */
   public Activity(JClicProject project) {
@@ -348,7 +319,8 @@ public abstract class Activity extends Object implements Constants, Editable, Do
 
   public String getShortClassName() {
     String s = getClass().getName();
-    if (s.startsWith(BASE_CLASS)) s = BASE_CLASS_TAG + s.substring(BASE_CLASS.length());
+    if (s.startsWith(BASE_CLASS))
+      s = BASE_CLASS_TAG + s.substring(BASE_CLASS.length());
     return s;
   }
 
@@ -364,7 +336,7 @@ public abstract class Activity extends Object implements Constants, Editable, Do
       }
     }
     if (result == null) {
-      result = new String[] {cl};
+      result = new String[] { cl };
     }
     return result;
   }
@@ -375,8 +347,10 @@ public abstract class Activity extends Object implements Constants, Editable, Do
 
     e.setAttribute(JDomUtility.CLASS, getShortClassName());
     e.setAttribute(NAME, name);
-    if (code != null) e.setAttribute(CODE, code);
-    if (description != null) JDomUtility.addParagraphs(e, DESCRIPTION, description);
+    if (code != null)
+      e.setAttribute(CODE, code);
+    if (description != null)
+      JDomUtility.addParagraphs(e, DESCRIPTION, description);
 
     child = new org.jdom.Element(MESSAGES);
     for (int i = 0; i < NUM_MSG; i++)
@@ -388,11 +362,15 @@ public abstract class Activity extends Object implements Constants, Editable, Do
 
     child.setAttribute(MARGIN, Integer.toString(margin));
 
-    if (infoUrl != null && infoUrl.length() > 0) child.setAttribute(INFO_URL, infoUrl);
-    else if (infoCmd != null && infoCmd.length() > 0) child.setAttribute(INFO_CMD, infoCmd);
+    if (infoUrl != null && infoUrl.length() > 0)
+      child.setAttribute(INFO_URL, infoUrl);
+    else if (infoCmd != null && infoCmd.length() > 0)
+      child.setAttribute(INFO_CMD, infoCmd);
 
-    if (useOrder) child.setAttribute(USE_ORDER, JDomUtility.boolString(useOrder));
-    if (dragCells) child.setAttribute(DRAG_CELLS, JDomUtility.boolString(dragCells));
+    if (useOrder)
+      child.setAttribute(USE_ORDER, JDomUtility.boolString(useOrder));
+    if (dragCells)
+      child.setAttribute(DRAG_CELLS, JDomUtility.boolString(dragCells));
     if (maxTime > 0) {
       child.setAttribute(MAX_TIME, Integer.toString(maxTime));
       child.setAttribute(COUNT_DOWN_TIME, JDomUtility.boolString(countDownTime));
@@ -402,17 +380,21 @@ public abstract class Activity extends Object implements Constants, Editable, Do
       child.setAttribute(COUNT_DOWN_ACTIONS, JDomUtility.boolString(countDownActions));
     }
     child.setAttribute(REPORT, JDomUtility.boolString(includeInReports));
-    if (includeInReports) child.setAttribute(REPORT_ACTIONS, JDomUtility.boolString(reportActions));
+    if (includeInReports)
+      child.setAttribute(REPORT_ACTIONS, JDomUtility.boolString(reportActions));
     if (helpWindow) {
       child2 = new org.jdom.Element(HELP_WINDOW);
       boolean hsa = helpSolutionAllowed();
-      if (hsa) child2.setAttribute(HELP_SHOW_SOLUTION, JDomUtility.boolString(showSolution));
-      if (helpMsg != null && (!hsa || !showSolution)) JDomUtility.setParagraphs(child2, helpMsg);
+      if (hsa)
+        child2.setAttribute(HELP_SHOW_SOLUTION, JDomUtility.boolString(showSolution));
+      if (helpMsg != null && (!hsa || !showSolution))
+        JDomUtility.setParagraphs(child2, helpMsg);
       child.addContent(child2);
     }
     child2 = new org.jdom.Element(CONTAINER);
     child2.setAttribute(BGCOLOR, JDomUtility.colorToString(bgColor));
-    if (bgGradient != null) child2.addContent(bgGradient.getJDomElement());
+    if (bgGradient != null)
+      child2.addContent(bgGradient.getJDomElement());
 
     if (bgImageFile != null && bgImageFile.length() > 0) {
       child3 = new org.jdom.Element(IMAGE);
@@ -431,8 +413,10 @@ public abstract class Activity extends Object implements Constants, Editable, Do
 
     child2 = new org.jdom.Element(WINDOW);
     child2.setAttribute(BGCOLOR, JDomUtility.colorToString(activityBgColor));
-    if (activityBgGradient != null) child2.addContent(activityBgGradient.getJDomElement());
-    if (transparentBg) child2.setAttribute(TRANSPARENT, JDomUtility.boolString(transparentBg));
+    if (activityBgGradient != null)
+      child2.addContent(activityBgGradient.getJDomElement());
+    if (transparentBg)
+      child2.setAttribute(TRANSPARENT, JDomUtility.boolString(transparentBg));
     child2.setAttribute(BORDER, JDomUtility.boolString(border));
 
     if (absolutePositioned && absolutePosition != null) {
@@ -450,19 +434,19 @@ public abstract class Activity extends Object implements Constants, Editable, Do
     }
     child.addContent(child2);
 
-    if ((child2 = eventSounds.getJDomElement()) != null) child.addContent(child2);
+    if ((child2 = eventSounds.getJDomElement()) != null)
+      child.addContent(child2);
 
     if (skinFileName != null) {
       child2 = new org.jdom.Element(SKIN);
       child2.setAttribute(FILE, skinFileName);
-      // if(skin!=null && skin.name!=null && skin.name.length()>0)
-      //    child2.setAttribute(NAME, skin.name);
       child.addContent(child2);
     }
 
     e.addContent(child);
 
-    if (acp != null) e.addContent(acp.getJDomElement());
+    if (acp != null)
+      e.addContent(acp.getJDomElement());
 
     return e;
   }
@@ -473,31 +457,33 @@ public abstract class Activity extends Object implements Constants, Editable, Do
     Clic3Activity c3a = null;
     String className;
 
-    // if(o.getClass()==org.jdom.Element.class){
     if (o instanceof org.jdom.Element) {
       e = (org.jdom.Element) o;
       JDomUtility.checkName(e, ELEMENT_NAME);
       className = JDomUtility.getClassName(e);
-    }
-    // else if(o.getClass()==Clic3Activity.class){
-    else if (o instanceof Clic3Activity) {
+    } else if (o instanceof Clic3Activity) {
       c3a = (Clic3Activity) o;
       className = c3a.className;
     } else if (o instanceof String) {
       className = (String) o;
-    } else throw new Exception("unknown data!!");
+    } else
+      throw new Exception("unknown data!!");
 
     Class<?> activityClass;
     Constructor<?> con;
-    Class<?>[] cparams = {JClicProject.class};
-    Object[] initArgs = {project};
-    if (className.startsWith(BASE_CLASS_TAG)) className = BASE_CLASS + className.substring(1);
+    Class<?>[] cparams = { JClicProject.class };
+    Object[] initArgs = { project };
+    if (className.startsWith(BASE_CLASS_TAG))
+      className = BASE_CLASS + className.substring(1);
     activityClass = Class.forName(className);
     con = activityClass.getConstructor(cparams);
     act = (Activity) con.newInstance(initArgs);
-    if (e != null) act.setProperties(e, null);
-    else if (c3a != null) act.setProperties(c3a);
-    else act.initNew();
+    if (e != null)
+      act.setProperties(e, null);
+    else if (c3a != null)
+      act.setProperties(c3a);
+    else
+      act.initNew();
     return act;
   }
 
@@ -513,21 +499,24 @@ public abstract class Activity extends Object implements Constants, Editable, Do
     name = JDomUtility.getStringAttr(e, NAME, name, false);
     code = JDomUtility.getStringAttr(e, CODE, code, false);
 
-    if ((child = e.getChild(DESCRIPTION)) != null) description = JDomUtility.getParagraphs(child);
+    if ((child = e.getChild(DESCRIPTION)) != null)
+      description = JDomUtility.getParagraphs(child);
 
     if ((child = e.getChild(MESSAGES)) != null) {
       Iterator itr = child.getChildren(ActiveBoxContent.ELEMENT_NAME).iterator();
       while (itr.hasNext()) {
         child2 = ((org.jdom.Element) itr.next());
         int i = JDomUtility.getStrIndexAttr(child2, TYPE, MSG_TYPE, -1);
-        if (i >= 0) messages[i] = ActiveBoxContent.getActiveBoxContent(child2, project.mediaBag);
+        if (i >= 0)
+          messages[i] = ActiveBoxContent.getActiveBoxContent(child2, project.mediaBag);
       }
     }
 
     if ((child = e.getChild(SETTINGS)) != null) {
       margin = JDomUtility.getIntAttr(child, MARGIN, margin);
       infoUrl = JDomUtility.getStringAttr(child, INFO_URL, infoUrl, false);
-      if (infoUrl == null) infoCmd = JDomUtility.getStringAttr(child, INFO_CMD, infoCmd, false);
+      if (infoUrl == null)
+        infoCmd = JDomUtility.getStringAttr(child, INFO_CMD, infoCmd, false);
       useOrder = JDomUtility.getBoolAttr(child, USE_ORDER, useOrder);
       dragCells = JDomUtility.getBoolAttr(child, DRAG_CELLS, dragCells);
       maxTime = JDomUtility.getIntAttr(child, MAX_TIME, maxTime);
@@ -539,12 +528,14 @@ public abstract class Activity extends Object implements Constants, Editable, Do
       includeInReports = JDomUtility.getBoolAttr(child, REPORT, includeInReports);
       if (includeInReports)
         reportActions = JDomUtility.getBoolAttr(child, REPORT_ACTIONS, reportActions);
-      else reportActions = false;
+      else
+        reportActions = false;
       if ((child2 = child.getChild(HELP_WINDOW)) != null) {
         if (helpSolutionAllowed()) {
           showSolution = JDomUtility.getBoolAttr(child2, HELP_SHOW_SOLUTION, showSolution);
         }
-        if (!showSolution) helpMsg = JDomUtility.getParagraphs(child2);
+        if (!showSolution)
+          helpMsg = JDomUtility.getParagraphs(child2);
         helpWindow = helpMsg != null || showSolution;
       }
       if ((child2 = child.getChild(CONTAINER)) != null) {
@@ -560,7 +551,6 @@ public abstract class Activity extends Object implements Constants, Editable, Do
           bActionsCounter = JDomUtility.getBoolAttr(child3, ACTIONS, bActionsCounter);
           bScoreCounter = JDomUtility.getBoolAttr(child3, SCORE, bScoreCounter);
           // Check for old version bug
-          // String v=rb.getOptions().getString(CURRENT_PROJECT_VERSION);
           String v = project.version;
           if (v != null && v.compareTo("0.1.1") <= 0) {
             boolean b = bScoreCounter;
@@ -591,12 +581,9 @@ public abstract class Activity extends Object implements Constants, Editable, Do
         skinFileName = JDomUtility.getStringAttr(child2, FILE, skinFileName, false);
 
         /*
-        if(skinFileName!=null && skinFileName.length()>0){
-            if(project.getBridge() instanceof PlayStation)
-                skin=project.mediaBag.getSkinElement(skinFileName, (PlayStation)project.getBridge());
-        }
-        else
-            skinFileName=null;
+         * if(skinFileName!=null && skinFileName.length()>0){ if(project.getBridge()
+         * instanceof PlayStation) skin=project.mediaBag.getSkinElement(skinFileName,
+         * (PlayStation)project.getBridge()); } else skinFileName=null;
          */
       }
     }
@@ -608,36 +595,22 @@ public abstract class Activity extends Object implements Constants, Editable, Do
 
   public void setProperties(Clic3Activity c3a) throws Exception {
     name = c3a.fileName;
-    if (c3a.fileDesc.length() > 0) description = c3a.fileDesc;
+    if (c3a.fileDesc.length() > 0)
+      description = c3a.fileDesc;
     BoxBase bbMessage = c3a.getBoxBase(2);
     for (int i = MAIN; i < END_ERROR; i++) {
       messages[i] = new ActiveBoxContent();
       messages[i].setBoxBase(bbMessage);
       c3a.setActiveBoxTextContent(messages[i], i == MAIN ? c3a.initMess : c3a.endMess);
-      if (messages[i].mediaContent != null) messages[i].mediaContent.level = 2;
+      if (messages[i].mediaContent != null)
+        messages[i].mediaContent.level = 2;
     }
-
-    /*
-    messages[MAIN]=new ActiveBoxContent();
-    messages[MAIN].setBoxBase(bbMessage);
-    c3a.setActiveBoxTextContent(messages[MAIN], c3a.initMess);
-    if(messages[MAIN].mediaContent!=null)
-        messages[MAIN].mediaContent.level=2;
-
-    messages[END]=new ActiveBoxContent();
-    messages[END].setBoxBase(bbMessage);
-    c3a.setActiveBoxTextContent(messages[END], c3a.endMess);
-    if(messages[END].mediaContent!=null)
-        messages[END].mediaContent.level=2;
-     */
 
     absolutePositioned = c3a.pwrp;
     absolutePosition = new Point(c3a.pwrx, c3a.pwry);
     transparentBg = c3a.pwTransp;
-    // activityBgPattern=c3a.tramaFons[1];
     activityBgColor = c3a.colorFons[1];
     border = c3a.marcs;
-    // bgPattern=c3a.tramaFons[0];
     bgImageFile = c3a.bmpFons;
     if (bgImageFile != null && bgImageFile.length() > 0)
       project.mediaBag.getImageElement(bgImageFile);
@@ -653,7 +626,8 @@ public abstract class Activity extends Object implements Constants, Editable, Do
     if (c3a.custHlp == true && c3a.custHelpFile != null && c3a.custHelpFile.length() > 0) {
       StringBuilder sb = new StringBuilder();
       sb.append(c3a.custHelpFile);
-      if (c3a.hlpTopic != null && c3a.hlpTopic.length() > 0) sb.append(" ").append(c3a.hlpTopic);
+      if (c3a.hlpTopic != null && c3a.hlpTopic.length() > 0)
+        sb.append(" ").append(c3a.hlpTopic);
       String s = sb.substring(0);
       if (s.indexOf(".htm") > 0) {
         StringTokenizer st = new StringTokenizer(s, " ");
@@ -667,12 +641,15 @@ public abstract class Activity extends Object implements Constants, Editable, Do
       } else {
         if (c3a.custHelpFile.toLowerCase().indexOf(".hlp") > 0)
           infoCmd = "winhelp.exe " + c3a.custHelpFile;
-        else infoCmd = s;
+        else
+          infoCmd = s;
       }
     }
 
-    if (helpSolutionAllowed()) showSolution = c3a.shHelp;
-    if (showSolution) helpWindow = true;
+    if (helpSolutionAllowed())
+      showSolution = c3a.shHelp;
+    if (showSolution)
+      helpWindow = true;
 
     if (c3a.useDLL) {
       if (c3a.rgDLL.equalsIgnoreCase("arith2.dll")) {
@@ -680,7 +657,8 @@ public abstract class Activity extends Object implements Constants, Editable, Do
         e.setAttribute(JDomUtility.CLASS, "edu.xtec.jclic.automation.arith.Arith");
         try {
           acp = AutoContentProvider.getAutoContentProvider(e);
-          if (acp != null) acp.setClic3Properties(c3a.dllOptions);
+          if (acp != null)
+            acp.setClic3Properties(c3a.dllOptions);
         } catch (Exception ex) {
           System.err.println("Unable to start arith2:\n" + ex);
         }
@@ -693,7 +671,8 @@ public abstract class Activity extends Object implements Constants, Editable, Do
 
     if ((child = e.getChild(MESSAGES)) != null) {
       Iterator itr = child.getChildren(ActiveBoxContent.ELEMENT_NAME).iterator();
-      while (itr.hasNext()) ActiveBoxContent.listReferences((org.jdom.Element) itr.next(), map);
+      while (itr.hasNext())
+        ActiveBoxContent.listReferences((org.jdom.Element) itr.next(), map);
     }
 
     if ((child = e.getChild(SETTINGS)) != null) {
@@ -709,16 +688,15 @@ public abstract class Activity extends Object implements Constants, Editable, Do
         String skfn = JDomUtility.getStringAttr(child2, FILE, null, false);
         if (skfn != null && !skfn.startsWith(Skin.INTERNAL_SKIN_PREFIX))
           map.put(skfn, Constants.SKIN_OBJECT);
-        // check skin dependences...
+        // TODO: check skin dependences...
       }
     }
 
     Iterator itr = e.getChildren(ActiveBagContent.ELEMENT_NAME).iterator();
-    while (itr.hasNext()) ActiveBagContent.listReferences((org.jdom.Element) itr.next(), map);
+    while (itr.hasNext())
+      ActiveBagContent.listReferences((org.jdom.Element) itr.next(), map);
 
     if ((child = e.getChild("document")) != null) {
-      // if((child=e.getChild(TextActivityDocument.ELEMENT_NAME))!=null){
-      // TextActivityDocument.listReferences(child, map);
       innerListReferences(child, map);
     }
 
@@ -733,12 +711,14 @@ public abstract class Activity extends Object implements Constants, Editable, Do
 
   public static void innerListReferences(org.jdom.Element e, Map<String, String> map) {
     Iterator it = e.getChildren(ActiveBoxContent.ELEMENT_NAME).iterator();
-    while (it.hasNext()) ActiveBoxContent.listReferences((org.jdom.Element) it.next(), map);
+    while (it.hasNext())
+      ActiveBoxContent.listReferences((org.jdom.Element) it.next(), map);
 
     it = e.getChildren().iterator();
     while (it.hasNext()) {
       org.jdom.Element child = (org.jdom.Element) it.next();
-      if (!ActiveBoxContent.ELEMENT_NAME.equals(child.getName())) innerListReferences(child, map);
+      if (!ActiveBoxContent.ELEMENT_NAME.equals(child.getName()))
+        innerListReferences(child, map);
     }
   }
 
@@ -760,13 +740,20 @@ public abstract class Activity extends Object implements Constants, Editable, Do
   // 02-oct-2006: Param "ResourceBridge" removed (can be obtained from "project"),
   // Changed the call to "init"
   public void initAutoContentProvider() {
-    if (acp != null) acp.init(project.getBridge(), project.getFileSystem());
+    if (acp != null)
+      acp.init(project.getBridge(), project.getFileSystem());
   }
 
   public boolean prepareMedia(PlayStation ps) {
-    if (eventSounds != null) eventSounds.realize(ps.getOptions(), project.mediaBag);
-    for (ActiveBoxContent msg : messages) if (msg != null) msg.prepareMedia(ps);
-    if (abc != null) for (ActiveBagContent b : abc) if (b != null) b.prepareMedia(ps);
+    if (eventSounds != null)
+      eventSounds.realize(ps.getOptions(), project.mediaBag);
+    for (ActiveBoxContent msg : messages)
+      if (msg != null)
+        msg.prepareMedia(ps);
+    if (abc != null)
+      for (ActiveBagContent b : abc)
+        if (b != null)
+          b.prepareMedia(ps);
     return true;
   }
 
@@ -818,7 +805,8 @@ public abstract class Activity extends Object implements Constants, Editable, Do
     clear();
   }
 
-  public void clear() {}
+  public void clear() {
+  }
 
   @Override
   public void finalize() throws Throwable {
@@ -864,8 +852,7 @@ public abstract class Activity extends Object implements Constants, Editable, Do
       this.ps = ps;
       setMinimumSize(new Dimension(100, 100));
       setPreferredSize(new Dimension(500, 400));
-      enableEvents(
-          AWTEvent.MOUSE_EVENT_MASK | AWTEvent.MOUSE_MOTION_EVENT_MASK | AWTEvent.KEY_EVENT_MASK);
+      enableEvents(AWTEvent.MOUSE_EVENT_MASK | AWTEvent.MOUSE_MOTION_EVENT_MASK | AWTEvent.KEY_EVENT_MASK);
 
       // 02-oct-2006: Added a call to initAutoContentProvider
       initAutoContentProvider();
@@ -890,24 +877,20 @@ public abstract class Activity extends Object implements Constants, Editable, Do
       if (bgImageFile != null && bgImageFile.length() > 0) {
         MediaBagElement mbe = project.mediaBag.getImageElement(bgImageFile);
         bgImage = mbe.getImage();
-        // bgImageFile=mbe.getFileName();
         bgImageFile = mbe.getName();
       }
-      // ac.setBackgroundSettings(bgColor, image, tiledBgImg);
       setBackground(activityBgColor);
       if (transparentBg) {
         setOpaque(false);
       }
-      setBorder(
-          border
-              ? BorderFactory.createBevelBorder(BevelBorder.RAISED)
-              : BorderFactory.createEmptyBorder());
+      setBorder(border ? BorderFactory.createBevelBorder(BevelBorder.RAISED) : BorderFactory.createEmptyBorder());
 
       invalidate();
     }
 
     protected void playEvent(int event) {
-      if (eventSounds != null) eventSounds.play(event);
+      if (eventSounds != null)
+        eventSounds.play(event);
     }
 
     public void initActivity() throws Exception {
@@ -918,22 +901,23 @@ public abstract class Activity extends Object implements Constants, Editable, Do
       solved = false;
       ps.reportNewActivity(Activity.this, 0);
       enableCounters();
-      // playEvent(EventSounds.START);
     }
 
     public void startActivity() throws Exception {
-      // do nothing
     }
 
-    public void showHelp() {}
+    public void showHelp() {
+    }
 
     public abstract void render(Graphics2D g2, Rectangle dirtyRegion);
 
     public abstract Dimension setDimension(Dimension maxSize);
 
-    public void processMouse(MouseEvent e) {}
+    public void processMouse(MouseEvent e) {
+    }
 
-    public void processKey(KeyEvent e) {}
+    public void processKey(KeyEvent e) {
+    }
 
     public boolean isPlaying() {
       return playing;
@@ -942,25 +926,21 @@ public abstract class Activity extends Object implements Constants, Editable, Do
     public final void fitTo(Rectangle proposed, Rectangle bounds) {
       Point origin = new Point(0, 0);
       if (absolutePositioned && absolutePosition != null) {
-        // origin=new Point(absolutePosition);
-        // origin.translate(fx, fy);
         origin.x = Math.max(0, absolutePosition.x + proposed.x);
         origin.y = Math.max(0, absolutePosition.y + proposed.y);
         proposed.width -= absolutePosition.x;
         proposed.height -= absolutePosition.y;
       }
-      Dimension d =
-          setDimension(
-              new Dimension(
-                  Math.max(2 * margin + Activity.MINIMUM_WIDTH, proposed.width),
-                  Math.max(2 * margin + Activity.MINIMUM_HEIGHT, proposed.height)));
+      Dimension d = setDimension(new Dimension(Math.max(2 * margin + Activity.MINIMUM_WIDTH, proposed.width),
+          Math.max(2 * margin + Activity.MINIMUM_HEIGHT, proposed.height)));
       if (!absolutePositioned) {
-        origin.setLocation(
-            Math.max(0, proposed.x + (proposed.width - d.width) / 2),
+        origin.setLocation(Math.max(0, proposed.x + (proposed.width - d.width) / 2),
             Math.max(0, proposed.y + (proposed.height - d.height) / 2));
       }
-      if (origin.x + d.width > bounds.width) origin.x = Math.max(0, bounds.width - d.width);
-      if (origin.y + d.height > bounds.height) origin.y = Math.max(0, bounds.height - d.height);
+      if (origin.x + d.width > bounds.width)
+        origin.x = Math.max(0, bounds.width - d.width);
+      if (origin.y + d.height > bounds.height)
+        origin.y = Math.max(0, bounds.height - d.height);
       setBounds(origin.x, origin.y, d.width, d.height);
     }
 
@@ -969,7 +949,6 @@ public abstract class Activity extends Object implements Constants, Editable, Do
       Graphics2D g2 = (Graphics2D) g;
       RenderingHints rh = g2.getRenderingHints();
       g2.setRenderingHints(DEFAULT_RENDERING_HINTS);
-      // RenderingHints rh=ac.setScreenRenderingHints(g2);
       if (!transparentBg) {
         if (activityBgGradient == null || activityBgGradient.hasTransparency())
           super.paintComponent(g2);
@@ -979,31 +958,27 @@ public abstract class Activity extends Object implements Constants, Editable, Do
       while (true) {
         BoxBase.flagFontReduced = false;
         render(g2, g2.getClipBounds());
-        if (!BoxBase.flagFontReduced) break;
+        if (!BoxBase.flagFontReduced)
+          break;
       }
       g2.setRenderingHints(rh);
     }
 
-    public void forceFinishActivity() {}
+    public void forceFinishActivity() {
+    }
 
     public void finishActivity(boolean result) {
       playing = false;
       solved = result;
 
-      if (bc != null) bc.end();
+      if (bc != null)
+        bc.end();
 
       if (result) {
         setAndPlayMsg(END, EventSounds.FINISHED_OK);
-        // if(messages[END]==null || messages[END].mediaContent==null)
-        //    playEvent(EventSounds.FINISHED_OK);
-        // ps.setMsg(messages[END]);
       } else {
         setAndPlayMsg(END_ERROR, EventSounds.FINISHED_ERROR);
-        // if(messages[END_ERROR]==null || messages[END_ERROR].mediaContent==null)
-        //    playEvent(EventSounds.FINISHED_ERROR);
-        // ps.setMsg(messages[END_ERROR]);
       }
-      // ps.playMsg();
       ps.activityFinished(solved);
       ps.reportEndActivity(Activity.this, solved);
     }
@@ -1012,13 +987,15 @@ public abstract class Activity extends Object implements Constants, Editable, Do
       ps.setMsg(messages[msgCode]);
       if (messages[msgCode] == null || messages[msgCode].mediaContent == null)
         playEvent(eventSoundsCode);
-      else ps.playMsg();
+      else
+        ps.playMsg();
     }
 
     public void end() {
       forceFinishActivity();
       if (playing) {
-        if (bc != null) bc.end();
+        if (bc != null)
+          bc.end();
         ps.reportEndActivity(Activity.this, solved);
         playing = false;
         solved = false;
@@ -1043,25 +1020,28 @@ public abstract class Activity extends Object implements Constants, Editable, Do
 
     protected void enableCounters(boolean eTime, boolean eScore, boolean eActions) {
       ps.setCounterEnabled(TIME_COUNTER, eTime);
-      if (countDownTime) ps.setCountDown(TIME_COUNTER, maxTime);
+      if (countDownTime)
+        ps.setCountDown(TIME_COUNTER, maxTime);
       ps.setCounterEnabled(SCORE_COUNTER, eScore);
       ps.setCounterEnabled(ACTIONS_COUNTER, eActions);
-      if (countDownActions) ps.setCountDown(ACTIONS_COUNTER, maxActions);
+      if (countDownActions)
+        ps.setCountDown(ACTIONS_COUNTER, maxActions);
     }
 
     @Override
-    public void doLayout() {}
+    public void doLayout() {
+    }
 
     protected void shuffle(ActiveBoxBag[] bg, boolean visible, boolean fitInArea) {
 
       int steps = shuffles;
 
-      // if(visible) ac.getComponent().paint(ac.getComponent().getGraphics());
       int i = shuffles;
       while (i > 0) {
         int k = i > steps ? steps : i;
-        for (ActiveBoxBag abb : bg) if (abb != null) abb.scrambleCells(k, fitInArea);
-        // if(visible) ac.getComponent().paint(ac.getComponent().getGraphics());
+        for (ActiveBoxBag abb : bg)
+          if (abb != null)
+            abb.scrambleCells(k, fitInArea);
         i -= steps;
       }
     }
@@ -1069,12 +1049,15 @@ public abstract class Activity extends Object implements Constants, Editable, Do
     @Override
     protected void processEvent(AWTEvent e) {
       if (playing && e instanceof MouseEvent) {
-        if (e.getID() == MouseEvent.MOUSE_PRESSED && !hasFocus()) requestFocus();
+        if (e.getID() == MouseEvent.MOUSE_PRESSED && !hasFocus())
+          requestFocus();
 
         // Modified 05-Aug-2010:
         // Medium button must not be processed when "fressa" enabled
-        if (e.getID() != MouseEvent.BUTTON3 || ps.getFressa() == null) processMouse((MouseEvent) e);
-      } else if (playing && e instanceof KeyEvent) processKey((KeyEvent) e);
+        if (e.getID() != MouseEvent.BUTTON3 || ps.getFressa() == null)
+          processMouse((MouseEvent) e);
+      } else if (playing && e instanceof KeyEvent)
+        processKey((KeyEvent) e);
 
       super.processEvent(e);
     }
@@ -1098,7 +1081,8 @@ public abstract class Activity extends Object implements Constants, Editable, Do
     public void clickLeftButton() {
       if (ps.getFressa() != null) {
         ps.getFressa().clickLeftButton();
-        if (ps.getFressa().jumpWellPlaced) calcInactivePoints();
+        if (ps.getFressa().jumpWellPlaced)
+          calcInactivePoints();
       }
     }
   }

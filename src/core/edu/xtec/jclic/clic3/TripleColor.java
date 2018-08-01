@@ -24,9 +24,10 @@ package edu.xtec.jclic.clic3;
 import java.awt.Color;
 
 /**
- * This class is just a data structure with three {@link java.awt.Color} objects, defining the
- * background, foreground and shadow colors used to draw cells, and a boolean that indicates if a
- * shadow should be painted under texts.
+ * This class is just a data structure with three {@link java.awt.Color}
+ * objects, defining the background, foreground and shadow colors used to draw
+ * cells, and a boolean that indicates if a shadow should be painted under
+ * texts.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
@@ -45,7 +46,8 @@ public class TripleColor extends Object implements Cloneable {
     shadow = sh;
   }
 
-  public TripleColor() {}
+  public TripleColor() {
+  }
 
   @Override
   public Object clone() {

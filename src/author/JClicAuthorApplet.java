@@ -30,8 +30,8 @@ import java.net.URL;
 import javax.swing.RootPaneContainer;
 
 /**
- * JClic Author applet. Shows a splash screen at startup and loads a {@link AuthorSingleFrame} in a
- * separate process.
+ * JClic Author applet. Shows a splash screen at startup and loads a
+ * {@link AuthorSingleFrame} in a separate process.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.09
@@ -55,32 +55,20 @@ public class JClicAuthorApplet extends javax.swing.JApplet implements edu.xtec.j
   private static final String SEQUENCE = "sequence";
   private static final int NUM_PRIVATE_PARAMS = 2;
   private static final String[][] pInfo = {
-    {ACTIVITY_PACK, STRING, "absolute or relative URL of the JClic project to load"},
-    {SEQUENCE, STRING, "optional project's starting sequence name"},
-    {Messages.LANGUAGE, STRING, "two-char language code"},
-    {Messages.COUNTRY, STRING, "two-char country code"},
-    {Messages.VARIANT, STRING, "locale variant code"},
-    {SKIN, STRING, "skin to be used"},
-    {COOKIE, STRING, "optional session cookie value. currently not used"},
-    {REPORTER_CLASS, STRING, "reporter class name"},
-    {REPORTER_PARAMS, STRING, "reporter parameters"},
-    {EXIT_URL, URL, "URL where to redirect navigation at end"},
-    {
-      INFO_URL_FRAME,
-      STRING,
-      "optional frame where to display info documents. If unespecified, _BLANK will be used"
-    },
-    {SYSTEM_SOUNDS, BOOL, "to play or not system sounds"},
-    {COMPRESS_IMAGES, BOOL, "to compress or not images in cells"},
-    {LFUtil.LOOK_AND_FEEL, STRING, "look & feel to use"},
-    {AUDIO_ENABLED, BOOL, "to have audio enabled or not"},
-    {
-      MEDIA_SYSTEM,
-      STRING,
-      "preferred multimedia system: 'JMF' for Java Media Framework or 'QT' for QuickTime"
-    },
-    {TRACE, BOOL, "show debug messages in console"}
-  };
+      { ACTIVITY_PACK, STRING, "absolute or relative URL of the JClic project to load" },
+      { SEQUENCE, STRING, "optional project's starting sequence name" },
+      { Messages.LANGUAGE, STRING, "two-char language code" }, { Messages.COUNTRY, STRING, "two-char country code" },
+      { Messages.VARIANT, STRING, "locale variant code" }, { SKIN, STRING, "skin to be used" },
+      { COOKIE, STRING, "optional session cookie value. currently not used" },
+      { REPORTER_CLASS, STRING, "reporter class name" }, { REPORTER_PARAMS, STRING, "reporter parameters" },
+      { EXIT_URL, URL, "URL where to redirect navigation at end" },
+      { INFO_URL_FRAME, STRING,
+          "optional frame where to display info documents. If unespecified, _BLANK will be used" },
+      { SYSTEM_SOUNDS, BOOL, "to play or not system sounds" },
+      { COMPRESS_IMAGES, BOOL, "to compress or not images in cells" },
+      { LFUtil.LOOK_AND_FEEL, STRING, "look & feel to use" }, { AUDIO_ENABLED, BOOL, "to have audio enabled or not" },
+      { MEDIA_SYSTEM, STRING, "preferred multimedia system: 'JMF' for Java Media Framework or 'QT' for QuickTime" },
+      { TRACE, BOOL, "show debug messages in console" } };
 
   /** Creates new JClicAuthorApplet */
   public JClicAuthorApplet() {
@@ -91,11 +79,8 @@ public class JClicAuthorApplet extends javax.swing.JApplet implements edu.xtec.j
     activityPack = null;
     sequence = null;
     options = new Options(this);
-    splashLabel =
-        new javax.swing.JLabel(
-            " ",
-            ResourceManager.getImageIcon("icons/logo_author.png"),
-            javax.swing.SwingConstants.CENTER);
+    splashLabel = new javax.swing.JLabel(" ", ResourceManager.getImageIcon("icons/logo_author.png"),
+        javax.swing.SwingConstants.CENTER);
     splashLabel.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
     splashLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     splashLabel.setBackground(BG_COLOR);
@@ -106,7 +91,8 @@ public class JClicAuthorApplet extends javax.swing.JApplet implements edu.xtec.j
   @Override
   public void init() {
     // init only once by applet instance
-    if (initiated) return;
+    if (initiated)
+      return;
 
     initiated = true;
 
@@ -116,81 +102,82 @@ public class JClicAuthorApplet extends javax.swing.JApplet implements edu.xtec.j
     final StringBuilder sb = new StringBuilder();
     final RootPaneContainer rpc = this;
 
-    edu.xtec.util.SwingWorker sw =
-        new edu.xtec.util.SwingWorker() {
-          @Override
-          public Object construct() {
-            // get parameters
-            for (int i = NUM_PRIVATE_PARAMS; i < pInfo.length; i++) {
-              options.put(pInfo[i][0], getParameter(pInfo[i][0]));
-              if (trace)
-                System.out.println(">>> param " + pInfo[i][0] + " is " + getParameter(pInfo[i][0]));
-            }
+    edu.xtec.util.SwingWorker sw = new edu.xtec.util.SwingWorker() {
+      @Override
+      public Object construct() {
+        // get parameters
+        for (int i = NUM_PRIVATE_PARAMS; i < pInfo.length; i++) {
+          options.put(pInfo[i][0], getParameter(pInfo[i][0]));
+          if (trace)
+            System.out.println(">>> param " + pInfo[i][0] + " is " + getParameter(pInfo[i][0]));
+        }
 
-            Messages messages;
+        Messages messages;
+        try {
+          messages = edu.xtec.util.PersistentSettings.getMessages(options, DEFAULT_BUNDLE);
+        } catch (Exception ex) {
+          System.err.println("Unable to get default user messages language!\n" + ex);
+          messages = Messages.getMessages(options, DEFAULT_BUNDLE);
+        }
+        messages.addBundle(COMMON_SETTINGS);
+
+        if (splashLabel != null)
+          splashLabel.setText(messages.get("LOADING"));
+
+        if (!Check.checkSignature(options, true))
+          return null;
+
+        CheckMediaSystem.check(options, false);
+
+        // build player
+        try {
+
+          rc = new edu.xtec.jclic.AuthorSingleFrame(options);
+
+        } catch (Exception ex) {
+          sb.append("ERROR: ").append(ex);
+        }
+        return rc;
+      }
+
+      @Override
+      public void finished() {
+        if (getValue() == null) {
+          if (isInstaller && options.getString(EXIT_URL) != null) {
             try {
-              messages = edu.xtec.util.PersistentSettings.getMessages(options, DEFAULT_BUNDLE);
-            } catch (Exception ex) {
-              System.err.println("Unable to get default user messages language!\n" + ex);
-              messages = Messages.getMessages(options, DEFAULT_BUNDLE);
-            }
-            messages.addBundle(COMMON_SETTINGS);
-
-            if (splashLabel != null) splashLabel.setText(messages.get("LOADING"));
-
-            if (!Check.checkSignature(options, true)) return null;
-
-            CheckMediaSystem.check(options, false);
-
-            // build player
-            try {
-
-              rc = new edu.xtec.jclic.AuthorSingleFrame(options);
-
+              String url = options.getString(EXIT_URL);
+              if (url.indexOf(':') < 0) // no protocol, assume "file://"
+                url = "file://" + url;
+              getAppletContext().showDocument(new URL(url));
             } catch (Exception ex) {
               sb.append("ERROR: ").append(ex);
             }
-            return rc;
           }
-
-          @Override
-          public void finished() {
-            if (getValue() == null) {
-              if (isInstaller && options.getString(EXIT_URL) != null) {
-                try {
-                  String url = options.getString(EXIT_URL);
-                  if (url.indexOf(':') < 0) // no protocol, assume "file://"
-                  url = "file://" + url;
-                  getAppletContext().showDocument(new URL(url));
-                } catch (Exception ex) {
-                  sb.append("ERROR: ").append(ex);
-                }
-              }
-              // no player build!
-              if (splashLabel != null) {
-                String s = sb.substring(0);
-                splashLabel.setText(s);
-                System.err.println(s);
-              }
-            } else {
-              // remove label and place player
-              getContentPane().removeAll();
-              splashLabel = null;
-              // rc.addTo(getContentPane(), java.awt.BorderLayout.CENTER);
-              rc.addTo(rpc, java.awt.BorderLayout.CENTER);
-              getRootPane().revalidate();
-              // load project
-              javax.swing.SwingUtilities.invokeLater(
-                  new Runnable() {
-                    public void run() {
-                      rc.start(activityPack, sequence);
-                    }
-                  });
+          // no player build!
+          if (splashLabel != null) {
+            String s = sb.substring(0);
+            splashLabel.setText(s);
+            System.err.println(s);
+          }
+        } else {
+          // remove label and place player
+          getContentPane().removeAll();
+          splashLabel = null;
+          // rc.addTo(getContentPane(), java.awt.BorderLayout.CENTER);
+          rc.addTo(rpc, java.awt.BorderLayout.CENTER);
+          getRootPane().revalidate();
+          // load project
+          javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+              rc.start(activityPack, sequence);
             }
-          }
-        };
+          });
+        }
+      }
+    };
 
-    if (trace) System.out.println(">>> initializing...");
+    if (trace)
+      System.out.println(">>> initializing...");
 
     // launch swingWorker
     sw.start();
@@ -198,25 +185,30 @@ public class JClicAuthorApplet extends javax.swing.JApplet implements edu.xtec.j
 
   @Override
   public void start() {
-    if (trace) System.out.println(">>> applet started");
+    if (trace)
+      System.out.println(">>> applet started");
   }
 
   @Override
   public void stop() {
-    if (rc != null) rc.stop();
-    if (trace) System.out.println(">>> applet stopped");
+    if (rc != null)
+      rc.stop();
+    if (trace)
+      System.out.println(">>> applet stopped");
   }
 
   @Override
   public void destroy() {
     if (rc != null) {
-      if (trace) System.out.println(">>> destroying applet...");
+      if (trace)
+        System.out.println(">>> destroying applet...");
       getContentPane().removeAll();
       rc.end();
       rc = null;
       initiated = false;
     }
-    if (trace) System.out.println(">>> applet destroyed");
+    if (trace)
+      System.out.println(">>> applet destroyed");
   }
 
   @Override

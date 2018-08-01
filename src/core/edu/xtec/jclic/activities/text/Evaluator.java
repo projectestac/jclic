@@ -36,15 +36,14 @@ public abstract class Evaluator extends java.lang.Object implements Domable {
   public static final byte FLAG_DEFAULT_ERROR = 1;
 
   Collator collator;
-  // Activity act;
   protected boolean initiated = false;
 
   /** Creates new Evaluator */
   public Evaluator(JClicProject project) {
-    // act=activity;
     if (project.getBridge() != null)
       collator = project.getBridge().getOptions().getMessages().getCollator();
-    else collator = Collator.getInstance();
+    else
+      collator = Collator.getInstance();
   }
 
   public static final String ELEMENT_NAME = "evaluator";
@@ -53,7 +52,8 @@ public abstract class Evaluator extends java.lang.Object implements Domable {
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
     String s = getClass().getName();
-    if (s.startsWith(BASE_CLASS)) s = BASE_CLASS_TAG + s.substring(BASE_CLASS.length());
+    if (s.startsWith(BASE_CLASS))
+      s = BASE_CLASS_TAG + s.substring(BASE_CLASS.length());
     e.setAttribute(JDomUtility.CLASS, s);
     return e;
   }
@@ -62,13 +62,14 @@ public abstract class Evaluator extends java.lang.Object implements Domable {
 
     JDomUtility.checkName(e, ELEMENT_NAME);
     String className = JDomUtility.getClassName(e);
-    if (className.startsWith(BASE_CLASS_TAG)) className = BASE_CLASS + className.substring(1);
+    if (className.startsWith(BASE_CLASS_TAG))
+      className = BASE_CLASS + className.substring(1);
 
     String s;
     Evaluator ev;
     Class<?> evaluatorClass;
-    Class[] cparams = {JClicProject.class};
-    Object[] initArgs = {project};
+    Class[] cparams = { JClicProject.class };
+    Object[] initArgs = { project };
     evaluatorClass = Class.forName(className);
     java.lang.reflect.Constructor con = evaluatorClass.getConstructor(cparams);
     ev = (Evaluator) con.newInstance(initArgs);
@@ -77,7 +78,8 @@ public abstract class Evaluator extends java.lang.Object implements Domable {
     return ev;
   }
 
-  public void setProperties(org.jdom.Element e, Object aux) throws Exception {}
+  public void setProperties(org.jdom.Element e, Object aux) throws Exception {
+  }
 
   protected void init() {
     initiated = true;
@@ -85,7 +87,8 @@ public abstract class Evaluator extends java.lang.Object implements Domable {
 
   public boolean checkText(String text, String[] match) {
     for (String m : match) {
-      if (checkText(text, m)) return true;
+      if (checkText(text, m))
+        return true;
     }
     return false;
   }
@@ -95,11 +98,13 @@ public abstract class Evaluator extends java.lang.Object implements Domable {
   public abstract byte[] evalText(String text, String[] match);
 
   public byte[] evalText(String text, String match) {
-    return evalText(text, new String[] {match});
+    return evalText(text, new String[] { match });
   }
 
   public static boolean isOk(byte[] flags) {
-    for (int fl : flags) if (fl != FLAG_OK) return false;
+    for (int fl : flags)
+      if (fl != FLAG_OK)
+        return false;
     return true;
   }
 }

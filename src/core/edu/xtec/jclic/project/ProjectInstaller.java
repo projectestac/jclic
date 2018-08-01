@@ -39,18 +39,13 @@ import java.util.List;
 public class ProjectInstaller implements Domable {
 
   public static final String SEP = ";", ITEM_SEP = ",", EQUAL_SEP = ":", FILES = "files";
-  public static final String ITEM_NAMES = "itemNames",
-      ITEM_PROJECTS = "itemProjects",
-      ITEM_ICONS = "itemIcons",
+  public static final String ITEM_NAMES = "itemNames", ITEM_PROJECTS = "itemProjects", ITEM_ICONS = "itemIcons",
       ITEM_DESCRIPTIONS = "itemDescriptions";
 
   public static final String ELEMENT_NAME = "JClicInstall";
   public static final String TITLE = "title", AUTHORS = "authors", FROM = "from";
   public static final String FILE = "file", SRC = "src", FOLDER = "folder";
-  public static final String SHORTCUT = "shortcut",
-      ICON = "icon",
-      PROJECT = "project",
-      TEXT = "text",
+  public static final String SHORTCUT = "shortcut", ICON = "icon", PROJECT = "project", TEXT = "text",
       DESCRIPTION = "description";
   public static final String INSTALLER_EXTENSION = ".jclic.inst";
 
@@ -80,7 +75,8 @@ public class ProjectInstaller implements Domable {
     JDomUtility.setStringAttr(e, TITLE, projectTitle, false);
     JDomUtility.setStringAttr(e, AUTHORS, authors, false);
     JDomUtility.setStringAttr(e, FOLDER, baseFolder, false);
-    if (includeFrom) JDomUtility.setStringAttr(e, FROM, from, false);
+    if (includeFrom)
+      JDomUtility.setStringAttr(e, FROM, from, false);
     if (files != null) {
       for (int i = 0; i < files.size(); i++) {
         child = new org.jdom.Element(FILE);
@@ -123,7 +119,8 @@ public class ProjectInstaller implements Domable {
     if (isUrl && url != null) {
       String s0 = url.toExternalForm();
       int k = s0.lastIndexOf('/');
-      if (k < 0) throw new Exception("Unable to get install store path from " + s0);
+      if (k < 0)
+        throw new Exception("Unable to get install store path from " + s0);
       from = s0.substring(0, k);
       fName = s0.substring(k + 1);
     } else if (f != null) {
@@ -131,8 +128,10 @@ public class ProjectInstaller implements Domable {
       fName = f.getName();
     }
 
-    if (from != null) result.from = from;
-    if (fName != null) result.fName = fName;
+    if (from != null)
+      result.from = from;
+    if (fName != null)
+      result.fName = fName;
 
     return result;
   }
@@ -171,17 +170,22 @@ public class ProjectInstaller implements Domable {
   }
 
   public void addFile(String s) {
-    if (s != null && !files.contains(s)) files.add(s);
+    if (s != null && !files.contains(s))
+      files.add(s);
   }
 
   public String getFile(int i) {
-    if (files != null && i < files.size()) return (String) files.get(i);
-    else return null;
+    if (files != null && i < files.size())
+      return (String) files.get(i);
+    else
+      return null;
   }
 
   public IconItem getIconItem(int i) {
-    if (iconItems != null && i < iconItems.size()) return (IconItem) iconItems.get(i);
-    else return null;
+    if (iconItems != null && i < iconItems.size())
+      return (IconItem) iconItems.get(i);
+    else
+      return null;
   }
 
   public IconItem createIconItem() {

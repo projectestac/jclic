@@ -50,11 +50,7 @@ public class ActionReg extends Object implements java.io.Serializable, Domable {
   }
 
   public static final String ELEMENT_NAME = "action";
-  public static final String TYPE = "type",
-      SOURCE = "source",
-      DEST = "dest",
-      TIME = "time",
-      OK = "ok";
+  public static final String TYPE = "type", SOURCE = "source", DEST = "dest", TIME = "time", OK = "ok";
 
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
@@ -79,8 +75,10 @@ public class ActionReg extends Object implements java.io.Serializable, Domable {
   public String toString() {
     StringBuilder result = new StringBuilder();
     result.append(type).append("(OK:").append(isOk).append(")");
-    if (source != null) result.append(" SOURCE:").append(source);
-    if (dest != null) result.append(" DEST:").append(dest);
+    if (source != null)
+      result.append(" SOURCE:").append(source);
+    if (dest != null)
+      result.append(" DEST:").append(dest);
     return result.substring(0);
   }
 }

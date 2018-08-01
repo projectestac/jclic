@@ -41,11 +41,12 @@ import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 
 /**
- * This generic class allows to modify the content and properties of an associated {@link
- * edu.xtec.jclic.edit.Editable} object. Editors provide methods to register listeners that will be
- * informed about changes occurred in its associated data object. The class extends {@link
- * javax.swing.tree.DefaultMutableTreeNode} in order to make easy to implement a tree of dependences
- * between editor classes.
+ * This generic class allows to modify the content and properties of an
+ * associated {@link edu.xtec.jclic.edit.Editable} object. Editors provide
+ * methods to register listeners that will be informed about changes occurred in
+ * its associated data object. The class extends
+ * {@link javax.swing.tree.DefaultMutableTreeNode} in order to make easy to
+ * implement a tree of dependences between editor classes.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10
@@ -58,12 +59,7 @@ public abstract class Editor extends DefaultMutableTreeNode {
   protected ListSelectionModel listSelectionModel;
   protected LModel listModel;
   private boolean modified;
-  public static EditorAction moveUpAction,
-      moveDownAction,
-      copyAction,
-      cutAction,
-      pasteAction,
-      deleteAction;
+  public static EditorAction moveUpAction, moveDownAction, copyAction, cutAction, pasteAction, deleteAction;
   protected static Editor clip;
   protected static boolean clipCutted;
 
@@ -86,11 +82,14 @@ public abstract class Editor extends DefaultMutableTreeNode {
         }
       }
 
-      if (cn == null) throw new Exception();
+      if (cn == null)
+        throw new Exception();
 
-      result = (Editor) cn.newInstance(new Object[] {data});
-      if (result == null) throw new Exception();
-      if (parent != null) parent.add(result);
+      result = (Editor) cn.newInstance(new Object[] { data });
+      if (result == null)
+        throw new Exception();
+      if (parent != null)
+        parent.add(result);
       result.createChildren();
     } catch (Exception ex) {
       System.err.println("Unable to create " + className + " for " + data + "\n" + ex);
@@ -112,16 +111,19 @@ public abstract class Editor extends DefaultMutableTreeNode {
     this.modified = modified;
     if (modified) {
       Editor ed = getEditorParent();
-      if (ed != null) ed.setModified(true);
+      if (ed != null)
+        ed.setModified(true);
     } else {
       Enumeration en = children();
-      while (en.hasMoreElements()) ((Editor) en.nextElement()).setModified(false);
+      while (en.hasMoreElements())
+        ((Editor) en.nextElement()).setModified(false);
     }
   }
 
   public DefaultTreeModel getTreeModel() {
     if (isRoot()) {
-      if (treeModel == null) setTreeModel(new DefaultTreeModel(this));
+      if (treeModel == null)
+        setTreeModel(new DefaultTreeModel(this));
       return treeModel;
     }
     return (treeModel != null ? treeModel : getEditorParent().getTreeModel());
@@ -141,28 +143,22 @@ public abstract class Editor extends DefaultMutableTreeNode {
 
   public JTree createJTree() {
     setCurrentTree(new JTree(getTreeModel()));
-    currentTree.setCellRenderer(
-        new DefaultTreeCellRenderer() {
-          @Override
-          public Component getTreeCellRendererComponent(
-              JTree tree,
-              Object value,
-              boolean sel,
-              boolean expanded,
-              boolean leaf,
-              int row,
-              boolean hasFocus) {
-            super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
-            if (value instanceof Editor) {
-              Icon icon = ((Editor) value).getIcon(leaf, expanded);
-              if (icon != null) setIcon(icon);
-              if (clip == value && clipCutted) {
-                setForeground(SystemColor.textInactiveText);
-              }
-            }
-            return this;
+    currentTree.setCellRenderer(new DefaultTreeCellRenderer() {
+      @Override
+      public Component getTreeCellRendererComponent(JTree tree, Object value, boolean sel, boolean expanded,
+          boolean leaf, int row, boolean hasFocus) {
+        super.getTreeCellRendererComponent(tree, value, sel, expanded, leaf, row, hasFocus);
+        if (value instanceof Editor) {
+          Icon icon = ((Editor) value).getIcon(leaf, expanded);
+          if (icon != null)
+            setIcon(icon);
+          if (clip == value && clipCutted) {
+            setForeground(SystemColor.textInactiveText);
           }
-        });
+        }
+        return this;
+      }
+    });
     return currentTree;
   }
 
@@ -201,23 +197,27 @@ public abstract class Editor extends DefaultMutableTreeNode {
   @Override
   public void insert(MutableTreeNode newChild, int childIndex) {
     super.insert(newChild, childIndex);
-    if (listModel != null) listModel.fireIntervalAdded(listModel, childIndex, childIndex);
+    if (listModel != null)
+      listModel.fireIntervalAdded(listModel, childIndex, childIndex);
   }
 
   @Override
   public void remove(int childIndex) {
     super.remove(childIndex);
-    if (listModel != null) listModel.fireIntervalRemoved(listModel, childIndex, childIndex);
+    if (listModel != null)
+      listModel.fireIntervalRemoved(listModel, childIndex, childIndex);
   }
 
   public void select() {
     JTree tree = getCurrentTree();
-    if (tree != null) tree.getSelectionModel().setSelectionPath(new TreePath(getPath()));
+    if (tree != null)
+      tree.getSelectionModel().setSelectionPath(new TreePath(getPath()));
     if (getListSelectionModel() != null) {
       Editor p = getEditorParent();
       if (p != null) {
         int index = p.getIndex(this);
-        if (index >= 0) getListSelectionModel().setSelectionInterval(index, index);
+        if (index >= 0)
+          getListSelectionModel().setSelectionInterval(index, index);
       }
     }
   }
@@ -244,7 +244,8 @@ public abstract class Editor extends DefaultMutableTreeNode {
     int result = down ? getChildCount() : 0;
     if (fromChild != null) {
       int p = getIndex(fromChild);
-      if (p >= 0) result = p + (down ? 1 : 0);
+      if (p >= 0)
+        result = p + (down ? 1 : 0);
     }
     return result;
   }
@@ -262,9 +263,11 @@ public abstract class Editor extends DefaultMutableTreeNode {
     Editor p = getEditorParent();
     if (p != null) {
       p.setModified(true);
-      if (clip == this) setClip(null, false);
+      if (clip == this)
+        setClip(null, false);
       int index = p.getIndex(this);
-      if (index == p.getChildCount() - 1) index--;
+      if (index == p.getChildCount() - 1)
+        index--;
       getTreeModel().removeNodeFromParent(this);
       if (changeSelection) {
         Editor sel = index >= 0 ? (Editor) p.getChildAt(index) : p;
@@ -275,7 +278,8 @@ public abstract class Editor extends DefaultMutableTreeNode {
       // Added 03-Feb-2011
       // Correct bug 172: when an editor loses its last element,
       // set their parent owner of the basic actions
-      if (index < 0) p.setActionsOwner();
+      if (index < 0)
+        p.setActionsOwner();
 
       result = true;
     }
@@ -293,7 +297,8 @@ public abstract class Editor extends DefaultMutableTreeNode {
         model.removeNodeFromParent(this);
         model.insertNodeInto(this, p, index);
         result = true;
-        if (updateSelection) select();
+        if (updateSelection)
+          select();
       }
     }
     return result;
@@ -337,7 +342,8 @@ public abstract class Editor extends DefaultMutableTreeNode {
     }
     clip = e;
     clipCutted = cutted;
-    if (clip != null) clip.getTreeModel().nodeChanged(clip);
+    if (clip != null)
+      clip.getTreeModel().nodeChanged(clip);
   }
 
   public boolean cut() {
@@ -362,15 +368,18 @@ public abstract class Editor extends DefaultMutableTreeNode {
     if (e != null) {
       if (asChild) {
         setModified(true);
-        if (index < 0) index = getChildCount();
+        if (index < 0)
+          index = getChildCount();
         getTreeModel().insertNodeInto(e, this, index);
         result = true;
-        if (updateSelection) e.select();
+        if (updateSelection)
+          e.select();
       } else {
         Editor p = getEditorParent();
         if (p != null) {
           p.setModified(true);
-          if (index < 0) index = p.getIndex(this);
+          if (index < 0)
+            index = p.getIndex(this);
           result = p.insertEditor(e, true, index, updateSelection);
         }
       }
@@ -379,10 +388,7 @@ public abstract class Editor extends DefaultMutableTreeNode {
   }
 
   protected boolean canPasteHere() {
-    return allowPaste
-        && clip != null
-        && (!clipCutted || clip != this)
-        && (clipCutted || clip.canClone())
+    return allowPaste && clip != null && (!clipCutted || clip != this) && (clipCutted || clip.canClone())
         && (canBeParentOf(clip) || (canBeSiblingOf(clip) && getEditorParent() != null));
   }
 
@@ -423,7 +429,8 @@ public abstract class Editor extends DefaultMutableTreeNode {
 
   public Editor getFirstParent(Class cl) {
     Editor result = getEditorParent();
-    if (result != null && !cl.isInstance(result)) result = result.getFirstParent(cl);
+    if (result != null && !cl.isInstance(result))
+      result = result.getFirstParent(cl);
     return result;
   }
 
@@ -462,7 +469,8 @@ public abstract class Editor extends DefaultMutableTreeNode {
       Enumeration en = children();
       while (result == null && en.hasMoreElements()) {
         Editor e = (Editor) en.nextElement();
-        if (name.equals(e.toString())) result = e;
+        if (name.equals(e.toString()))
+          result = e;
       }
     }
     return result;
@@ -470,43 +478,36 @@ public abstract class Editor extends DefaultMutableTreeNode {
 
   public static void createBasicActions(Options options) {
     if (!basicActionsCreated) {
-      moveUpAction =
-          new EditorAction("editor_moveUp", "icons/up.gif", "editor_moveUp_tooltip", options) {
-            protected void doAction(Editor e) {
-              e.moveUp(true);
-            }
-          };
-      moveDownAction =
-          new EditorAction(
-              "editor_moveDown", "icons/down.gif", "editor_moveDown_tooltip", options) {
-            protected void doAction(Editor e) {
-              e.moveDown(true);
-            }
-          };
-      copyAction =
-          new EditorAction("COPY", "icons/copy.gif", "COPY", options) {
-            protected void doAction(Editor e) {
-              e.copy();
-            }
-          };
-      cutAction =
-          new EditorAction("CUT", "icons/cut.gif", "CUT", options) {
-            protected void doAction(Editor e) {
-              e.cut();
-            }
-          };
-      pasteAction =
-          new EditorAction("PASTE", "icons/paste.gif", "PASTE", options) {
-            protected void doAction(Editor e) {
-              e.paste(true);
-            }
-          };
-      deleteAction =
-          new EditorAction("DELETE", "icons/delete.gif", "DELETE", options) {
-            protected void doAction(Editor e) {
-              e.delete(true);
-            }
-          };
+      moveUpAction = new EditorAction("editor_moveUp", "icons/up.gif", "editor_moveUp_tooltip", options) {
+        protected void doAction(Editor e) {
+          e.moveUp(true);
+        }
+      };
+      moveDownAction = new EditorAction("editor_moveDown", "icons/down.gif", "editor_moveDown_tooltip", options) {
+        protected void doAction(Editor e) {
+          e.moveDown(true);
+        }
+      };
+      copyAction = new EditorAction("COPY", "icons/copy.gif", "COPY", options) {
+        protected void doAction(Editor e) {
+          e.copy();
+        }
+      };
+      cutAction = new EditorAction("CUT", "icons/cut.gif", "CUT", options) {
+        protected void doAction(Editor e) {
+          e.cut();
+        }
+      };
+      pasteAction = new EditorAction("PASTE", "icons/paste.gif", "PASTE", options) {
+        protected void doAction(Editor e) {
+          e.paste(true);
+        }
+      };
+      deleteAction = new EditorAction("DELETE", "icons/delete.gif", "DELETE", options) {
+        protected void doAction(Editor e) {
+          e.delete(true);
+        }
+      };
       basicActionsCreated = true;
     }
   }
@@ -554,8 +555,10 @@ public abstract class Editor extends DefaultMutableTreeNode {
   }
 
   protected static Component findParentForDlg(AWTEvent ev) {
-    if (ev != null && ev.getSource() instanceof Component) return (Component) ev.getSource();
-    else return null;
+    if (ev != null && ev.getSource() instanceof Component)
+      return (Component) ev.getSource();
+    else
+      return null;
   }
 
   public interface EditorListener {
@@ -573,12 +576,14 @@ public abstract class Editor extends DefaultMutableTreeNode {
   public void fireEditorDataChanged(EditorListener agent) {
     setModified(true);
     DefaultTreeModel tm = getTreeModel();
-    if (tm != null) tm.nodeChanged(this);
+    if (tm != null)
+      tm.nodeChanged(this);
 
     Iterator it = listeners.iterator();
     while (it.hasNext()) {
       EditorListener ls = (EditorListener) it.next();
-      if (ls != agent) ls.editorDataChanged(this);
+      if (ls != agent)
+        ls.editorDataChanged(this);
     }
   }
 
@@ -627,7 +632,8 @@ public abstract class Editor extends DefaultMutableTreeNode {
       panel.attachEditor(this, false);
       result = options.getMessages().showInputDlg(parent, panel, getTitleKey());
       panel.attachEditor(null, result);
-      if (result) setModified(true);
+      if (result)
+        setModified(true);
     }
     return result;
   }

@@ -27,8 +27,8 @@ import java.awt.image.ImageObserver;
 import javax.swing.JComponent;
 
 /**
- * This is the most simple implementation of {@link edu.xtec.jclic.boxes.AbstractBox}. It does nor
- * draws nothing.
+ * This is the most simple implementation of
+ * {@link edu.xtec.jclic.boxes.AbstractBox}. It does nor draws nothing.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28

@@ -29,11 +29,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * This class stores a XML {@link org.jdom.Element} that defines an {@link edu.xtec.jclic.Activity}.
- * It stores also a {@link java.util.HashMap} with references of other objects to this activity, and
- * implements some useful methods to directly retrieve some properites of the related Activity, like
- * its name. ActivityBagElements are usually stored into {@link edu.xtec.jclic.bags.ActivityBag}
- * objects.
+ * This class stores a XML {@link org.jdom.Element} that defines an
+ * {@link edu.xtec.jclic.Activity}. It stores also a {@link java.util.HashMap}
+ * with references of other objects to this activity, and implements some useful
+ * methods to directly retrieve some properites of the related Activity, like
+ * its name. ActivityBagElements are usually stored into
+ * {@link edu.xtec.jclic.bags.ActivityBag} objects.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10

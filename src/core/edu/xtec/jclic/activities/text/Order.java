@@ -40,13 +40,11 @@ public class Order extends TextActivityBase {
   public static final int ORDER_WORDS = 0, ORDER_PARAGRAPHS = 1;
   protected boolean amongParagraphs;
   protected int type;
-  // boolean evalOnTheFly;
   protected Evaluator ev;
 
   /** Creates new Order */
   public Order(JClicProject project) {
     super(project);
-    // evalOnTheFly=false;
     amongParagraphs = false;
     setType(ORDER_WORDS);
     hasCheckButton = true;
@@ -54,14 +52,15 @@ public class Order extends TextActivityBase {
     ev = new BasicEvaluator(project);
   }
 
-  public static final String[] TYPES = {"orderWords", "orderParagraphs"};
+  public static final String[] TYPES = { "orderWords", "orderParagraphs" };
   public static final String AMONG_PARAGRAPHS = "amongParagraphs";
 
   @Override
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = super.getJDomElement();
     e.setAttribute(TYPE, TYPES[type]);
-    if (amongParagraphs) e.setAttribute(AMONG_PARAGRAPHS, JDomUtility.boolString(amongParagraphs));
+    if (amongParagraphs)
+      e.setAttribute(AMONG_PARAGRAPHS, JDomUtility.boolString(amongParagraphs));
     e.addContent(ev.getJDomElement());
     return e;
   }
@@ -69,7 +68,6 @@ public class Order extends TextActivityBase {
   @Override
   public void setProperties(org.jdom.Element e, Object aux) throws Exception {
     super.setProperties(e, aux);
-    // evalOnTheFly=!hasCheckButton;
     setType(JDomUtility.getStrIndexAttr(e, TYPE, TYPES, type));
     if (type == ORDER_WORDS)
       amongParagraphs = JDomUtility.getBoolAttr(e, AMONG_PARAGRAPHS, amongParagraphs);
@@ -82,10 +80,6 @@ public class Order extends TextActivityBase {
     ((BasicEvaluator) ev).setProperties(c3a);
     setType(c3a.puzMode == edu.xtec.jclic.clic3.Clic3.BPARAGRAFS ? ORDER_PARAGRAPHS : ORDER_WORDS);
     amongParagraphs = c3a.brPar;
-    // evalOnTheFly=!hasCheckButton;
-    // evalOnTheFly=c3a.avCont;
-    // if(evalOnTheFly)
-    //    hasCheckButton=false;
   }
 
   @Override
@@ -119,8 +113,7 @@ public class Order extends TextActivityBase {
    */
   public void setType(int type) {
     this.type = (type == ORDER_WORDS ? ORDER_WORDS : ORDER_PARAGRAPHS);
-    tad.setTargetType(
-        type == ORDER_WORDS ? TextActivityDocument.TT_WORD : TextActivityDocument.TT_PARAGRAPH);
+    tad.setTargetType(type == ORDER_WORDS ? TextActivityDocument.TT_WORD : TextActivityDocument.TT_PARAGRAPH);
   }
 
   class Panel extends TextActivityBase.Panel {
@@ -143,12 +136,12 @@ public class Order extends TextActivityBase {
         tad.cloneDoc(playDoc, false, false, false);
         for (int i = 0; i < playDoc.tmb.size(); i++) {
           playDoc.tmb.getElement(i).target = new TextTarget();
-          playDoc.tmb.getElement(i).target.answer =
-              new String[] {playDoc.tmb.getElement(i).getCurrentText()};
+          playDoc.tmb.getElement(i).target.answer = new String[] { playDoc.tmb.getElement(i).getCurrentText() };
         }
         if (playDoc.tmb.size() > 1) {
           for (int i = 0; i < 5; i++) {
-            if (shuffle() != playDoc.tmb.size()) break;
+            if (shuffle() != playDoc.tmb.size())
+              break;
           }
         }
         pane.setStyledDocument(playDoc);
@@ -161,13 +154,15 @@ public class Order extends TextActivityBase {
     }
 
     private int shuffle() {
-      if (playDoc == null || playDoc.tmb.size() < 2) return 0;
+      if (playDoc == null || playDoc.tmb.size() < 2)
+        return 0;
       TargetMarkerBag tmb = playDoc.tmb;
       int k = tmb.size();
       int[] p = tmb.getParagragraphOffsets();
       int[] p2 = new int[k];
       int k2;
-      for (k2 = 0; k2 < k; k2++) p2[k2] = k2;
+      for (k2 = 0; k2 < k; k2++)
+        p2[k2] = k2;
       int t1;
       int t2 = 0;
       java.util.Random rnd = new java.util.Random();
@@ -176,15 +171,18 @@ public class Order extends TextActivityBase {
         if (type == ORDER_WORDS && !amongParagraphs) {
           k2 = 0;
           for (int j = 0; j < k; j++) {
-            if (j != t1 && p[j] == p[t1]) p2[k2++] = j;
+            if (j != t1 && p[j] == p[t1])
+              p2[k2++] = j;
           }
         }
         if (k2 > 0) {
           for (int c = 0; c < 300; c++) {
             t2 = p2[rnd.nextInt(k2)];
-            if (t2 != t1) break;
+            if (t2 != t1)
+              break;
           }
-          if (t1 != t2) tmb.swapTargets(tmb.getElement(t1), tmb.getElement(t2));
+          if (t1 != t2)
+            tmb.swapTargets(tmb.getElement(t1), tmb.getElement(t2));
         }
       }
       return tmb.checkTargets(ev);
@@ -192,7 +190,6 @@ public class Order extends TextActivityBase {
 
     @Override
     protected TextActivityPane buildPane() {
-      // OrderPane p=new OrderPane(this);
       OrderPane p = new OrderPane();
       p.setActions();
       return p;
@@ -200,7 +197,6 @@ public class Order extends TextActivityBase {
 
     class OrderPane extends TextActivityPane {
 
-      // public OrderPane(Order act){
       protected OrderPane() {
         super(Order.Panel.this);
         enableEvents(AWTEvent.MOUSE_EVENT_MASK | AWTEvent.MOUSE_MOTION_EVENT_MASK);
@@ -208,47 +204,51 @@ public class Order extends TextActivityBase {
 
       @Override
       public boolean processMouse(MouseEvent e) {
-        if (!super.processMouse(e) || bc == null || !playing) return false;
+        if (!super.processMouse(e) || bc == null || !playing)
+          return false;
 
         switch (e.getID()) {
-          case MouseEvent.MOUSE_PRESSED:
-            int p = viewToModel(e.getPoint());
-            if (p >= 0) {
-              playEvent(EventSounds.CLICK);
-              TargetMarker tm = playDoc.tmb.getElementByOffset(p, false);
-              if (tm != null) {
-                setTargetCursor(tm);
-                if (bc.active) {
-                  bc.end();
-                  if (cursor == anchor) {
-                    setTargetAnchor(null);
-                    setTargetCursor(tm);
-                  } else {
-                    swapTargets(anchor, cursor);
-                  }
+        case MouseEvent.MOUSE_PRESSED:
+          int p = viewToModel(e.getPoint());
+          if (p >= 0) {
+            playEvent(EventSounds.CLICK);
+            TargetMarker tm = playDoc.tmb.getElementByOffset(p, false);
+            if (tm != null) {
+              setTargetCursor(tm);
+              if (bc.active) {
+                bc.end();
+                if (cursor == anchor) {
+                  setTargetAnchor(null);
+                  setTargetCursor(tm);
                 } else {
-                  setTargetAnchor(tm);
-                  bc.begin(e.getPoint());
+                  swapTargets(anchor, cursor);
                 }
               } else {
-                bc.end();
-                setTargetAnchor(null);
+                setTargetAnchor(tm);
+                bc.begin(e.getPoint());
               }
+            } else {
+              bc.end();
+              setTargetAnchor(null);
             }
-            break;
+          }
+          break;
 
-          case MouseEvent.MOUSE_MOVED:
-          case MouseEvent.MOUSE_DRAGGED:
-            if (bc.active) bc.moveTo(e.getPoint());
-            break;
+        case MouseEvent.MOUSE_MOVED:
+        case MouseEvent.MOUSE_DRAGGED:
+          if (bc.active)
+            bc.moveTo(e.getPoint());
+          break;
         }
 
         return false;
       }
 
       public boolean initKeyAction() {
-        if (!playing) return false;
-        if (bc.active) bc.end();
+        if (!playing)
+          return false;
+        if (bc.active)
+          bc.end();
         if (cursor == null) {
           setTargetCursor(playDoc.tmb.getElement(0));
           return false;
@@ -257,88 +257,81 @@ public class Order extends TextActivityBase {
       }
 
       // Actions
-      AbstractAction forwardAction =
-          new AbstractAction(DefaultEditorKit.forwardAction) {
-            public void actionPerformed(ActionEvent e) {
-              nextTargetAction.actionPerformed(e);
-            }
-          };
+      AbstractAction forwardAction = new AbstractAction(DefaultEditorKit.forwardAction) {
+        public void actionPerformed(ActionEvent e) {
+          nextTargetAction.actionPerformed(e);
+        }
+      };
 
-      AbstractAction backwardAction =
-          new AbstractAction(DefaultEditorKit.backwardAction) {
-            public void actionPerformed(ActionEvent e) {
-              prevTargetAction.actionPerformed(e);
-            }
-          };
+      AbstractAction backwardAction = new AbstractAction(DefaultEditorKit.backwardAction) {
+        public void actionPerformed(ActionEvent e) {
+          prevTargetAction.actionPerformed(e);
+        }
+      };
 
-      AbstractAction nextTargetAction =
-          new AbstractAction("next-target") {
-            public void actionPerformed(ActionEvent e) {
-              if (initKeyAction()) {
-                setTargetCursor(playDoc.tmb.getNextTarget(cursor));
-              }
-            }
-          };
+      AbstractAction nextTargetAction = new AbstractAction("next-target") {
+        public void actionPerformed(ActionEvent e) {
+          if (initKeyAction()) {
+            setTargetCursor(playDoc.tmb.getNextTarget(cursor));
+          }
+        }
+      };
 
-      AbstractAction prevTargetAction =
-          new AbstractAction("prev-target") {
-            public void actionPerformed(ActionEvent e) {
-              if (initKeyAction()) {
-                setTargetCursor(playDoc.tmb.getPrevTarget(cursor));
-              }
-            }
-          };
+      AbstractAction prevTargetAction = new AbstractAction("prev-target") {
+        public void actionPerformed(ActionEvent e) {
+          if (initKeyAction()) {
+            setTargetCursor(playDoc.tmb.getPrevTarget(cursor));
+          }
+        }
+      };
 
-      AbstractAction insertBreakAction =
-          new AbstractAction(DefaultEditorKit.insertBreakAction) {
-            public void actionPerformed(ActionEvent e) {
-              if (initKeyAction()) {
-                if (anchor == null) setTargetAnchor(cursor);
-                else swapTargets(anchor, cursor);
-              }
-            }
-          };
+      AbstractAction insertBreakAction = new AbstractAction(DefaultEditorKit.insertBreakAction) {
+        public void actionPerformed(ActionEvent e) {
+          if (initKeyAction()) {
+            if (anchor == null)
+              setTargetAnchor(cursor);
+            else
+              swapTargets(anchor, cursor);
+          }
+        }
+      };
 
-      AbstractAction insertTabAction =
-          new AbstractAction(DefaultEditorKit.insertTabAction) {
-            public void actionPerformed(ActionEvent e) {
-              if ((e.getModifiers() & ActionEvent.SHIFT_MASK) != 0)
-                prevTargetAction.actionPerformed(e);
-              else nextTargetAction.actionPerformed(e);
-            }
-          };
+      AbstractAction insertTabAction = new AbstractAction(DefaultEditorKit.insertTabAction) {
+        public void actionPerformed(ActionEvent e) {
+          if ((e.getModifiers() & ActionEvent.SHIFT_MASK) != 0)
+            prevTargetAction.actionPerformed(e);
+          else
+            nextTargetAction.actionPerformed(e);
+        }
+      };
 
-      AbstractAction beginAction =
-          new AbstractAction(DefaultEditorKit.beginAction) {
-            public void actionPerformed(ActionEvent e) {
-              if (initKeyAction()) {
-                setTargetCursor(playDoc.tmb.getElement(0));
-              }
-            }
-          };
+      AbstractAction beginAction = new AbstractAction(DefaultEditorKit.beginAction) {
+        public void actionPerformed(ActionEvent e) {
+          if (initKeyAction()) {
+            setTargetCursor(playDoc.tmb.getElement(0));
+          }
+        }
+      };
 
-      AbstractAction endAction =
-          new AbstractAction(DefaultEditorKit.endAction) {
-            public void actionPerformed(ActionEvent e) {
-              if (initKeyAction()) {
-                setTargetCursor(playDoc.tmb.getElement(playDoc.tmb.size() - 1));
-              }
-            }
-          };
+      AbstractAction endAction = new AbstractAction(DefaultEditorKit.endAction) {
+        public void actionPerformed(ActionEvent e) {
+          if (initKeyAction()) {
+            setTargetCursor(playDoc.tmb.getElement(playDoc.tmb.size() - 1));
+          }
+        }
+      };
 
-      AbstractAction upAction =
-          new AbstractAction(DefaultEditorKit.upAction) {
-            public void actionPerformed(ActionEvent e) {
-              prevTargetAction.actionPerformed(e);
-            }
-          };
+      AbstractAction upAction = new AbstractAction(DefaultEditorKit.upAction) {
+        public void actionPerformed(ActionEvent e) {
+          prevTargetAction.actionPerformed(e);
+        }
+      };
 
-      AbstractAction downAction =
-          new AbstractAction(DefaultEditorKit.downAction) {
-            public void actionPerformed(ActionEvent e) {
-              nextTargetAction.actionPerformed(e);
-            }
-          };
+      AbstractAction downAction = new AbstractAction(DefaultEditorKit.downAction) {
+        public void actionPerformed(ActionEvent e) {
+          nextTargetAction.actionPerformed(e);
+        }
+      };
 
       protected void setActions() {
 
@@ -351,7 +344,7 @@ public class Order extends TextActivityBase {
         Actions.mapTraceAction(this, actionKeys, "requestFocus");
         Actions.mapTraceAction(this, actionKeys, "toggle-componentOrientation");
 
-        // Derivats:
+        // Derived:
         Actions.mapAction(this, actionKeys, insertBreakAction);
         Actions.mapAction(this, actionKeys, insertTabAction);
         Actions.mapAction(this, actionKeys, forwardAction);
@@ -365,10 +358,8 @@ public class Order extends TextActivityBase {
         Actions.mapAction(this, actionKeys, prevTargetAction);
 
         am.setParent(null);
-        getInputMap()
-            .put(
-                KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_TAB, java.awt.Event.SHIFT_MASK),
-                insertTabAction.getValue(Action.NAME));
+        getInputMap().put(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_TAB, java.awt.Event.SHIFT_MASK),
+            insertTabAction.getValue(Action.NAME));
       }
     }
 
@@ -391,26 +382,22 @@ public class Order extends TextActivityBase {
           playDoc.applyStyleToTarget(cursor, TextActivityDocument.TARGET, false, true);
       }
       cursor = tm;
-      if (cursor != null) playDoc.applyStyleToTarget(cursor, null, true, true);
+      if (cursor != null)
+        playDoc.applyStyleToTarget(cursor, null, true, true);
     }
 
     protected void swapTargets(TargetMarker src, TargetMarker dest) {
-      if (src == dest || !playing || playDoc == null) return;
+      if (src == dest || !playing || playDoc == null)
+        return;
       setTargetAnchor(null);
       TargetMarkerBag tmb = playDoc.tmb;
       tmb.swapTargets(src, dest);
       src.checkText(ev);
       boolean ok = dest.checkText(ev);
       nActions++;
-      // if(evalOnTheFly){
       if (!hasCheckButton) {
         int solvedTargets = tmb.countSolvedTargets();
-        ps.reportNewAction(
-            getActivity(),
-            ACTION_PLACE,
-            src.getCurrentText(),
-            Integer.toString(tmb.indexOf(dest)),
-            ok,
+        ps.reportNewAction(getActivity(), ACTION_PLACE, src.getCurrentText(), Integer.toString(tmb.indexOf(dest)), ok,
             solvedTargets);
         if (ok && solvedTargets == tmb.size()) {
           finishActivity(true);
@@ -423,21 +410,18 @@ public class Order extends TextActivityBase {
 
     @Override
     protected void doCheck(boolean fromButton) {
-      if (playDoc == null || playDoc.tmb.size() == 0) return;
+      if (playDoc == null || playDoc.tmb.size() == 0)
+        return;
 
       TargetMarkerBag tmb = playDoc.tmb;
 
-      if (bc.active) bc.end();
+      if (bc.active)
+        bc.end();
 
       for (int i = 0; i < tmb.size(); i++) {
         TargetMarker tm = tmb.getElement(i);
-        playDoc.applyStyleToTarget(
-            tm,
-            tm.target.targetStatus == TextTarget.SOLVED
-                ? TextActivityDocument.TARGET
-                : TextActivityDocument.TARGET_ERROR,
-            false,
-            true);
+        playDoc.applyStyleToTarget(tm, tm.target.targetStatus == TextTarget.SOLVED ? TextActivityDocument.TARGET
+            : TextActivityDocument.TARGET_ERROR, false, true);
       }
       int tagsSolved = tmb.countSolvedTargets();
       ps.setCounterValue(SCORE_COUNTER, tagsSolved);
@@ -447,12 +431,14 @@ public class Order extends TextActivityBase {
           playEvent(EventSounds.FINISHED_ERROR);
           pane.requestFocus();
         }
-      } else finishActivity(true);
+      } else
+        finishActivity(true);
     }
 
     @Override
     public void finishActivity(boolean result) {
-      if (bc.active) bc.end();
+      if (bc.active)
+        bc.end();
       pane.setEnabled(false);
       super.finishActivity(result);
     }

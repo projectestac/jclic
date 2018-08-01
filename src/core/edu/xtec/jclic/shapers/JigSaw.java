@@ -57,8 +57,7 @@ public class JigSaw extends Shaper {
     return 1f / 6;
   }
 
-  protected static final String BASE_WIDTH_FACTOR = "baseWidthFactor",
-      TOOTH_HEIGHT_FACTOR = "toothHeightFactor",
+  protected static final String BASE_WIDTH_FACTOR = "baseWidthFactor", TOOTH_HEIGHT_FACTOR = "toothHeightFactor",
       RANDOM_LINES = "randomLines";
 
   @Override
@@ -70,7 +69,8 @@ public class JigSaw extends Shaper {
     if (toothHeightFactor != getDefaultToothHeightFactor()) {
       e.setAttribute(TOOTH_HEIGHT_FACTOR, Double.toString(toothHeightFactor));
     }
-    if (randomLines) e.setAttribute(RANDOM_LINES, JDomUtility.boolString(randomLines));
+    if (randomLines)
+      e.setAttribute(RANDOM_LINES, JDomUtility.boolString(randomLines));
     return e;
   }
 
@@ -98,8 +98,10 @@ public class JigSaw extends Shaper {
         } else {
           vLineType[row][col] = 1 + ((randomLines ? (int) (Math.random() * 9) : col + row + 1) % 2);
         }
-        if (col == nCols - 1) vLineType[row][col + 1] = 0;
-        if (row == nRows - 1) hLineType[row + 1][col] = 0;
+        if (col == nCols - 1)
+          vLineType[row][col + 1] = 0;
+        if (row == nRows - 1)
+          hLineType[row + 1][col] = 0;
       }
     }
 
@@ -108,7 +110,6 @@ public class JigSaw extends Shaper {
 
     for (int r = 0; r < nRows; r++) {
       for (int c = 0; c < nCols; c++) {
-        // buildShape(c, r);
         double x = w * c;
         double y = h * r;
         ShapeData sd = shapeData[r * nCols + c];
@@ -123,8 +124,7 @@ public class JigSaw extends Shaper {
     initiated = true;
   }
 
-  protected void hLine(
-      ShapeData sd, int type, double x, double y, double w, double h, boolean inv) {
+  protected void hLine(ShapeData sd, int type, double x, double y, double w, double h, boolean inv) {
     int kx = inv ? -1 : 1;
     int ky = (type == 1 ? 1 : -1);
 
@@ -142,8 +142,7 @@ public class JigSaw extends Shaper {
     }
   }
 
-  protected void vLine(
-      ShapeData sd, int type, double x, double y, double w, double h, boolean inv) {
+  protected void vLine(ShapeData sd, int type, double x, double y, double w, double h, boolean inv) {
     int ky = inv ? -1 : 1;
     int kx = (type == 1 ? 1 : -1);
 

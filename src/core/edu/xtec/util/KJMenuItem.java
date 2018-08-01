@@ -44,9 +44,11 @@ public class KJMenuItem extends JMenuItem {
     setEnabled((a != null ? a.isEnabled() : true));
     if (a != null) {
       Object o = a.getValue(Action.ACCELERATOR_KEY);
-      if (o != null && o instanceof KeyStroke) setAccelerator((KeyStroke) o);
+      if (o != null && o instanceof KeyStroke)
+        setAccelerator((KeyStroke) o);
       o = a.getValue(Action.MNEMONIC_KEY);
-      if (o != null && o instanceof Integer) setMnemonic(((Integer) o).intValue());
+      if (o != null && o instanceof Integer)
+        setMnemonic(((Integer) o).intValue());
     }
   }
 }

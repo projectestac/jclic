@@ -51,7 +51,8 @@ public class InformationScreen extends Activity implements ActiveBagContentKit.C
 
   @Override
   public org.jdom.Element getJDomElement() {
-    if (abc[0] == null) return null;
+    if (abc[0] == null)
+      return null;
     org.jdom.Element e = super.getJDomElement();
     e.addContent(abc[0].getJDomElement());
     return e;
@@ -64,7 +65,8 @@ public class InformationScreen extends Activity implements ActiveBagContentKit.C
     if (child != null) {
       abc[0] = ActiveBagContent.getActiveBagContent(child, project.mediaBag);
     }
-    if (abc[0] == null) throw new IllegalArgumentException("InformationScreen without contents");
+    if (abc[0] == null)
+      throw new IllegalArgumentException("InformationScreen without contents");
   }
 
   @Override
@@ -109,7 +111,8 @@ public class InformationScreen extends Activity implements ActiveBagContentKit.C
     @Override
     public void buildVisualComponents() throws Exception {
 
-      if (firstRun) super.buildVisualComponents();
+      if (firstRun)
+        super.buildVisualComponents();
 
       clear();
 
@@ -127,25 +130,25 @@ public class InformationScreen extends Activity implements ActiveBagContentKit.C
     public void initActivity() throws Exception {
       super.initActivity();
 
-      if (!firstRun) buildVisualComponents();
-      else firstRun = false;
+      if (!firstRun)
+        buildVisualComponents();
+      else
+        firstRun = false;
 
       setAndPlayMsg(MAIN, EventSounds.START);
-      // ps.setMsg(messages[MAIN]);
       if (bg != null) {
-        // ps.playMsg();
-        // if(messages[MAIN]==null || messages[MAIN].mediaContent==null)
-        //    playEvent(EventSounds.START);
         playing = true;
       }
     }
 
     public void render(Graphics2D g2, Rectangle dirtyRegion) {
-      if (bg != null) bg.update(g2, dirtyRegion, this);
+      if (bg != null)
+        bg.update(g2, dirtyRegion, this);
     }
 
     public Dimension setDimension(Dimension preferredMaxSize) {
-      if (getSize().equals(preferredMaxSize)) return preferredMaxSize;
+      if (getSize().equals(preferredMaxSize))
+        return preferredMaxSize;
       return BoxBag.layoutSingle(preferredMaxSize, bg, margin);
     }
 
@@ -155,7 +158,8 @@ public class InformationScreen extends Activity implements ActiveBagContentKit.C
       if (playing && e.getID() == MouseEvent.MOUSE_PRESSED) {
         ps.stopMedia(1);
         if ((bx = bg.findActiveBox(e.getPoint())) != null) {
-          if (!bx.playMedia(ps)) playEvent(EventSounds.CLICK);
+          if (!bx.playMedia(ps))
+            playEvent(EventSounds.CLICK);
         }
       }
     }

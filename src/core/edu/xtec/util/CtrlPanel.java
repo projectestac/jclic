@@ -36,18 +36,19 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 /**
- * This class is a special {@link javax.swing.JPanel}, designed to edit the properties of a specific
- * object. It has a boolean flag useful to signal if the edited object has been modified, and
- * implements several listeners (a {@link java.beans.PropertyChangeListener}, a {@link
- * javax.swing.event.DocumentListener} and a {@link java.awt.event.ActionListener}). This listeners
- * can be hooked to child controls in order to vehiculate a single way to handle events that can
- * cause changes to the edited object.
+ * This class is a special {@link javax.swing.JPanel}, designed to edit the
+ * properties of a specific object. It has a boolean flag useful to signal if
+ * the edited object has been modified, and implements several listeners (a
+ * {@link java.beans.PropertyChangeListener}, a
+ * {@link javax.swing.event.DocumentListener} and a
+ * {@link java.awt.event.ActionListener}). This listeners can be hooked to child
+ * controls in order to vehiculate a single way to handle events that can cause
+ * changes to the edited object.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10
  */
-public class CtrlPanel extends JPanel
-    implements PropertyChangeListener, ActionListener, DocumentListener {
+public class CtrlPanel extends JPanel implements PropertyChangeListener, ActionListener, DocumentListener {
 
   private boolean modified;
   private static int initializing;
@@ -66,38 +67,44 @@ public class CtrlPanel extends JPanel
   }
 
   public final void actionPerformed(ActionEvent actionEvent) {
-    if (!isInitializing() && eventPerformed(actionEvent)) modified = true;
+    if (!isInitializing() && eventPerformed(actionEvent))
+      modified = true;
   }
 
   public final void listenButtonActions(javax.swing.AbstractButton[] controls) {
-    for (javax.swing.AbstractButton cmp : controls) cmp.addActionListener(this);
+    for (javax.swing.AbstractButton cmp : controls)
+      cmp.addActionListener(this);
   }
 
   public final void propertyChange(PropertyChangeEvent propertyChangeEvent) {
-    if (!isInitializing() && eventPerformed(propertyChangeEvent)) modified = true;
+    if (!isInitializing() && eventPerformed(propertyChangeEvent))
+      modified = true;
   }
 
   public final void changedUpdate(DocumentEvent documentEvent) {
-    if (!isInitializing() && documentChangePerformed(documentEvent)) modified = true;
+    if (!isInitializing() && documentChangePerformed(documentEvent))
+      modified = true;
   }
 
   public final void insertUpdate(DocumentEvent documentEvent) {
-    if (!isInitializing() && documentChangePerformed(documentEvent)) modified = true;
+    if (!isInitializing() && documentChangePerformed(documentEvent))
+      modified = true;
   }
 
   public final void removeUpdate(DocumentEvent documentEvent) {
-    if (!isInitializing() && documentChangePerformed(documentEvent)) modified = true;
+    if (!isInitializing() && documentChangePerformed(documentEvent))
+      modified = true;
   }
 
   public MouseListener getMouseClickListener() {
     if (mouseAdapter == null) {
-      mouseAdapter =
-          new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent evt) {
-              if (!isInitializing() && eventPerformed(evt)) modified = true;
-            }
-          };
+      mouseAdapter = new MouseAdapter() {
+        @Override
+        public void mouseClicked(MouseEvent evt) {
+          if (!isInitializing() && eventPerformed(evt))
+            modified = true;
+        }
+      };
     }
     return mouseAdapter;
   }
@@ -117,8 +124,10 @@ public class CtrlPanel extends JPanel
    * @param value New value of property "modified".
    */
   public final void setModified(boolean value) {
-    if (value) modified = true;
-    else clearModified(this);
+    if (value)
+      modified = true;
+    else
+      clearModified(this);
   }
 
   private static void clearModified(Container cnt) {
@@ -126,7 +135,8 @@ public class CtrlPanel extends JPanel
       ((CtrlPanel) cnt).modified = false;
     }
     for (Component ch : cnt.getComponents()) {
-      if (ch instanceof Container) clearModified((Container) ch);
+      if (ch instanceof Container)
+        clearModified((Container) ch);
     }
   }
 
@@ -134,7 +144,9 @@ public class CtrlPanel extends JPanel
     boolean result = cnt instanceof CtrlPanel ? ((CtrlPanel) cnt).modified : false;
     if (!result) {
       for (Component ch : cnt.getComponents()) {
-        if (ch instanceof Container) if ((result = findModified((Container) ch)) == true) break;
+        if (ch instanceof Container)
+          if ((result = findModified((Container) ch)) == true)
+            break;
       }
     }
     return result;

@@ -61,14 +61,14 @@ public class JavaSoundAudioBuffer extends AudioBuffer {
   private static SourceDataLine m_sourceLine;
 
   /**
-   * Thread used to record audio. Static because only one instance can stay making use of the sound
-   * hardware.
+   * Thread used to record audio. Static because only one instance can stay making
+   * use of the sound hardware.
    */
   private static RecordThread recordThread;
 
   /**
-   * Thread used to play audio. Static because only one instance can stay making use of the audio
-   * hardware.
+   * Thread used to play audio. Static because only one instance can stay making
+   * use of the audio hardware.
    */
   private static PlayThread playThread;
 
@@ -89,16 +89,17 @@ public class JavaSoundAudioBuffer extends AudioBuffer {
    */
   public JavaSoundAudioBuffer(int seconds) throws Exception {
     super(seconds);
-    // m_buffer=null;
     initialize();
   }
 
   public static void initialize() throws Exception {
-    if (!initialized) buildLines();
+    if (!initialized)
+      buildLines();
   }
 
   /**
-   * Looks for available formats and lines, and builds <CODE>m_sourceLine</CODE> and <CODE>
+   * Looks for available formats and lines, and builds <CODE>m_sourceLine</CODE>
+   * and <CODE>
    * m_targetLine</CODE> members
    *
    * @throws Exception If it was unable to build the lines
@@ -111,12 +112,11 @@ public class JavaSoundAudioBuffer extends AudioBuffer {
     for (Info info : AudioSystem.getTargetLineInfo(new Info(TargetDataLine.class))) {
       if (info instanceof javax.sound.sampled.DataLine.Info) {
         for (AudioFormat format : ((javax.sound.sampled.DataLine.Info) info).getFormats()) {
-          if (format.getSampleRate() == AudioSystem.NOT_SPECIFIED
-              || format.getSampleRate() >= 8000.0F) vAll.add(format);
-          if (format.getChannels() == CHANNELS
-              && format.getSampleSizeInBits() == BITS
-              && (format.getSampleRate() == AudioSystem.NOT_SPECIFIED
-                  || format.getSampleRate() == RATE)) vOptimal.add(format);
+          if (format.getSampleRate() == AudioSystem.NOT_SPECIFIED || format.getSampleRate() >= 8000.0F)
+            vAll.add(format);
+          if (format.getChannels() == CHANNELS && format.getSampleSizeInBits() == BITS
+              && (format.getSampleRate() == AudioSystem.NOT_SPECIFIED || format.getSampleRate() == RATE))
+            vOptimal.add(format);
         }
       }
     }
@@ -132,9 +132,7 @@ public class JavaSoundAudioBuffer extends AudioBuffer {
     // try with optimal formats
     if (!vOptimal.isEmpty()) {
       af = vOptimal.toArray(new AudioFormat[vOptimal.size()]);
-      dli =
-          new javax.sound.sampled.DataLine.Info(
-              TargetDataLine.class, af, LINE_BUFFER, LINE_BUFFER + 1000);
+      dli = new javax.sound.sampled.DataLine.Info(TargetDataLine.class, af, LINE_BUFFER, LINE_BUFFER + 1000);
       try {
         m_targetLine = (TargetDataLine) AudioSystem.getLine(dli);
         m_targetLine.open();
@@ -146,9 +144,7 @@ public class JavaSoundAudioBuffer extends AudioBuffer {
     // optimal failed: try with all formats
     if (m_targetLine == null) {
       af = vAll.toArray(new AudioFormat[vAll.size()]);
-      dli =
-          new javax.sound.sampled.DataLine.Info(
-              TargetDataLine.class, af, LINE_BUFFER, LINE_BUFFER + 1000);
+      dli = new javax.sound.sampled.DataLine.Info(TargetDataLine.class, af, LINE_BUFFER, LINE_BUFFER + 1000);
       m_targetLine = (TargetDataLine) AudioSystem.getLine(dli);
       m_targetLine.open();
     }
@@ -161,7 +157,8 @@ public class JavaSoundAudioBuffer extends AudioBuffer {
   }
 
   /**
-   * Used for recording data. The thread stops itself when <CODE>running</CODE> is set to <CODE>
+   * Used for recording data. The thread stops itself when <CODE>running</CODE> is
+   * set to <CODE>
    * false</CODE>.
    */
   class RecordThread extends Thread {
@@ -205,7 +202,6 @@ public class JavaSoundAudioBuffer extends AudioBuffer {
       }
       m_targetLine.stop();
       m_targetLine.flush();
-      // m_targetLine.close();
       m_buffer = out.toByteArray();
       AudioBuffer.hideRecordingCursor();
       AudioBuffer.activeAudioBuffer = null;
@@ -215,7 +211,8 @@ public class JavaSoundAudioBuffer extends AudioBuffer {
   }
 
   /**
-   * Used for playing data. The thread stops itself when <CODE>running</CODE> is set to <CODE>false
+   * Used for playing data. The thread stops itself when <CODE>running</CODE> is
+   * set to <CODE>false
    * </CODE>, or when all audio data was played.
    */
   class PlayThread extends Thread {
@@ -223,9 +220,10 @@ public class JavaSoundAudioBuffer extends AudioBuffer {
     public boolean running;
 
     /**
-     * In some cases, the data stored in <CODE>m_buffer</CODE> was corrupted after calling to <CODE>
-     * m_sourceLine.write</CODE>. A workaround to this JavaSond bug is to make a duplicate of the
-     * data and discard it after used.
+     * In some cases, the data stored in <CODE>m_buffer</CODE> was corrupted after
+     * calling to <CODE>
+     * m_sourceLine.write</CODE>. A workaround to this JavaSond bug is to make a
+     * duplicate of the data and discard it after used.
      */
     byte[] buf;
 
@@ -257,7 +255,6 @@ public class JavaSoundAudioBuffer extends AudioBuffer {
       }
       m_sourceLine.drain();
       m_sourceLine.stop();
-      // m_sourceLine.close();
       playThread = null;
       running = false;
     }
@@ -278,16 +275,14 @@ public class JavaSoundAudioBuffer extends AudioBuffer {
     recordThread = new RecordThread();
     recordThread.start();
     recordTimer = new Timer();
-    recordTimer.schedule(
-        new TimerTask() {
-          public void run() {
-            recordTimer = null;
-            if (recordThread != null) {
-              recordThread.running = false;
-            }
-          }
-        },
-        m_seconds * 1000);
+    recordTimer.schedule(new TimerTask() {
+      public void run() {
+        recordTimer = null;
+        if (recordThread != null) {
+          recordThread.running = false;
+        }
+      }
+    }, m_seconds * 1000);
   }
 
   /**
@@ -296,7 +291,8 @@ public class JavaSoundAudioBuffer extends AudioBuffer {
    * @throws Exception If something goes wrong
    */
   public void play() throws Exception {
-    if (!initialized) return;
+    if (!initialized)
+      return;
     stop();
     if (m_buffer != null && m_buffer.length > 0) {
       playThread = new PlayThread();
@@ -307,7 +303,8 @@ public class JavaSoundAudioBuffer extends AudioBuffer {
   /**
    * Checks if the AudioBuffer is currently playing or recording sound.
    *
-   * @return <CODE>true</CODE> if playing or recording, <CODE>false</CODE> otherwise
+   * @return <CODE>true</CODE> if playing or recording, <CODE>false</CODE>
+   *         otherwise
    */
   private boolean isRunning() {
     return (playThread != null || recordThread != null);
@@ -315,8 +312,10 @@ public class JavaSoundAudioBuffer extends AudioBuffer {
 
   /** If running, gently stops play and record threads */
   public void stop() {
-    if (recordThread != null) recordThread.running = false;
-    if (playThread != null) playThread.running = false;
+    if (recordThread != null)
+      recordThread.running = false;
+    if (playThread != null)
+      playThread.running = false;
     while (recordThread != null || playThread != null) {
       Thread.yield();
     }

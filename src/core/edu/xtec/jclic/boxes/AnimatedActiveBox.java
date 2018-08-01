@@ -28,10 +28,11 @@ import javax.swing.JComponent;
 import javax.swing.Timer;
 
 /**
- * This class is currently used only in some {@link edu.xtec.jclic.skins.Skin} classes to animate
- * progress bars. It takes a collection of images (stored as elements of an {@link
- * edu.xtec.jclic.boxes.ActiveBagContent}) that are used as "frames" of a picture, and displayed one
- * after other. It uses a {@link java.util.Timer} to generate the events that cause the rotation of
+ * This class is currently used only in some {@link edu.xtec.jclic.skins.Skin}
+ * classes to animate progress bars. It takes a collection of images (stored as
+ * elements of an {@link edu.xtec.jclic.boxes.ActiveBagContent}) that are used
+ * as "frames" of a picture, and displayed one after other. It uses a
+ * {@link java.util.Timer} to generate the events that cause the rotation of
  * frames.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
@@ -57,8 +58,7 @@ public class AnimatedActiveBox extends ActiveBox implements ActionListener {
     super(parent, container, boxBase);
   }
 
-  public AnimatedActiveBox(
-      AbstractBox parent, JComponent container, int setIdLoc, Rectangle2D r, BoxBase boxBase) {
+  public AnimatedActiveBox(AbstractBox parent, JComponent container, int setIdLoc, Rectangle2D r, BoxBase boxBase) {
     super(parent, container, setIdLoc, r, boxBase);
   }
 
@@ -77,7 +77,8 @@ public class AnimatedActiveBox extends ActiveBox implements ActionListener {
 
   public void setContent(ActiveBagContent abc) {
     this.abc = abc;
-    if (abc != null && !abc.isEmpty()) setContent(abc.getActiveBoxContent(0));
+    if (abc != null && !abc.isEmpty())
+      setContent(abc.getActiveBoxContent(0));
   }
 
   public void setAltContent(ActiveBagContent abc) {
@@ -104,13 +105,15 @@ public class AnimatedActiveBox extends ActiveBox implements ActionListener {
     if (timer != null) {
       startTime = System.currentTimeMillis();
       waitingForFirstFrame = false;
-      if (!timer.isRunning()) timer.start();
+      if (!timer.isRunning())
+        timer.start();
     }
   }
 
   public void stop(boolean toFirstFrame) {
     if (timer != null && timer.isRunning()) {
-      if (toFirstFrame) waitingForFirstFrame = true;
+      if (toFirstFrame)
+        waitingForFirstFrame = true;
       else {
         waitingForFirstFrame = false;
         timer.stop();
@@ -127,8 +130,10 @@ public class AnimatedActiveBox extends ActiveBox implements ActionListener {
         waitingForFirstFrame = false;
         timer.stop();
       } else {
-        if (isAlternative()) setAltContent(c, currentFrame);
-        else setContent(c, currentFrame);
+        if (isAlternative())
+          setAltContent(c, currentFrame);
+        else
+          setContent(c, currentFrame);
       }
       if (!isVisible() && startDelay > 0 && (System.currentTimeMillis() - startTime) >= startDelay)
         setVisible(true);

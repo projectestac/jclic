@@ -45,14 +45,7 @@ public class SessionData extends Object implements java.io.Serializable {
   public List<ActivityData> actData;
 
   /** Creates a new instance of SessionData */
-  public SessionData(
-      String id,
-      String usr,
-      String project,
-      Date date,
-      int numActs,
-      int actsSolved,
-      int totalPrec,
+  public SessionData(String id, String usr, String project, Date date, int numActs, int actsSolved, int totalPrec,
       int totalTime) {
     this.id = id != null ? id.trim() : null;
     users = new HashSet<String>(1);
@@ -72,11 +65,14 @@ public class SessionData extends Object implements java.io.Serializable {
     numActs += d.numActs;
     totalTime += d.totalTime;
     users.addAll(d.users);
-    if (project != null && !project.equals(d.project)) project = "";
+    if (project != null && !project.equals(d.project))
+      project = "";
     id = "";
     sessionCount += d.sessionCount;
-    if (actData == null) actData = d.actData;
-    else if (d.actData != null) actData.addAll(d.actData);
+    if (actData == null)
+      actData = d.actData;
+    else if (d.actData != null)
+      actData.addAll(d.actData);
   }
 
   public boolean sameDate(SessionData d) {
@@ -93,10 +89,12 @@ public class SessionData extends Object implements java.io.Serializable {
 
   public String getUsr() {
     String result = "";
-    if (users.size() > 1) result = "*";
+    if (users.size() > 1)
+      result = "*";
     else {
       Iterator it = users.iterator();
-      if (it.hasNext()) result = (String) it.next();
+      if (it.hasNext())
+        result = (String) it.next();
     }
     return result;
   }

@@ -113,15 +113,12 @@ public class Complete extends TextActivityBase {
 
     @Override
     protected TextActivityPane buildPane() {
-      // CompletePane cp=new CompletePane(this);
       CompletePane cp = new CompletePane();
       cp.setActions();
       return cp;
     }
 
     class CompletePane extends TextActivityPane {
-
-      // public CompletePane(Complete act){
       protected CompletePane() {
         super(Complete.Panel.this);
       }
@@ -136,7 +133,8 @@ public class Complete extends TextActivityBase {
 
       protected void invalidateSelection() {
         int offset = getCaret().getDot();
-        if (getCaret().getMark() != offset) getCaret().setDot(offset);
+        if (getCaret().getMark() != offset)
+          getCaret().setDot(offset);
       }
 
       @Override
@@ -153,8 +151,7 @@ public class Complete extends TextActivityBase {
           int offset = getCaret().getDot();
           if (ch >= 0x20 && ch != 0x7F) {
             try {
-              playDoc.insertString(
-                  offset, new String(new char[] {ch}), playDoc.getTargetAttributeSet());
+              playDoc.insertString(offset, new String(new char[] { ch }), playDoc.getTargetAttributeSet());
             } catch (BadLocationException ex) {
               System.err.println("Text activity error:\n" + ex);
             }
@@ -178,35 +175,31 @@ public class Complete extends TextActivityBase {
 
       // Actions
       Action kitDeletePrevCharAction = null;
-      AbstractAction deletePrevCharAction =
-          new AbstractAction(DefaultEditorKit.deletePrevCharAction) {
-            public void actionPerformed(ActionEvent e) {
-              if (readyForActions() && kitDeletePrevCharAction != null) {
-                invalidateSelection();
-                int offset = getCaret().getDot() - 1;
-                if (offset > 0
-                    && playDoc.checkBooleanAttribute(offset, TextActivityDocument.TARGET) == true) {
-                  kitDeletePrevCharAction.actionPerformed(e);
-                }
-              }
+      AbstractAction deletePrevCharAction = new AbstractAction(DefaultEditorKit.deletePrevCharAction) {
+        public void actionPerformed(ActionEvent e) {
+          if (readyForActions() && kitDeletePrevCharAction != null) {
+            invalidateSelection();
+            int offset = getCaret().getDot() - 1;
+            if (offset > 0 && playDoc.checkBooleanAttribute(offset, TextActivityDocument.TARGET) == true) {
+              kitDeletePrevCharAction.actionPerformed(e);
             }
-          };
+          }
+        }
+      };
 
       Action kitDeleteNextCharAction = null;
-      AbstractAction deleteNextCharAction =
-          new AbstractAction(DefaultEditorKit.deleteNextCharAction) {
-            public void actionPerformed(ActionEvent e) {
-              if (readyForActions() && kitDeleteNextCharAction != null) {
-                invalidateSelection();
-                int offset = getCaret().getDot();
-                if (offset >= 0
-                    && offset < playDoc.getLength()
-                    && playDoc.checkBooleanAttribute(offset, TextActivityDocument.TARGET) == true) {
-                  kitDeleteNextCharAction.actionPerformed(e);
-                }
-              }
+      AbstractAction deleteNextCharAction = new AbstractAction(DefaultEditorKit.deleteNextCharAction) {
+        public void actionPerformed(ActionEvent e) {
+          if (readyForActions() && kitDeleteNextCharAction != null) {
+            invalidateSelection();
+            int offset = getCaret().getDot();
+            if (offset >= 0 && offset < playDoc.getLength()
+                && playDoc.checkBooleanAttribute(offset, TextActivityDocument.TARGET) == true) {
+              kitDeleteNextCharAction.actionPerformed(e);
             }
-          };
+          }
+        }
+      };
 
       protected void setActions() {
         kitDeleteNextCharAction = getActionMap().get(DefaultEditorKit.deleteNextCharAction);
@@ -222,7 +215,8 @@ public class Complete extends TextActivityBase {
 
     @Override
     protected void doCheck(boolean fromButton) {
-      if (playDoc == null || locked) return;
+      if (playDoc == null || locked)
+        return;
 
       String match;
       String current;
@@ -240,22 +234,23 @@ public class Complete extends TextActivityBase {
         int l = result.length;
         int i = 0;
         while (i < l) {
-          while (i < l && !playDoc.checkBooleanAttribute(i, TextActivityDocument.TARGET)) i++;
+          while (i < l && !playDoc.checkBooleanAttribute(i, TextActivityDocument.TARGET))
+            i++;
           if (i < l) {
             nActions++;
             boolean actionOk = true;
             int j = i;
-            while (i < l && playDoc.checkBooleanAttribute(i, TextActivityDocument.TARGET)) i++;
-            playDoc.setCharacterAttributes(
-                j, i - j, styleContext.getStyle(TextActivityDocument.TARGET), true);
+            while (i < l && playDoc.checkBooleanAttribute(i, TextActivityDocument.TARGET))
+              i++;
+            playDoc.setCharacterAttributes(j, i - j, styleContext.getStyle(TextActivityDocument.TARGET), true);
             for (int k = j; k < i; k++) {
               if (result[k] != Evaluator.FLAG_OK) {
                 actionOk = false;
-                playDoc.setCharacterAttributes(
-                    k, 1, styleContext.getStyle(TextActivityDocument.TARGET_ERROR), false);
+                playDoc.setCharacterAttributes(k, 1, styleContext.getStyle(TextActivityDocument.TARGET_ERROR), false);
               }
             }
-            if (actionOk) score++;
+            if (actionOk)
+              score++;
           }
         }
       }
@@ -263,8 +258,10 @@ public class Complete extends TextActivityBase {
       ps.setCounterValue(SCORE_COUNTER, score);
       ps.setCounterValue(ACTIONS_COUNTER, nActions);
 
-      if (Evaluator.isOk(result)) finishActivity(true);
-      else if (fromButton) playEvent(EventSounds.FINISHED_ERROR);
+      if (Evaluator.isOk(result))
+        finishActivity(true);
+      else if (fromButton)
+        playEvent(EventSounds.FINISHED_ERROR);
     }
 
     @Override

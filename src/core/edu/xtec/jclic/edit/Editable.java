@@ -22,8 +22,9 @@
 package edu.xtec.jclic.edit;
 
 /**
- * Classes that implement this interface have always an associated {@link
- * edu.xtec.jclic.edit.Editor}. The interface has one single method to implement: <CODE>getEditor
+ * Classes that implement this interface have always an associated
+ * {@link edu.xtec.jclic.edit.Editor}. The interface has one single method to
+ * implement: <CODE>getEditor
  * </CODE>.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
@@ -33,9 +34,10 @@ public interface Editable {
   /**
    * Returns the {@link edu.xtec.jclic.edit.Editor} associated to this object.
    *
-   * @param parent Editors can have a parent editor. Childs should communicate its changes to
-   *     parents, and changes in parents should affect its childs. This parameter can be <I>null</I>
-   *     in stand-alone objects.
+   * @param parent Editors can have a parent editor. Childs should communicate its
+   *               changes to parents, and changes in parents should affect its
+   *               childs. This parameter can be <I>null</I> in stand-alone
+   *               objects.
    * @return An Editor for this object.
    */
   public Editor getEditor(Editor parent);

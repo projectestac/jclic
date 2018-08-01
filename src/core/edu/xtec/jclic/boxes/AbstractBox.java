@@ -39,10 +39,12 @@ import javax.swing.JLabel;
 import javax.swing.text.JTextComponent;
 
 /**
- * This abstract class is the base for most graphic components of JClic. It describes an {@link
- * java.awt.geom.Area} (a rectangle by default) with some special properties that determine how it
- * must be drawn on screen. Some types of boxes can act as containers for other boxes, establishing
- * a hierarchy of dependences. Box objects are always placed into a {@link javax.swing.JComponent}.
+ * This abstract class is the base for most graphic components of JClic. It
+ * describes an {@link java.awt.geom.Area} (a rectangle by default) with some
+ * special properties that determine how it must be drawn on screen. Some types
+ * of boxes can act as containers for other boxes, establishing a hierarchy of
+ * dependences. Box objects are always placed into a
+ * {@link javax.swing.JComponent}.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
@@ -76,15 +78,19 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
   @Override
   public Object clone() {
     AbstractBox bx = (AbstractBox) super.clone();
-    if (specialShape) bx.shape = new Area(shape);
-    else bx.shape = bx;
+    if (specialShape)
+      bx.shape = new Area(shape);
+    else
+      bx.shape = bx;
     if (hostedComponent != null) {
       if (hostedComponent instanceof JLabel) {
         JLabel lb = (JLabel) hostedComponent;
         bx.hostedComponent = new JLabel(lb.getText(), lb.getIcon(), lb.getHorizontalAlignment());
         JComponent jc = bx.getContainerResolve();
-        if (jc != null) jc.add(hostedComponent);
-      } else bx.hostedComponent = null;
+        if (jc != null)
+          jc.add(hostedComponent);
+      } else
+        bx.hostedComponent = null;
     }
     return bx;
   }
@@ -113,7 +119,8 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
       if (hostedComponent.getParent() != null) {
         hostedComponent.getParent().remove(hostedComponent);
       }
-      if (container != null) container.add(hostedComponent);
+      if (container != null)
+        container.add(hostedComponent);
     }
   }
 
@@ -123,13 +130,13 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
 
   public JComponent getContainerResolve() {
     AbstractBox ab = this;
-    while (ab.container == null && ab.parent != null) ab = ab.parent;
+    while (ab.container == null && ab.parent != null)
+      ab = ab.parent;
     return ab.container;
   }
 
   public void setBoxBase(BoxBase boxBase) {
     this.boxBase = boxBase;
-    // if(bb==null) bb=BoxBase.DefaultBoxBase;
     repaint();
     setHostedComponentColors();
     setHostedComponentBorder();
@@ -137,7 +144,8 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
 
   public BoxBase getBoxBaseResolve() {
     AbstractBox ab = this;
-    while (ab.boxBase == null && ab.parent != null) ab = ab.parent;
+    while (ab.boxBase == null && ab.parent != null)
+      ab = ab.parent;
     return ab.boxBase == null ? BoxBase.DEFAULT_BOX_BASE : ab.boxBase;
   }
 
@@ -155,7 +163,8 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
     if (hostedComponent != null) {
       hostedComponent.setVisible(false);
       JComponent cmp = getContainerResolve();
-      if (cmp != null) cmp.add(jc);
+      if (cmp != null)
+        cmp.add(jc);
       setHostedComponentColors();
       setHostedComponentBorder();
       setHostedComponentBounds();
@@ -167,7 +176,6 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
     return hostedComponent;
   }
 
-  // canviar nom!!!
   public void setShape(Shape setSh) {
     shape = setSh;
     specialShape = true;
@@ -188,9 +196,12 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
 
   public boolean update(Graphics2D g2, Rectangle dirtyRegion, ImageObserver io) {
 
-    if (hostedComponent != null) return false;
-    if (isEmpty() || !isVisible() || isTemporaryHidden()) return false;
-    if (dirtyRegion != null && !shape.intersects(dirtyRegion)) return false;
+    if (hostedComponent != null)
+      return false;
+    if (isEmpty() || !isVisible() || isTemporaryHidden())
+      return false;
+    if (dirtyRegion != null && !shape.intersects(dirtyRegion))
+      return false;
 
     Shape saveClip = new Area(g2.getClip());
     Area clip = new Area(saveClip);
@@ -204,7 +215,8 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
         g2.fill(shape);
         g2.setColor(Color.black);
       }
-      if (bb.bgGradient != null) bb.bgGradient.paint(g2, shape);
+      if (bb.bgGradient != null)
+        bb.bgGradient.paint(g2, shape);
     }
     updateContent(g2, dirtyRegion, io);
 
@@ -221,16 +233,19 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
       BoxBase bb = getBoxBaseResolve();
       g2.setColor(bb.borderColor);
       g2.setStroke((marked || focused) ? bb.getMarker() : bb.getBorder());
-      if (marked || focused) g2.setXORMode(Color.white);
+      if (marked || focused)
+        g2.setXORMode(Color.white);
       g2.draw(shape);
-      if (marked || focused) g2.setPaintMode();
+      if (marked || focused)
+        g2.setPaintMode();
       g2.setColor(Color.black);
       g2.setStroke(BoxBase.DEFAULT_STROKE);
     }
   }
 
   public Rectangle getBorderBounds() {
-    if (!border && !marked && !focused) return getBounds();
+    if (!border && !marked && !focused)
+      return getBounds();
     BoxBase bb = getBoxBaseResolve();
     Stroke strk = (marked || focused) ? bb.getMarker() : bb.getBorder();
     return strk.createStrokedShape(shape).getBounds();
@@ -241,10 +256,12 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
   }
 
   public void setBorder(boolean newVal) {
-    if (!newVal) repaint();
+    if (!newVal)
+      repaint();
     border = newVal;
     setHostedComponentBorder();
-    if (newVal) repaint();
+    if (newVal)
+      repaint();
   }
 
   public boolean isVisible() {
@@ -253,7 +270,8 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
 
   public void setVisible(boolean newVal) {
     visible = newVal;
-    if (hostedComponent != null) hostedComponent.setVisible(newVal);
+    if (hostedComponent != null)
+      hostedComponent.setVisible(newVal);
     repaint();
   }
 
@@ -263,7 +281,6 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
 
   public void setTemporaryHidden(boolean newVal) {
     temporaryHidden = newVal;
-    // repaint();
   }
 
   public boolean isInactive() {
@@ -293,11 +310,13 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
   }
 
   public void setMarked(boolean newVal) {
-    if (!newVal) repaint();
+    if (!newVal)
+      repaint();
     marked = newVal;
     checkHostedComponent();
     setHostedComponentColors();
-    if (newVal) repaint();
+    if (newVal)
+      repaint();
   }
 
   public boolean isFocused() {
@@ -305,11 +324,13 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
   }
 
   public void setFocused(boolean newVal) {
-    if (!newVal) repaint();
+    if (!newVal)
+      repaint();
     focused = newVal;
     checkHostedComponent();
     setHostedComponentColors();
-    if (newVal) repaint();
+    if (newVal)
+      repaint();
   }
 
   public boolean isAlternative() {
@@ -327,10 +348,8 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
     if (hostedComponent != null) {
       BoxBase bb = getBoxBaseResolve();
       hostedComponent.setFont(bb.getFont());
-      hostedComponent.setBackground(
-          inactive ? bb.inactiveColor : inverted ? bb.textColor : bb.backColor);
-      hostedComponent.setForeground(
-          inverted ? bb.backColor : alternative ? bb.alternativeColor : bb.textColor);
+      hostedComponent.setBackground(inactive ? bb.inactiveColor : inverted ? bb.textColor : bb.backColor);
+      hostedComponent.setForeground(inverted ? bb.backColor : alternative ? bb.alternativeColor : bb.textColor);
       if (hostedComponent instanceof JComponent) {
         ((JComponent) hostedComponent).setOpaque(true);
         if (hostedComponent instanceof JTextComponent)
@@ -342,10 +361,8 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
   private void setHostedComponentBorder() {
     if (hostedComponent != null && hostedComponent instanceof JComponent) {
       ((JComponent) hostedComponent)
-          .setBorder(
-              border
-                  ? BorderFactory.createLineBorder(getBoxBaseResolve().borderColor, 1)
-                  : BorderFactory.createEmptyBorder());
+          .setBorder(border ? BorderFactory.createLineBorder(getBoxBaseResolve().borderColor, 1)
+              : BorderFactory.createEmptyBorder());
     }
   }
 
@@ -360,21 +377,22 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
 
   public void repaint() {
     JComponent jc = getContainerResolve();
-    if (jc != null) jc.repaint(getBorderBounds());
-    if (hostedComponent != null) hostedComponent.repaint();
+    if (jc != null)
+      jc.repaint(getBorderBounds());
+    if (hostedComponent != null)
+      hostedComponent.repaint();
   }
 
   public void setBounds(Rectangle2D r) {
-    if (r.equals((Rectangle2D) this)) return;
+    if (r.equals((Rectangle2D) this))
+      return;
 
     if (specialShape) {
       AffineTransform tx = null;
       if (getWidth() != r.getWidth() || getHeight() != r.getHeight()) {
         tx = AffineTransform.getTranslateInstance(-getX(), -getY());
         shape = tx.createTransformedShape(shape);
-        tx =
-            AffineTransform.getScaleInstance(
-                r.getWidth() / getWidth(), r.getHeight() / getHeight());
+        tx = AffineTransform.getScaleInstance(r.getWidth() / getWidth(), r.getHeight() / getHeight());
         shape = tx.createTransformedShape(shape);
         tx = AffineTransform.getTranslateInstance(getX(), getY());
         shape = tx.createTransformedShape(shape);
@@ -424,7 +442,7 @@ public abstract class AbstractBox extends Rectangle2D.Double implements Cloneabl
   }
 
   protected void checkHostedComponent() {
-    // to override
+    // to be overrided
   }
 
   public Point2D getAbsoluteLocation() {

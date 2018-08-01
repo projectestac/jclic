@@ -25,5 +25,6 @@ package edu.xtec.jclic.media;
 public class JavaSoundClipActiveMediaPlayer {
 
   /** Creates a new instance of JavaSoundClipActiveMediaPlayer */
-  public JavaSoundClipActiveMediaPlayer() {}
+  public JavaSoundClipActiveMediaPlayer() {
+  }
 }

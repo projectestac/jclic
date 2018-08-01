@@ -109,7 +109,6 @@ public class PersistentSettings {
     if (path == null) {
       // "Program Files" path is no longer used as default for storing data
       // instead, we will use always {user.home}/programName
-      // String sPath=getSystemProgramsPath(options)+File.separator+programName;
       String sPath = System.getProperty("user.home") + File.separator + programName;
       Messages messages = getMessages(options, BUNDLE);
       String msg = messages.get("cl_alert");
@@ -120,22 +119,16 @@ public class PersistentSettings {
       boolean done = false;
       File d = new File(sPath);
       while (!done) {
-        String result =
-            (String)
-                JOptionPane.showInputDialog(
-                    options.getMainComponent(),
-                    msg,
-                    messages.get("cl_prompt_title"),
-                    JOptionPane.QUESTION_MESSAGE,
-                    null,
-                    null,
-                    sPath);
+        String result = (String) JOptionPane.showInputDialog(options.getMainComponent(), msg,
+            messages.get("cl_prompt_title"), JOptionPane.QUESTION_MESSAGE, null, null, sPath);
 
-        if (result == null) throw new Exception("bad user input!");
+        if (result == null)
+          throw new Exception("bad user input!");
 
         d = new File(result);
         try {
-          if (!d.exists() || !d.isDirectory()) d.mkdirs();
+          if (!d.exists() || !d.isDirectory())
+            d.mkdirs();
           done = d.exists() && d.isDirectory();
         } catch (Exception ex) {
           messages.showErrorWarning(options.getMainComponent(), "cl_err_unableToCreateDir", ex);
@@ -169,8 +162,10 @@ public class PersistentSettings {
       if (l == null) {
         prop = getProperties();
         l = prop.getProperty(Messages.LANGUAGE);
-        if (l != null) options.put(Messages.LANGUAGE, l);
-        else mustSave = true;
+        if (l != null)
+          options.put(Messages.LANGUAGE, l);
+        else
+          mustSave = true;
       } else {
         options.put(Options.LANGUAGE_BY_PARAM, Options.BTRUE);
       }
@@ -179,13 +174,13 @@ public class PersistentSettings {
         prop.setProperty(Messages.LANGUAGE, (String) options.get(Messages.LANGUAGE));
         saveSettings(prop);
       }
-    } else if (bundle != null) msg.addBundle(bundle);
+    } else if (bundle != null)
+      msg.addBundle(bundle);
 
     return msg;
   }
 
-  public static String getFilePath(
-      String programName, String fileName, Options options, boolean createFile) {
+  public static String getFilePath(String programName, String fileName, Options options, boolean createFile) {
     String result = null;
     File base;
     try {
@@ -196,7 +191,8 @@ public class PersistentSettings {
 
     File testFile = new File(base, fileName);
 
-    if (testFile.canRead()) result = testFile.getAbsolutePath();
+    if (testFile.canRead())
+      result = testFile.getAbsolutePath();
     else if (createFile)
       try {
         FileOutputStream fos = new FileOutputStream(testFile);

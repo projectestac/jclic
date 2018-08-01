@@ -42,12 +42,8 @@ public class TextActivityBase extends Activity implements TextActivityContentKit
 
   protected TextActivityDocument tad;
   protected StyleContext styleContext;
-  // ActiveBagContent boxesContent;
-  // ActiveBagContent popupsContent;
-
   protected boolean hasCheckButton;
   protected String checkButtonText;
-
   protected boolean prevScreen;
   protected int prevScreenMaxTime;
   protected String prevScreenText;
@@ -76,17 +72,17 @@ public class TextActivityBase extends Activity implements TextActivityContentKit
     prevScreenStyle = new BoxBase();
   }
 
-  public static final String CHECK_BUTTON = "checkButton",
-      PREV_SCREEN = "prevScreen",
-      TEXT = "text";
+  public static final String CHECK_BUTTON = "checkButton", PREV_SCREEN = "prevScreen", TEXT = "text";
 
   @Override
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = super.getJDomElement();
-    if (hasCheckButton) e.addContent(new org.jdom.Element(CHECK_BUTTON).setText(checkButtonText));
+    if (hasCheckButton)
+      e.addContent(new org.jdom.Element(CHECK_BUTTON).setText(checkButtonText));
     if (prevScreen) {
       org.jdom.Element child = new org.jdom.Element(PREV_SCREEN);
-      if (prevScreenMaxTime > 0) child.setAttribute(MAX_TIME, Integer.toString(prevScreenMaxTime));
+      if (prevScreenMaxTime > 0)
+        child.setAttribute(MAX_TIME, Integer.toString(prevScreenMaxTime));
       if (prevScreenText != null) {
         child.addContent(prevScreenStyle.getJDomElement());
         JDomUtility.setParagraphs(child, prevScreenText);
@@ -162,11 +158,9 @@ public class TextActivityBase extends Activity implements TextActivityContentKit
     return styleContext;
   }
 
-  protected Evaluator buildClic3Evaluator(edu.xtec.jclic.clic3.Clic3Activity c3a, boolean complex)
-      throws Exception {
+  protected Evaluator buildClic3Evaluator(edu.xtec.jclic.clic3.Clic3Activity c3a, boolean complex) throws Exception {
     org.jdom.Element e = new org.jdom.Element(Evaluator.ELEMENT_NAME);
-    String evaluatorClassName =
-        complex ? ComplexEvaluator.class.getName() : BasicEvaluator.class.getName();
+    String evaluatorClassName = complex ? ComplexEvaluator.class.getName() : BasicEvaluator.class.getName();
     e.setAttribute(JDomUtility.CLASS, evaluatorClassName);
     e.setAttribute(BasicEvaluator.CHECK_CASE, JDomUtility.boolString(c3a.avMaj));
     e.setAttribute(BasicEvaluator.CHECK_ACCENTS, JDomUtility.boolString(c3a.avAcc));
@@ -186,10 +180,9 @@ public class TextActivityBase extends Activity implements TextActivityContentKit
 
   @Override
   public boolean prepareMedia(PlayStation ps) {
-    if (!super.prepareMedia(ps)) return false;
+    if (!super.prepareMedia(ps))
+      return false;
 
-    // if(boxesContent!=null) boxesContent.prepareMedia(ac);
-    // if(popupsContent!=null) popupsContent.prepareMedia(ac);
     if (tad != null) {
       tad.boxesContent.prepareMedia(ps);
       tad.popupsContent.prepareMedia(ps);
@@ -237,7 +230,8 @@ public class TextActivityBase extends Activity implements TextActivityContentKit
         checkButton.setBounds(0, h, w, hb);
       }
       if (scrollPane != null && pane != null) {
-        if (pane.getBounds().isEmpty()) pane.setBounds(0, 0, w, h);
+        if (pane.getBounds().isEmpty())
+          pane.setBounds(0, 0, w, h);
         scrollPane.setBounds(0, 0, w, h);
       }
     }
@@ -248,8 +242,7 @@ public class TextActivityBase extends Activity implements TextActivityContentKit
       super.buildVisualComponents();
 
       if (acp != null) {
-        TextActivityContentKit kit =
-            new TextActivityContentKit(tad, checkButtonText, prevScreenText);
+        TextActivityContentKit kit = new TextActivityContentKit(tad, checkButtonText, prevScreenText);
         if (acp.generateContent(kit, ps)) {
           checkButtonText = kit.checkButtonText;
           prevScreenText = kit.prevScreenText;
@@ -270,9 +263,7 @@ public class TextActivityBase extends Activity implements TextActivityContentKit
 
       scrollPane = new JScrollPane(pane);
       scrollPane.setBorder(BorderFactory.createEmptyBorder());
-      scrollPane
-          .getVerticalScrollBar()
-          .setBorder(BorderFactory.createLineBorder(Color.darkGray, 1));
+      scrollPane.getVerticalScrollBar().setBorder(BorderFactory.createLineBorder(Color.darkGray, 1));
       add(scrollPane);
 
       if (hasCheckButton) {
@@ -294,31 +285,31 @@ public class TextActivityBase extends Activity implements TextActivityContentKit
 
     @Override
     public void initActivity() throws Exception {
-      // super.initActivity();
-      if (prevScreen) preInitActivity();
-      else startActivity();
+      if (prevScreen)
+        preInitActivity();
+      else
+        startActivity();
     }
 
     @Override
     public void startActivity() throws Exception {
       super.initActivity();
       showingPrevScreen = false;
-      // setCounters(0, 0, 0);
       setAndPlayMsg(MAIN, EventSounds.START);
-      // ps.setMsg(messages[MAIN]);
       initDocument();
-      if (checkButton != null) checkButton.setVisible(true);
+      if (checkButton != null)
+        checkButton.setVisible(true);
       ps.playMsg();
-      // if(messages[MAIN]==null || messages[MAIN].mediaContent==null)
-      //    playEvent(EventSounds.START);
       pane.requestFocus();
       playing = true;
     }
 
     public void preInitActivity() {
-      if (messages[PREVIOUS] == null || prevScreen == false) return;
+      if (messages[PREVIOUS] == null || prevScreen == false)
+        return;
       showingPrevScreen = true;
-      if (checkButton != null) checkButton.setVisible(false);
+      if (checkButton != null)
+        checkButton.setVisible(false);
       enableCounters(true, false, false);
       ps.setCounterValue(TIME_COUNTER, 0);
 
@@ -334,34 +325,37 @@ public class TextActivityBase extends Activity implements TextActivityContentKit
 
     protected void initDocument() throws Exception {
       if (tad != null) {
-        if (pane.getDocument() != tad) pane.setStyledDocument(tad);
-        // pane.setEditable(true);
+        if (pane.getDocument() != tad)
+          pane.setStyledDocument(tad);
         pane.setEnabled(true);
       }
     }
 
-    public void render(Graphics2D g2, Rectangle dirtyRegion) {}
+    public void render(Graphics2D g2, Rectangle dirtyRegion) {
+    }
 
     @Override
     public void requestFocus() {
-      if (playing && pane != null) pane.requestFocus();
+      if (playing && pane != null)
+        pane.requestFocus();
     }
 
     public Dimension setDimension(Dimension desiredMaxSize) {
-      return new Dimension(
-          Math.min(desiredMaxSize.width, getWindowSize().width),
+      return new Dimension(Math.min(desiredMaxSize.width, getWindowSize().width),
           Math.min(desiredMaxSize.height, getWindowSize().height));
     }
 
     @Override
     public void setCursor(Cursor cursor) {
-      if (pane != null) pane.setCursor(cursor);
+      if (pane != null)
+        pane.setCursor(cursor);
       super.setCursor(cursor);
     }
 
     public void actionPerformed(java.awt.event.ActionEvent e) {
       if (checkButton != null && e.getSource() == checkButton) {
-        if (playing) doCheck(true);
+        if (playing)
+          doCheck(true);
       }
       if (prevScreenTimer != null && e.getSource() == prevScreenTimer && showingPrevScreen) {
         ps.startActivity(this);
@@ -370,59 +364,62 @@ public class TextActivityBase extends Activity implements TextActivityContentKit
 
     @Override
     public void forceFinishActivity() {
-      if (playing) doCheck(false);
+      if (playing)
+        doCheck(false);
     }
 
-    protected void doCheck(boolean fromButton) {}
+    protected void doCheck(boolean fromButton) {
+    }
 
     @Override
     public void showHelp() {
-      if (!helpWindowAllowed() || pane == null) return;
+      if (!helpWindowAllowed() || pane == null)
+        return;
       HelpActivityComponent hac = null;
       if (showSolution) {
-        hac =
-            new HelpActivityComponent(this) {
-              TextActivityPane tap = null;
-              JScrollPane jsp = null;
+        hac = new HelpActivityComponent(this) {
+          TextActivityPane tap = null;
+          JScrollPane jsp = null;
 
-              public void render(Graphics2D g2, Rectangle dirtyRegion) {}
+          public void render(Graphics2D g2, Rectangle dirtyRegion) {
+          }
 
-              @Override
-              public void init() {
-                tap = buildPane();
-                try {
-                  // build new document
-                  tap.setStyledDocument(
-                      TextActivityDocument.getTextActivityDocument(
-                          tad.getJDomElement(), TextActivityBase.this));
-                } catch (Exception ex) {
-                  // reuse existing document (lost floating elements)
-                  tap.setStyledDocument(tad);
-                }
-                // Modified 04-Feb-2011
-                // Correction of bug #64:
-                // Leave the component not editable but enabled:
-                tap.setEditable(false);
-                // tap.setEnabled(false);
-                // -------------------
-                jsp = new JScrollPane(tap);
-                jsp.setBorder(BorderFactory.createEmptyBorder());
-                jsp.getVerticalScrollBar()
-                    .setBorder(BorderFactory.createLineBorder(Color.darkGray, 1));
-                add(jsp);
-                Dimension size = scrollPane.getBounds().getSize();
-                jsp.setBounds(0, 0, size.width, size.height);
-                if (tap.getBounds().isEmpty()) tap.setBounds(0, 0, size.width, size.height);
-                setPreferredSize(size);
-                setMaximumSize(size);
-                setMinimumSize(size);
-              }
-            };
+          @Override
+          public void init() {
+            tap = buildPane();
+            try {
+              // build new document
+              tap.setStyledDocument(
+                  TextActivityDocument.getTextActivityDocument(tad.getJDomElement(), TextActivityBase.this));
+            } catch (Exception ex) {
+              // reuse existing document (lost floating elements)
+              tap.setStyledDocument(tad);
+            }
+            // Modified 04-Feb-2011
+            // Correction of bug #64:
+            // Leave the component not editable but enabled:
+            tap.setEditable(false);
+            // tap.setEnabled(false);
+            // -------------------
+            jsp = new JScrollPane(tap);
+            jsp.setBorder(BorderFactory.createEmptyBorder());
+            jsp.getVerticalScrollBar().setBorder(BorderFactory.createLineBorder(Color.darkGray, 1));
+            add(jsp);
+            Dimension size = scrollPane.getBounds().getSize();
+            jsp.setBounds(0, 0, size.width, size.height);
+            if (tap.getBounds().isEmpty())
+              tap.setBounds(0, 0, size.width, size.height);
+            setPreferredSize(size);
+            setMaximumSize(size);
+            setMinimumSize(size);
+          }
+        };
         hac.init();
       }
       if (ps.showHelp(hac, helpMsg))
         ps.reportNewAction(getActivity(), ACTION_HELP, null, null, false, -1);
-      if (hac != null) hac.end();
+      if (hac != null)
+        hac.end();
     }
   }
 

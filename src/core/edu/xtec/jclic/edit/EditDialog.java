@@ -35,9 +35,10 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 /**
- * This class is a basic template of a {@link javax.swing.JDialog} useful for editing objects. It
- * builds two {@link javax.swing.Action} and {@link javax.swing.JButton} objects under the main
- * JPanel, used to confirm or cancel the changes made in the edited object.
+ * This class is a basic template of a {@link javax.swing.JDialog} useful for
+ * editing objects. It builds two {@link javax.swing.Action} and
+ * {@link javax.swing.JButton} objects under the main JPanel, used to confirm or
+ * cancel the changes made in the edited object.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
@@ -68,22 +69,18 @@ public class EditDialog extends ExtendedJDialog {
   protected void buildDialog(Options options) {
     this.options = options;
     southPanel = new JPanel();
-    okAction =
-        new AbstractAction(
-            options.getMsg("OK"), ResourceManager.getImageIcon("icons/commit_changes.gif")) {
-          public void actionPerformed(ActionEvent ev) {
-            result = true;
-            setVisible(false);
-          }
-        };
-    cancelAction =
-        new AbstractAction(
-            options.getMsg("CANCEL"), ResourceManager.getImageIcon("icons/cancel.gif")) {
-          public void actionPerformed(ActionEvent ev) {
-            result = false;
-            setVisible(false);
-          }
-        };
+    okAction = new AbstractAction(options.getMsg("OK"), ResourceManager.getImageIcon("icons/commit_changes.gif")) {
+      public void actionPerformed(ActionEvent ev) {
+        result = true;
+        setVisible(false);
+      }
+    };
+    cancelAction = new AbstractAction(options.getMsg("CANCEL"), ResourceManager.getImageIcon("icons/cancel.gif")) {
+      public void actionPerformed(ActionEvent ev) {
+        result = false;
+        setVisible(false);
+      }
+    };
     okButton = new JButton(okAction);
     cancelButton = new JButton(cancelAction);
     southPanel.add(okButton);
@@ -93,7 +90,8 @@ public class EditDialog extends ExtendedJDialog {
 
   public boolean showDialog() {
     pack();
-    if (owner != null) centerOver(owner);
+    if (owner != null)
+      centerOver(owner);
     setVisible(true);
     return result;
   }

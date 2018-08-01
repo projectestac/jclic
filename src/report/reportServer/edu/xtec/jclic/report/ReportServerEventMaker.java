@@ -38,7 +38,8 @@ public class ReportServerEventMaker {
   }
 
   /** Creates a new instance of ReportServerEventMaker */
-  public ReportServerEventMaker() {}
+  public ReportServerEventMaker() {
+  }
 
   public void addListener(Listener ls) {
     listeners.add(ls);

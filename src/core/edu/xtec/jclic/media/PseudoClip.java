@@ -31,6 +31,7 @@ public interface PseudoClip {
   public void setFramePosition(int frames);
 
   public void setLoopPoints(int start, int end);
+
   // Methods from DataLine
   public AudioFormat getFormat();
 
@@ -41,6 +42,7 @@ public interface PseudoClip {
   public void start() throws Exception;
 
   public void stop();
+
   // Methods from Line
   public void close();
 

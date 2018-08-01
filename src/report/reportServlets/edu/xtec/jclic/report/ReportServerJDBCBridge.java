@@ -35,36 +35,35 @@ import java.util.List;
  */
 public class ReportServerJDBCBridge extends BasicJDBCBridge {
 
-  public static final String[] KCC = {"SESSION_KEY", "SESSION_CODE", "SESSION_CONTEXT"};
+  public static final String[] KCC = { "SESSION_KEY", "SESSION_CODE", "SESSION_CONTEXT" };
 
   public String GROUP_SESSION_DATE_STRING = null;
   public String ORDER_QUALIFICATION_1_STRING = null;
   public String ORDER_QUALIFICATION_2_STRING = null;
 
-  public ReportServerJDBCBridge(
-      ConnectionBeanProvider cbp, boolean createTables, String tablePrefix) throws Exception {
+  public ReportServerJDBCBridge(ConnectionBeanProvider cbp, boolean createTables, String tablePrefix) throws Exception {
     super(cbp, createTables, tablePrefix);
     ConnectionBean cb = cbp.getConnectionBean();
 
     // Changed 20-Dec-2010: Set default behavior to MySQL instead of MS-Access
     // TODO: Check code with PostgreSQL
     switch (DBMSType) {
-      case ACCESS:
-        GROUP_SESSION_DATE_STRING = "Format(s.SESSION_DATETIME,'yyyy/mm/dd')";
-        ORDER_QUALIFICATION_1_STRING = "sum(QUALIFICATION)/count(*)";
-        ORDER_QUALIFICATION_2_STRING = ORDER_QUALIFICATION_1_STRING;
-        break;
-      case ORACLE:
-        GROUP_SESSION_DATE_STRING = "trunc(s.SESSION_DATETIME)";
-        ORDER_QUALIFICATION_1_STRING = "sum(QUALIFICATION)/count(*) AS qf";
-        ORDER_QUALIFICATION_2_STRING = "qf";
-        break;
-      case MYSQL:
-      default: // MYSQL & Other
-        GROUP_SESSION_DATE_STRING = "s.SESSION_DATETIME";
-        ORDER_QUALIFICATION_1_STRING = "sum(QUALIFICATION)/count(*) AS qf"; // std as in Oracle
-        ORDER_QUALIFICATION_2_STRING = "qf";
-        break;
+    case ACCESS:
+      GROUP_SESSION_DATE_STRING = "Format(s.SESSION_DATETIME,'yyyy/mm/dd')";
+      ORDER_QUALIFICATION_1_STRING = "sum(QUALIFICATION)/count(*)";
+      ORDER_QUALIFICATION_2_STRING = ORDER_QUALIFICATION_1_STRING;
+      break;
+    case ORACLE:
+      GROUP_SESSION_DATE_STRING = "trunc(s.SESSION_DATETIME)";
+      ORDER_QUALIFICATION_1_STRING = "sum(QUALIFICATION)/count(*) AS qf";
+      ORDER_QUALIFICATION_2_STRING = "qf";
+      break;
+    case MYSQL:
+    default: // MYSQL & Other
+      GROUP_SESSION_DATE_STRING = "s.SESSION_DATETIME";
+      ORDER_QUALIFICATION_1_STRING = "sum(QUALIFICATION)/count(*) AS qf"; // std as in Oracle
+      ORDER_QUALIFICATION_2_STRING = "qf";
+      break;
     }
   }
 
@@ -85,18 +84,18 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
     ConnectionBean cb = cbp.getConnectionBean();
     PreparedStatement pstmt = null;
     try {
-      pstmt =
-          cb.getPreparedStatement(
-              "SELECT min(SESSION_DATETIME)" + " FROM " + getTableName("SESSIONS"));
+      pstmt = cb.getPreparedStatement("SELECT min(SESSION_DATETIME)" + " FROM " + getTableName("SESSIONS"));
       ResultSet result = pstmt.executeQuery();
-      if (result.next()) d = result.getDate(1);
+      if (result.next())
+        d = result.getDate(1);
       result.close();
     } catch (Exception e) {
       ex = e;
     } finally {
       cb.closeStatement(pstmt);
       cbp.freeConnectionBean(cb);
-      if (ex != null) throw ex;
+      if (ex != null)
+        throw ex;
     }
     return d;
   }
@@ -117,42 +116,28 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
   private int updateFiltering(PreparedStatement pstmt, String[] kcc, int n) throws SQLException {
     if (kcc != null)
       for (int i = 0; i < KCC.length; i++)
-        if (kcc[i] != null && kcc[i].length() > 0) pstmt.setString(n++, kcc[i]);
+        if (kcc[i] != null && kcc[i].length() > 0)
+          pstmt.setString(n++, kcc[i]);
     return n;
   }
 
-  public List<SessionData> getInfoSessionUser(
-      String userId,
-      String projectName,
-      java.util.Date dateFrom,
-      java.util.Date dateTo,
-      String[] kcc,
-      boolean groupByDate)
-      throws Exception {
+  public List<SessionData> getInfoSessionUser(String userId, String projectName, java.util.Date dateFrom,
+      java.util.Date dateTo, String[] kcc, boolean groupByDate) throws Exception {
     Exception ex = null;
     List<SessionData> vInfoSessions = new ArrayList<SessionData>();
     String proj = null;
     if (projectName != null && projectName.length() > 0 && !projectName.equals("-1"))
       proj = projectName;
     StringBuilder sb = new StringBuilder(300);
-    sb.append("SELECT ")
-        .append(GROUP_SESSION_DATE_STRING)
-        .append(", s.SESSION_ID, s.PROJECT_NAME, count(*)")
-        .append(", sum(QUALIFICATION), sum(a.ACTIVITY_SOLVED), sum(a.TOTAL_TIME)")
-        .append(" FROM ")
-        .append(getTableName("SESSIONS", "s"))
-        .append(", ")
-        .append(getTableName("ACTIVITIES", "a"))
-        .append(",")
-        .append(getTableName("USERS", "u"))
-        .append(" WHERE u.USER_ID=? AND s.USER_ID=u.USER_ID")
-        .append(getFilteringStringQuery(kcc, true))
-        .append(" AND s.SESSION_DATETIME>=? AND s.SESSION_DATETIME<=?")
+    sb.append("SELECT ").append(GROUP_SESSION_DATE_STRING).append(", s.SESSION_ID, s.PROJECT_NAME, count(*)")
+        .append(", sum(QUALIFICATION), sum(a.ACTIVITY_SOLVED), sum(a.TOTAL_TIME)").append(" FROM ")
+        .append(getTableName("SESSIONS", "s")).append(", ").append(getTableName("ACTIVITIES", "a")).append(",")
+        .append(getTableName("USERS", "u")).append(" WHERE u.USER_ID=? AND s.USER_ID=u.USER_ID")
+        .append(getFilteringStringQuery(kcc, true)).append(" AND s.SESSION_DATETIME>=? AND s.SESSION_DATETIME<=?")
         .append(" AND s.SESSION_ID=a.SESSION_ID");
-    if (proj != null) sb.append(" AND s.PROJECT_NAME=?");
-    sb.append(" GROUP BY s.SESSION_ID, s.PROJECT_NAME, ")
-        .append(GROUP_SESSION_DATE_STRING)
-        .append(" ORDER BY ")
+    if (proj != null)
+      sb.append(" AND s.PROJECT_NAME=?");
+    sb.append(" GROUP BY s.SESSION_ID, s.PROJECT_NAME, ").append(GROUP_SESSION_DATE_STRING).append(" ORDER BY ")
         .append(GROUP_SESSION_DATE_STRING);
 
     ConnectionBean cb = cbp.getConnectionBean();
@@ -164,50 +149,48 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
       n = updateFiltering(pstmt, kcc, n);
       pstmt.setTimestamp(n++, new Timestamp(dateFrom.getTime()));
       pstmt.setTimestamp(n++, new Timestamp(dateTo.getTime()));
-      if (proj != null) pstmt.setString(n++, proj);
+      if (proj != null)
+        pstmt.setString(n++, proj);
 
       ResultSet rs = pstmt.executeQuery();
       SessionData sdx = null;
       while (rs.next()) {
-        SessionData sd =
-            new SessionData(
-                rs.getString(2), // id
-                userId, // user
-                rs.getString(3), // projectName
-                ReportUtils.strToDate(rs.getString(1)), // date
-                rs.getInt(4), // numActs
-                rs.getInt(6), // actsSolved
-                rs.getInt(5), // totalPrec
-                Math.max(0, rs.getInt(7))); // totalTime
+        SessionData sd = new SessionData(rs.getString(2), // id
+            userId, // user
+            rs.getString(3), // projectName
+            ReportUtils.strToDate(rs.getString(1)), // date
+            rs.getInt(4), // numActs
+            rs.getInt(6), // actsSolved
+            rs.getInt(5), // totalPrec
+            Math.max(0, rs.getInt(7))); // totalTime
         if (groupByDate) {
           if (sd.sameDate(sdx)) {
-            if (sdx != null) sdx.acumula(sd);
+            if (sdx != null)
+              sdx.acumula(sd);
           } else {
-            if (sdx != null) vInfoSessions.add(sdx);
+            if (sdx != null)
+              vInfoSessions.add(sdx);
             sdx = sd;
           }
-        } else vInfoSessions.add(sd);
+        } else
+          vInfoSessions.add(sd);
       }
-      if (sdx != null) vInfoSessions.add(sdx);
+      if (sdx != null)
+        vInfoSessions.add(sdx);
       rs.close();
     } catch (Exception e) {
       ex = e;
     } finally {
       cb.closeStatement(pstmt);
       cbp.freeConnectionBean(cb);
-      if (ex != null) throw ex;
+      if (ex != null)
+        throw ex;
     }
     return vInfoSessions;
   }
 
-  public List<SessionData> getInfoSessionGroup(
-      String groupId,
-      String projectName,
-      java.util.Date dateFrom,
-      java.util.Date dateTo,
-      String[] kcc,
-      boolean groupByDate)
-      throws Exception {
+  public List<SessionData> getInfoSessionGroup(String groupId, String projectName, java.util.Date dateFrom,
+      java.util.Date dateTo, String[] kcc, boolean groupByDate) throws Exception {
     Exception ex = null;
     List<SessionData> vInfoSessions = new ArrayList<SessionData>();
     String proj = null;
@@ -215,25 +198,16 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
       proj = projectName;
 
     StringBuilder sb = new StringBuilder(300);
-    sb.append("SELECT ")
-        .append(GROUP_SESSION_DATE_STRING)
-        .append(
-            ", s.SESSION_ID, s.PROJECT_NAME, count(*), sum(QUALIFICATION), sum(a.ACTIVITY_SOLVED), sum(a.TOTAL_TIME), s.USER_ID")
-        .append(" FROM ")
-        .append(getTableName("SESSIONS", "s"))
-        .append(", ")
-        .append(getTableName("ACTIVITIES", "a"))
-        .append(", ")
-        .append(getTableName("USERS", "u"))
-        .append(" WHERE u.GROUP_ID=? AND s.USER_ID=u.USER_ID")
-        .append(getFilteringStringQuery(kcc, true))
-        .append(" AND s.SESSION_DATETIME>=? AND s.SESSION_DATETIME<=?")
+    sb.append("SELECT ").append(GROUP_SESSION_DATE_STRING).append(
+        ", s.SESSION_ID, s.PROJECT_NAME, count(*), sum(QUALIFICATION), sum(a.ACTIVITY_SOLVED), sum(a.TOTAL_TIME), s.USER_ID")
+        .append(" FROM ").append(getTableName("SESSIONS", "s")).append(", ").append(getTableName("ACTIVITIES", "a"))
+        .append(", ").append(getTableName("USERS", "u")).append(" WHERE u.GROUP_ID=? AND s.USER_ID=u.USER_ID")
+        .append(getFilteringStringQuery(kcc, true)).append(" AND s.SESSION_DATETIME>=? AND s.SESSION_DATETIME<=?")
         .append(" AND s.SESSION_ID=a.SESSION_ID");
-    if (proj != null) sb.append(" AND s.PROJECT_NAME=?");
-    sb.append(" GROUP BY s.SESSION_ID, s.USER_ID, s.PROJECT_NAME, ")
-        .append(GROUP_SESSION_DATE_STRING)
-        .append(" ORDER BY ")
-        .append(GROUP_SESSION_DATE_STRING);
+    if (proj != null)
+      sb.append(" AND s.PROJECT_NAME=?");
+    sb.append(" GROUP BY s.SESSION_ID, s.USER_ID, s.PROJECT_NAME, ").append(GROUP_SESSION_DATE_STRING)
+        .append(" ORDER BY ").append(GROUP_SESSION_DATE_STRING);
 
     ConnectionBean cb = cbp.getConnectionBean();
     PreparedStatement pstmt = null;
@@ -244,50 +218,48 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
       n = updateFiltering(pstmt, kcc, n);
       pstmt.setTimestamp(n++, new Timestamp(dateFrom.getTime()));
       pstmt.setTimestamp(n++, new Timestamp(dateTo.getTime()));
-      if (proj != null) pstmt.setString(n++, proj);
+      if (proj != null)
+        pstmt.setString(n++, proj);
 
       ResultSet rs = pstmt.executeQuery();
       SessionData sdx = null;
       while (rs.next()) {
-        SessionData sd =
-            new SessionData(
-                rs.getString(2), // id
-                rs.getString(8), // user
-                rs.getString(3), // projectName
-                ReportUtils.strToDate(rs.getString(1)), // date
-                rs.getInt(4), // numActs
-                rs.getInt(6), // actsSolved
-                rs.getInt(5), // totalPrec
-                Math.max(0, rs.getInt(7))); // totalTime
+        SessionData sd = new SessionData(rs.getString(2), // id
+            rs.getString(8), // user
+            rs.getString(3), // projectName
+            ReportUtils.strToDate(rs.getString(1)), // date
+            rs.getInt(4), // numActs
+            rs.getInt(6), // actsSolved
+            rs.getInt(5), // totalPrec
+            Math.max(0, rs.getInt(7))); // totalTime
         if (groupByDate) {
           if (sd.sameDate(sdx)) {
-            if (sdx != null) sdx.acumula(sd);
+            if (sdx != null)
+              sdx.acumula(sd);
           } else {
-            if (sdx != null) vInfoSessions.add(sdx);
+            if (sdx != null)
+              vInfoSessions.add(sdx);
             sdx = sd;
           }
-        } else vInfoSessions.add(sd);
+        } else
+          vInfoSessions.add(sd);
       }
-      if (sdx != null) vInfoSessions.add(sdx);
+      if (sdx != null)
+        vInfoSessions.add(sdx);
       rs.close();
     } catch (Exception e) {
       ex = e;
     } finally {
       cb.closeStatement(pstmt);
       cbp.freeConnectionBean(cb);
-      if (ex != null) throw ex;
+      if (ex != null)
+        throw ex;
     }
     return vInfoSessions;
   }
 
-  public List<SessionData> getInfoSessionAct(
-      String projectName,
-      String activityName,
-      java.util.Date dateFrom,
-      java.util.Date dateTo,
-      String[] kcc,
-      boolean groupByDate)
-      throws Exception {
+  public List<SessionData> getInfoSessionAct(String projectName, String activityName, java.util.Date dateFrom,
+      java.util.Date dateTo, String[] kcc, boolean groupByDate) throws Exception {
     Exception ex = null;
     List<SessionData> vInfoSessions = new ArrayList<SessionData>();
     String act = null;
@@ -295,23 +267,15 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
       act = activityName;
 
     StringBuilder sb = new StringBuilder(300);
-    sb.append("SELECT ")
-        .append(GROUP_SESSION_DATE_STRING)
-        .append(
-            ", s.SESSION_ID, s.PROJECT_NAME, count(*), sum(QUALIFICATION), sum(a.ACTIVITY_SOLVED), sum(a.TOTAL_TIME), s.USER_ID")
-        .append(" FROM ")
-        .append(getTableName("SESSIONS", "s"))
-        .append(", ")
-        .append(getTableName("ACTIVITIES", "a"))
-        .append(" WHERE s.PROJECT_NAME=?")
-        .append(getFilteringStringQuery(kcc, true))
-        .append(" AND s.SESSION_DATETIME>=? AND s.SESSION_DATETIME<=?")
-        .append(" AND s.SESSION_ID=a.SESSION_ID");
-    if (act != null) sb.append(" AND a.ACTIVITY_NAME=?");
-    sb.append(" GROUP BY s.SESSION_ID, s.USER_ID, s.PROJECT_NAME, ")
-        .append(GROUP_SESSION_DATE_STRING)
-        .append(" ORDER BY ")
-        .append(GROUP_SESSION_DATE_STRING);
+    sb.append("SELECT ").append(GROUP_SESSION_DATE_STRING).append(
+        ", s.SESSION_ID, s.PROJECT_NAME, count(*), sum(QUALIFICATION), sum(a.ACTIVITY_SOLVED), sum(a.TOTAL_TIME), s.USER_ID")
+        .append(" FROM ").append(getTableName("SESSIONS", "s")).append(", ").append(getTableName("ACTIVITIES", "a"))
+        .append(" WHERE s.PROJECT_NAME=?").append(getFilteringStringQuery(kcc, true))
+        .append(" AND s.SESSION_DATETIME>=? AND s.SESSION_DATETIME<=?").append(" AND s.SESSION_ID=a.SESSION_ID");
+    if (act != null)
+      sb.append(" AND a.ACTIVITY_NAME=?");
+    sb.append(" GROUP BY s.SESSION_ID, s.USER_ID, s.PROJECT_NAME, ").append(GROUP_SESSION_DATE_STRING)
+        .append(" ORDER BY ").append(GROUP_SESSION_DATE_STRING);
 
     ConnectionBean cb = cbp.getConnectionBean();
     PreparedStatement pstmt = null;
@@ -322,38 +286,42 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
       n = updateFiltering(pstmt, kcc, n);
       pstmt.setTimestamp(n++, new Timestamp(dateFrom.getTime()));
       pstmt.setTimestamp(n++, new Timestamp(dateTo.getTime()));
-      if (act != null) pstmt.setString(n++, act);
+      if (act != null)
+        pstmt.setString(n++, act);
 
       ResultSet rs = pstmt.executeQuery();
       SessionData sdx = null;
       while (rs.next()) {
-        SessionData sd =
-            new SessionData(
-                rs.getString(2), // id
-                rs.getString(8), // user
-                rs.getString(3), // projectName
-                ReportUtils.strToDate(rs.getString(1)), // date
-                rs.getInt(4), // numActs
-                rs.getInt(6), // actsSolved
-                rs.getInt(5), // totalPrec
-                Math.max(0, rs.getInt(7))); // totalTime
+        SessionData sd = new SessionData(rs.getString(2), // id
+            rs.getString(8), // user
+            rs.getString(3), // projectName
+            ReportUtils.strToDate(rs.getString(1)), // date
+            rs.getInt(4), // numActs
+            rs.getInt(6), // actsSolved
+            rs.getInt(5), // totalPrec
+            Math.max(0, rs.getInt(7))); // totalTime
         if (groupByDate) {
           if (sd.sameDate(sdx)) {
-            if (sdx != null) sdx.acumula(sd);
+            if (sdx != null)
+              sdx.acumula(sd);
           } else {
-            if (sdx != null) vInfoSessions.add(sdx);
+            if (sdx != null)
+              vInfoSessions.add(sdx);
             sdx = sd;
           }
-        } else vInfoSessions.add(sd);
+        } else
+          vInfoSessions.add(sd);
       }
-      if (sdx != null) vInfoSessions.add(sdx);
+      if (sdx != null)
+        vInfoSessions.add(sdx);
       rs.close();
     } catch (Exception e) {
       ex = e;
     } finally {
       cb.closeStatement(pstmt);
       cbp.freeConnectionBean(cb);
-      if (ex != null) throw ex;
+      if (ex != null)
+        throw ex;
     }
     return vInfoSessions;
   }
@@ -364,18 +332,16 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
     return result;
   }
 
-  public List<String> getProjList(
-      String userId, java.util.Date dateFrom, java.util.Date dateTo, String[] kcc)
+  public List<String> getProjList(String userId, java.util.Date dateFrom, java.util.Date dateTo, String[] kcc)
       throws Exception {
     Exception ex = null;
     List<String> pl = new ArrayList<String>();
 
     StringBuilder sb = new StringBuilder(300);
-    sb.append("SELECT distinct(PROJECT_NAME)")
-        .append(" FROM ")
-        .append(getTableName("SESSIONS", "s"))
+    sb.append("SELECT distinct(PROJECT_NAME)").append(" FROM ").append(getTableName("SESSIONS", "s"))
         .append(" WHERE s.SESSION_DATETIME>=? AND s.SESSION_DATETIME<=?");
-    if (userId != null) sb.append(" AND s.USER_ID=?"); // When userID==null, get data from all users
+    if (userId != null)
+      sb.append(" AND s.USER_ID=?"); // When userID==null, get data from all users
     sb.append(getFilteringStringQuery(kcc, true)).append(" ORDER BY PROJECT_NAME");
 
     ConnectionBean cb = cbp.getConnectionBean();
@@ -385,39 +351,39 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
       int n = 1;
       stmt.setTimestamp(n++, new Timestamp(dateFrom.getTime()));
       stmt.setTimestamp(n++, new Timestamp(dateTo.getTime()));
-      if (userId != null) stmt.setString(n++, userId);
+      if (userId != null)
+        stmt.setString(n++, userId);
       updateFiltering(stmt, kcc, n);
 
       ResultSet result = stmt.executeQuery();
-      while (result.next()) pl.add(result.getString("PROJECT_NAME"));
+      while (result.next())
+        pl.add(result.getString("PROJECT_NAME"));
       result.close();
     } catch (Exception e) {
       ex = e;
     } finally {
       cb.closeStatement(stmt);
       cbp.freeConnectionBean(cb);
-      if (ex != null) throw ex;
+      if (ex != null)
+        throw ex;
     }
     return pl;
   }
 
-  public List<String> getProjListGrup(
-      String groupId, java.util.Date dateFrom, java.util.Date dateTo, String[] kcc)
+  public List<String> getProjListGrup(String groupId, java.util.Date dateFrom, java.util.Date dateTo, String[] kcc)
       throws Exception {
-    /* Returns a ProjList containing the list of the names of all projects made by the users of the
-    group 'groupName' in the time interval indicated. Information is only returned if
-    validated==true or if the projects wher made in sessions where sessionKey==pass. */
+    /*
+     * Returns a ProjList containing the list of the names of all projects made by
+     * the users of the group 'groupName' in the time interval indicated.
+     * Information is only returned if validated==true or if the projects wher made
+     * in sessions where sessionKey==pass.
+     */
     Exception ex = null;
     List<String> pl = new ArrayList<String>();
 
     StringBuilder sb = new StringBuilder(300);
-    sb.append("SELECT distinct(PROJECT_NAME)")
-        .append(" FROM ")
-        .append(getTableName("SESSIONS", "s"))
-        .append(", ")
-        .append(getTableName("GROUPS", "g"))
-        .append(", ")
-        .append(getTableName("USERS", "u"))
+    sb.append("SELECT distinct(PROJECT_NAME)").append(" FROM ").append(getTableName("SESSIONS", "s")).append(", ")
+        .append(getTableName("GROUPS", "g")).append(", ").append(getTableName("USERS", "u"))
         .append(" WHERE SESSION_DATETIME>=? AND SESSION_DATETIME<=?")
         .append(" AND u.GROUP_ID=g.GROUP_ID AND s.USER_ID=u.USER_ID");
     if (groupId != null)
@@ -431,36 +397,36 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
       int n = 1;
       stmt.setTimestamp(n++, new Timestamp(dateFrom.getTime()));
       stmt.setTimestamp(n++, new Timestamp(dateTo.getTime()));
-      if (groupId != null) stmt.setString(n++, groupId);
+      if (groupId != null)
+        stmt.setString(n++, groupId);
       updateFiltering(stmt, kcc, n);
 
       ResultSet result = stmt.executeQuery();
-      while (result.next()) pl.add(result.getString("PROJECT_NAME"));
+      while (result.next())
+        pl.add(result.getString("PROJECT_NAME"));
       result.close();
     } catch (Exception e) {
       ex = e;
     } finally {
       cb.closeStatement(stmt);
       cbp.freeConnectionBean(cb);
-      if (ex != null) throw ex;
+      if (ex != null)
+        throw ex;
     }
     return pl;
   }
 
-  public List<String> getActList(
-      String prj, java.util.Date dateFrom, java.util.Date dateTo, String[] kcc) throws Exception {
+  public List<String> getActList(String prj, java.util.Date dateFrom, java.util.Date dateTo, String[] kcc)
+      throws Exception {
     Exception ex = null;
     List<String> pl = new ArrayList<String>();
 
     StringBuilder sb = new StringBuilder(300);
-    sb.append("SELECT distinct(ACTIVITY_NAME)")
-        .append(" FROM ")
-        .append(getTableName("ACTIVITIES", "a"))
-        .append(", ")
-        .append(getTableName("SESSIONS", "s"))
-        .append(" WHERE s.SESSION_DATETIME>=? AND s.SESSION_DATETIME<=?")
+    sb.append("SELECT distinct(ACTIVITY_NAME)").append(" FROM ").append(getTableName("ACTIVITIES", "a")).append(", ")
+        .append(getTableName("SESSIONS", "s")).append(" WHERE s.SESSION_DATETIME>=? AND s.SESSION_DATETIME<=?")
         .append(" AND a.SESSION_ID=s.SESSION_ID");
-    if (prj != null) sb.append(" AND s.PROJECT_NAME=?");
+    if (prj != null)
+      sb.append(" AND s.PROJECT_NAME=?");
     sb.append(getFilteringStringQuery(kcc, true)).append(" ORDER BY ACTIVITY_NAME");
 
     ConnectionBean cb = cbp.getConnectionBean();
@@ -470,49 +436,51 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
       int n = 1;
       stmt.setTimestamp(n++, new Timestamp(dateFrom.getTime()));
       stmt.setTimestamp(n++, new Timestamp(dateTo.getTime()));
-      if (prj != null) stmt.setString(n++, prj);
+      if (prj != null)
+        stmt.setString(n++, prj);
       updateFiltering(stmt, kcc, n);
 
       ResultSet result = stmt.executeQuery();
-      while (result.next()) pl.add(result.getString("ACTIVITY_NAME"));
+      while (result.next())
+        pl.add(result.getString("ACTIVITY_NAME"));
       result.close();
     } catch (Exception e) {
       ex = e;
     } finally {
       cb.closeStatement(stmt);
       cbp.freeConnectionBean(cb);
-      if (ex != null) throw ex;
+      if (ex != null)
+        throw ex;
     }
     return pl;
   }
 
-  public List<ActivityData> getPacSessionList(
-      String userId,
-      String proj,
-      String sessionId,
-      java.util.Date dFrom,
-      java.util.Date dTo,
-      String[] kcc)
-      throws Exception {
-    /* Returns a PacSessionList with all the info needed to show the table with information about the activities
-            made in the session 'sessionId' corresponding to the user 'userId' in the indicated date interval . Data ara only returned
-    when validated==true or when the invloucrated sessions where created with sessionKey==pass. */
+  public List<ActivityData> getPacSessionList(String userId, String proj, String sessionId, java.util.Date dFrom,
+      java.util.Date dTo, String[] kcc) throws Exception {
+    /*
+     * Returns a PacSessionList with all the info needed to show the table with
+     * information about the activities made in the session 'sessionId'
+     * corresponding to the user 'userId' in the indicated date interval . Data ara
+     * only returned when validated==true or when the invloucrated sessions where
+     * created with sessionKey==pass.
+     */
 
     Exception ex = null;
     List<ActivityData> v = new ArrayList<ActivityData>();
     StringBuilder sb = new StringBuilder(300);
     sb.append("SELECT s.PROJECT_NAME, a.ACTIVITY_ID, a.ACTIVITY_NAME, a.NUM_ACTIONS")
-        .append(" ,a.SCORE, a.ACTIVITY_SOLVED, a.QUALIFICATION, a.TOTAL_TIME")
-        .append(" FROM ")
-        .append(getTableName("ACTIVITIES", "a"))
-        .append(", ")
-        .append(getTableName("SESSIONS", "s"))
+        .append(" ,a.SCORE, a.ACTIVITY_SOLVED, a.QUALIFICATION, a.TOTAL_TIME").append(" FROM ")
+        .append(getTableName("ACTIVITIES", "a")).append(", ").append(getTableName("SESSIONS", "s"))
         .append(" WHERE a.SESSION_ID=s.SESSION_ID");
-    if (dFrom != null && dTo != null) sb.append(" AND SESSION_DATETIME>=? AND SESSION_DATETIME<=?");
-    if (userId != null) sb.append(" AND s.USER_ID=?");
+    if (dFrom != null && dTo != null)
+      sb.append(" AND SESSION_DATETIME>=? AND SESSION_DATETIME<=?");
+    if (userId != null)
+      sb.append(" AND s.USER_ID=?");
     sb.append(getFilteringStringQuery(kcc, true));
-    if (sessionId != null) sb.append(" AND a.SESSION_ID=?");
-    if (proj != null && !proj.equals("-1")) sb.append(" AND s.PROJECT_NAME=?");
+    if (sessionId != null)
+      sb.append(" AND a.SESSION_ID=?");
+    if (proj != null && !proj.equals("-1"))
+      sb.append(" AND s.PROJECT_NAME=?");
     sb.append(" ORDER BY s.SESSION_DATETIME, a.ACTIVITY_ID");
 
     ConnectionBean cb = cbp.getConnectionBean();
@@ -524,23 +492,19 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
         stmt.setTimestamp(n++, new Timestamp(dFrom.getTime()));
         stmt.setTimestamp(n++, new Timestamp(dTo.getTime()));
       }
-      if (userId != null) stmt.setString(n++, userId);
+      if (userId != null)
+        stmt.setString(n++, userId);
       n = updateFiltering(stmt, kcc, n);
-      if (sessionId != null) stmt.setString(n++, sessionId);
-      if (proj != null && !proj.equals("-1")) stmt.setString(n++, proj);
+      if (sessionId != null)
+        stmt.setString(n++, sessionId);
+      if (proj != null && !proj.equals("-1"))
+        stmt.setString(n++, proj);
 
       ResultSet result = stmt.executeQuery();
       while (result.next()) {
-        ActivityData ad =
-            new ActivityData(
-                result.getString("PROJECT_NAME"),
-                result.getString("ACTIVITY_NAME"),
-                result.getString("ACTIVITY_ID"),
-                Math.max(0, result.getInt("TOTAL_TIME")),
-                result.getInt("NUM_ACTIONS"),
-                result.getInt("SCORE"),
-                result.getInt("ACTIVITY_SOLVED") != 0,
-                result.getInt("QUALIFICATION"));
+        ActivityData ad = new ActivityData(result.getString("PROJECT_NAME"), result.getString("ACTIVITY_NAME"),
+            result.getString("ACTIVITY_ID"), Math.max(0, result.getInt("TOTAL_TIME")), result.getInt("NUM_ACTIONS"),
+            result.getInt("SCORE"), result.getInt("ACTIVITY_SOLVED") != 0, result.getInt("QUALIFICATION"));
         v.add(ad);
       }
       result.close();
@@ -549,7 +513,8 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
     } finally {
       cb.closeStatement(stmt);
       cbp.freeConnectionBean(cb);
-      if (ex != null) throw ex;
+      if (ex != null)
+        throw ex;
     }
     return v;
   }
@@ -561,28 +526,28 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
     PreparedStatement stmt = null;
     try {
       String tn = getTableName("USERS");
-      stmt =
-          cb.getPreparedStatement(
-              create
-                  ? "INSERT INTO "
-                      + tn
-                      + " (USER_NAME,USER_ICON,USER_PWD,USER_ID,GROUP_ID) VALUES (?,?,?,?,?)"
-                  : "UPDATE " + tn + " SET USER_NAME=?, USER_ICON=?, USER_PWD=? WHERE USER_ID=?");
+      stmt = cb.getPreparedStatement(
+          create ? "INSERT INTO " + tn + " (USER_NAME,USER_ICON,USER_PWD,USER_ID,GROUP_ID) VALUES (?,?,?,?,?)"
+              : "UPDATE " + tn + " SET USER_NAME=?, USER_ICON=?, USER_PWD=? WHERE USER_ID=?");
       stmt.setString(1, StrUtils.limitStrLen(ud.getText(), 80));
-      if (ud.getIconUrl() != null && ud.getIconUrl().length() == 0) ud.setIconUrl(null);
+      if (ud.getIconUrl() != null && ud.getIconUrl().length() == 0)
+        ud.setIconUrl(null);
       stmt.setString(2, StrUtils.limitStrLen(ud.getIconUrl(), 255));
       stmt.setString(3, StrUtils.limitStrLen(ud.pwd, 255));
       stmt.setString(4, StrUtils.limitStrLen(ud.getId(), 50));
-      if (create) stmt.setString(5, ud.groupId);
+      if (create)
+        stmt.setString(5, ud.groupId);
       result = stmt.executeUpdate() > 0;
     } catch (Exception e) {
       ex = e;
     } finally {
       cb.closeStatement(stmt);
       cbp.freeConnectionBean(cb);
-      if (ex != null) throw ex;
+      if (ex != null)
+        throw ex;
     }
-    if (!result) throw new Exception("SQL \"UPDATE\" statement returns 0");
+    if (!result)
+      throw new Exception("SQL \"UPDATE\" statement returns 0");
   }
 
   public void updateGroup(GroupData gd, boolean create) throws Exception {
@@ -592,13 +557,11 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
     PreparedStatement stmt = null;
     try {
       String tn = getTableName("GROUPS");
-      stmt =
-          cb.getPreparedStatement(
-              create
-                  ? "INSERT INTO " + tn + " (GROUP_NAME,GROUP_ICON,GROUP_ID) VALUES (?,?,?)"
-                  : "UPDATE " + tn + " SET GROUP_NAME=?, GROUP_ICON=? WHERE GROUP_ID=?");
+      stmt = cb.getPreparedStatement(create ? "INSERT INTO " + tn + " (GROUP_NAME,GROUP_ICON,GROUP_ID) VALUES (?,?,?)"
+          : "UPDATE " + tn + " SET GROUP_NAME=?, GROUP_ICON=? WHERE GROUP_ID=?");
       stmt.setString(1, StrUtils.limitStrLen(gd.getText(), 80));
-      if (gd.getIconUrl() != null && gd.getIconUrl().length() == 0) gd.setIconUrl(null);
+      if (gd.getIconUrl() != null && gd.getIconUrl().length() == 0)
+        gd.setIconUrl(null);
       stmt.setString(2, StrUtils.limitStrLen(gd.getIconUrl(), 255));
       stmt.setString(3, StrUtils.limitStrLen(gd.getId(), 50));
       result = stmt.executeUpdate() > 0;
@@ -607,22 +570,21 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
     } finally {
       cb.closeStatement(stmt);
       cbp.freeConnectionBean(cb);
-      if (ex != null) throw ex;
+      if (ex != null)
+        throw ex;
     }
-    if (!result) throw new Exception("SQL \"UPDATE\" statement returns 0");
+    if (!result)
+      throw new Exception("SQL \"UPDATE\" statement returns 0");
   }
 
-  public void clearUserReportData(String userId, java.util.Date dFrom, java.util.Date dTo)
-      throws Exception {
+  public void clearUserReportData(String userId, java.util.Date dFrom, java.util.Date dTo) throws Exception {
     Exception ex = null;
     StringBuilder sb = new StringBuilder(300);
-    sb.append("SELECT SESSION_ID")
-        .append(" FROM ")
-        .append(getTableName("SESSIONS"))
-        .append(
-            " WHERE USER_ID=?"); // Index for GROUP_ID into users. It will be faster with groups,
-                                 // but MySQL doesn't have foreign keys...
-    if (dFrom != null && dTo != null) sb.append(" AND SESSION_DATETIME>=? AND SESSION_DATETIME<=?");
+    // Index for GROUP_ID into users. It will be faster with groups, but MySQL
+    // doesn't have foreign keys...
+    sb.append("SELECT SESSION_ID").append(" FROM ").append(getTableName("SESSIONS")).append(" WHERE USER_ID=?");
+    if (dFrom != null && dTo != null)
+      sb.append(" AND SESSION_DATETIME>=? AND SESSION_DATETIME<=?");
 
     ConnectionBean cb = cbp.getConnectionBean();
     PreparedStatement stmt = null;
@@ -634,29 +596,23 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
         stmt.setTimestamp(3, new Timestamp(dTo.getTime()));
       }
       ResultSet rs = stmt.executeQuery();
-      while (rs.next()) deleteSession(rs.getString(1));
-      // Recordset is closed
-      // rs.close();
+      while (rs.next())
+        deleteSession(rs.getString(1));
     } catch (Exception e) {
       ex = e;
     } finally {
       cb.closeStatement(stmt);
       cbp.freeConnectionBean(cb);
-      if (ex != null) throw ex;
+      if (ex != null)
+        throw ex;
     }
   }
 
-  public void clearGroupReportData(String groupId, java.util.Date dFrom, java.util.Date dTo)
-      throws Exception {
+  public void clearGroupReportData(String groupId, java.util.Date dFrom, java.util.Date dTo) throws Exception {
     Exception ex = null;
     StringBuilder sb = new StringBuilder(300);
-    sb.append("SELECT SESSION_ID")
-        .append(" FROM ")
-        .append(getTableName("SESSIONS", "s"))
-        .append(", ")
-        .append(getTableName("USERS", "u"))
-        .append(" WHERE u.GROUP_ID=?")
-        .append(" AND u.USER_ID=s.USER_ID");
+    sb.append("SELECT SESSION_ID").append(" FROM ").append(getTableName("SESSIONS", "s")).append(", ")
+        .append(getTableName("USERS", "u")).append(" WHERE u.GROUP_ID=?").append(" AND u.USER_ID=s.USER_ID");
     if (dFrom != null && dTo != null)
       sb.append(" AND s.SESSION_DATETIME>=? AND s.SESSION_DATETIME<=?");
 
@@ -670,15 +626,15 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
         stmt.setTimestamp(3, new Timestamp(dTo.getTime()));
       }
       ResultSet rs = stmt.executeQuery();
-      while (rs.next()) deleteSession(rs.getString(1));
-      // Recordset is closed
-      // rs.close();
+      while (rs.next())
+        deleteSession(rs.getString(1));
     } catch (Exception e) {
       ex = e;
     } finally {
       cb.closeStatement(stmt);
       cbp.freeConnectionBean(cb);
-      if (ex != null) throw ex;
+      if (ex != null)
+        throw ex;
     }
   }
 
@@ -687,22 +643,17 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
     ConnectionBean cb = cbp.getConnectionBean();
     PreparedStatement stmt = null;
     try {
-      stmt =
-          cb.getPreparedStatement("DELETE FROM " + getTableName("ACTIONS") + " WHERE SESSION_ID=?");
+      stmt = cb.getPreparedStatement("DELETE FROM " + getTableName("ACTIONS") + " WHERE SESSION_ID=?");
       stmt.setString(1, sessionId);
       stmt.executeUpdate();
       cb.closeStatement(stmt);
 
-      stmt =
-          cb.getPreparedStatement(
-              "DELETE FROM " + getTableName("ACTIVITIES") + " WHERE SESSION_ID=?");
+      stmt = cb.getPreparedStatement("DELETE FROM " + getTableName("ACTIVITIES") + " WHERE SESSION_ID=?");
       stmt.setString(1, sessionId);
       stmt.executeUpdate();
       cb.closeStatement(stmt);
 
-      stmt =
-          cb.getPreparedStatement(
-              "DELETE FROM " + getTableName("SESSIONS") + " WHERE SESSION_ID=?");
+      stmt = cb.getPreparedStatement("DELETE FROM " + getTableName("SESSIONS") + " WHERE SESSION_ID=?");
       stmt.setString(1, sessionId);
       stmt.executeUpdate();
 
@@ -711,7 +662,8 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
     } finally {
       cb.closeStatement(stmt);
       cbp.freeConnectionBean(cb);
-      if (ex != null) throw ex;
+      if (ex != null)
+        throw ex;
     }
   }
 
@@ -732,7 +684,8 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
     } finally {
       cb.closeStatement(stmt);
       cbp.freeConnectionBean(cb);
-      if (ex != null) throw ex;
+      if (ex != null)
+        throw ex;
     }
   }
 
@@ -758,7 +711,8 @@ public class ReportServerJDBCBridge extends BasicJDBCBridge {
     } finally {
       cb.closeStatement(stmt);
       cbp.freeConnectionBean(cb);
-      if (ex != null) throw ex;
+      if (ex != null)
+        throw ex;
     }
   }
 }

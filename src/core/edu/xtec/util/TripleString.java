@@ -68,7 +68,8 @@ public class TripleString extends Object implements Comparable<TripleString> {
   }
 
   public void setStr(int index, String s) {
-    if (index >= 0 && index < ELEMENTS) str[index] = s;
+    if (index >= 0 && index < ELEMENTS)
+      str[index] = s;
   }
 
   @Override
@@ -107,26 +108,22 @@ public class TripleString extends Object implements Comparable<TripleString> {
     return result;
   }
 
-  public static List<TripleString> getTripleList(
-      String bundlePath,
-      Options options,
-      boolean includeEmpty,
-      boolean sorted,
-      boolean lookInUserDir)
-      throws Exception {
-    java.util.ResourceBundle bundle =
-        ResourceManager.getBundle(bundlePath, options.getMessages().getLocale());
+  public static List<TripleString> getTripleList(String bundlePath, Options options, boolean includeEmpty,
+      boolean sorted, boolean lookInUserDir) throws Exception {
+    java.util.ResourceBundle bundle = ResourceManager.getBundle(bundlePath, options.getMessages().getLocale());
     java.util.Enumeration keys = bundle.getKeys();
     List<TripleString> result = new ArrayList<TripleString>();
     while (keys.hasMoreElements()) {
       String key = ((String) keys.nextElement()).trim();
       String str = bundle.getString(key);
-      if (str != null) result.add(new TripleString(key, str));
+      if (str != null)
+        result.add(new TripleString(key, str));
     }
     if (lookInUserDir) {
       String bundleName = bundlePath;
       int k = bundleName.lastIndexOf('.');
-      if (k > 0) bundleName = bundleName.substring(k + 1);
+      if (k > 0)
+        bundleName = bundleName.substring(k + 1);
       File file = new File(System.getProperty("user.home"), bundleName + ".properties");
       if (file.exists()) {
         Properties prop = new Properties();
@@ -135,12 +132,14 @@ public class TripleString extends Object implements Comparable<TripleString> {
         while (it.hasNext()) {
           String key = (String) it.next();
           String str = prop.getProperty(key);
-          if (str != null) result.add(new TripleString(key, str));
+          if (str != null)
+            result.add(new TripleString(key, str));
         }
       }
     }
 
-    if (sorted) java.util.Collections.sort(result);
+    if (sorted)
+      java.util.Collections.sort(result);
     if (includeEmpty) {
       result.add(0, new TripleString(options.getMsg("NONE"), null, null));
     }
@@ -148,8 +147,6 @@ public class TripleString extends Object implements Comparable<TripleString> {
   }
 
   public int compareTo(TripleString obj) {
-    // String s1=(obj instanceof TripleString) ? ((TripleString)obj).getClassName() : obj==null ? ""
-    // : obj.toString();
     return getClassName().compareTo(obj.getClassName());
   }
 }

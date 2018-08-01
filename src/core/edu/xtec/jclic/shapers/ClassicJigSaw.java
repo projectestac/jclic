@@ -48,8 +48,7 @@ public class ClassicJigSaw extends JigSaw {
   }
 
   @Override
-  protected void hLine(
-      ShapeData sd, int type, double x, double y, double w, double h, boolean inv) {
+  protected void hLine(ShapeData sd, int type, double x, double y, double w, double h, boolean inv) {
     int kx = inv ? -1 : 1;
     int ky = (type == 1 ? 1 : -1);
 
@@ -68,8 +67,7 @@ public class ClassicJigSaw extends JigSaw {
   }
 
   @Override
-  protected void vLine(
-      ShapeData sd, int type, double x, double y, double w, double h, boolean inv) {
+  protected void vLine(ShapeData sd, int type, double x, double y, double w, double h, boolean inv) {
     int ky = inv ? -1 : 1;
     int kx = (type == 1 ? 1 : -1);
 

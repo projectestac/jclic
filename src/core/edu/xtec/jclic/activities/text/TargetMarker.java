@@ -57,7 +57,8 @@ public class TargetMarker extends java.lang.Object {
 
   public void reset() {
     hasFocus = false;
-    if (target != null) target.reset();
+    if (target != null)
+      target.reset();
   }
 
   public void setPositions() {
@@ -71,17 +72,21 @@ public class TargetMarker extends java.lang.Object {
 
   public void requestFocus(TextActivityBase.Panel tabp) {
     hasFocus = true;
-    if (target != null) target.requestFocus(tabp, this);
+    if (target != null)
+      target.requestFocus(tabp, this);
   }
 
   public void lostFocus(TextActivityBase.Panel tabp) {
     hasFocus = false;
-    if (target != null) target.lostFocus(tabp, this);
+    if (target != null)
+      target.lostFocus(tabp, this);
   }
 
   public void updateOffsets() {
-    if (begPos != null) begOffset = begPos.getOffset();
-    if (endPos != null) endOffset = endPos.getOffset();
+    if (begPos != null)
+      begOffset = begPos.getOffset();
+    if (endPos != null)
+      endOffset = endPos.getOffset();
   }
 
   public java.awt.Rectangle getBegRect(JTextComponent pane) {
@@ -130,7 +135,8 @@ public class TargetMarker extends java.lang.Object {
   }
 
   public boolean checkText(Evaluator ev) {
-    if (target == null) return false;
+    if (target == null)
+      return false;
     return target.checkText(getCurrentText(), ev);
   }
 

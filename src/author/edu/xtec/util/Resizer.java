@@ -54,7 +54,8 @@ public class Resizer implements MouseListener, MouseMotionListener {
     this.jc = jc;
     setRect(r);
     this.editable = editable;
-    if (editable) defaultCursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
+    if (editable)
+      defaultCursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
     this.rl = rl;
     jc.addMouseListener(this);
     jc.addMouseMotionListener(this);
@@ -83,7 +84,8 @@ public class Resizer implements MouseListener, MouseMotionListener {
   public void setRect(Rectangle r) {
     this.r = r;
     doGetBounds = (r == null);
-    if (doGetBounds) this.r = jc.getBounds();
+    if (doGetBounds)
+      this.r = jc.getBounds();
   }
 
   public void mouseClicked(MouseEvent mouseEvent) {
@@ -93,28 +95,33 @@ public class Resizer implements MouseListener, MouseMotionListener {
   }
 
   public void mouseDragged(MouseEvent mouseEvent) {
-    if (enabled && dragging) resizeByDrag(mouseEvent.getPoint());
+    if (enabled && dragging)
+      resizeByDrag(mouseEvent.getPoint());
   }
 
-  public void mouseEntered(MouseEvent mouseEvent) {}
+  public void mouseEntered(MouseEvent mouseEvent) {
+  }
 
-  public void mouseExited(MouseEvent mouseEvent) {}
+  public void mouseExited(MouseEvent mouseEvent) {
+  }
 
   public void mouseMoved(MouseEvent mouseEvent) {
     if (!dragging && enabled) {
       Point p = mouseEvent.getPoint();
       Cursor newCursor = defaultCursor;
-      if (doGetBounds) r = jc.getBounds();
-      dragCursorX =
-          Math.abs(p.x - r.x - r.width) < MARGIN && p.y >= r.y && p.y < (r.y + r.height + MARGIN);
-      dragCursorY =
-          Math.abs(p.y - r.y - r.height) < MARGIN && p.x >= r.x && p.x < (r.x + r.width + MARGIN);
+      if (doGetBounds)
+        r = jc.getBounds();
+      dragCursorX = Math.abs(p.x - r.x - r.width) < MARGIN && p.y >= r.y && p.y < (r.y + r.height + MARGIN);
+      dragCursorY = Math.abs(p.y - r.y - r.height) < MARGIN && p.x >= r.x && p.x < (r.x + r.width + MARGIN);
       if (dragCursorX && dragCursorY)
         newCursor = Cursor.getPredefinedCursor(Cursor.NW_RESIZE_CURSOR);
-      else if (dragCursorY) newCursor = Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR);
-      else if (dragCursorX) newCursor = Cursor.getPredefinedCursor(Cursor.E_RESIZE_CURSOR);
+      else if (dragCursorY)
+        newCursor = Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR);
+      else if (dragCursorX)
+        newCursor = Cursor.getPredefinedCursor(Cursor.E_RESIZE_CURSOR);
       jc.setCursor(newCursor);
-    } else if (dragging) mouseDragged(mouseEvent);
+    } else if (dragging)
+      mouseDragged(mouseEvent);
   }
 
   public void mousePressed(MouseEvent mouseEvent) {
@@ -134,10 +141,13 @@ public class Resizer implements MouseListener, MouseMotionListener {
   private void resizeByDrag(Point p) {
     int w = r.width;
     int h = r.height;
-    if (dragCursorX) w = Math.min(maxSize.width, Math.max(minSize.width, p.x - r.x));
-    if (dragCursorY) h = Math.min(maxSize.height, Math.max(minSize.height, p.y - r.y));
+    if (dragCursorX)
+      w = Math.min(maxSize.width, Math.max(minSize.width, p.x - r.x));
+    if (dragCursorY)
+      h = Math.min(maxSize.height, Math.max(minSize.height, p.y - r.y));
     r = new Rectangle(r.x, r.y, w, h);
-    if (rl != null) rl.resizeObjectTo(r, jc);
+    if (rl != null)
+      rl.resizeObjectTo(r, jc);
   }
 
   public JComponent getComponent() {

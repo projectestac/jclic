@@ -31,9 +31,10 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 /**
- * This abstract class is the base for all the classes that provide contents to JClic activities,
- * usually based on random values. Activities linked to a <CODE>AutoContentProvider</CODE> object
- * rely on it to build its contents on every start.
+ * This abstract class is the base for all the classes that provide contents to
+ * JClic activities, usually based on random values. Activities linked to a
+ * <CODE>AutoContentProvider</CODE> object rely on it to build its contents on
+ * every start.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10
@@ -43,7 +44,8 @@ public abstract class AutoContentProvider extends Object implements Domable, Edi
   public static final String ELEMENT_NAME = "automation";
   public static final String BASE_CLASS = "edu.xtec.jclic.automation.", BASE_CLASS_TAG = "@";
 
-  public AutoContentProvider() {}
+  public AutoContentProvider() {
+  }
 
   public abstract void setProperties(org.jdom.Element e, Object aux) throws Exception;
 
@@ -57,7 +59,8 @@ public abstract class AutoContentProvider extends Object implements Domable, Edi
     String className = JDomUtility.getClassName(e);
 
     AutoContentProvider acp = getAutoContentProvider(className);
-    if (acp != null) acp.setProperties(e, null);
+    if (acp != null)
+      acp.setProperties(e, null);
     return acp;
   }
 
@@ -68,7 +71,8 @@ public abstract class AutoContentProvider extends Object implements Domable, Edi
   }
 
   public static Class getAutoContentProviderClass(String className) throws Exception {
-    if (className.startsWith(BASE_CLASS_TAG)) className = BASE_CLASS + className.substring(1);
+    if (className.startsWith(BASE_CLASS_TAG))
+      className = BASE_CLASS + className.substring(1);
     Class providerClass = Class.forName(className);
     return providerClass;
   }
@@ -86,12 +90,14 @@ public abstract class AutoContentProvider extends Object implements Domable, Edi
     return result;
   }
 
-  // Added new method with parameter "FileSystem", in order to allow access to external files
+  // Added new method with parameter "FileSystem", in order to allow access to
+  // external files
   public void init(ResourceBridge rb, FileSystem fs) {
     init(rb);
   }
 
-  public void init(ResourceBridge rb) {}
+  public void init(ResourceBridge rb) {
+  }
 
   public abstract boolean generateContent(Object kit, ResourceBridge rb);
 
@@ -106,7 +112,7 @@ public abstract class AutoContentProvider extends Object implements Domable, Edi
     return Editor.createEditor(s, this, parent);
   }
 
-  private static final Class[] ARRAY_OF_CLASS = new Class[] {Class.class};
+  private static final Class[] ARRAY_OF_CLASS = new Class[] { Class.class };
 
   public static boolean checkClient(String contentProviderClassName, Class clientClass) {
     boolean result = false;
@@ -114,7 +120,7 @@ public abstract class AutoContentProvider extends Object implements Domable, Edi
       Class<?> contentProviderClass = getAutoContentProviderClass(contentProviderClassName);
       Method method = contentProviderClass.getMethod("checkClient", ARRAY_OF_CLASS);
       if (method != null) {
-        Object o = method.invoke((Object) null, (Object[]) new Class[] {clientClass});
+        Object o = method.invoke((Object) null, (Object[]) new Class[] { clientClass });
         if (o instanceof Boolean) {
           result = ((Boolean) o).booleanValue();
         }
@@ -127,7 +133,8 @@ public abstract class AutoContentProvider extends Object implements Domable, Edi
 
   public static void listReferences(org.jdom.Element e, Map<String, String> map) throws Exception {
     AutoContentProvider acp = getAutoContentProvider(e);
-    if (acp != null) acp.innerListReferences(map);
+    if (acp != null)
+      acp.innerListReferences(map);
   }
 
   public void innerListReferences(Map<String, String> map) throws Exception {

@@ -36,18 +36,22 @@ public class ContextParamsReader implements ServletContextListener {
       // Try to find the name of the environment variable containing
       // the prefix key
       String prefixEnvKey = sc.getInitParameter(PREFIX_ENV_KEY);
-      if (prefixEnvKey == null) prefixEnvKey = prop.getProperty(PREFIX_ENV_KEY);
+      if (prefixEnvKey == null)
+        prefixEnvKey = prop.getProperty(PREFIX_ENV_KEY);
 
-      if (prefixEnvKey != null) prefixKey = System.getenv(prefixEnvKey);
+      if (prefixEnvKey != null)
+        prefixKey = System.getenv(prefixEnvKey);
 
       // No environment variable set, then try to find the prefix key
       // directly
       if (prefixKey == null) {
         prefixKey = sc.getInitParameter(PREFIX_KEY);
-        if (prefixKey == null) prefixKey = prop.getProperty(PREFIX_KEY);
+        if (prefixKey == null)
+          prefixKey = prop.getProperty(PREFIX_KEY);
       }
 
-      if (prefixKey != null && !prefixKey.endsWith(PREFIX_SEP)) prefixKey = prefixKey + PREFIX_SEP;
+      if (prefixKey != null && !prefixKey.endsWith(PREFIX_SEP))
+        prefixKey = prefixKey + PREFIX_SEP;
 
       // Read properties stored in web.xml
       Enumeration en = sc.getInitParameterNames();
@@ -56,12 +60,8 @@ public class ContextParamsReader implements ServletContextListener {
         if (prefixKey == null || key.startsWith(prefixKey) || key.indexOf(PREFIX_SEP) < 0) {
           String value = sc.getInitParameter(key);
           if (value != null && value.length() > 0) {
-            String realKey =
-                prefixKey == null || key.indexOf(PREFIX_SEP) < 0
-                    ? key
-                    : key.substring(prefixKey.length());
+            String realKey = prefixKey == null || key.indexOf(PREFIX_SEP) < 0 ? key : key.substring(prefixKey.length());
             prop.put(realKey, value);
-            // System.out.println("Clau: "+realKey+" - Valor: "+value);
           }
         }
       }
@@ -74,5 +74,6 @@ public class ContextParamsReader implements ServletContextListener {
     }
   }
 
-  public void contextDestroyed(ServletContextEvent sce) {}
+  public void contextDestroyed(ServletContextEvent sce) {
+  }
 }

@@ -40,8 +40,7 @@ public class HolesMaker {
   boolean skipOnes;
   boolean singleCells;
 
-  public HolesMaker(
-      int setNx, int setNy, int[] setIds, boolean useIds, boolean skipOnes, boolean singleCells) {
+  public HolesMaker(int setNx, int setNy, int[] setIds, boolean useIds, boolean skipOnes, boolean singleCells) {
     this.skipOnes = skipOnes;
     this.singleCells = singleCells;
     nx = setNx;
@@ -67,7 +66,8 @@ public class HolesMaker {
         if (!flagDone[x][y] && ids[x][y] >= 0) {
           Area a = scan(null, x, y);
           Shape sh = a;
-          if (a.isRectangular()) sh = a.getBounds2D();
+          if (a.isRectangular())
+            sh = a.getBounds2D();
           shapeDataX[j] = ShapeData.getShapeData(sh, null);
           shapeDataX[j].scaleTo(nx, ny);
           j++;
@@ -75,18 +75,23 @@ public class HolesMaker {
       }
     if (!useIds) {
       int maxId = 0;
-      for (int i = 0; i < j; i++) if (newIds[i] > maxId) maxId = newIds[i];
+      for (int i = 0; i < j; i++)
+        if (newIds[i] > maxId)
+          maxId = newIds[i];
       int nCells = maxId + 1;
       h.nCells = nCells;
       h.shapeData = new ShapeData[nCells];
       for (int i = 0; i < nCells; i++) {
         int k;
-        for (k = 0; k < j; k++) if (newIds[k] == i) break;
+        for (k = 0; k < j; k++)
+          if (newIds[k] == i)
+            break;
         if (k == j) {
           // should not happen!
           h.shapeData[i] = shapeDataX[0];
           System.err.println("HolesMaker error buliding shape for cell: " + i);
-        } else h.shapeData[i] = shapeDataX[k];
+        } else
+          h.shapeData[i] = shapeDataX[k];
       }
     } else {
       h.nCells = j;
@@ -111,20 +116,26 @@ public class HolesMaker {
   protected Area scan(Area a, int xx, int y) {
     int id = ids[xx][y];
     for (int x = xx; x < nx; x++) {
-      if (flagDone[x][y] || ids[x][y] != id) break;
+      if (flagDone[x][y] || ids[x][y] != id)
+        break;
       flagDone[x][y] = true;
       r.x = x;
       r.y = y;
       if (a == null) {
         a = new Area(r);
         newIds[nIds++] = id;
-      } else a.add(new Area(r));
+      } else
+        a.add(new Area(r));
 
-      if (singleCells || (skipOnes && id == 1)) break;
+      if (singleCells || (skipOnes && id == 1))
+        break;
 
-      if (x > 0 && !flagDone[x - 1][y] && ids[x - 1][y] == id) scan(a, x - 1, y);
-      if (y > 0 && !flagDone[x][y - 1] && ids[x][y - 1] == id) scan(a, x, y - 1);
-      if (y < (ny - 1) && !flagDone[x][y + 1] && ids[x][y + 1] == id) scan(a, x, y + 1);
+      if (x > 0 && !flagDone[x - 1][y] && ids[x - 1][y] == id)
+        scan(a, x - 1, y);
+      if (y > 0 && !flagDone[x][y - 1] && ids[x][y - 1] == id)
+        scan(a, x, y - 1);
+      if (y < (ny - 1) && !flagDone[x][y + 1] && ids[x][y + 1] == id)
+        scan(a, x, y + 1);
     }
     return a;
   }

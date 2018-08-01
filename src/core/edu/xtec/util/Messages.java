@@ -68,9 +68,8 @@ public class Messages {
   private static final int NUM_BUTTONS = 8;
 
   private static final String BTN_KEYS = "oyrnicYN";
-  private static final String[] BTN_CODES = {
-    "OK", "YES", "RETRY", "NO", "IGNORE", "CANCEL", "YES_TO_ALL", "NO_TO_ALL"
-  };
+  private static final String[] BTN_CODES = { "OK", "YES", "RETRY", "NO", "IGNORE", "CANCEL", "YES_TO_ALL",
+      "NO_TO_ALL" };
   private String[] dlgButtons;
 
   public static final int MAX_PASSWORD_LENGTH = 24;
@@ -82,40 +81,12 @@ public class Messages {
 
   public static final String OPTIONS_DELIMITER = ",";
 
-  public static final String[] KNOWN_LANGS = {
-    "anglès",
-    "arabic",
-    "araucanian",
-    "basque",
-    "català",
-    "catalán",
-    "chinese",
-    "english",
-    "espanyol",
-    "español",
-    "esperanto",
-    "euskara",
-    "francés",
-    "francès",
-    "french",
-    "gallego",
-    "german",
-    "greek",
-    "inglés",
-    "italian",
-    "latin",
-    "occità",
-    "occitan",
-    "portuguès",
-    "romanian",
-    "spanish",
-    "swedish",
-    "vasco"
-  };
-  public static final String[] KNOWN_LANG_CODES = {
-    "en", "ar", "arn", "eu", "ca", "ca", "ch", "en", "es", "es", "eo", "eu", "fr", "fr", "fr", "gl",
-    "de", "gr", "en", "it", "la", "oc", "oc", "pt", "ro", "es", "sv", "eu"
-  };
+  public static final String[] KNOWN_LANGS = { "anglès", "arabic", "araucanian", "basque", "català", "catalán",
+      "chinese", "english", "espanyol", "español", "esperanto", "euskara", "francés", "francès", "french", "gallego",
+      "german", "greek", "inglés", "italian", "latin", "occità", "occitan", "portuguès", "romanian", "spanish",
+      "swedish", "vasco" };
+  public static final String[] KNOWN_LANG_CODES = { "en", "ar", "arn", "eu", "ca", "ca", "ch", "en", "es", "es", "eo",
+      "eu", "fr", "fr", "fr", "gl", "de", "gr", "en", "it", "la", "oc", "oc", "pt", "ro", "es", "sv", "eu" };
 
   public Messages(String bundle) {
     init(bundle, null, null, null);
@@ -123,19 +94,12 @@ public class Messages {
 
   public Messages(String bundle, String options) {
     StringTokenizer st = new StringTokenizer(options, OPTIONS_DELIMITER);
-    init(
-        bundle,
-        st.hasMoreTokens() ? st.nextToken() : null,
-        st.hasMoreTokens() ? st.nextToken() : null,
+    init(bundle, st.hasMoreTokens() ? st.nextToken() : null, st.hasMoreTokens() ? st.nextToken() : null,
         st.hasMoreTokens() ? st.nextToken() : null);
   }
 
   public Messages(String bundle, java.util.HashMap options) {
-    init(
-        bundle,
-        (String) options.get(LANGUAGE),
-        (String) options.get(COUNTRY),
-        (String) options.get(VARIANT));
+    init(bundle, (String) options.get(LANGUAGE), (String) options.get(COUNTRY), (String) options.get(VARIANT));
   }
 
   public Messages(String bundle, String language, String country, String variant) {
@@ -147,12 +111,8 @@ public class Messages {
     if (msg == null) {
       String language = (String) options.get(LANGUAGE);
       if (language == null) {
-        JOptionPane pane =
-            new JOptionPane(
-                "Please select your language:",
-                JOptionPane.QUESTION_MESSAGE,
-                JOptionPane.OK_CANCEL_OPTION);
-        // pane.setSelectionValues(DESCRIPTIVE_LANGUAGE_CODES);
+        JOptionPane pane = new JOptionPane("Please select your language:", JOptionPane.QUESTION_MESSAGE,
+            JOptionPane.OK_CANCEL_OPTION);
         pane.setSelectionValues(getDescriptiveLanguageCodes(null));
         pane.setWantsInput(true);
         String initialSelection = getDescriptiveLanguageCode(Locale.getDefault().getLanguage());
@@ -182,10 +142,7 @@ public class Messages {
   }
 
   public void setLocale(java.util.HashMap options) {
-    setLocale(
-        (String) options.get(LANGUAGE),
-        (String) options.get(COUNTRY),
-        (String) options.get(VARIANT));
+    setLocale((String) options.get(LANGUAGE), (String) options.get(COUNTRY), (String) options.get(VARIANT));
   }
 
   public void setLocale(String language, String country, String variant) {
@@ -244,8 +201,7 @@ public class Messages {
   }
 
   public String getShortDateTimeStr(Date date) {
-    DateFormat df =
-        DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM, currentLocale);
+    DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM, currentLocale);
     return df.format(date);
   }
 
@@ -317,7 +273,6 @@ public class Messages {
       int k = Math.max(BTN_KEYS.indexOf(btnCodes.charAt(i)), 0);
       result[i] = new JButton(dlg[k]);
       result[i].setActionCommand(BTN_CODES[k]);
-      // result[i].setDefaultCapable(k==OK || k==YES);
     }
     return result;
   }
@@ -327,39 +282,23 @@ public class Messages {
   }
 
   public int showQuestionDlgObj(Component parent, Object msg, String titleKey, String buttons) {
-    NarrowOptionPane pane =
-        new NarrowOptionPane(
-            60,
-            msg,
-            JOptionPane.QUESTION_MESSAGE,
-            JOptionPane.DEFAULT_OPTION,
-            null,
-            parseButtons(buttons));
+    NarrowOptionPane pane = new NarrowOptionPane(60, msg, JOptionPane.QUESTION_MESSAGE, JOptionPane.DEFAULT_OPTION,
+        null, parseButtons(buttons));
     String title = get(StrUtils.secureString(titleKey, "QUESTION"));
     return getFeedback(parent, pane, title);
   }
 
-  public String showInputDlg(
-      Component parent,
-      String msgKey,
-      String shortPromptKey,
-      String initialValue,
-      String titleKey,
-      boolean isPassword) {
+  public String showInputDlg(Component parent, String msgKey, String shortPromptKey, String initialValue,
+      String titleKey, boolean isPassword) {
     String[] msgKeys = null;
     if (msgKey != null) {
-      msgKeys = new String[] {msgKey};
+      msgKeys = new String[] { msgKey };
     }
     return showInputDlg(parent, msgKeys, shortPromptKey, initialValue, titleKey, isPassword);
   }
 
-  public String showInputDlg(
-      Component parent,
-      String[] msgKeys,
-      String shortPromptKey,
-      String initialValue,
-      String titleKey,
-      boolean isPassword) {
+  public String showInputDlg(Component parent, String[] msgKeys, String shortPromptKey, String initialValue,
+      String titleKey, boolean isPassword) {
     String result = null;
     JTextField textField;
     if (isPassword) {
@@ -375,8 +314,7 @@ public class Messages {
       textField.setText(initialValue);
     }
 
-    if (showInputDlg(
-        parent, msgKeys, new String[] {shortPromptKey}, new JComponent[] {textField}, titleKey)) {
+    if (showInputDlg(parent, msgKeys, new String[] { shortPromptKey }, new JComponent[] { textField }, titleKey)) {
       if (isPassword) {
         char[] pwch = ((JPasswordField) textField).getPassword();
         if (pwch != null && pwch.length > 0) {
@@ -389,11 +327,7 @@ public class Messages {
     return result;
   }
 
-  public boolean showInputDlg(
-      Component parent,
-      String[] msgKeys,
-      String[] shortPromptKeys,
-      JComponent[] promptObjects,
+  public boolean showInputDlg(Component parent, String[] msgKeys, String[] shortPromptKeys, JComponent[] promptObjects,
       String titleKey) {
 
     ArrayList<Object> v = new ArrayList<Object>();
@@ -409,7 +343,6 @@ public class Messages {
         for (JComponent jc : promptObjects) {
           v.add(jc);
         }
-        // v.addAll(Arrays.asList(promptObjects));
       } else {
         GridBagLayout gridBag = new GridBagLayout();
         GridBagConstraints c = new GridBagConstraints();
@@ -435,14 +368,8 @@ public class Messages {
     }
     String title = (titleKey != null ? get(titleKey) : "");
 
-    NarrowOptionPane pane =
-        new NarrowOptionPane(
-            60,
-            v.toArray(),
-            JOptionPane.QUESTION_MESSAGE,
-            JOptionPane.DEFAULT_OPTION,
-            null,
-            parseButtons("oc"));
+    NarrowOptionPane pane = new NarrowOptionPane(60, v.toArray(), JOptionPane.QUESTION_MESSAGE,
+        JOptionPane.DEFAULT_OPTION, null, parseButtons("oc"));
     return getFeedback(parent, pane, title) == OK;
   }
 
@@ -450,25 +377,15 @@ public class Messages {
     return showInputDlg(parent, mainComponent, titleKey, "oc");
   }
 
-  public boolean showInputDlg(
-      Component parent, JComponent mainComponent, String titleKey, String buttons) {
+  public boolean showInputDlg(Component parent, JComponent mainComponent, String titleKey, String buttons) {
     return showInputDlg(parent, mainComponent, titleKey, buttons, false);
   }
 
-  public boolean showInputDlg(
-      Component parent,
-      JComponent mainComponent,
-      String titleKey,
-      String buttons,
+  public boolean showInputDlg(Component parent, JComponent mainComponent, String titleKey, String buttons,
       boolean centerOnParent) {
 
     InputDlg dlg = new InputDlg(parent, titleKey, buttons, mainComponent, centerOnParent);
     return dlg.getFeedback() == OK;
-
-    // String title= (titleKey!=null ? get(titleKey) : "");
-    // NarrowOptionPane pane=new NarrowOptionPane(60, mainComponent, JOptionPane.PLAIN_MESSAGE,
-    // JOptionPane.DEFAULT_OPTION, null, parseButtons(buttons));
-    // return getFeedback(parent, pane, title)==OK;
   }
 
   class InputDlg extends JDialog implements java.awt.event.ActionListener {
@@ -477,17 +394,13 @@ public class Messages {
     Component parent;
     boolean centerOnParent;
 
-    InputDlg(
-        Component parent,
-        String titleKey,
-        String buttons,
-        JComponent mainComponent,
-        boolean centerOnParent) {
+    InputDlg(Component parent, String titleKey, String buttons, JComponent mainComponent, boolean centerOnParent) {
       // 26-jan-06 - Modified to solve bug #73, reported by Jorda Polo
       // Compile error in gcj 4.0.3:
       // "Can't reference 'this' before the superclass constructor has been called."
       // OLD CODE:
-      // super(JOptionPane.getFrameForComponent(parent), titleKey!=null ? get(titleKey) : "", true);
+      // super(JOptionPane.getFrameForComponent(parent), titleKey!=null ?
+      // get(titleKey) : "", true);
       // NEW CODE:
       // Split in two steps:
       // 1 - call super with 'owner' and 'modal' parameters
@@ -553,7 +466,7 @@ public class Messages {
   }
 
   public void showAlert(Component parent, String key) {
-    showAlert(parent, new String[] {get(key)});
+    showAlert(parent, new String[] { get(key) });
   }
 
   public void showAlert(Component parent, String[] msg) {
@@ -561,14 +474,8 @@ public class Messages {
     for (String s : msg) {
       System.err.println(s);
     }
-    NarrowOptionPane pane =
-        new NarrowOptionPane(
-            60,
-            msg,
-            JOptionPane.WARNING_MESSAGE,
-            JOptionPane.DEFAULT_OPTION,
-            null,
-            parseButtons(null));
+    NarrowOptionPane pane = new NarrowOptionPane(60, msg, JOptionPane.WARNING_MESSAGE, JOptionPane.DEFAULT_OPTION, null,
+        parseButtons(null));
     getFeedback(parent, pane, get(WARNING));
   }
 
@@ -580,8 +487,7 @@ public class Messages {
     return showErrorWarning(parent, key, (List<Object>) null, ex, buttons);
   }
 
-  public int showErrorWarning(
-      Component parent, String key, String value, Exception ex, String buttons) {
+  public int showErrorWarning(Component parent, String key, String value, Exception ex, String buttons) {
     List<Object> v = new ArrayList<Object>();
     if (value != null) {
       v.add(value);
@@ -589,8 +495,7 @@ public class Messages {
     return showErrorWarning(parent, key, v, ex, buttons);
   }
 
-  public int showErrorWarning(
-      Component parent, String key, List<Object> values, Exception ex, String buttons) {
+  public int showErrorWarning(Component parent, String key, List<Object> values, Exception ex, String buttons) {
     if (key == null) {
       key = ERROR;
     }
@@ -619,14 +524,8 @@ public class Messages {
       ex.printStackTrace(System.err);
     }
 
-    NarrowOptionPane pane =
-        new NarrowOptionPane(
-            60,
-            v.toArray(),
-            JOptionPane.ERROR_MESSAGE,
-            JOptionPane.DEFAULT_OPTION,
-            null,
-            parseButtons(buttons));
+    NarrowOptionPane pane = new NarrowOptionPane(60, v.toArray(), JOptionPane.ERROR_MESSAGE, JOptionPane.DEFAULT_OPTION,
+        null, parseButtons(buttons));
 
     return getFeedback(parent, pane, get(ERROR));
   }
@@ -634,13 +533,8 @@ public class Messages {
   public boolean confirmReadableFile(Component parent, File f) {
     boolean result = f.canRead();
     if (!result) {
-      showAlert(
-          parent,
-          new String[] {
-            get("FILE_BEG"),
-            quote(f.getAbsolutePath()),
-            get(f.exists() ? "FILE_NOT READABLE" : "FILE_NOT_EXIST")
-          });
+      showAlert(parent, new String[] { get("FILE_BEG"), quote(f.getAbsolutePath()),
+          get(f.exists() ? "FILE_NOT READABLE" : "FILE_NOT_EXIST") });
     }
     return result;
   }
@@ -663,14 +557,8 @@ public class Messages {
         showErrorWarning(parent, ERROR, v, null, null);
         result = CANCEL;
       } else {
-        NarrowOptionPane pane =
-            new NarrowOptionPane(
-                60,
-                v.toArray(),
-                JOptionPane.QUESTION_MESSAGE,
-                JOptionPane.DEFAULT_OPTION,
-                null,
-                parseButtons(buttons));
+        NarrowOptionPane pane = new NarrowOptionPane(60, v.toArray(), JOptionPane.QUESTION_MESSAGE,
+            JOptionPane.DEFAULT_OPTION, null, parseButtons(buttons));
         result = getFeedback(parent, pane, get("CONFIRM"));
       }
     }
@@ -687,18 +575,15 @@ public class Messages {
   }
 
   public static boolean showDlg(final JDialog dialog) {
-    if (SwingUtilities.isEventDispatchThread()) // dialog.show();
-    {
+    if (SwingUtilities.isEventDispatchThread()) {
       dialog.setVisible(true);
     } else {
       try {
-        SwingUtilities.invokeAndWait(
-            new Runnable() {
-              public void run() {
-                // dialog.show();
-                dialog.setVisible(true);
-              }
-            });
+        SwingUtilities.invokeAndWait(new Runnable() {
+          public void run() {
+            dialog.setVisible(true);
+          }
+        });
       } catch (Exception ex) {
         System.err.println("Show dialog error: " + ex);
         return false;
@@ -782,7 +667,8 @@ public class Messages {
     return sb.substring(0);
   }
 
-  /* Since the Java specification does not include the ISO 639-2 three-letter
+  /*
+   * Since the Java specification does not include the ISO 639-2 three-letter
    * language codes, we provide this HashMap to support it. The list will be
    * expanded as new translations of JClic where created.
    */
@@ -809,16 +695,14 @@ public class Messages {
   public static String getLanguageFromDescriptive(String descriptive) {
     String result = null;
     int p = -1;
-    if (descriptive != null
-        && (descriptive = descriptive.trim()).length() > 4
+    if (descriptive != null && (descriptive = descriptive.trim()).length() > 4
         && (p = descriptive.lastIndexOf('(')) > 0) {
       result = descriptive.substring(p + 1, descriptive.length() - 1);
     }
     return result;
   }
 
-  private static HashMap<String, String[]> descriptiveLanguageCodes =
-      new HashMap<String, String[]>();
+  private static HashMap<String, String[]> descriptiveLanguageCodes = new HashMap<String, String[]>();
 
   public static String[] getDescriptiveLanguageCodes(Locale inLocale) {
     String key = (inLocale == null ? "null" : inLocale.toString());
@@ -879,23 +763,12 @@ public class Messages {
     namesToCodes = new HashMap<String, String>(dlc.length);
     for (String c : dlc) {
       // Allow country codes with more than two letters
-      // int p=dlc[i].length()-5;
       int p = c.lastIndexOf('(') - 1;
       String name = c.substring(0, p).toLowerCase();
-      // String code=dlc[i].substring(p+2, p+4);
       String code = c.substring(p + 2, c.length() - 1);
       codesToNames.put(code, name);
       namesToCodes.put(name, code);
     }
-    /*
-       java.util.Properties prop=new java.util.Properties();
-       prop.putAll(codesToNames);
-       try{
-           prop.store(new java.io.FileOutputStream("language_codes.properties"), "ISO 639 language codes");
-       } catch(Exception ex){
-           System.err.println(ex);
-       }
-    */
   }
 
   public static HashMap getCodesToNames() {
@@ -911,176 +784,4 @@ public class Messages {
     }
     return namesToCodes;
   }
-
-  /*
-   public static final String[] DESCRIPTIVE_LANGUAGE_CODES={
-       "Afar (aa)",
-       "Abkhazian (ab)",
-       "Avestan (ae)",
-       "Afrikaans (af)",
-       "Amharic (am)",
-       "Arabic (ar)",
-       "Assamese (as)",
-       "Aymara (ay)",
-       "Azerbaijani (az)",
-       "Bashkir (ba)",
-       "Belarusian (be)",
-       "Bulgarian (bg)",
-       "Bihari (bh)",
-       "Bislama (bi)",
-       "Bengali (bn)",
-       "Tibetan (bo)",
-       "Breton (br)",
-       "Bosnian (bs)",
-       "Catal\u00E0 (ca)",
-       "Chechen (ce)",
-       "Chamorro (ch)",
-       "Corsican (co)",
-       "Czech (cs)",
-       "Church Slavic (cu)",
-       "Chuvash (cv)",
-       "Welsh (cy)",
-       "Danish (da)",
-       "German (de)",
-       "Dzongkha (dz)",
-       "Greek, Modern (el)",
-       "English (en)",
-       "Esperanto (eo)",
-       "Espa\u00F1ol (es)",
-       "Estonian (et)",
-       "Euskara (eu)",
-       "Persian (fa)",
-       "Finnish (fi)",
-       "Fijian (fj)",
-       "Faroese (fo)",
-       "French (fr)",
-       "Frisian (fy)",
-       "Irish (ga)",
-       "Gaelic (gd)",
-       "Galego (gl)",
-       "Guarani (gn)",
-       "Gujarati (gu)",
-       "Manx (gv)",
-       "Hausa (ha)",
-       "Hebrew (he)",
-       "Hindi (hi)",
-       "Hiri Motu (ho)",
-       "Croatian (hr)",
-       "Hungarian (hu)",
-       "Armenian (hy)",
-       "Herero (hz)",
-       "Interlingua (ia)",
-       "Indonesian (id)",
-       "Interlingue (ie)",
-       "Inupiaq (ik)",
-       "Ido (io)",
-       "Icelandic (is)",
-       "Italian (it)",
-       "Inuktitut (iu)",
-       "Japanese (ja)",
-       "Javanese (jv)",
-       "Georgian (ka)",
-       "Kikuyu (ki)",
-       "Kwanyama (kj)",
-       "Kazakh (kk)",
-       "Kalaallisut (kl)",
-       "Khmer (km)",
-       "Kannada (kn)",
-       "Korean (ko)",
-       "Kashmiri (ks)",
-       "Kurdish (ku)",
-       "Komi (kv)",
-       "Cornish (kw)",
-       "Kirghiz (ky)",
-       "Latin (la)",
-       "Letzeburgesch (lb)",
-       "Lingala (ln)",
-       "Lao (lo)",
-       "Lithuanian (lt)",
-       "Latvian (lv)",
-       "Malagasy (mg)",
-       "Marshallese (mh)",
-       "Maori (mi)",
-       "Macedonian (mk)",
-       "Malayalam (ml)",
-       "Mongolian (mn)",
-       "Moldavian (mo)",
-       "Marathi (mr)",
-       "Malay (ms)",
-       "Maltese (mt)",
-       "Burmese (my)",
-       "Nauru (na)",
-       "Norwegian Bokm\u00E5l (nb)",
-       "North Ndebele (nd)",
-       "Nepali (ne)",
-       "Ndonga (ng)",
-       "Dutch (nl)",
-       "Norwegian Nynorsk (nn)",
-       "Norwegian (no)",
-       "South Ndebele (nr)",
-       "Navajo (nv)",
-       "Nyanja (ny)",
-       "Occitan (oc)",
-       "Oromo (om)",
-       "Oriya (or)",
-       "Ossetic (os)",
-       "Panjabi (pa)",
-       "Pali (pi)",
-       "Polish (pl)",
-       "Pushto (ps)",
-       "Portuguese (pt)",
-       "Quechua (qu)",
-       "Raeto-Romance (rm)",
-       "Rundi (rn)",
-       "Romanian (ro)",
-       "Russian (ru)",
-       "Kinyarwanda (rw)",
-       "Sanskrit (sa)",
-       "Sardinian (sc)",
-       "Sindhi (sd)",
-       "Northern Sami (se)",
-       "Sango (sg)",
-       "Sinhalese (si)",
-       "Slovak (sk)",
-       "Slovenian (sl)",
-       "Samoan (sm)",
-       "Shona (sn)",
-       "Somali (so)",
-       "Albanian (sq)",
-       "Serbian (sr)",
-       "Swati (ss)",
-       "Sotho (st)",
-       "Sundanese (su)",
-       "Swedish (sv)",
-       "Swahili (sw)",
-       "Tamil (ta)",
-       "Telugu (te)",
-       "Tajik (tg)",
-       "Thai (th)",
-       "Tigrinya (ti)",
-       "Turkmen (tk)",
-       "Tagalog (tl)",
-       "Tswana (tn)",
-       "Tonga (to)",
-       "Turkish (tr)",
-       "Tsonga (ts)",
-       "Tatar (tt)",
-       "Twi (tw)",
-       "Tahitian (ty)",
-       "Uighur (ug)",
-       "Ukrainian (uk)",
-       "Urdu (ur)",
-       "Uzbek (uz)",
-       "Vietnamese (vi)",
-       "Volap\u00FCk (vo)",
-       "Walloon (wa)",
-       "Wolof (wo)",
-       "Xhosa (xh)",
-       "Yiddish (yi)",
-       "Yoruba (yo)",
-       "Zhuang (za)",
-       "Chinese (zh)",
-       "Zulu (zu)"
-   };
-  */
 }

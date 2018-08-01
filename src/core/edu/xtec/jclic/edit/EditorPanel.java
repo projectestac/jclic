@@ -42,10 +42,11 @@ import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 /**
- * This class is a {@link edu.xtec.util.CtrlPanel} specialized to deal with {@link
- * edu.xtec.jclic.edit.Editor} objects. Every implementation of editor panel will have specific
- * methods to deal with a specific type of <CODE>Editor</CODE> objects (wich, in turn, will be
- * designed for a specific type of data objects).
+ * This class is a {@link edu.xtec.util.CtrlPanel} specialized to deal with
+ * {@link edu.xtec.jclic.edit.Editor} objects. Every implementation of editor
+ * panel will have specific methods to deal with a specific type of
+ * <CODE>Editor</CODE> objects (wich, in turn, will be designed for a specific
+ * type of data objects).
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
@@ -92,7 +93,6 @@ public abstract class EditorPanel extends CtrlPanel implements FocusListener, Ed
 
   public abstract boolean checkIfEditorValid(Editor e);
 
-  // to disappear:
   public final void clear() {
     setModified(false);
   }
@@ -119,10 +119,12 @@ public abstract class EditorPanel extends CtrlPanel implements FocusListener, Ed
 
   public void attachEditor(Editor e, boolean saveChanges) {
     if (e == editor) {
-      if (editor != null && saveChanges && isModified()) editor.setModified(true);
+      if (editor != null && saveChanges && isModified())
+        editor.setModified(true);
       fill();
     } else {
-      if (editor != null) removeEditor(saveChanges);
+      if (editor != null)
+        removeEditor(saveChanges);
 
       if (checkIfEditorValid(e)) {
         setEditor(e);
@@ -137,22 +139,26 @@ public abstract class EditorPanel extends CtrlPanel implements FocusListener, Ed
   }
 
   protected synchronized void setEditor(Editor e) {
-    if (editor != null) editor.clearActionsOwner();
+    if (editor != null)
+      editor.clearActionsOwner();
     editor = e;
-    if (e != null) e.setActionsOwner();
+    if (e != null)
+      e.setActionsOwner();
   }
 
   public void removeEditor(boolean saveChanges) {
     if (editor != null) {
       editor.removeEditorListener(this);
-      if (saveChanges) save();
+      if (saveChanges)
+        save();
       setEditor(null);
       fill();
     }
   }
 
   public void editorDataChanged(Editor e) {
-    if (e != null && e.equals(getEditor())) fillData();
+    if (e != null && e.equals(getEditor()))
+      fillData();
   }
 
   protected Icon getIcon() {
@@ -181,7 +187,8 @@ public abstract class EditorPanel extends CtrlPanel implements FocusListener, Ed
     return result;
   }
 
-  protected void addActionsTo(Container cnt) {}
+  protected void addActionsTo(Container cnt) {
+  }
 
   protected JToolBar createToolBar() {
     JToolBar toolBar = new JToolBar();
@@ -193,14 +200,17 @@ public abstract class EditorPanel extends CtrlPanel implements FocusListener, Ed
 
   protected String checkEmptyString(String src, boolean trim, String msgCodeDefault) {
     String result = src;
-    if (result != null && trim) result = result.trim();
-    if (result == null || result.length() == 0) result = options.getMsg(msgCodeDefault);
+    if (result != null && trim)
+      result = result.trim();
+    if (result == null || result.length() == 0)
+      result = options.getMsg(msgCodeDefault);
     return result;
   }
 
   public boolean showDialog(Editor e, String titleKey, Component cmp, boolean removeActionButtons) {
 
-    if (removeActionButtons && southComponent != null) remove(southComponent);
+    if (removeActionButtons && southComponent != null)
+      remove(southComponent);
 
     attachEditor(e, false);
 
@@ -219,8 +229,10 @@ public abstract class EditorPanel extends CtrlPanel implements FocusListener, Ed
   }
 
   public void focusGained(FocusEvent focusEvent) {
-    if (getEditor() != null) getEditor().setActionsOwner();
-    else Editor.clearBasicActionsOwner();
+    if (getEditor() != null)
+      getEditor().setActionsOwner();
+    else
+      Editor.clearBasicActionsOwner();
   }
 
   public void focusLost(FocusEvent focusEvent) {

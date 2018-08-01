@@ -66,94 +66,48 @@ public class ProjectSettings implements Editable, Domable {
 
   public static String UNTITLED = "untitled";
   public static String ELEMENT_NAME = "settings";
-  public static String TITLE = "title",
-      LOCALE = "locale",
-      LANGUAGE = "language",
-      DESCRIPTION = "description",
-      DESCRIPTORS = "descriptors",
-      SKIN = "skin",
-      FILE = "file",
-      AREA = "area",
-      AREA_CODES = "area-codes",
-      LEVEL = "level",
-      LEVEL_CODES = "level-codes",
-      ICON = "icon",
-      COVER = "cover",
-      THUMB = "thumb",
-      ICON16 = "icon16",
-      ICON72 = "icon72",
-      ICON192 = "icon192",
-      META_LANGS = "meta_langs",
-      DESCRIPTIONS = "descriptions",
-      LICENSE = "license",
-      TYPE = "type",
-      URL = "url";
+  public static String TITLE = "title", LOCALE = "locale", LANGUAGE = "language", DESCRIPTION = "description",
+      DESCRIPTORS = "descriptors", SKIN = "skin", FILE = "file", AREA = "area", AREA_CODES = "area-codes",
+      LEVEL = "level", LEVEL_CODES = "level-codes", ICON = "icon", COVER = "cover", THUMB = "thumb", ICON16 = "icon16",
+      ICON72 = "icon72", ICON192 = "icon192", META_LANGS = "meta_langs", DESCRIPTIONS = "descriptions",
+      LICENSE = "license", TYPE = "type", URL = "url";
 
-  public static String[] KNOWN_META_LANGS = {"ca", "es", "en"};
+  public static String[] KNOWN_META_LANGS = { "ca", "es", "en" };
 
   @SuppressWarnings("unchecked")
-  public static List<String>[] KNOWN_LEVEL_DESCS =
-      (List<String>[])
-          new List[] {
-            Arrays.asList(new String[] {"Infantil (3-6)", "Infantil (3-6)", "Kindergarten (3-6)"}),
-            Arrays.asList(
-                new String[] {"Primària (6-12)", "Primaria (6-12)", "Primary school (6-12)"}),
-            Arrays.asList(
-                new String[] {
-                  "Secundària (12-16)", "Secundaria (12-16)", "Secondary school (12-16)"
-                }),
-            Arrays.asList(
-                new String[] {"Batxillerat (16-18)", "Bachillerato (16-18)", "High school (16-18)"})
-          };
+  public static List<String>[] KNOWN_LEVEL_DESCS = (List<String>[]) new List[] {
+      Arrays.asList(new String[] { "Infantil (3-6)", "Infantil (3-6)", "Kindergarten (3-6)" }),
+      Arrays.asList(new String[] { "Primària (6-12)", "Primaria (6-12)", "Primary school (6-12)" }),
+      Arrays.asList(new String[] { "Secundària (12-16)", "Secundaria (12-16)", "Secondary school (12-16)" }),
+      Arrays.asList(new String[] { "Batxillerat (16-18)", "Bachillerato (16-18)", "High school (16-18)" }) };
 
-  public static String[] KNOWN_LEVEL_CODES = {"INF", "PRI", "SEC", "BTX"};
+  public static String[] KNOWN_LEVEL_CODES = { "INF", "PRI", "SEC", "BTX" };
 
   @SuppressWarnings("unchecked")
-  public static List<String>[] KNOWN_AREA_DESCS =
-      (List<String>[])
-          new List[] {
-            Arrays.asList(new String[] {"Llengües", "Lenguas", "Languages"}),
-            Arrays.asList(new String[] {"Matemàtiques", "Matemáticas", "Mathematics"}),
-            Arrays.asList(
-                new String[] {"Ciències socials", "Ciencias sociales", "Social sciences"}),
-            Arrays.asList(
-                new String[] {
-                  "Ciències experimentals", "Ciencias experimentales", "Experimental sciences"
-                }),
-            Arrays.asList(new String[] {"Música", "Música", "Music"}),
-            Arrays.asList(new String[] {"Visual i plàstica", "Plástica y visual", "Art & design"}),
-            Arrays.asList(
-                new String[] {"Educació física", "Educación física", "Physical education"}),
-            Arrays.asList(new String[] {"Tecnologies", "Tecnología", "Design & technology"}),
-            Arrays.asList(new String[] {"Diversos", "Diversos", "Miscellaneous"})
-          };
+  public static List<String>[] KNOWN_AREA_DESCS = (List<String>[]) new List[] {
+      Arrays.asList(new String[] { "Llengües", "Lenguas", "Languages" }),
+      Arrays.asList(new String[] { "Matemàtiques", "Matemáticas", "Mathematics" }),
+      Arrays.asList(new String[] { "Ciències socials", "Ciencias sociales", "Social sciences" }),
+      Arrays.asList(new String[] { "Ciències experimentals", "Ciencias experimentales", "Experimental sciences" }),
+      Arrays.asList(new String[] { "Música", "Música", "Music" }),
+      Arrays.asList(new String[] { "Visual i plàstica", "Plástica y visual", "Art & design" }),
+      Arrays.asList(new String[] { "Educació física", "Educación física", "Physical education" }),
+      Arrays.asList(new String[] { "Tecnologies", "Tecnología", "Design & technology" }),
+      Arrays.asList(new String[] { "Diversos", "Diversos", "Miscellaneous" }) };
 
-  public static String[] KNOWN_AREA_CODES = {
-    "lleng", "mat", "soc", "exp", "mus", "vip", "ef", "tec", "div"
-  };
+  public static String[] KNOWN_AREA_CODES = { "lleng", "mat", "soc", "exp", "mus", "vip", "ef", "tec", "div" };
 
-  public static String[] CC_LICENSES = {
-    "by", "by-sa", "by-nd", "by-nc", "by-nc-sa", "by-nc-nd", "other"
-  };
-  public static int CC_BY = 0,
-      CC_BY_SA = 1,
-      CC_BY_ND = 2,
-      CC_BY_NC = 3,
-      CC_BY_NC_SA = 4,
-      CC_BY_NC_ND = 5,
-      OTHER = 6;
-  public static String CC_URL = "https://creativecommons.org/licenses/%%CODE%%/4.0",
-      OTHER_URL = "See 'description'";
+  public static String[] CC_LICENSES = { "by", "by-sa", "by-nd", "by-nc", "by-nc-sa", "by-nc-nd", "other" };
+  public static int CC_BY = 0, CC_BY_SA = 1, CC_BY_ND = 2, CC_BY_NC = 3, CC_BY_NC_SA = 4, CC_BY_NC_ND = 5, OTHER = 6;
+  public static String CC_URL = "https://creativecommons.org/licenses/%%CODE%%/4.0", OTHER_URL = "See 'description'";
   public static String[] LICENSE_DESC = {
-    "Aquesta obra està sota una llicència de Creative Commons <a href=\"%%URL%%\">%%CODE%%</a>",
-    "Esta obra está bajo una licencia de Creative Commons <a href=\"%%URL%%\">%%CODE%%</a>",
-    "Licensed under a Creative Commons license <a href=\"%%URL%%\">%%CODE%%</a>"
-  };
+      "Aquesta obra està sota una llicència de Creative Commons <a href=\"%%URL%%\">%%CODE%%</a>",
+      "Esta obra está bajo una licencia de Creative Commons <a href=\"%%URL%%\">%%CODE%%</a>",
+      "Licensed under a Creative Commons license <a href=\"%%URL%%\">%%CODE%%</a>" };
   public static String[] LICENSE_OTHER = {
-    "Els termes de la llicència d'ús s'especifiquen a la descripció del projecte",
-    "Los términos de la licencia de uso se especifican en la descripción del proyecto",
-    "License terms are specified in project description"
-  };
+      "Els termes de la llicència d'ús s'especifiquen a la descripció del projecte",
+      "Los términos de la licencia de uso se especifican en la descripción del proyecto",
+      "License terms are specified in project description" };
 
   /** Creates new ProjectSettings */
   public ProjectSettings() {
@@ -166,7 +120,7 @@ public class ProjectSettings implements Editable, Domable {
     languages = null;
     authors = null;
     organizations = null;
-    revisions = new Revision[] {new Revision(new Date(), "created")};
+    revisions = new Revision[] { new Revision(new Date(), "created") };
     eventSounds = new EventSounds(null);
     skinFileName = null;
     iconFileName = null;
@@ -213,14 +167,11 @@ public class ProjectSettings implements Editable, Domable {
 
     if (locale != null) {
       /*
-      StringBuilder sb = new StringBuilder(loc.getLanguage());
-      if (loc.getCountry() != null && loc.getCountry().length() > 0) {
-        sb.append('-').append(loc.getCountry());
-        if (loc.getVariant() != null && loc.getVariant().length() > 0) {
-          sb.append('-').append(loc.getVariant());
-        }
-      }
-      e.setAttribute(LOCALE, sb.substring(0));
+       * StringBuilder sb = new StringBuilder(loc.getLanguage()); if (loc.getCountry()
+       * != null && loc.getCountry().length() > 0) {
+       * sb.append('-').append(loc.getCountry()); if (loc.getVariant() != null &&
+       * loc.getVariant().length() > 0) { sb.append('-').append(loc.getVariant()); } }
+       * e.setAttribute(LOCALE, sb.substring(0));
        */
       e.setAttribute(LOCALE, locale.toLanguageTag());
     }
@@ -308,17 +259,14 @@ public class ProjectSettings implements Editable, Domable {
 
     child = new org.jdom.Element(DESCRIPTIONS);
     for (int i = 0; i < meta_langs.length; i++) {
-      child2 =
-          JDomUtility.addParagraphs(
-              child, DESCRIPTION, descriptions[i] == null ? "" : descriptions[i]);
+      child2 = JDomUtility.addParagraphs(child, DESCRIPTION, descriptions[i] == null ? "" : descriptions[i]);
       child2.setAttribute(LANGUAGE, meta_langs[i].toLanguageTag());
     }
     e.addContent(child);
 
     child = new org.jdom.Element(LICENSE);
     child.setAttribute(TYPE, CC_LICENSES[license]);
-    child.setAttribute(
-        URL, license < OTHER ? CC_URL.replace("%%CODE%%", CC_LICENSES[license]) : OTHER_URL);
+    child.setAttribute(URL, license < OTHER ? CC_URL.replace("%%CODE%%", CC_LICENSES[license]) : OTHER_URL);
     e.addContent(child);
 
     return e;
@@ -389,10 +337,7 @@ public class ProjectSettings implements Editable, Domable {
       }
     }
 
-    if (languages != null
-        && languages.length > 0
-        && languages[0].length() > 1
-        && !languages[0].equals("und")) {
+    if (languages != null && languages.length > 0 && languages[0].length() > 1 && !languages[0].equals("und")) {
       meta_langs[0] = Locale.forLanguageTag(languages[0]);
     }
 
@@ -545,7 +490,6 @@ public class ProjectSettings implements Editable, Domable {
     String msgBase = "about_window_lb_";
     Html html = new Html(1000);
 
-    // html.doubleCell(msg.get(msgBase+"project"), true, name, true);
     html.doubleCell(msg.get(msgBase + "project"), true, title, true);
 
     if (area != null) {
@@ -642,8 +586,7 @@ public class ProjectSettings implements Editable, Domable {
     }
 
     // Load meta-languages
-    if (json.has("meta_langs")
-        && (!preserve || (meta_langs.length == 1 && meta_langs[0] == Locale.getDefault()))) {
+    if (json.has("meta_langs") && (!preserve || (meta_langs.length == 1 && meta_langs[0] == Locale.getDefault()))) {
       JSONArray langTags = json.getJSONArray("meta_langs");
       meta_langs = new Locale[langTags.length()];
       for (int i = 0; i < meta_langs.length; i++) {
@@ -651,11 +594,8 @@ public class ProjectSettings implements Editable, Domable {
       }
     }
 
-    // TODO: must we read levels, areas and languages from descriptive, localized tags? They are
-    // already present in ProjectSettings
     // Load descriptions
-    if (json.has("description")
-        && (!preserve || (descriptions.length == 1 || descriptions[0].length() == 0))) {
+    if (json.has("description") && (!preserve || (descriptions.length == 1 || descriptions[0].length() == 0))) {
       JSONObject descs = json.getJSONObject("description");
       descriptions = new String[meta_langs.length];
       for (int i = 0; i < meta_langs.length; i++) {
@@ -758,9 +698,8 @@ public class ProjectSettings implements Editable, Domable {
         // Add language description for each meta_lang
         Locale loc = new Locale(code);
         for (int i = 0; i < numLangs; i++) {
-          langDescs[i] =
-              StrUtils.addToEnum(
-                  langDescs[i] == null ? "" : langDescs[i], loc.getDisplayName(meta_langs[i]));
+          langDescs[i] = StrUtils.addToEnum(langDescs[i] == null ? "" : langDescs[i],
+              loc.getDisplayName(meta_langs[i]));
         }
       }
 
@@ -863,13 +802,11 @@ public class ProjectSettings implements Editable, Domable {
     String url = license < OTHER ? CC_URL.replace("%%CODE%%", CC_LICENSES[license]) : OTHER_URL;
     for (int i = 0; i < numLangs; i++) {
       int p = StrUtils.getIndexOf(langTags[i], KNOWN_META_LANGS);
-      if (p < 0) p = 2;
-      String str =
-          license < OTHER
-              ? LICENSE_DESC[p]
-                  .replace("%%URL%%", url)
-                  .replace("%%CODE%%", CC_LICENSES[license].toUpperCase())
-              : LICENSE_OTHER[p];
+      if (p < 0)
+        p = 2;
+      String str = license < OTHER
+          ? LICENSE_DESC[p].replace("%%URL%%", url).replace("%%CODE%%", CC_LICENSES[license].toUpperCase())
+          : LICENSE_OTHER[p];
       jso.put(langTags[i], str);
     }
     json.put("license", jso);

@@ -55,12 +55,8 @@ public class TCPReporter extends Reporter {
   protected Timer timer;
   protected int timerLap;
 
-  public static final String SERVER_PATH = "path",
-      DEFAULT_SERVER_PATH = "localhost:9000",
-      SERVER_PROTOCOL = "protocol",
-      DEFAULT_SERVER_PROTOCOL = "http",
-      SERVER_SERVICE = "service",
-      DEFAULT_SERVER_SERVICE = "/JClicReportService",
+  public static final String SERVER_PATH = "path", DEFAULT_SERVER_PATH = "localhost:9000", SERVER_PROTOCOL = "protocol",
+      DEFAULT_SERVER_PROTOCOL = "http", SERVER_SERVICE = "service", DEFAULT_SERVER_SERVICE = "/JClicReportService",
       TIMER_LAP = "lap";
 
   public static final int DEFAULT_TIMER_LAP = 20;
@@ -80,12 +76,12 @@ public class TCPReporter extends Reporter {
     if (!tasks.isEmpty() && serviceUrl != null) {
       TCPReportBean bean = new TCPReportBean(TCPReportBean.MULTIPLE);
       TCPReportBean[] items;
-      // synchronized(tasks){
       items = tasks.toArray(new TCPReportBean[tasks.size()]);
-      // }
-      for (TCPReportBean item : items) bean.addElement(item.getJDomElement());
+      for (TCPReportBean item : items)
+        bean.addElement(item.getJDomElement());
       if (transaction(bean) != null) {
-        for (TCPReportBean item : items) tasks.remove(item);
+        for (TCPReportBean item : items)
+          tasks.remove(item);
       }
     }
   }
@@ -99,7 +95,8 @@ public class TCPReporter extends Reporter {
   }
 
   protected void checkUrl() throws Exception {
-    if (serviceUrl == null) throw new Exception("Service not available!!");
+    if (serviceUrl == null)
+      throw new Exception("Service not available!!");
   }
 
   protected TCPReportBean transaction(String key, Domable[] data) {
@@ -107,16 +104,14 @@ public class TCPReporter extends Reporter {
   }
 
   protected TCPReportBean transaction(TCPReportBean request) {
-    if (serviceUrl == null) return null;
+    if (serviceUrl == null)
+      return null;
     TCPReportBean result = null;
     boolean loop = true;
     while (result == null && loop) {
       try {
         HttpURLConnection con = (HttpURLConnection) serviceUrl.openConnection();
         con.setDoOutput(true);
-        // 7-july-2006
-        // Content-type header defaults to "application/x-www-form-urlencoded"
-        // Changed to "text/xml" in order to be compliant with PHP.
         con.setRequestProperty("Content-type", "text/xml");
         OutputStream out = con.getOutputStream();
         JDomUtility.saveDocument(out, request.getJDomElement());
@@ -129,15 +124,15 @@ public class TCPReporter extends Reporter {
         if (msg != null) {
           int r = msg.showErrorWarning(parent, "report_err_connect", ex, "ric");
           switch (r) {
-            case Messages.RETRY:
-              break;
-            case Messages.IGNORE:
-              loop = false;
-              break;
-            default:
-              stopReporting();
-              loop = false;
-              break;
+          case Messages.RETRY:
+            break;
+          case Messages.IGNORE:
+            loop = false;
+            break;
+          default:
+            stopReporting();
+            loop = false;
+            break;
           }
         } else {
           stopReporting();
@@ -168,21 +163,27 @@ public class TCPReporter extends Reporter {
     try {
       super.init(properties, parent, msg);
       String serverPath = (String) properties.get(SERVER_PATH);
-      if (serverPath == null) serverPath = DEFAULT_SERVER_PATH;
+      if (serverPath == null)
+        serverPath = DEFAULT_SERVER_PATH;
       description = "TCP/IP " + serverPath;
       String serverService = (String) properties.get(SERVER_SERVICE);
-      if (serverService == null) serverService = DEFAULT_SERVER_SERVICE;
+      if (serverService == null)
+        serverService = DEFAULT_SERVER_SERVICE;
       if (serverPath.length() < 1 || serverService.length() < 1)
         throw new Exception("Bad server specification!");
-      if (!serverService.startsWith("/")) serverService += "/";
+      if (!serverService.startsWith("/"))
+        serverService += "/";
       String serverProtocol = (String) properties.get(SERVER_PROTOCOL);
-      if (serverProtocol == null) serverProtocol = DEFAULT_SERVER_PROTOCOL;
+      if (serverProtocol == null)
+        serverProtocol = DEFAULT_SERVER_PROTOCOL;
 
       serviceUrl = new URL(serverProtocol + "://" + serverPath + serverService);
 
-      if (userId == null) userId = promptUserId(parent, msg);
+      if (userId == null)
+        userId = promptUserId(parent, msg);
 
-      if (userId != null) success = true;
+      if (userId != null)
+        success = true;
 
     } catch (Exception ex) {
       msg.showErrorWarning(parent, "report_err_init", description, ex, null);
@@ -190,14 +191,11 @@ public class TCPReporter extends Reporter {
     if (success) {
       String tl = getProperty(TIME_LAP, Integer.toString(timerLap));
       timerLap = Math.min(300, Math.max(1, Integer.parseInt(tl)));
-      timer =
-          new Timer(
-              timerLap * 1000,
-              new ActionListener() {
-                public void actionPerformed(ActionEvent ev) {
-                  flushTasks();
-                }
-              });
+      timer = new Timer(timerLap * 1000, new ActionListener() {
+        public void actionPerformed(ActionEvent ev) {
+          flushTasks();
+        }
+      });
       timer.setRepeats(true);
       timer.start();
     } else {
@@ -208,7 +206,8 @@ public class TCPReporter extends Reporter {
   @Override
   public void newSession(JClicProject jcp, Component parent, Messages msg) {
     super.newSession(jcp, parent, msg);
-    if (serviceUrl == null) return;
+    if (serviceUrl == null)
+      return;
 
     if (userId == null) {
       try {
@@ -219,9 +218,6 @@ public class TCPReporter extends Reporter {
     }
 
     if (userId != null) {
-      // ---------------
-      // reportActivity();
-      // ---------------
       currentSessionId = null;
     }
   }
@@ -239,15 +235,19 @@ public class TCPReporter extends Reporter {
       bean.setParam(TCPReportBean.KEY, sessionKey);
       bean.setParam(TCPReportBean.CONTEXT, sessionContext);
       bean = transaction(bean);
-      if (bean != null) currentSessionId = bean.getParam(TCPReportBean.SESSION);
-      if (currentSessionId == null) stopReporting();
+      if (bean != null)
+        currentSessionId = bean.getParam(TCPReportBean.SESSION);
+      if (currentSessionId == null)
+        stopReporting();
     }
   }
 
   protected void reportActivity() {
     if (lastActivity != null) {
-      if (!lastActivity.closed) lastActivity.closeActivity();
-      if (currentSessionId == null) createDBSession();
+      if (!lastActivity.closed)
+        lastActivity.closeActivity();
+      if (currentSessionId == null)
+        createDBSession();
       if (currentSessionId != null) {
         TCPReportBean bean = new TCPReportBean(TCPReportBean.ADD_ACTIVITY);
         bean.setParam(TCPReportBean.SESSION, currentSessionId);
@@ -256,11 +256,11 @@ public class TCPReporter extends Reporter {
         tasks.add(bean);
       }
     }
-    if (currentSession != null
-        && currentSession.currentSequence != null
+    if (currentSession != null && currentSession.currentSequence != null
         && currentSession.currentSequence.currentActivity != lastActivity) {
       lastActivity = currentSession.currentSequence.currentActivity;
-    } else lastActivity = null;
+    } else
+      lastActivity = null;
   }
 
   @Override
@@ -268,22 +268,26 @@ public class TCPReporter extends Reporter {
     if (dbProperties == null) {
       dbProperties = new HashMap<String, String>();
       TCPReportBean bean = transaction(new TCPReportBean(TCPReportBean.GET_PROPERTIES));
-      if (bean == null) return defaultValue;
+      if (bean == null)
+        return defaultValue;
       dbProperties.putAll(bean.getParams());
     }
     String result = (String) dbProperties.get(key);
-    if (result == null) result = defaultValue;
+    if (result == null)
+      result = defaultValue;
     return result;
   }
 
   @Override
   public List<GroupData> getGroups() throws Exception {
     TCPReportBean bean = transaction(TCPReportBean.GET_GROUPS, null);
-    if (bean == null) return new ArrayList<GroupData>();
+    if (bean == null)
+      return new ArrayList<GroupData>();
     Domable[] data = bean.getData();
     ArrayList<GroupData> result = new ArrayList<GroupData>(data.length);
-    // result.addAll(Arrays.asList(data));
-    for (Domable d : data) if (d instanceof GroupData) result.add((GroupData) d);
+    for (Domable d : data)
+      if (d instanceof GroupData)
+        result.add((GroupData) d);
     return result;
   }
 
@@ -292,11 +296,13 @@ public class TCPReporter extends Reporter {
     TCPReportBean bean = new TCPReportBean(TCPReportBean.GET_USERS);
     bean.setParam(TCPReportBean.GROUP, groupId);
     bean = transaction(bean);
-    if (bean == null) return new ArrayList<UserData>();
+    if (bean == null)
+      return new ArrayList<UserData>();
     Domable[] data = bean.getData();
     ArrayList<UserData> result = new ArrayList<UserData>(data.length);
-    // result.addAll(Arrays.asList(data));
-    for (Domable d : data) if (d instanceof UserData) result.add((UserData) d);
+    for (Domable d : data)
+      if (d instanceof UserData)
+        result.add((UserData) d);
     return result;
   }
 
@@ -305,7 +311,8 @@ public class TCPReporter extends Reporter {
     UserData result = null;
     TCPReportBean bean = new TCPReportBean(TCPReportBean.GET_USER_DATA);
     bean.setParam(TCPReportBean.USER, userId);
-    if ((bean = transaction(bean)) != null) result = (UserData) bean.getSingleData();
+    if ((bean = transaction(bean)) != null)
+      result = (UserData) bean.getSingleData();
     return result;
   }
 
@@ -314,7 +321,8 @@ public class TCPReporter extends Reporter {
     GroupData result = null;
     TCPReportBean bean = new TCPReportBean(TCPReportBean.GET_GROUP_DATA);
     bean.setParam(TCPReportBean.GROUP, groupId);
-    if ((bean = transaction(bean)) != null) result = (GroupData) bean.getSingleData();
+    if ((bean = transaction(bean)) != null)
+      result = (GroupData) bean.getSingleData();
     return result;
   }
 
@@ -323,7 +331,8 @@ public class TCPReporter extends Reporter {
     String result = null;
     TCPReportBean bean = new TCPReportBean(TCPReportBean.NEW_GROUP);
     bean.setData(gd);
-    if ((bean = transaction(bean)) != null) result = (String) bean.getParam(TCPReportBean.GROUP);
+    if ((bean = transaction(bean)) != null)
+      result = (String) bean.getParam(TCPReportBean.GROUP);
     return result;
   }
 
@@ -332,7 +341,8 @@ public class TCPReporter extends Reporter {
     String result = null;
     TCPReportBean bean = new TCPReportBean(TCPReportBean.NEW_USER);
     bean.setData(ud);
-    if ((bean = transaction(bean)) != null) result = (String) bean.getParam(TCPReportBean.USER);
+    if ((bean = transaction(bean)) != null)
+      result = (String) bean.getParam(TCPReportBean.USER);
     return result;
   }
 

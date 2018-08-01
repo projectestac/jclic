@@ -31,11 +31,12 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * This class defines a specific point into a JClic sequence of activities: what activity must run
- * at this point, what to do or where to jump when the activity finishes, the behavior of the "next"
- * and "prev" buttons, etc. It can also have a "tag", used to refer to this point of the sequence
- * with a unique name. <CODE>ActivitySequenceElements</CODE> are always stored into {@link
- * edu.xtec.jclic.bags.ActivitySequence} objects.
+ * This class defines a specific point into a JClic sequence of activities: what
+ * activity must run at this point, what to do or where to jump when the
+ * activity finishes, the behavior of the "next" and "prev" buttons, etc. It can
+ * also have a "tag", used to refer to this point of the sequence with a unique
+ * name. <CODE>ActivitySequenceElements</CODE> are always stored into
+ * {@link edu.xtec.jclic.bags.ActivitySequence} objects.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10
@@ -74,33 +75,31 @@ public class ActivitySequenceElement extends Object implements Editable, Domable
     this.navButtons = navButtons;
   }
 
-  public static final String ELEMENT_NAME = "item",
-      NAME = "name",
-      ID = "id",
-      DESCRIPTION = "description",
-      DELAY = "delay",
-      FORWARD = "forward",
-      BACK = "back",
-      NAV_BUTTONS = "navButtons";
+  public static final String ELEMENT_NAME = "item", NAME = "name", ID = "id", DESCRIPTION = "description",
+      DELAY = "delay", FORWARD = "forward", BACK = "back", NAV_BUTTONS = "navButtons";
   public static final int NAV_NONE = 0, NAV_FWD = 1, NAV_BACK = 2, NAV_BOTH = 3;
-  public static final String[] NAV_BUTTONS_TAG = {"none", "fwd", "back", "both"};
+  public static final String[] NAV_BUTTONS_TAG = { "none", "fwd", "back", "both" };
 
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
     if (tag != null) {
       e.setAttribute(ID, tag);
-      if (description != null) JDomUtility.addParagraphs(e, DESCRIPTION, description);
+      if (description != null)
+        JDomUtility.addParagraphs(e, DESCRIPTION, description);
     }
     e.setAttribute(NAME, activityName);
-    if (delay != 0) e.setAttribute(DELAY, Integer.toString(delay));
-    if (fwdJump != null) e.addContent(fwdJump.getJDomElement(FORWARD));
-    if (backJump != null) e.addContent(backJump.getJDomElement(BACK));
-    if (navButtons != NAV_BOTH) e.setAttribute(NAV_BUTTONS, NAV_BUTTONS_TAG[navButtons]);
+    if (delay != 0)
+      e.setAttribute(DELAY, Integer.toString(delay));
+    if (fwdJump != null)
+      e.addContent(fwdJump.getJDomElement(FORWARD));
+    if (backJump != null)
+      e.addContent(backJump.getJDomElement(BACK));
+    if (navButtons != NAV_BOTH)
+      e.setAttribute(NAV_BUTTONS, NAV_BUTTONS_TAG[navButtons]);
     return e;
   }
 
-  public static ActivitySequenceElement getActivitySequenceElement(org.jdom.Element e)
-      throws Exception {
+  public static ActivitySequenceElement getActivitySequenceElement(org.jdom.Element e) throws Exception {
 
     JDomUtility.checkName(e, ELEMENT_NAME);
     ActivitySequenceElement ase = new ActivitySequenceElement("", 0, NAV_BOTH);
@@ -121,8 +120,10 @@ public class ActivitySequenceElement extends Object implements Editable, Domable
       child = (org.jdom.Element) it.next();
       String id = child.getAttributeValue(ActivitySequenceJump.ID);
       ActivitySequenceJump asj = ActivitySequenceJump.getActivitySequenceJump(child);
-      if (FORWARD.equals(id)) fwdJump = asj;
-      else if (BACK.equals(id)) backJump = asj;
+      if (FORWARD.equals(id))
+        fwdJump = asj;
+      else if (BACK.equals(id))
+        backJump = asj;
     }
     navButtons = JDomUtility.getStrIndexAttr(e, NAV_BUTTONS, NAV_BUTTONS_TAG, NAV_BOTH);
   }
@@ -156,8 +157,10 @@ public class ActivitySequenceElement extends Object implements Editable, Domable
       map.put(activityName, Constants.ACTIVITY_OBJECT);
     if (tag != null && (type == null || type.equals(Constants.SEQUENCE_OBJECT)))
       map.put(tag, Constants.SEQUENCE_OBJECT);
-    if (backJump != null) backJump.listReferences(type, map);
-    if (fwdJump != null) fwdJump.listReferences(type, map);
+    if (backJump != null)
+      backJump.listReferences(type, map);
+    if (fwdJump != null)
+      fwdJump.listReferences(type, map);
   }
 
   public Editor getEditor(Editor parent) {
@@ -167,8 +170,10 @@ public class ActivitySequenceElement extends Object implements Editable, Domable
   @Override
   public Object clone() throws CloneNotSupportedException {
     ActivitySequenceElement result = (ActivitySequenceElement) super.clone();
-    if (fwdJump != null) result.fwdJump = (ActivitySequenceJump) fwdJump.clone();
-    if (backJump != null) result.backJump = (ActivitySequenceJump) backJump.clone();
+    if (fwdJump != null)
+      result.fwdJump = (ActivitySequenceJump) fwdJump.clone();
+    if (backJump != null)
+      result.backJump = (ActivitySequenceJump) backJump.clone();
     return result;
   }
 }

@@ -46,8 +46,10 @@ public class ByteDataSource extends javax.media.protocol.PullDataSource {
   public ByteDataSource(InputStream is, String name) throws IOException {
     super();
     this.pss = new ByteSourceStream[1];
-    if (is instanceof ExtendedByteArrayInputStream) init((ExtendedByteArrayInputStream) is);
-    else init(new ExtendedByteArrayInputStream(StreamIO.readInputStream(is), name));
+    if (is instanceof ExtendedByteArrayInputStream)
+      init((ExtendedByteArrayInputStream) is);
+    else
+      init(new ExtendedByteArrayInputStream(StreamIO.readInputStream(is), name));
   }
 
   public ByteDataSource(byte[] src, String name) throws IOException {
@@ -75,8 +77,10 @@ public class ByteDataSource extends javax.media.protocol.PullDataSource {
   }
 
   public ExtendedByteArrayInputStream getInputStream() {
-    if (pss[0] != null) return pss[0].inputStream;
-    else return null;
+    if (pss[0] != null)
+      return pss[0].inputStream;
+    else
+      return null;
   }
 
   public String getFName() {
@@ -91,17 +95,21 @@ public class ByteDataSource extends javax.media.protocol.PullDataSource {
     return null;
   }
 
-  public void connect() throws IOException {}
+  public void connect() throws IOException {
+  }
 
-  public void disconnect() {}
+  public void disconnect() {
+  }
 
-  public void start() throws IOException {}
+  public void start() throws IOException {
+  }
 
   public javax.media.Time getDuration() {
     return javax.media.Duration.DURATION_UNKNOWN;
   }
 
-  public void stop() throws IOException {}
+  public void stop() throws IOException {
+  }
 
   public java.lang.Object getControl(java.lang.String str) {
     return null;
@@ -120,11 +128,9 @@ public class ByteDataSource extends javax.media.protocol.PullDataSource {
   static {
     try {
       Class<?> cl = null;
-      // 03-Apr-2008: Perform a previous check of the class as resource in order to avoid
-      // uncatchable exceptions in applets
       if (ByteDataSource.class.getResource("/com/sun/media/MimeManager.class") != null
           && (cl = Class.forName("com.sun.media.MimeManager")) != null) {
-        getMimeTypeMethod = cl.getMethod("getMimeType", new Class[] {String.class});
+        getMimeTypeMethod = cl.getMethod("getMimeType", new Class[] { String.class });
       }
     } catch (Exception ex) {
       // no com.sun classes available!
@@ -136,10 +142,9 @@ public class ByteDataSource extends javax.media.protocol.PullDataSource {
     if (fName != null) {
       int p = fName.lastIndexOf('.') + 1;
       String ext = (p > 0 && p < fName.length() ? fName.substring(p) : fName).toLowerCase();
-      // mimeType=com.sun.media.MimeManager.getMimeType(ext);
       if (getMimeTypeMethod != null) {
         try {
-          mimeType = (String) getMimeTypeMethod.invoke(null, new Object[] {ext});
+          mimeType = (String) getMimeTypeMethod.invoke(null, new Object[] { ext });
         } catch (Exception ex) {
           //
         }
@@ -153,14 +158,12 @@ public class ByteDataSource extends javax.media.protocol.PullDataSource {
         javax.media.protocol.ContentDescriptor.mimeTypeToPackageName(mimeType));
   }
 
-  class ByteSourceStream
-      implements javax.media.protocol.PullSourceStream, javax.media.protocol.Seekable {
+  class ByteSourceStream implements javax.media.protocol.PullSourceStream, javax.media.protocol.Seekable {
 
     protected ExtendedByteArrayInputStream inputStream;
     javax.media.protocol.ContentDescriptor contentType;
 
-    public ByteSourceStream(
-        ExtendedByteArrayInputStream in, javax.media.protocol.ContentDescriptor type)
+    public ByteSourceStream(ExtendedByteArrayInputStream in, javax.media.protocol.ContentDescriptor type)
         throws IOException {
       inputStream = in;
       contentType = type;

@@ -48,10 +48,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 /**
- * This class implements the basic operations related with the process of the results obtained by
- * users playing JClic activities. These operations include users identification, compilation of
- * data coming from the activities, storage of this data for a posterior use and presentation of
- * summarized results.
+ * This class implements the basic operations related with the process of the
+ * results obtained by users playing JClic activities. These operations include
+ * users identification, compilation of data coming from the activities, storage
+ * of this data for a posterior use and presentation of summarized results.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10
@@ -67,19 +67,18 @@ public class Reporter extends Object {
   Date started;
   List<SessionReg> sessions;
   SessionReg currentSession;
-  /** <I>true</I> if the system was successfully initiated, <I>false</I> otherwise */
+  /**
+   * <I>true</I> if the system was successfully initiated, <I>false</I> otherwise
+   */
   public boolean initiated;
   /**
-   * <I>true</I> when the system is connected to a database with user's data. When <I>false</I>, a
-   * generic user id will be used.
+   * <I>true</I> when the system is connected to a database with user's data. When
+   * <I>false</I>, a generic user id will be used.
    */
   protected Boolean bUserBased;
 
-  public static final String ALLOW_CREATE_GROUPS = "ALLOW_CREATE_GROUPS",
-      ALLOW_CREATE_USERS = "ALLOW_CREATE_USERS",
-      SHOW_GROUP_LIST = "SHOW_GROUP_LIST",
-      SHOW_USER_LIST = "SHOW_USER_LIST",
-      USER_TABLES = "USER_TABLES",
+  public static final String ALLOW_CREATE_GROUPS = "ALLOW_CREATE_GROUPS", ALLOW_CREATE_USERS = "ALLOW_CREATE_USERS",
+      SHOW_GROUP_LIST = "SHOW_GROUP_LIST", SHOW_USER_LIST = "SHOW_USER_LIST", USER_TABLES = "USER_TABLES",
       TIME_LAP = "TIME_LAP";
 
   /** Creates new Reporter */
@@ -92,9 +91,10 @@ public class Reporter extends Object {
   /**
    * Method use to retrieve specific properties of the reports system
    *
-   * @param key Property key
+   * @param key          Property key
    * @param defaultValue Default value for this key
-   * @throws Exception Throwed when the system was unable to read the specified property
+   * @throws Exception Throwed when the system was unable to read the specified
+   *                   property
    * @return The value related to this property
    */
   public String getProperty(String key, String defaultValue) throws Exception {
@@ -131,28 +131,32 @@ public class Reporter extends Object {
   }
 
   public boolean userBased() throws Exception {
-    if (bUserBased == null) bUserBased = getBooleanProperty(USER_TABLES, true);
+    if (bUserBased == null)
+      bUserBased = getBooleanProperty(USER_TABLES, true);
     return bUserBased.booleanValue();
   }
 
   protected GroupData promptForNewGroup(Component parent, Messages msg) throws Exception {
     JTextField gName = new JTextField(20);
     JTextField gId = new JTextField(20);
-    JComponent[] jc = new JComponent[] {gName, gId};
-    String[] ps = new String[] {"report_name_prompt", "report_id_prompt"};
+    JComponent[] jc = new JComponent[] { gName, gId };
+    String[] ps = new String[] { "report_name_prompt", "report_id_prompt" };
     String name;
     String id;
     GroupData result = null;
     while (result == null) {
-      boolean dlgResult =
-          msg.showInputDlg(
-              parent, new String[] {"report_new_group_data"}, ps, jc, "report_new_group");
-      if (!dlgResult) return null;
+      boolean dlgResult = msg.showInputDlg(parent, new String[] { "report_new_group_data" }, ps, jc,
+          "report_new_group");
+      if (!dlgResult)
+        return null;
       name = StrUtils.nullableString(gName.getText());
       id = StrUtils.nullableString(gId.getText());
-      if (id == null) msg.showAlert(parent, "report_err_bad_id");
-      else if (getGroupData(id) != null) msg.showAlert(parent, "report_err_duplicate_id");
-      else if (name == null) msg.showAlert(parent, "report_err_bad_name");
+      if (id == null)
+        msg.showAlert(parent, "report_err_bad_id");
+      else if (getGroupData(id) != null)
+        msg.showAlert(parent, "report_err_duplicate_id");
+      else if (name == null)
+        msg.showAlert(parent, "report_err_bad_name");
       else {
         result = new GroupData(id, name, null, null);
         result.setId(newGroup(result));
@@ -161,29 +165,27 @@ public class Reporter extends Object {
     return result;
   }
 
-  protected UserData promptForNewUser(Component parent, Messages msg, String groupId)
-      throws Exception {
+  protected UserData promptForNewUser(Component parent, Messages msg, String groupId) throws Exception {
 
     if (groupId == null) {
       groupId = promptGroupId(parent, msg);
-      if (groupId == null) return null;
+      if (groupId == null)
+        return null;
     }
     JTextField gName = new JTextField(20);
     JTextField gId = new JTextField(20);
     JPasswordField pwf1 = new JPasswordField(Messages.MAX_PASSWORD_LENGTH);
     JPasswordField pwf2 = new JPasswordField(Messages.MAX_PASSWORD_LENGTH);
-    JComponent[] jc = new JComponent[] {gName, gId, pwf1, pwf2};
-    String[] ps =
-        new String[] {
-          "report_name_prompt", "report_id_prompt", "report_pw_prompt", "report_pw_prompt_confirm"
-        };
+    JComponent[] jc = new JComponent[] { gName, gId, pwf1, pwf2 };
+    String[] ps = new String[] { "report_name_prompt", "report_id_prompt", "report_pw_prompt",
+        "report_pw_prompt_confirm" };
     String name;
     String id;
     String pw;
     UserData result = null;
     while (result == null) {
-      if (!msg.showInputDlg(
-          parent, new String[] {"report_new_user_data"}, ps, jc, "report_new_user")) return null;
+      if (!msg.showInputDlg(parent, new String[] { "report_new_user_data" }, ps, jc, "report_new_user"))
+        return null;
 
       name = StrUtils.nullableString(gName.getText());
       id = StrUtils.nullableString(gId.getText());
@@ -193,10 +195,14 @@ public class Reporter extends Object {
         pwOk = pw.equals(StrUtils.nullableString(String.copyValueOf(pwf2.getPassword())));
         pw = Encryption.Encrypt(pw);
       }
-      if (!pwOk) msg.showAlert(parent, "report_err_bad_pwd");
-      else if (id == null) msg.showAlert(parent, "report_err_bad_id");
-      else if (getUserData(id) != null) msg.showAlert(parent, "report_err_duplicate_id");
-      else if (name == null) msg.showAlert(parent, "report_err_bad_name");
+      if (!pwOk)
+        msg.showAlert(parent, "report_err_bad_pwd");
+      else if (id == null)
+        msg.showAlert(parent, "report_err_bad_id");
+      else if (getUserData(id) != null)
+        msg.showAlert(parent, "report_err_duplicate_id");
+      else if (name == null)
+        msg.showAlert(parent, "report_err_bad_name");
       else {
         result = new UserData(id, name, null, pw, groupId);
         result.setId(newUser(result));
@@ -210,7 +216,8 @@ public class Reporter extends Object {
     if (getGroups().isEmpty()) {
       String s = msg.get("report_generic_group_name");
       newGroup(new GroupData(s, s, null, null));
-      if (getGroups().isEmpty()) return groupId;
+      if (getGroups().isEmpty())
+        return groupId;
     }
     final List<GroupData> vg = getGroups();
     final JList<Object> list = new JList<Object>();
@@ -221,31 +228,29 @@ public class Reporter extends Object {
     JComponent[] jc;
     if (getBooleanProperty(ALLOW_CREATE_GROUPS, false)) {
       JButton btn = new JButton(msg.get("report_new_group"));
-      btn.addActionListener(
-          new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-              Component cmp = null;
-              if (evt.getSource() != null && evt.getSource() instanceof Component)
-                cmp = (Component) evt.getSource();
-              try {
-                GroupData gd = promptForNewGroup(cmp, msg);
-                if (gd != null) {
-                  vg.add(gd);
-                  list.setListData(vg.toArray());
-                  list.setSelectedValue(gd, true);
-                }
-              } catch (Exception ex) {
-                msg.showErrorWarning(cmp, "report_err_creating_group", ex);
-              }
+      btn.addActionListener(new ActionListener() {
+        public void actionPerformed(ActionEvent evt) {
+          Component cmp = null;
+          if (evt.getSource() != null && evt.getSource() instanceof Component)
+            cmp = (Component) evt.getSource();
+          try {
+            GroupData gd = promptForNewGroup(cmp, msg);
+            if (gd != null) {
+              vg.add(gd);
+              list.setListData(vg.toArray());
+              list.setSelectedValue(gd, true);
             }
-          });
-      jc = new JComponent[] {listScroll, btn};
+          } catch (Exception ex) {
+            msg.showErrorWarning(cmp, "report_err_creating_group", ex);
+          }
+        }
+      });
+      jc = new JComponent[] { listScroll, btn };
     } else {
-      jc = new JComponent[] {listScroll};
+      jc = new JComponent[] { listScroll };
     }
 
-    if (msg.showInputDlg(
-        parent, new String[] {"report_grouplist_title"}, null, jc, "report_ident_user")) {
+    if (msg.showInputDlg(parent, new String[] { "report_grouplist_title" }, null, jc, "report_ident_user")) {
       GroupData gd = (GroupData) list.getSelectedValue();
       if (gd != null) {
         groupId = gd.getId();
@@ -255,7 +260,8 @@ public class Reporter extends Object {
   }
 
   public String promptUserId(Component parent, final Messages msg) throws Exception {
-    if (!userBased()) throw new Exception("No users defined in the database!");
+    if (!userBased())
+      throw new Exception("No users defined in the database!");
 
     boolean cancel = false;
     int tries = 0;
@@ -265,104 +271,89 @@ public class Reporter extends Object {
         String gi = null;
         if (getBooleanProperty(SHOW_GROUP_LIST, true)) {
           gi = promptGroupId(parent, msg);
-          if (gi == null) return null;
+          if (gi == null)
+            return null;
         }
         final String groupId = gi;
         final List<UserData> v = getUsers(groupId);
         boolean allow_create_users = getBooleanProperty(ALLOW_CREATE_USERS, false);
         if (v.isEmpty() && !allow_create_users) {
-          msg.showErrorWarning(
-              parent,
-              groupId == null ? "report_err_no_users" : "report_err_no_users_in_group",
-              null);
+          msg.showErrorWarning(parent, groupId == null ? "report_err_no_users" : "report_err_no_users_in_group", null);
           break;
         }
         final JList<Object> list = new JList<Object>();
         list.setCellRenderer(new CompoundListCellRenderer());
         list.setListData(v.toArray());
-        if (!v.isEmpty()) list.setSelectedValue(v.get(0), false);
+        if (!v.isEmpty())
+          list.setSelectedValue(v.get(0), false);
         JScrollPane listScroll = new JScrollPane(list);
         JComponent[] jc;
         if (allow_create_users) {
           JButton btn = new JButton(msg.get("report_new_user"));
           btn.setToolTipText(msg.get("report_new_user_tooltip"));
-          btn.addActionListener(
-              new ActionListener() {
-                public void actionPerformed(ActionEvent evt) {
-                  Component cmp = null;
-                  if (evt.getSource() != null && evt.getSource() instanceof Component)
-                    cmp = (Component) evt.getSource();
-                  try {
-                    UserData ud = promptForNewUser(cmp, msg, groupId);
-                    if (ud != null) {
-                      v.add(ud);
-                      list.setListData(v.toArray());
-                      list.setSelectedValue(ud, true);
-                    }
-                  } catch (Exception ex) {
-                    msg.showErrorWarning(cmp, "report_err_creating_user", ex);
-                  }
+          btn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+              Component cmp = null;
+              if (evt.getSource() != null && evt.getSource() instanceof Component)
+                cmp = (Component) evt.getSource();
+              try {
+                UserData ud = promptForNewUser(cmp, msg, groupId);
+                if (ud != null) {
+                  v.add(ud);
+                  list.setListData(v.toArray());
+                  list.setSelectedValue(ud, true);
                 }
-              });
-          jc = new JComponent[] {listScroll, btn};
+              } catch (Exception ex) {
+                msg.showErrorWarning(cmp, "report_err_creating_user", ex);
+              }
+            }
+          });
+          jc = new JComponent[] { listScroll, btn };
         } else {
-          jc = new JComponent[] {listScroll};
+          jc = new JComponent[] { listScroll };
         }
 
-        if (!msg.showInputDlg(
-            parent, new String[] {"report_userlist_title"}, null, jc, "report_ident_user")) break;
+        if (!msg.showInputDlg(parent, new String[] { "report_userlist_title" }, null, jc, "report_ident_user"))
+          break;
 
         UserData ud = (UserData) list.getSelectedValue();
-        if (ud == null) break;
+        if (ud == null)
+          break;
 
         if (ud.pwd != null && ud.pwd.length() > 0) {
           String pwd = Encryption.Decrypt(ud.pwd);
-          String inputPwd =
-              msg.showInputDlg(
-                  parent,
-                  "report_user_has_pwd",
-                  "report_pw_prompt",
-                  null,
-                  "report_ident_user",
-                  true);
+          String inputPwd = msg.showInputDlg(parent, "report_user_has_pwd", "report_pw_prompt", null,
+              "report_ident_user", true);
 
-          // 22-mai-06: Modified to avoid null password entries
-          // Old version:
-          /*
-          if(inputPwd==null)
-              break;
-          else if(inputPwd.equals(pwd))
-              userId=ud.getId();
+          if (pwd.equals(inputPwd))
+            userId = ud.getId();
           else
-              msg.showErrorWarning(parent, "report_err_invalid_user", null);
-           */
-          // New version:
-          if (pwd.equals(inputPwd)) userId = ud.getId();
-          else msg.showErrorWarning(parent, "report_err_invalid_user", null);
-        } else userId = ud.getId();
+            msg.showErrorWarning(parent, "report_err_invalid_user", null);
+        } else
+          userId = ud.getId();
       } else {
         JTextField textField = new JTextField();
         JPasswordField pwdField = new JPasswordField(Messages.MAX_PASSWORD_LENGTH);
-        if (!msg.showInputDlg(
-            parent,
-            new String[] {"report_select_user"},
-            new String[] {"report_id_prompt", "report_pw_prompt"},
-            new JComponent[] {textField, pwdField},
-            "report_ident_user")) break;
+        if (!msg.showInputDlg(parent, new String[] { "report_select_user" },
+            new String[] { "report_id_prompt", "report_pw_prompt" }, new JComponent[] { textField, pwdField },
+            "report_ident_user"))
+          break;
 
         String s = StrUtils.nullableString(textField.getText());
-        if (s == null) break;
+        if (s == null)
+          break;
         UserData ud = getUserData(s);
 
         boolean userOk = false;
         if (ud != null) {
           String uPwd = StrUtils.nullableString(ud.pwd);
-          if (uPwd == null
-              || Encryption.Decrypt(uPwd).equals(String.copyValueOf(pwdField.getPassword())))
+          if (uPwd == null || Encryption.Decrypt(uPwd).equals(String.copyValueOf(pwdField.getPassword())))
             userOk = true;
         }
-        if (!userOk) msg.showErrorWarning(parent, "report_err_invalid_user", null);
-        else userId = ud == null ? "" : ud.getId();
+        if (!userOk)
+          msg.showErrorWarning(parent, "report_err_invalid_user", null);
+        else
+          userId = ud == null ? "" : ud.getId();
       }
     }
     return userId;
@@ -375,12 +366,10 @@ public class Reporter extends Object {
 
     tb = new Html(3000);
     tb.doubleCell(msg.get(prefix + "started"), true, msg.getShortDateTimeStr(started), false);
-    tb.doubleCell(
-        msg.get(prefix + "system"),
-        true,
-        description == null ? msg.get(prefix + "system_standard") : description,
-        false);
-    if (userId != null) tb.doubleCell(msg.get(prefix + "user"), true, userId, false);
+    tb.doubleCell(msg.get(prefix + "system"), true,
+        description == null ? msg.get(prefix + "system_standard") : description, false);
+    if (userId != null)
+      tb.doubleCell(msg.get(prefix + "user"), true, userId, false);
 
     int numSessions = 0;
     int numSequences = 0;
@@ -415,14 +404,10 @@ public class Reporter extends Object {
       tb.doubleCell(msg.get(prefix + "num_sequences"), true, msg.getNumber(numSequences), false);
       tb.doubleCell(msg.get(prefix + "num_activities"), true, msg.getNumber(nActivities), false);
       if (nActivities > 0) {
-        tb.doubleCell(
-            msg.get(prefix + "num_activities_solved"),
-            true,
-            msg.getNumber(nActSolved) + " (" + msg.getPercent(nActSolved * 100 / nActivities) + ")",
-            false);
+        tb.doubleCell(msg.get(prefix + "num_activities_solved"), true,
+            msg.getNumber(nActSolved) + " (" + msg.getPercent(nActSolved * 100 / nActivities) + ")", false);
         if (nActScore > 0)
-          tb.doubleCell(
-              msg.get(prefix + "global_score"), true, msg.getPercent(tScore / nActScore), false);
+          tb.doubleCell(msg.get(prefix + "global_score"), true, msg.getPercent(tScore / nActScore), false);
         tb.doubleCell(msg.get(prefix + "total_time"), true, msg.getHmsTime(tTime), false);
         tb.doubleCell(msg.get(prefix + "num_actions"), true, msg.getNumber(nActions), false);
       }
@@ -445,10 +430,7 @@ public class Reporter extends Object {
   }
 
   public static final String ELEMENT_NAME = "reporter";
-  public static final String USER_ID = "user",
-      KEY = "key",
-      CONTEXT = "context",
-      GROUP_CODE_FILTER = "groupCodeFilter",
+  public static final String USER_ID = "user", KEY = "key", CONTEXT = "context", GROUP_CODE_FILTER = "groupCodeFilter",
       USER_CODE_FILTER = "userCodeFilter";
 
   public void init(HashMap properties, Component parent, Messages msg) throws Exception {
@@ -460,25 +442,22 @@ public class Reporter extends Object {
     initiated = true;
   }
 
-  public static Reporter getReporter(HashMap properties, Component parent, Messages msg)
-      throws Exception {
+  public static Reporter getReporter(HashMap properties, Component parent, Messages msg) throws Exception {
     String className;
     if (properties == null)
       throw new IllegalArgumentException("Null properties passed to \"getReporter\"");
     if ((className = (String) properties.get(JDomUtility.CLASS)) == null)
-      throw new IllegalArgumentException(
-          "Properties passed to \"getReporter\" with null class name");
+      throw new IllegalArgumentException("Properties passed to \"getReporter\" with null class name");
     Class reporterClass = Class.forName(className);
     Reporter rep = (Reporter) reporterClass.newInstance();
     rep.init(properties, parent, msg);
     return rep;
   }
 
-  public static Reporter getReporter(
-      String className, String strProperties, Component parent, Messages msg) throws Exception {
+  public static Reporter getReporter(String className, String strProperties, Component parent, Messages msg)
+      throws Exception {
     if (className == null || className.length() == 0)
-      throw new IllegalArgumentException(
-          "Properties passed to \"getReporter\" with null class name");
+      throw new IllegalArgumentException("Properties passed to \"getReporter\" with null class name");
 
     if (className.indexOf('.') < 0) {
       className = "edu.xtec.jclic.report." + className;
@@ -503,7 +482,8 @@ public class Reporter extends Object {
   }
 
   public void endSequence() {
-    if (currentSession != null) currentSession.endSequence();
+    if (currentSession != null)
+      currentSession.endSequence();
   }
 
   public void endSession() {
@@ -526,19 +506,23 @@ public class Reporter extends Object {
   }
 
   public void newSequence(ActivitySequenceElement ase) {
-    if (currentSession != null) currentSession.newSequence(ase);
+    if (currentSession != null)
+      currentSession.newSequence(ase);
   }
 
   public void newActivity(Activity act) {
-    if (currentSession != null) currentSession.newActivity(act);
+    if (currentSession != null)
+      currentSession.newActivity(act);
   }
 
   public void endActivity(int score, int numActions, boolean solved) {
-    if (currentSession != null) currentSession.endActivity(score, numActions, solved);
+    if (currentSession != null)
+      currentSession.endActivity(score, numActions, solved);
   }
 
   public void newAction(String type, String source, String dest, boolean ok) {
-    if (currentSession != null) currentSession.newAction(type, source, dest, ok);
+    if (currentSession != null)
+      currentSession.newAction(type, source, dest, ok);
   }
 
   public edu.xtec.jclic.report.SequenceReg.Info getCurrentSequenceInfo() {

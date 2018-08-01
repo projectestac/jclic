@@ -53,12 +53,14 @@ public class EventSoundsElement extends Object implements Domable, Cloneable {
   public static final String ELEMENT_NAME = "sound", ID = "id", FILE = "file";
 
   public org.jdom.Element getJDomElement() {
-    if (id == null || (enabled == JDomUtility.DEFAULT && fileName == null)) return null;
+    if (id == null || (enabled == JDomUtility.DEFAULT && fileName == null))
+      return null;
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
     e.setAttribute(ID, id);
     if (enabled != JDomUtility.DEFAULT)
       e.setAttribute(EventSounds.ENABLED, JDomUtility.triStateString(enabled));
-    if (fileName != null) e.setAttribute(FILE, fileName);
+    if (fileName != null)
+      e.setAttribute(FILE, fileName);
     return e;
   }
 
@@ -77,7 +79,8 @@ public class EventSoundsElement extends Object implements Domable, Cloneable {
   }
 
   public void setFileName(String fName) {
-    if (player != null) player.close();
+    if (player != null)
+      player.close();
     fileName = fName;
   }
 
@@ -88,7 +91,8 @@ public class EventSoundsElement extends Object implements Domable, Cloneable {
   public void setEnabled(int v) {
     if (JDomUtility.checkTriState(v)) {
       enabled = v;
-      if (player != null) player.stop();
+      if (player != null)
+        player.stop();
     }
   }
 
@@ -113,7 +117,8 @@ public class EventSoundsElement extends Object implements Domable, Cloneable {
   }
 
   public void realize(Options options, MediaBag mediaBag) throws Exception {
-    if (player == null) buildPlayer(options);
+    if (player == null)
+      buildPlayer(options);
     player.realize(fileName, mediaBag);
   }
 
@@ -125,13 +130,13 @@ public class EventSoundsElement extends Object implements Domable, Cloneable {
   }
 
   public void play() {
-    if (player != null
-        && enabled != edu.xtec.util.JDomUtility.FALSE
-        && EventSounds.globalEnabled == true) player.play();
+    if (player != null && enabled != edu.xtec.util.JDomUtility.FALSE && EventSounds.globalEnabled == true)
+      player.play();
   }
 
   public void stop() {
-    if (player != null) player.stop();
+    if (player != null)
+      player.stop();
   }
 
   @Override

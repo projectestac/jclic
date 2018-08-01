@@ -49,28 +49,18 @@ public class ActReport extends Report {
 
     type = PRJ;
 
-    if (!super.init()) return false;
+    if (!super.init())
+      return false;
 
     projects = bridge.getProjList(null, dm.dFrom, dm.dTo, kcc);
 
-    // projectList=vToArray(
-    // bridge.getProjList(null, dm.dFrom, dm.dTo, kcc),
-    // null, null);
-
-    if ((projectName == null || projectName.length() == 0 || projectName.equals(WILDCARD))
-        && projects != null
+    if ((projectName == null || projectName.length() == 0 || projectName.equals(WILDCARD)) && projects != null
         && projects.size() > 0) {
       projectName = (String) projects.get(0);
       activityName = WILDCARD;
     }
 
     activities = bridge.getActList(projectName, dm.dFrom, dm.dTo, kcc);
-
-    /*
-    activityList=vToArray(
-    bridge.getActList(projectName, dm.dFrom, dm.dTo, kcc),
-    WILDCARD, "report_all_activities");
-     */
 
     sessionList = getSessionList();
 
@@ -84,26 +74,10 @@ public class ActReport extends Report {
     StringBuilder sb = new StringBuilder(3000);
 
     sb.append("<div class=\"inputForm\">\n");
-    zona(
-        sb,
-        "report_project",
-        PROJECT,
-        true,
-        opcioDefecte,
-        vectorToArray(projects, false),
-        projectName,
-        isEditable,
+    zona(sb, "report_project", PROJECT, true, opcioDefecte, vectorToArray(projects, false), projectName, isEditable,
         180);
-    zona(
-        sb,
-        "report_activity",
-        ACTIVITY,
-        true,
-        opcioDefecte,
-        vectorToArray(activities, false, WILDCARD, "report_all_activities"),
-        activityName,
-        isEditable,
-        180);
+    zona(sb, "report_activity", ACTIVITY, true, opcioDefecte,
+        vectorToArray(activities, false, WILDCARD, "report_all_activities"), activityName, isEditable, 180);
     sb.append("</div>\n");
 
     zonaParams(sb);

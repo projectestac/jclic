@@ -92,7 +92,8 @@ public abstract class StrUtils {
     List<String> v = new ArrayList<String>();
     while (st.hasMoreTokens()) {
       String s = st.nextToken().trim();
-      if (s.length() > 0) v.add(s);
+      if (s.length() > 0)
+        v.add(s);
     }
     return v;
   }
@@ -329,10 +330,7 @@ public abstract class StrUtils {
   }
 
   public static String safeHtml(String s) {
-    return StrUtils.secureString(s)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
+    return StrUtils.secureString(s).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
         .replaceAll("\"", "&quot;");
   }
 
@@ -340,7 +338,8 @@ public abstract class StrUtils {
     StringBuilder sb = new StringBuilder();
     ListIterator<String> it = items.listIterator();
 
-    while (it.hasNext()) StrUtils.addToEnum(sb, it.next(), ", ");
+    while (it.hasNext())
+      StrUtils.addToEnum(sb, it.next(), ", ");
 
     return sb.toString();
   }
@@ -354,7 +353,8 @@ public abstract class StrUtils {
   }
 
   public static StringBuilder addToEnum(StringBuilder sb, String txt, String sep) {
-    if (sb.length() > 0) sb.append(sep);
+    if (sb.length() > 0)
+      sb.append(sep);
     return sb.append(txt);
   }
 }

@@ -51,13 +51,15 @@ public class FilePCC extends PCCFileSystem {
     long fileSize = fe[entryNum].size;
     byte[] b = new byte[(int) fileSize];
     raf.seek(fe[entryNum].offset);
-    for (long k = 0; k < fileSize; ) k += raf.read(b, (int) k, (int) (fileSize - k));
+    for (long k = 0; k < fileSize;)
+      k += raf.read(b, (int) k, (int) (fileSize - k));
     return b;
   }
 
   @Override
   protected void changeBase(String newRoot, String newFileName) throws Exception {
-    if (raf != null) throw new Exception("Unable to change base fileName: FileSystem is open!");
+    if (raf != null)
+      throw new Exception("Unable to change base fileName: FileSystem is open!");
     super.changeBase(newRoot, newFileName);
     pccName = getCanonicalNameOf(newFileName);
   }

@@ -40,10 +40,7 @@ public class JDBCReporter extends Reporter {
   protected ActivityReg lastActivity;
   protected BasicJDBCBridge bridge;
 
-  public static final String DRIVER = "driver",
-      URL = "url",
-      SYSTEM_USER = "system_user",
-      SYSTEM_PWD = "system_pwd";
+  public static final String DRIVER = "driver", URL = "url", SYSTEM_USER = "system_user", SYSTEM_PWD = "system_pwd";
 
   /** Creates new ODBCReporter */
   public JDBCReporter() {
@@ -76,16 +73,14 @@ public class JDBCReporter extends Reporter {
       String system_user = (String) properties.get(SYSTEM_USER);
       String system_pwd = (String) properties.get(SYSTEM_PWD);
       String tablePrefix = (String) properties.get(BasicJDBCBridge.TABLE_PREFIX_KEY);
-      boolean createTables =
-          !"false".equalsIgnoreCase((String) properties.get(BasicJDBCBridge.CREATE_TABLES_KEY));
-      // ConnectionBeanProvider cbp=new SingleConnectionBeanProvider(driver, url, system_user,
-      // system_pwd, true);
-      ConnectionBeanProvider cbp =
-          ConnectionBeanProvider.getConnectionBeanProvider(
-              false, driver, url, system_user, system_pwd, true);
+      boolean createTables = !"false".equalsIgnoreCase((String) properties.get(BasicJDBCBridge.CREATE_TABLES_KEY));
+      ConnectionBeanProvider cbp = ConnectionBeanProvider.getConnectionBeanProvider(false, driver, url, system_user,
+          system_pwd, true);
       bridge = new BasicJDBCBridge(cbp, createTables, tablePrefix);
-      if (userId == null) userId = promptUserId(parent, msg);
-      if (userId == null) success = true;
+      if (userId == null)
+        userId = promptUserId(parent, msg);
+      if (userId == null)
+        success = true;
     } catch (Exception ex) {
       msg.showErrorWarning(parent, "report_err_init", description, ex, null);
     }
@@ -142,31 +137,28 @@ public class JDBCReporter extends Reporter {
   }
 
   protected void checkBridge() throws Exception {
-    if (bridge == null) throw new Exception("Not connected!");
+    if (bridge == null)
+      throw new Exception("Not connected!");
   }
 
   @Override
   public void newSession(JClicProject jcp, Component parent, Messages msg) {
     super.newSession(jcp, parent, msg);
 
-    if (bridge == null || userId == null) return;
+    if (bridge == null || userId == null)
+      return;
 
     reportActivity();
     currentSessionId = null;
   }
 
   public void createDBSession() {
-    if (bridge == null || userId == null) return;
+    if (bridge == null || userId == null)
+      return;
     try {
       actCount = 0;
-      currentSessionId =
-          bridge.addSession(
-              userId,
-              currentSession.timeMillis,
-              currentSession.projectName,
-              currentSession.code,
-              sessionKey,
-              sessionContext);
+      currentSessionId = bridge.addSession(userId, currentSession.timeMillis, currentSession.projectName,
+          currentSession.code, sessionKey, sessionContext);
     } catch (Exception ex) {
       currentSessionId = null;
       bridge.end();
@@ -178,23 +170,17 @@ public class JDBCReporter extends Reporter {
 
   protected void reportActivity() {
     if (lastActivity != null && bridge != null) {
-      if (!lastActivity.closed) lastActivity.closeActivity();
-      if (currentSessionId == null) createDBSession();
+      if (!lastActivity.closed)
+        lastActivity.closeActivity();
+      if (currentSessionId == null)
+        createDBSession();
       if (currentSessionId != null) {
         try {
           int actId;
           ActionReg ar;
-          actId =
-              bridge.addActivity(
-                  actCount++,
-                  currentSessionId,
-                  lastActivity.name,
-                  lastActivity.numActions,
-                  lastActivity.score,
-                  lastActivity.solved,
-                  lastActivity.getPrecision(),
-                  (int) (lastActivity.totalTime / 1000),
-                  lastActivity.code);
+          actId = bridge.addActivity(actCount++, currentSessionId, lastActivity.name, lastActivity.numActions,
+              lastActivity.score, lastActivity.solved, lastActivity.getPrecision(),
+              (int) (lastActivity.totalTime / 1000), lastActivity.code);
 
           for (int arc = 0; (ar = lastActivity.getActionReg(arc)) != null; arc++)
             bridge.addAction(actId, currentSessionId, arc, ar.type, ar.source, ar.dest, ar.isOk);
@@ -207,11 +193,11 @@ public class JDBCReporter extends Reporter {
         }
       }
     }
-    if (currentSession != null
-        && currentSession.currentSequence != null
+    if (currentSession != null && currentSession.currentSequence != null
         && currentSession.currentSequence.currentActivity != lastActivity) {
       lastActivity = currentSession.currentSequence.currentActivity;
-    } else lastActivity = null;
+    } else
+      lastActivity = null;
   }
 
   @Override

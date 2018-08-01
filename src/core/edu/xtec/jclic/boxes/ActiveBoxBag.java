@@ -25,12 +25,13 @@ import java.awt.geom.Point2D;
 import javax.swing.JComponent;
 
 /**
- * This class is a special case of {@link edu.xtec.jclic.boxes.BoxBag}, containing only {@link
- * edu.xtec.jclic.boxes.ActiveBox} objects. In addition to the members and methods of <CODE>BoxBag
- * </CODE>, it implements specific methods to deal with {@link
- * edu.xtec.jclic.boxes.ActiveBagContent} objects and with other specific members of {@link
- * edu.xtec.jclic.boxes.ActiveBox}, like its "ids" (<CODE>idOrder</CODE>, <CODE>idLoc</CODE> and
- * <CODE>idAss</CODE>).
+ * This class is a special case of {@link edu.xtec.jclic.boxes.BoxBag},
+ * containing only {@link edu.xtec.jclic.boxes.ActiveBox} objects. In addition
+ * to the members and methods of <CODE>BoxBag
+ * </CODE>, it implements specific methods to deal with
+ * {@link edu.xtec.jclic.boxes.ActiveBagContent} objects and with other specific
+ * members of {@link edu.xtec.jclic.boxes.ActiveBox}, like its "ids"
+ * (<CODE>idOrder</CODE>, <CODE>idLoc</CODE> and <CODE>idAss</CODE>).
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
@@ -64,18 +65,19 @@ public class ActiveBoxBag extends BoxBag implements Cloneable {
     setContent(abc, altAbc, 0, 0, getNumCells());
   }
 
-  public void setContent(
-      ActiveBagContent abc, ActiveBagContent altAbc, int fromIndex, int toCell, int numCells) {
+  public void setContent(ActiveBagContent abc, ActiveBagContent altAbc, int fromIndex, int toCell, int numCells) {
     ActiveBox bx;
     for (int i = 0; i < numCells; i++) {
       bx = getActiveBox(toCell + i);
       bx.setContent(abc, fromIndex + i);
       bx.setAlternative(false);
-      if (altAbc != null) bx.setAltContent(altAbc, fromIndex + i);
+      if (altAbc != null)
+        bx.setAltContent(altAbc, fromIndex + i);
     }
     if (abc.backgroundContent != null && (bx = getBackgroundActiveBox()) != null) {
       bx.setContent(abc.backgroundContent);
-      if (/*abc.bb!=null && */ abc.bb != bx.getBoxBaseX()) bx.setBoxBase(abc.bb);
+      if (/* abc.bb!=null && */ abc.bb != bx.getBoxBaseX())
+        bx.setBoxBase(abc.bb);
     }
   }
 
@@ -84,20 +86,25 @@ public class ActiveBoxBag extends BoxBag implements Cloneable {
   }
 
   public void clearAll() {
-    for (int i = 0; i < cells.size(); i++) getActiveBox(i).clear();
-    if (backgroundBox != null) getBackgroundActiveBox().clear();
+    for (int i = 0; i < cells.size(); i++)
+      getActiveBox(i).clear();
+    if (backgroundBox != null)
+      getBackgroundActiveBox().clear();
   }
 
   public int countCellsAtPlace() {
     int cellsAtPlace = 0;
-    for (int i = 0; i < cells.size(); i++) if (getActiveBox(i).isAtPlace()) cellsAtPlace++;
+    for (int i = 0; i < cells.size(); i++)
+      if (getActiveBox(i).isAtPlace())
+        cellsAtPlace++;
     return cellsAtPlace;
   }
 
   public ActiveBox getActiveBoxWithIdLoc(int idLoc) {
     ActiveBox bx;
     for (int i = 0; i < cells.size(); i++) {
-      if ((bx = getActiveBox(i)).idLoc == idLoc) return bx;
+      if ((bx = getActiveBox(i)).idLoc == idLoc)
+        return bx;
     }
     return null;
   }
@@ -109,7 +116,8 @@ public class ActiveBoxBag extends BoxBag implements Cloneable {
   public int countCellsAtEquivalentPlace(boolean checkCase) {
     int cellsAtPlace = 0;
     for (int i = 0; i < cells.size(); i++) {
-      if (cellIsAtEquivalentPlace(getActiveBox(i), checkCase)) cellsAtPlace++;
+      if (cellIsAtEquivalentPlace(getActiveBox(i), checkCase))
+        cellsAtPlace++;
     }
     return cellsAtPlace;
   }
@@ -117,7 +125,8 @@ public class ActiveBoxBag extends BoxBag implements Cloneable {
   public int countCellsWithIdAss(int idAss) {
     int n = 0;
     for (int i = 0; i < cells.size(); i++) {
-      if (getActiveBox(i).idAss == idAss) n++;
+      if (getActiveBox(i).idAss == idAss)
+        n++;
     }
     return n;
   }
@@ -126,13 +135,15 @@ public class ActiveBoxBag extends BoxBag implements Cloneable {
   public int countInactiveCells() {
     int n = 0;
     for (int i = 0; i < cells.size(); i++) {
-      if (getActiveBox(i).isInactive()) n++;
+      if (getActiveBox(i).isInactive())
+        n++;
     }
     return n;
   }
 
   public void setDefaultIdAss() {
-    for (int i = 0; i < cells.size(); i++) getActiveBox(i).setDefaultIdAss();
+    for (int i = 0; i < cells.size(); i++)
+      getActiveBox(i).setDefaultIdAss();
   }
 
   public void scrambleCells(int times, boolean fitInArea) {
@@ -200,10 +211,13 @@ public class ActiveBoxBag extends BoxBag implements Cloneable {
     int i;
     for (i = currentItem + 1; i < cells.size(); i++) {
       ActiveBox bx = (ActiveBox) cells.get(i);
-      if (bx == null) break;
+      if (bx == null)
+        break;
       if (idAssValid != NOT_USED) {
-        if (idAssValid == bx.idAss) break;
-      } else if (bx.idAss >= 0) break;
+        if (idAssValid == bx.idAss)
+          break;
+      } else if (bx.idAss >= 0)
+        break;
     }
     return i;
   }

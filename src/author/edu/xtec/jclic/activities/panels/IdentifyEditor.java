@@ -34,7 +34,8 @@ public class IdentifyEditor extends ActivityEditor {
   /** Creates a new instance of ExchangePuzzleEditor */
   public IdentifyEditor(Activity act) {
     super(act);
-    if (act instanceof Identify && act.abc[0] != null) act.abc[0].defaultIdValue = 0;
+    if (act instanceof Identify && act.abc[0] != null)
+      act.abc[0].defaultIdValue = 0;
   }
 
   @Override

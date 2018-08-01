@@ -59,8 +59,7 @@ public class LibraryManagerElement implements Domable {
     checkAttributes();
   }
 
-  public static LibraryManagerElement getLibraryManagerElement(org.jdom.Element e, Options options)
-      throws Exception {
+  public static LibraryManagerElement getLibraryManagerElement(org.jdom.Element e, Options options) throws Exception {
     LibraryManagerElement lme = new LibraryManagerElement(options);
     lme.setProperties(e, null);
     return lme;
@@ -84,8 +83,10 @@ public class LibraryManagerElement implements Domable {
     String base = "icons/database";
 
     if (exists) {
-      if (!editable) base = base + "_locked";
-    } else base = base + "_unavailable";
+      if (!editable)
+        base = base + "_locked";
+    } else
+      base = base + "_unavailable";
 
     return edu.xtec.util.ResourceManager.getImageIcon(base + ".gif");
   }
@@ -107,7 +108,8 @@ public class LibraryManagerElement implements Domable {
       } else {
         java.io.File file = new java.io.File(path);
         exists = file.exists() && !file.isDirectory() && file.canRead();
-        if (exists) editable = file.canWrite();
+        if (exists)
+          editable = file.canWrite();
       }
     }
   }

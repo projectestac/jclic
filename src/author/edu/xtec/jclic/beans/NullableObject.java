@@ -58,13 +58,10 @@ public class NullableObject extends JPanel implements ActionListener {
     setOpaque(false);
     nullValue = true;
 
-    // setOpaque(false);
-
     check = new JCheckBox();
     check.setPreferredSize(checkDim);
     check.setMinimumSize(checkDim);
     check.setFocusPainted(false);
-    // check.setOpaque(false);
     check.setSelected(false);
     add(check, java.awt.BorderLayout.WEST);
 
@@ -105,24 +102,30 @@ public class NullableObject extends JPanel implements ActionListener {
   @Override
   public void setToolTipText(String text) {
     super.setToolTipText(text);
-    if (button != null) button.setToolTipText(text);
-    if (check != null) check.setToolTipText(text);
+    if (button != null)
+      button.setToolTipText(text);
+    if (check != null)
+      check.setToolTipText(text);
   }
 
   @Override
   public void setEnabled(boolean enabled) {
     super.setEnabled(enabled);
-    if (button != null) button.setEnabled(enabled);
-    if (check != null) check.setEnabled(enabled);
+    if (button != null)
+      button.setEnabled(enabled);
+    if (check != null)
+      check.setEnabled(enabled);
   }
 
   @Override
   public void setName(String name) {
-    if (check != null) check.setText(name);
+    if (check != null)
+      check.setText(name);
   }
 
   public void setText(String text) {
-    if (check != null) check.setText(text);
+    if (check != null)
+      check.setText(text);
   }
 
   public void setOptions(Options options) {
@@ -143,7 +146,8 @@ public class NullableObject extends JPanel implements ActionListener {
 
   public void setObject(Object value) {
     nullValue = (value == null);
-    if (!nullValue) object = value;
+    if (!nullValue)
+      object = value;
     check.setSelected(!nullValue);
     button.repaint();
   }
@@ -169,7 +173,8 @@ public class NullableObject extends JPanel implements ActionListener {
       if (button.equals(ev.getSource())) {
         modified = true;
         Object o = editObject(object);
-        if (o != null) changeObject(o);
+        if (o != null)
+          changeObject(o);
       } else if (check.equals(ev.getSource())) {
         changeObject(check.isSelected() ? (object == null ? createObject() : object) : null);
         modified = true;

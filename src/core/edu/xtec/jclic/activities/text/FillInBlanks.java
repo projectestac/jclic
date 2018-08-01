@@ -36,7 +36,6 @@ import javax.swing.text.*;
  */
 public class FillInBlanks extends TextActivityBase {
 
-  // boolean evalOnTheFly;
   protected boolean autoJump;
   protected boolean forceOkToAdvance;
   protected Evaluator ev;
@@ -44,7 +43,6 @@ public class FillInBlanks extends TextActivityBase {
   /** Creates new FillInBlanks */
   public FillInBlanks(JClicProject project) {
     super(project);
-    // evalOnTheFly=true;
     autoJump = false;
     forceOkToAdvance = false;
     ev = new ComplexEvaluator(project);
@@ -55,7 +53,8 @@ public class FillInBlanks extends TextActivityBase {
   @Override
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = super.getJDomElement();
-    if (autoJump) e.setAttribute(AUTO_JUMP, JDomUtility.boolString(autoJump));
+    if (autoJump)
+      e.setAttribute(AUTO_JUMP, JDomUtility.boolString(autoJump));
     if (forceOkToAdvance)
       e.setAttribute(FORCE_OK_TO_ADVANCE, JDomUtility.boolString(forceOkToAdvance));
     e.addContent(ev.getJDomElement());
@@ -66,7 +65,6 @@ public class FillInBlanks extends TextActivityBase {
   public void setProperties(org.jdom.Element e, Object aux) throws Exception {
     super.setProperties(e, aux);
     ev = Evaluator.getEvaluator(e.getChild(Evaluator.ELEMENT_NAME), project);
-    // evalOnTheFly=!hasCheckButton;
     autoJump = JDomUtility.getBoolAttr(e, AUTO_JUMP, autoJump);
     forceOkToAdvance = JDomUtility.getBoolAttr(e, FORCE_OK_TO_ADVANCE, forceOkToAdvance);
   }
@@ -80,7 +78,7 @@ public class FillInBlanks extends TextActivityBase {
     hasCheckButton = !c3a.avCont;
     // evalOnTheFly=c3a.avCont;
     // if(evalOnTheFly)
-    //    hasCheckButton=false;
+    // hasCheckButton=false;
   }
 
   @Override
@@ -131,17 +129,12 @@ public class FillInBlanks extends TextActivityBase {
 
     @Override
     protected TextActivityPane buildPane() {
-      // FillInBlanksPane fp=new FillInBlanksPane(this);
       FillInBlanksPane fp = new FillInBlanksPane();
       fp.setActions();
       return fp;
     }
 
     class FillInBlanksPane extends TextActivityPane {
-
-      // public FillInBlanksPane(FillInBlanks.Panel fbp){
-      //    super(fbp);
-      // }
 
       protected FillInBlanksPane() {
         super(FillInBlanks.Panel.this);
@@ -151,7 +144,8 @@ public class FillInBlanks extends TextActivityBase {
       public boolean processMouse(MouseEvent e) {
         if (super.processMouse(e) && e.getID() == MouseEvent.MOUSE_PRESSED && playing && !locked) {
           int p = this.viewToModel(e.getPoint());
-          if (p >= 0) setCaretPos(p);
+          if (p >= 0)
+            setCaretPos(p);
         }
         return false;
       }
@@ -166,8 +160,7 @@ public class FillInBlanks extends TextActivityBase {
         playDoc.remove(offset, 1);
         tm.target.setModified(true);
         if (lastChar) {
-          playDoc.insertString(
-              tm.begOffset, tm.target.getFillString(1), playDoc.getFillAttributeSet());
+          playDoc.insertString(tm.begOffset, tm.target.getFillString(1), playDoc.getFillAttributeSet());
           getCaret().setDot(tm.begOffset);
         } else {
           tm.endOffset--;
@@ -187,27 +180,28 @@ public class FillInBlanks extends TextActivityBase {
 
       protected void insertChar(int offset, char ch) throws BadLocationException {
         TargetMarker tm = playDoc.tmb.getCurrentTarget();
-        if (tm == null || !tm.contains(offset, true) || ch < 0x20) return;
+        if (tm == null || !tm.contains(offset, true) || ch < 0x20)
+          return;
 
         int firstFill = getFirstFillChar(tm);
         if (firstFill >= 0) {
           playDoc.remove(firstFill, 1);
-          if (offset > firstFill) offset--;
+          if (offset > firstFill)
+            offset--;
         } else if (tm.getLength() >= tm.target.maxLenResp) {
           playEvent(EventSounds.ACTION_ERROR);
           return;
         }
 
-        playDoc.insertString(offset, new String(new char[] {ch}), playDoc.getTargetAttributeSet());
+        playDoc.insertString(offset, new String(new char[] { ch }), playDoc.getTargetAttributeSet());
         tm.target.setModified(true);
 
-        if (firstFill < 0) tm.endOffset++;
+        if (firstFill < 0)
+          tm.endOffset++;
         tm.setPositions();
         playDoc.tmb.updateOffsets();
 
-        // if(autoJump && tm.getLength()==tm.target.maxLenResp){
-        if (autoJump
-            && tm.getCurrentText(TextActivityDocument.FILL).length() >= tm.target.maxLenResp) {
+        if (autoJump && tm.getCurrentText(TextActivityDocument.FILL).length() >= tm.target.maxLenResp) {
           getCaret().setDot(goToTarget(playDoc.tmb.getNextTarget(tm), -1));
         } else {
           getCaret().setDot(offset + 1);
@@ -224,7 +218,8 @@ public class FillInBlanks extends TextActivityBase {
 
       protected int getFirstFillChar(TargetMarker tm) {
         for (int i = tm.begOffset; i < tm.endOffset; i++)
-          if (playDoc.checkBooleanAttribute(i, TextActivityDocument.FILL)) return i;
+          if (playDoc.checkBooleanAttribute(i, TextActivityDocument.FILL))
+            return i;
         return -1;
       }
 
@@ -233,179 +228,165 @@ public class FillInBlanks extends TextActivityBase {
       }
 
       // Actions
-      AbstractAction defaultKeyTypedAction =
-          new AbstractAction(DefaultEditorKit.defaultKeyTypedAction) {
-            public void actionPerformed(ActionEvent e) {
-              if (readyForActions()) {
-                String content = e.getActionCommand();
-                int mod = e.getModifiers();
-                if ((content != null)
-                    && (content.length() > 0)
-                    && ((mod & ActionEvent.ALT_MASK) == (mod & ActionEvent.CTRL_MASK))) {
-                  char c = content.charAt(0);
-                  if ((c >= 0x20) && (c != 0x7F)) {
-                    insertCharCatch(getCaret().getDot(), c);
-                  }
-                }
+      AbstractAction defaultKeyTypedAction = new AbstractAction(DefaultEditorKit.defaultKeyTypedAction) {
+        public void actionPerformed(ActionEvent e) {
+          if (readyForActions()) {
+            String content = e.getActionCommand();
+            int mod = e.getModifiers();
+            if ((content != null) && (content.length() > 0)
+                && ((mod & ActionEvent.ALT_MASK) == (mod & ActionEvent.CTRL_MASK))) {
+              char c = content.charAt(0);
+              if ((c >= 0x20) && (c != 0x7F)) {
+                insertCharCatch(getCaret().getDot(), c);
               }
             }
-          };
+          }
+        }
+      };
 
-      AbstractAction forwardAction =
-          new AbstractAction(DefaultEditorKit.forwardAction) {
-            public void actionPerformed(ActionEvent e) {
-              if (readyForActions()) {
-                int k = getCaret().getDot();
-                setCaretPos(k + 1, k, true);
-              }
-            }
-          };
+      AbstractAction forwardAction = new AbstractAction(DefaultEditorKit.forwardAction) {
+        public void actionPerformed(ActionEvent e) {
+          if (readyForActions()) {
+            int k = getCaret().getDot();
+            setCaretPos(k + 1, k, true);
+          }
+        }
+      };
 
-      AbstractAction backwardAction =
-          new AbstractAction(DefaultEditorKit.backwardAction) {
-            public void actionPerformed(ActionEvent e) {
-              if (readyForActions()) {
-                int k = getCaret().getDot();
-                setCaretPos(k - 1, k, false);
-              }
-            }
-          };
+      AbstractAction backwardAction = new AbstractAction(DefaultEditorKit.backwardAction) {
+        public void actionPerformed(ActionEvent e) {
+          if (readyForActions()) {
+            int k = getCaret().getDot();
+            setCaretPos(k - 1, k, false);
+          }
+        }
+      };
 
-      AbstractAction nextTargetAction =
-          new AbstractAction("next-target") {
-            public void actionPerformed(ActionEvent e) {
-              if (readyForActions()) {
-                getCaret().setDot(goToTarget(playDoc.tmb.getNextTarget(null), -1));
-              }
-            }
-          };
+      AbstractAction nextTargetAction = new AbstractAction("next-target") {
+        public void actionPerformed(ActionEvent e) {
+          if (readyForActions()) {
+            getCaret().setDot(goToTarget(playDoc.tmb.getNextTarget(null), -1));
+          }
+        }
+      };
 
-      AbstractAction prevTargetAction =
-          new AbstractAction("prev-target") {
-            public void actionPerformed(ActionEvent e) {
-              if (readyForActions()) {
-                getCaret().setDot(goToTarget(playDoc.tmb.getPrevTarget(null), -1));
-              }
-            }
-          };
+      AbstractAction prevTargetAction = new AbstractAction("prev-target") {
+        public void actionPerformed(ActionEvent e) {
+          if (readyForActions()) {
+            getCaret().setDot(goToTarget(playDoc.tmb.getPrevTarget(null), -1));
+          }
+        }
+      };
 
-      AbstractAction insertBreakAction =
-          new AbstractAction(DefaultEditorKit.insertBreakAction) {
-            public void actionPerformed(ActionEvent e) {
-              insertTabAction.actionPerformed(e);
-            }
-          };
+      AbstractAction insertBreakAction = new AbstractAction(DefaultEditorKit.insertBreakAction) {
+        public void actionPerformed(ActionEvent e) {
+          insertTabAction.actionPerformed(e);
+        }
+      };
 
-      AbstractAction insertTabAction =
-          new AbstractAction(DefaultEditorKit.insertTabAction) {
-            public void actionPerformed(ActionEvent e) {
-              if ((e.getModifiers() & ActionEvent.SHIFT_MASK) != 0)
-                prevTargetAction.actionPerformed(e);
-              else nextTargetAction.actionPerformed(e);
-            }
-          };
+      AbstractAction insertTabAction = new AbstractAction(DefaultEditorKit.insertTabAction) {
+        public void actionPerformed(ActionEvent e) {
+          if ((e.getModifiers() & ActionEvent.SHIFT_MASK) != 0)
+            prevTargetAction.actionPerformed(e);
+          else
+            nextTargetAction.actionPerformed(e);
+        }
+      };
 
-      AbstractAction deletePrevCharAction =
-          new AbstractAction(DefaultEditorKit.deletePrevCharAction) {
-            public void actionPerformed(ActionEvent e) {
-              if (readyForActions()) {
-                removeCharCatch(getCaret().getDot() - 1);
-              }
-            }
-          };
+      AbstractAction deletePrevCharAction = new AbstractAction(DefaultEditorKit.deletePrevCharAction) {
+        public void actionPerformed(ActionEvent e) {
+          if (readyForActions()) {
+            removeCharCatch(getCaret().getDot() - 1);
+          }
+        }
+      };
 
-      AbstractAction deleteNextCharAction =
-          new AbstractAction(DefaultEditorKit.deleteNextCharAction) {
-            public void actionPerformed(ActionEvent e) {
-              if (readyForActions()) {
-                removeCharCatch(getCaret().getDot());
-              }
-            }
-          };
+      AbstractAction deleteNextCharAction = new AbstractAction(DefaultEditorKit.deleteNextCharAction) {
+        public void actionPerformed(ActionEvent e) {
+          if (readyForActions()) {
+            removeCharCatch(getCaret().getDot());
+          }
+        }
+      };
 
-      AbstractAction beginWordAction =
-          new AbstractAction(DefaultEditorKit.beginWordAction) {
-            public void actionPerformed(ActionEvent e) {
-              if (readyForActions()) {
-                TargetMarker tm = playDoc.tmb.getCurrentTarget();
-                if (tm != null) setCaretPos(tm.begOffset);
-              }
-            }
-          };
+      AbstractAction beginWordAction = new AbstractAction(DefaultEditorKit.beginWordAction) {
+        public void actionPerformed(ActionEvent e) {
+          if (readyForActions()) {
+            TargetMarker tm = playDoc.tmb.getCurrentTarget();
+            if (tm != null)
+              setCaretPos(tm.begOffset);
+          }
+        }
+      };
 
-      AbstractAction endWordAction =
-          new AbstractAction(DefaultEditorKit.endWordAction) {
-            public void actionPerformed(ActionEvent e) {
-              if (readyForActions()) {
-                TargetMarker tm = playDoc.tmb.getCurrentTarget();
-                if (tm != null) setCaretPos(tm.endOffset);
-              }
-            }
-          };
+      AbstractAction endWordAction = new AbstractAction(DefaultEditorKit.endWordAction) {
+        public void actionPerformed(ActionEvent e) {
+          if (readyForActions()) {
+            TargetMarker tm = playDoc.tmb.getCurrentTarget();
+            if (tm != null)
+              setCaretPos(tm.endOffset);
+          }
+        }
+      };
 
-      AbstractAction beginAction =
-          new AbstractAction(DefaultEditorKit.beginAction) {
-            public void actionPerformed(ActionEvent e) {
-              if (readyForActions()) {
-                if ((e.getModifiers() & ActionEvent.CTRL_MASK) != 0)
-                  setCaretPos(goToTarget(playDoc.tmb.getElement(0), -1));
-                else beginWordAction.actionPerformed(e);
-              }
-            }
-          };
+      AbstractAction beginAction = new AbstractAction(DefaultEditorKit.beginAction) {
+        public void actionPerformed(ActionEvent e) {
+          if (readyForActions()) {
+            if ((e.getModifiers() & ActionEvent.CTRL_MASK) != 0)
+              setCaretPos(goToTarget(playDoc.tmb.getElement(0), -1));
+            else
+              beginWordAction.actionPerformed(e);
+          }
+        }
+      };
 
-      AbstractAction endAction =
-          new AbstractAction(DefaultEditorKit.endAction) {
-            public void actionPerformed(ActionEvent e) {
-              if (readyForActions()) {
-                if ((e.getModifiers() & ActionEvent.CTRL_MASK) != 0)
-                  setCaretPos(goToTarget(playDoc.tmb.getElement(playDoc.tmb.size() - 1), -1));
-                else endWordAction.actionPerformed(e);
-              }
-            }
-          };
+      AbstractAction endAction = new AbstractAction(DefaultEditorKit.endAction) {
+        public void actionPerformed(ActionEvent e) {
+          if (readyForActions()) {
+            if ((e.getModifiers() & ActionEvent.CTRL_MASK) != 0)
+              setCaretPos(goToTarget(playDoc.tmb.getElement(playDoc.tmb.size() - 1), -1));
+            else
+              endWordAction.actionPerformed(e);
+          }
+        }
+      };
 
-      AbstractAction showHelpAction =
-          new AbstractAction("show-help") {
-            public void actionPerformed(ActionEvent e) {
-              if (readyForActions()) {
-                TargetMarker tm = playDoc.tmb.getCurrentTarget();
-                if (tm != null
-                    && tm.target != null
-                    && tm.target.popupContent != null
-                    && tm.target.infoMode == TextTarget.INFO_ON_DEMAND)
-                  tm.target.checkPopup(Panel.this, tm, true);
-              }
-            }
-          };
+      AbstractAction showHelpAction = new AbstractAction("show-help") {
+        public void actionPerformed(ActionEvent e) {
+          if (readyForActions()) {
+            TargetMarker tm = playDoc.tmb.getCurrentTarget();
+            if (tm != null && tm.target != null && tm.target.popupContent != null
+                && tm.target.infoMode == TextTarget.INFO_ON_DEMAND)
+              tm.target.checkPopup(Panel.this, tm, true);
+          }
+        }
+      };
 
       Action kitUpAction = null;
-      AbstractAction upAction =
-          new AbstractAction(DefaultEditorKit.upAction) {
-            public void actionPerformed(ActionEvent e) {
-              if (kitUpAction != null && readyForActions()) {
-                int bkPos = getCaret().getDot();
-                kitUpAction.actionPerformed(e);
-                int newPos = getCaret().getDot();
-                getCaret().setDot(bkPos);
-                setCaretPos(newPos, bkPos, false);
-              }
-            }
-          };
+      AbstractAction upAction = new AbstractAction(DefaultEditorKit.upAction) {
+        public void actionPerformed(ActionEvent e) {
+          if (kitUpAction != null && readyForActions()) {
+            int bkPos = getCaret().getDot();
+            kitUpAction.actionPerformed(e);
+            int newPos = getCaret().getDot();
+            getCaret().setDot(bkPos);
+            setCaretPos(newPos, bkPos, false);
+          }
+        }
+      };
 
       Action kitDownAction = null;
-      AbstractAction downAction =
-          new AbstractAction(DefaultEditorKit.downAction) {
-            public void actionPerformed(ActionEvent e) {
-              if (kitDownAction != null && readyForActions()) {
-                int bkPos = getCaret().getDot();
-                kitDownAction.actionPerformed(e);
-                int newPos = getCaret().getDot();
-                getCaret().setDot(bkPos);
-                setCaretPos(newPos, bkPos, true);
-              }
-            }
-          };
+      AbstractAction downAction = new AbstractAction(DefaultEditorKit.downAction) {
+        public void actionPerformed(ActionEvent e) {
+          if (kitDownAction != null && readyForActions()) {
+            int bkPos = getCaret().getDot();
+            kitDownAction.actionPerformed(e);
+            int newPos = getCaret().getDot();
+            getCaret().setDot(bkPos);
+            setCaretPos(newPos, bkPos, true);
+          }
+        }
+      };
 
       protected void setActions() {
 
@@ -413,14 +394,11 @@ public class FillInBlanks extends TextActivityBase {
         kitDownAction = getActionMap().get(DefaultEditorKit.downAction);
 
         java.util.Map<String, Object[]> actionKeys = Actions.getActionKeys(this);
-        // Actions.dumpActionKeys(actionKeys, getActionMap());
         ActionMap am = new ActionMap();
         am.setParent(getActionMap());
         setActionMap(am);
         // Originals:
         Actions.mapTraceAction(this, actionKeys, DefaultEditorKit.beepAction);
-        // Actions.mapTraceAction(this, actionKeys, DefaultEditorKit.readOnlyAction);
-        // Actions.mapTraceAction(this, actionKeys, DefaultEditorKit.writableAction);
         Actions.mapTraceAction(this, actionKeys, "requestFocus");
         Actions.mapTraceAction(this, actionKeys, "toggle-componentOrientation");
 
@@ -448,8 +426,7 @@ public class FillInBlanks extends TextActivityBase {
         Actions.mapAction(this, actionKeys, prevTargetAction, DefaultEditorKit.previousWordAction);
 
         Actions.mapAction(this, actionKeys, nextTargetAction, DefaultEditorKit.endParagraphAction);
-        Actions.mapAction(
-            this, actionKeys, prevTargetAction, DefaultEditorKit.beginParagraphAction);
+        Actions.mapAction(this, actionKeys, prevTargetAction, DefaultEditorKit.beginParagraphAction);
 
         Actions.mapAction(this, actionKeys, nextTargetAction, DefaultEditorKit.beginLineAction);
         Actions.mapAction(this, actionKeys, prevTargetAction, DefaultEditorKit.endLineAction);
@@ -458,14 +435,10 @@ public class FillInBlanks extends TextActivityBase {
         Actions.mapAction(this, actionKeys, prevTargetAction, DefaultEditorKit.pageUpAction);
 
         am.setParent(null);
-        getInputMap()
-            .put(
-                KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_TAB, java.awt.Event.SHIFT_MASK),
-                insertTabAction.getValue(Action.NAME));
-        getInputMap()
-            .put(
-                KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0),
-                showHelpAction.getValue(Action.NAME));
+        getInputMap().put(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_TAB, java.awt.Event.SHIFT_MASK),
+            insertTabAction.getValue(Action.NAME));
+        getInputMap().put(KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0),
+            showHelpAction.getValue(Action.NAME));
       }
 
       @Override
@@ -475,7 +448,6 @@ public class FillInBlanks extends TextActivityBase {
           if (tm != null) {
             TargetMarker currentTm = playDoc.tmb.getCurrentTarget();
             goToTarget(tm, -1);
-            // if(currentTm!=tm && evalOnTheFly){
             if (currentTm != tm && !hasCheckButton) {
               tm.target.setModified(true);
               goToTarget(tm, -1);
@@ -486,9 +458,11 @@ public class FillInBlanks extends TextActivityBase {
     }
 
     protected boolean evalTarget(TargetMarker tm) {
-      if (tm.target == null) return false;
+      if (tm.target == null)
+        return false;
       String src = tm.getCurrentText(TextActivityDocument.FILL);
-      if (src == null || src.length() < 1) return false;
+      if (src == null || src.length() < 1)
+        return false;
       byte[] result = ev.evalText(src, tm.target.answer);
       boolean ok = Evaluator.isOk(result);
       tm.target.targetStatus = ok ? TextTarget.SOLVED : TextTarget.WITH_ERROR;
@@ -507,13 +481,9 @@ public class FillInBlanks extends TextActivityBase {
       int p = 0;
       for (int i = bgTarget; i < endTarget && p < attributes.length; i++) {
         if (!playDoc.checkBooleanAttribute(i, TextActivityDocument.FILL)) {
-          playDoc.setCharacterAttributes(
-              i,
-              1,
+          playDoc.setCharacterAttributes(i, 1,
               styleContext.getStyle(
-                  attributes[p] == Evaluator.FLAG_OK
-                      ? TextActivityDocument.TARGET
-                      : TextActivityDocument.TARGET_ERROR),
+                  attributes[p] == Evaluator.FLAG_OK ? TextActivityDocument.TARGET : TextActivityDocument.TARGET_ERROR),
               false);
           p++;
         }
@@ -526,8 +496,10 @@ public class FillInBlanks extends TextActivityBase {
 
     protected void setCaretPos(int offset, int currentOffset, boolean searchForward) {
       int check = checkCaretPos(offset, searchForward);
-      if (check == -1) pane.setEditable(false);
-      else if (check != currentOffset) pane.setCaretPosition(check);
+      if (check == -1)
+        pane.setEditable(false);
+      else if (check != currentOffset)
+        pane.setCaretPosition(check);
     }
 
     protected int checkCaretPos(int offset, boolean searchForward) {
@@ -536,19 +508,23 @@ public class FillInBlanks extends TextActivityBase {
       int p = offset;
       if (tm == null) {
         tm = tmb.getNearestElement(offset, searchForward);
-        if (tm == null) tm = tmb.getNearestElement(offset, !searchForward);
+        if (tm == null)
+          tm = tmb.getNearestElement(offset, !searchForward);
 
         if (tm == null) {
           pane.setEditable(false);
           locked = true;
           return -1;
         } else {
-          if (searchForward) p = tm.begPos.getOffset();
-          else p = tm.endPos.getOffset();
+          if (searchForward)
+            p = tm.begPos.getOffset();
+          else
+            p = tm.endPos.getOffset();
         }
       }
 
-      if (tmb.getCurrentTarget() != tm || tm.target.comboList != null) p = goToTarget(tm, p);
+      if (tmb.getCurrentTarget() != tm || tm.target.comboList != null)
+        p = goToTarget(tm, p);
 
       return p;
     }
@@ -556,24 +532,15 @@ public class FillInBlanks extends TextActivityBase {
     protected int goToTarget(TargetMarker tm, int offset) {
       int p = offset;
       TargetMarkerBag tmb = playDoc.tmb;
-      // if(tmb.getCurrentTarget()!=null && evalOnTheFly){
       if (tmb.getCurrentTarget() != null && !hasCheckButton) {
         TargetMarker currentTm = tmb.getCurrentTarget();
-        if (!hasCheckButton
-            && currentTm != null
-            && (currentTm.target.isModified() || forceOkToAdvance)) {
-          // if(evalOnTheFly && currentTm!=null && (currentTm.target.isModified() ||
-          // forceOkToAdvance)){
+        if (!hasCheckButton && currentTm != null && (currentTm.target.isModified() || forceOkToAdvance)) {
           boolean ok = evalTarget(currentTm);
-          if (!ok) currentTm.target.checkPopup(this, currentTm, false);
+          if (!ok)
+            currentTm.target.checkPopup(this, currentTm, false);
           int solvedTargets = tmb.countSolvedTargets();
-          ps.reportNewAction(
-              getActivity(),
-              ACTION_WRITE,
-              currentTm.getCurrentText(TextActivityDocument.FILL),
-              currentTm.target.getAnswers(),
-              ok,
-              solvedTargets);
+          ps.reportNewAction(getActivity(), ACTION_WRITE, currentTm.getCurrentText(TextActivityDocument.FILL),
+              currentTm.target.getAnswers(), ok, solvedTargets);
           if (ok && solvedTargets == tmb.size()) {
             finishActivity(true);
           } else {
@@ -587,8 +554,10 @@ public class FillInBlanks extends TextActivityBase {
           }
         }
       }
-      if (p < 0) p = tm.begPos.getOffset();
-      if (!tm.contains(p, true)) p = tm.begOffset;
+      if (p < 0)
+        p = tm.begPos.getOffset();
+      if (!tm.contains(p, true))
+        p = tm.begOffset;
 
       tmb.setCurrentTarget(tm, this);
       return p;
@@ -596,10 +565,10 @@ public class FillInBlanks extends TextActivityBase {
 
     @Override
     protected void doCheck(boolean fromButton) {
-      if (playDoc == null || locked) return;
+      if (playDoc == null || locked)
+        return;
 
       TargetMarkerBag tmb = playDoc.tmb;
-      // if(tmb.getCurrentTarget()!=null && evalOnTheFly==true){
       if (tmb.getCurrentTarget() != null && !hasCheckButton) {
         goToTarget(tmb.getCurrentTarget(), -1);
         return;
@@ -610,29 +579,27 @@ public class FillInBlanks extends TextActivityBase {
         if (tm != null && tm.target.targetStatus != TextTarget.NOT_EDITED) {
           boolean ok = evalTarget(tm);
           solvedTargets = tmb.countSolvedTargets();
-          ps.reportNewAction(
-              getActivity(),
-              ACTION_WRITE,
-              tm.getCurrentText(TextActivityDocument.FILL),
-              tm.target.getAnswers(),
-              ok,
-              solvedTargets);
+          ps.reportNewAction(getActivity(), ACTION_WRITE, tm.getCurrentText(TextActivityDocument.FILL),
+              tm.target.getAnswers(), ok, solvedTargets);
         }
       }
       if (solvedTargets != tmb.size()) {
         if (fromButton) {
           playEvent(EventSounds.FINISHED_ERROR);
 
-          if (tmb.getCurrentTarget() != null) goToTarget(tmb.getCurrentTarget(), -1);
+          if (tmb.getCurrentTarget() != null)
+            goToTarget(tmb.getCurrentTarget(), -1);
         }
-      } else finishActivity(true);
+      } else
+        finishActivity(true);
     }
 
     @Override
     public void finishActivity(boolean result) {
       pane.setEditable(false);
       pane.setEnabled(false);
-      if (playDoc != null && playDoc.tmb.getCurrentTarget() != null) ;
+      if (playDoc != null && playDoc.tmb.getCurrentTarget() != null)
+        ;
       playDoc.tmb.getCurrentTarget().lostFocus(this);
       super.finishActivity(result);
     }

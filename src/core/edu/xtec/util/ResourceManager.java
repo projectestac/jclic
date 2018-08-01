@@ -36,12 +36,11 @@ public abstract class ResourceManager {
 
   public static final String RESOURCE_ROOT = "/edu/xtec/resources/";
   public static final String RESOURCE_CLASS_ROOT = "edu.xtec.resources.";
-  public static final StreamIO.InputStreamProvider STREAM_PROVIDER =
-      new StreamIO.InputStreamProvider() {
-        public java.io.InputStream getInputStream(String resourceName) throws Exception {
-          return getResourceAsStream(resourceName);
-        }
-      };
+  public static final StreamIO.InputStreamProvider STREAM_PROVIDER = new StreamIO.InputStreamProvider() {
+    public java.io.InputStream getInputStream(String resourceName) throws Exception {
+      return getResourceAsStream(resourceName);
+    }
+  };
   public static final String DEFAULT_LOCALE = "en";
   private static Map<String, ImageIcon> icons = new HashMap<String, ImageIcon>();
 
@@ -51,7 +50,8 @@ public abstract class ResourceManager {
       try {
         result = new ImageIcon(getResource(name));
         String s = name;
-        if (s.startsWith("icons/")) s = new StringBuilder("@").append(s.substring(6)).substring(0);
+        if (s.startsWith("icons/"))
+          s = new StringBuilder("@").append(s.substring(6)).substring(0);
         result.setDescription(s);
         icons.put(name, result);
       } catch (Exception ex) {
@@ -64,13 +64,15 @@ public abstract class ResourceManager {
 
   public static java.net.URL getResource(String name) throws Exception {
     java.net.URL result = ResourceManager.class.getResource(RESOURCE_ROOT + name);
-    if (result == null) throw buildException(name);
+    if (result == null)
+      throw buildException(name);
     return result;
   }
 
   public static java.io.InputStream getResourceAsStream(String name) throws Exception {
     java.io.InputStream result = ResourceManager.class.getResourceAsStream(RESOURCE_ROOT + name);
-    if (result == null) throw buildException(name);
+    if (result == null)
+      throw buildException(name);
     return result;
   }
 
@@ -95,12 +97,12 @@ public abstract class ResourceManager {
     return sb.substring(0);
   }
 
-  public static java.util.ResourceBundle getBundle(String name, java.util.Locale locale)
-      throws Exception {
-    if (locale != null && DEFAULT_LOCALE.equals(locale.getLanguage())) Locale.setDefault(locale);
-    java.util.ResourceBundle result =
-        java.util.ResourceBundle.getBundle(RESOURCE_CLASS_ROOT + name, locale);
-    if (result == null) throw buildException(name);
+  public static java.util.ResourceBundle getBundle(String name, java.util.Locale locale) throws Exception {
+    if (locale != null && DEFAULT_LOCALE.equals(locale.getLanguage()))
+      Locale.setDefault(locale);
+    java.util.ResourceBundle result = java.util.ResourceBundle.getBundle(RESOURCE_CLASS_ROOT + name, locale);
+    if (result == null)
+      throw buildException(name);
     return result;
   }
 

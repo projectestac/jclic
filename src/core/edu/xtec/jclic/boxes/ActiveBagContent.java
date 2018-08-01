@@ -39,11 +39,14 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * This class stores a collection of {@link edu.xtec.jclic.boxes.ActiveBoxContent} objects,
- * currently in a {@link java.util.ArrayList}, and provides methods to manage it. The two main
- * members of <CODE>ActiveBagContent</CODE> are the {@link edu.xtec.jclic.shapers.Shaper},
- * responsible of determining the position and shape of each {@link edu.xtec.jclic.boxes.ActiveBox}
- * based on it, and the {@link edu.xtec.jclic.boxes.BoxBase}, that provides a common visual style.
+ * This class stores a collection of
+ * {@link edu.xtec.jclic.boxes.ActiveBoxContent} objects, currently in a
+ * {@link java.util.ArrayList}, and provides methods to manage it. The two main
+ * members of <CODE>ActiveBagContent</CODE> are the
+ * {@link edu.xtec.jclic.shapers.Shaper}, responsible of determining the
+ * position and shape of each {@link edu.xtec.jclic.boxes.ActiveBox} based on
+ * it, and the {@link edu.xtec.jclic.boxes.BoxBase}, that provides a common
+ * visual style.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.09
@@ -63,7 +66,8 @@ public class ActiveBagContent extends Object implements Domable {
   public int defaultIdValue = -1;
 
   /** Creates new ActiveBagContent */
-  private ActiveBagContent() {}
+  private ActiveBagContent() {
+  }
 
   public ActiveBagContent(int ncw, int nch) {
     this.ncw = Math.max(1, ncw);
@@ -76,8 +80,8 @@ public class ActiveBagContent extends Object implements Domable {
     return initNew(ncw, nch, firstChar, false, false, 50, 30);
   };
 
-  public static ActiveBagContent initNew(
-      int ncw, int nch, int firstChar, boolean withIds, boolean withItems, int w, int h) {
+  public static ActiveBagContent initNew(int ncw, int nch, int firstChar, boolean withIds, boolean withItems, int w,
+      int h) {
     ActiveBagContent result = new ActiveBagContent(ncw, nch);
     result.w = w;
     result.h = h;
@@ -85,7 +89,7 @@ public class ActiveBagContent extends Object implements Domable {
     result.border = true;
     char[] ch = null;
     if (firstChar > 0) {
-      ch = new char[] {(char) firstChar};
+      ch = new char[] { (char) firstChar };
     }
     for (int i = 0; i < nch; i++) {
       for (int j = 0; j < ncw; j++) {
@@ -94,7 +98,6 @@ public class ActiveBagContent extends Object implements Domable {
           ab.setTextContent("");
           ch[0]++;
         } else {
-          // ab.setTextContent("-");
           ab.setTextContent("");
         }
         if (withIds) {
@@ -128,10 +131,7 @@ public class ActiveBagContent extends Object implements Domable {
 
   public static final String ELEMENT_NAME = "cells";
   public static final String ROWS = "rows", COLUMNS = "columns", COLS = "cols";
-  public static final String CELL_WIDTH = "cellWidth",
-      CELL_HEIGHT = "cellHeight",
-      BORDER = "border",
-      IMAGE = "image",
+  public static final String CELL_WIDTH = "cellWidth", CELL_HEIGHT = "cellHeight", BORDER = "border", IMAGE = "image",
       IDS = "ids";
 
   public org.jdom.Element getJDomElement() {
@@ -158,20 +158,20 @@ public class ActiveBagContent extends Object implements Domable {
     }
 
     switch (testCellContents()) {
-      case ActiveBoxContent.EMPTY_CELL:
-        // write nothing
-        break;
+    case ActiveBoxContent.EMPTY_CELL:
+      // write nothing
+      break;
 
-      case ActiveBoxContent.ONLY_ID:
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < activeBoxContentArray.size(); i++)
-          sb.append(getActiveBoxContent(i).id).append(" ");
-        e.addContent(new org.jdom.Element(IDS).addContent(sb.substring(0).trim()));
-        break;
+    case ActiveBoxContent.ONLY_ID:
+      StringBuilder sb = new StringBuilder();
+      for (int i = 0; i < activeBoxContentArray.size(); i++)
+        sb.append(getActiveBoxContent(i).id).append(" ");
+      e.addContent(new org.jdom.Element(IDS).addContent(sb.substring(0).trim()));
+      break;
 
-      default:
-        for (int i = 0; i < activeBoxContentArray.size(); i++)
-          e.addContent(getActiveBoxContent(i).getJDomElement());
+    default:
+      for (int i = 0; i < activeBoxContentArray.size(); i++)
+        e.addContent(getActiveBoxContent(i).getJDomElement());
     }
     return e;
   }
@@ -182,14 +182,14 @@ public class ActiveBagContent extends Object implements Domable {
       int r = getActiveBoxContent(i).testCellContents();
       if (r > result) {
         result = r;
-        if (r > ActiveBoxContent.ONLY_ID) break;
+        if (r > ActiveBoxContent.ONLY_ID)
+          break;
       }
     }
     return result;
   }
 
-  public static ActiveBagContent getActiveBagContent(org.jdom.Element e, MediaBag mediaBag)
-      throws Exception {
+  public static ActiveBagContent getActiveBagContent(org.jdom.Element e, MediaBag mediaBag) throws Exception {
 
     ActiveBagContent abc = new ActiveBagContent();
     abc.setProperties(e, mediaBag);
@@ -203,8 +203,10 @@ public class ActiveBagContent extends Object implements Domable {
 
     org.jdom.Element child;
 
-    // Bug in JClic beta 1: "columns" is number of rows, and "rows" is number of columns.
-    // Corrected in beta 2: If "cols" is specified, "rows" are rows and "cols" are columns.
+    // Bug in JClic beta 1: "columns" is number of rows, and "rows" is number of
+    // columns.
+    // Corrected in beta 2: If "cols" is specified, "rows" are rows and "cols" are
+    // columns.
     int k = JDomUtility.getIntAttr(e, COLS, -1);
     if (k >= 0) {
       ncw = k;
@@ -218,8 +220,10 @@ public class ActiveBagContent extends Object implements Domable {
     h = JDomUtility.getDoubleAttr(e, CELL_HEIGHT, h);
     border = JDomUtility.getBoolAttr(e, BORDER, border);
     imgName = FileSystem.stdFn(e.getAttributeValue(IMAGE));
-    if ((child = e.getChild(BoxBase.ELEMENT_NAME)) != null) setBoxBase(BoxBase.getBoxBase(child));
-    if ((child = e.getChild(Shaper.ELEMENT_NAME)) != null) setShaper(Shaper.getShaper(child));
+    if ((child = e.getChild(BoxBase.ELEMENT_NAME)) != null)
+      setBoxBase(BoxBase.getBoxBase(child));
+    if ((child = e.getChild(Shaper.ELEMENT_NAME)) != null)
+      setShaper(Shaper.getShaper(child));
 
     Iterator itr = e.getChildren(ActiveBoxContent.ELEMENT_NAME).iterator();
     if (itr.hasNext())
@@ -232,7 +236,8 @@ public class ActiveBagContent extends Object implements Domable {
       int[] v;
       if (child != null)
         if ((v = JDomUtility.stringToIntArray(child.getText())) != null)
-          for (int i = 0; i < v.length; i++) getActiveBoxContent(i).id = v[i];
+          for (int i = 0; i < v.length; i++)
+            getActiveBoxContent(i).id = v[i];
     }
 
     if (imgName != null) {
@@ -252,20 +257,24 @@ public class ActiveBagContent extends Object implements Domable {
         }
       }
       if (empty) {
-        for (int i = 0; i < n; i++) getActiveBoxContent(i).id = i;
+        for (int i = 0; i < n; i++)
+          getActiveBoxContent(i).id = i;
       }
     }
   }
 
   public static void listReferences(org.jdom.Element e, Map<String, String> map) {
     String s = e.getAttributeValue(IMAGE);
-    if (s != null) map.put(s, Constants.MEDIA_OBJECT);
+    if (s != null)
+      map.put(s, Constants.MEDIA_OBJECT);
     Iterator itr = e.getChildren(ActiveBoxContent.ELEMENT_NAME).iterator();
-    while (itr.hasNext()) ActiveBoxContent.listReferences((org.jdom.Element) itr.next(), map);
+    while (itr.hasNext())
+      ActiveBoxContent.listReferences((org.jdom.Element) itr.next(), map);
   }
 
   public Shaper getShaper() {
-    if (shaper == null) setShaper(new Rectangular(ncw, nch));
+    if (shaper == null)
+      setShaper(new Rectangular(ncw, nch));
     return shaper;
   }
 
@@ -307,7 +316,8 @@ public class ActiveBagContent extends Object implements Domable {
       activeBoxContentArray.remove(abc);
       for (int i = 0; i < activeBoxContentArray.size(); i++) {
         abc = (ActiveBoxContent) activeBoxContentArray.get(i);
-        if (abc.id == id && abc.item > item) abc.item--;
+        if (abc.id == id && abc.item > item)
+          abc.item--;
       }
     }
   }
@@ -317,10 +327,10 @@ public class ActiveBagContent extends Object implements Domable {
     int index = activeBoxContentArray.indexOf(abc);
     for (int i = 0; i < activeBoxContentArray.size(); i++) {
       abc = (ActiveBoxContent) activeBoxContentArray.get(i);
-      if (abc.id == id && abc.item >= item) abc.item++;
+      if (abc.id == id && abc.item >= item)
+        abc.item++;
     }
     abc = new ActiveBoxContent();
-    // abc.setTextContent("-");
     abc.id = id;
     abc.item = item;
     activeBoxContentArray.add(index + 1, abc);
@@ -364,7 +374,8 @@ public class ActiveBagContent extends Object implements Domable {
       while (true) {
         w = ((double) img.getWidth(null)) / ncw;
         h = ((double) img.getHeight(null)) / nch;
-        if (w >= 0 && h >= 0) break;
+        if (w >= 0 && h >= 0)
+          break;
         Thread.sleep(50);
       }
       if (roundSizes) {
@@ -372,7 +383,8 @@ public class ActiveBagContent extends Object implements Domable {
         h = (double) ((int) h);
       }
 
-      if (w < 1 || h < 1) throw new Exception("Invalid image!");
+      if (w < 1 || h < 1)
+        throw new Exception("Invalid image!");
     } else {
       img = null;
       imgName = null;
@@ -437,11 +449,13 @@ public class ActiveBagContent extends Object implements Domable {
 
   public void setIds(int[] ids) {
     for (int i = 0; i < activeBoxContentArray.size(); i++)
-      if (i < ids.length) getActiveBoxContent(i).id = ids[i];
+      if (i < ids.length)
+        getActiveBoxContent(i).id = ids[i];
   }
 
   public void setAllIdsTo(int id) {
-    for (int i = 0; i < activeBoxContentArray.size(); i++) getActiveBoxContent(i).id = id;
+    for (int i = 0; i < activeBoxContentArray.size(); i++)
+      getActiveBoxContent(i).id = id;
   }
 
   public void avoidAllIdsNull(int maxId) {

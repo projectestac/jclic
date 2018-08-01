@@ -32,9 +32,11 @@ import javax.swing.JComponent;
 import javax.swing.KeyStroke;
 
 /**
- * This abstract class provides a base to create {@link javax.swing.Action} objects related to
- * {@link edu.xtec.jclic.edit.Editor}s. Derived classes must implement only the <CODE>doAction
- * </CODE> method, executing the required operations on the supplied <CODE>Editor</CODE>.
+ * This abstract class provides a base to create {@link javax.swing.Action}
+ * objects related to {@link edu.xtec.jclic.edit.Editor}s. Derived classes must
+ * implement only the <CODE>doAction
+ * </CODE> method, executing the required operations on the supplied
+ * <CODE>Editor</CODE>.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
@@ -48,7 +50,8 @@ public abstract class EditorAction extends AbstractAction {
   public EditorAction(String nameKey, String iconKey, String toolTipKey, Options options) {
     super(options.getMsg(nameKey), ResourceManager.getImageIcon(iconKey));
     this.options = options;
-    if (toolTipKey != null) putValue(AbstractAction.SHORT_DESCRIPTION, options.getMsg(toolTipKey));
+    if (toolTipKey != null)
+      putValue(AbstractAction.SHORT_DESCRIPTION, options.getMsg(toolTipKey));
 
     String s = options.getMessages().get(nameKey + "_keys");
     if (s != null && s.length() >= 2 && !s.startsWith(nameKey)) {
@@ -80,27 +83,31 @@ public abstract class EditorAction extends AbstractAction {
 
   public final void actionPerformed(ActionEvent ev) {
     this.ev = ev;
-    if (editor != null) doAction(editor);
+    if (editor != null)
+      doAction(editor);
   }
 
   protected abstract void doAction(Editor e);
 
   protected Component getComponentSrc() {
     Component result = null;
-    if (ev != null && ev.getSource() instanceof Component) result = (Component) ev.getSource();
+    if (ev != null && ev.getSource() instanceof Component)
+      result = (Component) ev.getSource();
     return result;
   }
 
   protected JComponent getJComponentSrc() {
     JComponent result = null;
-    if (ev != null && ev.getSource() instanceof JComponent) result = (JComponent) ev.getSource();
+    if (ev != null && ev.getSource() instanceof JComponent)
+      result = (JComponent) ev.getSource();
     return result;
   }
 
   protected EditorPanel getEditorPanelSrc() {
     Component cmp = getComponentSrc();
     while (cmp != null) {
-      if (cmp instanceof EditorPanel) break;
+      if (cmp instanceof EditorPanel)
+        break;
       cmp = cmp.getParent();
     }
     return (EditorPanel) cmp;

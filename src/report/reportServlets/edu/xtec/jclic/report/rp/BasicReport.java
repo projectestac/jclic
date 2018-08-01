@@ -33,38 +33,28 @@ import java.util.List;
 public abstract class BasicReport extends Basic {
 
   public static final int USR = 0, GRP = 1, PRJ = 2, UNKNOWN = -1;
-  public static final String EDIT = "edit",
-      CHANGE = "change",
-      NEW = "new",
-      GROUP = "group",
-      USER = "user",
-      PROJECT = "project",
-      ACTIVITY = "activity",
-      DATE = "date",
-      PID = "pid";
+  public static final String EDIT = "edit", CHANGE = "change", NEW = "new", GROUP = "group", USER = "user",
+      PROJECT = "project", ACTIVITY = "activity", DATE = "date", PID = "pid";
 
   public static final String WILDCARD = "-1";
 
-  // public static final String FROM="from", TO="to";
-
-  public static final String[] KCC = {"sessionKey", "sessionCode", "sessionContext"};
+  public static final String[] KCC = { "sessionKey", "sessionCode", "sessionContext" };
 
   public static final File SDIR = new File(System.getProperty("java.io.tmpdir"));
 
-  // protected Date dFrom, dTo, firstDate, today;
   protected String groupId;
   protected String userId;
   protected String projectName;
   protected String activityName;
   protected String[] kcc;
   protected int type = UNKNOWN;
-  // private GregorianCalendar calendar;
   protected String pageId;
   protected DateManager dm;
 
   @Override
   public boolean init() throws Exception {
-    if (!super.init()) return false;
+    if (!super.init())
+      return false;
 
     dm = new DateManager(this);
 
@@ -79,62 +69,31 @@ public abstract class BasicReport extends Basic {
     activityName = getParamNotNull(ACTIVITY);
 
     kcc = new String[3];
-    for (int i = 0; i < KCC.length; i++) kcc[i] = getParam(KCC[i]);
+    for (int i = 0; i < KCC.length; i++)
+      kcc[i] = getParam(KCC[i]);
 
     pageId = getParam(PID);
     if (pageId == null || pageId.length() == 0)
       pageId = Long.toString(100000000L + (long) (Math.random() * 100000000L));
 
-    /*
-    firstDate=bridge.getMinSessionDate();
-    today=new Date();
-    if(firstDate.compareTo(today)>0)
-        firstDate=today;
-    dFrom=getDateParam(FROM, firstDate, false);
-    dTo=getDateParam(TO, today, true);
-    if(dFrom.compareTo(dTo)>0)
-        dFrom=dTo;
-     */
-
     return dm.init();
   }
 
   protected List<SessionData> getSessionList() throws Exception {
-
     List<SessionData> v;
-
-    /*
-     * Removed serialization to File
-     *
-    File f=new File(SDIR, "report_"+pageId+".ser");
-    if(f.exists()){
-        FileInputStream in = new FileInputStream(f);
-        ObjectInputStream s = new ObjectInputStream(in);
-        v=(List<SessionData>)s.readObject();
-    }
-    else{
-    */
     switch (type) {
-      case USR:
-        v = bridge.getInfoSessionUser(userId, projectName, dm.dFrom, dm.dTo, kcc, false);
-        break;
-      case GRP:
-        v = bridge.getInfoSessionGroup(groupId, projectName, dm.dFrom, dm.dTo, kcc, true);
-        break;
-      case PRJ:
-        v = bridge.getInfoSessionAct(projectName, activityName, dm.dFrom, dm.dTo, kcc, true);
-        break;
-      default:
-        v = new ArrayList<SessionData>();
+    case USR:
+      v = bridge.getInfoSessionUser(userId, projectName, dm.dFrom, dm.dTo, kcc, false);
+      break;
+    case GRP:
+      v = bridge.getInfoSessionGroup(groupId, projectName, dm.dFrom, dm.dTo, kcc, true);
+      break;
+    case PRJ:
+      v = bridge.getInfoSessionAct(projectName, activityName, dm.dFrom, dm.dTo, kcc, true);
+      break;
+    default:
+      v = new ArrayList<SessionData>();
     }
-    /*
-        FileOutputStream out = new FileOutputStream(f);
-        ObjectOutputStream s = new ObjectOutputStream(out);
-        s.writeObject(v);
-        f.deleteOnExit();
-    }
-    */
-
     return v;
   }
 
@@ -146,13 +105,14 @@ public abstract class BasicReport extends Basic {
       int k = 0;
       if (wildCardKey != null) {
         String s = wildCardKey;
-        if (wildCardMsg != null) s = getMsg(wildCardMsg);
-        result[k++] = new String[] {wildCardKey, s};
+        if (wildCardMsg != null)
+          s = getMsg(wildCardMsg);
+        result[k++] = new String[] { wildCardKey, s };
       }
       if (v != null) {
         for (String s : v) {
           s = s.trim();
-          result[k++] = new String[] {s, s};
+          result[k++] = new String[] { s, s };
         }
       }
     }

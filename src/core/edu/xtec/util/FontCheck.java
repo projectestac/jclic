@@ -37,15 +37,13 @@ public class FontCheck {
   public static final String DEFAULT_FONT_NAME = "default";
   public static final Font DEFAULT_FONT = new Font(DEFAULT_FONT_NAME, Font.PLAIN, 17);
   public static final String TMP_FONT_PREFIX = "tmp_font_";
-  // private static final FontRenderContext FRC=new FontRenderContext(null, true, true);
   private static final Map<Object, Font> systemFonts = new HashMap<Object, Font>(12);
   private static String[] fontList;
-  public static final String[] fontSizes =
-      new String[] {
-        "8", "9", "10", "11", "12", "14", "16", "18", "20", "22", "24", "26", "28", "36", "48", "72"
-      };
+  public static final String[] fontSizes = new String[] { "8", "9", "10", "11", "12", "14", "16", "18", "20", "22",
+      "24", "26", "28", "36", "48", "72" };
 
-  private FontCheck() {}
+  private FontCheck() {
+  }
 
   public static String[] getFontList(boolean reload) {
     if (fontList == null || reload) {
@@ -63,14 +61,10 @@ public class FontCheck {
       result = layout.getBounds().getWidth() > 1;
     }
     return result;
-
-    // return font==null ? false : font.getStringBounds("A", FRC).getWidth()>0.0;
   }
 
   public static boolean checkFontFamilyName(Object family) {
-    return family != null
-        && family instanceof String
-        && checkFont(new Font((String) family, Font.PLAIN, 17));
+    return family != null && family instanceof String && checkFont(new Font((String) family, Font.PLAIN, 17));
   }
 
   public static Font getValidFont(String family, int style, int size) {
@@ -114,8 +108,8 @@ public class FontCheck {
     return f;
   }
 
-  public static Font buildNewFont(
-      String fileName, StreamIO.InputStreamProvider isp, String resourceName) throws Exception {
+  public static Font buildNewFont(String fileName, StreamIO.InputStreamProvider isp, String resourceName)
+      throws Exception {
 
     GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
     Font font = Font.createFont(Font.TRUETYPE_FONT, isp.getInputStream(resourceName));

@@ -1,3 +1,4 @@
+
 /*
  * File    : JClicInstaller.java
  * Created : 01-dec-2000 17:40
@@ -49,21 +50,18 @@ public abstract class JClicInstaller {
       if (installer == null) {
         System.err.println("Error: no installer file specified!");
       } else if (!installer.endsWith(".jclic.inst")) {
-        System.err.println(
-            "Error: "
-                + installer
-                + " isn't a JClic package install script.\nJClic package install scripts end always with .jclic.inst");
+        System.err.println("Error: " + installer
+            + " isn't a JClic package install script.\nJClic package install scripts end always with .jclic.inst");
       } else {
         BasicResourceBridge rb = new BasicResourceBridge(options);
         PlayerSettings settings = PlayerSettings.loadPlayerSettings(rb);
         if (settings.promptPassword(null, null)) {
           settings.checkLibrary();
-          ProjectInstallerDlg pi =
-              ProjectInstallerDlg.getProjectInstallerDlg(null, settings.libraryManager, installer);
+          ProjectInstallerDlg pi = ProjectInstallerDlg.getProjectInstallerDlg(null, settings.libraryManager, installer);
           if (pi != null) {
             pi.setVisible(true);
             if (!pi.cancel && pi.launchNow && pi.pathToMainProject != null) {
-              JClicPlayer.main(new String[] {pi.pathToMainProject});
+              JClicPlayer.main(new String[] { pi.pathToMainProject });
               exit = false;
             }
           }

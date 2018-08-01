@@ -48,18 +48,17 @@ public class GroupReport extends Report {
 
     type = GRP;
 
-    if (!super.init()) return false;
+    if (!super.init())
+      return false;
 
     projects = bridge.getProjListGrup(groupId, dm.dFrom, dm.dTo, kcc);
 
     sessionList = getSessionList();
 
     /*
-    if(session==null && sessionList!=null && sessionList.size()>0){
-        session=new Object[sessionList.size()];
-        for(int i=0; i<sessionList.size(); i++)
-            session[i]=FALSE;
-    }
+     * if(session==null && sessionList!=null && sessionList.size()>0){ session=new
+     * Object[sessionList.size()]; for(int i=0; i<sessionList.size(); i++)
+     * session[i]=FALSE; }
      */
 
     return true;
@@ -72,26 +71,9 @@ public class GroupReport extends Report {
     StringBuilder sb = new StringBuilder(3000);
 
     sb.append("<div class=\"inputForm\">\n");
-    zona(
-        sb,
-        "report_group",
-        GROUP,
-        true,
-        opcioDefecte,
-        vectorToArray(groups, true),
-        groupId,
-        isEditable,
-        180);
-    zona(
-        sb,
-        "report_project",
-        PROJECT,
-        true,
-        opcioDefecte,
-        vectorToArray(projects, false, WILDCARD, "report_all_projects"),
-        projectName,
-        isEditable,
-        180);
+    zona(sb, "report_group", GROUP, true, opcioDefecte, vectorToArray(groups, true), groupId, isEditable, 180);
+    zona(sb, "report_project", PROJECT, true, opcioDefecte,
+        vectorToArray(projects, false, WILDCARD, "report_all_projects"), projectName, isEditable, 180);
     sb.append("</div>\n");
 
     zonaParams(sb);

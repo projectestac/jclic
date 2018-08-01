@@ -62,17 +62,15 @@ public class CrossWord extends Activity implements ActiveBagContentKit.Compatibl
     tgc = TextGridContent.initNew(3, 3, 'A');
   }
 
-  public static final String ACROSS_CLUES = "acrossClues",
-      DOWN_CLUES = "downClues",
-      WILD_TRANSPARENT = "wildTransparent",
-      UPPERCASE = "upperCase",
-      CHECK_CASE = "checkCase";
+  public static final String ACROSS_CLUES = "acrossClues", DOWN_CLUES = "downClues",
+      WILD_TRANSPARENT = "wildTransparent", UPPERCASE = "upperCase", CHECK_CASE = "checkCase";
 
   @Override
   public org.jdom.Element getJDomElement() {
     org.jdom.Element child;
 
-    if (tgc == null || abc[0] == null || abc[1] == null) return null;
+    if (tgc == null || abc[0] == null || abc[1] == null)
+      return null;
 
     org.jdom.Element e = super.getJDomElement();
 
@@ -83,8 +81,10 @@ public class CrossWord extends Activity implements ActiveBagContentKit.Compatibl
     child.setAttribute(POSITION, LAYOUT_NAMES[boxGridPos]);
     if (wildTransparent)
       child.setAttribute(WILD_TRANSPARENT, JDomUtility.boolString(wildTransparent));
-    if (!upperCase) child.setAttribute(UPPERCASE, JDomUtility.boolString(upperCase));
-    if (!checkCase) child.setAttribute(CHECK_CASE, JDomUtility.boolString(checkCase));
+    if (!upperCase)
+      child.setAttribute(UPPERCASE, JDomUtility.boolString(upperCase));
+    if (!checkCase)
+      child.setAttribute(CHECK_CASE, JDomUtility.boolString(checkCase));
     e.addContent(child);
 
     return e;
@@ -105,9 +105,12 @@ public class CrossWord extends Activity implements ActiveBagContentKit.Compatibl
       child = (org.jdom.Element) it.next();
       ActiveBagContent bc = ActiveBagContent.getActiveBagContent(child, project.mediaBag);
       String id = JDomUtility.getStringAttr(child, ID, null, false);
-      if (ACROSS_CLUES.equals(id)) abc[0] = bc;
-      else if (DOWN_CLUES.equals(id)) abc[1] = bc;
-      else throw new IllegalArgumentException("Unknown clues: " + id);
+      if (ACROSS_CLUES.equals(id))
+        abc[0] = bc;
+      else if (DOWN_CLUES.equals(id))
+        abc[1] = bc;
+      else
+        throw new IllegalArgumentException("Unknown clues: " + id);
     }
     if (abc[0] == null || abc[1] == null)
       throw new IllegalArgumentException("CrossWord without H or V clues!");
@@ -129,7 +132,6 @@ public class CrossWord extends Activity implements ActiveBagContentKit.Compatibl
     tgc.ncw = c3a.nctxw;
     tgc.w = c3a.txtCW;
     tgc.h = c3a.txtCH;
-    // tgc.border=c3a.delim[1];
     tgc.border = true;
     tgc.text = c3a.graTxt;
     tgc.bb = c3a.getBoxBase(0);
@@ -150,7 +152,6 @@ public class CrossWord extends Activity implements ActiveBagContentKit.Compatibl
       abc[k].bb = c3a.getBoxBase(1);
       abc[k].ncw = 1;
       abc[k].nch = i;
-      // abc[k].w=200; abc[k].h=50;
       abc[k].w = 200;
       abc[k].h = 75;
     }
@@ -207,23 +208,16 @@ public class CrossWord extends Activity implements ActiveBagContentKit.Compatibl
       SimpleBox sb = new SimpleBox(bxb, null, null);
       sb.setBounds(0, 0, LABEL_WIDTH, abc[n].h);
       sb.setBorder(true);
-      JToggleButton tgbtn =
-          new JToggleButton(
-              edu.xtec.util.ResourceManager.getImageIcon(
-                  n == 0 ? "buttons/textright.png" : "buttons/textdown.png"));
+      JToggleButton tgbtn = new JToggleButton(
+          edu.xtec.util.ResourceManager.getImageIcon(n == 0 ? "buttons/textright.png" : "buttons/textdown.png"));
       tgbtn.addActionListener(this);
       javax.swing.border.Border border = tgbtn.getBorder();
       sb.setHostedComponent(tgbtn);
       tgbtn.setBorder(border);
       bxb.addBox(sb);
 
-      ActiveBox ab =
-          new ActiveBox(
-              bxb,
-              null,
-              n,
-              new java.awt.geom.Rectangle2D.Double(LABEL_WIDTH, 0, abc[n].w, abc[n].h),
-              null);
+      ActiveBox ab = new ActiveBox(bxb, null, n,
+          new java.awt.geom.Rectangle2D.Double(LABEL_WIDTH, 0, abc[n].w, abc[n].h), null);
       bxb.addBox(ab);
       bxb.setBoxBase(abc[n].bb);
 
@@ -240,7 +234,8 @@ public class CrossWord extends Activity implements ActiveBagContentKit.Compatibl
     @Override
     public void buildVisualComponents() throws Exception {
 
-      if (firstRun) super.buildVisualComponents();
+      if (firstRun)
+        super.buildVisualComponents();
 
       clear();
 
@@ -249,14 +244,15 @@ public class CrossWord extends Activity implements ActiveBagContentKit.Compatibl
 
       if (tgc != null) {
         grid = TextGrid.createEmptyGrid(null, this, margin, margin, tgc, wildTransparent);
-        // if(acp!=null) acp.generateContent(abc[0].nch, abc[0].ncw, abc, false, ac);
 
         bb = new BoxBag(null, this, null);
 
         BoxBag bxbh = createBoxBag(0);
         BoxBag bxbv = createBoxBag(1);
-        if (boxGridPos == AUB || boxGridPos == BUA) bxbv.setLocation(bxbh.getWidth() + margin, 0);
-        else bxbv.setLocation(0, bxbh.getHeight() + margin);
+        if (boxGridPos == AUB || boxGridPos == BUA)
+          bxbv.setLocation(bxbh.getWidth() + margin, 0);
+        else
+          bxbv.setLocation(0, bxbh.getHeight() + margin);
         bb.addBox(bxbh);
         bb.addBox(bxbv);
 
@@ -270,11 +266,12 @@ public class CrossWord extends Activity implements ActiveBagContentKit.Compatibl
     public void initActivity() throws Exception {
       super.initActivity();
 
-      if (!firstRun) buildVisualComponents();
-      else firstRun = false;
+      if (!firstRun)
+        buildVisualComponents();
+      else
+        firstRun = false;
 
       setAndPlayMsg(MAIN, EventSounds.START);
-      // ps.setMsg(messages[MAIN]);
       if (grid != null) {
         grid.setChars(tgc.text);
         numLetters = getMinNumActions();
@@ -284,9 +281,6 @@ public class CrossWord extends Activity implements ActiveBagContentKit.Compatibl
         advance = ADVANCE_RIGHT;
         hClueBtn.setSelected(true);
         requestFocus();
-        // ps.playMsg();
-        // if(messages[MAIN]==null || messages[MAIN].mediaContent==null)
-        //    playEvent(EventSounds.START);
         playing = true;
       }
     }
@@ -296,13 +290,17 @@ public class CrossWord extends Activity implements ActiveBagContentKit.Compatibl
     }
 
     public void render(Graphics2D g2, Rectangle dirtyRegion) {
-      if (grid != null) grid.update(g2, dirtyRegion, this);
-      if (bb != null) bb.update(g2, dirtyRegion, this);
+      if (grid != null)
+        grid.update(g2, dirtyRegion, this);
+      if (bb != null)
+        bb.update(g2, dirtyRegion, this);
     }
 
     public Dimension setDimension(Dimension preferredMaxSize) {
-      if (grid == null || bb == null || getSize().equals(preferredMaxSize)) return preferredMaxSize;
-      else return BoxBag.layoutDouble(preferredMaxSize, grid, bb, boxGridPos, margin);
+      if (grid == null || bb == null || getSize().equals(preferredMaxSize))
+        return preferredMaxSize;
+      else
+        return BoxBag.layoutDouble(preferredMaxSize, grid, bb, boxGridPos, margin);
     }
 
     @Override
@@ -311,16 +309,18 @@ public class CrossWord extends Activity implements ActiveBagContentKit.Compatibl
 
       if (playing)
         switch (e.getID()) {
-          case MouseEvent.MOUSE_PRESSED:
-            ps.stopMedia(1);
-            if (grid.contains(p)) {
-              Point pt = grid.getLogicalCoords(p);
-              if (pt != null) {
-                setCursorAt(pt.x, pt.y);
-              }
-            } else if (hClue.contains(p)) hClue.playMedia(ps);
-            else if (vClue.contains(p)) vClue.playMedia(ps);
-            break;
+        case MouseEvent.MOUSE_PRESSED:
+          ps.stopMedia(1);
+          if (grid.contains(p)) {
+            Point pt = grid.getLogicalCoords(p);
+            if (pt != null) {
+              setCursorAt(pt.x, pt.y);
+            }
+          } else if (hClue.contains(p))
+            hClue.playMedia(ps);
+          else if (vClue.contains(p))
+            vClue.playMedia(ps);
+          break;
         }
     }
 
@@ -351,70 +351,72 @@ public class CrossWord extends Activity implements ActiveBagContentKit.Compatibl
     public void processKey(KeyEvent e) {
       if (playing && grid != null)
         switch (e.getID()) {
-          case KeyEvent.KEY_TYPED:
-            Point cur = grid.getCursor();
-            char ch = e.getKeyChar();
-            if (ch >= 0 && cur != null) {
-              if (upperCase) ch = Character.toUpperCase(ch);
-              grid.setCharAt(cur.x, cur.y, ch);
-              boolean ok = grid.isCellOk(cur.x, cur.y, checkCase);
-              int r = getCurrentScore();
-              ps.reportNewAction(
-                  getActivity(),
-                  ACTION_WRITE,
-                  String.copyValueOf(new char[] {ch}),
-                  "X:" + cur.x + " Y:" + cur.y,
-                  ok,
-                  r);
-              if (r == numLetters) {
-                grid.setCursorEnabled(false);
-                grid.stopCursorBlink();
-                finishActivity(true);
-              } else {
-                // playEvent(ok ? EventSounds.ACTION_OK : EventSounds.ACTION_ERROR);
-                playEvent(EventSounds.CLICK);
-                if (advance == ADVANCE_RIGHT) moveCursor(1, 0);
-                else if (advance == ADVANCE_DOWN) moveCursor(0, 1);
-              }
+        case KeyEvent.KEY_TYPED:
+          Point cur = grid.getCursor();
+          char ch = e.getKeyChar();
+          if (ch >= 0 && cur != null) {
+            if (upperCase)
+              ch = Character.toUpperCase(ch);
+            grid.setCharAt(cur.x, cur.y, ch);
+            boolean ok = grid.isCellOk(cur.x, cur.y, checkCase);
+            int r = getCurrentScore();
+            ps.reportNewAction(getActivity(), ACTION_WRITE, String.copyValueOf(new char[] { ch }),
+                "X:" + cur.x + " Y:" + cur.y, ok, r);
+            if (r == numLetters) {
+              grid.setCursorEnabled(false);
+              grid.stopCursorBlink();
+              finishActivity(true);
+            } else {
+              playEvent(EventSounds.CLICK);
+              if (advance == ADVANCE_RIGHT)
+                moveCursor(1, 0);
+              else if (advance == ADVANCE_DOWN)
+                moveCursor(0, 1);
             }
-            break;
+          }
+          break;
 
-          case KeyEvent.KEY_PRESSED:
-            int dx = 0, dy = 0;
-            switch (e.getKeyCode()) {
-              case KeyEvent.VK_RIGHT:
-                dx = 1;
-                break;
-              case KeyEvent.VK_LEFT:
-                dx = -1;
-                break;
-              case KeyEvent.VK_DOWN:
-                dy = 1;
-                break;
-              case KeyEvent.VK_UP:
-                dy = -1;
-                break;
-            }
-            if (dx != 0 || dy != 0) moveCursor(dx, dy);
+        case KeyEvent.KEY_PRESSED:
+          int dx = 0, dy = 0;
+          switch (e.getKeyCode()) {
+          case KeyEvent.VK_RIGHT:
+            dx = 1;
             break;
+          case KeyEvent.VK_LEFT:
+            dx = -1;
+            break;
+          case KeyEvent.VK_DOWN:
+            dy = 1;
+            break;
+          case KeyEvent.VK_UP:
+            dy = -1;
+            break;
+          }
+          if (dx != 0 || dy != 0)
+            moveCursor(dx, dy);
+          break;
         }
     }
 
     public void focusGained(FocusEvent e) {
-      if (playing && grid != null) grid.startCursorBlink();
+      if (playing && grid != null)
+        grid.startCursorBlink();
     }
 
     public void focusLost(FocusEvent e) {
-      if (grid != null) grid.stopCursorBlink();
+      if (grid != null)
+        grid.stopCursorBlink();
     }
 
     public void actionPerformed(ActionEvent ev) {
       advance = NO_ADVANCE;
       if (ev.getSource().equals(hClueBtn)) {
-        if (hClueBtn.isSelected()) advance = ADVANCE_RIGHT;
+        if (hClueBtn.isSelected())
+          advance = ADVANCE_RIGHT;
         vClueBtn.setSelected(false);
       } else if (ev.getSource().equals(vClueBtn)) {
-        if (vClueBtn.isSelected()) advance = ADVANCE_DOWN;
+        if (vClueBtn.isSelected())
+          advance = ADVANCE_DOWN;
         hClueBtn.setSelected(false);
       }
       requestFocus();

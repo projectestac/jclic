@@ -39,8 +39,9 @@ import java.awt.Point;
 import java.util.StringTokenizer;
 
 /**
- * This class encapsulates the main properties of a Clic 3.0 activity, and provides methods to load
- * it from a data stream and to convert it to a JClic {@link edu.xtec.jclic.Activity}.
+ * This class encapsulates the main properties of a Clic 3.0 activity, and
+ * provides methods to load it from a data stream and to convert it to a JClic
+ * {@link edu.xtec.jclic.Activity}.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.08
@@ -74,23 +75,19 @@ public class Clic3Activity extends Clic3 {
   public String[] graTxt;
   public int[] nLines = new int[3];
   public int[] ass = new int[MAXCW * MAXCH];
-  // public boolean loaded, modified;
   public boolean mAss, invAss, shHelp, shPuz, sol;
   public boolean okToNext, btCorregir;
   public boolean avCont, avMaj, avAcc, avDblSpc, avPunt, avLletra, brPar, avNoSalta;
   public boolean noBV, shDisk, shPrint, shPorta, barraAmunt, noAv;
-  // public boolean reported, solved;
   public boolean custHlp, tileBmp, pwTransp, pwrp;
   public int pwrx, pwry;
   public int avPrevHelp, avTimePH, tabSpc;
   public int avScope, avMaxScope;
-  // public int movToSolv, iniSolved;
   public Font[] logF = new Font[4];
   public TripleColor[] colors = new TripleColor[4];
   public Color[] colorFons = new Color[2];
   public Color[] colorUsuari = new Color[2];
   public Color[] colorError = new Color[2];
-  // public int[] tramaFons = new int[2];
   public boolean useDLL;
   public String rgDLL;
   public byte[] dllOptions;
@@ -134,7 +131,8 @@ public class Clic3Activity extends Clic3 {
     avMaxScope = 6;
 
     fileName = initMess = endMess = fileDesc = custHelpFile = hlpTopic = BLANK;
-    for (i = 0; i < (MAXCW * MAXCH); i++) ass[i] = -2;
+    for (i = 0; i < (MAXCW * MAXCH); i++)
+      ass[i] = -2;
     mAss = false;
     invAss = false;
     shHelp = true;
@@ -162,7 +160,6 @@ public class Clic3Activity extends Clic3 {
       bar[i] = true;
       delim[i] = true;
       colorFons[i] = DEFAULT_BACK_COLOR;
-      // tramaFons[i]=-1;
     }
 
     colorUsuari[0] = DEFAULT_COLOR_USUARI_0;
@@ -173,25 +170,11 @@ public class Clic3Activity extends Clic3 {
     graTxt = null;
     for (i = 0; i < 4; i++) {
       logF[i] = BoxBase.getDefaultFont();
-      // logF[i]=logFont0;
-      // colors[i]=new TripleColor(new Color(0xFF, 0xFF, 0xFF),
-      //                          new Color(0, 0, 0),
-      //                          new Color(0x80, 0x80, 0x80), false);
-      // colors[i]=new TripleColor(DEFAULT_TRIPLE_COLOR.backColor,
-      //                          DEFAULT_TRIPLE_COLOR.textColor,
-      //                          DEFAULT_TRIPLE_COLOR.shadowColor,
-      //                          DEFAULT_TRIPLE_COLOR.shadow);
       colors[i] = (TripleColor) DEFAULT_TRIPLE_COLOR.clone();
     }
 
-    // colors[2].backColor=new Color(0xC0, 0xC0, 0xC0);
     colors[2].backColor = DEFAULT_BACK_COLOR;
 
-    // loaded=modified=sol=false;
-    // reported=true;
-    // solved=false;
-    // movToSolv=0;
-    // iniSolved=0;
     marcs = true;
 
     useDLL = false;
@@ -209,10 +192,7 @@ public class Clic3Activity extends Clic3 {
   }
 
   Font stringToFont(String s) {
-    // Hashtable lf = new Hashtable();
     int lfHeight, lfWeight, lfItalic;
-    // int lfHeight, lfWidth, lfEscapement, lfOrientation, lfWeight, lfItalic, lfUnderline;
-    // int lfStrikeOut, lfCharSet, lfOutPrecision, lfClipPrecision, lfQuality, lfPitchAndFamily;
     String lfFaceName;
     float size;
     int style;
@@ -220,36 +200,28 @@ public class Clic3Activity extends Clic3 {
 
     st = new StringTokenizer(s, COMMA);
     lfHeight = parseIntX(st.nextToken());
-    for (int i = 0; i < 3; i++) st.nextToken();
-    // lfWidth=parseIntX(st.nextToken());
-    // lfEscapement=parseIntX(st.nextToken());
-    // lfOrientation=parseIntX(st.nextToken());
+    for (int i = 0; i < 3; i++)
+      st.nextToken();
     lfWeight = parseIntX(st.nextToken());
     lfItalic = parseIntX(st.nextToken());
-    for (int i = 0; i < 7; i++) st.nextToken();
-    // lfUnderline=parseIntX(st.nextToken());
-    // lfStrikeOut=parseIntX(st.nextToken());
-    // lfCharSet=parseIntX(st.nextToken());
-    // lfOutPrecision=parseIntX(st.nextToken());
-    // lfClipPrecision=parseIntX(st.nextToken());
-    // lfQuality=parseIntX(st.nextToken());
-    // lfPitchAndFamily=parseIntX(st.nextToken());
+    for (int i = 0; i < 7; i++)
+      st.nextToken();
     lfFaceName = st.nextToken().trim();
 
-    // size = lfHeight;
-    // size /= 0.62;
     size = (lfHeight * 10) / 12;
-    if (size < BoxBase.MIN_FONT_SIZE) size = BoxBase.MIN_FONT_SIZE;
+    if (size < BoxBase.MIN_FONT_SIZE)
+      size = BoxBase.MIN_FONT_SIZE;
     style = 0;
-    if (lfWeight >= 700) style |= Font.BOLD;
-    if (lfItalic != 0) style |= Font.ITALIC;
+    if (lfWeight >= 700)
+      style |= Font.BOLD;
+    if (lfItalic != 0)
+      style |= Font.ITALIC;
     if ("system".equalsIgnoreCase(lfFaceName)) {
       lfFaceName = "Arial";
       size = 13;
       style |= Font.BOLD;
     }
 
-    // f = new Font(lfFaceName, style, new Float(size).intValue());
     return FontCheck.getValidFont(lfFaceName, style, (int) size);
   }
 
@@ -260,8 +232,6 @@ public class Clic3Activity extends Clic3 {
 
     st = new StringTokenizer(str, COMMA);
 
-    // test alpha
-    // c.backColor=new Color(correctColor(parseIntX(st.nextToken(), 16)) | 150<<24, true);
     c.backColor = strToColor(st.nextToken());
     c.textColor = strToColor(st.nextToken());
     c.shadowColor = strToColor(st.nextToken());
@@ -278,8 +248,6 @@ public class Clic3Activity extends Clic3 {
     boolean result = false;
     int boolParms = 0;
 
-    // clear();
-
     fileName = FileSystem.getCanonicalNameOf(validFileName(name), false);
     rPath = FileSystem.getPathPartOf(fileName);
 
@@ -290,9 +258,7 @@ public class Clic3Activity extends Clic3 {
     tipus = getExt(fileName);
 
     if (isClic3Extension(tipus) && (txt = dataToArray(data)) != null && (nLin = txt.length) > 0) {
-      if (nLin > 2
-          && (ver = (ver = parseIntX(txt[fLine++])) > 1000 ? ver - 1000 : ver) >= 100
-          && ver <= CLICVER) {
+      if (nLin > 2 && (ver = (ver = parseIntX(txt[fLine++])) > 1000 ? ver - 1000 : ver) >= 100 && ver <= CLICVER) {
         if (ver > 107) {
           StringBuilder sb = new StringBuilder();
           while (fLine < nLin) {
@@ -300,7 +266,8 @@ public class Clic3Activity extends Clic3 {
               fLine++;
               break;
             }
-            if (sb.length() > 0) sb.append("\r\n");
+            if (sb.length() > 0)
+              sb.append("\r\n");
             sb.append(txt[fLine++]);
           }
           fileDesc = sb.substring(0);
@@ -309,9 +276,12 @@ public class Clic3Activity extends Clic3 {
         if (ver > 100) {
           for (i = 0; i < (ver < 118 ? 1 : 3); i++) {
             logF[i] = stringToFont(txt[fLine++]);
-            if (ver >= 118) colors[i] = stringToTripleColor(txt[fLine++]);
+            if (ver >= 118)
+              colors[i] = stringToTripleColor(txt[fLine++]);
           }
-          if (ver < 118) for (i = 1; i < 4; i++) logF[i] = logF[0];
+          if (ver < 118)
+            for (i = 1; i < 4; i++)
+              logF[i] = logF[0];
         }
 
         if (ver > 118) {
@@ -323,8 +293,6 @@ public class Clic3Activity extends Clic3 {
           colorFons[0] = strToColor(st.nextToken());
           colorFons[1] = strToColor(st.nextToken());
 
-          // tramaFons[0]=parseIntX(st.nextToken());
-          // tramaFons[1]=parseIntX(st.nextToken());
           st.nextToken();
           st.nextToken();
 
@@ -339,18 +307,15 @@ public class Clic3Activity extends Clic3 {
           marcs = (parseIntX(st.nextToken()) != 0);
           colorFons[0] = strToColor(st.nextToken());
           colorFons[1] = strToColor(st.nextToken());
-          // tramaFons[0]=parseIntX(st.nextToken());
           st.nextToken();
-          // tramaFons[1]=parseIntX(st.nextToken());
           st.nextToken();
         }
-        // else tramaFons[0]=0;
 
-        if (ver < 119) btTipus = 0;
+        if (ver < 119)
+          btTipus = 0;
 
         if (ver >= 119)
           if (txt[fLine++].length() > 0)
-            // bmpFons=rPath+validFileName(txt[fLine-1]);
             bmpFons = FileSystem.getCanonicalNameOf(rPath + validFileName(txt[fLine - 1]), BF);
 
         initMess = txt[fLine++];
@@ -365,13 +330,17 @@ public class Clic3Activity extends Clic3 {
         if (ver > 105) {
           StringTokenizer st = new StringTokenizer(txt[fLine++], ";");
           txtCW = parseIntX(st.nextToken());
-          if (st.hasMoreTokens()) txtCW2 = parseIntX(st.nextToken());
-          else txtCW2 = txtCW;
+          if (st.hasMoreTokens())
+            txtCW2 = parseIntX(st.nextToken());
+          else
+            txtCW2 = txtCW;
 
           st = new StringTokenizer(txt[fLine++], ";");
           txtCH = parseIntX(st.nextToken());
-          if (st.hasMoreTokens()) txtCH2 = parseIntX(st.nextToken());
-          else txtCH2 = txtCH;
+          if (st.hasMoreTokens())
+            txtCH2 = parseIntX(st.nextToken());
+          else
+            txtCH2 = txtCH;
         } else {
           txtCW = txtCW2 = DEF_TXTCASW;
           txtCH = txtCH2 = DEF_TXTCASH;
@@ -403,7 +372,7 @@ public class Clic3Activity extends Clic3 {
 
         if (ver > 108) {
           custHlp = (parseIntX(txt[fLine++]) != 0);
-          // AFEGIR RPATH?
+          // ADD RPATH?
           hlpTopic = validFileName(txt[fLine++]);
           custHelpFile = validFileName(txt[fLine++]);
         }
@@ -415,225 +384,215 @@ public class Clic3Activity extends Clic3 {
         }
 
         switch (tipus) {
-          case EXT_PUZ:
-            actMode = PUZZLE;
-            if (nLin < fLine + 4) break;
-            // fileNameCont[0]=rPath+validFileName(txt[fLine++]);
-            fileNameCont[0] =
-                FileSystem.getCanonicalNameOf(rPath + validFileName(txt[fLine++]), BF);
-            if ((cont[0] = getExt(fileNameCont[0])) > EXT_TXT
-                || (ncw = parseIntX(txt[fLine++])) < 1
-                || (nch = parseIntX(txt[fLine++])) < 1
-                || ncw > MAXCW
-                || nch > MAXCH
-                || (ncw == 1 && nch == 1)
-                || (puzMode = parseIntX(txt[fLine++])) < INTERC
-                || puzMode > MEMORY) break;
-            stretch = (nLin > fLine && parseIntX(txt[fLine++]) == 1);
-            bar[0] = bar[1] = true;
-            if (ver < 120 && puzMode == MEMORY) graPos = AUB;
-            result = true;
+        case EXT_PUZ:
+          actMode = PUZZLE;
+          if (nLin < fLine + 4)
+            break;
+          fileNameCont[0] = FileSystem.getCanonicalNameOf(rPath + validFileName(txt[fLine++]), BF);
+          if ((cont[0] = getExt(fileNameCont[0])) > EXT_TXT || (ncw = parseIntX(txt[fLine++])) < 1
+              || (nch = parseIntX(txt[fLine++])) < 1 || ncw > MAXCW || nch > MAXCH || (ncw == 1 && nch == 1)
+              || (puzMode = parseIntX(txt[fLine++])) < INTERC || puzMode > MEMORY)
+            break;
+          stretch = (nLin > fLine && parseIntX(txt[fLine++]) == 1);
+          bar[0] = bar[1] = true;
+          if (ver < 120 && puzMode == MEMORY)
+            graPos = AUB;
+          result = true;
+          break;
+
+        case EXT_ASS:
+          actMode = ASSOCIA;
+          if (nLin < fLine + 7)
+            break;
+          if (ver > 109)
+            puzMode = parseIntX(txt[fLine++]);
+          if ((ncw = parseIntX(txt[fLine++])) < 1 || (nch = parseIntX(txt[fLine++])) < 1 || ncw > MAXCW || nch > MAXCH)
             break;
 
-          case EXT_ASS:
-            actMode = ASSOCIA;
-            if (nLin < fLine + 7) break;
-            if (ver > 109) puzMode = parseIntX(txt[fLine++]);
-            if ((ncw = parseIntX(txt[fLine++])) < 1
-                || (nch = parseIntX(txt[fLine++])) < 1
-                || ncw > MAXCW
-                || nch > MAXCH) break;
-
-            // fileNameCont[0]=rPath+validFileName(txt[fLine++]);
-            fileNameCont[0] =
-                FileSystem.getCanonicalNameOf(rPath + validFileName(txt[fLine++]), BF);
-            if ((cont[0] = getExt(fileNameCont[0])) > EXT_TXT) break;
-            // fileNameCont[1]=rPath+validFileName(txt[fLine++]);
-            fileNameCont[1] =
-                FileSystem.getCanonicalNameOf(rPath + validFileName(txt[fLine++]), BF);
-            if (puzMode != INFO
-                && puzMode != IDENTIFICA
-                && (cont[1] = getExt(fileNameCont[1])) > EXT_TXT) break;
-
-            bar[0] = (parseIntX(txt[fLine++]) == 1);
-            bar[1] = (parseIntX(txt[fLine++]) == 1);
-            if (puzMode == IDENTIFICA || puzMode == ESCRIU) bar[1] = false;
-            else if (puzMode == EXPLORA || puzMode == INFO) bar[0] = bar[1] = false;
-            stretch = true;
-
-            if (ver > 106) {
-              if (sol = (parseIntX(txt[fLine++]) != 0)) {
-                // fileNameCont[2]=rPath+validFileName(txt[fLine++]);
-                fileNameCont[2] =
-                    FileSystem.getCanonicalNameOf(rPath + validFileName(txt[fLine++]), BF);
-                if ((cont[2] = getExt(fileNameCont[2])) > EXT_TXT) break;
-              }
-            }
-
-            if (ver > 101) {
-              if (nLin < fLine + 1) break;
-              mAss = (parseIntX(txt[fLine++]) == 1);
-              if (mAss) {
-                if (puzMode == NORMAL) puzMode = ESPECIAL;
-                ncas = ncw * nch;
-                if (nLin < fLine + ncas + 2) break;
-                if ((nctxw = parseIntX(txt[fLine++])) < 1
-                    || (nctxh = parseIntX(txt[fLine++])) < 1
-                    || nctxw > MAXCW
-                    || nctxh > MAXCH) break;
-                for (i = 0; i < ncas; i++) ass[i] = parseIntX(txt[fLine++]);
-              }
-            }
-
-            if (puzMode == INFO || puzMode == EXPLORA) noAv = true;
-            result = true;
+          fileNameCont[0] = FileSystem.getCanonicalNameOf(rPath + validFileName(txt[fLine++]), BF);
+          if ((cont[0] = getExt(fileNameCont[0])) > EXT_TXT)
             break;
 
-          case EXT_SOP:
-            actMode = SOPA;
-            if (nLin < fLine + 7) break;
-
-            fileNameCont[0] = txt[fLine++];
-            if (fileNameCont[0].length() > 0 && fileNameCont[0].charAt(0) == '*') {
-              bar[0] = false;
-              fileNameCont[0] = BLANK;
-              cont[0] = EXT_BMP;
-            } else {
-              // fileNameCont[0]=rPath+validFileName(fileNameCont[0]);
-              fileNameCont[0] =
-                  FileSystem.getCanonicalNameOf(rPath + validFileName(fileNameCont[0]), BF);
-              bar[0] = true;
-            }
-
-            if ((bar[0] && (cont[0] = getExt(fileNameCont[0])) > EXT_TXT)
-                || (ncw = parseIntX(txt[fLine++])) < 1
-                || (nch = parseIntX(txt[fLine++])) < 1
-                || ncw > MAXCW
-                || nch > MAXCH
-                || (ncw == 1 && nch == 1)
-                || (nctxw = parseIntX(txt[fLine++])) < 1
-                || (nctxh = parseIntX(txt[fLine++])) < 1
-                || nctxw > MAXGW
-                || nctxh > MAXGH
-                || (nctxw == 1 && nctxh == 1)
-                || (ntags[0] = parseIntX(txt[fLine++])) < 1
-                || nLin < (nctxh + ntags[0] + fLine)
-                || (tags[0] = new String[ntags[0]]) == null
-                || (graTxt = new String[nctxh]) == null
-                || copyArray(graTxt, 0, txt, fLine, nctxh, true) == false
-                || copyArray(tags[0], 0, txt, fLine + nctxh, ntags[0], true) == false) break;
-            result = true;
-            stretch = true;
+          fileNameCont[1] = FileSystem.getCanonicalNameOf(rPath + validFileName(txt[fLine++]), BF);
+          if (puzMode != INFO && puzMode != IDENTIFICA && (cont[1] = getExt(fileNameCont[1])) > EXT_TXT)
             break;
 
-          case EXT_CRW:
-            actMode = CREUATS;
-            if (nLin < fLine + 6) break;
-            if ((nctxw = parseIntX(txt[fLine++])) < 1
-                || (nctxh = parseIntX(txt[fLine++])) < 1
-                || nctxw > MAXGW
-                || nctxh > MAXGH
-                || (nctxw == 1 && nctxh == 1)
-                || nLin < (fLine + nctxh + (ntags[0] = nctxh) + (ntags[1] = nctxw))
-                || (graTxt = new String[nctxh]) == null
-                || (tags[0] = new String[ntags[0]]) == null
-                || (tags[1] = new String[ntags[1]]) == null
-                || copyArray(graTxt, 0, txt, fLine, nctxh, true) == false
-                || copyArray(tags[0], 0, txt, fLine + nctxh, ntags[0], false) == false
-                || copyArray(tags[1], 0, txt, fLine + nctxh + ntags[0], ntags[1], false) == false)
-              break;
-
+          bar[0] = (parseIntX(txt[fLine++]) == 1);
+          bar[1] = (parseIntX(txt[fLine++]) == 1);
+          if (puzMode == IDENTIFICA || puzMode == ESCRIU)
+            bar[1] = false;
+          else if (puzMode == EXPLORA || puzMode == INFO)
             bar[0] = bar[1] = false;
-            ncw = 1;
-            nch = 4;
-            stretch = false;
-            result = true;
-            break;
+          stretch = true;
 
-          case EXT_TXA:
-            actMode = TEXTACT;
-            logF[3] = stringToFont(txt[fLine++]);
-            colors[3] = stringToTripleColor(txt[fLine++]);
-            StringTokenizer st = new StringTokenizer(txt[fLine++], COMMA);
-            colorUsuari[0] = strToColor(st.nextToken());
-            colorUsuari[1] = strToColor(st.nextToken());
-            colorError[0] = strToColor(st.nextToken());
-            colorError[1] = strToColor(st.nextToken());
-
-            st = new StringTokenizer(txt[fLine++], COMMA);
-            puzMode = parseIntX(st.nextToken());
-            boolParms = parseIntX(st.nextToken());
-            avScope = parseIntX(st.nextToken());
-            avMaxScope = parseIntX(st.nextToken());
-            avPrevHelp = parseIntX(st.nextToken());
-            avTimePH = parseIntX(st.nextToken());
-            tabSpc = parseIntX(st.nextToken());
-
-            okToNext = (boolParms & 0x0001) != 0;
-            btCorregir = (boolParms & 0x0002) != 0;
-            avCont = (boolParms & 0x0004) != 0;
-            avMaj = (boolParms & 0x0008) != 0;
-            avAcc = (boolParms & 0x0010) != 0;
-            brPar = (boolParms & 0x0020) != 0;
-            avDblSpc = (boolParms & 0x0040) != 0;
-            avPunt = (boolParms & 0x0080) != 0;
-            avLletra = (boolParms & 0x0100) != 0;
-            avNoSalta = (boolParms & 0x0200) != 0;
-            txBtCorregir = txt[fLine++];
-            for (k = 0; k < 3; k++) {
-              tmptx.setLength(0);
-              while (fLine < nLin) {
-                if (txt[fLine].length() > 0 && txt[fLine].charAt(0) == ENDDESC) {
-                  fLine++;
-                  break;
-                }
-                if (tmptx.length() > 0) tmptx.append("\n");
-                tmptx.append(txt[fLine++]);
-              }
-              switch (k) {
-                case 0:
-                  txBase = tmptx.substring(0);
-                  break;
-                case 1:
-                  txPrev = tmptx.substring(0);
-                  break;
-                case 2:
-                  initMessPrev = tmptx.substring(0);
-                  break;
-              }
+          if (ver > 106) {
+            if (sol = (parseIntX(txt[fLine++]) != 0)) {
+              fileNameCont[2] = FileSystem.getCanonicalNameOf(rPath + validFileName(txt[fLine++]), BF);
+              if ((cont[2] = getExt(fileNameCont[2])) > EXT_TXT)
+                break;
             }
-            if (btCorregir == false && (puzMode != FORATS || avCont == false)) noAv = true;
+          }
 
-            result = (txBase != null);
+          if (ver > 101) {
+            if (nLin < fLine + 1)
+              break;
+            mAss = (parseIntX(txt[fLine++]) == 1);
+            if (mAss) {
+              if (puzMode == NORMAL)
+                puzMode = ESPECIAL;
+              ncas = ncw * nch;
+              if (nLin < fLine + ncas + 2)
+                break;
+              if ((nctxw = parseIntX(txt[fLine++])) < 1 || (nctxh = parseIntX(txt[fLine++])) < 1 || nctxw > MAXCW
+                  || nctxh > MAXCH)
+                break;
+              for (i = 0; i < ncas; i++)
+                ass[i] = parseIntX(txt[fLine++]);
+            }
+          }
 
-          default:
+          if (puzMode == INFO || puzMode == EXPLORA)
+            noAv = true;
+          result = true;
+          break;
+
+        case EXT_SOP:
+          actMode = SOPA;
+          if (nLin < fLine + 7)
             break;
+
+          fileNameCont[0] = txt[fLine++];
+          if (fileNameCont[0].length() > 0 && fileNameCont[0].charAt(0) == '*') {
+            bar[0] = false;
+            fileNameCont[0] = BLANK;
+            cont[0] = EXT_BMP;
+          } else {
+            fileNameCont[0] = FileSystem.getCanonicalNameOf(rPath + validFileName(fileNameCont[0]), BF);
+            bar[0] = true;
+          }
+
+          if ((bar[0] && (cont[0] = getExt(fileNameCont[0])) > EXT_TXT) || (ncw = parseIntX(txt[fLine++])) < 1
+              || (nch = parseIntX(txt[fLine++])) < 1 || ncw > MAXCW || nch > MAXCH || (ncw == 1 && nch == 1)
+              || (nctxw = parseIntX(txt[fLine++])) < 1 || (nctxh = parseIntX(txt[fLine++])) < 1 || nctxw > MAXGW
+              || nctxh > MAXGH || (nctxw == 1 && nctxh == 1) || (ntags[0] = parseIntX(txt[fLine++])) < 1
+              || nLin < (nctxh + ntags[0] + fLine) || (tags[0] = new String[ntags[0]]) == null
+              || (graTxt = new String[nctxh]) == null || copyArray(graTxt, 0, txt, fLine, nctxh, true) == false
+              || copyArray(tags[0], 0, txt, fLine + nctxh, ntags[0], true) == false)
+            break;
+          result = true;
+          stretch = true;
+          break;
+
+        case EXT_CRW:
+          actMode = CREUATS;
+          if (nLin < fLine + 6)
+            break;
+          if ((nctxw = parseIntX(txt[fLine++])) < 1 || (nctxh = parseIntX(txt[fLine++])) < 1 || nctxw > MAXGW
+              || nctxh > MAXGH || (nctxw == 1 && nctxh == 1)
+              || nLin < (fLine + nctxh + (ntags[0] = nctxh) + (ntags[1] = nctxw))
+              || (graTxt = new String[nctxh]) == null || (tags[0] = new String[ntags[0]]) == null
+              || (tags[1] = new String[ntags[1]]) == null || copyArray(graTxt, 0, txt, fLine, nctxh, true) == false
+              || copyArray(tags[0], 0, txt, fLine + nctxh, ntags[0], false) == false
+              || copyArray(tags[1], 0, txt, fLine + nctxh + ntags[0], ntags[1], false) == false)
+            break;
+
+          bar[0] = bar[1] = false;
+          ncw = 1;
+          nch = 4;
+          stretch = false;
+          result = true;
+          break;
+
+        case EXT_TXA:
+          actMode = TEXTACT;
+          logF[3] = stringToFont(txt[fLine++]);
+          colors[3] = stringToTripleColor(txt[fLine++]);
+          StringTokenizer st = new StringTokenizer(txt[fLine++], COMMA);
+          colorUsuari[0] = strToColor(st.nextToken());
+          colorUsuari[1] = strToColor(st.nextToken());
+          colorError[0] = strToColor(st.nextToken());
+          colorError[1] = strToColor(st.nextToken());
+
+          st = new StringTokenizer(txt[fLine++], COMMA);
+          puzMode = parseIntX(st.nextToken());
+          boolParms = parseIntX(st.nextToken());
+          avScope = parseIntX(st.nextToken());
+          avMaxScope = parseIntX(st.nextToken());
+          avPrevHelp = parseIntX(st.nextToken());
+          avTimePH = parseIntX(st.nextToken());
+          tabSpc = parseIntX(st.nextToken());
+
+          okToNext = (boolParms & 0x0001) != 0;
+          btCorregir = (boolParms & 0x0002) != 0;
+          avCont = (boolParms & 0x0004) != 0;
+          avMaj = (boolParms & 0x0008) != 0;
+          avAcc = (boolParms & 0x0010) != 0;
+          brPar = (boolParms & 0x0020) != 0;
+          avDblSpc = (boolParms & 0x0040) != 0;
+          avPunt = (boolParms & 0x0080) != 0;
+          avLletra = (boolParms & 0x0100) != 0;
+          avNoSalta = (boolParms & 0x0200) != 0;
+          txBtCorregir = txt[fLine++];
+          for (k = 0; k < 3; k++) {
+            tmptx.setLength(0);
+            while (fLine < nLin) {
+              if (txt[fLine].length() > 0 && txt[fLine].charAt(0) == ENDDESC) {
+                fLine++;
+                break;
+              }
+              if (tmptx.length() > 0)
+                tmptx.append("\n");
+              tmptx.append(txt[fLine++]);
+            }
+            switch (k) {
+            case 0:
+              txBase = tmptx.substring(0);
+              break;
+            case 1:
+              txPrev = tmptx.substring(0);
+              break;
+            case 2:
+              initMessPrev = tmptx.substring(0);
+              break;
+            }
+          }
+          if (btCorregir == false && (puzMode != FORATS || avCont == false))
+            noAv = true;
+
+          result = (txBase != null);
+
+        default:
+          break;
         }
       }
 
       if (!result) {
-        // BMsgBox(0, IDS_LECT, ver>CLICVER ? IDS_ERRNEWV:IDS_ERRFMT, fn);
         clear();
       }
-      // else loaded=true;
-    } else clear();
+    } else
+      clear();
     return result;
   }
 
   public BoxBase getBoxBase(int i) {
     // we have only 4 box bases
-    if (i > 3) return null;
+    if (i > 3)
+      return null;
 
     BoxBase bb = new BoxBase();
-    if (!colors[i].backColor.equals(BoxBase.DEFAULT_BACK_COLOR)) bb.backColor = colors[i].backColor;
-    if (!colors[i].textColor.equals(BoxBase.DEFAULT_TEXT_COLOR)) bb.textColor = colors[i].textColor;
+    if (!colors[i].backColor.equals(BoxBase.DEFAULT_BACK_COLOR))
+      bb.backColor = colors[i].backColor;
+    if (!colors[i].textColor.equals(BoxBase.DEFAULT_TEXT_COLOR))
+      bb.textColor = colors[i].textColor;
     if (!colors[i].shadowColor.equals(Color.gray)) {
-      if (colors[i].shadow) bb.shadowColor = colors[i].shadowColor;
+      if (colors[i].shadow)
+        bb.shadowColor = colors[i].shadowColor;
       bb.inactiveColor = colors[i].shadowColor;
       bb.alternativeColor = colors[i].shadowColor;
     }
     bb.shadow = colors[i].shadow;
-    if (!logF[i].equals(BoxBase.getDefaultFont())) bb.setFont(logF[i]);
+    if (!logF[i].equals(BoxBase.getDefaultFont()))
+      bb.setFont(logF[i]);
     return bb;
   }
 
@@ -648,7 +607,8 @@ public class Clic3Activity extends Clic3 {
     boolean singleCells = false;
     boolean border;
 
-    if (num < 0 || num >= 3 || fileNameCont[num] == null) return abc;
+    if (num < 0 || num >= 3 || fileNameCont[num] == null)
+      return abc;
 
     if (num == 0 || num == 2) {
       cw = ncw;
@@ -669,8 +629,10 @@ public class Clic3Activity extends Clic3 {
 
     Shaper sh = null;
     if (fileDesc != null) {
-      if (fileDesc.indexOf("noAutoZones") >= 0) noAutoZones = true;
-      if (fileDesc.indexOf("singleCells") >= 0) singleCells = true;
+      if (fileDesc.indexOf("noAutoZones") >= 0)
+        noAutoZones = true;
+      if (fileDesc.indexOf("singleCells") >= 0)
+        singleCells = true;
       int i = fileDesc.indexOf("SHAPER:");
       if (i >= 0) {
         StringTokenizer st = new StringTokenizer(fileDesc.substring(i + 7), "|");
@@ -696,26 +658,23 @@ public class Clic3Activity extends Clic3 {
       }
     }
 
-    if (sh == null) sh = new Rectangular(cw, ch);
-    else specialShape = true;
+    if (sh == null)
+      sh = new Rectangular(cw, ch);
+    else
+      specialShape = true;
 
     abc.setShaper(sh);
 
     if (fileNameCont[num].endsWith(".txt")) {
-      // abc.setTextContent(ac.getTxtFile(fileNameCont[num]), ac, cw, ch, w, h);
-      // setActiveBagTextContent(abc, ac.getTxtFile(fileNameCont[num]), ac, cw, ch, w, h);
       String[] content = dataToArray(project.getFileSystem().getBytes(fileNameCont[num]));
       if (content == null) {
         content = new String[cw * ch];
-        for (int z = 0; z < cw * ch; z++) content[z] = new String();
+        for (int z = 0; z < cw * ch; z++)
+          content[z] = new String();
       }
-      setActiveBagTextContent(abc, content, /*rb,*/ cw, ch, w, h);
+      setActiveBagTextContent(abc, content, /* rb, */ cw, ch, w, h);
     } else {
-      if (!noAutoZones
-          && mAss
-          && !specialShape
-          && cw * ch > TOO_MUCH_CELLS
-          && bar[num & 1] == false) {
+      if (!noAutoZones && mAss && !specialShape && cw * ch > TOO_MUCH_CELLS && bar[num & 1] == false) {
         if (num == 2) {
           if (abcCopy[0] != null) {
             abc.setShaper(abcCopy[0].getShaper());
@@ -725,12 +684,10 @@ public class Clic3Activity extends Clic3 {
         } else {
           int[] ids = new int[cw * ch];
           if (num == 0)
-            // ATENCIÓ!!!!!!
-            // for(int i=0; i<cw*ch; i++)
-            //    ids[i]=ass[i];
             System.arraycopy(ass, 0, ids, 0, cw * ch);
           else {
-            for (int i = 0; i < cw * ch; i++) ids[i] = -1;
+            for (int i = 0; i < cw * ch; i++)
+              ids[i] = -1;
             int k = 0;
             int m = Math.min(ncw * nch, ass.length);
             for (int i = 0; i < m; i++) {
@@ -740,14 +697,16 @@ public class Clic3Activity extends Clic3 {
                   ids[j] = k;
                   ass[i] = k;
                   k++;
-                } else ass[i] = ids[j];
+                } else
+                  ass[i] = ids[j];
               }
             }
           }
           boolean skipOnes = (actMode == ASSOCIA && puzMode == IDENTIFICA);
           HolesMaker hsm = new HolesMaker(cw, ch, ids, num != 1, skipOnes, singleCells);
           abc.setShaper(hsm.getShaper());
-          if (num == 0) ass = hsm.getIds();
+          if (num == 0)
+            ass = hsm.getIds();
         }
       }
       abc.setImgContent(project.mediaBag.getImageElement(fileNameCont[num]), true);
@@ -764,48 +723,46 @@ public class Clic3Activity extends Clic3 {
     abc.mediaContent = null;
     abc.img = null;
     abc.imgName = null;
-    // abc.rawText=new String(tx);
     abc.rawText = tx;
     txPrev2 = tx;
     while ((i = txPrev2.indexOf('{')) >= 0) {
       j = txPrev2.indexOf('}', i);
-      if (j < 0) break;
+      if (j < 0)
+        break;
       sub = txPrev2.substring(i + 1, j);
       txPrev2 = txPrev2.substring(0, i) + txPrev2.substring(j + 1);
       sub = sub.trim();
       subc = sub.toLowerCase();
-      if (subc.endsWith(".gif")
-          || subc.endsWith(".jpg")
-          || subc.endsWith(".bmp")
-          || subc.endsWith(".png")) {
+      if (subc.endsWith(".gif") || subc.endsWith(".jpg") || subc.endsWith(".bmp") || subc.endsWith(".png")) {
         abc.imgName = FileSystem.getCanonicalNameOf(rPath + validFileName(sub), BF);
       } else {
-        if (abc.mediaContent == null) abc.mediaContent = new MediaContent();
+        if (abc.mediaContent == null)
+          abc.mediaContent = new MediaContent();
 
         try {
           StringTokenizer st = new StringTokenizer(subc, " ");
           while (st.hasMoreTokens()) {
             String token = st.nextToken();
             if (token.equals("stretch"))
-              // abc.mediaContent.fixedAspectRatio=false;
               abc.mediaContent.stretch = true;
-            else if (token.equals("free")) abc.mediaContent.free = true;
+            else if (token.equals("free"))
+              abc.mediaContent.free = true;
             else if (token.equals("pos")) {
               abc.mediaContent.absLocation = new Point();
               abc.mediaContent.absLocation.x = Integer.parseInt(st.nextToken());
               abc.mediaContent.absLocation.y = Integer.parseInt(st.nextToken());
               int k = Integer.parseInt(st.nextToken());
-              abc.mediaContent.absLocationFrom =
-                  (k == 0
-                      ? MediaContent.FROM_BOX
-                      : (k == 1 ? MediaContent.FROM_WINDOW : MediaContent.FROM_FRAME));
+              abc.mediaContent.absLocationFrom = (k == 0 ? MediaContent.FROM_BOX
+                  : (k == 1 ? MediaContent.FROM_WINDOW : MediaContent.FROM_FRAME));
             } else if (token.equals("to")) {
               if (abc.mediaContent.mediaType == MediaContent.PLAY_CDAUDIO)
                 abc.mediaContent.cdTo = st.nextToken();
-              else abc.mediaContent.to = Integer.parseInt(st.nextToken());
+              else
+                abc.mediaContent.to = Integer.parseInt(st.nextToken());
             } else if (token.equals("from"))
               abc.mediaContent.from = Integer.parseInt(st.nextToken());
-            else if (token.equals("exit")) abc.mediaContent.mediaType = MediaContent.EXIT;
+            else if (token.equals("exit"))
+              abc.mediaContent.mediaType = MediaContent.EXIT;
             else if (token.length() == 4 && token.startsWith("rec")) {
               abc.mediaContent.recBuffer = Integer.parseInt(token.substring(3));
               abc.mediaContent.mediaType = MediaContent.RECORD_AUDIO;
@@ -813,72 +770,51 @@ public class Clic3Activity extends Clic3 {
                 token = st.nextToken();
                 if (token.equals("play"))
                   abc.mediaContent.mediaType = MediaContent.PLAY_RECORDED_AUDIO;
-                else abc.mediaContent.length = Integer.parseInt(token);
+                else
+                  abc.mediaContent.length = Integer.parseInt(token);
               }
-            } else if (token.endsWith(".wav")
-                || token.endsWith(".mp3")
-                || token.endsWith(".ogg")
-                || token.endsWith(".au")
-                || token.endsWith(".ra")) {
+            } else if (token.endsWith(".wav") || token.endsWith(".mp3") || token.endsWith(".ogg")
+                || token.endsWith(".au") || token.endsWith(".ra")) {
               abc.mediaContent.mediaType = MediaContent.PLAY_AUDIO;
-              abc.mediaContent.mediaFileName =
-                  FileSystem.getCanonicalNameOf(rPath + validFileName(token), BF);
+              abc.mediaContent.mediaFileName = FileSystem.getCanonicalNameOf(rPath + validFileName(token), BF);
             } else if (token.endsWith(".mid")) {
               abc.mediaContent.mediaType = MediaContent.PLAY_MIDI;
-              // abc.mediaContent.mediaFileName=rPath+validFileName(token);
-              abc.mediaContent.mediaFileName =
-                  FileSystem.getCanonicalNameOf(rPath + validFileName(token), BF);
+              abc.mediaContent.mediaFileName = FileSystem.getCanonicalNameOf(rPath + validFileName(token), BF);
               // Compute MIDI pos!!!
             } else if (token.endsWith(".avi") || token.endsWith(".mpg") || token.endsWith(".swf")) {
               abc.mediaContent.mediaType = MediaContent.PLAY_VIDEO;
-              // abc.mediaContent.mediaFileName=rPath+validFileName(token);
-              abc.mediaContent.mediaFileName =
-                  FileSystem.getCanonicalNameOf(rPath + validFileName(token), BF);
-            } else if (token.endsWith(".ass")
-                || token.endsWith(".puz")
-                || token.endsWith(".sop")
-                || token.endsWith(".crw")
-                || token.endsWith(".txa")) {
+              abc.mediaContent.mediaFileName = FileSystem.getCanonicalNameOf(rPath + validFileName(token), BF);
+            } else if (token.endsWith(".ass") || token.endsWith(".puz") || token.endsWith(".sop")
+                || token.endsWith(".crw") || token.endsWith(".txa")) {
               abc.mediaContent.mediaType = MediaContent.RUN_CLIC_ACTIVITY;
-              // abc.mediaContent.mediaFileName=rPath+validFileName(token);
-              abc.mediaContent.mediaFileName =
-                  FileSystem.getCanonicalNameOf(rPath + validFileName(token), BF);
+              abc.mediaContent.mediaFileName = FileSystem.getCanonicalNameOf(rPath + validFileName(token), BF);
             } else if (token.endsWith(".pac") || token.endsWith(".pcc")) {
               abc.mediaContent.mediaType = MediaContent.RUN_CLIC_PACKAGE;
-              // abc.mediaContent.mediaFileName=rPath+validFileName(token);
-              abc.mediaContent.mediaFileName =
-                  FileSystem.getCanonicalNameOf(rPath + validFileName(token), BF);
+              abc.mediaContent.mediaFileName = FileSystem.getCanonicalNameOf(rPath + validFileName(token), BF);
             } else if (token.endsWith(".exe") || token.endsWith(".com") || token.endsWith(".bat")) {
               abc.mediaContent.mediaType = MediaContent.RUN_EXTERNAL;
               // AVOID ABSOLUTE PATH
-              // abc.mediaContent.mediaFileName=rPath+validFileName(token);
-              abc.mediaContent.mediaFileName =
-                  FileSystem.getCanonicalNameOf(rPath + validFileName(token), BF);
+              abc.mediaContent.mediaFileName = FileSystem.getCanonicalNameOf(rPath + validFileName(token), BF);
               abc.mediaContent.externalParam = BLANK;
               while (st.hasMoreTokens()) {
                 // CHECK RPATH
-                abc.mediaContent.externalParam =
-                    abc.mediaContent.externalParam + " " + st.nextToken();
+                abc.mediaContent.externalParam = abc.mediaContent.externalParam + " " + st.nextToken();
               }
               abc.mediaContent.externalParam = abc.mediaContent.externalParam.trim();
-            } else if (token.endsWith(".htm")
-                || token.endsWith(".html")
-                || token.startsWith("http:")) {
+            } else if (token.endsWith(".htm") || token.endsWith(".html") || token.startsWith("http:")) {
               abc.mediaContent.mediaType = MediaContent.URL;
-              if (FileSystem.isStrUrl(token)) abc.mediaContent.mediaFileName = token;
+              if (FileSystem.isStrUrl(token))
+                abc.mediaContent.mediaFileName = token;
               else
-                // abc.mediaContent.mediaFileName=rPath+validFileName(token);
-                abc.mediaContent.mediaFileName =
-                    FileSystem.getCanonicalNameOf(rPath + validFileName(token), BF);
+                abc.mediaContent.mediaFileName = FileSystem.getCanonicalNameOf(rPath + validFileName(token), BF);
             } else if (token.indexOf(".") >= 0) {
               abc.mediaContent.mediaType = MediaContent.UNKNOWN;
-              // abc.mediaContent.mediaFileName=rPath+validFileName(token);
-              abc.mediaContent.mediaFileName =
-                  FileSystem.getCanonicalNameOf(rPath + validFileName(token), BF);
+              abc.mediaContent.mediaFileName = FileSystem.getCanonicalNameOf(rPath + validFileName(token), BF);
             } else if (token.indexOf(":") >= 0) {
               abc.mediaContent.mediaType = MediaContent.PLAY_CDAUDIO;
               abc.mediaContent.cdFrom = token;
-            } else System.err.println("Unknown media command: " + token);
+            } else
+              System.err.println("Unknown media command: " + token);
           }
         } catch (Exception e) {
           System.err.println("Error parsing media string \"" + sub + "\"\n" + e);
@@ -889,23 +825,20 @@ public class Clic3Activity extends Clic3 {
     abc.realizeContent(project.mediaBag);
   }
 
-  public void setActiveBagTextContent(
-      ActiveBagContent abc, String[] setText, int setNcw, int setNch, double setW, double setH)
-      throws Exception {
+  public void setActiveBagTextContent(ActiveBagContent abc, String[] setText, int setNcw, int setNch, double setW,
+      double setH) throws Exception {
     setActiveBagTextContent(abc, setText, setNcw, setNch);
     abc.w = setW;
     abc.h = setH;
   }
 
-  public void setActiveBagTextContent(ActiveBagContent abc, String[] txt, int setNcw, int setNch)
-      throws Exception {
+  public void setActiveBagTextContent(ActiveBagContent abc, String[] txt, int setNcw, int setNch) throws Exception {
     abc.img = null;
     abc.imgName = null;
     abc.ncw = Math.max(1, setNcw);
     abc.nch = Math.max(1, setNch);
     int n = abc.ncw * abc.nch;
     for (int i = 0; i < n; i++)
-      setActiveBoxTextContent(
-          abc.getActiveBoxContent(i), ((i >= txt.length || txt[i] == null) ? BLANK : txt[i]));
+      setActiveBoxTextContent(abc.getActiveBoxContent(i), ((i >= txt.length || txt[i] == null) ? BLANK : txt[i]));
   }
 }

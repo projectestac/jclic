@@ -39,7 +39,6 @@ public class ActiveBoxPreviewPanel extends JPanel {
   /** Creates a new instance of ActiveBoxPreviewPanel */
   public ActiveBoxPreviewPanel(AbstractBox parent) {
     super();
-    // setOpaque(false);
     ab = new ActiveBox(parent, this, null);
     abc = new ActiveBoxContent();
     ab.setContent(abc);
@@ -78,7 +77,8 @@ public class ActiveBoxPreviewPanel extends JPanel {
     while (true) {
       BoxBase.flagFontReduced = false;
       ab.update(g2, g2.getClipBounds(), this);
-      if (!BoxBase.flagFontReduced) break;
+      if (!BoxBase.flagFontReduced)
+        break;
     }
     g2.setRenderingHints(rh);
   }

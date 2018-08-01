@@ -32,7 +32,6 @@ import java.util.GregorianCalendar;
 public class DateManager {
 
   public static final String FROM = "from", TO = "to";
-  // public static final String FROM_FORM="fromForm", TO_FORM="toForm";
 
   protected Date dFrom, dTo, firstDate, today;
   private GregorianCalendar calendar;
@@ -48,30 +47,27 @@ public class DateManager {
 
     firstDate = Basic.bridge.getMinSessionDate();
     today = new Date();
-    if (firstDate == null || firstDate.compareTo(today) > 0) firstDate = today;
+    if (firstDate == null || firstDate.compareTo(today) > 0)
+      firstDate = today;
     dFrom = rp.getDateParam(FROM, firstDate, false);
     dTo = rp.getDateParam(TO, today, true);
-    if (dFrom.compareTo(dTo) > 0) dFrom = dTo;
+    if (dFrom.compareTo(dTo) > 0)
+      dFrom = dTo;
 
     System.out.println("From: " + dFrom + " To: " + dTo);
     return true;
   }
 
   public GregorianCalendar getCalendar() {
-    if (calendar == null) calendar = new GregorianCalendar();
+    if (calendar == null)
+      calendar = new GregorianCalendar();
     return calendar;
   }
 
   public void writeHiddenFields(StringBuilder sb) throws Exception {
-    sb.append("<input type=\"hidden\" name=\"")
-        .append(FROM)
-        .append("\" value=\"")
-        .append(ReportUtils.dateToStr(dFrom))
+    sb.append("<input type=\"hidden\" name=\"").append(FROM).append("\" value=\"").append(ReportUtils.dateToStr(dFrom))
         .append("\">\n");
-    sb.append("<input type=\"hidden\" name=\"")
-        .append(TO)
-        .append("\" value=\"")
-        .append(ReportUtils.dateToStr(dTo))
+    sb.append("<input type=\"hidden\" name=\"").append(TO).append("\" value=\"").append(ReportUtils.dateToStr(dTo))
         .append("\">\n");
   }
 
@@ -105,12 +101,9 @@ public class DateManager {
   protected void liniaData(StringBuilder sb, boolean bFrom) {
     String[] n = Basic.getFormattedNumbers();
     String msgKey = bFrom ? "report_from" : "report_to";
-    // String formName = bFrom ? FROM_FORM : TO_FORM;
-    // String type = bFrom ? FROM : TO;
     String type = bFrom ? "From" : "To";
 
     String ctrlName = Basic.MAIN_FORM + "." + type;
-    // String actionStr=" onChange=updateDate"+formName+"()";
     String actionStr = "\" onChange=updateDate" + type + "()";
     GregorianCalendar c = getCalendar();
     c.setTime(firstDate);
@@ -120,41 +113,30 @@ public class DateManager {
     c.setTime(bFrom ? dFrom : dTo);
 
     sb.append("<p><strong>").append(Basic.toNbsp(rp.getMsg(msgKey))).append("</strong> ");
-    sb.append("<select name=\"day")
-        .append(type)
-        .append("\"  onChange=\"updateDate")
-        .append(type)
-        .append("()\">\n");
+    sb.append("<select name=\"day").append(type).append("\"  onChange=\"updateDate").append(type).append("()\">\n");
     int x = c.get(GregorianCalendar.DAY_OF_MONTH);
     for (int i = 1; i <= 31; i++) {
       sb.append("<option");
-      if (i == x) sb.append(" selected");
+      if (i == x)
+        sb.append(" selected");
       sb.append(" value=\"").append(n[i]).append("\">").append(n[i]).append("</option>\n");
     }
-    sb.append("</select> <select name=\"month")
-        .append(type)
-        .append("\"  onChange=\"updateDate")
-        .append(type)
+    sb.append("</select> <select name=\"month").append(type).append("\"  onChange=\"updateDate").append(type)
         .append("()\">\n");
     x = c.get(GregorianCalendar.MONTH);
     for (int i = 0; i < 12; i++) {
       sb.append("<option");
-      if (i == x) sb.append(" selected");
-      sb.append(" value=\"")
-          .append(n[i + 1])
-          .append("\">")
-          .append(Basic.filter(rp.months[i]))
-          .append("</option>\n");
+      if (i == x)
+        sb.append(" selected");
+      sb.append(" value=\"").append(n[i + 1]).append("\">").append(Basic.filter(rp.months[i])).append("</option>\n");
     }
-    sb.append("</select> <select name=\"year")
-        .append(type)
-        .append("\"  onChange=\"updateDate")
-        .append(type)
+    sb.append("</select> <select name=\"year").append(type).append("\"  onChange=\"updateDate").append(type)
         .append("()\">\n");
     x = c.get(GregorianCalendar.YEAR);
     for (int i = firstYear; i <= currentYear; i++) {
       sb.append("<option");
-      if (i == x) sb.append(" selected");
+      if (i == x)
+        sb.append(" selected");
       sb.append(" value=\"").append(i).append("\">").append(i).append("</option>\n");
     }
     sb.append("</select></p>\n");

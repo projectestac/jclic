@@ -41,7 +41,6 @@ public class ActivityBagElementEditor extends Editor {
 
   public static ImageIcon icon;
   public static EditorAction testActivityAction;
-  // public static EditorAction newActivityBagElementAction;
   public static boolean actionsCreated;
 
   /** Creates a new instance of ActivityBagElementEditor */
@@ -49,7 +48,8 @@ public class ActivityBagElementEditor extends Editor {
     super(abe);
   }
 
-  protected void createChildren() {}
+  protected void createChildren() {
+  }
 
   public EditorPanel createEditorPanel(Options options) {
     ActivityEditor ae = getActivityEditor();
@@ -88,13 +88,15 @@ public class ActivityBagElementEditor extends Editor {
   public void forgetActivityEditor() {
     if (getChildCount() > 0) {
       ActivityEditor ae = (ActivityEditor) getFirstChild();
-      if (ae.isModified()) ae.saveData();
+      if (ae.isModified())
+        ae.saveData();
       removeAllChildren();
     }
   }
 
   public static Icon getIcon() {
-    if (icon == null) icon = edu.xtec.util.ResourceManager.getImageIcon("icons/miniclic.png");
+    if (icon == null)
+      icon = edu.xtec.util.ResourceManager.getImageIcon("icons/miniclic.png");
     return icon;
   }
 
@@ -191,17 +193,16 @@ public class ActivityBagElementEditor extends Editor {
   public static void createActions(Options options) {
     createBasicActions(options);
     if (!actionsCreated) {
-      testActivityAction =
-          new EditorAction(
-              "edit_act_testAction", "icons/play.gif", "edit_act_testAction_tooltip", options) {
-            protected void doAction(Editor e) {
-              if (e instanceof ActivityBagElementEditor) {
-                ((ActivityBagElementEditor) e).testActivity();
-              } else if (e instanceof ActivitySequenceElementEditor) {
-                ((ActivitySequenceElementEditor) e).testActivity();
-              }
-            }
-          };
+      testActivityAction = new EditorAction("edit_act_testAction", "icons/play.gif", "edit_act_testAction_tooltip",
+          options) {
+        protected void doAction(Editor e) {
+          if (e instanceof ActivityBagElementEditor) {
+            ((ActivityBagElementEditor) e).testActivity();
+          } else if (e instanceof ActivitySequenceElementEditor) {
+            ((ActivitySequenceElementEditor) e).testActivity();
+          }
+        }
+      };
       actionsCreated = true;
     }
   }
@@ -210,8 +211,10 @@ public class ActivityBagElementEditor extends Editor {
     boolean result = false;
     boolean hasChild = getChildCount() > 0;
     ActivityEditor ae = getActivityEditor();
-    if (ae != null) result = ae.nameChanged(type, oldName, newName);
-    if (!hasChild) forgetActivityEditor();
+    if (ae != null)
+      result = ae.nameChanged(type, oldName, newName);
+    if (!hasChild)
+      forgetActivityEditor();
     return result;
   }
 }

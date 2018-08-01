@@ -80,7 +80,8 @@ public class QT61AudioBuffer extends AudioBuffer {
         if (mGrabber != null && mGrabber.isRecordMode()) {
           mGrabber.stop();
           Thread.sleep(50);
-        } else break;
+        } else
+          break;
       }
     } catch (Exception ex) {
       System.err.println("QuickTime recording error at STOP:\n" + ex);
@@ -111,38 +112,35 @@ public class QT61AudioBuffer extends AudioBuffer {
     mAudio.setSoundInputRate(22050);
     mAudio.setSoundInputParameters(16, 1, 0);
 
-    // mAudio.settingsDialog();
-
-    mGrabber.setDataOutput(
-        new quicktime.io.QTFile(file), quicktime.std.StdQTConstants.seqGrabToDisk);
+    mGrabber.setDataOutput(new quicktime.io.QTFile(file), quicktime.std.StdQTConstants.seqGrabToDisk);
     mGrabber.setMaximumRecordTime(m_seconds * 60);
     mGrabber.prepare(false, true);
     activeAudioBuffer = this;
-    recordThread =
-        new Thread("JClic sound record") {
-          @Override
-          public void run() {
-            try {
-              while (mGrabber.isRecordMode() && mGrabber.idleMore()) {
-                mGrabber.idle();
-                Thread.sleep(20);
-              }
-              if (mGrabber.isRecordMode()) mGrabber.stop();
-              recordThread = null;
-              if (mAudio != null) {
-                mGrabber.disposeChannel(mAudio);
-                mAudio = null;
-              }
-              mGrabber.release();
-              mGrabber = null;
-              initialized = true;
-              activeAudioBuffer = null;
-              hideRecordingCursor();
-            } catch (Exception ex) {
-              System.err.println(ex.getMessage());
-            }
+    recordThread = new Thread("JClic sound record") {
+      @Override
+      public void run() {
+        try {
+          while (mGrabber.isRecordMode() && mGrabber.idleMore()) {
+            mGrabber.idle();
+            Thread.sleep(20);
           }
-        };
+          if (mGrabber.isRecordMode())
+            mGrabber.stop();
+          recordThread = null;
+          if (mAudio != null) {
+            mGrabber.disposeChannel(mAudio);
+            mAudio = null;
+          }
+          mGrabber.release();
+          mGrabber = null;
+          initialized = true;
+          activeAudioBuffer = null;
+          hideRecordingCursor();
+        } catch (Exception ex) {
+          System.err.println(ex.getMessage());
+        }
+      }
+    };
 
     mGrabber.startRecord();
     recordThread.start();

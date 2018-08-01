@@ -57,7 +57,8 @@ public class FalseClip implements PseudoClip {
       JavaSoundAudioPlayer jsap = new JavaSoundAudioPlayer();
       jsap.setDataSource(mb.getMediaDataSource(mediaFileName));
       ais = jsap.ais;
-      if (ais == null) throw new Exception("Unable to open audio data!");
+      if (ais == null)
+        throw new Exception("Unable to open audio data!");
     }
     return ais;
   }
@@ -132,7 +133,8 @@ public class FalseClip implements PseudoClip {
       getAudioInputStream();
       DataLine.Info info = new DataLine.Info(SourceDataLine.class, af);
       line = (SourceDataLine) AudioSystem.getLine(info);
-      if (line != null) line.open(af);
+      if (line != null)
+        line.open(af);
     }
 
     @Override
@@ -149,8 +151,10 @@ public class FalseClip implements PseudoClip {
             }
             Thread.yield();
           }
-          if (running) line.drain();
-          else line.stop();
+          if (running)
+            line.drain();
+          else
+            line.stop();
         } catch (Exception ex) {
           System.err.println("JavaSound playing error:\n" + ex);
         }
@@ -159,7 +163,8 @@ public class FalseClip implements PseudoClip {
       ais = null;
       playThread = null;
       if (running && loopCount != 0) {
-        if (loopCount > 0) loopCount--;
+        if (loopCount > 0)
+          loopCount--;
         try {
           int lc = loopCount;
           FalseClip.this.start();

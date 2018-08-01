@@ -44,12 +44,6 @@ public class QT61ActiveMediaPlayer extends ActiveMediaPlayer {
     if (!useAudioBuffer) {
       try {
         player = QT61Tools.getPlayer(mb.getMediaDataSource(mc.mediaFileName));
-        if (player != null) {
-          // Mirar l'equivalent a aixo:
-          // player.setControllerVisible(false);
-          // player.setControllerSizeReserved(false);
-
-        }
       } catch (Exception ex) {
         System.err.println("Error reading media \"" + mc.mediaFileName + "\":\n" + ex);
       }
@@ -65,11 +59,8 @@ public class QT61ActiveMediaPlayer extends ActiveMediaPlayer {
       try {
         if (player != null) {
           attachVisualComponent();
-          // player.startTasking();
-          // player.getMovieController().getMovie().setTimeScale(1000);
           player.getMovie().setTimeScale(1000);
           setTimeRanges();
-          // player.stopTasking();
           realized = true;
         }
       } catch (Exception ex) {
@@ -80,12 +71,15 @@ public class QT61ActiveMediaPlayer extends ActiveMediaPlayer {
 
   @Override
   protected void playNow(ActiveBox setBx) {
-    if (useAudioBuffer) super.playNow(setBx);
+    if (useAudioBuffer)
+      super.playNow(setBx);
     else if (player != null) {
       try {
         stop();
-        if (!realized) realize();
-        if (mc.mediaType == MediaContent.PLAY_VIDEO) linkTo(setBx);
+        if (!realized)
+          realize();
+        if (mc.mediaType == MediaContent.PLAY_VIDEO)
+          linkTo(setBx);
         attachVisualComponent();
         player.setTime(Math.max(mc.from, 0));
         quicktime.app.time.TaskAllMovies.addMovieAndStart();
@@ -129,7 +123,8 @@ public class QT61ActiveMediaPlayer extends ActiveMediaPlayer {
   }
 
   protected void setTimeRanges() {
-    if (useAudioBuffer || player == null) return;
+    if (useAudioBuffer || player == null)
+      return;
     try {
       if (mc.from >= 0 || mc.to >= 0) {
         int from = Math.max(0, mc.from);
@@ -140,23 +135,17 @@ public class QT61ActiveMediaPlayer extends ActiveMediaPlayer {
         player.setTime(Math.max(mc.from, 0));
         player.getMovie().setActiveSegment(new quicktime.std.movies.TimeInfo(from, to - from));
       }
-      // MIRAR AIXO!!!
-      // if(mc.loop)
-      //    player.getMovieController().setLooping(true);
-
     } catch (Exception ex) {
       System.err.println("QuickTime Error:\n" + ex);
     }
   }
 
   protected Component getVisualComponent() {
-    if (player == null || mc.mediaType != MediaContent.PLAY_VIDEO) return null;
+    if (player == null || mc.mediaType != MediaContent.PLAY_VIDEO)
+      return null;
     if (canvas == null) {
       try {
         canvas = quicktime.app.view.QTFactory.makeQTComponent(player.getMovie());
-        // canvas=QTFactory.fromMoviePlayer(player);
-        // canvas=new QTCanvas();
-        // canvas.setClient(player, false);
       } catch (Exception ex) {
         System.err.println("Error building QTCanvas!\n" + ex);
       }

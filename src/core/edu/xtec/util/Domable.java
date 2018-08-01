@@ -22,11 +22,13 @@
 package edu.xtec.util;
 
 /**
- * This interface applies to all classes that can serialize and de-serialize its data into a XML
- * {@link org.jdom.Element} of type <a href="http://www.jdom.org">JDOM</a>. The <CODE>getJDomElement
- * </CODE> method stores the current non-transient data into a JDOM element, and <CODE>setProperties
- * </CODE> reads the data. <CODE>Domable</CODE> classes should implement also a static method that
- * builds new objects from a provided Element.
+ * This interface applies to all classes that can serialize and de-serialize its
+ * data into a XML {@link org.jdom.Element} of type
+ * <a href="http://www.jdom.org">JDOM</a>. The <CODE>getJDomElement
+ * </CODE> method stores the current non-transient data into a JDOM element, and
+ * <CODE>setProperties
+ * </CODE> reads the data. <CODE>Domable</CODE> classes should implement also a
+ * static method that builds new objects from a provided Element.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0

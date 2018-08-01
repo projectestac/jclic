@@ -47,11 +47,11 @@ public class FileZip extends ZipFileSystem {
   @Override
   protected void open() throws Exception {
     if (zip == null) {
-      // zip=new ZipFile(sysFn(root+zipName));
       zip = new ZipFile(sysFn(root + zipName));
       Enumeration en = zip.entries();
       ArrayList<FileZipEntry> v = new ArrayList<FileZipEntry>();
-      while (en.hasMoreElements()) v.add(new FileZipEntry((ZipEntry) en.nextElement()));
+      while (en.hasMoreElements())
+        v.add(new FileZipEntry((ZipEntry) en.nextElement()));
       entries = v.toArray(new FileZipEntry[v.size()]);
     }
   }
@@ -67,7 +67,8 @@ public class FileZip extends ZipFileSystem {
 
     public InputStream getInputStream() throws IOException {
       InputStream is = zip.getInputStream(this);
-      if (rb != null) is = rb.getProgressInputStream(is, (int) getSize(), getName());
+      if (rb != null)
+        is = rb.getProgressInputStream(is, (int) getSize(), getName());
       return is;
     }
   }
@@ -87,7 +88,8 @@ public class FileZip extends ZipFileSystem {
 
   @Override
   protected void changeBase(String newRoot, String newFileName) throws Exception {
-    if (zip != null) throw new Exception("Unable to change base fileName: FileSystem is open!");
+    if (zip != null)
+      throw new Exception("Unable to change base fileName: FileSystem is open!");
     super.changeBase(newRoot, newFileName);
     zipName = getCanonicalNameOf(newFileName);
     entries = null;

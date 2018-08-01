@@ -45,7 +45,8 @@ public class UrlPCC extends PCCFileSystem {
     long fileSize = fe[entryNum].size;
     long offset = fe[entryNum].offset;
     byte[] b = new byte[(int) fileSize];
-    if (fileSize > 0) System.arraycopy(pccBytes, (int) offset, b, 0, (int) fileSize);
+    if (fileSize > 0)
+      System.arraycopy(pccBytes, (int) offset, b, 0, (int) fileSize);
     return b;
   }
 

@@ -39,11 +39,13 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 /**
- * This class is a {@link javax.swing.JPanel} tha contains a single {@link
- * edu.xtec.jclic.boxes.ActiveBox}. It is used when the ActiveBox must be integrated in a complex
- * Swing container (for example, to place ActiveBoxes into {@link javax.swing.JTextPane} objects),
- * or when the active content of the ActiveBox needs to be reresented into a swing panel (for
- * example, in boxes with HTML content or with boxes that have standard multimedia controllers).
+ * This class is a {@link javax.swing.JPanel} tha contains a single
+ * {@link edu.xtec.jclic.boxes.ActiveBox}. It is used when the ActiveBox must be
+ * integrated in a complex Swing container (for example, to place ActiveBoxes
+ * into {@link javax.swing.JTextPane} objects), or when the active content of
+ * the ActiveBox needs to be reresented into a swing panel (for example, in
+ * boxes with HTML content or with boxes that have standard multimedia
+ * controllers).
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
@@ -91,17 +93,13 @@ public class JPanelActiveBox extends JPanel {
   protected void processEvent(AWTEvent e) {
     if (catchMouseEvents && e instanceof MouseEvent) {
       MouseEvent me = (MouseEvent) e;
-      if (e.getID() == MouseEvent.MOUSE_PRESSED
-          && ab != null
-          && ps != null
+      if (e.getID() == MouseEvent.MOUSE_PRESSED && ab != null && ps != null
           && (parentActivityPanel == null || parentActivityPanel.isPlaying())) {
         ps.stopMedia(1);
         ab.playMedia(ps);
       }
-      if (mouseListener != null
-          && (ab == null
-              || ab.getContent().mediaContent == null
-              || ab.getContent().mediaContent.catchMouseEvents == false)) {
+      if (mouseListener != null && (ab == null || ab.getContent().mediaContent == null
+          || ab.getContent().mediaContent.catchMouseEvents == false)) {
         Point bkPt = me.getPoint();
         Point pt = Utils.mapPointTo(this, bkPt, mouseListener);
         me.translatePoint(pt.x - bkPt.x, pt.y - bkPt.y);
@@ -114,8 +112,10 @@ public class JPanelActiveBox extends JPanel {
   }
 
   public JPanel setActiveBoxContent(ActiveBoxContent abc) {
-    if (abc == null) abc = new ActiveBoxContent();
-    if (abc.dimension != null) ab.setBounds(0, 0, abc.dimension.width, abc.dimension.height);
+    if (abc == null)
+      abc = new ActiveBoxContent();
+    if (abc.dimension != null)
+      ab.setBounds(0, 0, abc.dimension.width, abc.dimension.height);
     ab.setContent(abc);
     if (abc.mediaContent != null) {
       setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -161,7 +161,8 @@ public class JPanelActiveBox extends JPanel {
       while (true) {
         BoxBase.flagFontReduced = false;
         ab.update(g2, g2.getClipBounds(), io);
-        if (!BoxBase.flagFontReduced) break;
+        if (!BoxBase.flagFontReduced)
+          break;
       }
     }
     g2.setRenderingHints(rh);

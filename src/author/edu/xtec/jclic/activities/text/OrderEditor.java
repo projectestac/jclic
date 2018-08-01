@@ -37,8 +37,7 @@ public class OrderEditor extends TextActivityBaseEditor {
     super(act);
   }
 
-  protected static HashMap<Options, OrderCheckPanel> panelMap =
-      new HashMap<Options, OrderCheckPanel>(1);
+  protected static HashMap<Options, OrderCheckPanel> panelMap = new HashMap<Options, OrderCheckPanel>(1);
 
   @Override
   protected void editCheckOptions(Options options, Component parent) {
@@ -70,10 +69,7 @@ public class OrderEditor extends TextActivityBaseEditor {
     boolean result = OrderTypePanel.editOrder(ord, options, parent);
     if (result) {
       if (ord.type != t && ord.tad.tmb.size() > 0) {
-        if (options
-                .getMessages()
-                .showQuestionDlg(parent, "edit_text_act_warnChangeType", null, "yn")
-            == Messages.YES) {
+        if (options.getMessages().showQuestionDlg(parent, "edit_text_act_warnChangeType", null, "yn") == Messages.YES) {
           ord.tad.clearAllTargets();
         } else {
           result = false;
@@ -84,10 +80,8 @@ public class OrderEditor extends TextActivityBaseEditor {
     }
 
     if (result) {
-      ord.tad.targetType =
-          (ord.type == Order.ORDER_PARAGRAPHS)
-              ? TextActivityDocument.TT_PARAGRAPH
-              : TextActivityDocument.TT_WORD;
+      ord.tad.targetType = (ord.type == Order.ORDER_PARAGRAPHS) ? TextActivityDocument.TT_PARAGRAPH
+          : TextActivityDocument.TT_WORD;
       setModified(true);
     }
 

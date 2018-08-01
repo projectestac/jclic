@@ -39,12 +39,14 @@ public class MultiBundle {
 
   public void addBundle(ResourceBundle bundle, String resource, Locale l) {
     for (int i = 0; i < bundles.size(); i++)
-      if (((ResourceBundleEx) bundles.get(i)).resource.equals(resource)) return;
+      if (((ResourceBundleEx) bundles.get(i)).resource.equals(resource))
+        return;
     bundles.add(new ResourceBundleEx(bundle, resource, l));
   }
 
   public void setLocale(Locale l) {
-    for (int i = 0; i < bundles.size(); i++) (bundles.get(i)).setLocale(l);
+    for (int i = 0; i < bundles.size(); i++)
+      (bundles.get(i)).setLocale(l);
   }
 
   public String getString(String key) {

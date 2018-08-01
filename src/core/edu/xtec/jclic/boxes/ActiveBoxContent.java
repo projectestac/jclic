@@ -39,11 +39,12 @@ import java.awt.Shape;
 import java.util.Map;
 
 /**
- * This class defines a content that can be displayed by {@link edu.xtec.jclic.boxes.ActiveBox}
- * objects. This content can be a text, an image, a fragment of an image or a combination of text
- * and images. The style (colours, font and size, etc.) can be specified in a {@link
- * edu.xtec.jclic.boxes.BoxBase} object. It stores also information about the optimal size and
- * location of the <CODE>ActiveBox</CODE>.
+ * This class defines a content that can be displayed by
+ * {@link edu.xtec.jclic.boxes.ActiveBox} objects. This content can be a text,
+ * an image, a fragment of an image or a combination of text and images. The
+ * style (colours, font and size, etc.) can be specified in a
+ * {@link edu.xtec.jclic.boxes.BoxBase} object. It stores also information about
+ * the optimal size and location of the <CODE>ActiveBox</CODE>.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.09
@@ -57,8 +58,8 @@ public class ActiveBoxContent extends Object implements Cloneable, Domable {
   public String imgName = null;
   public Shape imgClip = null;
   public MediaContent mediaContent = null;
-  public int[] imgAlign = new int[] {JDomUtility.ALIGN_MIDDLE, JDomUtility.ALIGN_MIDDLE};
-  public int[] txtAlign = new int[] {JDomUtility.ALIGN_MIDDLE, JDomUtility.ALIGN_MIDDLE};
+  public int[] imgAlign = new int[] { JDomUtility.ALIGN_MIDDLE, JDomUtility.ALIGN_MIDDLE };
+  public int[] txtAlign = new int[] { JDomUtility.ALIGN_MIDDLE, JDomUtility.ALIGN_MIDDLE };
   public boolean avoidOverlapping = false;
   public int id = -1;
   public int item = -1;
@@ -99,30 +100,27 @@ public class ActiveBoxContent extends Object implements Cloneable, Domable {
   }
 
   /** Creates new ActiveBoxContent */
-  public ActiveBoxContent() {}
+  public ActiveBoxContent() {
+  }
 
   public static ActiveBoxContent getEmptyContent() {
-    if (EMPTY_CONTENT == null) EMPTY_CONTENT = new ActiveBoxContent();
+    if (EMPTY_CONTENT == null)
+      EMPTY_CONTENT = new ActiveBoxContent();
     return EMPTY_CONTENT;
   }
 
   public static final String ELEMENT_NAME = "cell";
-  protected static final String ID = "id",
-      ITEM = "item",
-      WIDTH = "width",
-      HEIGHT = "height",
-      BORDER = "border",
-      IMAGE = "image",
-      TXTALIGN = "txtAlign",
-      IMGALIGN = "imgAlign",
-      AVOID_OVERLAPPING = "avoidOverlapping";
+  protected static final String ID = "id", ITEM = "item", WIDTH = "width", HEIGHT = "height", BORDER = "border",
+      IMAGE = "image", TXTALIGN = "txtAlign", IMGALIGN = "imgAlign", AVOID_OVERLAPPING = "avoidOverlapping";
 
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
 
-    if (id != -1) e.setAttribute(ID, Integer.toString(id));
+    if (id != -1)
+      e.setAttribute(ID, Integer.toString(id));
 
-    if (item != -1) e.setAttribute(ITEM, Integer.toString(item));
+    if (item != -1)
+      e.setAttribute(ITEM, Integer.toString(item));
 
     JDomUtility.setAlignProp(e, TXTALIGN, txtAlign, true);
     JDomUtility.setAlignProp(e, IMGALIGN, imgAlign, true);
@@ -133,15 +131,20 @@ public class ActiveBoxContent extends Object implements Cloneable, Domable {
       e.setAttribute(WIDTH, Integer.toString(dimension.width));
       e.setAttribute(HEIGHT, Integer.toString(dimension.height));
     }
-    if (border != null) e.setAttribute(BORDER, JDomUtility.boolString(border.booleanValue()));
+    if (border != null)
+      e.setAttribute(BORDER, JDomUtility.boolString(border.booleanValue()));
 
-    if (imgName != null) e.setAttribute(IMAGE, imgName);
+    if (imgName != null)
+      e.setAttribute(IMAGE, imgName);
 
-    if (bb != null) e.addContent(bb.getJDomElement());
+    if (bb != null)
+      e.addContent(bb.getJDomElement());
 
-    if (mediaContent != null) e.addContent(mediaContent.getJDomElement());
+    if (mediaContent != null)
+      e.addContent(mediaContent.getJDomElement());
 
-    if (text != null) JDomUtility.setParagraphs(e, text);
+    if (text != null)
+      JDomUtility.setParagraphs(e, text);
 
     return e;
   }
@@ -149,22 +152,15 @@ public class ActiveBoxContent extends Object implements Cloneable, Domable {
   public static final int EMPTY_CELL = 0, ONLY_ID = 1, HAS_CONTENT = 2;
 
   public int testCellContents() {
-    if (JDomUtility.isDefaultAlign(txtAlign)
-        && JDomUtility.isDefaultAlign(imgAlign)
-        && !avoidOverlapping
-        && dimension == null
-        && border == null
-        && imgName == null
-        && bb == null
-        && mediaContent == null
+    if (JDomUtility.isDefaultAlign(txtAlign) && JDomUtility.isDefaultAlign(imgAlign) && !avoidOverlapping
+        && dimension == null && border == null && imgName == null && bb == null && mediaContent == null
         && (text == null || text.length() == 0)) {
       return ((id == -1 && item == -1) ? EMPTY_CELL : ONLY_ID);
     }
     return HAS_CONTENT;
   }
 
-  public static ActiveBoxContent getActiveBoxContent(org.jdom.Element e, MediaBag mediaBag)
-      throws Exception {
+  public static ActiveBoxContent getActiveBoxContent(org.jdom.Element e, MediaBag mediaBag) throws Exception {
 
     ActiveBoxContent abc = new ActiveBoxContent();
     abc.setProperties(e, mediaBag);
@@ -195,20 +191,24 @@ public class ActiveBoxContent extends Object implements Cloneable, Domable {
     dimension = JDomUtility.getDimensionAttr(e, WIDTH, HEIGHT, dimension);
     border = JDomUtility.getBooleanAttr(e, BORDER, border);
     imgName = FileSystem.stdFn(e.getAttributeValue(IMAGE));
-    if ((child = e.getChild(BoxBase.ELEMENT_NAME)) != null) setBoxBase(BoxBase.getBoxBase(child));
+    if ((child = e.getChild(BoxBase.ELEMENT_NAME)) != null)
+      setBoxBase(BoxBase.getBoxBase(child));
     if ((child = e.getChild(MediaContent.ELEMENT_NAME)) != null)
       mediaContent = MediaContent.getMediaContent(child);
     setTextContent(JDomUtility.getParagraphs(e));
 
-    if (mediaBag != null) realizeContent(mediaBag);
+    if (mediaBag != null)
+      realizeContent(mediaBag);
   }
 
   public static void listReferences(org.jdom.Element e, Map<String, String> map) {
     if (e != null) {
       String s = e.getAttributeValue(IMAGE);
-      if (s != null && s.length() > 0) map.put(s, Constants.MEDIA_OBJECT);
+      if (s != null && s.length() > 0)
+        map.put(s, Constants.MEDIA_OBJECT);
       org.jdom.Element child = e.getChild(MediaContent.ELEMENT_NAME);
-      if (child != null) MediaContent.listReferences(child, map);
+      if (child != null)
+        MediaContent.listReferences(child, map);
     }
   }
 
@@ -217,8 +217,8 @@ public class ActiveBoxContent extends Object implements Cloneable, Domable {
     ActiveBoxContent abc = null;
     try {
       abc = (ActiveBoxContent) super.clone();
-      abc.txtAlign = new int[] {txtAlign[0], txtAlign[1]};
-      abc.imgAlign = new int[] {imgAlign[0], imgAlign[1]};
+      abc.txtAlign = new int[] { txtAlign[0], txtAlign[1] };
+      abc.imgAlign = new int[] { imgAlign[0], imgAlign[1] };
     } catch (Exception ex) {
       System.err.println("Unexpected error cloning ActiveBoxContent!");
     }
@@ -227,8 +227,6 @@ public class ActiveBoxContent extends Object implements Cloneable, Domable {
 
   public void realizeContent(MediaBag mediaBag) throws Exception {
     // todo: check global img and imgclip
-    // img=null;
-    // animated=false;
     if (imgName != null) {
       MediaBagElement mbe = mediaBag.getImageElement(imgName);
       if (mbe != null) {
@@ -251,20 +249,17 @@ public class ActiveBoxContent extends Object implements Cloneable, Domable {
   }
 
   public boolean isEquivalent(ActiveBoxContent abc, boolean checkCase) {
-    if (abc == this) return true;
+    if (abc == this)
+      return true;
     boolean result = false;
     if (abc != null) {
-      if (isEmpty() && abc.isEmpty()) result = (id == abc.id);
+      if (isEmpty() && abc.isEmpty())
+        result = (id == abc.id);
       else
-        result =
-            (text == null
-                    ? abc.text == null
-                    : (checkCase ? text.equals(abc.text) : text.equalsIgnoreCase(abc.text)))
-                && (mediaContent == null
-                    ? abc.mediaContent == null
-                    : mediaContent.isEquivalent(abc.mediaContent))
-                && (img == abc.img)
-                && (imgClip == null ? abc.imgClip == null : imgClip.equals(abc.imgClip));
+        result = (text == null ? abc.text == null
+            : (checkCase ? text.equals(abc.text) : text.equalsIgnoreCase(abc.text)))
+            && (mediaContent == null ? abc.mediaContent == null : mediaContent.isEquivalent(abc.mediaContent))
+            && (img == abc.img) && (imgClip == null ? abc.imgClip == null : imgClip.equals(abc.imgClip));
     }
     return result;
   }
@@ -274,14 +269,9 @@ public class ActiveBoxContent extends Object implements Cloneable, Domable {
     boolean result = (o == this);
     if (!result && o != null && o instanceof ActiveBoxContent) {
       ActiveBoxContent abc = (ActiveBoxContent) o;
-      result =
-          isEquivalent(abc, true)
-              && ((bb == null && abc.bb == null) || (bb != null && bb.equals(abc.bb)))
-              && txtAlign[0] == abc.txtAlign[0]
-              && txtAlign[1] == abc.txtAlign[1]
-              && imgAlign[0] == abc.imgAlign[0]
-              && imgAlign[1] == abc.imgAlign[1]
-              && avoidOverlapping == abc.avoidOverlapping;
+      result = isEquivalent(abc, true) && ((bb == null && abc.bb == null) || (bb != null && bb.equals(abc.bb)))
+          && txtAlign[0] == abc.txtAlign[0] && txtAlign[1] == abc.txtAlign[1] && imgAlign[0] == abc.imgAlign[0]
+          && imgAlign[1] == abc.imgAlign[1] && avoidOverlapping == abc.avoidOverlapping;
     }
     return result;
   }
@@ -309,7 +299,8 @@ public class ActiveBoxContent extends Object implements Cloneable, Domable {
       if (mediaBag != null) {
         FileSystem fs = mediaBag.getProject().getFileSystem();
         String path = fs.root;
-        if (!fs.isUrlBased()) path = "file:" + FileSystem.sysFn(path);
+        if (!fs.isUrlBased())
+          path = "file:" + FileSystem.sysFn(path);
         htmlText = StrUtils.replace(htmlText, "SRC=\"", "SRC=\"" + path);
         htmlText = StrUtils.replace(htmlText, "src=\"", "src=\"" + path);
       }
@@ -350,8 +341,10 @@ public class ActiveBoxContent extends Object implements Cloneable, Domable {
   }
 
   public void prepareMedia(PlayStation ps) {
-    if (mediaContent != null) amp = ps.getActiveMediaPlayer(mediaContent);
-    else amp = null;
+    if (mediaContent != null)
+      amp = ps.getActiveMediaPlayer(mediaContent);
+    else
+      amp = null;
   }
 
   public void setBoxBase(BoxBase boxBase) {
@@ -373,14 +366,17 @@ public class ActiveBoxContent extends Object implements Cloneable, Domable {
   public void copyStyleTo(ActiveBoxContent abc) {
     if (abc != null) {
       abc.setBoxBase(bb);
-      if (border != null) abc.setBorder(border.booleanValue());
+      if (border != null)
+        abc.setBorder(border.booleanValue());
     }
   }
 
   public String getDescription() {
     StringBuilder result = new StringBuilder();
-    if (text != null && text.length() > 0) result.append(text);
-    else if (imgName != null) result.append("IMG:").append(imgName);
+    if (text != null && text.length() > 0)
+      result.append(text);
+    else if (imgName != null)
+      result.append("IMG:").append(imgName);
     else if (imgClip != null) {
       Rectangle r = imgClip.getBounds();
       result.append("[").append(r.x).append(",").append(r.y).append(",");
@@ -388,7 +384,8 @@ public class ActiveBoxContent extends Object implements Cloneable, Domable {
     }
 
     if (mediaContent != null) {
-      if (result.length() > 0) result.append(' ');
+      if (result.length() > 0)
+        result.append(' ');
       result.append(mediaContent.getDescription());
     }
     return result.substring(0);

@@ -37,8 +37,7 @@ public class CompleteEditor extends TextActivityBaseEditor {
     super(act);
   }
 
-  protected static Map<Options, CompleteCheckPanel> panelMap =
-      new HashMap<Options, CompleteCheckPanel>(1);
+  protected static Map<Options, CompleteCheckPanel> panelMap = new HashMap<Options, CompleteCheckPanel>(1);
 
   @Override
   protected void editCheckOptions(Options options, Component parent) {

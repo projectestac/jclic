@@ -22,8 +22,8 @@
 package edu.xtec.jclic.shapers;
 
 /**
- * This interface defines a {@link java.awt.Shape} that implements specific methods to be modified
- * (edited) in a graphic environment
+ * This interface defines a {@link java.awt.Shape} that implements specific
+ * methods to be modified (edited) in a graphic environment
  *
  * @author allastar
  * @version 1.0
@@ -40,26 +40,27 @@ public interface EditableShape extends java.awt.Shape {
   /**
    * Checks if the shape is selected
    *
-   * @return <CODE>true</CODE> if the shape is selected, <CODE>false</CODE> otherwise.
+   * @return <CODE>true</CODE> if the shape is selected, <CODE>false</CODE>
+   *         otherwise.
    */
   public boolean isSelected();
 
   /**
    * Draws the shape with the default colour
    *
-   * @param g The graphic environment where to draw the shape
-   * @param drawingMode The drawing mode. Squares are drawed in red when this value is
-   *     ShapeGenPanel.NEW_POINT
+   * @param g           The graphic environment where to draw the shape
+   * @param drawingMode The drawing mode. Squares are drawed in red when this
+   *                    value is ShapeGenPanel.NEW_POINT
    */
   public void paint(java.awt.Graphics g, int drawingMode);
 
   /**
    * Draws the shape with the indicated color.
    *
-   * @param g The graphic environment where to draw the shape
-   * @param drawingMode The drawing mode. Squares are drawed in red when this value is
-   *     ShapeGenPanel.NEW_POINT
-   * @param c The color to be used to draw the shape
+   * @param g           The graphic environment where to draw the shape
+   * @param drawingMode The drawing mode. Squares are drawed in red when this
+   *                    value is ShapeGenPanel.NEW_POINT
+   * @param c           The color to be used to draw the shape
    */
   public void paintWithColor(java.awt.Graphics g, int drawingMode, java.awt.Color c);
 
@@ -81,12 +82,12 @@ public interface EditableShape extends java.awt.Shape {
   /**
    * Checks if the specified point lies within a side of the shape
    *
-   * @param x The horizontal co-ordinate of the point to check
-   * @param y The vertical co-ordinate of the point to check
-   * @param needSelected When the value of this param is <CODE>true</CODE>, the side must be
-   *     selected.
-   * @return Returns <CODE>true</CODE> when a side of the shape is near the point defined by x and
-   *     y.
+   * @param x            The horizontal co-ordinate of the point to check
+   * @param y            The vertical co-ordinate of the point to check
+   * @param needSelected When the value of this param is <CODE>true</CODE>, the
+   *                     side must be selected.
+   * @return Returns <CODE>true</CODE> when a side of the shape is near the point
+   *         defined by x and y.
    */
   public boolean hasClickedBorder(double x, double y, boolean needSelected);
 
@@ -99,7 +100,8 @@ public interface EditableShape extends java.awt.Shape {
   public void selectBorder(double x, double y);
 
   /**
-   * Rerturns the starting point of the side of the shape nearest to a specific point.
+   * Rerturns the starting point of the side of the shape nearest to a specific
+   * point.
    *
    * @param x The horizontal co-ordinate of the point
    * @param y The vertical co-ordinate of the point
@@ -108,7 +110,8 @@ public interface EditableShape extends java.awt.Shape {
   public java.awt.geom.Point2D getNearestBorder(double x, double y);
 
   /**
-   * Moves towards a specific point the side of the shape that is located nearest it. .
+   * Moves towards a specific point the side of the shape that is located nearest
+   * it. .
    *
    * @param x The horizontal co-ordinate of the point
    * @param y The vertival co-ordinate of the point
@@ -116,7 +119,8 @@ public interface EditableShape extends java.awt.Shape {
   public void aproximateNearestBorder(double x, double y);
 
   /**
-   * Computes the distance between a supplied point and the nearest limit of the shape.
+   * Computes the distance between a supplied point and the nearest limit of the
+   * shape.
    *
    * @param x The horizontal co-ordinate of the point
    * @param y The vertical co-ordinate of the point
@@ -125,11 +129,12 @@ public interface EditableShape extends java.awt.Shape {
   public double distanceTo(double x, double y);
 
   /**
-   * Checks if the shape is into the limits of a specific {@link java.awt.Rectangle}.
+   * Checks if the shape is into the limits of a specific
+   * {@link java.awt.Rectangle}.
    *
    * @param r The rectangle to be checked
-   * @return <CODE>true</CODE> if the shape intersects with the rectangle, <CODE>false</CODE>
-   *     otherwise.
+   * @return <CODE>true</CODE> if the shape intersects with the rectangle,
+   *         <CODE>false</CODE> otherwise.
    */
   public boolean isInto(java.awt.geom.Rectangle2D r);
 
@@ -154,12 +159,14 @@ public interface EditableShape extends java.awt.Shape {
   /**
    * Checks if the shape currently has a selected side.
    *
-   * @return <CODE>true</CODE> if the shape has a selected side, <CODE>false</CODE> otherwise.
+   * @return <CODE>true</CODE> if the shape has a selected side,
+   *         <CODE>false</CODE> otherwise.
    */
   public boolean hasSelectedBorder();
 
   /**
-   * Applies an affine transformation (rotation, trnaslation, scale...) to the shape
+   * Applies an affine transformation (rotation, trnaslation, scale...) to the
+   * shape
    *
    * @param aTransf The affine transformation to be applied
    */
@@ -178,13 +185,14 @@ public interface EditableShape extends java.awt.Shape {
    * Checks if the shape is adjacent to a specific point.
    *
    * @param p The point to be checked
-   * @return <CODE>true</CODE> if the shape is adjacent to the point, <CODE>false</CODE> otherwise
+   * @return <CODE>true</CODE> if the shape is adjacent to the point,
+   *         <CODE>false</CODE> otherwise
    */
   public boolean isAdjacentTo(java.awt.geom.Point2D p);
 
   /**
-   * Returns the point of the shape that acts as "starting" point. It is needed to establish the
-   * path that draws the shape.
+   * Returns the point of the shape that acts as "starting" point. It is needed to
+   * establish the path that draws the shape.
    *
    * @return The starting point of the shape
    */

@@ -55,10 +55,8 @@ public class SequenceReg extends Object implements java.io.Serializable {
 
   public String toHtmlString(edu.xtec.util.Messages msg) {
     Html html = new Html(3000);
-    String fh =
-        new Html(200)
-            .td(name, Html.LEFT, false, "ROWSPAN=\"" + msg.getNumber(activities.size()) + "\"")
-            .toString();
+    String fh = new Html(200).td(name, Html.LEFT, false, "ROWSPAN=\"" + msg.getNumber(activities.size()) + "\"")
+        .toString();
     Iterator<ActivityReg> it = activities.iterator();
     while (it.hasNext()) {
       html.append(it.next().toHtmlString(msg, fh));
@@ -68,7 +66,8 @@ public class SequenceReg extends Object implements java.io.Serializable {
   }
 
   public Info getInfo(boolean recalc) {
-    if (recalc) info.recalc();
+    if (recalc)
+      info.recalc();
     return info;
   }
 
@@ -96,7 +95,8 @@ public class SequenceReg extends Object implements java.io.Serializable {
             nActClosed++;
             tTime += ar.totalTime;
             nActions += ar.numActions;
-            if (ar.solved) nActSolved++;
+            if (ar.solved)
+              nActSolved++;
             int r = ar.getPrecision();
             if (r >= 0) {
               tScore += r;
@@ -104,8 +104,10 @@ public class SequenceReg extends Object implements java.io.Serializable {
             }
           }
         }
-        if (nActClosed > 0) percentSolved = (nActSolved * 100) / nActClosed;
-        if (nActScore > 0) tScore /= nActScore;
+        if (nActClosed > 0)
+          percentSolved = (nActSolved * 100) / nActClosed;
+        if (nActScore > 0)
+          tScore /= nActScore;
       }
     }
   }
@@ -124,12 +126,14 @@ public class SequenceReg extends Object implements java.io.Serializable {
   }
 
   void endActivity(int score, int numActions, boolean solved) {
-    if (currentActivity != null) currentActivity.endActivity(score, numActions, solved);
+    if (currentActivity != null)
+      currentActivity.endActivity(score, numActions, solved);
   }
 
   void endSequence() {
     if (currentActivity != null && !activities.isEmpty()) {
-      if (!currentActivity.closed) currentActivity.closeActivity();
+      if (!currentActivity.closed)
+        currentActivity.closeActivity();
       ActivityReg firstActivity = activities.get(0);
       totalTime = currentActivity.startTime + currentActivity.totalTime - firstActivity.startTime;
     }

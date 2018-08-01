@@ -82,7 +82,7 @@ public class JClicProject extends Object implements Editable, Domable {
 
     activityBag = new ActivityBag(this);
     activitySequence = new ActivitySequence(this);
-    mediaBag = new MediaBag(this /*, fileSystem*/);
+    mediaBag = new MediaBag(this /* , fileSystem */);
     skin = null;
   }
 
@@ -92,13 +92,12 @@ public class JClicProject extends Object implements Editable, Domable {
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
 
-    // if(settings.title==ProjectSettings.UNTITLED && name!=NO_NAME)
-    //    settings.title=name;
-
     e.setAttribute(NAME, name);
     e.setAttribute(VERSION, CURRENT_VERSION);
-    if (type != null) e.setAttribute(TYPE, type);
-    if (code != null) e.setAttribute(CODE, code);
+    if (type != null)
+      e.setAttribute(TYPE, type);
+    if (code != null)
+      e.setAttribute(CODE, code);
     e.addContent(settings.getJDomElement());
     e.addContent(activitySequence.getJDomElement());
     e.addContent(activityBag.getJDomElement());
@@ -106,10 +105,6 @@ public class JClicProject extends Object implements Editable, Domable {
 
     return e;
   }
-
-  // public void load(org.jdom.Element e) throws Exception{
-  //    setProperties(e, null);
-  // }
 
   public void setProperties(org.jdom.Element e, Object aux) throws Exception {
     JDomUtility.checkName(e, ELEMENT_NAME);
@@ -124,15 +119,10 @@ public class JClicProject extends Object implements Editable, Domable {
     if ((child = e.getChild(ProjectSettings.ELEMENT_NAME)) != null)
       settings = ProjectSettings.getProjectSettings(child);
 
-    // if(settings.title==ProjectSettings.UNTITLED && name!=NO_NAME)
-    //    settings.title=name;
-
-    // activitySequence.addElements(e.getChild(ActivitySequence.ELEMENT_NAME));
     activitySequence.setProperties(e.getChild(ActivitySequence.ELEMENT_NAME), null);
-    // activityBag.addActivities(e.getChild(ActivityBag.ELEMENT_NAME));
     activityBag.setProperties(e.getChild(ActivityBag.ELEMENT_NAME), null);
-    if (version.compareTo("0.1.2") <= 0) activityBag.sortByName();
-    // mediaBag.addMediaElements(e.getChild(MediaBag.ELEMENT_NAME));
+    if (version.compareTo("0.1.2") <= 0)
+      activityBag.sortByName();
     mediaBag.setProperties(e.getChild(MediaBag.ELEMENT_NAME), null);
   }
 
@@ -140,25 +130,25 @@ public class JClicProject extends Object implements Editable, Domable {
     settings.readJSON(json, this, preserve);
   }
 
-  public static JClicProject getJClicProject(
-      org.jdom.Element e, ResourceBridge rb, FileSystem fs, String fullPath) throws Exception {
+  public static JClicProject getJClicProject(org.jdom.Element e, ResourceBridge rb, FileSystem fs, String fullPath)
+      throws Exception {
     JClicProject jcp = new JClicProject(rb, fs, fullPath);
-    // jcp.load(e);
     jcp.setProperties(e, null);
     return jcp;
   }
 
-  public static JClicProject getJClicProject(ResourceBridge rb, String fullPath, ProgressDialog pd)
-      throws Exception {
+  public static JClicProject getJClicProject(ResourceBridge rb, String fullPath, ProgressDialog pd) throws Exception {
 
     JClicProject result = null;
 
-    if (pd != null) pd.setText(rb.getMsg("msg_loading") + " " + fullPath);
+    if (pd != null)
+      pd.setText(rb.getMsg("msg_loading") + " " + fullPath);
 
     FileSystem fileSystem = FileSystem.createFileSystem(fullPath, rb);
 
     fullPath = fileSystem.getUrl(fullPath);
-    if (fullPath.startsWith("file://")) fullPath = fullPath.substring(7);
+    if (fullPath.startsWith("file://"))
+      fullPath = fullPath.substring(7);
 
     String projectName = null;
     JSONObject json = null;
@@ -174,7 +164,8 @@ public class JClicProject extends Object implements Editable, Domable {
         json = new JSONObject(new String(fileSystem.getBytes("project.json")));
         projectName = json.optString("mainFile", null);
       }
-      if (projectName == null) throw new Exception("Invalid JClic SCORM file: " + fullPath);
+      if (projectName == null)
+        throw new Exception("Invalid JClic SCORM file: " + fullPath);
     } else {
       fileSystem = new FileSystem(FileSystem.getPathPartOf(fullPath), rb);
       projectName = FileSystem.getFileNameOf(fullPath);
@@ -189,9 +180,9 @@ public class JClicProject extends Object implements Editable, Domable {
     }
 
     if (result != null) {
-      if (json != null) result.readJSON(json, false);
+      if (json != null)
+        result.readJSON(json, false);
       result.mediaBag.waitForAllImages();
-      // System.gc();
     }
 
     return result;
@@ -218,7 +209,8 @@ public class JClicProject extends Object implements Editable, Domable {
         MediaBagElement mbe = mbit.next();
         if (mbe.saveFlag) {
           String fName = mbe.getFileName();
-          if (fName != null && fName.length() > 0) set.add(fName);
+          if (fName != null && fName.length() > 0)
+            set.add(fName);
         }
       }
       for (String fName : set) {
@@ -231,8 +223,7 @@ public class JClicProject extends Object implements Editable, Domable {
     out.close();
   }
 
-  public void saveZipDocumentPreservingZipContents(OutputStream out, ZipFileSystem zfs)
-      throws Exception {
+  public void saveZipDocumentPreservingZipContents(OutputStream out, ZipFileSystem zfs) throws Exception {
     ZipOutputStream zos = new ZipOutputStream(out);
     zos.putNextEntry(new ZipEntry(name + ".jclic"));
     saveDocument(zos);
@@ -271,9 +262,12 @@ public class JClicProject extends Object implements Editable, Domable {
     int p;
     name = StrUtils.secureString(newName, bridge.getMsg("UNNAMED"));
     name = (new File(name)).getName();
-    if ((p = name.indexOf('.')) >= 0) name = name.substring(0, p);
-    if (name.indexOf(' ') >= 0) name = name.replace(' ', '_');
-    if (name.length() < 1) name = "NO_NAME";
+    if ((p = name.indexOf('.')) >= 0)
+      name = name.substring(0, p);
+    if (name.indexOf(' ') >= 0)
+      name = name.replace(' ', '_');
+    if (name.length() < 1)
+      name = "NO_NAME";
   }
 
   public String getName() {
@@ -282,10 +276,8 @@ public class JClicProject extends Object implements Editable, Domable {
 
   public String getPublicName() {
     /*
-    String result=name;
-    if("noName".equals(name) || bridge.getMsg("UNNAMED").equals(name))
-        result=settings.title;
-    return result;
+     * String result=name; if("noName".equals(name) ||
+     * bridge.getMsg("UNNAMED").equals(name)) result=settings.title; return result;
      */
     return settings.title;
   }
@@ -353,7 +345,8 @@ public class JClicProject extends Object implements Editable, Domable {
    * @param fileSystem New value of property fileSystem.
    */
   public void setFileSystem(edu.xtec.jclic.fileSystem.FileSystem fileSystem) {
-    if (this.fileSystem != null && this.fileSystem != fileSystem) this.fileSystem.close();
+    if (this.fileSystem != null && this.fileSystem != fileSystem)
+      this.fileSystem.close();
     this.fileSystem = fileSystem;
   }
 
@@ -377,6 +370,5 @@ public class JClicProject extends Object implements Editable, Domable {
 
   public Editor getEditor(Editor parent) {
     return Editor.createEditor("edu.xtec.jclic.project.JClicProjectEditor", this, parent);
-    // return Editor.createEditor(getClass().getName()+"Editor", this, parent);
   }
 }

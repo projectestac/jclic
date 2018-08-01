@@ -69,8 +69,6 @@ public class GradientButton extends NullableObject {
           Graphics2D g2 = (Graphics2D) g;
           RenderingHints rh = g2.getRenderingHints();
           g2.setRenderingHints(edu.xtec.jclic.Constants.DEFAULT_RENDERING_HINTS);
-          // if(gradient.hasTransparency())
-          //    super.paintComponent(g);
           gradient.paint(g2, r);
           g2.setRenderingHints(rh);
         }

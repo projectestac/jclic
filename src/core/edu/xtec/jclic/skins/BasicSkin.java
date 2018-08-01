@@ -61,7 +61,8 @@ public class BasicSkin extends Skin {
   /** Creates new BasicSkin */
   protected BasicSkin() {
     super();
-    for (int i = 0; i < Constants.NUM_COUNTERS; i++) countersRect[i] = new Rectangle[2];
+    for (int i = 0; i < Constants.NUM_COUNTERS; i++)
+      countersRect[i] = new Rectangle[2];
     progressBar = null;
     progressAnimation = null;
     hideProgressBar = true;
@@ -69,39 +70,13 @@ public class BasicSkin extends Skin {
     initiated = 0;
   }
 
-  public static final String IMAGE = "image",
-      PREFERRED_SIZE = "preferredSize",
-      FRAME = "frame",
-      PLAYER = "player",
-      FILL = "fill",
-      SLICER = "slicer",
-      MESSAGES = "messages",
-      STATUS_BAR = "statusBar",
-      SETTINGS = "settings",
-      STYLE = "style",
-      FOREGROUND = "foreground",
-      BACKGROUND = "background",
-      MSG_AREA = "msgArea",
-      BORDER = "border",
-      BUTTONS = "buttons",
-      BUTTON = "button",
-      ACTIVE = "active",
-      OVER = "over",
-      DISABLED = "disabled",
-      POS = "pos",
-      SOURCE = "source",
-      COUNTERS = "counters",
-      COUNTER = "counter",
-      LABEL = "label",
-      DIGITS = "digits",
-      TOGGLE = "toggle",
-      PROGRESS_BAR = "progressBar",
-      AUTO_HIDE = "autoHide",
-      SHOW_PERCENT = "showPercent",
-      PROGRESS_ANIMATION = "progressAnimation",
-      FRAMES = "frames",
-      DELAY = "delay",
-      STEP = "step";
+  public static final String IMAGE = "image", PREFERRED_SIZE = "preferredSize", FRAME = "frame", PLAYER = "player",
+      FILL = "fill", SLICER = "slicer", MESSAGES = "messages", STATUS_BAR = "statusBar", SETTINGS = "settings",
+      STYLE = "style", FOREGROUND = "foreground", BACKGROUND = "background", MSG_AREA = "msgArea", BORDER = "border",
+      BUTTONS = "buttons", BUTTON = "button", ACTIVE = "active", OVER = "over", DISABLED = "disabled", POS = "pos",
+      SOURCE = "source", COUNTERS = "counters", COUNTER = "counter", LABEL = "label", DIGITS = "digits",
+      TOGGLE = "toggle", PROGRESS_BAR = "progressBar", AUTO_HIDE = "autoHide", SHOW_PERCENT = "showPercent",
+      PROGRESS_ANIMATION = "progressAnimation", FRAMES = "frames", DELAY = "delay", STEP = "step";
 
   protected void setProperties(org.jdom.Element e, FileSystem fs) throws Exception {
     org.jdom.Element child, child2, child3, child4;
@@ -114,7 +89,6 @@ public class BasicSkin extends Skin {
     if (imageFile == null || imageFile.length() == 0)
       throw new Exception("BasicSkin properties without image name!");
     if (fs == null) {
-      // ImageIcon imgIcon=new ImageIcon(getClass().getResource(imageFile));
       ImageIcon imgIcon = ResourceManager.getImageIcon(RESOURCE_FOLDER + "/" + imageFile);
       img = Utils.toBufferedImage(imgIcon.getImage(), fillColor, this);
     } else {
@@ -151,7 +125,6 @@ public class BasicSkin extends Skin {
         progressBar.setBackground(bbProgress.backColor);
         progressBar.setForeground(bbProgress.textColor);
         progressBar.setFont(bbProgress.getFont());
-        // progressBar.setBorderPainted(JDomUtility.getBoolAttr(child, BORDER, true));
         progressBar.setStringPainted(JDomUtility.getBoolAttr(child, SHOW_PERCENT, true));
         progressBar.setOpaque(false);
         progressBar.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
@@ -172,34 +145,31 @@ public class BasicSkin extends Skin {
       if (d != null && source != null && frames > 0 && delay >= AnimatedActiveBox.MIN_DELAY) {
         int dx, dy;
         switch (direction) {
-          case JDomUtility.DIRECTION_RIGHT:
-            dx = 1;
-            dy = 0;
-            break;
-          case JDomUtility.DIRECTION_LEFT:
-            dx = -1;
-            dy = 0;
-            break;
-          case JDomUtility.DIRECTION_UP:
-            dx = 0;
-            dy = -1;
-            break;
-          default:
-            dx = 0;
-            dy = 1;
+        case JDomUtility.DIRECTION_RIGHT:
+          dx = 1;
+          dy = 0;
+          break;
+        case JDomUtility.DIRECTION_LEFT:
+          dx = -1;
+          dy = 0;
+          break;
+        case JDomUtility.DIRECTION_UP:
+          dx = 0;
+          dy = -1;
+          break;
+        default:
+          dx = 0;
+          dy = 1;
         }
         int sx = JDomUtility.getIntAttr(child, STEP, d.width);
         int sy = JDomUtility.getIntAttr(child, STEP, d.height);
         progressAnimationRect = new Rectangle(pos, d);
-        progressAnimation =
-            new AnimatedActiveBox(null, this, 0, progressAnimationRect, getBoxBase(child, null));
+        progressAnimation = new AnimatedActiveBox(null, this, 0, progressAnimationRect, getBoxBase(child, null));
         progressAnimation.setDelay(delay);
         ActiveBagContent abc = new ActiveBagContent(1, frames);
         for (int i = 0; i < frames; i++) {
           ActiveBoxContent ab = new ActiveBoxContent();
-          ab.setImgContent(
-              img,
-              new Rectangle(source.x + (dx * i * sx), source.y + (dy * i * sy), d.width, d.height));
+          ab.setImgContent(img, new Rectangle(source.x + (dx * i * sx), source.y + (dy * i * sy), d.width, d.height));
           abc.addActiveBoxContent(ab);
         }
         progressAnimation.setContent(abc);
@@ -231,8 +201,7 @@ public class BasicSkin extends Skin {
       Point overDef = JDomUtility.getOffset(child2, OVER, null);
       Point disabledDef = JDomUtility.getOffset(child2, DISABLED, null);
       for (int i = 0; i < Constants.NUM_ACTIONS; i++)
-        if ((child2 = JDomUtility.getChildWithId(child, BUTTON, Constants.ACTION_NAME[i]))
-            != null) {
+        if ((child2 = JDomUtility.getChildWithId(child, BUTTON, Constants.ACTION_NAME[i])) != null) {
           Point pos = JDomUtility.getPoint(child2, POS, null);
           boolean toggle = JDomUtility.getBoolAttr(child2, TOGGLE, false);
           if (pos != null) {
@@ -252,7 +221,6 @@ public class BasicSkin extends Skin {
       child2 = child.getChild(SETTINGS);
       Dimension dCounterDef = JDomUtility.getDimension(child2, COUNTER, new Dimension());
       Dimension dLabelDef = JDomUtility.getDimension(child2, LABEL, new Dimension());
-      // int[] dCounterAlign=JDomUtility.getAlignment(child2, COUNTER, null);
       int[] dLabelAlign = JDomUtility.getAlignment(child2, LABEL, null);
 
       BoxBase bbCountersDef = getBoxBase(child, null);
@@ -262,8 +230,7 @@ public class BasicSkin extends Skin {
       Point dOriginDef = JDomUtility.getPoint(child2, SOURCE, null);
 
       for (int i = 0; i < Constants.NUM_COUNTERS; i++)
-        if ((child2 = JDomUtility.getChildWithId(child, COUNTER, Constants.counterNames[i]))
-            != null) {
+        if ((child2 = JDomUtility.getChildWithId(child, COUNTER, Constants.counterNames[i])) != null) {
           child3 = child.getChild(SETTINGS);
           bb = getBoxBase(child2, bbCountersDef);
           bb.textMargin = 0;
@@ -306,15 +273,18 @@ public class BasicSkin extends Skin {
 
   protected BoxBase getBoxBase(org.jdom.Element e, BoxBase defaultValue) throws Exception {
     org.jdom.Element child;
-    if (e == null || (child = e.getChild(STYLE)) == null) return defaultValue;
-    BoxBase bb =
-        defaultValue == null ? new BoxBase() : BoxBase.getBoxBase(defaultValue.getJDomElement());
+    if (e == null || (child = e.getChild(STYLE)) == null)
+      return defaultValue;
+    BoxBase bb = defaultValue == null ? new BoxBase() : BoxBase.getBoxBase(defaultValue.getJDomElement());
     org.jdom.Element child2 = child.getChild(JDomUtility.FONT);
-    if (child2 != null) bb.setFont(JDomUtility.elementToFont(child2));
+    if (child2 != null)
+      bb.setFont(JDomUtility.elementToFont(child2));
     bb.textColor = JDomUtility.getColorByPoint(child, FOREGROUND, img, bb.textColor);
     bb.backColor = JDomUtility.getColorByPoint(child, BACKGROUND, img, bb.backColor);
-    if (bb.backColor == BoxBase.DEFAULT_BACK_COLOR) bb.transparent = true;
-    else bb.transparent = JDomUtility.getBoolAttr(child, BoxBase.TRANSPARENT, bb.transparent);
+    if (bb.backColor == BoxBase.DEFAULT_BACK_COLOR)
+      bb.transparent = true;
+    else
+      bb.transparent = JDomUtility.getBoolAttr(child, BoxBase.TRANSPARENT, bb.transparent);
     bb.textMargin = JDomUtility.getIntAttr(child, BoxBase.MARGIN, bb.textMargin);
 
     return bb;
@@ -328,12 +298,15 @@ public class BasicSkin extends Skin {
     }
     super.doLayout();
 
-    if (player != null) player.setBounds(translateRect(playerRect));
+    if (player != null)
+      player.setBounds(translateRect(playerRect));
 
-    if (progressBar != null) progressBar.setBounds(translateRect(progressBarRect));
+    if (progressBar != null)
+      progressBar.setBounds(translateRect(progressBarRect));
 
     for (int i = 0; i < buttons.length; i++)
-      if (buttons[i] != null) buttons[i].setBounds(translateRect(buttonsRect[i]));
+      if (buttons[i] != null)
+        buttons[i].setBounds(translateRect(buttonsRect[i]));
 
     for (int i = 0; i < Constants.NUM_COUNTERS; i++) {
       if (counters[i] != null)
@@ -342,22 +315,25 @@ public class BasicSkin extends Skin {
         countersLabel[i].setLocation(translatePoint(countersRect[i][1].getLocation()));
     }
 
-    if (msgBox != null) msgBox.setBounds(translateRect(msgRect));
+    if (msgBox != null)
+      msgBox.setBounds(translateRect(msgRect));
 
     if (progressAnimation != null)
       progressAnimation.setBounds(translateRect(progressAnimationRect));
 
     for (int i = 0; i < NUM_MSG_AREAS; i++)
-      if (msgArea[i] != null) msgArea[i].setBounds(translateRect(msgAreaRect[i]));
+      if (msgArea[i] != null)
+        msgArea[i].setBounds(translateRect(msgAreaRect[i]));
 
-    if (player != null) initiated = 2;
+    if (player != null)
+      initiated = 2;
   }
 
   @Override
   public void startAnimation() {
     if (progressAnimation != null) {
-      if (hideProgressAnim) progressAnimation.setStartDelay(DEFAULT_PROGRESS_WAKE_ON);
-      // progressAnimation.setVisible(true);
+      if (hideProgressAnim)
+        progressAnimation.setStartDelay(DEFAULT_PROGRESS_WAKE_ON);
       progressAnimation.start();
     }
   }
@@ -365,17 +341,18 @@ public class BasicSkin extends Skin {
   @Override
   public void stopAnimation() {
     if (progressAnimation != null) {
-      if (hideProgressAnim) progressAnimation.setVisible(false);
+      if (hideProgressAnim)
+        progressAnimation.setVisible(false);
       progressAnimation.stop(false);
     }
   }
 
   public void render(Graphics2D g2, Rectangle clip) {
-    if (player == null || initiated < 2) return;
+    if (player == null || initiated < 2)
+      return;
 
-    if (!readyToPaint) readyToPaint = true;
-
-    // super.paintComponent(g);
+    if (!readyToPaint)
+      readyToPaint = true;
 
     if (counters != null)
       for (int i = 0; i < Constants.NUM_COUNTERS; i++) {
@@ -408,14 +385,8 @@ public class BasicSkin extends Skin {
           countersLabel[i].setTextContent(ps.getMsg("label_" + Constants.counterNames[i]));
   }
 
-  protected AbstractButton createButton(
-      int buttonId,
-      Dimension d,
-      Point source,
-      Point active,
-      Point over,
-      Point disabled,
-      boolean toggle) {
+  protected AbstractButton createButton(int buttonId, Dimension d, Point source, Point active, Point over,
+      Point disabled, boolean toggle) {
 
     final AbstractButton button;
     Action action = ps.getAction(buttonId);
@@ -424,31 +395,26 @@ public class BasicSkin extends Skin {
       ImageIcon icon;
       icon = new ImageIcon(img.getSubimage(source.x, source.y, d.width, d.height));
       if (!toggle)
-        // button=new JButton(icon);
         button = new JButton(action);
       else
-        // button=new JToggleButton(icon);
         button = new JToggleButton(action);
 
       button.setIcon(icon);
       button.setText(null);
 
       if (active != null) {
-        icon =
-            new ImageIcon(
-                img.getSubimage(source.x + active.x, source.y + active.y, d.width, d.height));
-        if (!toggle) button.setPressedIcon(icon);
-        else button.setSelectedIcon(icon);
+        icon = new ImageIcon(img.getSubimage(source.x + active.x, source.y + active.y, d.width, d.height));
+        if (!toggle)
+          button.setPressedIcon(icon);
+        else
+          button.setSelectedIcon(icon);
       }
       if (over != null) {
-        icon =
-            new ImageIcon(img.getSubimage(source.x + over.x, source.y + over.y, d.width, d.height));
+        icon = new ImageIcon(img.getSubimage(source.x + over.x, source.y + over.y, d.width, d.height));
         button.setRolloverIcon(icon);
       }
       if (disabled != null) {
-        icon =
-            new ImageIcon(
-                img.getSubimage(source.x + disabled.x, source.y + disabled.y, d.width, d.height));
+        icon = new ImageIcon(img.getSubimage(source.x + disabled.x, source.y + disabled.y, d.width, d.height));
         button.setDisabledIcon(icon);
       }
       button.setFocusPainted(false);
@@ -458,25 +424,20 @@ public class BasicSkin extends Skin {
       button.setMargin(new Insets(0, 0, 0, 0));
     } else {
       button = new JButton(action);
-      // button=new JButton(ac.getMsg("button_"+s+"_caption"));
     }
 
-    // button.setToolTipText(ac.getMsg("button_"+s+"_tooltip"));
     button.setPreferredSize(buttonsRect[buttonId].getSize());
     button.setVisible(true);
-    // button.setEnabled(false);
-    // button.setActionCommand(s);
     if (toggle) {
       Object o = action.getValue(AbstractAction.DEFAULT);
       button.setSelected(o != null && o.equals(Boolean.FALSE));
-      action.addPropertyChangeListener(
-          new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-              if (evt.getPropertyName().equals("selected")) {
-                button.setSelected(evt.getNewValue().equals(Boolean.FALSE));
-              }
-            }
-          });
+      action.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+        public void propertyChange(java.beans.PropertyChangeEvent evt) {
+          if (evt.getPropertyName().equals("selected")) {
+            button.setSelected(evt.getNewValue().equals(Boolean.FALSE));
+          }
+        }
+      });
     }
     add(button);
     return button;
@@ -486,8 +447,10 @@ public class BasicSkin extends Skin {
     Rectangle bounds = getBounds();
     Dimension extra = new Dimension(bounds.width - frame.width, bounds.height - frame.height);
     Point result = new Point(pt);
-    if (pt.x > rightSlicer) result.x += extra.width;
-    if (pt.y > bottomSlicer) result.y += extra.height;
+    if (pt.x > rightSlicer)
+      result.x += extra.width;
+    if (pt.y > bottomSlicer)
+      result.y += extra.height;
     return result;
   }
 
@@ -498,12 +461,14 @@ public class BasicSkin extends Skin {
     if (r.x > rightSlicer) {
       result.x += extra.width;
     } else {
-      if (r.x + r.width > leftSlicer) result.width += extra.width;
+      if (r.x + r.width > leftSlicer)
+        result.width += extra.width;
     }
     if (r.y > bottomSlicer) {
       result.y += extra.height;
     } else {
-      if (r.y + r.height > topSlicer) result.height += extra.height;
+      if (r.y + r.height > topSlicer)
+        result.height += extra.height;
     }
     return result;
   }
@@ -511,7 +476,8 @@ public class BasicSkin extends Skin {
   @Override
   public void setProgressMax(int max) {
     super.setProgressMax(max);
-    if (progressBar != null) progressBar.setMaximum(max);
+    if (progressBar != null)
+      progressBar.setMaximum(max);
   }
 
   @Override
@@ -519,8 +485,7 @@ public class BasicSkin extends Skin {
     super.setProgressValue(value);
     if (progressBar != null) {
       progressBar.setValue(value);
-      if (!progressBar.isVisible()
-          && (System.currentTimeMillis() - progressStartTime) >= DEFAULT_PROGRESS_WAKE_ON)
+      if (!progressBar.isVisible() && (System.currentTimeMillis() - progressStartTime) >= DEFAULT_PROGRESS_WAKE_ON)
         progressBar.setVisible(true);
     }
   }
@@ -528,6 +493,7 @@ public class BasicSkin extends Skin {
   @Override
   public void endProgress() {
     super.endProgress();
-    if (progressBar != null && hideProgressBar == true) progressBar.setVisible(false);
+    if (progressBar != null && hideProgressBar == true)
+      progressBar.setVisible(false);
   }
 }

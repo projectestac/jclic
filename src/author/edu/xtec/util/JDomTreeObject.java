@@ -52,10 +52,13 @@ public class JDomTreeObject extends AbstractTableModel {
 
   @Override
   public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-    if (aValue == null) return;
+    if (aValue == null)
+      return;
     if (rowIndex == 0) {
-      if (element.getChildren().isEmpty()) element.setText(aValue.toString());
-      else options.getMessages().showAlert(options.getMainComponent(), "XML_NOT_EDITABLE");
+      if (element.getChildren().isEmpty())
+        element.setText(aValue.toString());
+      else
+        options.getMessages().showAlert(options.getMainComponent(), "XML_NOT_EDITABLE");
     } else {
       org.jdom.Attribute atr = (org.jdom.Attribute) element.getAttributes().get(rowIndex - 1);
       atr.setValue(aValue.toString());
@@ -91,15 +94,16 @@ public class JDomTreeObject extends AbstractTableModel {
     return result.substring(0);
   }
 
-  public static DefaultMutableTreeNode processNode(
-      DefaultMutableTreeNode parent, org.jdom.Element element, Options options) {
+  public static DefaultMutableTreeNode processNode(DefaultMutableTreeNode parent, org.jdom.Element element,
+      Options options) {
     JDomTreeObject te = new JDomTreeObject(element, options);
     DefaultMutableTreeNode node = new DefaultMutableTreeNode(te);
     Iterator iter = element.getChildren().iterator();
     while (iter.hasNext()) {
       processNode(node, (org.jdom.Element) iter.next(), options);
     }
-    if (parent != null) parent.add(node);
+    if (parent != null)
+      parent.add(node);
     return node;
   }
 

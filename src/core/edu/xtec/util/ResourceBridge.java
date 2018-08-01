@@ -27,8 +27,7 @@ package edu.xtec.util;
  */
 public interface ResourceBridge {
 
-  public java.io.InputStream getProgressInputStream(
-      java.io.InputStream is, int expectedLength, String name);
+  public java.io.InputStream getProgressInputStream(java.io.InputStream is, int expectedLength, String name);
 
   public void displayUrl(String url, boolean inFrame);
 

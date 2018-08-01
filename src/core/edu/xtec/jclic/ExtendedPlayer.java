@@ -51,24 +51,24 @@ public class ExtendedPlayer extends Player {
 
   @Override
   protected void init() {
-    // settings=PlayerSettings.loadPlayerSettings(this, options);
     settings = PlayerSettings.loadPlayerSettings(this);
     super.init();
     settings.checkLibrary();
-    if (settings.fressaEnabled) fressa = new FressaFunctions(options);
+    if (settings.fressaEnabled)
+      fressa = new FressaFunctions(options);
   }
 
   protected void doInstall(String fileName) {
-    if (settings.promptPassword(
-        this, new String[] {"install_info_description", "settings_passwordRequired"})) {
+    if (settings.promptPassword(this, new String[] { "install_info_description", "settings_passwordRequired" })) {
       try {
-        ProjectInstallerDlg pi =
-            ProjectInstallerDlg.getProjectInstallerDlg(this, settings.libraryManager, fileName);
+        ProjectInstallerDlg pi = ProjectInstallerDlg.getProjectInstallerDlg(this, settings.libraryManager, fileName);
         if (pi != null) {
           pi.setVisible(true);
           if (pi.result != null && !pi.cancel) {
-            if (pi.launchNow && pi.pathToMainProject != null) load(pi.pathToMainProject, null);
-            else launchProjectLibrary(pi.result);
+            if (pi.launchNow && pi.pathToMainProject != null)
+              load(pi.pathToMainProject, null);
+            else
+              launchProjectLibrary(pi.result);
           }
         }
       } catch (Exception ex) {
@@ -83,7 +83,8 @@ public class ExtendedPlayer extends Player {
     if (!result) {
       try {
         ProjectLibrary pl = settings.libraryManager.getAutoStartProjectLibrary();
-        if (pl != null) launchProjectLibrary(pl);
+        if (pl != null)
+          launchProjectLibrary(pl);
       } catch (Exception ex) {
         System.err.println("Error loading autoStart project library!\n" + ex);
       }
@@ -94,10 +95,10 @@ public class ExtendedPlayer extends Player {
   @Override
   public boolean load(String fullPath, String sequence) {
     boolean result = false;
-    if (fullPath != null
-        && sequence == null
-        && fullPath.endsWith(ProjectInstaller.INSTALLER_EXTENSION)) doInstall(fullPath);
-    else result = super.load(fullPath, sequence);
+    if (fullPath != null && sequence == null && fullPath.endsWith(ProjectInstaller.INSTALLER_EXTENSION))
+      doInstall(fullPath);
+    else
+      result = super.load(fullPath, sequence);
     return result;
   }
 
@@ -166,7 +167,8 @@ public class ExtendedPlayer extends Player {
 
   protected void checkMenu(boolean recreate) {
     JRootPane rp = getRootPane();
-    if (rp == null) return;
+    if (rp == null)
+      return;
 
     if (recreate || rp.getJMenuBar() == null) {
       if (recreate || menuBar == null) {
@@ -182,60 +184,46 @@ public class ExtendedPlayer extends Player {
     if (recentFilesMenu != null && recentFilesOffset >= 0) {
       JMenuItem jmi;
       int itemsToRemove = recentFilesMenu.getItemCount() - recentFilesOffset;
-      for (int i = 0; i < itemsToRemove; i++) recentFilesMenu.remove(recentFilesOffset);
+      for (int i = 0; i < itemsToRemove; i++)
+        recentFilesMenu.remove(recentFilesOffset);
       for (int i = 0; i < PlayerSettings.MAX_RECENT; i++) {
         if (settings.recentFiles[i] != null) {
           String s = settings.recentFiles[i];
           int k = s.lastIndexOf('\\');
-          if (k < 0) k = s.lastIndexOf('/');
-          if (k >= 0) s = s.substring(k + 1);
-          createMenuItem(
-              recentFilesMenu,
-              Integer.toString(i + 1) + ". " + s,
-              "recent" + i,
-              true,
+          if (k < 0)
+            k = s.lastIndexOf('/');
+          if (k >= 0)
+            s = s.substring(k + 1);
+          createMenuItem(recentFilesMenu, Integer.toString(i + 1) + ". " + s, "recent" + i, true,
               KeyStroke.getKeyStroke(KeyEvent.VK_1 + i, ActionEvent.ALT_MASK));
         }
       }
     }
   }
 
-  JMenuItem createMenuItem(
-      JComponent parent,
-      String text,
-      String actionCommand,
-      boolean mnemonic,
+  JMenuItem createMenuItem(JComponent parent, String text, String actionCommand, boolean mnemonic,
       KeyStroke accelerator) {
     JMenuItem jmi = new JMenuItem(text);
     if (actionCommand != null) {
       jmi.setActionCommand(actionCommand);
       jmi.addActionListener(this);
     }
-    if (mnemonic) jmi.setMnemonic(jmi.getText().charAt(0));
-    if (accelerator != null) jmi.setAccelerator(accelerator);
+    if (mnemonic)
+      jmi.setMnemonic(jmi.getText().charAt(0));
+    if (accelerator != null)
+      jmi.setAccelerator(accelerator);
     parent.add(jmi);
     return jmi;
   }
 
-  public static final int ACTION_OPEN_FILE = NUM_ACTIONS,
-      ACTION_OPEN_URL = NUM_ACTIONS + 1,
-      ACTION_EXIT = NUM_ACTIONS + 2,
-      ACTION_SETTINGS = NUM_ACTIONS + 3,
-      ACTION_LIBRARIES = NUM_ACTIONS + 4,
-      ACTION_ABOUT = NUM_ACTIONS + 5,
-      NUM_ACTIONS_EXT = NUM_ACTIONS + 6;
+  public static final int ACTION_OPEN_FILE = NUM_ACTIONS, ACTION_OPEN_URL = NUM_ACTIONS + 1,
+      ACTION_EXIT = NUM_ACTIONS + 2, ACTION_SETTINGS = NUM_ACTIONS + 3, ACTION_LIBRARIES = NUM_ACTIONS + 4,
+      ACTION_ABOUT = NUM_ACTIONS + 5, NUM_ACTIONS_EXT = NUM_ACTIONS + 6;
 
-  public static final String[] ACTION_NAME_EXT = {
-    "openFile", "openUrl", "exit", "settings", "libraries", "helpAbout"
-  };
-  public static final String[] ACTION_ICONS_EXT = {
-    "icons/file_open.gif",
-    "icons/world.gif",
-    "icons/exit_small.gif",
-    "icons/settings.gif",
-    "icons/database.gif",
-    "icons/help.gif"
-  };
+  public static final String[] ACTION_NAME_EXT = { "openFile", "openUrl", "exit", "settings", "libraries",
+      "helpAbout" };
+  public static final String[] ACTION_ICONS_EXT = { "icons/file_open.gif", "icons/world.gif", "icons/exit_small.gif",
+      "icons/settings.gif", "icons/database.gif", "icons/help.gif" };
 
   @Override
   protected int getNumActions() {
@@ -245,117 +233,110 @@ public class ExtendedPlayer extends Player {
   @Override
   protected void buildActions() {
     super.buildActions();
-    actions[ACTION_OPEN_FILE] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            FileSystem fs = project.getFileSystem();
-            if (fs.isUrlBased()) fs = settings.fileSystem;
-            int[] filters = {Utils.ALL_CLIC_FF, Utils.INSTALL_FF, Utils.ALL_JCLIC_FF};
-            String result =
-                fs.chooseFile(null, false, filters, options, null, ExtendedPlayer.this, false);
-            if (result != null) {
-              String fileName = fs.getFullFileNamePath(result);
-              if (load(fileName, null)) addRecentFile(fileName);
-            }
-          }
-        };
+    actions[ACTION_OPEN_FILE] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        FileSystem fs = project.getFileSystem();
+        if (fs.isUrlBased())
+          fs = settings.fileSystem;
+        int[] filters = { Utils.ALL_CLIC_FF, Utils.INSTALL_FF, Utils.ALL_JCLIC_FF };
+        String result = fs.chooseFile(null, false, filters, options, null, ExtendedPlayer.this, false);
+        if (result != null) {
+          String fileName = fs.getFullFileNamePath(result);
+          if (load(fileName, null))
+            addRecentFile(fileName);
+        }
+      }
+    };
 
-    actions[ACTION_OPEN_URL] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            String url =
-                messages.showInputDlg(
-                    ExtendedPlayer.this, "URL_OPEN", "URL", "http://", "URL_OPEN", false);
-            if (url != null) {
-              url = url.trim();
-              // Check if the protocol was entered twice in the string
-              // if(url.startsWith("http://http://"))
-              if (url.indexOf("://", 7) >= 0) url = url.substring(7);
-              if (url.length() > 0 && !url.equals("http://")) {
-                if (load(url, null)) addRecentFile(url);
-              }
-            }
+    actions[ACTION_OPEN_URL] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        String url = messages.showInputDlg(ExtendedPlayer.this, "URL_OPEN", "URL", "http://", "URL_OPEN", false);
+        if (url != null) {
+          url = url.trim();
+          if (url.indexOf("://", 7) >= 0)
+            url = url.substring(7);
+          if (url.length() > 0 && !url.equals("http://")) {
+            if (load(url, null))
+              addRecentFile(url);
           }
-        };
+        }
+      }
+    };
 
-    actions[ACTION_EXIT] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            exit();
-          }
-        };
+    actions[ACTION_EXIT] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        exit();
+      }
+    };
 
-    actions[ACTION_SETTINGS] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            String currentLook = options.getString(LFUtil.LOOK_AND_FEEL);
-            String currentLanguage = options.getString(Messages.LANGUAGE);
-            String currentCountry = options.getString(Messages.COUNTRY);
-            String currentVariant = options.getString(Messages.VARIANT);
-            String currentSkin = options.getString(SKIN);
-            String currentReporterClass = settings.reporterClass;
-            String currentReporterParams = settings.reporterParams;
-            boolean currentReporterEnabled = settings.reporterEnabled;
-            String currentMediaSystem = settings.mediaSystem;
-            if (settings.edit(ExtendedPlayer.this)) {
-              settings.save();
-              options.syncProperties(settings.getProperties(), false);
-              if (!settings.skin.equals(currentSkin)) {
-                initSkin();
-                setSkin(null);
-              } else if (getSkin() != null) {
-                AbstractButton bt = getSkin().getButton(ACTION_AUDIO);
-                if (bt != null) bt.setSelected(!audioEnabled);
-              }
-              boolean recreateMenu = false;
-              if (!settings.lookAndFeel.equals(currentLook)) {
-                options.setLookAndFeel();
-                recreateMenu = true;
-              }
-              if (settings.language != null
-                  && (!StrUtils.compareObjects(settings.language, currentLanguage)
-                      || !StrUtils.compareObjects(settings.country, currentCountry)
-                      || !StrUtils.compareObjects(settings.variant, currentVariant))) {
-                setMessages();
-                recreateMenu = true;
-              }
-              if (recreateMenu) {
-                checkMenu(true);
-              }
-              if (settings.reporterEnabled
-                  && (!settings.reporterClass.equals(currentReporterClass)
-                      || !settings.reporterParams.equals(currentReporterParams))) {
-                initReporter();
-              }
-              audioEnabled = settings.soundEnabled;
-              edu.xtec.jclic.media.EventSounds.globalEnabled = settings.systemSounds;
-              if (!currentMediaSystem.equals(settings.mediaSystem)) {
-                options.put(MEDIA_SYSTEM, settings.mediaSystem);
-                edu.xtec.jclic.media.CheckMediaSystem.check(options, false);
-                createEventSounds();
-              }
-            }
+    actions[ACTION_SETTINGS] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        String currentLook = options.getString(LFUtil.LOOK_AND_FEEL);
+        String currentLanguage = options.getString(Messages.LANGUAGE);
+        String currentCountry = options.getString(Messages.COUNTRY);
+        String currentVariant = options.getString(Messages.VARIANT);
+        String currentSkin = options.getString(SKIN);
+        String currentReporterClass = settings.reporterClass;
+        String currentReporterParams = settings.reporterParams;
+        boolean currentReporterEnabled = settings.reporterEnabled;
+        String currentMediaSystem = settings.mediaSystem;
+        if (settings.edit(ExtendedPlayer.this)) {
+          settings.save();
+          options.syncProperties(settings.getProperties(), false);
+          if (!settings.skin.equals(currentSkin)) {
+            initSkin();
+            setSkin(null);
+          } else if (getSkin() != null) {
+            AbstractButton bt = getSkin().getButton(ACTION_AUDIO);
+            if (bt != null)
+              bt.setSelected(!audioEnabled);
           }
-        };
+          boolean recreateMenu = false;
+          if (!settings.lookAndFeel.equals(currentLook)) {
+            options.setLookAndFeel();
+            recreateMenu = true;
+          }
+          if (settings.language != null && (!StrUtils.compareObjects(settings.language, currentLanguage)
+              || !StrUtils.compareObjects(settings.country, currentCountry)
+              || !StrUtils.compareObjects(settings.variant, currentVariant))) {
+            setMessages();
+            recreateMenu = true;
+          }
+          if (recreateMenu) {
+            checkMenu(true);
+          }
+          if (settings.reporterEnabled && (!settings.reporterClass.equals(currentReporterClass)
+              || !settings.reporterParams.equals(currentReporterParams))) {
+            initReporter();
+          }
+          audioEnabled = settings.soundEnabled;
+          edu.xtec.jclic.media.EventSounds.globalEnabled = settings.systemSounds;
+          if (!currentMediaSystem.equals(settings.mediaSystem)) {
+            options.put(MEDIA_SYSTEM, settings.mediaSystem);
+            edu.xtec.jclic.media.CheckMediaSystem.check(options, false);
+            createEventSounds();
+          }
+        }
+      }
+    };
 
-    actions[ACTION_LIBRARIES] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            try {
-              ProjectLibrary pl = settings.libraryManager.selectProjectLibrary(true, false);
-              if (pl != null) launchProjectLibrary(pl);
-            } catch (Exception ex) {
-              messages.showErrorWarning(ExtendedPlayer.this, "error_launchLibrary", ex);
-            }
-          }
-        };
+    actions[ACTION_LIBRARIES] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        try {
+          ProjectLibrary pl = settings.libraryManager.selectProjectLibrary(true, false);
+          if (pl != null)
+            launchProjectLibrary(pl);
+        } catch (Exception ex) {
+          messages.showErrorWarning(ExtendedPlayer.this, "error_launchLibrary", ex);
+        }
+      }
+    };
 
-    actions[ACTION_ABOUT] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            showAbout(false);
-          }
-        };
+    actions[ACTION_ABOUT] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        showAbout(false);
+      }
+    };
   }
 
   @Override
@@ -382,7 +363,8 @@ public class ExtendedPlayer extends Player {
       } catch (Exception ex) {
         System.err.println("invalid command: " + ac);
       }
-    } else return super.processActionEvent(ac);
+    } else
+      return super.processActionEvent(ac);
 
     return true;
   }
@@ -405,11 +387,11 @@ public class ExtendedPlayer extends Player {
   }
 
   /**
-   * FressaFunctions offers special accessibility features like atomatic scanning and voice
-   * synthesis.
+   * FressaFunctions offers special accessibility features like atomatic scanning
+   * and voice synthesis.
    *
-   * @return The FressaFunctions object, or <CODE>null</CODE> if accessibility features are not
-   *     enabled
+   * @return The FressaFunctions object, or <CODE>null</CODE> if accessibility
+   *         features are not enabled
    */
   @Override
   public edu.xtec.jclic.accessibility.FressaFunctions getFressa() {

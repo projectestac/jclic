@@ -46,36 +46,22 @@ public class NarrowOptionPane extends JOptionPane {
     this(maxCharactersPerLineCount, message, messageType, JOptionPane.DEFAULT_OPTION);
   }
 
-  public NarrowOptionPane(
-      int maxCharactersPerLineCount, Object message, int messageType, int optionType) {
+  public NarrowOptionPane(int maxCharactersPerLineCount, Object message, int messageType, int optionType) {
     this(maxCharactersPerLineCount, message, messageType, optionType, null);
   }
 
-  public NarrowOptionPane(
-      int maxCharactersPerLineCount, Object message, int messageType, int optionType, Icon icon) {
+  public NarrowOptionPane(int maxCharactersPerLineCount, Object message, int messageType, int optionType, Icon icon) {
     this(maxCharactersPerLineCount, message, messageType, optionType, icon, null);
   }
 
-  public NarrowOptionPane(
-      int maxCharactersPerLineCount,
-      Object message,
-      int messageType,
-      int optionType,
-      Icon icon,
+  public NarrowOptionPane(int maxCharactersPerLineCount, Object message, int messageType, int optionType, Icon icon,
       Object[] options) {
     this(maxCharactersPerLineCount, message, messageType, optionType, icon, options, null);
   }
 
-  public NarrowOptionPane(
-      int maxCharactersPerLineCount,
-      Object message,
-      int messageType,
-      int optionType,
-      Icon icon,
-      Object[] options,
-      Object initialValue) {
-    if ((message instanceof String)
-        && ((String) message).trim().toLowerCase().startsWith("<html>")) {
+  public NarrowOptionPane(int maxCharactersPerLineCount, Object message, int messageType, int optionType, Icon icon,
+      Object[] options, Object initialValue) {
+    if ((message instanceof String) && ((String) message).trim().toLowerCase().startsWith("<html>")) {
       maxCharactersPerLineCount = Integer.MAX_VALUE;
     }
     this.maxCharactersPerLineCount = maxCharactersPerLineCount;

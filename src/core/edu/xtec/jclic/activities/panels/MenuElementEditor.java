@@ -60,7 +60,8 @@ public class MenuElementEditor extends Editor {
 
   public MenuEditor getMenuEditorParent() {
     MenuEditor result = null;
-    if (getParent() != null && getParent() instanceof MenuEditor) result = (MenuEditor) getParent();
+    if (getParent() != null && getParent() instanceof MenuEditor)
+      result = (MenuEditor) getParent();
     return result;
   }
 
@@ -69,9 +70,11 @@ public class MenuElementEditor extends Editor {
   }
 
   public ProjectLibrary getProjectLibrary() {
-    if (projectLibrary != null) return projectLibrary;
+    if (projectLibrary != null)
+      return projectLibrary;
     MenuEditor me = getMenuEditorParent();
-    if (me != null) projectLibrary = me.getProjectLibrary();
+    if (me != null)
+      projectLibrary = me.getProjectLibrary();
     return projectLibrary;
   }
 
@@ -85,7 +88,8 @@ public class MenuElementEditor extends Editor {
   }
 
   public static Icon getIcon() {
-    if (icon == null) icon = edu.xtec.util.ResourceManager.getImageIcon("icons/miniclic.png");
+    if (icon == null)
+      icon = edu.xtec.util.ResourceManager.getImageIcon("icons/miniclic.png");
     return icon;
   }
 
@@ -143,14 +147,16 @@ public class MenuElementEditor extends Editor {
   @Override
   public boolean moveUp(boolean updateSelection) {
     boolean result = super.moveUp(updateSelection);
-    if (result) syncParentIndex();
+    if (result)
+      syncParentIndex();
     return result;
   }
 
   @Override
   public boolean moveDown(boolean updateSelection) {
     boolean result = super.moveDown(updateSelection);
-    if (result) syncParentIndex();
+    if (result)
+      syncParentIndex();
     return result;
   }
 
@@ -178,11 +184,9 @@ public class MenuElementEditor extends Editor {
     MenuElement me = getMenuElement();
     ProjectLibrary pl = getProjectLibrary();
     if (pl != null) {
-      int[] filters = {Utils.ALL_CLIC_FF, Utils.ALL_JCLIC_FF};
-      String result =
-          pl.getFileSystem()
-              .chooseFile(
-                  me.projectPath, false, filters, options, "edit_find_file", dlgOwner, false);
+      int[] filters = { Utils.ALL_CLIC_FF, Utils.ALL_JCLIC_FF };
+      String result = pl.getFileSystem().chooseFile(me.projectPath, false, filters, options, "edit_find_file", dlgOwner,
+          false);
       if (result != null) {
         me.projectPath = result;
         fireEditorDataChanged(null);
@@ -194,25 +198,17 @@ public class MenuElementEditor extends Editor {
     MenuElement me = getMenuElement();
     ProjectLibrary pl = getProjectLibrary();
     if (pl != null) {
-      int[] filters = {Utils.ALL_IMAGES_FF, Utils.GIF_FF};
+      int[] filters = { Utils.ALL_IMAGES_FF, Utils.GIF_FF };
       String s = me.icon;
-      if (s != null && s.startsWith("@")) s = null;
-      String result =
-          pl.getFileSystem()
-              .chooseFile(
-                  s == null ? me.projectPath : s,
-                  false,
-                  filters,
-                  options,
-                  "edit_find_image",
-                  dlgOwner,
-                  false);
+      if (s != null && s.startsWith("@"))
+        s = null;
+      String result = pl.getFileSystem().chooseFile(s == null ? me.projectPath : s, false, filters, options,
+          "edit_find_image", dlgOwner, false);
       if (result != null) {
         ImageIcon ii = null;
         try {
           ii = new ImageIcon(pl.getFileSystem().getImageFile(result));
-          if (ii.getIconWidth() > MenuElement.MAX_ICON_WIDTH
-              || ii.getIconHeight() > MenuElement.MAX_ICON_HEIGHT) {
+          if (ii.getIconWidth() > MenuElement.MAX_ICON_WIDTH || ii.getIconHeight() > MenuElement.MAX_ICON_HEIGHT) {
             options.getMessages().showAlert(dlgOwner, "menuElement_err_iconTooLarge");
             ii = null;
           }
@@ -231,21 +227,19 @@ public class MenuElementEditor extends Editor {
   public static void createActions(Options options) {
     createBasicActions(options);
     if (!actionsCreated) {
-      findProjectAction =
-          new EditorAction("edit_find_file", "icons/file_open.gif", "edit_find_file", options) {
-            protected void doAction(Editor e) {
-              if (e instanceof MenuElementEditor)
-                ((MenuElementEditor) e).findProject(this.options, getComponentSrc());
-            }
-          };
+      findProjectAction = new EditorAction("edit_find_file", "icons/file_open.gif", "edit_find_file", options) {
+        protected void doAction(Editor e) {
+          if (e instanceof MenuElementEditor)
+            ((MenuElementEditor) e).findProject(this.options, getComponentSrc());
+        }
+      };
 
-      findIconAction =
-          new EditorAction("edit_find_image", "icons/file_open.gif", "edit_find_image", options) {
-            protected void doAction(Editor e) {
-              if (e instanceof MenuElementEditor)
-                ((MenuElementEditor) e).findIcon(this.options, getComponentSrc());
-            }
-          };
+      findIconAction = new EditorAction("edit_find_image", "icons/file_open.gif", "edit_find_image", options) {
+        protected void doAction(Editor e) {
+          if (e instanceof MenuElementEditor)
+            ((MenuElementEditor) e).findIcon(this.options, getComponentSrc());
+        }
+      };
       actionsCreated = true;
     }
   }

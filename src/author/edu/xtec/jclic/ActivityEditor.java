@@ -58,7 +58,8 @@ public class ActivityEditor extends Editor {
 
   protected void createChildren() {
     Activity act = getActivity();
-    if (act.acp != null) act.acp.getEditor(this);
+    if (act.acp != null)
+      act.acp.getEditor(this);
   }
 
   public AutoContentProviderEditor getAutoContentProviderEditor() {
@@ -73,9 +74,7 @@ public class ActivityEditor extends Editor {
 
   public synchronized EditorPanel createEditorPanel(Options options) {
     ActivityEditorPanel panel = new ActivityEditorPanel(options);
-    // panel.addInternalPanel(new ActivityEditorDescPanel(panel), null, null);
     panel.addInternalPanel(new ActivityEditorOptionsPanel(panel), null, null);
-    // panel.addInternalPanel(new ActivityEditorControlsPanel(panel), null, null);
     panel.addInternalPanel(new ActivityEditorFramePanel(panel), null, null);
     panel.addInternalPanel(new ActivityEditorMsgPanel(panel), null, null);
     createPanels(panel);
@@ -87,7 +86,8 @@ public class ActivityEditor extends Editor {
     return "edit_act";
   }
 
-  protected void createPanels(ActivityEditorPanel panel) {}
+  protected void createPanels(ActivityEditorPanel panel) {
+  }
 
   public Activity getActivity() {
     return (Activity) getFirstObject(Activity.class);
@@ -122,7 +122,8 @@ public class ActivityEditor extends Editor {
 
     if (oldName.equals(newName)) {
       // do nothing
-    } else if (newName.length() < 1) errMsg = "edit_media_rename_invalid";
+    } else if (newName.length() < 1)
+      errMsg = "edit_media_rename_invalid";
     else if (getActivityBagEditor().getActivityBag().getElementByName(newName) != null)
       errMsg = "edit_media_rename_exists";
     else {
@@ -136,7 +137,6 @@ public class ActivityEditor extends Editor {
   }
 
   public synchronized void saveData() {
-    // System.out.println("saving data!");
     ActivityBagElementEditor abee = getActivityBagElementEditor();
     if (abee != null) {
       ActivityBagElement abe = abee.getActivityBagElement();
@@ -145,7 +145,8 @@ public class ActivityEditor extends Editor {
       if (!abe.getName().equals(name)) {
         // FIRE NAME CHANGE
       }
-      if (isModified()) abee.setModified(true);
+      if (isModified())
+        abee.setModified(true);
     }
   }
 
@@ -156,31 +157,27 @@ public class ActivityEditor extends Editor {
 
   @Override
   public void setActionsOwner() {
-    if (getEditorParent() != null) getEditorParent().setActionsOwner();
+    if (getEditorParent() != null)
+      getEditorParent().setActionsOwner();
   }
 
   public static Icon getIcon() {
-    if (icon == null) icon = edu.xtec.util.ResourceManager.getImageIcon("icons/miniclic.png");
+    if (icon == null)
+      icon = edu.xtec.util.ResourceManager.getImageIcon("icons/miniclic.png");
     return icon;
   }
 
   @Override
   public Icon getIcon(boolean leaf, boolean expanded) {
-    // return leaf ? getIcon() : null;
     return getIcon();
   }
 
-  static final BasicStroke dashedStroke =
-      new BasicStroke(
-          1.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 10.0f, new float[] {5.0f}, 0.0f);
+  static final BasicStroke dashedStroke = new BasicStroke(1.0f, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 10.0f,
+      new float[] { 5.0f }, 0.0f);
 
   public void drawPreview(Graphics2D g2, Rectangle bounds, int margin) {
-    Rectangle r =
-        new Rectangle(
-            bounds.x + margin,
-            bounds.y + margin,
-            bounds.width - 2 * margin,
-            bounds.height - 2 * margin);
+    Rectangle r = new Rectangle(bounds.x + margin, bounds.y + margin, bounds.width - 2 * margin,
+        bounds.height - 2 * margin);
     g2.setXORMode(Color.white);
     Stroke str = g2.getStroke();
     g2.setStroke(dashedStroke);
@@ -212,8 +209,7 @@ public class ActivityEditor extends Editor {
       result |= EventSoundsEditorPanel.nameChanged(act.eventSounds, type, oldName, newName);
     }
 
-    if ((type & Constants.T_XML) != 0
-        && oldName.equals(act.skinFileName)
+    if ((type & Constants.T_XML) != 0 && oldName.equals(act.skinFileName)
         && !oldName.startsWith(Skin.INTERNAL_SKIN_PREFIX)) {
       act.skinFileName = newName;
       result = true;
@@ -228,10 +224,6 @@ public class ActivityEditor extends Editor {
     }
 
     if (result) {
-      // javax.swing.SwingUtilities.invokeLater(new Runnable(){
-      //    public void run(){
-      //        fireEditorDataChanged(null);
-      //    }});
       setModified(true);
     }
 

@@ -38,8 +38,7 @@ public class IdentifyEditor extends TextActivityBaseEditor {
     super(act);
   }
 
-  protected static Map<Options, CheckOptionsPanel> panelMap =
-      new HashMap<Options, CheckOptionsPanel>(1);
+  protected static Map<Options, CheckOptionsPanel> panelMap = new HashMap<Options, CheckOptionsPanel>(1);
 
   @Override
   protected void editCheckOptions(Options options, Component parent) {
@@ -70,10 +69,7 @@ public class IdentifyEditor extends TextActivityBaseEditor {
     boolean result = IdentifyTypePanel.editIdentify(ident, options, parent);
     if (result) {
       if (ident.type != t && ident.tad.tmb.size() > 0) {
-        if (options
-                .getMessages()
-                .showQuestionDlg(parent, "edit_text_act_warnChangeType", null, "yn")
-            == Messages.YES) {
+        if (options.getMessages().showQuestionDlg(parent, "edit_text_act_warnChangeType", null, "yn") == Messages.YES) {
           ident.tad.clearAllTargets();
         } else {
           result = false;
@@ -83,10 +79,8 @@ public class IdentifyEditor extends TextActivityBaseEditor {
     }
 
     if (result) {
-      ident.tad.targetType =
-          (ident.type == Identify.IDENTIFY_WORDS)
-              ? TextActivityDocument.TT_WORD
-              : TextActivityDocument.TT_CHAR;
+      ident.tad.targetType = (ident.type == Identify.IDENTIFY_WORDS) ? TextActivityDocument.TT_WORD
+          : TextActivityDocument.TT_CHAR;
       setModified(true);
     }
 

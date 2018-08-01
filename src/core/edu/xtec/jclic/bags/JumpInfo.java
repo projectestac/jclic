@@ -27,11 +27,13 @@ import edu.xtec.util.JDomUtility;
 import java.util.Map;
 
 /**
- * This class contains information about what the sequence manager of JClic must do in specific
- * circumstances: when an activity finishes, when the user clicks on the "next" and "prev" buttons,
- * or when a special active content is activated. Different kinds of actions are possible: to go
- * back to a previous point in the sequence, to exit the program, to stop (do nothing), to jump to a
- * specific point in the sequence of activities or to jump to another JClic project.
+ * This class contains information about what the sequence manager of JClic must
+ * do in specific circumstances: when an activity finishes, when the user clicks
+ * on the "next" and "prev" buttons, or when a special active content is
+ * activated. Different kinds of actions are possible: to go back to a previous
+ * point in the sequence, to exit the program, to stop (do nothing), to jump to
+ * a specific point in the sequence of activities or to jump to another JClic
+ * project.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10
@@ -63,18 +65,18 @@ public class JumpInfo implements Domable, Cloneable {
     sequence = null;
   }
 
-  public static final String[] actions = {"JUMP", "STOP", "RETURN", "EXIT"};
-  public static final String ELEMENT_NAME = "jump",
-      ACTION = "action",
-      TAG = "tag",
-      PROJECT = "project";
+  public static final String[] actions = { "JUMP", "STOP", "RETURN", "EXIT" };
+  public static final String ELEMENT_NAME = "jump", ACTION = "action", TAG = "tag", PROJECT = "project";
 
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
-    if (action != JUMP) e.setAttribute(ACTION, actions[action]);
+    if (action != JUMP)
+      e.setAttribute(ACTION, actions[action]);
     else {
-      if (sequence != null) e.setAttribute(TAG, sequence);
-      if (projectPath != null) e.setAttribute(PROJECT, projectPath);
+      if (sequence != null)
+        e.setAttribute(TAG, sequence);
+      if (projectPath != null)
+        e.setAttribute(PROJECT, projectPath);
     }
     return e;
   }

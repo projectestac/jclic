@@ -41,33 +41,11 @@ public class HTTPReportServer extends ReportServerEventMaker {
 
   public static final int DEFAULT_PORT = 9000, DEFAULT_TIMEOUT = 1200;
 
-  protected static final String[] URI = {
-    "/login",
-    "/main",
-    "/dbAdmin",
-    "/userReport",
-    "/actReport",
-    "/img",
-    "/groupReport",
-    "/groupAdmin",
-    "/userAdmin",
-    "/resource",
-    "/JClicReportService"
-  };
+  protected static final String[] URI = { "/login", "/main", "/dbAdmin", "/userReport", "/actReport", "/img",
+      "/groupReport", "/groupAdmin", "/userAdmin", "/resource", "/JClicReportService" };
 
-  protected static final Class[] CLS = {
-    Login.class,
-    Main.class,
-    DbAdmin.class,
-    UserReport.class,
-    ActReport.class,
-    Img.class,
-    GroupReport.class,
-    GroupAdmin.class,
-    UserAdmin.class,
-    ResourceRP.class,
-    JClicReportService.class
-  };
+  protected static final Class[] CLS = { Login.class, Main.class, DbAdmin.class, UserReport.class, ActReport.class,
+      Img.class, GroupReport.class, GroupAdmin.class, UserAdmin.class, ResourceRP.class, JClicReportService.class };
 
   HttpThread httpThread;
 
@@ -83,8 +61,7 @@ public class HTTPReportServer extends ReportServerEventMaker {
 
   public boolean startServer(int port, int timeOut) {
     if (serverRunning()) {
-      fireReportServerSystemEvent(
-          messages.get("manage_server_already_started"), ReportServerEvent.ERROR);
+      fireReportServerSystemEvent(messages.get("manage_server_already_started"), ReportServerEvent.ERROR);
       return false;
     }
 
@@ -113,7 +90,8 @@ public class HTTPReportServer extends ReportServerEventMaker {
   @Override
   protected void finalize() throws Throwable {
     try {
-      if (serverRunning()) stopServer();
+      if (serverRunning())
+        stopServer();
     } finally {
       super.finalize();
     }
@@ -173,8 +151,6 @@ public class HTTPReportServer extends ReportServerEventMaker {
 
       ClientConnection(Socket socket) {
         this.socket = socket;
-        // fireReportServerSocketEvent(socket, null, ReportServerEvent.CONNECT);
-        // fireReportServerSocketEvent(socket, null, ReportServerEvent.CONNECTION);
       }
 
       @Override
@@ -187,7 +163,8 @@ public class HTTPReportServer extends ReportServerEventMaker {
           fireReportServerSocketEvent(socket, re.firstLine, ReportServerEvent.CONNECTION);
 
           String url = re.urlBase;
-          if (url == null || url.length() == 0 || url.equals("/")) url = URI[0];
+          if (url == null || url.length() == 0 || url.equals("/"))
+            url = URI[0];
 
           Class<?> cl = null;
           for (int i = 0; i < URI.length; i++) {
@@ -198,13 +175,10 @@ public class HTTPReportServer extends ReportServerEventMaker {
           }
 
           int p = 0;
-          if (cl == null
-              && re.urlBase != null
-              && (p = re.urlBase.lastIndexOf('/')) >= 0
+          if (cl == null && re.urlBase != null && (p = re.urlBase.lastIndexOf('/')) >= 0
               && p < re.urlBase.length() - 1) {
             String s = re.urlBase.substring(p + 1);
-            re.params.put(ResourceRP.ID, new String[] {s});
-            // System.out.println(s);
+            re.params.put(ResourceRP.ID, new String[] { s });
             cl = ResourceRP.class;
           }
 
@@ -213,7 +187,8 @@ public class HTTPReportServer extends ReportServerEventMaker {
           } else {
             rp = (RequestProcessor) cl.newInstance();
             rp.setParams(re.params);
-            if (rp.wantsInputStream()) rp.setInputStream(re.inputStream);
+            if (rp.wantsInputStream())
+              rp.setInputStream(re.inputStream);
             for (String key : re.cookies.keySet()) {
               rp.setCookie(key, (String) re.cookies.get(key));
             }
@@ -232,15 +207,18 @@ public class HTTPReportServer extends ReportServerEventMaker {
                 } else if (h[0].equals(RequestProcessor.REDIRECT)) {
                   re.redirect(h[1]);
                   break;
-                } else if (h[0].equals(RequestProcessor.CONTENT_TYPE)) re.head.contentType = h[1];
+                } else if (h[0].equals(RequestProcessor.CONTENT_TYPE))
+                  re.head.contentType = h[1];
                 else if (h[0].equals(RequestProcessor.CONTENT_LENGTH))
                   re.head.contentLength = Integer.parseInt(h[1]);
                 else if (h[0].equals(RequestProcessor.EXTRA)) {
                   StringBuilder sb = new StringBuilder(100);
-                  if (re.head.extra != null) sb.append(re.head.extra).append("\r\n");
+                  if (re.head.extra != null)
+                    sb.append(re.head.extra).append("\r\n");
                   sb.append(h[1]).append(": ").append(h[2]);
                   re.head.extra = sb.substring(0);
-                } else if (h[0].equals(RequestProcessor.COOKIE)) re.cookies.put(h[1], h[2]);
+                } else if (h[0].equals(RequestProcessor.COOKIE))
+                  re.cookies.put(h[1], h[2]);
               }
             }
             if (!re.head.commited) {
@@ -273,7 +251,8 @@ public class HTTPReportServer extends ReportServerEventMaker {
           System.err.println("ERROR " + errCode + ": " + errMsg);
           ex.printStackTrace(System.err);
         } finally {
-          if (rp != null) rp.end();
+          if (rp != null)
+            rp.end();
           try {
             socket.close();
           } catch (Exception ex) {

@@ -54,10 +54,7 @@ public class FillInBlanksEditor extends TextActivityBaseEditor {
   protected boolean deleteTarget(TargetMarker tm, Options options, Component parent) {
     int d = 0;
     if (options != null)
-      d =
-          options
-              .getMessages()
-              .showQuestionDlg(parent, "edit_text_act_warnDeleteTarget", null, "yn");
+      d = options.getMessages().showQuestionDlg(parent, "edit_text_act_warnDeleteTarget", null, "yn");
     return d == Messages.YES ? super.deleteTarget(tm, options, parent) : false;
   }
 
@@ -66,8 +63,7 @@ public class FillInBlanksEditor extends TextActivityBaseEditor {
     return true;
   }
 
-  protected static Map<Options, FillInBlanksCheckPanel> panelMap =
-      new HashMap<Options, FillInBlanksCheckPanel>(1);
+  protected static Map<Options, FillInBlanksCheckPanel> panelMap = new HashMap<Options, FillInBlanksCheckPanel>(1);
 
   @Override
   protected void editCheckOptions(Options options, Component parent) {

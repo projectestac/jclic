@@ -46,8 +46,7 @@ public class MediaPreviewPanel extends JPanel {
 
   public static final int PREFERRED_CMP_WIDTH = 600;
   public static final int PREFERRED_CMP_HEIGHT = 400;
-  public static final String SAMPLE_TEXT =
-      "ABCDEFGHIJ\nKLMNOPQRST\nUVWXYZ\nabcdefghij\nklmnopqrst\nuvwxyz\n0123456789\n";
+  public static final String SAMPLE_TEXT = "ABCDEFGHIJ\nKLMNOPQRST\nUVWXYZ\nabcdefghij\nklmnopqrst\nuvwxyz\n0123456789\n";
 
   MediaBagElementEditor mbed;
   Options options;
@@ -64,36 +63,36 @@ public class MediaPreviewPanel extends JPanel {
       JComponent cmp = null;
       mediaType = Utils.getFileType(mbed.getMediaBagElement().getFileName());
       switch (mediaType) {
-        case Utils.TYPE_IMAGE:
-          cmp = buildImgComponent();
-          break;
-        case Utils.TYPE_AUDIO:
-        case Utils.TYPE_MIDI:
-        case Utils.TYPE_ANIM:
-        case Utils.TYPE_VIDEO:
-          cmp = buildMediaComponent();
-          break;
-        case Utils.TYPE_FONT:
-          cmp = buildFontComponent();
-          break;
-        default:
-          break;
+      case Utils.TYPE_IMAGE:
+        cmp = buildImgComponent();
+        break;
+      case Utils.TYPE_AUDIO:
+      case Utils.TYPE_MIDI:
+      case Utils.TYPE_ANIM:
+      case Utils.TYPE_VIDEO:
+        cmp = buildMediaComponent();
+        break;
+      case Utils.TYPE_FONT:
+        cmp = buildFontComponent();
+        break;
+      default:
+        break;
       }
-      if (cmp != null) add(cmp);
+      if (cmp != null)
+        add(cmp);
     }
   }
 
   public void end() {
-    if (ps != null) ps.stopMedia(1);
+    if (ps != null)
+      ps.stopMedia(1);
   }
 
   protected JComponent buildImgComponent() {
     Image img = null;
     JComponent result = null;
     try {
-      img =
-          mbed.getMediaBagElement()
-              .prepareAndGetImage(mbed.getMediaBag().getProject().getFileSystem());
+      img = mbed.getMediaBagElement().prepareAndGetImage(mbed.getMediaBag().getProject().getFileSystem());
     } catch (Exception ex) {
       System.err.println("Error loading image " + mbed.getMediaBagElement().getFileName());
     }
@@ -122,16 +121,16 @@ public class MediaPreviewPanel extends JPanel {
     abc.mediaContent = new MediaContent();
     int mt = MediaContent.UNKNOWN;
     switch (mediaType) {
-      case Utils.TYPE_AUDIO:
-        mt = MediaContent.PLAY_AUDIO;
-        break;
-      case Utils.TYPE_MIDI:
-        mt = MediaContent.PLAY_MIDI;
-        break;
-      case Utils.TYPE_ANIM:
-      case Utils.TYPE_VIDEO:
-        mt = MediaContent.PLAY_VIDEO;
-        break;
+    case Utils.TYPE_AUDIO:
+      mt = MediaContent.PLAY_AUDIO;
+      break;
+    case Utils.TYPE_MIDI:
+      mt = MediaContent.PLAY_MIDI;
+      break;
+    case Utils.TYPE_ANIM:
+    case Utils.TYPE_VIDEO:
+      mt = MediaContent.PLAY_VIDEO;
+      break;
     }
     abc.mediaContent.mediaType = mt;
     abc.mediaContent.mediaFileName = mbed.getMediaBagElement().getFileName();

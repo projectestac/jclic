@@ -40,8 +40,8 @@ public class CompoundListCellRenderer extends JLabel implements ListCellRenderer
     setVerticalAlignment(CENTER);
   }
 
-  public Component getListCellRendererComponent(
-      JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+  public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected,
+      boolean cellHasFocus) {
     if (isSelected) {
       setBackground(list.getSelectionBackground());
       setForeground(list.getSelectionForeground());
@@ -57,7 +57,8 @@ public class CompoundListCellRenderer extends JLabel implements ListCellRenderer
       CompoundObject co = (CompoundObject) value;
       text = co.text;
       icon = co.getIcon();
-    } else if (value != null) text = value.toString();
+    } else if (value != null)
+      text = value.toString();
 
     setText(icon == null ? text : "");
     setIcon(icon);

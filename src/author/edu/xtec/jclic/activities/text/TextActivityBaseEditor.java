@@ -86,7 +86,8 @@ public class TextActivityBaseEditor extends ActivityEditor {
     if (tab != null) {
       from = ifrom;
       to = ito;
-      if (!checkTargetSegment(options, parent)) return null;
+      if (!checkTargetSegment(options, parent))
+        return null;
       tm = new TargetMarker(tab.tad);
       tm.begOffset = from;
       tm.endOffset = to;
@@ -99,7 +100,8 @@ public class TextActivityBaseEditor extends ActivityEditor {
 
   private boolean checkTargetSegment(Options options, Component parent) {
     String errMsg = null;
-    if (getTextActivity() == null) return false;
+    if (getTextActivity() == null)
+      return false;
     TextActivityDocument tad = getTextActivity().tad;
     String text;
     try {
@@ -112,42 +114,51 @@ public class TextActivityBaseEditor extends ActivityEditor {
     to = Math.min(Math.max(from, to), len);
 
     switch (tad.getTargetType()) {
-      case TextActivityDocument.TT_FREE:
-        int fromBk = from;
-        int toBk = to;
-        while (from < len && Character.isWhitespace(text.charAt(from))) from++;
-        while (to >= from && to > 0 && Character.isWhitespace(text.charAt(to - 1))) to--;
-        if (from >= to) {
-          from = fromBk;
-          to = toBk;
-        }
-        break;
-      case TextActivityDocument.TT_CHAR:
-        while (from < len && Character.isWhitespace(text.charAt(from))) from++;
-        to = Math.min(from + 1, len);
-        break;
-      case TextActivityDocument.TT_WORD:
-        while (from >= 0 && !Character.isWhitespace(text.charAt(from))) from--;
+    case TextActivityDocument.TT_FREE:
+      int fromBk = from;
+      int toBk = to;
+      while (from < len && Character.isWhitespace(text.charAt(from)))
         from++;
+      while (to >= from && to > 0 && Character.isWhitespace(text.charAt(to - 1)))
+        to--;
+      if (from >= to) {
+        from = fromBk;
+        to = toBk;
+      }
+      break;
+    case TextActivityDocument.TT_CHAR:
+      while (from < len && Character.isWhitespace(text.charAt(from)))
+        from++;
+      to = Math.min(from + 1, len);
+      break;
+    case TextActivityDocument.TT_WORD:
+      while (from >= 0 && !Character.isWhitespace(text.charAt(from)))
+        from--;
+      from++;
+      to = from;
+      while (to < len && !Character.isWhitespace(text.charAt(to)))
+        to++;
+      break;
+    case TextActivityDocument.TT_PARAGRAPH:
+      javax.swing.text.Element element = tad.getParagraphElement(from);
+      if (element == null)
         to = from;
-        while (to < len && !Character.isWhitespace(text.charAt(to))) to++;
-        break;
-      case TextActivityDocument.TT_PARAGRAPH:
-        javax.swing.text.Element element = tad.getParagraphElement(from);
-        if (element == null) to = from;
-        else {
-          from = Math.max(0, element.getStartOffset());
-          to = Math.max(0, Math.min(text.length() - 1, element.getEndOffset() - 1));
-          while (to > from && (text.charAt(to) == 0x0D || text.charAt(to) == 0x0A)) to--;
-          to++;
-        }
-        break;
-      default:
-        break;
+      else {
+        from = Math.max(0, element.getStartOffset());
+        to = Math.max(0, Math.min(text.length() - 1, element.getEndOffset() - 1));
+        while (to > from && (text.charAt(to) == 0x0D || text.charAt(to) == 0x0A))
+          to--;
+        to++;
+      }
+      break;
+    default:
+      break;
     }
 
-    if (to == from) errMsg = "edit_text_act_err_noSelection";
-    else if (from > to) errMsg = "ERROR";
+    if (to == from)
+      errMsg = "edit_text_act_err_noSelection";
+    else if (from > to)
+      errMsg = "ERROR";
     else {
       try {
         for (int i = from; i < to; i++) {
@@ -170,7 +181,8 @@ public class TextActivityBaseEditor extends ActivityEditor {
       }
     }
 
-    if (errMsg != null && options != null) options.getMessages().showAlert(parent, errMsg);
+    if (errMsg != null && options != null)
+      options.getMessages().showAlert(parent, errMsg);
 
     return errMsg == null;
   }
@@ -194,14 +206,15 @@ public class TextActivityBaseEditor extends ActivityEditor {
     if (canEditTarget() && pos >= 0 && pos < tab.tad.getLength()) {
       TargetMarker tm = tab.tad.tmb.getElementByOffset(pos, true);
       if (tm != null && tm.target != null)
-        result =
-            TextTargetEditorPanel.editTextTarget(tm.target, options, getMediaBagEditor(), parent);
-      if (result) setModified(true);
+        result = TextTargetEditorPanel.editTextTarget(tm.target, options, getMediaBagEditor(), parent);
+      if (result)
+        setModified(true);
     }
     return result;
   }
 
-  protected void editCheckOptions(Options options, Component parent) {}
+  protected void editCheckOptions(Options options, Component parent) {
+  }
 
   protected boolean hasType() {
     return false;
@@ -214,15 +227,12 @@ public class TextActivityBaseEditor extends ActivityEditor {
   public boolean nameChanged(int type, String oldName, String newName) {
     boolean result = super.nameChanged(type, oldName, newName);
 
-    result |=
-        ActiveBagContentEditor.nameChanged(
-            getTextActivity().tad.boxesContent, type, oldName, newName);
+    result |= ActiveBagContentEditor.nameChanged(getTextActivity().tad.boxesContent, type, oldName, newName);
 
-    result |=
-        ActiveBagContentEditor.nameChanged(
-            getTextActivity().tad.popupsContent, type, oldName, newName);
+    result |= ActiveBagContentEditor.nameChanged(getTextActivity().tad.popupsContent, type, oldName, newName);
 
-    if (result) setModified(true);
+    if (result)
+      setModified(true);
 
     return result;
   }

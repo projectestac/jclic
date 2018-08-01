@@ -78,7 +78,7 @@ public class Gradient extends Object implements Cloneable, Domable {
   }
 
   public Color[] getColors() {
-    return new Color[] {c1, c2};
+    return new Color[] { c1, c2 };
   }
 
   public void setColors(Color c1, Color c2) {
@@ -101,7 +101,8 @@ public class Gradient extends Object implements Cloneable, Domable {
     e.setAttribute(C1, JDomUtility.colorToString(c1));
     e.setAttribute(C2, JDomUtility.colorToString(c2));
     e.setAttribute(ANGLE, Integer.toString(angle));
-    if (cycles > 1) e.setAttribute(CYCLES, Integer.toString(cycles));
+    if (cycles > 1)
+      e.setAttribute(CYCLES, Integer.toString(cycles));
     return e;
   }
 
@@ -136,45 +137,40 @@ public class Gradient extends Object implements Cloneable, Domable {
       // angle in radians
       double alpha = (Math.PI * angle) / 180.0;
       switch (angle) {
-        case 0:
-        case 180:
-          break;
+      case 0:
+      case 180:
+        break;
 
-        case 90:
-        case 270:
-          radius = rh / 2;
-          break;
+      case 90:
+      case 270:
+        radius = rh / 2;
+        break;
 
-        default:
-          // diagonal of r
-          radius = Math.sqrt(rw * rw + rh * rh) / 2;
-          // diagonal angle
-          double gamma = toFirstQuadrant(Math.atan2(rh, rw));
-          // diagonal vs. alpha
-          double beta = Math.abs(toFirstQuadrant(alpha) - gamma);
-          // projected radius
-          radius *= Math.cos(beta);
+      default:
+        // diagonal of r
+        radius = Math.sqrt(rw * rw + rh * rh) / 2;
+        // diagonal angle
+        double gamma = toFirstQuadrant(Math.atan2(rh, rw));
+        // diagonal vs. alpha
+        double beta = Math.abs(toFirstQuadrant(alpha) - gamma);
+        // projected radius
+        radius *= Math.cos(beta);
       }
       float cx = (float) (r.getX() + rw / 2);
       float cy = (float) (r.getY() + rh / 2);
       float px = (float) (radius * Math.cos(alpha));
       float py = (float) (radius * Math.sin(alpha));
-      gp =
-          new GradientPaint(
-              cx + px,
-              cy - py,
-              c1,
-              cx + px - 2 * px / cycles,
-              cy - py + 2 * py / cycles,
-              c2,
-              cycles > 1);
+      gp = new GradientPaint(cx + px, cy - py, c1, cx + px - 2 * px / cycles, cy - py + 2 * py / cycles, c2,
+          cycles > 1);
     }
     return gp;
   }
 
   protected double toFirstQuadrant(double a) {
-    if (a > Math.PI) a = 2 * Math.PI - a;
-    if (a > Math.PI / 2) a = Math.PI - a;
+    if (a > Math.PI)
+      a = 2 * Math.PI - a;
+    if (a > Math.PI / 2)
+      a = Math.PI - a;
     return a;
   }
 

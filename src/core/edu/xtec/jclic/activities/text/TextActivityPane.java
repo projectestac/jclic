@@ -67,7 +67,8 @@ public class TextActivityPane extends javax.swing.JTextPane {
         result = false;
       } else if (tabp.isPlaying()) {
         if (bx.isVisible() && bx.contains(e.getPoint())) {
-          if (bx.getContent().mediaContent != null) bx.playMedia(tabp.ps);
+          if (bx.getContent().mediaContent != null)
+            bx.playMedia(tabp.ps);
           result = false;
         }
       }
@@ -96,11 +97,11 @@ public class TextActivityPane extends javax.swing.JTextPane {
     if (bx.isVisible()) {
       RenderingHints rh = g2.getRenderingHints();
       g2.setRenderingHints(Constants.DEFAULT_RENDERING_HINTS);
-      // RenderingHints rh=tab.ac.setScreenRenderingHints(g2);
       while (true) {
         BoxBase.flagFontReduced = false;
         bx.update(g2, g2.getClipBounds(), this);
-        if (!BoxBase.flagFontReduced) break;
+        if (!BoxBase.flagFontReduced)
+          break;
       }
       g2.setRenderingHints(rh);
     }
@@ -119,12 +120,13 @@ public class TextActivityPane extends javax.swing.JTextPane {
     // JRE 1.4 workaround, part 2: Restore lost attributes
     defaultStyle.addAttributes(as);
 
-    // setBackground(StyleConstants.getBackground(getStyle(StyleContext.DEFAULT_STYLE)));
     setBackground(StyleConstants.getBackground(defaultStyle));
     Style st = tab.styleContext.getStyle(TextActivityDocument.TARGET);
-    if (st != null) setCaretColor(StyleConstants.getForeground(st));
+    if (st != null)
+      setCaretColor(StyleConstants.getForeground(st));
     requestFocus();
   }
 
-  protected void targetChanged(TextTarget tt) {}
+  protected void targetChanged(TextTarget tt) {
+  }
 }

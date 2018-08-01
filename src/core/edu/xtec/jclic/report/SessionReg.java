@@ -58,24 +58,20 @@ public class SessionReg implements java.io.Serializable {
     info = new Info();
   }
 
-  public String toHtmlString(
-      edu.xtec.util.Messages msg, boolean recalcInfo, boolean writeProjectName) {
+  public String toHtmlString(edu.xtec.util.Messages msg, boolean recalcInfo, boolean writeProjectName) {
     String prefix = "report_";
     Html html = new Html(3000);
-    if (recalcInfo) info.recalc();
+    if (recalcInfo)
+      info.recalc();
 
     if (info.numSequences > 0) {
       if (writeProjectName) {
-        html.append("<TR STYLE=\"")
-            .append(msg.get("about_window_html_style_table_header2"))
-            .append("\">");
+        html.append("<TR STYLE=\"").append(msg.get("about_window_html_style_table_header2")).append("\">");
         html.append("<TD COLSPAN=\"6\">");
         html.bold(msg.get(prefix + "project") + Html.NBSP + projectName);
         html.td(false).tr(false);
       }
-      html.append("<TR STYLE=\"")
-          .append(msg.get("about_window_html_style_table_header"))
-          .append("\">");
+      html.append("<TR STYLE=\"").append(msg.get("about_window_html_style_table_header")).append("\">");
       html.td(msg.get(prefix + "lb_sequence"), Html.CENTER, true, null);
       html.td(msg.get(prefix + "lb_activity"), Html.CENTER, true, null);
       html.td(msg.get(prefix + "lb_solved"), Html.CENTER, true, null);
@@ -84,18 +80,13 @@ public class SessionReg implements java.io.Serializable {
       html.td(msg.get(prefix + "lb_time"), Html.CENTER, true, null);
       html.tr(false);
       Iterator<SequenceReg> it = sequences.iterator();
-      while (it.hasNext()) html.append(it.next().toHtmlString(msg));
+      while (it.hasNext())
+        html.append(it.next().toHtmlString(msg));
 
-      html.append("<TR STYLE=\"")
-          .append(msg.get("about_window_html_style_table_totals"))
-          .append("\">");
+      html.append("<TR STYLE=\"").append(msg.get("about_window_html_style_table_totals")).append("\">");
       html.td(msg.get(prefix + "lb_totals"), Html.LEFT, true, null);
       html.td(msg.getNumber(info.nActivities), Html.RIGHT, true, null);
-      html.td(
-          msg.getNumber(info.nActSolved) + " (" + msg.getPercent(info.percentSolved) + ")",
-          Html.RIGHT,
-          true,
-          null);
+      html.td(msg.getNumber(info.nActSolved) + " (" + msg.getPercent(info.percentSolved) + ")", Html.RIGHT, true, null);
       html.td(msg.getNumber(info.nActions), Html.RIGHT, true, null);
       html.td(msg.getPercent(info.tScore), Html.RIGHT, true, null);
       html.td(msg.getHmsTime(info.tTime), Html.RIGHT, true, null);
@@ -106,7 +97,8 @@ public class SessionReg implements java.io.Serializable {
   }
 
   public Info getInfo(boolean recalc) {
-    if (recalc) info.recalc();
+    if (recalc)
+      info.recalc();
     return info;
   }
 
@@ -141,16 +133,11 @@ public class SessionReg implements java.io.Serializable {
             nActSolved += sri.nActSolved;
           }
         }
-        //
-        // 20-Feb-2006 - Correction of bug #41
-        // This code must be executed after the "for" iteration:
-        // if(nActScore>0)
-        //     tScore/=nActScore;
-        // if(nActivities>0)
-        //     percentSolved=(nActSolved*100)/nActivities;
       }
-      if (nActScore > 0) tScore /= nActScore;
-      if (nActivities > 0) percentSolved = (nActSolved * 100) / nActivities;
+      if (nActScore > 0)
+        tScore /= nActScore;
+      if (nActivities > 0)
+        percentSolved = (nActSolved * 100) / nActivities;
     }
   }
 
@@ -165,7 +152,8 @@ public class SessionReg implements java.io.Serializable {
   }
 
   public void endSequence() {
-    if (currentSequence != null && currentSequence.totalTime == 0) currentSequence.endSequence();
+    if (currentSequence != null && currentSequence.totalTime == 0)
+      currentSequence.endSequence();
     currentSequence = null;
   }
 
@@ -176,19 +164,23 @@ public class SessionReg implements java.io.Serializable {
   }
 
   public void newActivity(Activity act) {
-    if (currentSequence != null) currentSequence.newActivity(act);
+    if (currentSequence != null)
+      currentSequence.newActivity(act);
   }
 
   public void endActivity(int score, int numActions, boolean solved) {
-    if (currentSequence != null) currentSequence.endActivity(score, numActions, solved);
+    if (currentSequence != null)
+      currentSequence.endActivity(score, numActions, solved);
   }
 
   public void newAction(String type, String source, String dest, boolean ok) {
-    if (currentSequence != null) currentSequence.newAction(type, source, dest, ok);
+    if (currentSequence != null)
+      currentSequence.newAction(type, source, dest, ok);
   }
 
   public String getCurrentSequenceTag() {
-    if (currentSequence == null) return null;
+    if (currentSequence == null)
+      return null;
     return currentSequence.name;
   }
 

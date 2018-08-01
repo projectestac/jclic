@@ -33,7 +33,7 @@ public abstract class JClicAuthor {
 
   /** @param args the command line arguments */
   public static void main(String args[]) {
-    long[] counters = {0, 0, 0};
+    long[] counters = { 0, 0, 0 };
     int p = StrUtils.getIndexOf("-processZip", args);
     if (p >= 0 && args.length > p + 1) {
       try {
@@ -57,16 +57,9 @@ public abstract class JClicAuthor {
       return;
     }
 
-    SingleInstanceJFrame jcp =
-        new SingleInstanceJFrame(
-            "edu.xtec.jclic.AuthorSingleFrame",
-            args,
-            "JClic author",
-            "icons/logo_author.png",
-            "icons/miniauthor.png",
-            INSTANCE_PORT);
-    if (jcp.isArmed()) // jcp.show();
-    {
+    SingleInstanceJFrame jcp = new SingleInstanceJFrame("edu.xtec.jclic.AuthorSingleFrame", args, "JClic author",
+        "icons/logo_author.png", "icons/miniauthor.png", INSTANCE_PORT);
+    if (jcp.isArmed()) {
       jcp.setVisible(true);
     } else {
       System.exit(0);

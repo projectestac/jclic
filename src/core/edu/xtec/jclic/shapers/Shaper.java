@@ -58,7 +58,8 @@ public abstract class Shaper extends Object implements Cloneable, Domable {
     nCells = nRows * nCols;
     initiated = false;
     shapeData = new ShapeData[nCells];
-    for (int i = 0; i < nCells; i++) shapeData[i] = new ShapeData();
+    for (int i = 0; i < nCells; i++)
+      shapeData[i] = new ShapeData();
   }
 
   public void reset() {
@@ -97,18 +98,17 @@ public abstract class Shaper extends Object implements Cloneable, Domable {
 
   public static Shaper createShaper(String className, int cw, int ch) throws Exception {
 
-    if (className.startsWith(BASE_CLASS_TAG)) className = BASE_CLASS + className.substring(1);
+    if (className.startsWith(BASE_CLASS_TAG))
+      className = BASE_CLASS + className.substring(1);
 
     Class<?> shaperClass;
     java.lang.reflect.Constructor con;
-    Class[] cparams = {int.class, int.class};
-    Object[] initArgs = {new Integer(cw), new Integer(ch)};
+    Class[] cparams = { int.class, int.class };
+    Object[] initArgs = { new Integer(cw), new Integer(ch) };
     shaperClass = Class.forName(className);
     con = shaperClass.getConstructor(cparams);
     return (Shaper) con.newInstance(initArgs);
   }
-
-  // public void copyPropertiesFrom(Shaper sh){}
 
   protected abstract void buildShapes();
 
@@ -125,18 +125,9 @@ public abstract class Shaper extends Object implements Cloneable, Domable {
     if (getEditorPanelClassName() != null) {
       try {
         Class<?> cl = Class.forName(getEditorPanelClassName());
-        java.lang.reflect.Method m =
-            cl.getMethod(
-                "getShaper",
-                new Class[] {
-                  Shaper.class,
-                  Component.class,
-                  Options.class,
-                  Dimension.class,
-                  Image.class,
-                  BoxBase.class
-                });
-        result = (Shaper) m.invoke(null, new Object[] {this, parent, options, dim, img, bb});
+        java.lang.reflect.Method m = cl.getMethod("getShaper",
+            new Class[] { Shaper.class, Component.class, Options.class, Dimension.class, Image.class, BoxBase.class });
+        result = (Shaper) m.invoke(null, new Object[] { this, parent, options, dim, img, bb });
       } catch (Exception ex) {
         options.getMessages().showErrorWarning(parent, "edit_act_shaper_err", ex);
       }
@@ -144,11 +135,14 @@ public abstract class Shaper extends Object implements Cloneable, Domable {
     return result;
   }
 
-  public void setProperties(org.jdom.Element e, Object aux) throws Exception {}
+  public void setProperties(org.jdom.Element e, Object aux) throws Exception {
+  }
 
   public Shape getShape(int n, Rectangle2D rect) {
-    if (!initiated) buildShapes();
-    if (n >= nCells || shapeData[n] == null) return null;
+    if (!initiated)
+      buildShapes();
+    if (n >= nCells || shapeData[n] == null)
+      return null;
     return shapeData[n].getShape(rect);
   }
 
@@ -171,14 +165,17 @@ public abstract class Shaper extends Object implements Cloneable, Domable {
   }
 
   public Shape getRemainderShape(Rectangle2D rect) {
-    if (!hasRemainder()) return null;
+    if (!hasRemainder())
+      return null;
 
-    if (!initiated) buildShapes();
+    if (!initiated)
+      buildShapes();
 
     GeneralPath gp = (GeneralPath) (getEnclosingShapeData().getShape(rect));
     gp.setWindingRule(GeneralPath.WIND_EVEN_ODD);
     for (int i = 0; i < nCells; i++) {
-      if (shapeData[i] != null) gp.append(shapeData[i].getShape(rect), false);
+      if (shapeData[i] != null)
+        gp.append(shapeData[i].getShape(rect), false);
     }
     return gp;
   }
@@ -188,7 +185,8 @@ public abstract class Shaper extends Object implements Cloneable, Domable {
   }
 
   public void setNumRows(int n) {
-    if (n > 0 && n != nRows) reset(nCols, n);
+    if (n > 0 && n != nRows)
+      reset(nCols, n);
   }
 
   public int getNumColumns() {
@@ -196,7 +194,8 @@ public abstract class Shaper extends Object implements Cloneable, Domable {
   }
 
   public void setNumColumns(int n) {
-    if (n > 0 && n != nCols) reset(nRows, n);
+    if (n > 0 && n != nCols)
+      reset(nRows, n);
   }
 
   public int getNumCells() {
@@ -220,7 +219,8 @@ public abstract class Shaper extends Object implements Cloneable, Domable {
     Shaper clon = (Shaper) super.clone();
     clon.shapeData = (ShapeData[]) shapeData.clone();
     for (int i = 0; i < shapeData.length; i++) {
-      if (shapeData[i] != null) clon.shapeData[i] = (ShapeData) shapeData[i].clone();
+      if (shapeData[i] != null)
+        clon.shapeData[i] = (ShapeData) shapeData[i].clone();
     }
     return clon;
   }

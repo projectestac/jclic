@@ -34,11 +34,12 @@ import java.awt.image.ImageObserver;
 import javax.swing.JComponent;
 
 /**
- * <CODE>BoxConnector</CODE> allows users to visually connect two {@link
- * edu.xtec.jclic.boxes.ActiveBox} objects in a {@link edu.xtec.jclic.Activity.Panel}. There are two
- * modes of operation: drawing a line between an origin point (usually the point where the user
- * clicks on) and a destination point, or dragging the box from one location to another. The lines
- * can have arrows at its ending.
+ * <CODE>BoxConnector</CODE> allows users to visually connect two
+ * {@link edu.xtec.jclic.boxes.ActiveBox} objects in a
+ * {@link edu.xtec.jclic.Activity.Panel}. There are two modes of operation:
+ * drawing a line between an origin point (usually the point where the user
+ * clicks on) and a destination point, or dragging the box from one location to
+ * another. The lines can have arrows at its ending.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
@@ -81,7 +82,8 @@ public class BoxConnector extends Object {
   }
 
   public boolean update(Graphics2D g2, Rectangle dirtyRegion, ImageObserver io) {
-    if (!active) return false;
+    if (!active)
+      return false;
     if (bx != null) {
       bx.setTemporaryHidden(false);
       bx.update(g2, dirtyRegion, io);
@@ -109,18 +111,14 @@ public class BoxConnector extends Object {
   public void moveTo(Point2D p, boolean forcePaint) {
     Rectangle clipRect;
 
-    if (!active || (forcePaint == false && dest.equals(p))) return;
+    if (!active || (forcePaint == false && dest.equals(p)))
+      return;
 
     if (bx != null) {
-      clipRect =
-          new Rectangle(
-              (int) (p.getX() - relativePos.getX()),
-              (int) (p.getY() - relativePos.getY()),
-              (int) bx.width,
-              (int) bx.height);
+      clipRect = new Rectangle((int) (p.getX() - relativePos.getX()), (int) (p.getY() - relativePos.getY()),
+          (int) bx.width, (int) bx.height);
       clipRect.add(bx);
-      bx.setLocation(
-          new Point2D.Double(p.getX() - relativePos.getX(), p.getY() - relativePos.getY()));
+      bx.setLocation(new Point2D.Double(p.getX() - relativePos.getX(), p.getY() - relativePos.getY()));
     } else {
       if (forcePaint || !USE_XOR) {
         clipRect = new Rectangle((int) origin.getX(), (int) origin.getY(), 0, 0);
@@ -143,7 +141,8 @@ public class BoxConnector extends Object {
   }
 
   public void begin(Point2D p) {
-    if (active) end();
+    if (active)
+      end();
     origin.setLocation(p);
     dest.setLocation(p);
     linePainted = false;
@@ -167,7 +166,8 @@ public class BoxConnector extends Object {
   }
 
   public void end() {
-    if (!active) return;
+    if (!active)
+      return;
     if (bx != null) {
       Rectangle r = new Rectangle(bx.getBounds());
       growRect(r, 1, 1);
@@ -188,48 +188,30 @@ public class BoxConnector extends Object {
   }
 
   public static void drawLine(Graphics2D g2, Point2D origin, Point2D dest, boolean arrow) {
-    drawLine(
-        g2,
-        origin,
-        dest,
-        arrow,
-        DEFAULT_LINE_COLOR,
-        DEFAULT_XOR_COLOR,
-        ARROW_L,
-        ARROW_ANGLE,
-        LINE_WIDTH);
+    drawLine(g2, origin, dest, arrow, DEFAULT_LINE_COLOR, DEFAULT_XOR_COLOR, ARROW_L, ARROW_ANGLE, LINE_WIDTH);
   }
 
-  public static void drawLine(
-      Graphics2D g2,
-      Point2D origin,
-      Point2D dest,
-      boolean arrow,
-      Color color,
-      Color xorColor,
-      double arrow_l,
-      double arrowAngle,
-      float strokeWidth) {
+  public static void drawLine(Graphics2D g2, Point2D origin, Point2D dest, boolean arrow, Color color, Color xorColor,
+      double arrow_l, double arrowAngle, float strokeWidth) {
     Stroke oldStroke = g2.getStroke();
     Object oldStrokeHint = g2.getRenderingHint(RenderingHints.KEY_STROKE_CONTROL);
     g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_DEFAULT);
     g2.setColor(color);
-    if (USE_XOR && xorColor != null) g2.setXORMode(xorColor);
+    if (USE_XOR && xorColor != null)
+      g2.setXORMode(xorColor);
     g2.setStroke(strokeWidth == LINE_WIDTH ? BASIC_STROKE : new BasicStroke(strokeWidth));
     g2.drawLine((int) origin.getX(), (int) origin.getY(), (int) dest.getX(), (int) dest.getY());
     if (arrow) {
       double beta = Math.atan2(origin.getY() - dest.getY(), dest.getX() - origin.getX());
-      Point2D arp =
-          new Point2D.Double(
-              dest.getX() - arrow_l * Math.cos(beta + arrowAngle),
-              dest.getY() + arrow_l * Math.sin(beta + arrowAngle));
+      Point2D arp = new Point2D.Double(dest.getX() - arrow_l * Math.cos(beta + arrowAngle),
+          dest.getY() + arrow_l * Math.sin(beta + arrowAngle));
       g2.drawLine((int) dest.getX(), (int) dest.getY(), (int) arp.getX(), (int) arp.getY());
-      arp.setLocation(
-          dest.getX() - arrow_l * Math.cos(beta - arrowAngle),
+      arp.setLocation(dest.getX() - arrow_l * Math.cos(beta - arrowAngle),
           dest.getY() + arrow_l * Math.sin(beta - arrowAngle));
       g2.drawLine((int) dest.getX(), (int) dest.getY(), (int) arp.getX(), (int) arp.getY());
     }
-    if (USE_XOR && xorColor != null) g2.setPaintMode();
+    if (USE_XOR && xorColor != null)
+      g2.setPaintMode();
     g2.setStroke(oldStroke);
     g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, oldStrokeHint);
   }

@@ -40,16 +40,10 @@ public class EventSounds extends Object implements Domable, Cloneable {
 
   public static final String ELEMENT_NAME = "eventSounds";
   public static final String ENABLED = "enabled";
-  public static final int START = 0,
-      CLICK = 1,
-      ACTION_ERROR = 2,
-      ACTION_OK = 3,
-      FINISHED_ERROR = 4,
-      FINISHED_OK = 5,
+  public static final int START = 0, CLICK = 1, ACTION_ERROR = 2, ACTION_OK = 3, FINISHED_ERROR = 4, FINISHED_OK = 5,
       NUM_EVENTS = 6;
-  public static final String[] EVENT_NAMES = {
-    "start", "click", "actionError", "actionOk", "finishedError", "finishedOk"
-  };
+  public static final String[] EVENT_NAMES = { "start", "click", "actionError", "actionOk", "finishedError",
+      "finishedOk" };
   protected EventSounds parent;
   protected EventSoundsElement[] elements;
   protected int enabled;
@@ -96,37 +90,24 @@ public class EventSounds extends Object implements Domable, Cloneable {
     enabled = JDomUtility.getTriStateAttr(e, ENABLED, enabled);
     Iterator it = e.getChildren().iterator();
     while (it.hasNext()) {
-      EventSoundsElement ese =
-          EventSoundsElement.getEventSoundsElement((org.jdom.Element) it.next());
+      EventSoundsElement ese = EventSoundsElement.getEventSoundsElement((org.jdom.Element) it.next());
       if (ese != null) {
         int index = JDomUtility.getStrIndexAttr(ese.getId(), EVENT_NAMES, -1);
-        if (index >= 0 && index < NUM_EVENTS) elements[index] = ese;
+        if (index >= 0 && index < NUM_EVENTS)
+          elements[index] = ese;
       }
     }
-
-    // Old version
-    /*
-    for(int i=0; i<NUM_EVENTS; i++){
-        if((child=e.getChild(EVENT_NAMES[i]))!=null){
-            elements[i]=EventSoundsElement.getEventSoundsElement(child);
-        }
-    }
-     */
   }
 
   public static void listReferences(org.jdom.Element e, Map<String, String> map) {
     org.jdom.Element child;
-    // old version
-    /* for(int i=0; i<NUM_EVENTS; i++)
-        if((child=e.getChild(EVENT_NAMES[i]))!=null)
-           map.put(child.getAttributeValue(EventSoundsElement.FILE), Constants.MEDIA_OBJECT);
-    */
     // Correction of bug #83 (Custom event sounds ignored in media dependency check)
     Iterator it = e.getChildren(EventSoundsElement.ELEMENT_NAME).iterator();
     while (it.hasNext()) {
       if ((child = (org.jdom.Element) it.next()) != null) {
         String s = child.getAttributeValue(EventSoundsElement.FILE);
-        if (s != null) map.put(s, Constants.MEDIA_OBJECT);
+        if (s != null)
+          map.put(s, Constants.MEDIA_OBJECT);
       }
     }
   }
@@ -134,7 +115,8 @@ public class EventSounds extends Object implements Domable, Cloneable {
   public HashMap getReferences() {
     HashMap<String, String> result = new HashMap<String, String>();
     org.jdom.Element e = getJDomElement();
-    if (e != null) listReferences(e, result);
+    if (e != null)
+      listReferences(e, result);
     return result;
   }
 
@@ -146,7 +128,8 @@ public class EventSounds extends Object implements Domable, Cloneable {
     Exception ext = null;
     try {
       for (EventSoundsElement element : elements) {
-        if (element != null) element.realize(options, mediaBag);
+        if (element != null)
+          element.realize(options, mediaBag);
       }
     } catch (Exception ex) {
       System.err.println("Error realizing event sound:\n" + ex);
@@ -157,7 +140,8 @@ public class EventSounds extends Object implements Domable, Cloneable {
   }
 
   public void setDataSource(int event, Object source, Options options) throws Exception {
-    if (event < 0 || event >= NUM_EVENTS) return;
+    if (event < 0 || event >= NUM_EVENTS)
+      return;
     if (elements[event] == null) {
       elements[event] = new EventSoundsElement(EVENT_NAMES[event]);
     }
@@ -165,13 +149,16 @@ public class EventSounds extends Object implements Domable, Cloneable {
   }
 
   public EventSoundsElement getElement(int event) {
-    if (event < 0 || event >= NUM_EVENTS) return null;
+    if (event < 0 || event >= NUM_EVENTS)
+      return null;
     return elements[event];
   }
 
   public EventSoundsElement createElement(int event) {
-    if (event < 0 || event >= NUM_EVENTS) return null;
-    if (elements[event] == null) elements[event] = new EventSoundsElement(EVENT_NAMES[event]);
+    if (event < 0 || event >= NUM_EVENTS)
+      return null;
+    if (elements[event] == null)
+      elements[event] = new EventSoundsElement(EVENT_NAMES[event]);
     return elements[event];
   }
 
@@ -179,10 +166,12 @@ public class EventSounds extends Object implements Domable, Cloneable {
     int st = enabled;
     if (st == JDomUtility.DEFAULT) {
       if (event >= 0 && event < NUM_EVENTS)
-        if (elements[event] == null) st = (parent == null ? st : parent.getEnabledChain(event));
+        if (elements[event] == null)
+          st = (parent == null ? st : parent.getEnabledChain(event));
         else {
           st = elements[event].getEnabled();
-          if (st == JDomUtility.DEFAULT && parent != null) st = parent.getEnabledChain(event);
+          if (st == JDomUtility.DEFAULT && parent != null)
+            st = parent.getEnabledChain(event);
         }
     }
     return st;
@@ -190,30 +179,33 @@ public class EventSounds extends Object implements Domable, Cloneable {
 
   public EventSoundsElement getElementChain(int event) {
     EventSoundsElement ese;
-    if (event < 0 || event >= NUM_EVENTS) return null;
+    if (event < 0 || event >= NUM_EVENTS)
+      return null;
     ese = elements[event];
-    if (ese == null && parent != null) return parent.getElementChain(event);
+    if (ese == null && parent != null)
+      return parent.getElementChain(event);
     return ese;
   }
 
   public void playNow(int event) {
-    if (!globalEnabled) return;
+    if (!globalEnabled)
+      return;
     EventSoundsElement ese = null;
     if (getEnabledChain(event) != JDomUtility.FALSE && (ese = getElementChain(event)) != null)
       ese.play();
   }
 
   public void play(int event) {
-    if (!globalEnabled) return;
+    if (!globalEnabled)
+      return;
     EventSoundsElement ese = null;
     if (getEnabledChain(event) != JDomUtility.FALSE && (ese = getElementChain(event)) != null) {
       final EventSoundsElement evs = ese;
-      javax.swing.SwingUtilities.invokeLater(
-          new Runnable() {
-            public void run() {
-              evs.play();
-            }
-          });
+      javax.swing.SwingUtilities.invokeLater(new Runnable() {
+        public void run() {
+          evs.play();
+        }
+      });
     }
   }
 
@@ -236,7 +228,8 @@ public class EventSounds extends Object implements Domable, Cloneable {
   public Object clone() {
     EventSounds ev = new EventSounds(parent);
     for (int i = 0; i < elements.length; i++) {
-      if (elements[i] != null) ev.elements[i] = (EventSoundsElement) elements[i].clone();
+      if (elements[i] != null)
+        ev.elements[i] = (EventSoundsElement) elements[i].clone();
     }
     ev.enabled = enabled;
     return ev;

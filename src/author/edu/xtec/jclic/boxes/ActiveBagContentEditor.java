@@ -46,9 +46,6 @@ public class ActiveBagContentEditor extends ActivityEditorInternalPanel {
   ActiveBagContentRelPanel rp;
   ActiveBagContentLayoutPanel lp;
   MediaBagEditor mediaBagEditor;
-  // int abcIndex=0;
-  // int altAbcIndex=-1;
-  // ActiveBagContent abc, altAbc;
   boolean useRel = false;
   boolean useBoolRel = false;
   boolean crossWord = false;
@@ -72,98 +69,85 @@ public class ActiveBagContentEditor extends ActivityEditorInternalPanel {
     boolean showLayout = false;
     boolean useTextGrid = false;
     switch (type) {
-      case SINGLE_BOOL_ALT:
-        useBoolRel = true;
-        altIndex = 1;
-        break;
-      case SINGLE_ALT:
-        showLayout = true;
-        altIndex = 1;
-        break;
-      case SINGLE_LAYOUT:
-        showLayout = true;
-      case SINGLE:
-        break;
-      case DOUBLE_REL_ALT:
-        altIndex = 2;
-      case DOUBLE_REL:
-        useRel = true;
-        indexBis = 1;
-        showLayout = true;
-        break;
-      case DOUBLE_ALT:
-        altIndex = 2;
-        indexBis = 1;
-        showLayout = true;
-        break;
-      case TEXTGRID_ALT:
-        useTextGrid = true;
-        indexBis = 0;
-        showLayout = true;
-        break;
-      case TEXTGRID_CRW:
-        useTextGrid = true;
-        indexBis = 0;
-        altIndex = 1;
-        showLayout = true;
-        crossWord = true;
-        break;
+    case SINGLE_BOOL_ALT:
+      useBoolRel = true;
+      altIndex = 1;
+      break;
+    case SINGLE_ALT:
+      showLayout = true;
+      altIndex = 1;
+      break;
+    case SINGLE_LAYOUT:
+      showLayout = true;
+    case SINGLE:
+      break;
+    case DOUBLE_REL_ALT:
+      altIndex = 2;
+    case DOUBLE_REL:
+      useRel = true;
+      indexBis = 1;
+      showLayout = true;
+      break;
+    case DOUBLE_ALT:
+      altIndex = 2;
+      indexBis = 1;
+      showLayout = true;
+      break;
+    case TEXTGRID_ALT:
+      useTextGrid = true;
+      indexBis = 0;
+      showLayout = true;
+      break;
+    case TEXTGRID_CRW:
+      useTextGrid = true;
+      indexBis = 0;
+      altIndex = 1;
+      showLayout = true;
+      crossWord = true;
+      break;
     }
 
     initComponents();
     abcpp = (ActiveBagContentPreviewPanel) previewPanel;
 
     cp = new ActiveBagContentControlPanel[2];
-    if (useTextGrid) tgp = new TextGridContentControlPanel(this, 0, !crossWord);
-    else cp[0] = new ActiveBagContentControlPanel(this, 0, altIndex, 0, crossWord);
+    if (useTextGrid)
+      tgp = new TextGridContentControlPanel(this, 0, !crossWord);
+    else
+      cp[0] = new ActiveBagContentControlPanel(this, 0, altIndex, 0, crossWord);
 
     if (indexBis >= 0) {
-      cp[1] =
-          new ActiveBagContentControlPanel(
-              this, indexBis, crossWord ? 1 : -1, useTextGrid ? 1 : indexBis, crossWord);
+      cp[1] = new ActiveBagContentControlPanel(this, indexBis, crossWord ? 1 : -1, useTextGrid ? 1 : indexBis,
+          crossWord);
     }
 
     if (cp[1] != null || useRel || useBoolRel || showLayout) {
       ctrlTab = new JTabbedPane();
-      ctrlTab.addTab(
-          options.getMsg("edit_act_grid" + (cp[1] == null ? "" : "_A")),
-          ResourceManager.getImageIcon("icons/grid.gif"),
-          getFirstComponent());
+      ctrlTab.addTab(options.getMsg("edit_act_grid" + (cp[1] == null ? "" : "_A")),
+          ResourceManager.getImageIcon("icons/grid.gif"), getFirstComponent());
       if (cp[1] != null)
-        ctrlTab.addTab(
-            options.getMsg("edit_act_grid_B"),
-            ResourceManager.getImageIcon("icons/grid.gif"),
-            cp[1]);
+        ctrlTab.addTab(options.getMsg("edit_act_grid_B"), ResourceManager.getImageIcon("icons/grid.gif"), cp[1]);
       if (showLayout) {
         lp = new ActiveBagContentLayoutPanel(this);
-        ctrlTab.addTab(
-            options.getMsg("edit_act_grid_layout"),
-            ResourceManager.getImageIcon("icons/grid_layout.gif"),
+        ctrlTab.addTab(options.getMsg("edit_act_grid_layout"), ResourceManager.getImageIcon("icons/grid_layout.gif"),
             lp);
       }
       if (useRel || useBoolRel) {
         relIndex = ctrlTab.getTabCount();
         rp = new ActiveBagContentRelPanel(this, useBoolRel);
-        ctrlTab.addTab(
-            options.getMsg("edit_act_grid_relationship"),
-            ResourceManager.getImageIcon("icons/relationship.gif"),
-            rp);
+        ctrlTab.addTab(options.getMsg("edit_act_grid_relationship"),
+            ResourceManager.getImageIcon("icons/relationship.gif"), rp);
       }
       add(ctrlTab, BorderLayout.NORTH);
-      ctrlTab
-          .getModel()
-          .addChangeListener(
-              new ChangeListener() {
-                public void stateChanged(ChangeEvent e) {
-                  abcpp.setEditMode(
-                      ctrlTab.getSelectedIndex() == relIndex
-                          ? useBoolRel
-                              ? ActiveBagContentPreviewPanel.EDIT_BOOL
-                              : ActiveBagContentPreviewPanel.EDIT_LINKS
-                          : ActiveBagContentPreviewPanel.EDIT_GRIDS);
-                }
-              });
-    } else add(getFirstComponent(), BorderLayout.NORTH);
+      ctrlTab.getModel().addChangeListener(new ChangeListener() {
+        public void stateChanged(ChangeEvent e) {
+          abcpp.setEditMode(ctrlTab.getSelectedIndex() == relIndex
+              ? useBoolRel ? ActiveBagContentPreviewPanel.EDIT_BOOL : ActiveBagContentPreviewPanel.EDIT_LINKS
+              : ActiveBagContentPreviewPanel.EDIT_GRIDS);
+        }
+      });
+    } else
+      add(getFirstComponent(), BorderLayout.NORTH);
 
     if (type == DOUBLE_ALT && cp[0] != null && cp[1] != null) {
       cp[0].setSyncpanel(cp[1]);
@@ -173,13 +157,15 @@ public class ActiveBagContentEditor extends ActivityEditorInternalPanel {
 
   private JComponent getFirstComponent() {
     JComponent result = tgp;
-    if (result == null) result = cp[0];
+    if (result == null)
+      result = cp[0];
     return result;
   }
 
   /**
-   * This method is called from within the constructor to initialize the form. WARNING: Do NOT
-   * modify this code. The content of this method is always regenerated by the Form Editor.
+   * This method is called from within the constructor to initialize the form.
+   * WARNING: Do NOT modify this code. The content of this method is always
+   * regenerated by the Form Editor.
    */
   private void initComponents() { // GEN-BEGIN:initComponents
     previewScroll = new javax.swing.JScrollPane();
@@ -198,11 +184,16 @@ public class ActiveBagContentEditor extends ActivityEditorInternalPanel {
     saveBagAlt = null;
     Activity act = getActivity();
     mediaBagEditor = act == null ? null : getActivityEditor().getMediaBagEditor();
-    if (tgp != null) tgp.fillData(act);
-    if (cp[0] != null) cp[0].fillData(act);
-    if (cp[1] != null) cp[1].fillData(act);
-    if (rp != null) rp.fillData(act);
-    if (lp != null) lp.fillData(act);
+    if (tgp != null)
+      tgp.fillData(act);
+    if (cp[0] != null)
+      cp[0].fillData(act);
+    if (cp[1] != null)
+      cp[1].fillData(act);
+    if (rp != null)
+      rp.fillData(act);
+    if (lp != null)
+      lp.fillData(act);
     checkTabs();
     abcpp.setMediaBagEditor(mediaBagEditor);
     abcpp.setBoxGridPos(act == null ? Activity.AB : act.boxGridPos);
@@ -211,11 +202,16 @@ public class ActiveBagContentEditor extends ActivityEditorInternalPanel {
   public void saveData() {
     Activity act = getActivity();
     if (act != null) {
-      if (tgp != null) tgp.saveData(act);
-      if (cp[0] != null) cp[0].saveData(act);
-      if (cp[1] != null) cp[1].saveData(act);
-      if (rp != null) rp.saveData(act);
-      if (lp != null) lp.saveData(act);
+      if (tgp != null)
+        tgp.saveData(act);
+      if (cp[0] != null)
+        cp[0].saveData(act);
+      if (cp[1] != null)
+        cp[1].saveData(act);
+      if (rp != null)
+        rp.saveData(act);
+      if (lp != null)
+        lp.saveData(act);
     }
   }
 
@@ -232,7 +228,8 @@ public class ActiveBagContentEditor extends ActivityEditorInternalPanel {
       } else {
         if (saveBag != null) {
           act.abc[index] = saveBag;
-          if (cp[1].altIndex >= 0) act.abc[cp[1].altIndex] = saveBagAlt;
+          if (cp[1].altIndex >= 0)
+            act.abc[cp[1].altIndex] = saveBagAlt;
         } else {
           act.abc[index] = ActiveBagContent.initNew(2, 2, 'A');
         }
@@ -253,22 +250,15 @@ public class ActiveBagContentEditor extends ActivityEditorInternalPanel {
         ctrlTab.remove(lp);
         ctrlTab.remove(cp[1]);
       } else if (visible && ctrlTab.getTabCount() == 1) {
-        ctrlTab.addTab(
-            options.getMsg("edit_act_grid_B"),
-            ResourceManager.getImageIcon("icons/grid.gif"),
-            cp[1]);
-        ctrlTab.addTab(
-            options.getMsg("edit_act_grid_layout"),
-            ResourceManager.getImageIcon("icons/grid_layout.gif"),
+        ctrlTab.addTab(options.getMsg("edit_act_grid_B"), ResourceManager.getImageIcon("icons/grid.gif"), cp[1]);
+        ctrlTab.addTab(options.getMsg("edit_act_grid_layout"), ResourceManager.getImageIcon("icons/grid_layout.gif"),
             lp);
       }
     }
   }
 
   /*
-  public boolean dataChanged(){
-      return false;
-  }
+   * public boolean dataChanged(){ return false; }
    */
 
   protected javax.swing.Icon getIcon() {
@@ -291,13 +281,14 @@ public class ActiveBagContentEditor extends ActivityEditorInternalPanel {
 
   protected void resized(int panel) {
     if (panel >= 0 && (ctrlTab == null || panel < ctrlTab.getTabCount())) {
-      if (panel == 0 && tgp != null) tgp.resized();
-      else if (cp != null && panel < cp.length && cp[panel] != null) cp[panel].resized();
+      if (panel == 0 && tgp != null)
+        tgp.resized();
+      else if (cp != null && panel < cp.length && cp[panel] != null)
+        cp[panel].resized();
     }
   }
 
-  public static boolean nameChanged(
-      ActiveBagContent abc, int type, String oldName, String newName) {
+  public static boolean nameChanged(ActiveBagContent abc, int type, String oldName, String newName) {
     boolean result = false;
 
     if ((type & Constants.T_IMAGE) != 0 && oldName.equals(abc.imgName)) {
@@ -309,8 +300,7 @@ public class ActiveBagContentEditor extends ActivityEditorInternalPanel {
       result |= ActiveBoxContentEditor.nameChanged(abc.backgroundContent, type, oldName, newName);
 
     for (int i = 0; i < abc.activeBoxContentArray.size(); i++)
-      result |=
-          ActiveBoxContentEditor.nameChanged(abc.getActiveBoxContent(i), type, oldName, newName);
+      result |= ActiveBoxContentEditor.nameChanged(abc.getActiveBoxContent(i), type, oldName, newName);
 
     return result;
   }

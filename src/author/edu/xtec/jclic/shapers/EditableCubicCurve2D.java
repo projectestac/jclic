@@ -40,15 +40,8 @@ public class EditableCubicCurve2D extends CubicCurve2D.Double implements Editabl
     setCurve(curve);
   }
 
-  public EditableCubicCurve2D(
-      double x1,
-      double y1,
-      double ctrlx1,
-      double ctrly1,
-      double ctrlx2,
-      double ctrly2,
-      double x2,
-      double y2) {
+  public EditableCubicCurve2D(double x1, double y1, double ctrlx1, double ctrly1, double ctrlx2, double ctrly2,
+      double x2, double y2) {
     super(x1, y1, ctrlx1, ctrly1, ctrlx2, ctrly2, x2, y2);
   }
 
@@ -57,49 +50,34 @@ public class EditableCubicCurve2D extends CubicCurve2D.Double implements Editabl
   }
 
   public boolean isInto(java.awt.geom.Rectangle2D r) {
-    return (r.contains(getP1())
-        || r.contains(getP2())
-        || r.contains(getCtrlP1())
-        || r.contains(getCtrlP2()));
+    return (r.contains(getP1()) || r.contains(getP2()) || r.contains(getCtrlP1()) || r.contains(getCtrlP2()));
   }
 
   public void drawBorders(java.awt.Graphics g) {
     if (getP1().getX() != -1)
-      g.drawRect(
-          (int) getP1().getX() - (EditableShapeConstants.selectLength / 2),
-          (int) getP1().getY() - (EditableShapeConstants.selectLength / 2),
-          EditableShapeConstants.selectLength,
+      g.drawRect((int) getP1().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getP1().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
           EditableShapeConstants.selectLength);
     if (getP2().getX() != -1)
-      g.drawRect(
-          (int) getP2().getX() - (EditableShapeConstants.selectLength / 2),
-          (int) getP2().getY() - (EditableShapeConstants.selectLength / 2),
-          EditableShapeConstants.selectLength,
+      g.drawRect((int) getP2().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getP2().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
           EditableShapeConstants.selectLength);
     if (getCtrlP1().getX() != -1)
-      g.fillRect(
-          (int) getCtrlP1().getX() - (EditableShapeConstants.selectLength / 2),
-          (int) getCtrlP1().getY() - (EditableShapeConstants.selectLength / 2),
-          EditableShapeConstants.selectLength,
+      g.fillRect((int) getCtrlP1().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getCtrlP1().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
           EditableShapeConstants.selectLength);
     if (getCtrlP2().getX() != -1)
-      g.fillRect(
-          (int) getCtrlP2().getX() - (EditableShapeConstants.selectLength / 2),
-          (int) getCtrlP2().getY() - (EditableShapeConstants.selectLength / 2),
-          EditableShapeConstants.selectLength,
+      g.fillRect((int) getCtrlP2().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getCtrlP2().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
           EditableShapeConstants.selectLength);
     g.setColor(EditableShapeConstants.SELECTED_BORDER_COLOR);
     if (selectedBorder == 1) {
-      g.fillRect(
-          (int) getP1().getX() - (EditableShapeConstants.selectLength / 2),
-          (int) getP1().getY() - (EditableShapeConstants.selectLength / 2),
-          EditableShapeConstants.selectLength,
+      g.fillRect((int) getP1().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getP1().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
           EditableShapeConstants.selectLength);
     } else if (selectedBorder == 2) {
-      g.fillRect(
-          (int) getP2().getX() - (EditableShapeConstants.selectLength / 2),
-          (int) getP2().getY() - (EditableShapeConstants.selectLength / 2),
-          EditableShapeConstants.selectLength,
+      g.fillRect((int) getP2().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getP2().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
           EditableShapeConstants.selectLength);
     }
   }
@@ -107,30 +85,18 @@ public class EditableCubicCurve2D extends CubicCurve2D.Double implements Editabl
   public boolean hasClickedBorder(double x, double y, boolean needSelected) {
     boolean hasClicked = false;
     if (!needSelected || selected) {
-      Rectangle r1 =
-          new Rectangle(
-              (int) getP1().getX() - (EditableShapeConstants.selectLength / 2),
-              (int) getP1().getY() - (EditableShapeConstants.selectLength / 2),
-              EditableShapeConstants.selectLength,
-              EditableShapeConstants.selectLength);
-      Rectangle r2 =
-          new Rectangle(
-              (int) getP2().getX() - (EditableShapeConstants.selectLength / 2),
-              (int) getP2().getY() - (EditableShapeConstants.selectLength / 2),
-              EditableShapeConstants.selectLength,
-              EditableShapeConstants.selectLength);
-      Rectangle r3 =
-          new Rectangle(
-              (int) getCtrlP1().getX() - (EditableShapeConstants.selectLength / 2),
-              (int) getCtrlP1().getY() - (EditableShapeConstants.selectLength / 2),
-              EditableShapeConstants.selectLength,
-              EditableShapeConstants.selectLength);
-      Rectangle r4 =
-          new Rectangle(
-              (int) getCtrlP2().getX() - (EditableShapeConstants.selectLength / 2),
-              (int) getCtrlP2().getY() - (EditableShapeConstants.selectLength / 2),
-              EditableShapeConstants.selectLength,
-              EditableShapeConstants.selectLength);
+      Rectangle r1 = new Rectangle((int) getP1().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getP1().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
+          EditableShapeConstants.selectLength);
+      Rectangle r2 = new Rectangle((int) getP2().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getP2().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
+          EditableShapeConstants.selectLength);
+      Rectangle r3 = new Rectangle((int) getCtrlP1().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getCtrlP1().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
+          EditableShapeConstants.selectLength);
+      Rectangle r4 = new Rectangle((int) getCtrlP2().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getCtrlP2().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
+          EditableShapeConstants.selectLength);
       if (r1.contains(x, y)) {
         border = 1;
         hasClicked = true;
@@ -149,8 +115,8 @@ public class EditableCubicCurve2D extends CubicCurve2D.Double implements Editabl
   }
 
   public void aproximateNearestBorder(double x, double y) {
-    // getNearestBorder(x,y).setLocation(x,y);
-    if (hasClickedBorder(x, y, false)) changeBorder(x, y);
+    if (hasClickedBorder(x, y, false))
+      changeBorder(x, y);
   }
 
   public java.awt.geom.Point2D getNearestBorder(double x, double y) {
@@ -159,12 +125,18 @@ public class EditableCubicCurve2D extends CubicCurve2D.Double implements Editabl
     double d2 = getP2().distance(x, y);
     double d3 = getCtrlP1().distance(x, y);
     double d4 = getCtrlP2().distance(x, y);
-    if (d1 < d2) p1 = getP1();
-    else p1 = getP2();
-    if (d3 < d4) p2 = getCtrlP1();
-    else p2 = getCtrlP2();
-    if (p1.distance(x, y) < p2.distance(x, y)) return p1;
-    else return p2;
+    if (d1 < d2)
+      p1 = getP1();
+    else
+      p1 = getP2();
+    if (d3 < d4)
+      p2 = getCtrlP1();
+    else
+      p2 = getCtrlP2();
+    if (p1.distance(x, y) < p2.distance(x, y))
+      return p1;
+    else
+      return p2;
   }
 
   public void setSelected(boolean b) {
@@ -185,11 +157,11 @@ public class EditableCubicCurve2D extends CubicCurve2D.Double implements Editabl
   }
 
   public double distanceTo(double x, double y) {
-    /*double d1=getNearestBorder(x,y).distance(x,y);
-    double d2=d1;
-    Rectangle2D r=new Rectangle2D.Double(x-2,y-2,4,4);
-    if (intersects(r)) d2=0;
-    return Math.min(d1,d2);*/
+    /*
+     * double d1=getNearestBorder(x,y).distance(x,y); double d2=d1; Rectangle2D
+     * r=new Rectangle2D.Double(x-2,y-2,4,4); if (intersects(r)) d2=0; return
+     * Math.min(d1,d2);
+     */
     double d1 = getNearestBorder(x, y).distance(x, y);
     double d2 = (new Line2D.Double(getP1(), getP2())).ptSegDist(x, y);
     return Math.min(d1, d2);
@@ -204,7 +176,8 @@ public class EditableCubicCurve2D extends CubicCurve2D.Double implements Editabl
       g.setColor(Color.red);
       drawBorders(g);
       g.setColor(c);
-    } else g.setColor(c);
+    } else
+      g.setColor(c);
     ((Graphics2D) g).draw(this);
   }
 
@@ -219,15 +192,8 @@ public class EditableCubicCurve2D extends CubicCurve2D.Double implements Editabl
   }
 
   public void move(double incX, double incY) {
-    setCurve(
-        getP1().getX() + incX,
-        getP1().getY() + incY,
-        getCtrlX1() + incX,
-        getCtrlY1() + incY,
-        getCtrlX2() + incX,
-        getCtrlY2() + incY,
-        getP2().getX() + incX,
-        getP2().getY() + incY);
+    setCurve(getP1().getX() + incX, getP1().getY() + incY, getCtrlX1() + incX, getCtrlY1() + incY, getCtrlX2() + incX,
+        getCtrlY2() + incY, getP2().getX() + incX, getP2().getY() + incY);
   }
 
   public void transform(java.awt.geom.AffineTransform aTransf) {
@@ -249,16 +215,17 @@ public class EditableCubicCurve2D extends CubicCurve2D.Double implements Editabl
     subdivide(left, right);
     newShapes[0] = new EditableCubicCurve2D(right);
     newShapes[1] = new EditableCubicCurve2D(left);
-    // setCurve(left);
     return newShapes;
   }
 
   public boolean isAdjacentTo(java.awt.geom.Point2D p) {
-    if (getP1().equals(p)) return true;
+    if (getP1().equals(p))
+      return true;
     else if (getP2().equals(p)) {
       setCurve(getP2(), getCtrlP2(), getCtrlP1(), getP1());
       return true;
-    } else return false;
+    } else
+      return false;
   }
 
   public java.awt.geom.Point2D getEndPoint() {
@@ -274,14 +241,17 @@ public class EditableCubicCurve2D extends CubicCurve2D.Double implements Editabl
   }
 
   public java.awt.geom.Point2D[] getBorders() {
-    return new Point2D[] {getP1(), getP2(), getCtrlP1(), getCtrlP2()};
+    return new Point2D[] { getP1(), getP2(), getCtrlP1(), getCtrlP2() };
   }
 
   public void selectBorder(double x, double y) {
     Point2D p = new Point2D.Double(x, y);
-    if (getP1().equals(p)) selectedBorder = 1;
-    else if (getP2().equals(p)) selectedBorder = 2;
-    else selectedBorder = -1;
+    if (getP1().equals(p))
+      selectedBorder = 1;
+    else if (getP2().equals(p))
+      selectedBorder = 2;
+    else
+      selectedBorder = -1;
   }
 
   public void deselectBorder() {
@@ -293,7 +263,9 @@ public class EditableCubicCurve2D extends CubicCurve2D.Double implements Editabl
   }
 
   public java.awt.geom.Point2D getNotSelectedBorder() {
-    if (selectedBorder == 1) return getP2();
-    else return getP1();
+    if (selectedBorder == 1)
+      return getP2();
+    else
+      return getP1();
   }
 }

@@ -25,13 +25,15 @@ import edu.xtec.util.JDomUtility;
 import java.util.Map;
 
 /**
- * This is a special case of {@link edu.xtec.jclic.bags.JumpInfo}, used only in {@link
- * edu.xtec.jclic.bags.ActivitySequenceElement} objects. Sequence elements contain two
- * ActivitySequenceJump objects: one to be processed when the user clicks on the "next" button (or
- * when the activity finishes, if in automatic mode), and the other one related to the "prev"
- * button. ActivitySequenceJump objects define a default jump or action, but can have up to two
- * {@link edu.xtec.jclic.bags.ConditionalJumpInfo} objects, used to define alternative jumps when
- * the obtained score or the time used to solve the activities are below or over specific values.
+ * This is a special case of {@link edu.xtec.jclic.bags.JumpInfo}, used only in
+ * {@link edu.xtec.jclic.bags.ActivitySequenceElement} objects. Sequence
+ * elements contain two ActivitySequenceJump objects: one to be processed when
+ * the user clicks on the "next" button (or when the activity finishes, if in
+ * automatic mode), and the other one related to the "prev" button.
+ * ActivitySequenceJump objects define a default jump or action, but can have up
+ * to two {@link edu.xtec.jclic.bags.ConditionalJumpInfo} objects, used to
+ * define alternative jumps when the obtained score or the time used to solve
+ * the activities are below or over specific values.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10
@@ -96,7 +98,8 @@ public class ActivitySequenceJump extends JumpInfo implements Cloneable {
     } else {
       // OLD VERSION DATA
       if (!s.equals(actions[STOP])) {
-        if (s.equals(actions[EXIT])) action = EXIT;
+        if (s.equals(actions[EXIT]))
+          action = EXIT;
         else {
           action = JUMP;
           sequence = s;
@@ -119,17 +122,18 @@ public class ActivitySequenceJump extends JumpInfo implements Cloneable {
   }
 
   public void setConditionalJump(ConditionalJumpInfo jump, boolean upper) {
-    if (upper) upperJump = jump;
-    else lowerJump = jump;
+    if (upper)
+      upperJump = jump;
+    else
+      lowerJump = jump;
   }
 
   public JumpInfo resolveJump(int rating, int time) {
-    if (rating < 0 || time < 0) return this;
-    if (upperJump != null
-        && rating > upperJump.threshold
-        && (upperJump.time <= 0 || time < upperJump.time)) return upperJump;
-    if (lowerJump != null
-        && (rating < lowerJump.threshold || (lowerJump.time > 0 && time > lowerJump.time)))
+    if (rating < 0 || time < 0)
+      return this;
+    if (upperJump != null && rating > upperJump.threshold && (upperJump.time <= 0 || time < upperJump.time))
+      return upperJump;
+    if (lowerJump != null && (rating < lowerJump.threshold || (lowerJump.time > 0 && time > lowerJump.time)))
       return lowerJump;
     return this;
   }
@@ -137,15 +141,19 @@ public class ActivitySequenceJump extends JumpInfo implements Cloneable {
   @Override
   public void listReferences(String type, Map<String, String> map) {
     super.listReferences(type, map);
-    if (upperJump != null) upperJump.listReferences(type, map);
-    if (lowerJump != null) lowerJump.listReferences(type, map);
+    if (upperJump != null)
+      upperJump.listReferences(type, map);
+    if (lowerJump != null)
+      lowerJump.listReferences(type, map);
   }
 
   @Override
   public Object clone() throws CloneNotSupportedException {
     ActivitySequenceJump result = (ActivitySequenceJump) super.clone();
-    if (upperJump != null) result.upperJump = (ConditionalJumpInfo) upperJump.clone();
-    if (lowerJump != null) result.lowerJump = (ConditionalJumpInfo) lowerJump.clone();
+    if (upperJump != null)
+      result.upperJump = (ConditionalJumpInfo) upperJump.clone();
+    if (lowerJump != null)
+      result.lowerJump = (ConditionalJumpInfo) lowerJump.clone();
     return result;
   }
 }

@@ -31,8 +31,6 @@ import edu.xtec.jclic.ActivityEditorPanel;
  */
 public class MemoryGameEditor extends ActivityEditor {
 
-  // CANVIAR SISTEMA: EN COMPTES DE GRID 0 i GRID 1, GRID 0 i GRID 2
-
   /** Creates a new instance of ExchangePuzzleEditor */
   public MemoryGameEditor(Activity act) {
     super(act);
@@ -40,7 +38,6 @@ public class MemoryGameEditor extends ActivityEditor {
 
   @Override
   protected void createPanels(ActivityEditorPanel panel) {
-    // panel.addInternalPanel(ActivityEditorPanel.GRID_A, null, null);
     panel.addInternalPanel(ActivityEditorPanel.SINGLE_ALT, null, null);
   }
 }

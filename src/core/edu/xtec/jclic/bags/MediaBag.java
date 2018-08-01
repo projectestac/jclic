@@ -43,12 +43,13 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * This class stores and manages all the media components (images, sounds, animations, video, MIDI
- * files, etc.) needed to run the activities of a {@link edu.xtec.jclic.project.JClicProject}. The
- * main member of the class is a {@link java.util.ArrayList} that stores {@link
- * edu.xtec.jclic.bags.MediaBagElement} objects. It defines also a {@link
- * edu.xtec.jclic.bags.MediaBag.Listener} interface to allow other objects to be informed about
- * changes in the media collection.
+ * This class stores and manages all the media components (images, sounds,
+ * animations, video, MIDI files, etc.) needed to run the activities of a
+ * {@link edu.xtec.jclic.project.JClicProject}. The main member of the class is
+ * a {@link java.util.ArrayList} that stores
+ * {@link edu.xtec.jclic.bags.MediaBagElement} objects. It defines also a
+ * {@link edu.xtec.jclic.bags.MediaBag.Listener} interface to allow other
+ * objects to be informed about changes in the media collection.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10
@@ -58,7 +59,8 @@ public class MediaBag extends Object implements Editable, Domable, StreamIO.Inpu
   /** The project this <CODE>MediaBag</CODE> belongs to */
   protected JClicProject project;
   /**
-   * List containing all the {@link edu.xtec.jclic.bags.MediaBagElement} objects of this <CODE>
+   * List containing all the {@link edu.xtec.jclic.bags.MediaBagElement} objects
+   * of this <CODE>
    * MediaBag</CODE>.
    */
   protected List<MediaBagElement> elements;
@@ -93,14 +95,12 @@ public class MediaBag extends Object implements Editable, Domable, StreamIO.Inpu
 
   public List<MediaBagElement> getElementsByName() {
     List<MediaBagElement> v = getElements();
-    Collections.sort(
-        v,
-        new Comparator<MediaBagElement>() {
-          @Override
-          public int compare(MediaBagElement o1, MediaBagElement o2) {
-            return o1.getName().compareToIgnoreCase(o2.getName());
-          }
-        });
+    Collections.sort(v, new Comparator<MediaBagElement>() {
+      @Override
+      public int compare(MediaBagElement o1, MediaBagElement o2) {
+        return o1.getName().compareToIgnoreCase(o2.getName());
+      }
+    });
     return v;
   }
 
@@ -108,28 +108,26 @@ public class MediaBag extends Object implements Editable, Domable, StreamIO.Inpu
     final StringBuilder sb1 = new StringBuilder(200);
     final StringBuilder sb2 = new StringBuilder(200);
     List<MediaBagElement> v = getElements();
-    Collections.sort(
-        v,
-        new Comparator<MediaBagElement>() {
-          @Override
-          public int compare(MediaBagElement o1, MediaBagElement o2) {
-            sb1.setLength(0);
-            String fName = o1.getFileName();
-            String name = o1.getName();
-            int dot = fName.lastIndexOf('.');
-            sb1.append(dot > 0 ? fName.substring(dot) : ".zzz");
-            sb1.append(name);
+    Collections.sort(v, new Comparator<MediaBagElement>() {
+      @Override
+      public int compare(MediaBagElement o1, MediaBagElement o2) {
+        sb1.setLength(0);
+        String fName = o1.getFileName();
+        String name = o1.getName();
+        int dot = fName.lastIndexOf('.');
+        sb1.append(dot > 0 ? fName.substring(dot) : ".zzz");
+        sb1.append(name);
 
-            sb2.setLength(0);
-            fName = o2.getFileName();
-            name = o2.getName();
-            dot = fName.lastIndexOf('.');
-            sb2.append(dot > 0 ? fName.substring(dot) : ".zzz");
-            sb2.append(name);
+        sb2.setLength(0);
+        fName = o2.getFileName();
+        name = o2.getName();
+        dot = fName.lastIndexOf('.');
+        sb2.append(dot > 0 ? fName.substring(dot) : ".zzz");
+        sb2.append(name);
 
-            return sb1.substring(0).compareToIgnoreCase(sb2.substring(0));
-          }
-        });
+        return sb1.substring(0).compareToIgnoreCase(sb2.substring(0));
+      }
+    });
     return v;
   }
 
@@ -198,8 +196,7 @@ public class MediaBag extends Object implements Editable, Domable, StreamIO.Inpu
   public MediaBagElement registerElement(String name, String fileName) {
     MediaBagElement result = getElement(name);
     if (result == null) {
-      result =
-          new MediaBagElement(FileSystem.stdFn(fileName == null ? name : fileName), null, name);
+      result = new MediaBagElement(FileSystem.stdFn(fileName == null ? name : fileName), null, name);
       elements.add(result);
     }
     return result;

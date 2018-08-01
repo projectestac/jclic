@@ -76,13 +76,14 @@ public class Counter extends AbstractBox {
 
   public void incValue() {
     value++;
-    if (enabled) repaint();
-    //  paintImmediatelly();
+    if (enabled)
+      repaint();
   }
 
   public void setValue(int newValue) {
     value = newValue;
-    if (enabled) repaint();
+    if (enabled)
+      repaint();
   }
 
   public int getValue() {
@@ -96,33 +97,29 @@ public class Counter extends AbstractBox {
     double marginH = (height - dSize.height) / 2;
 
     // Todo: implement text mode
-    if (img == null) return false;
+    if (img == null)
+      return false;
 
     valr = value;
-    if (countDown > 0) valr = Math.max(0, countDown - value);
+    if (countDown > 0)
+      valr = Math.max(0, countDown - value);
 
     valr = Math.min(999, valr);
 
     for (k = false, i = 0, j = 100; i < 3; i++, j /= 10) {
-      if (!enabled) d = 1;
+      if (!enabled)
+        d = 1;
       else {
         if ((w = (valr / j) % 10) != 0) {
           k = true;
           d = 11 - w;
-        } else d = (k == true || i == 2 ? 11 : 1);
+        } else
+          d = (k == true || i == 2 ? 11 : 1);
       }
 
-      g2.drawImage(
-          img,
-          (int) (x + marginW + dSize.width * i),
-          (int) (y + marginH),
-          (int) (x + marginW + dSize.width * (i + 1)),
-          (int) (y + marginH + dSize.height),
-          origin.x,
-          origin.y + dSize.height * d,
-          origin.x + dSize.width,
-          origin.y + dSize.height * (d + 1),
-          io);
+      g2.drawImage(img, (int) (x + marginW + dSize.width * i), (int) (y + marginH),
+          (int) (x + marginW + dSize.width * (i + 1)), (int) (y + marginH + dSize.height), origin.x,
+          origin.y + dSize.height * d, origin.x + dSize.width, origin.y + dSize.height * (d + 1), io);
     }
     return true;
   }

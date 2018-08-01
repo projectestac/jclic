@@ -37,10 +37,12 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 /**
- * JClic activities have the pottibility to show a dialog window containig an object with help
- * contents. Activities should call the <CODE>ShowHelp</CODE> method of {@link
- * edu.xtec.jclic.PlayStation} to make this help window appear. The abstract class <CODE>
- * HelpActivityComponent</CODE> can be used as a base class for this kind of help objects.
+ * JClic activities have the pottibility to show a dialog window containig an
+ * object with help contents. Activities should call the <CODE>ShowHelp</CODE>
+ * method of {@link edu.xtec.jclic.PlayStation} to make this help window appear.
+ * The abstract class <CODE>
+ * HelpActivityComponent</CODE> can be used as a base class for this kind of
+ * help objects.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.23
@@ -51,7 +53,9 @@ public abstract class HelpActivityComponent extends JPanel implements ListSelect
   public static final String PREFERRED_LOCATION = "prefLoc";
   /** The {@link edu.xtec.jclic.Activity.Panel} that this object belongs to. */
   public Activity.Panel ap;
-  /** The currently selected box in the <CODE>HelpActivityComponent</CODE>, if any. */
+  /**
+   * The currently selected box in the <CODE>HelpActivityComponent</CODE>, if any.
+   */
   public AbstractBox markedBox;
 
   public boolean markedBoxWasVisible;
@@ -66,7 +70,8 @@ public abstract class HelpActivityComponent extends JPanel implements ListSelect
     putClientProperty(PREFERRED_LOCATION, new Point(ap.getLocationOnScreen()));
   }
 
-  public void init() {}
+  public void init() {
+  }
 
   public void end() {
     unmarkBox();
@@ -99,23 +104,28 @@ public abstract class HelpActivityComponent extends JPanel implements ListSelect
     markedBox = bx;
     if (bx != null) {
       markedBoxWasVisible = bx.isVisible();
-      if (play && bx instanceof ActiveBox) ((ActiveBox) bx).playMedia(ap.ps);
+      if (play && bx instanceof ActiveBox)
+        ((ActiveBox) bx).playMedia(ap.ps);
       bx.setMarked(!bx.isMarked());
       bx.setInverted(!bx.isInverted());
       bx.setVisible(true);
     }
   }
 
-  public void processMouse(MouseEvent p1) {}
+  public void processMouse(MouseEvent p1) {
+  }
 
   @Override
   protected void processEvent(AWTEvent e) {
-    if (e instanceof MouseEvent) processMouse((MouseEvent) e);
+    if (e instanceof MouseEvent)
+      processMouse((MouseEvent) e);
     super.processEvent(e);
   }
 
-  public void valueChanged(ListSelectionEvent ev) {}
+  public void valueChanged(ListSelectionEvent ev) {
+  }
 
   @Override
-  public void doLayout() {}
+  public void doLayout() {
+  }
 }

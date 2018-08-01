@@ -36,7 +36,6 @@ public abstract class ActivityEditorInternalPanel extends edu.xtec.util.CtrlPane
   public ActivityEditorInternalPanel(ActivityEditorPanel parent) {
     this.parent = parent;
     this.options = parent.getOptions();
-    // setOpaque(false);
   }
 
   public Options getOptions() {
@@ -63,7 +62,9 @@ public abstract class ActivityEditorInternalPanel extends edu.xtec.util.CtrlPane
   protected abstract String getTooltip();
 
   // A ELIMINAR:
-  protected final void resetPanel(java.util.EventObject ev) {}
+  protected final void resetPanel(java.util.EventObject ev) {
+  }
 
-  protected final void clear() {};
+  protected final void clear() {
+  };
 }

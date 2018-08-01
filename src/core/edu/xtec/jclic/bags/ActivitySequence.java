@@ -35,11 +35,12 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * This class stores the definition of the sequence of activities related to a specific {@link
- * edu.xtec.jclic.project.JClicProject}. The sequence are formed by an ordered list of objects of
- * type {@link edu.xtec.jclic.bags.ActivitySequenceElement}, internally stored in a {@link
- * java.util.ArrayList}. It stores also a transient pointer to a current element, and provides
- * several methods useful to deal with sequences.
+ * This class stores the definition of the sequence of activities related to a
+ * specific {@link edu.xtec.jclic.project.JClicProject}. The sequence are formed
+ * by an ordered list of objects of type
+ * {@link edu.xtec.jclic.bags.ActivitySequenceElement}, internally stored in a
+ * {@link java.util.ArrayList}. It stores also a transient pointer to a current
+ * element, and provides several methods useful to deal with sequences.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.10
@@ -69,18 +70,19 @@ public class ActivitySequence extends Object implements Editable, Domable {
     elements.add(ase);
     if (elements.size() == 1) {
       currentAct = 0;
-      if (ase.getTag() == null) ase.setTag("start");
+      if (ase.getTag() == null)
+        ase.setTag("start");
     }
   }
 
   public void insertElementAt(ActivitySequenceElement ase, int index) {
     elements.add(index, ase);
-    // elements.insertElementAt(ase, index);
   }
 
   public void remove(ActivitySequenceElement ase) {
     if (elements.contains(ase)) {
-      if (elements.indexOf(ase) == currentAct) currentAct = -1;
+      if (elements.indexOf(ase) == currentAct)
+        currentAct = -1;
       elements.remove(ase);
     }
   }
@@ -131,49 +133,52 @@ public class ActivitySequence extends Object implements Editable, Domable {
     } catch (Exception ex) {
       result = null;
     }
-    if (result != null && updateCurrentAct) currentAct = n;
+    if (result != null && updateCurrentAct)
+      currentAct = n;
     return result;
   }
 
   public ActivitySequenceElement getElementByTag(String tag, boolean updateCurrentAct) {
     int i;
     int k = elements.size();
-    if (k < 1 || tag == null) return null;
+    if (k < 1 || tag == null)
+      return null;
 
     String normalizedTag = FileSystem.stdFn(tag);
     ActivitySequenceElement ase = null;
     for (i = 0; i < k; i++) {
       ase = getElement(i, false);
-      if (ase != null && ase.getTag() != null && ase.getTag().equals(normalizedTag)) break;
+      if (ase != null && ase.getTag() != null && ase.getTag().equals(normalizedTag))
+        break;
     }
 
-    if (i == k) ase = null;
-    else if (updateCurrentAct) currentAct = i;
+    if (i == k)
+      ase = null;
+    else if (updateCurrentAct)
+      currentAct = i;
 
     return ase;
   }
 
   public ActivitySequenceElement[] getElements() {
     return elements.toArray(new ActivitySequenceElement[elements.size()]);
-    // ActivitySequenceElement[] result=new ActivitySequenceElement[elements.size()];
-    // elements.copyInto(result);
-    // return result;
   }
 
   public boolean hasNextAct(boolean hasReturn) {
     boolean result = false;
     ActivitySequenceElement ase = getCurrentAct();
     if (ase != null) {
-      if (ase.fwdJump == null) result = true;
+      if (ase.fwdJump == null)
+        result = true;
       else
         switch (ase.fwdJump.action) {
-          case JumpInfo.STOP:
-            break;
-          case JumpInfo.RETURN:
-            result = (hasReturn);
-            break;
-          default:
-            result = true;
+        case JumpInfo.STOP:
+          break;
+        case JumpInfo.RETURN:
+          result = (hasReturn);
+          break;
+        default:
+          result = true;
         }
     }
     return result;
@@ -183,16 +188,17 @@ public class ActivitySequence extends Object implements Editable, Domable {
     boolean result = false;
     ActivitySequenceElement ase = getCurrentAct();
     if (ase != null) {
-      if (ase.backJump == null) result = true;
+      if (ase.backJump == null)
+        result = true;
       else
         switch (ase.backJump.action) {
-          case JumpInfo.STOP:
-            break;
-          case JumpInfo.RETURN:
-            result = hasReturn;
-            break;
-          default:
-            result = true;
+        case JumpInfo.STOP:
+          break;
+        case JumpInfo.RETURN:
+          result = hasReturn;
+          break;
+        default:
+          result = true;
         }
     }
     return result;
@@ -201,7 +207,8 @@ public class ActivitySequence extends Object implements Editable, Domable {
   public int getNavButtonsFlag() {
     int flag = ActivitySequenceElement.NAV_NONE;
     ActivitySequenceElement ase = getCurrentAct();
-    if (ase != null) flag = ase.navButtons;
+    if (ase != null)
+      flag = ase.navButtons;
     return flag;
   }
 
@@ -212,7 +219,8 @@ public class ActivitySequence extends Object implements Editable, Domable {
       ActivitySequenceJump asj = (back ? ase.backJump : ase.fwdJump);
       if (asj == null) {
         int i = currentAct + (back ? -1 : 1);
-        if (i >= elements.size() || i < 0) i = 0;
+        if (i >= elements.size() || i < 0)
+          i = 0;
         result = new JumpInfo(JumpInfo.JUMP, i);
       } else {
         int rating = -1;
@@ -241,7 +249,9 @@ public class ActivitySequence extends Object implements Editable, Domable {
   public String getSequenceForElement(int e) {
     String s = null;
     if (e >= 0 && e < elements.size())
-      for (int i = e; i >= 0; i--) if ((s = getElement(i, false).getTag()) != null) break;
+      for (int i = e; i >= 0; i--)
+        if ((s = getElement(i, false).getTag()) != null)
+          break;
     return s;
   }
 
@@ -279,6 +289,7 @@ public class ActivitySequence extends Object implements Editable, Domable {
   }
 
   public void listReferences(String type, Map<String, String> map) {
-    for (int i = 0; i < elements.size(); i++) getElement(i, false).listReferences(type, map);
+    for (int i = 0; i < elements.size(); i++)
+      getElement(i, false).listReferences(type, map);
   }
 }

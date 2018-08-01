@@ -39,7 +39,8 @@ public class GlobalMouseAdapter implements MouseListener, MouseMotionListener {
 
   public void attachTo(Component cmp, boolean catchMotion) {
     cmp.addMouseListener(this);
-    if (catchMotion) cmp.addMouseMotionListener(this);
+    if (catchMotion)
+      cmp.addMouseMotionListener(this);
   }
 
   public Component getParent() {

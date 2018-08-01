@@ -45,10 +45,7 @@ public class MenuElement implements Editable, Cloneable, Domable {
   }
 
   public static final String ELEMENT_NAME = "menuElement";
-  public static final String CAPTION = "caption",
-      ICON = "icon",
-      PATH = "path",
-      SEQUENCE = "sequence",
+  public static final String CAPTION = "caption", ICON = "icon", PATH = "path", SEQUENCE = "sequence",
       DESCRIPTION = "description";
   public static final String RETURN_TAG = "@RETURN";
   public static final String DEFAULT_ICON = "@ico00.png", DEFAULT_FOLDER_ICON = "@icofolder.png";
@@ -57,11 +54,16 @@ public class MenuElement implements Editable, Cloneable, Domable {
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
 
-    if (caption != null) e.setAttribute(CAPTION, caption);
-    if (icon != null && !icon.equals(DEFAULT_ICON)) e.setAttribute(ICON, icon);
-    if (projectPath != null) e.setAttribute(PATH, projectPath);
-    if (sequence != null) e.setAttribute(SEQUENCE, sequence);
-    if (description != null) e.setAttribute(DESCRIPTION, description);
+    if (caption != null)
+      e.setAttribute(CAPTION, caption);
+    if (icon != null && !icon.equals(DEFAULT_ICON))
+      e.setAttribute(ICON, icon);
+    if (projectPath != null)
+      e.setAttribute(PATH, projectPath);
+    if (sequence != null)
+      e.setAttribute(SEQUENCE, sequence);
+    if (description != null)
+      e.setAttribute(DESCRIPTION, description);
     return e;
   }
 
@@ -82,7 +84,8 @@ public class MenuElement implements Editable, Cloneable, Domable {
       }
     }
 
-    if (result == null) result = edu.xtec.util.ResourceManager.getImageIcon("icons/ico00.png");
+    if (result == null)
+      result = edu.xtec.util.ResourceManager.getImageIcon("icons/ico00.png");
 
     return result;
   }

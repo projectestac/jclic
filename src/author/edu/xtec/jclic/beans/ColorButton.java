@@ -56,7 +56,8 @@ public class ColorButton extends JButton {
   protected void fireActionPerformed(ActionEvent event) {
     if (options != null) {
       Color c = AlphaColorChooserPanel.chooseColor(options, this, getColor());
-      if (c != null) changeColor(c);
+      if (c != null)
+        changeColor(c);
     }
     super.fireActionPerformed(event);
   }
@@ -73,7 +74,8 @@ public class ColorButton extends JButton {
   public void changeColor(Color c) {
     Color oldColor = getColor();
     setColor(c);
-    if (!oldColor.equals(c)) firePropertyChange(PROP_COLOR, oldColor, c);
+    if (!oldColor.equals(c))
+      firePropertyChange(PROP_COLOR, oldColor, c);
   }
 
   @Override

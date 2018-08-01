@@ -63,7 +63,8 @@ public class ActivitySequenceEditor extends Editor {
     initializing = true;
     ActivitySequence as = getActivitySequence();
     int n = as.getSize();
-    for (int i = 0; i < n; i++) as.getElement(i, false).getEditor(this);
+    for (int i = 0; i < n; i++)
+      as.getElement(i, false).getEditor(this);
     initializing = false;
   }
 
@@ -85,7 +86,8 @@ public class ActivitySequenceEditor extends Editor {
   }
 
   public static Icon getIcon() {
-    if (icon == null) icon = edu.xtec.util.ResourceManager.getImageIcon("icons/sequence.gif");
+    if (icon == null)
+      icon = edu.xtec.util.ResourceManager.getImageIcon("icons/sequence.gif");
     return icon;
   }
 
@@ -110,10 +112,7 @@ public class ActivitySequenceEditor extends Editor {
   public void removeElementsWith(String activityName) {
     String act = StrUtils.nullableString(activityName);
     if (act != null) {
-      // Added 03-Feb-2011
-      // Normalize the activity name
       act = FileSystem.stdFn(act);
-      // ---
       int i = 0;
       int numElements = getChildCount();
       while (i < numElements) {
@@ -140,18 +139,17 @@ public class ActivitySequenceEditor extends Editor {
         msg.showAlert(dlgParent, "edit_seq_newElement_error_emptyList");
         return false;
       }
-      JComboBox actCombo =
-          new JComboBox<Object>(
-              new ListComboModel(getProjectEditor().getActivityBagEditor().getListModel()));
+      JComboBox actCombo = new JComboBox<Object>(
+          new ListComboModel(getProjectEditor().getActivityBagEditor().getListModel()));
       actCombo.setToolTipText(msg.get("edit_seq_activity_tooltip"));
       JTextField tagField = new JTextField();
       tagField.setToolTipText(msg.get("edit_seq_tag_tooltip"));
-      JComponent[] prompt_objects = new JComponent[] {actCombo, tagField};
-      String[] prompt_keys = new String[] {"edit_seq_activity", "edit_seq_tag"};
-      String[] prompt_msg = new String[] {"edit_seq_newElement_msg"};
+      JComponent[] prompt_objects = new JComponent[] { actCombo, tagField };
+      String[] prompt_keys = new String[] { "edit_seq_activity", "edit_seq_tag" };
+      String[] prompt_msg = new String[] { "edit_seq_newElement_msg" };
 
-      if (!msg.showInputDlg(
-          dlgParent, prompt_msg, prompt_keys, prompt_objects, "edit_seq_newElement")) return false;
+      if (!msg.showInputDlg(dlgParent, prompt_msg, prompt_keys, prompt_objects, "edit_seq_newElement"))
+        return false;
       act = StrUtils.nullableString(actCombo.getSelectedItem());
       tag = StrUtils.nullableString(tagField.getText());
     }
@@ -167,12 +165,15 @@ public class ActivitySequenceEditor extends Editor {
   public boolean createNewSequenceElement(String actName, String tag, int index) {
 
     ActivitySequenceElement ase = new ActivitySequenceElement(actName);
-    if (tag != null) ase.setTag(tag);
+    if (tag != null)
+      ase.setTag(tag);
 
     ActivitySequenceElementEditor aseed = (ActivitySequenceElementEditor) ase.getEditor(null);
 
-    if (index < 0) index = getChildCount();
-    else index = Math.min(index, getChildCount());
+    if (index < 0)
+      index = getChildCount();
+    else
+      index = Math.min(index, getChildCount());
 
     return insertEditor(aseed, true, index, true);
   }
@@ -184,7 +185,8 @@ public class ActivitySequenceEditor extends Editor {
       while (en.hasMoreElements()) {
         ActivitySequenceElementEditor asee = (ActivitySequenceElementEditor) en.nextElement();
         String tag = StrUtils.nullableString(asee.getActivitySequenceElement().getTag());
-        if (tag != null) tagList.addElement(tag);
+        if (tag != null)
+          tagList.addElement(tag);
       }
     }
     return tagList;
@@ -196,7 +198,8 @@ public class ActivitySequenceEditor extends Editor {
     Enumeration en = tagList.elements();
     while (en.hasMoreElements() && result == null) {
       String s = (String) en.nextElement();
-      if (s.equals(tag)) result = s;
+      if (s.equals(tag))
+        result = s;
     }
     return result;
   }
@@ -223,7 +226,8 @@ public class ActivitySequenceEditor extends Editor {
     getActivitySequence().remove(asee.getActivitySequenceElement());
     if (tagList != null && asee.getTag() != null) {
       String s = getTag(asee.getTag());
-      if (s != null) tagList.removeElement(s);
+      if (s != null)
+        tagList.removeElement(s);
     }
   }
 
@@ -232,8 +236,7 @@ public class ActivitySequenceEditor extends Editor {
     if ((type & (Constants.T_ACTIVITY | Constants.T_SEQUENCE)) != 0) {
       Enumeration en = children();
       while (en.hasMoreElements())
-        result |=
-            ((ActivitySequenceElementEditor) en.nextElement()).nameChanged(type, oldName, newName);
+        result |= ((ActivitySequenceElementEditor) en.nextElement()).nameChanged(type, oldName, newName);
     }
     return result;
   }
@@ -258,24 +261,19 @@ public class ActivitySequenceEditor extends Editor {
   public static void createActions(Options options) {
     createBasicActions(options);
     if (!actionsCreated) {
-      newActivitySequenceElementAction =
-          new EditorAction(
-              "edit_seq_newElement",
-              "icons/sequence_new.gif",
-              "edit_seq_newElement_tooltip",
-              options) {
-            protected void doAction(Editor e) {
-              Editor ch = null;
-              if (e instanceof ActivitySequenceElementEditor) {
-                ch = e;
-                e = e.getEditorParent();
-              }
+      newActivitySequenceElementAction = new EditorAction("edit_seq_newElement", "icons/sequence_new.gif",
+          "edit_seq_newElement_tooltip", options) {
+        protected void doAction(Editor e) {
+          Editor ch = null;
+          if (e instanceof ActivitySequenceElementEditor) {
+            ch = e;
+            e = e.getEditorParent();
+          }
 
-              if (e instanceof ActivitySequenceEditor)
-                ((ActivitySequenceEditor) e)
-                    .createNewSequenceElement(e.getNearestIndex(ch, true), true, getComponentSrc());
-            }
-          };
+          if (e instanceof ActivitySequenceEditor)
+            ((ActivitySequenceEditor) e).createNewSequenceElement(e.getNearestIndex(ch, true), true, getComponentSrc());
+        }
+      };
       actionsCreated = true;
     }
   }

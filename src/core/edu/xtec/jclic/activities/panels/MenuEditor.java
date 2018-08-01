@@ -57,17 +57,16 @@ public class MenuEditor extends Editor {
     if (pl != null && !m.menuElements.isEmpty()) {
       for (int i = 0; i < m.getMenuElementCount(); i++) {
         MenuElement me = m.getMenuElement(i);
-        if (me.projectPath == null
-            && me.sequence != null
-            && !MenuElement.RETURN_TAG.equals(me.sequence)) {
+        if (me.projectPath == null && me.sequence != null && !MenuElement.RETURN_TAG.equals(me.sequence)) {
           try {
-            Activity act =
-                Activity.getActivity(pl.activityBag.getElement(me.sequence).getData(), pl);
-            if (act instanceof Menu) ((Menu) act).getEditor(this);
+            Activity act = Activity.getActivity(pl.activityBag.getElement(me.sequence).getData(), pl);
+            if (act instanceof Menu)
+              ((Menu) act).getEditor(this);
           } catch (Exception ex) {
             System.err.println("Error reading activity:\n" + ex);
           }
-        } else me.getEditor(this);
+        } else
+          me.getEditor(this);
       }
     }
   }
@@ -90,7 +89,8 @@ public class MenuEditor extends Editor {
 
   protected void saveData() {
     ProjectLibrary pl = getProjectLibrary();
-    if (pl != null) pl.activityBag.addActivity(getMenu());
+    if (pl != null)
+      pl.activityBag.addActivity(getMenu());
   }
 
   public ProjectLibrary getProjectLibrary() {
@@ -99,7 +99,8 @@ public class MenuEditor extends Editor {
       if (p != null) {
         if (p instanceof ProjectLibraryEditor)
           projectLibrary = ((ProjectLibraryEditor) p).getProjectLibrary();
-        else if (p instanceof MenuEditor) projectLibrary = ((MenuEditor) p).getProjectLibrary();
+        else if (p instanceof MenuEditor)
+          projectLibrary = ((MenuEditor) p).getProjectLibrary();
       }
     }
     return projectLibrary;
@@ -144,7 +145,8 @@ public class MenuEditor extends Editor {
   }
 
   public static Icon getIcon() {
-    if (icon == null) icon = edu.xtec.util.ResourceManager.getImageIcon("icons/file_open.gif");
+    if (icon == null)
+      icon = edu.xtec.util.ResourceManager.getImageIcon("icons/file_open.gif");
     return icon;
   }
 
@@ -160,11 +162,11 @@ public class MenuEditor extends Editor {
     messages[Activity.MAIN].setTextContent(m.description);
 
     MenuElement me = checkParentMenuElementRef(false, false, false, 0);
-    if (me != null) me.caption = m.description;
+    if (me != null)
+      me.caption = m.description;
   }
 
-  protected MenuElement checkParentMenuElementRef(
-      boolean remove, boolean create, boolean move, int index) {
+  protected MenuElement checkParentMenuElementRef(boolean remove, boolean create, boolean move, int index) {
     MenuElement result = null;
     Menu m = getMenu();
     if (getEditorParent() instanceof MenuEditor) {
@@ -178,7 +180,8 @@ public class MenuEditor extends Editor {
       }
       if (result != null && (remove || move)) {
         pm.menuElements.remove(result);
-        if (move) pm.menuElements.add(index, result);
+        if (move)
+          pm.menuElements.add(index, result);
       } else if (result == null && create) {
         index = Math.max(0, Math.min(index, m.getMenuElementCount()));
         result = new MenuElement();
@@ -193,21 +196,24 @@ public class MenuEditor extends Editor {
   @Override
   public boolean moveUp(boolean updateSelection) {
     boolean result = super.moveUp(updateSelection);
-    if (result) checkParentMenuElementRef(false, false, true, getParent().getIndex(this));
+    if (result)
+      checkParentMenuElementRef(false, false, true, getParent().getIndex(this));
     return result;
   }
 
   @Override
   public boolean moveDown(boolean updateSelection) {
     boolean result = super.moveDown(updateSelection);
-    if (result) checkParentMenuElementRef(false, false, true, getParent().getIndex(this));
+    if (result)
+      checkParentMenuElementRef(false, false, true, getParent().getIndex(this));
     return result;
   }
 
   @Override
   public boolean insertEditor(Editor e, boolean asChild, int index, boolean updateSelection) {
     boolean result = false;
-    if (!asChild) result = super.insertEditor(e, asChild, index, updateSelection);
+    if (!asChild)
+      result = super.insertEditor(e, asChild, index, updateSelection);
     else {
       if (e instanceof MenuEditor) {
         ProjectLibrary pl = getProjectLibrary();
@@ -215,10 +221,14 @@ public class MenuEditor extends Editor {
           Menu m = ((MenuEditor) e).getMenu();
           // find last non-Menu index
           int i;
-          for (i = 0; i < getChildCount(); i++) if (!(getChildAt(i) instanceof MenuEditor)) break;
+          for (i = 0; i < getChildCount(); i++)
+            if (!(getChildAt(i) instanceof MenuEditor))
+              break;
 
-          if (index < 0) index = i;
-          else index = Math.min(index, i);
+          if (index < 0)
+            index = i;
+          else
+            index = Math.min(index, i);
 
           pl.activityBag.addActivity(m);
           pl.activitySequence.add(new ActivitySequenceElement(m.name, true));
@@ -228,8 +238,10 @@ public class MenuEditor extends Editor {
         }
       } else if (e instanceof MenuElementEditor) {
         MenuElement me = ((MenuElementEditor) e).getMenuElement();
-        if (index < 0) index = getChildCount();
-        else index = Math.min(index, getChildCount());
+        if (index < 0)
+          index = getChildCount();
+        else
+          index = Math.min(index, getChildCount());
 
         getMenu().menuElements.add(index, me);
         result = super.insertEditor(me.getEditor(this), true, index, updateSelection);
@@ -246,7 +258,8 @@ public class MenuEditor extends Editor {
       JTree ct = getCurrentTree();
       TreePath savePath = null;
 
-      if (ct != null) savePath = ct.getSelectionPath();
+      if (ct != null)
+        savePath = ct.getSelectionPath();
 
       Menu nm = new Menu(pl);
       nm.name = Long.toString(System.currentTimeMillis());
@@ -255,9 +268,7 @@ public class MenuEditor extends Editor {
       med.setDescription(getOptions().getMsg("menu_newMenuName"));
 
       if (prompt) {
-        result =
-            med.createEditorPanel(getOptions())
-                .showDialog(med, "menu_newMenuElement_caption", dlgParent, true);
+        result = med.createEditorPanel(getOptions()).showDialog(med, "menu_newMenuElement_caption", dlgParent, true);
       } else {
         result = true;
       }
@@ -282,22 +293,23 @@ public class MenuEditor extends Editor {
 
     me.caption = getOptions().getMsg("menu_newMenuElementName");
 
-    if (ct != null) savePath = ct.getSelectionPath();
+    if (ct != null)
+      savePath = ct.getSelectionPath();
 
     mee = (MenuElementEditor) me.getEditor(null);
     mee.projectLibrary = getProjectLibrary();
     mee.createChildren();
 
     if (prompt) {
-      result =
-          mee.createEditorPanel(getOptions())
-              .showDialog(mee, "menu_newMenuElement_caption", dlgParent, true);
+      result = mee.createEditorPanel(getOptions()).showDialog(mee, "menu_newMenuElement_caption", dlgParent, true);
     } else {
       result = true;
     }
 
-    if (index < 0) index = getChildCount();
-    else index = Math.min(index, getChildCount());
+    if (index < 0)
+      index = getChildCount();
+    else
+      index = Math.min(index, getChildCount());
 
     if (result) {
       result = insertEditor(mee, true, index, true);
@@ -318,7 +330,8 @@ public class MenuEditor extends Editor {
       parent = saveParent;
       if (pl != null) {
         ActivitySequenceElement ase = pl.activitySequence.getElementByTag(name, false);
-        if (ase != null) pl.activitySequence.remove(ase);
+        if (ase != null)
+          pl.activitySequence.remove(ase);
         pl.activityBag.removeElementByName(name);
       }
 
@@ -336,42 +349,39 @@ public class MenuEditor extends Editor {
 
   @Override
   public boolean canBeSiblingOf(Editor e) {
-    if (getEditorParent() instanceof MenuEditor) return canBeParentOf(e);
-    else return (e instanceof MenuElementEditor);
+    if (getEditorParent() instanceof MenuEditor)
+      return canBeParentOf(e);
+    else
+      return (e instanceof MenuElementEditor);
   }
 
   public static void createActions(Options options) {
     createBasicActions(options);
     if (!actionsCreated) {
 
-      newMenuElementAction =
-          new EditorAction(
-              "menu_newMenuElement_caption",
-              "icons/new_miniclic.png",
-              "menu_newMenuElement_tooltip",
-              options) {
-            protected void doAction(Editor e) {
-              Editor ch = null;
-              if (e instanceof MenuElementEditor) {
-                ch = e;
-                e = e.getEditorParent();
-              }
+      newMenuElementAction = new EditorAction("menu_newMenuElement_caption", "icons/new_miniclic.png",
+          "menu_newMenuElement_tooltip", options) {
+        protected void doAction(Editor e) {
+          Editor ch = null;
+          if (e instanceof MenuElementEditor) {
+            ch = e;
+            e = e.getEditorParent();
+          }
 
-              if (e instanceof MenuEditor)
-                ((MenuEditor) e)
-                    .createNewMenuElement(e.getNearestIndex(ch, true), true, getComponentSrc());
-            }
-          };
+          if (e instanceof MenuEditor)
+            ((MenuEditor) e).createNewMenuElement(e.getNearestIndex(ch, true), true, getComponentSrc());
+        }
+      };
 
-      newMenuAction =
-          new EditorAction(
-              "menu_newMenu_caption", "icons/new_folder.gif", "menu_newMenu_tooltip", options) {
-            protected void doAction(Editor e) {
-              if (e instanceof MenuElementEditor) e = e.getEditorParent();
-              if (e instanceof MenuEditor)
-                ((MenuEditor) e).createNewMenu(-1, true, getComponentSrc());
-            }
-          };
+      newMenuAction = new EditorAction("menu_newMenu_caption", "icons/new_folder.gif", "menu_newMenu_tooltip",
+          options) {
+        protected void doAction(Editor e) {
+          if (e instanceof MenuElementEditor)
+            e = e.getEditorParent();
+          if (e instanceof MenuEditor)
+            ((MenuEditor) e).createNewMenu(-1, true, getComponentSrc());
+        }
+      };
 
       actionsCreated = true;
     }

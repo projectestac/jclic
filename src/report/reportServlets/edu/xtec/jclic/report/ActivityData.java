@@ -32,14 +32,7 @@ public class ActivityData implements java.io.Serializable {
   public boolean solved;
 
   /** Creates a new instance of ActivityData */
-  public ActivityData(
-      String project,
-      String activityName,
-      String id,
-      int time,
-      int actions,
-      int score,
-      boolean solved,
+  public ActivityData(String project, String activityName, String id, int time, int actions, int score, boolean solved,
       int qualification) {
     this.project = project != null ? project.trim() : null;
     this.activityName = activityName != null ? activityName.trim() : null;
@@ -53,7 +46,8 @@ public class ActivityData implements java.io.Serializable {
 
   public int percentSolved() {
     int result = 0;
-    if (actions > 0) result = (score * 100) / actions;
+    if (actions > 0)
+      result = (score * 100) / actions;
     return result;
   }
 }

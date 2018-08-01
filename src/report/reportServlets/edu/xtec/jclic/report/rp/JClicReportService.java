@@ -35,8 +35,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author Francesc Busquets (fbusquets@xtec.cat)
- * @version(13.09.17)
+ * @author Francesc Busquets (fbusquets@xtec.cat) @version(13.09.17)
  */
 public class JClicReportService extends ReportsRequestProcessor {
 
@@ -46,20 +45,21 @@ public class JClicReportService extends ReportsRequestProcessor {
 
   @Override
   public boolean init() throws Exception {
-    if (!super.init()) return false;
+    if (!super.init())
+      return false;
 
     InputStream is = getInputStream();
 
     if (is != null) {
       if (prop != null) {
-        trustClientDateTime =
-            "true".equalsIgnoreCase((String) prop.get(BasicJDBCBridge.TRUST_CLIENT_DATETIME));
+        trustClientDateTime = "true".equalsIgnoreCase((String) prop.get(BasicJDBCBridge.TRUST_CLIENT_DATETIME));
       }
 
       org.jdom.Document doc = JDomUtility.getSAXBuilder().build(is);
       request = new TCPReportBean(doc.getRootElement());
       response = processRequest(request);
-    } else response = new TCPReportBean();
+    } else
+      response = new TCPReportBean();
 
     return true;
   }
@@ -82,14 +82,14 @@ public class JClicReportService extends ReportsRequestProcessor {
   @Override
   public void header(List<String[]> v) {
     super.header(v);
-    v.add(new String[] {CONTENT_TYPE, "text/xml"});
+    v.add(new String[] { CONTENT_TYPE, "text/xml" });
     // 8-Jun-16: Added support for Cross-Domain requests
     // 12-Jun-16: Support also Preflight requests sent via OPTIONS method
     // TODO: Allow to set specific values for CORS
-    v.add(new String[] {EXTRA, "Access-Control-Allow-Origin", "*"});
-    v.add(new String[] {EXTRA, "Access-Control-Allow-Methods", "POST, OPTIONS"});
-    v.add(new String[] {EXTRA, "Access-Control-Allow-Headers", "Content-Type"});
-    v.add(new String[] {EXTRA, "Access-Control-Allow-Max-Age", "1728000"});
+    v.add(new String[] { EXTRA, "Access-Control-Allow-Origin", "*" });
+    v.add(new String[] { EXTRA, "Access-Control-Allow-Methods", "POST, OPTIONS" });
+    v.add(new String[] { EXTRA, "Access-Control-Allow-Headers", "Content-Type" });
+    v.add(new String[] { EXTRA, "Access-Control-Allow-Max-Age", "1728000" });
   }
 
   private TCPReportBean processRequest(TCPReportBean bean) throws Exception {
@@ -99,18 +99,13 @@ public class JClicReportService extends ReportsRequestProcessor {
     String id = bean.getId();
     if (TCPReportBean.MULTIPLE.equals(id)) {
       Domable[] beans = bean.getData();
-      for (int i = 0; i < beans.length; i++) result = processRequest((TCPReportBean) beans[i]);
+      for (int i = 0; i < beans.length; i++)
+        result = processRequest((TCPReportBean) beans[i]);
     } else if (TCPReportBean.ADD_SESSION.equals(id)) {
-      String sessionId =
-          bridge.addSession(
-              bean.getParam(TCPReportBean.USER),
-              trustClientDateTime
-                  ? Long.parseLong(bean.getParam(TCPReportBean.TIME))
-                  : System.currentTimeMillis(),
-              bean.getParam(TCPReportBean.PROJECT),
-              bean.getParam(TCPReportBean.CODE),
-              bean.getParam(TCPReportBean.KEY),
-              bean.getParam(TCPReportBean.CONTEXT));
+      String sessionId = bridge.addSession(bean.getParam(TCPReportBean.USER),
+          trustClientDateTime ? Long.parseLong(bean.getParam(TCPReportBean.TIME)) : System.currentTimeMillis(),
+          bean.getParam(TCPReportBean.PROJECT), bean.getParam(TCPReportBean.CODE), bean.getParam(TCPReportBean.KEY),
+          bean.getParam(TCPReportBean.CONTEXT));
       result.setParam(TCPReportBean.SESSION, sessionId);
       result.setId(TCPReportBean.ADD_SESSION);
     } else if (TCPReportBean.ADD_ACTIVITY.equals(id)) {
@@ -160,12 +155,9 @@ public class JClicReportService extends ReportsRequestProcessor {
       result.setData((UserData[]) v.toArray(new UserData[v.size()]));
       result.setId(TCPReportBean.GET_USERS);
     } else {
-      // fireReportServerEvent(ReportServerEvent.DB, "unknow command", socket,
-      // ReportServerEvent.ERROR);
       result.setParam(TCPReportBean.ERROR, "unknown command");
     }
 
-    // Mirar qus el que es reporta!!!
     eventMaker.fireReportServerSystemEvent(id);
 
     return result;

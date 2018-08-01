@@ -70,15 +70,8 @@ public class ActivityReg extends Object implements java.io.Serializable, Domable
   }
 
   public static final String ELEMENT_NAME = "activity";
-  public static final String NAME = "name",
-      CODE = "code",
-      START = "start",
-      TIME = "time",
-      SOLVED = "solved",
-      SCORE = "score",
-      MIN_ACTIONS = "minActions",
-      CLOSED = "closed",
-      REPORT_ACTIONS = "reportActions",
+  public static final String NAME = "name", CODE = "code", START = "start", TIME = "time", SOLVED = "solved",
+      SCORE = "score", MIN_ACTIONS = "minActions", CLOSED = "closed", REPORT_ACTIONS = "reportActions",
       ACTIONS = "actions";
 
   public org.jdom.Element getJDomElement() {
@@ -90,11 +83,14 @@ public class ActivityReg extends Object implements java.io.Serializable, Domable
     e.setAttribute(SOLVED, JDomUtility.boolString(solved));
     JDomUtility.setStringAttr(e, SCORE, Integer.toString(score), false);
     JDomUtility.setStringAttr(e, MIN_ACTIONS, Integer.toString(minActions), false);
-    if (!closed) e.setAttribute(CLOSED, JDomUtility.BOOL_STR[JDomUtility.FALSE]);
-    if (reportActions) e.setAttribute(REPORT_ACTIONS, JDomUtility.BOOL_STR[JDomUtility.TRUE]);
+    if (!closed)
+      e.setAttribute(CLOSED, JDomUtility.BOOL_STR[JDomUtility.FALSE]);
+    if (reportActions)
+      e.setAttribute(REPORT_ACTIONS, JDomUtility.BOOL_STR[JDomUtility.TRUE]);
     JDomUtility.setStringAttr(e, ACTIONS, Integer.toString(numActions), false);
     Iterator<ActionReg> it = actions.iterator();
-    while (it.hasNext()) e.addContent(it.next().getJDomElement());
+    while (it.hasNext())
+      e.addContent(it.next().getJDomElement());
     return e;
   }
 
@@ -123,7 +119,8 @@ public class ActivityReg extends Object implements java.io.Serializable, Domable
   public String toHtmlString(edu.xtec.util.Messages msg, String firstTd) {
     Html html = new Html(300);
     html.tr(true);
-    if (firstTd != null) html.append(firstTd);
+    if (firstTd != null)
+      html.append(firstTd);
     html.td(name, false);
     if (closed) {
       html.td(msg.get(solved ? "YES" : "NO"), Html.CENTER, true, solved ? okTd : badTd);
@@ -131,9 +128,7 @@ public class ActivityReg extends Object implements java.io.Serializable, Domable
       html.td(msg.getPercent(getPrecision()), Html.RIGHT, false, null);
       html.td(msg.getHmsTime(totalTime), Html.RIGHT, false, null);
     } else
-      html.append("<TD COLSPAN=\"4\" ALIGN=\"center\">")
-          .append(msg.get("report_not_finished"))
-          .td(false);
+      html.append("<TD COLSPAN=\"4\" ALIGN=\"center\">").append(msg.get("report_not_finished")).td(false);
     html.tr(false);
     return html.toString();
   }
@@ -164,8 +159,10 @@ public class ActivityReg extends Object implements java.io.Serializable, Domable
     int result = 0;
     if (closed && minActions > 0 && numActions > 0) {
       if (solved) {
-        if (numActions < minActions) result = 100;
-        else result = (minActions * 100) / numActions;
+        if (numActions < minActions)
+          result = 100;
+        else
+          result = (minActions * 100) / numActions;
       } else {
         result = 100 * (score * score) / (minActions * numActions);
       }

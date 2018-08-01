@@ -38,7 +38,6 @@ public class ExploreEditor extends ActivityEditor {
 
   @Override
   protected void createPanels(ActivityEditorPanel panel) {
-    // panel.addInternalPanel(ActivityEditorPanel.GRID_A, null, null);
     panel.addInternalPanel(ActivityEditorPanel.DOUBLE_REL, null, null);
   }
 }

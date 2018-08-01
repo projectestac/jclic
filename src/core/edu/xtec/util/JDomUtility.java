@@ -123,8 +123,6 @@ public class JDomUtility {
     // be careful with alpha : high bits
     String s = Long.toHexString(0x100000000L | color.getRGB()).toUpperCase();
     s = s.substring(s.length() - (color.getAlpha() == 0xFF ? 6 : 8));
-    // s=s.substring(color.getAlpha()==0xFF ? 3 : 1);
-    // if(s.length()>6) s=s.substring(s.length()-6);
     return "0x" + s;
   }
 
@@ -658,7 +656,6 @@ public class JDomUtility {
           toRemove.add((org.jdom.Text) o);
         }
       }
-      // content.removeAll(toRemove);
       if (toRemove != null) {
         for (org.jdom.Text o : toRemove) {
           content.remove(o);
@@ -686,9 +683,6 @@ public class JDomUtility {
   }
 
   public static void saveDocument(OutputStream out, org.jdom.Document doc) throws Exception {
-    // org.jdom.output.XMLOutputter outputter=new org.jdom.output.XMLOutputter(" ", true, "UTF-8");
-    // org.jdom.output.SpecialXMLOutputter outputter=new org.jdom.output.SpecialXMLOutputter(" ",
-    // true, "UTF-8");
     getXMLOutputter().output(doc, out);
     out.flush();
   }

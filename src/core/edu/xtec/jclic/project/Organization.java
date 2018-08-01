@@ -55,27 +55,28 @@ public class Organization extends Object implements Domable {
   }
 
   public static final String ELEMENT_NAME = "organization";
-  public static final String NAME = "name",
-      MAIL = "mail",
-      URL = "url",
-      ADDRESS = "address",
-      PC = "pc",
-      CITY = "city",
-      COUNTRY = "country",
-      STATE = "state",
-      COMMENTS = "comments";
+  public static final String NAME = "name", MAIL = "mail", URL = "url", ADDRESS = "address", PC = "pc", CITY = "city",
+      COUNTRY = "country", STATE = "state", COMMENTS = "comments";
 
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
     e.setAttribute(NAME, name);
-    if (mail != null) e.setAttribute(MAIL, mail);
-    if (url != null) e.setAttribute(URL, url);
-    if (address != null) e.setAttribute(ADDRESS, address);
-    if (pc != null) e.setAttribute(PC, pc);
-    if (city != null) e.setAttribute(CITY, city);
-    if (country != null) e.setAttribute(COUNTRY, country);
-    if (state != null) e.setAttribute(STATE, state);
-    if (comments != null) JDomUtility.addParagraphs(e, COMMENTS, comments);
+    if (mail != null)
+      e.setAttribute(MAIL, mail);
+    if (url != null)
+      e.setAttribute(URL, url);
+    if (address != null)
+      e.setAttribute(ADDRESS, address);
+    if (pc != null)
+      e.setAttribute(PC, pc);
+    if (city != null)
+      e.setAttribute(CITY, city);
+    if (country != null)
+      e.setAttribute(COUNTRY, country);
+    if (state != null)
+      e.setAttribute(STATE, state);
+    if (comments != null)
+      JDomUtility.addParagraphs(e, COMMENTS, comments);
     return e;
   }
 
@@ -101,17 +102,25 @@ public class Organization extends Object implements Domable {
   public String toHtmlString(edu.xtec.util.Messages msg) {
     Html html = new Html(300);
     html.append(name);
-    if (mail != null && mail.length() > 0) html.sp().mailTo(mail, true);
-    if (url != null && url.length() > 0) html.br().linkTo(url, null);
-    if (address != null) html.br().appendParagraphs(address);
+    if (mail != null && mail.length() > 0)
+      html.sp().mailTo(mail, true);
+    if (url != null && url.length() > 0)
+      html.br().linkTo(url, null);
+    if (address != null)
+      html.br().appendParagraphs(address);
     if (pc != null || city != null) {
       html.br();
-      if (pc != null) html.append(pc).nbsp();
-      if (city != null) html.appendParagraphs(city);
+      if (pc != null)
+        html.append(pc).nbsp();
+      if (city != null)
+        html.appendParagraphs(city);
     }
-    if (state != null) html.br().appendParagraphs(state);
-    if (country != null) html.br().appendParagraphs(country);
-    if (comments != null) html.br().appendParagraphs(comments);
+    if (state != null)
+      html.br().appendParagraphs(state);
+    if (country != null)
+      html.br().appendParagraphs(country);
+    if (comments != null)
+      html.br().appendParagraphs(comments);
     return html.toString();
   }
 
@@ -119,7 +128,8 @@ public class Organization extends Object implements Domable {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append(name);
-    if (city != null && city.length() > 0) sb.append(" (").append(city).append(")");
+    if (city != null && city.length() > 0)
+      sb.append(" (").append(city).append(")");
     return sb.toString();
   }
 
@@ -130,7 +140,8 @@ public class Organization extends Object implements Domable {
     if (p > 0) {
       result.name = str.substring(0, p);
       result.city = str.substring(p + 2, str.length() - 1);
-    } else result.name = str;
+    } else
+      result.name = str;
     return result;
   }
 }

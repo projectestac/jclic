@@ -45,7 +45,6 @@ public class ImgPanel extends JLabel {
       setText("No picture found.");
       setHorizontalAlignment(CENTER);
       setOpaque(true);
-      // setBackground(Color.white);
     }
 
     setAutoscrolls(true); // enable synthetic drag events

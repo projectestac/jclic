@@ -36,9 +36,8 @@ import javax.swing.text.*;
  */
 public class TextTarget extends java.lang.Object {
 
-  // enum TIPUS_INCOGNITA {ESCRITA, LLISTA};
   public static final int NO_INFO = 0, INFO_ALWAYS = 1, INFO_ON_ERROR = 2, INFO_ON_DEMAND = 3;
-  public static final String[] infoTypes = {"no_info", "always", "onError", "onDemand"};
+  public static final String[] infoTypes = { "no_info", "always", "onError", "onDemand" };
   public static final int NOT_EDITED = 0, EDITED = 1, SOLVED = 2, WITH_ERROR = 3;
   public static final int INFO_LEFTALIGN = 1, INFO_ONLYPLAY = 2;
 
@@ -95,57 +94,55 @@ public class TextTarget extends java.lang.Object {
       s = "";
     }
     numIniChars = s.length();
-    answer = new String[] {s};
+    answer = new String[] { s };
     maxLenResp = numIniChars;
   }
 
   public void reset() {
     targetStatus = NOT_EDITED;
     flagModified = false;
-    if (comboList != null) comboList.checkColors();
+    if (comboList != null)
+      comboList.checkColors();
   }
 
   public static final String ELEMENT_NAME = "target";
-  public static final String ANSWER = "answer",
-      OPTION_LIST = "optionList",
-      OPTION = "option",
-      RESPONSE = "response",
-      FILL = "fill",
-      INI_LEN = "length",
-      MAX_LEN = "maxLength",
-      INI_TEXT = "show",
-      INFO = "info",
-      MODE = "mode",
-      DELAY = "delay",
-      MAX_TIME = "maxTime";
+  public static final String ANSWER = "answer", OPTION_LIST = "optionList", OPTION = "option", RESPONSE = "response",
+      FILL = "fill", INI_LEN = "length", MAX_LEN = "maxLength", INI_TEXT = "show", INFO = "info", MODE = "mode",
+      DELAY = "delay", MAX_TIME = "maxTime";
 
   public org.jdom.Element getJDomElement() {
 
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
     org.jdom.Element child;
     if (answer != null) {
-      for (String ans : answer) e.addContent((new org.jdom.Element(ANSWER)).addContent(ans));
+      for (String ans : answer)
+        e.addContent((new org.jdom.Element(ANSWER)).addContent(ans));
     }
     if (isList) {
       child = new org.jdom.Element(OPTION_LIST);
       if (options != null) {
-        for (String opt : options) child.addContent((new org.jdom.Element(OPTION)).addContent(opt));
+        for (String opt : options)
+          child.addContent((new org.jdom.Element(OPTION)).addContent(opt));
       }
       e.addContent(child);
     } else {
       child = new org.jdom.Element(RESPONSE);
-      child.setAttribute(FILL, new String(new char[] {iniChar}));
+      child.setAttribute(FILL, new String(new char[] { iniChar }));
       child.setAttribute(INI_LEN, Integer.toString(numIniChars));
       child.setAttribute(MAX_LEN, Integer.toString(maxLenResp));
-      if (iniText != null && iniText.length() > 0) child.setAttribute(INI_TEXT, iniText);
+      if (iniText != null && iniText.length() > 0)
+        child.setAttribute(INI_TEXT, iniText);
       e.addContent(child);
     }
 
     if (popupContent != null && infoMode != NO_INFO) {
       child = new org.jdom.Element(INFO);
-      if (infoMode != INFO_ALWAYS) child.setAttribute(MODE, infoTypes[infoMode]);
-      if (popupDelay > 0) child.setAttribute(DELAY, Integer.toString(popupDelay));
-      if (popupMaxTime > 0) child.setAttribute(MAX_TIME, Integer.toString(popupMaxTime));
+      if (infoMode != INFO_ALWAYS)
+        child.setAttribute(MODE, infoTypes[infoMode]);
+      if (popupDelay > 0)
+        child.setAttribute(DELAY, Integer.toString(popupDelay));
+      if (popupMaxTime > 0)
+        child.setAttribute(MAX_TIME, Integer.toString(popupMaxTime));
       if (onlyPlay && popupContent.mediaContent != null) {
         child.addContent(popupContent.mediaContent.getJDomElement());
       } else {
@@ -183,9 +180,10 @@ public class TextTarget extends java.lang.Object {
       }
     }
     if ((child = e.getChild(RESPONSE)) != null) {
-      String s = new String(new char[] {iniChar});
+      String s = new String(new char[] { iniChar });
       s = JDomUtility.getStringAttr(child, FILL, s, true);
-      if (s.length() > 0) iniChar = s.charAt(0);
+      if (s.length() > 0)
+        iniChar = s.charAt(0);
       numIniChars = JDomUtility.getIntAttr(child, INI_LEN, numIniChars);
       maxLenResp = JDomUtility.getIntAttr(child, MAX_LEN, maxLenResp);
       iniText = child.getAttributeValue(INI_TEXT);
@@ -225,23 +223,27 @@ public class TextTarget extends java.lang.Object {
     StringBuilder sb = new StringBuilder();
     if (answer != null)
       for (int i = 0; i < answer.length; i++) {
-        if (i > 0) sb.append("|");
+        if (i > 0)
+          sb.append("|");
         sb.append(answer[i]);
       }
     return sb.substring(0);
   }
 
   public boolean checkText(String txt, Evaluator ev) {
-    if (answer == null || txt == null) return false;
+    if (answer == null || txt == null)
+      return false;
     boolean ok = ev.checkText(txt, answer);
     targetStatus = ok ? SOLVED : WITH_ERROR;
     return ok;
   }
 
   public JComboBox buildCombo(AttributeSet targetAttr, AttributeSet errorAttr) {
-    if (!isList || options == null) return null;
+    if (!isList || options == null)
+      return null;
     comboList = new TargetCombo(options, targetAttr, errorAttr);
-    if (iniText != null) comboList.setSelectedItem(iniText);
+    if (iniText != null)
+      comboList.setSelectedItem(iniText);
     return comboList;
   }
 
@@ -259,60 +261,65 @@ public class TextTarget extends java.lang.Object {
 
   public void requestFocus(TextActivityBase.Panel tabp, TargetMarker tm) {
     if (comboList != null) {
-      SwingUtilities.invokeLater(
-          new Runnable() {
-            public void run() {
-              comboList.requestFocus();
-              // comboList.setPopupVisible(true);
-            }
-          });
-
-      // if(tab instanceof FillInBlanks)
-      //    parent=(FillInBlanks.FillInBlanksPane)tab.pane;
-    } else tabp.requestFocus();
-    if (popupContent != null
-        && (infoMode == INFO_ALWAYS || (infoMode == INFO_ON_ERROR && targetStatus == WITH_ERROR)))
+      SwingUtilities.invokeLater(new Runnable() {
+        public void run() {
+          comboList.requestFocus();
+        }
+      });
+    } else
+      tabp.requestFocus();
+    if (popupContent != null && (infoMode == INFO_ALWAYS || (infoMode == INFO_ON_ERROR && targetStatus == WITH_ERROR)))
       tabp.popupTimer.setUp(this, tm);
   }
 
   public void checkPopup(TextActivityBase.Panel tabp, TargetMarker tm, boolean f1Key) {
     if (popupContent != null) {
       boolean show = false;
-      if (infoMode == INFO_ON_ERROR) show = (targetStatus == WITH_ERROR);
-      else if (infoMode == INFO_ON_DEMAND) show = f1Key;
+      if (infoMode == INFO_ON_ERROR)
+        show = (targetStatus == WITH_ERROR);
+      else if (infoMode == INFO_ON_DEMAND)
+        show = f1Key;
 
-      if (show) tabp.popupTimer.setUp(this, tm);
-      else tabp.popupTimer.stopPopup();
+      if (show)
+        tabp.popupTimer.setUp(this, tm);
+      else
+        tabp.popupTimer.stopPopup();
     }
   }
 
   protected Point getPopupLocation(TextActivityBase.Panel tabp, TargetMarker tm) {
-    if (popupContent == null || onlyPlay) return null;
+    if (popupContent == null || onlyPlay)
+      return null;
 
     Rectangle r = tm.getBegRect(tabp.pane);
-    if (r == null) return null;
+    if (r == null)
+      return null;
 
     Point pt = r.getLocation();
     pt.y -= popupContent.dimension.height;
-    if (pt.y < 0) pt.y = r.y + r.height;
+    if (pt.y < 0)
+      pt.y = r.y + r.height;
 
     if (pt.x + popupContent.dimension.width > tabp.pane.getWidth()) {
       pt.x -= (tabp.pane.getWidth() - pt.x + popupContent.dimension.width);
-      if (pt.x < 0) pt.x = 0;
+      if (pt.x < 0)
+        pt.x = 0;
     }
     return pt;
   }
 
   public void adjustPopupLocation(TextActivityBase.Panel tabp, TargetMarker tm) {
     Point pt = getPopupLocation(tabp, tm);
-    if (pt != null) tabp.pane.bx.setLocation(pt);
+    if (pt != null)
+      tabp.pane.bx.setLocation(pt);
   }
 
   public void lostFocus(TextActivityBase.Panel tabp, TargetMarker tm) {
     if (comboList != null && parentPane != null) {
       parentPane.repaint();
     }
-    if (popupContent != null) tabp.popupTimer.stopPopup();
+    if (popupContent != null)
+      tabp.popupTimer.stopPopup();
   }
 
   public class TargetCombo extends JComboBox<String> {
@@ -327,30 +334,32 @@ public class TextTarget extends java.lang.Object {
     public TargetCombo(String[] items, AttributeSet targetAttr, AttributeSet errorAttr) {
       super(items);
       setSelectedIndex(-1);
-      showListAction =
-          new AbstractAction("showList") {
-            public void actionPerformed(ActionEvent e) {
-              setPopupVisible(true);
-            }
-          };
-      fwdAction =
-          new AbstractAction("forward") {
-            public void actionPerformed(ActionEvent e) {
-              if (parentPane != null) {
-                Action act = parentPane.getActionMap().get("next-target");
-                if (act != null) act.actionPerformed(e);
-              }
-            }
-          };
-      bkAction =
-          new AbstractAction("backwards") {
-            public void actionPerformed(ActionEvent e) {
-              if (parentPane != null) {
-                Action act = parentPane.getActionMap().get("prev-target");
-                if (act != null) act.actionPerformed(e);
-              }
-            }
-          };
+
+      showListAction = new AbstractAction("showList") {
+        public void actionPerformed(ActionEvent e) {
+          setPopupVisible(true);
+        }
+      };
+
+      fwdAction = new AbstractAction("forward") {
+        public void actionPerformed(ActionEvent e) {
+          if (parentPane != null) {
+            Action act = parentPane.getActionMap().get("next-target");
+            if (act != null)
+              act.actionPerformed(e);
+          }
+        }
+      };
+
+      bkAction = new AbstractAction("backwards") {
+        public void actionPerformed(ActionEvent e) {
+          if (parentPane != null) {
+            Action act = parentPane.getActionMap().get("prev-target");
+            if (act != null)
+              act.actionPerformed(e);
+          }
+        }
+      };
 
       rFont = TextActivityDocument.attributesToFont(targetAttr);
       setFont(rFont);
@@ -359,19 +368,19 @@ public class TextTarget extends java.lang.Object {
       errBgColor = StyleConstants.getBackground(errorAttr);
       errForeColor = StyleConstants.getForeground(errorAttr);
       setCursor(Cursor.getDefaultCursor());
-      cellRenderer =
-          new edu.xtec.jclic.activities.text.TextTarget.TargetCombo.TargetComboCellRenderer();
+      cellRenderer = new edu.xtec.jclic.activities.text.TextTarget.TargetCombo.TargetComboCellRenderer();
       setRenderer(cellRenderer);
 
       Dimension d = getPreferredSize();
-      setPreferredSize(
-          new Dimension((int) d.getWidth() + rFont.getSize() / 2, (int) d.getHeight()));
+      setPreferredSize(new Dimension((int) d.getWidth() + rFont.getSize() / 2, (int) d.getHeight()));
 
       setMaximumSize(getPreferredSize());
       setEditable(true);
       Component c = getEditor().getEditorComponent();
-      if (c instanceof JTextField) txEditor = (JTextField) c;
-      else txEditor = new JTextField();
+      if (c instanceof JTextField)
+        txEditor = (JTextField) c;
+      else
+        txEditor = new JTextField();
       txEditor.setEnabled(false);
       checkColors();
       setAlignmentY(0.8f);
@@ -379,35 +388,22 @@ public class TextTarget extends java.lang.Object {
     }
 
     protected void setKActions() {
-      registerKeyboardAction(
-          showListAction, KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), JComponent.WHEN_FOCUSED);
-      registerKeyboardAction(
-          showListAction, KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), JComponent.WHEN_FOCUSED);
-      txEditor.registerKeyboardAction(
-          showListAction, KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), JComponent.WHEN_FOCUSED);
-      txEditor.registerKeyboardAction(
-          showListAction, KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), JComponent.WHEN_FOCUSED);
+      registerKeyboardAction(showListAction, KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), JComponent.WHEN_FOCUSED);
+      registerKeyboardAction(showListAction, KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), JComponent.WHEN_FOCUSED);
+      txEditor.registerKeyboardAction(showListAction, KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0),
+          JComponent.WHEN_FOCUSED);
+      txEditor.registerKeyboardAction(showListAction, KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0),
+          JComponent.WHEN_FOCUSED);
 
-      registerKeyboardAction(
-          fwdAction,
-          KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0),
+      registerKeyboardAction(fwdAction, KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, 0),
           JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-      registerKeyboardAction(
-          fwdAction,
-          KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0),
+      registerKeyboardAction(fwdAction, KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0),
           JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-      registerKeyboardAction(
-          fwdAction,
-          KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0),
+      registerKeyboardAction(fwdAction, KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0),
           JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-
-      registerKeyboardAction(
-          bkAction,
-          KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0),
+      registerKeyboardAction(bkAction, KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, 0),
           JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-      registerKeyboardAction(
-          bkAction,
-          KeyStroke.getKeyStroke(KeyEvent.VK_TAB, Event.SHIFT_MASK),
+      registerKeyboardAction(bkAction, KeyStroke.getKeyStroke(KeyEvent.VK_TAB, Event.SHIFT_MASK),
           JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
 
@@ -430,8 +426,8 @@ public class TextTarget extends java.lang.Object {
         setFont(rFont);
       }
 
-      public Component getListCellRendererComponent(
-          JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+      public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected,
+          boolean cellHasFocus) {
         setBackground(isSelected ? foreColor : bgColor);
         setForeground(isSelected ? bgColor : foreColor);
         setText(value == null ? "" : value.toString());
@@ -444,21 +440,21 @@ public class TextTarget extends java.lang.Object {
       super.setSelectedItem(o);
       if (o != null && parentPane != null) {
         setModified(true);
-        SwingUtilities.invokeLater(
-            new Runnable() {
-              public void run() {
-                if (!isPopupVisible()) {
-                  parentPane.targetChanged(TextTarget.this);
-                }
-              }
-            });
+        SwingUtilities.invokeLater(new Runnable() {
+          public void run() {
+            if (!isPopupVisible()) {
+              parentPane.targetChanged(TextTarget.this);
+            }
+          }
+        });
       }
     }
   }
 
   public void setModified(boolean value) {
     flagModified = value;
-    if (value == true && targetStatus == NOT_EDITED) targetStatus = EDITED;
+    if (value == true && targetStatus == NOT_EDITED)
+      targetStatus = EDITED;
   }
 
   public boolean isModified() {
@@ -485,17 +481,16 @@ public class TextTarget extends java.lang.Object {
       tm = setTm;
       action = true;
       if (target != null && target.popupContent != null) {
-        SwingUtilities.invokeLater(
-            new Runnable() {
-              public void run() {
-                if (target.popupDelay > 0) {
-                  // setDelay(target.popupDelay*1000);
-                  setInitialDelay(target.popupDelay * 1000);
-                  setRepeats(false);
-                  start();
-                } else startPopup();
-              }
-            });
+        SwingUtilities.invokeLater(new Runnable() {
+          public void run() {
+            if (target.popupDelay > 0) {
+              setInitialDelay(target.popupDelay * 1000);
+              setRepeats(false);
+              start();
+            } else
+              startPopup();
+          }
+        });
       }
     }
 
@@ -504,13 +499,13 @@ public class TextTarget extends java.lang.Object {
       if (target != null && target.popupContent != null) {
         if (!target.onlyPlay) {
           Point pt = target.getPopupLocation(tabp, tm);
-          if (pt != null) tabp.pane.enableActiveBox(target.popupContent, pt);
+          if (pt != null)
+            tabp.pane.enableActiveBox(target.popupContent, pt);
         }
         if (target.popupContent.mediaContent != null)
           tabp.ps.playMedia(target.popupContent.mediaContent, tabp.pane.bx);
         if (target.popupMaxTime > 0) {
           action = false;
-          // setDelay(target.popupMaxTime*1000);
           setInitialDelay(target.popupMaxTime * 1000);
           setRepeats(false);
           start();
@@ -528,8 +523,10 @@ public class TextTarget extends java.lang.Object {
 
     @Override
     protected void fireActionPerformed(java.awt.event.ActionEvent e) {
-      if (action == true) startPopup();
-      else stopPopup();
+      if (action == true)
+        startPopup();
+      else
+        stopPopup();
     }
   }
 }

@@ -29,33 +29,32 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * This class has a collection of XML {@link org.jdom.Element} objects, among with a set of
- * properties represented by key-value pairs, and a string identifer.
+ * This class has a collection of XML {@link org.jdom.Element} objects, among
+ * with a set of properties represented by key-value pairs, and a string
+ * identifer.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.14
  */
 public class DomableBean extends Object implements Domable, Serializable {
 
-  public static final String ELEMENT_NAME = "bean",
-      ID = "id",
-      PARAM = "param",
-      NAME = "name",
-      VALUE = "value";
+  public static final String ELEMENT_NAME = "bean", ID = "id", PARAM = "param", NAME = "name", VALUE = "value";
 
   private String id;
   private Map<String, String> params;
   private List<org.jdom.Element> elements;
 
   /** Creates a new instance of DomableBean */
-  public DomableBean() {}
+  public DomableBean() {
+  }
 
   public DomableBean(String id) {
     setId(id);
   }
 
   private List<org.jdom.Element> chkElements() {
-    if (elements == null) elements = new ArrayList<org.jdom.Element>();
+    if (elements == null)
+      elements = new ArrayList<org.jdom.Element>();
     return elements;
   }
 
@@ -69,7 +68,8 @@ public class DomableBean extends Object implements Domable, Serializable {
 
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
-    if (id != null) e.setAttribute(ID, id);
+    if (id != null)
+      e.setAttribute(ID, id);
     if (params != null) {
       Iterator<String> it = params.keySet().iterator();
       while (it.hasNext()) {
@@ -100,10 +100,8 @@ public class DomableBean extends Object implements Domable, Serializable {
     while (it.hasNext()) {
       org.jdom.Element child = (org.jdom.Element) it.next();
       if (PARAM.equals(child.getName())) {
-        getParams()
-            .put(
-                JDomUtility.getStringAttr(child, NAME, "DEFAULT", false),
-                JDomUtility.getStringAttr(child, VALUE, "", false));
+        getParams().put(JDomUtility.getStringAttr(child, NAME, "DEFAULT", false),
+            JDomUtility.getStringAttr(child, VALUE, "", false));
       } else {
         chkElements().add(child);
       }
@@ -117,7 +115,8 @@ public class DomableBean extends Object implements Domable, Serializable {
   }
 
   public void setParam(String key, String value) {
-    if (key != null) getParams().put(key, value);
+    if (key != null)
+      getParams().put(key, value);
   }
 
   public String getParam(String key) {
@@ -125,7 +124,8 @@ public class DomableBean extends Object implements Domable, Serializable {
   }
 
   public Map<String, String> getParams() {
-    if (params == null) params = new HashMap<String, String>();
+    if (params == null)
+      params = new HashMap<String, String>();
     return params;
   }
 
@@ -135,8 +135,10 @@ public class DomableBean extends Object implements Domable, Serializable {
 
   public org.jdom.Element[] getElements() {
     org.jdom.Element[] result;
-    if (elements != null) result = elements.toArray(new org.jdom.Element[elements.size()]);
-    else result = new org.jdom.Element[0];
+    if (elements != null)
+      result = elements.toArray(new org.jdom.Element[elements.size()]);
+    else
+      result = new org.jdom.Element[0];
     return result;
   }
 }

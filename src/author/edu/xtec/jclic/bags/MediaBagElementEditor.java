@@ -47,14 +47,14 @@ public class MediaBagElementEditor extends Editor {
   private static boolean actionsCreated;
   private static Icon icon;
   public static EditorAction testMediaBagElementAction;
-  //    public static EditorAction newMediaBagElementAction;
 
   /** Creates a new instance of MediaBagElementEditor */
   public MediaBagElementEditor(MediaBagElement el) {
     super(el);
   }
 
-  protected void createChildren() {}
+  protected void createChildren() {
+  }
 
   public Class getEditorPanelClass() {
     return MediaBagElementEditorPanel.class;
@@ -86,8 +86,6 @@ public class MediaBagElementEditor extends Editor {
     if (previewPanel == null) {
       previewPanel = new MediaPreviewPanel(this, options);
       options.getMessages().showInputDlg(parent, previewPanel, "edit_media_preview_tooltip", null);
-      // JOptionPane.showMessageDialog(JOptionPane.getFrameForComponent(parent), previewPanel,
-      // "preview", javax.swing.JOptionPane.PLAIN_MESSAGE);
       previewPanel.end();
       previewPanel = null;
     }
@@ -102,20 +100,13 @@ public class MediaBagElementEditor extends Editor {
 
     if (oldName.equals(newName)) {
       // do nothing
-    } else if (newName.length() < 1) errMsg = "edit_media_rename_invalid";
-    else if (getMediaBag().getElement(newName) != null) errMsg = "edit_media_rename_exists";
+    } else if (newName.length() < 1)
+      errMsg = "edit_media_rename_invalid";
+    else if (getMediaBag().getElement(newName) != null)
+      errMsg = "edit_media_rename_exists";
     else {
-      result =
-          getProjectEditor()
-              .nameChanged(
-                  Utils.T_CODES[Utils.getFileType(getMediaBagElement().getFileName())],
-                  oldName,
-                  newName);
-      // getMediaBagElement().setName(newName);
-      // getMediaBag().fireMediaNameChanged(Constants.MEDIA_OBJECT, newName, oldName);
-
-      // if(result)
-      //    fireEditorDataChanged(agent);
+      result = getProjectEditor().nameChanged(Utils.T_CODES[Utils.getFileType(getMediaBagElement().getFileName())],
+          oldName, newName);
     }
 
     if (errMsg != null && msg != null && parentComponent != null) {
@@ -129,7 +120,7 @@ public class MediaBagElementEditor extends Editor {
     FileSystem fs = getMediaBag().getProject().getFileSystem();
     if (fs.realFileExists(mbe.getFileName())) {
       mbe.setData(null);
-      fireEditorDataChanged(/*agent*/ null);
+      fireEditorDataChanged(/* agent */ null);
     }
   }
 
@@ -146,14 +137,12 @@ public class MediaBagElementEditor extends Editor {
       // do nothing
     } else if (Utils.getFileType(oldFileName) != Utils.getFileType(newFileName)) {
       errMsg = "edit_media_chfile_different";
-    } else if (newFileName.length() < 1) errMsg = "edit_media_chfile_invalid";
+    } else if (newFileName.length() < 1)
+      errMsg = "edit_media_chfile_invalid";
     else if (getMediaBag().getElementByFileName(newFileName) != null) {
       if (msg != null && parentComponent != null) {
-        msg.showAlert(
-            parentComponent,
-            new String[] {
-              msg.get("edit_media_exists_1"), newFileName, msg.get("edit_media_exists_2")
-            });
+        msg.showAlert(parentComponent,
+            new String[] { msg.get("edit_media_exists_1"), newFileName, msg.get("edit_media_exists_2") });
       }
     } else {
       getMediaBagElement().setFileName(newFileName);
@@ -172,7 +161,8 @@ public class MediaBagElementEditor extends Editor {
     return getName();
   }
 
-  protected void saveData() {}
+  protected void saveData() {
+  }
 
   @Override
   protected boolean delete(boolean changeSelection) {
@@ -191,7 +181,7 @@ public class MediaBagElementEditor extends Editor {
   }
 
   protected void setActionsFlag() {
-    // ATENCIO:
+    // WARNING:
     allowDelete = true;
     allowCut = false;
     allowCopy = false;
@@ -205,7 +195,6 @@ public class MediaBagElementEditor extends Editor {
 
     if (actionsCreated) {
       testMediaBagElementAction.setActionOwner(this);
-      // newMediaBagElementAction.setActionOwner(this);
     }
   }
 
@@ -213,19 +202,18 @@ public class MediaBagElementEditor extends Editor {
   public void clearActionsOwner() {
     super.clearActionsOwner();
     if (actionsCreated) {
-      // newMediaBagElementAction.setActionOwner(null);
       testMediaBagElementAction.setActionOwner(null);
     }
   }
 
   public static Icon getIcon() {
-    if (icon == null) icon = edu.xtec.util.ResourceManager.getImageIcon("icons/movie.gif");
+    if (icon == null)
+      icon = edu.xtec.util.ResourceManager.getImageIcon("icons/movie.gif");
     return icon;
   }
 
   @Override
   public Icon getIcon(boolean leaf, boolean expanded) {
-    // return leaf ? getIcon() : null;
     return getIcon();
   }
 
@@ -246,17 +234,15 @@ public class MediaBagElementEditor extends Editor {
   public static void createActions(Options opt) {
     createBasicActions(opt);
     if (!actionsCreated) {
-      testMediaBagElementAction =
-          new EditorAction(
-              "edit_media_preview", "icons/media_view.gif", "edit_media_preview_tooltip", opt) {
-            protected void doAction(Editor e) {
-              EditorPanel ep = getEditorPanelSrc();
-              if (ep != null && e instanceof MediaBagElementEditor) {
-                // MediaBagElement mbe=((MediaBagElementEditor)e).getMediaBagElement();
-                ((MediaBagElementEditor) e).testMedia(ep, ep.getOptions());
-              }
-            }
-          };
+      testMediaBagElementAction = new EditorAction("edit_media_preview", "icons/media_view.gif",
+          "edit_media_preview_tooltip", opt) {
+        protected void doAction(Editor e) {
+          EditorPanel ep = getEditorPanelSrc();
+          if (ep != null && e instanceof MediaBagElementEditor) {
+            ((MediaBagElementEditor) e).testMedia(ep, ep.getOptions());
+          }
+        }
+      };
       actionsCreated = true;
     }
   }
@@ -269,15 +255,12 @@ public class MediaBagElementEditor extends Editor {
       int type = Utils.getFileType(fileName);
       sb.append(options.getMsg(Utils.TYPE_CODES[type]));
       if (type == Utils.TYPE_IMAGE) {
-        if (mbe.animated) sb.append(" ").append(options.getMsg("ftype_animated"));
+        if (mbe.animated)
+          sb.append(" ").append(options.getMsg("ftype_animated"));
         try {
           Image img = mbe.getImage();
           if (img != null) {
-            sb.append(" (")
-                .append(img.getWidth(null))
-                .append("x")
-                .append(img.getHeight(null))
-                .append(")");
+            sb.append(" (").append(img.getWidth(null)).append("x").append(img.getHeight(null)).append(")");
           }
         } catch (Exception ex) {
           sb.append(" - ").append(options.getMsg("ERROR"));

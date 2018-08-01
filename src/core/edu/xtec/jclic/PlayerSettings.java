@@ -43,7 +43,6 @@ import java.util.Map;
 public class PlayerSettings extends Object implements Cloneable, edu.xtec.jclic.Constants, Domable {
 
   public ResourceBridge rb;
-  // public Options options;
   public LibraryManager libraryManager;
   public String language, country, variant;
   public String reporterClass, reporterParams;
@@ -63,15 +62,12 @@ public class PlayerSettings extends Object implements Cloneable, edu.xtec.jclic.
   public String cfgFile;
   public boolean readOnly;
   protected static String defaultCfgFile = null;
-  public static final String PROJECTS_PATH = "projects",
-      CFG_FILE = "jclic.cfg",
-      DEFAULT_SKIN = "@default.xml",
-      DEFAULT_REPORTER = "TCPReporter",
-      DEFAULT_REPORTER_PARAMS = "path=localhost:9000";
+  public static final String PROJECTS_PATH = "projects", CFG_FILE = "jclic.cfg", DEFAULT_SKIN = "@default.xml",
+      DEFAULT_REPORTER = "TCPReporter", DEFAULT_REPORTER_PARAMS = "path=localhost:9000";
   public boolean fressaEnabled;
 
   /** Creates new PlayerSettings */
-  public PlayerSettings(ResourceBridge rb, String fromPath /*, Options options*/) {
+  public PlayerSettings(ResourceBridge rb, String fromPath /* , Options options */) {
     this.rb = rb;
     password = null;
     misc = new HashMap<String, String>();
@@ -99,24 +95,13 @@ public class PlayerSettings extends Object implements Cloneable, edu.xtec.jclic.
     passwordConfirmed = false;
   }
 
-  public static final String ELEMENT_NAME = "JClicSettings",
-      REPORTER = "reporter",
-      CLASS = "class",
-      PARAMS = "params",
-      SOUND = "sound",
-      SYSTEM = "system",
-      MISC = "misc",
-      PATHS = "paths",
-      PATH = "path",
-      ROOT = "root",
-      RECENT_FILES = "recentFiles",
-      FILE = "file",
-      PASSWORD = "password";
+  public static final String ELEMENT_NAME = "JClicSettings", REPORTER = "reporter", CLASS = "class", PARAMS = "params",
+      SOUND = "sound", SYSTEM = "system", MISC = "misc", PATHS = "paths", PATH = "path", ROOT = "root",
+      RECENT_FILES = "recentFiles", FILE = "file", PASSWORD = "password";
 
   public static String getDefaultCfgFile(Options options) {
     if (defaultCfgFile == null) {
-      defaultCfgFile =
-          edu.xtec.util.PersistentSettings.getFilePath(PROGRAM, CFG_FILE, options, true);
+      defaultCfgFile = edu.xtec.util.PersistentSettings.getFilePath(PROGRAM, CFG_FILE, options, true);
     }
     return defaultCfgFile;
   }
@@ -177,10 +162,7 @@ public class PlayerSettings extends Object implements Cloneable, edu.xtec.jclic.
   }
 
   public void checkLibrary() {
-    if (!readOnly
-        && libraryManager.isEmpty()
-        && rootPath != null
-        && !FileSystem.isStrUrl(rootPath)) {
+    if (!readOnly && libraryManager.isEmpty() && rootPath != null && !FileSystem.isStrUrl(rootPath)) {
       File f = new File(new File(rootPath), "library.jclic");
       try {
         libraryManager.addNewLibrary(f.getAbsolutePath(), null);
@@ -343,15 +325,13 @@ public class PlayerSettings extends Object implements Cloneable, edu.xtec.jclic.
       while (it.hasNext()) {
         org.jdom.Attribute a = (org.jdom.Attribute) it.next();
         misc.put(a.getName(), a.getValue());
-        // System.out.println(a.getName()+" - "+a.getValue());
       }
     }
     if ((child = e.getChild(RECENT_FILES)) != null) {
       java.util.Iterator it = child.getChildren(FILE).iterator();
       for (int i = 0; i < MAX_RECENT; i++) {
         if (it.hasNext()) {
-          recentFiles[i] =
-              JDomUtility.getStringAttr(((org.jdom.Element) it.next()), PATH, null, false);
+          recentFiles[i] = JDomUtility.getStringAttr(((org.jdom.Element) it.next()), PATH, null, false);
         } else {
           recentFiles[i] = null;
         }
@@ -406,7 +386,7 @@ public class PlayerSettings extends Object implements Cloneable, edu.xtec.jclic.
     boolean result = (passwordConfirmed || password == null || password.length() == 0);
     while (!result) {
       if (msgKeys == null) {
-        msgKeys = new String[] {"settings_passwordRequired"};
+        msgKeys = new String[] { "settings_passwordRequired" };
       }
       String r = getMessages().showInputDlg(parent, msgKeys, null, null, null, true);
       if (r == null) {

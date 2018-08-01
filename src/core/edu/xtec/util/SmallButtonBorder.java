@@ -42,9 +42,9 @@ public class SmallButtonBorder implements Border {
     this(jc.getBorder(), borderOn);
   }
 
-  public void paintBorder(
-      java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
-    if (borderOn) m_border.paintBorder(c, g, x, y, width, height);
+  public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
+    if (borderOn)
+      m_border.paintBorder(c, g, x, y, width, height);
   }
 
   public java.awt.Insets getBorderInsets(java.awt.Component component) {

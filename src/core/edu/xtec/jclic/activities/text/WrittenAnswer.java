@@ -45,8 +45,6 @@ public class WrittenAnswer extends Activity implements ActiveBagContentKit.Compa
     super(project);
     boxGridPos = AB;
     abc = new ActiveBagContent[3];
-    // for(int i=0; i<3; i++)
-    //    abc[i]=null;
     scramble[0] = false;
 
     nonAssignedCells = 0;
@@ -67,13 +65,15 @@ public class WrittenAnswer extends Activity implements ActiveBagContentKit.Compa
   public org.jdom.Element getJDomElement() {
     org.jdom.Element ex;
 
-    if (abc[0] == null || abc[1] == null) return null;
+    if (abc[0] == null || abc[1] == null)
+      return null;
 
     org.jdom.Element e = super.getJDomElement();
 
     e.addContent(abc[0].getJDomElement().setAttribute(ID, PRIMARY));
     e.addContent(abc[1].getJDomElement().setAttribute(ID, ANSWERS));
-    if (abc[2] != null) e.addContent(abc[2].getJDomElement().setAttribute(ID, SOLVED_PRIMARY));
+    if (abc[2] != null)
+      e.addContent(abc[2].getJDomElement().setAttribute(ID, SOLVED_PRIMARY));
 
     ex = new org.jdom.Element(SCRAMBLE);
     {
@@ -86,7 +86,8 @@ public class WrittenAnswer extends Activity implements ActiveBagContentKit.Compa
     ex.setAttribute(POSITION, LAYOUT_NAMES[boxGridPos]);
     e.addContent(ex);
 
-    if (invAss) e.setAttribute(INVERSE, JDomUtility.boolString(invAss));
+    if (invAss)
+      e.setAttribute(INVERSE, JDomUtility.boolString(invAss));
 
     return e;
   }
@@ -102,9 +103,12 @@ public class WrittenAnswer extends Activity implements ActiveBagContentKit.Compa
       child = ((org.jdom.Element) itr.next());
       bag = ActiveBagContent.getActiveBagContent(child, project.mediaBag);
       String id = JDomUtility.getStringAttr(child, ID, PRIMARY, false);
-      if (PRIMARY.equals(id)) abc[0] = bag;
-      else if (ANSWERS.equals(id)) abc[1] = bag;
-      else if (SOLVED_PRIMARY.equals(id)) abc[2] = bag;
+      if (PRIMARY.equals(id))
+        abc[0] = bag;
+      else if (ANSWERS.equals(id))
+        abc[1] = bag;
+      else if (SOLVED_PRIMARY.equals(id))
+        abc[2] = bag;
     }
     if (abc[0] == null || abc[1] == null)
       throw new IllegalArgumentException("WrittenAnswer without content!");
@@ -140,9 +144,12 @@ public class WrittenAnswer extends Activity implements ActiveBagContentKit.Compa
   }
 
   public int getMinNumActions() {
-    if (abc[0] == null || abc[1] == null) return 0;
-    if (invAss) return abc[1].getNumCells();
-    else return abc[0].getNumCells() - nonAssignedCells;
+    if (abc[0] == null || abc[1] == null)
+      return 0;
+    if (invAss)
+      return abc[1].getNumCells();
+    else
+      return abc[0].getNumCells() - nonAssignedCells;
   }
 
   @Override
@@ -173,12 +180,11 @@ public class WrittenAnswer extends Activity implements ActiveBagContentKit.Compa
 
     protected Panel(PlayStation ps) {
       super(ps);
-      for (int i = 0; i < 2; i++) bg[i] = null;
+      for (int i = 0; i < 2; i++)
+        bg[i] = null;
       currentCell = -1;
       textField = null;
-      // <<
       invAssCheck = null;
-      // >>
     }
 
     public void clear() {
@@ -193,7 +199,8 @@ public class WrittenAnswer extends Activity implements ActiveBagContentKit.Compa
     @Override
     public void buildVisualComponents() throws Exception {
 
-      if (firstRun) super.buildVisualComponents();
+      if (firstRun)
+        super.buildVisualComponents();
 
       ActiveBox bx;
       currentCell = -1;
@@ -207,23 +214,17 @@ public class WrittenAnswer extends Activity implements ActiveBagContentKit.Compa
 
         if (invAss) {
           invAssCheck = new boolean[abc[1].getNumCells()];
-          for (int i = 0; i < invAssCheck.length; i++) invAssCheck[i] = false;
+          for (int i = 0; i < invAssCheck.length; i++)
+            invAssCheck[i] = false;
         }
 
         bg[0] = ActiveBoxGrid.createEmptyGrid(null, this, margin, margin, abc[0]);
         // Clic3 behavior!!!
         double w = abc[1].w;
-        if (boxGridPos == AUB || boxGridPos == BUA) w = abc[0].getTotalWidth();
-        bg[1] =
-            new ActiveBoxGrid(
-                null,
-                this,
-                margin,
-                margin,
-                w,
-                abc[1].h,
-                new edu.xtec.jclic.shapers.Rectangular(1, 1),
-                abc[1].bb);
+        if (boxGridPos == AUB || boxGridPos == BUA)
+          w = abc[0].getTotalWidth();
+        bg[1] = new ActiveBoxGrid(null, this, margin, margin, w, abc[1].h, new edu.xtec.jclic.shapers.Rectangular(1, 1),
+            abc[1].bb);
 
         textField = new JTextField(200);
         textField.setHorizontalAlignment(JTextField.CENTER);
@@ -256,18 +257,17 @@ public class WrittenAnswer extends Activity implements ActiveBagContentKit.Compa
     public void initActivity() throws Exception {
       super.initActivity();
 
-      if (!firstRun) buildVisualComponents();
-      else firstRun = false;
+      if (!firstRun)
+        buildVisualComponents();
+      else
+        firstRun = false;
 
-      // setCounters(0, 0, 0);
       setAndPlayMsg(MAIN, EventSounds.START);
-      // ps.setMsg(messages[MAIN]);
       if (bg[0] != null && bg[1] != null) {
-        if (scramble[0]) shuffle(new ActiveBoxBag[] {bg[0]}, true, true);
-        // ps.playMsg();
-        // if(messages[MAIN]==null || messages[MAIN].mediaContent==null)
-        //    playEvent(EventSounds.START);
-        if (useOrder) currentItem = bg[0].getNextItem(-1);
+        if (scramble[0])
+          shuffle(new ActiveBoxBag[] { bg[0] }, true, true);
+        if (useOrder)
+          currentItem = bg[0].getNextItem(-1);
         playing = true;
         setCurrentCell(0);
       }
@@ -275,19 +275,22 @@ public class WrittenAnswer extends Activity implements ActiveBagContentKit.Compa
 
     public void render(Graphics2D g2, Rectangle dirtyRegion) {
       for (int i = 0; i < 2; i++) {
-        if (bg[i] != null) bg[i].update(g2, dirtyRegion, this);
+        if (bg[i] != null)
+          bg[i].update(g2, dirtyRegion, this);
       }
     }
 
     public Dimension setDimension(Dimension preferredMaxSize) {
-      return bg[0] == null || bg[1] == null || getSize().equals(preferredMaxSize)
-          ? preferredMaxSize
+      return bg[0] == null || bg[1] == null || getSize().equals(preferredMaxSize) ? preferredMaxSize
           : BoxBag.layoutDouble(preferredMaxSize, bg[0], bg[1], boxGridPos, margin);
     }
 
     private boolean checkInvAss() {
-      if (invAss == false || invAssCheck == null) return false;
-      for (boolean b : invAssCheck) if (!b) return false;
+      if (invAss == false || invAssCheck == null)
+        return false;
+      for (boolean b : invAssCheck)
+        if (!b)
+          return false;
       return true;
     }
 
@@ -295,17 +298,15 @@ public class WrittenAnswer extends Activity implements ActiveBagContentKit.Compa
       ActiveBox bx;
       boolean m = false;
 
-      if (!playing) return;
+      if (!playing)
+        return;
       if (currentCell != -1) {
         boolean ok = false;
         bx = bg[0].getActiveBoxWithIdLoc(currentCell);
         String src = bx.getDescription();
         bx.setMarked(false);
-        // <<
-        // String txCheck=abc[1].getActiveBoxContent(bx.idOrder).text;
         int id = bx.idAss;
         String txCheck = (id >= 0 ? abc[1].getActiveBoxContent(id).text : "");
-        // >>
         String txAnswer = textField.getText().trim();
         if (edu.xtec.util.StrUtils.compareMultipleOptions(txAnswer, txCheck, false)) {
           ok = true;
@@ -320,11 +321,13 @@ public class WrittenAnswer extends Activity implements ActiveBagContentKit.Compa
           if (abc[2] != null) {
             bx.switchToAlt(ps);
             m = bx.playMedia(ps);
-          } else bx.clear();
+          } else
+            bx.clear();
           if (invAss && id >= 0 && id < invAssCheck.length) {
             invAssCheck[id] = true;
           }
-          if (useOrder) currentItem = bg[0].getNextItem(currentItem);
+          if (useOrder)
+            currentItem = bg[0].getNextItem(currentItem);
         }
 
         int cellsPlaced = bg[0].countCellsWithIdAss(-1);
@@ -340,12 +343,15 @@ public class WrittenAnswer extends Activity implements ActiveBagContentKit.Compa
           playEvent(ok ? EventSounds.ACTION_OK : EventSounds.ACTION_ERROR);
       }
 
-      if (useOrder) bx = (ActiveBox) bg[0].getBox(currentItem);
-      else bx = bg[0].getActiveBoxWithIdLoc(i);
+      if (useOrder)
+        bx = (ActiveBox) bg[0].getBox(currentItem);
+      else
+        bx = bg[0].getActiveBoxWithIdLoc(i);
       if (bx == null || bx.idAss == -1) {
         for (int j = 0; j < bg[0].getNumCells(); j++) {
           bx = bg[0].getActiveBoxWithIdLoc(j);
-          if (bx.idAss != -1) break;
+          if (bx.idAss != -1)
+            break;
         }
         if (bx != null && bx.idAss == -1) {
           // error ?
@@ -357,21 +363,26 @@ public class WrittenAnswer extends Activity implements ActiveBagContentKit.Compa
 
       // 29 - mai -2007
       // Draw border only if it has more than one cell
-      if (bg[0].getNumCells() > 1 && bx != null) bx.setMarked(true);
-      if (bx != null) currentCell = bx.idLoc;
+      if (bg[0].getNumCells() > 1 && bx != null)
+        bx.setMarked(true);
+      if (bx != null)
+        currentCell = bx.idLoc;
       textField.setText("");
       textField.requestFocus();
 
-      if (bx != null) bx.playMedia(ps);
+      if (bx != null)
+        bx.playMedia(ps);
     }
 
     @Override
     public void requestFocus() {
-      if (playing && textField != null) textField.requestFocus();
+      if (playing && textField != null)
+        textField.requestFocus();
     }
 
     public void actionPerformed(java.awt.event.ActionEvent e) {
-      if (playing && e.getSource() == textField && currentCell != -1) setCurrentCell(currentCell);
+      if (playing && e.getSource() == textField && currentCell != -1)
+        setCurrentCell(currentCell);
     }
 
     @Override
@@ -381,91 +392,88 @@ public class WrittenAnswer extends Activity implements ActiveBagContentKit.Compa
 
       if (playing)
         switch (e.getID()) {
-          case MouseEvent.MOUSE_PRESSED:
-            ps.stopMedia(1);
-            if ((bx = bg[0].findActiveBox(e.getPoint())) != null) {
-              if (bx.getContent() != null && bx.getContent().mediaContent == null)
-                playEvent(EventSounds.CLICK);
-              setCurrentCell(bx.idLoc);
-            }
-            break;
+        case MouseEvent.MOUSE_PRESSED:
+          ps.stopMedia(1);
+          if ((bx = bg[0].findActiveBox(e.getPoint())) != null) {
+            if (bx.getContent() != null && bx.getContent().mediaContent == null)
+              playEvent(EventSounds.CLICK);
+            setCurrentCell(bx.idLoc);
+          }
+          break;
         }
     }
 
     @Override
     public void showHelp() {
-      if (!helpWindowAllowed() || bg[0] == null) return;
+      if (!helpWindowAllowed() || bg[0] == null)
+        return;
 
       HelpActivityComponent hac = null;
       if (showSolution) {
-        hac =
-            new HelpActivityComponent(this) {
-              ActiveBoxBag abb = null;
-              String currentResponse = "";
-              int cellsPlaced = bg[0].countCellsWithIdAss(-1);
+        hac = new HelpActivityComponent(this) {
+          ActiveBoxBag abb = null;
+          String currentResponse = "";
+          int cellsPlaced = bg[0].countCellsWithIdAss(-1);
 
-              public void render(Graphics2D g2, Rectangle dirtyRegion) {
-                if (abb != null) abb.update(g2, dirtyRegion, this);
-              }
+          public void render(Graphics2D g2, Rectangle dirtyRegion) {
+            if (abb != null)
+              abb.update(g2, dirtyRegion, this);
+          }
 
-              @Override
-              public void init() {
-                currentResponse = textField.getText();
-                abb = (ActiveBoxBag) bg[0].clone();
-                abb.setContainer(this);
-                Dimension size = abb.getBounds().getSize();
-                abb.setBounds(DEFAULT_MARGIN, DEFAULT_MARGIN, size.width, size.height);
-                size.width += 2 * DEFAULT_MARGIN;
-                size.height += 2 * DEFAULT_MARGIN;
-                setPreferredSize(size);
-                setMaximumSize(size);
-                setMinimumSize(size);
-                Point p = (Point) getClientProperty(HelpActivityComponent.PREFERRED_LOCATION);
-                if (p != null)
-                  p.translate((int) bg[0].x - DEFAULT_MARGIN, (int) bg[0].y - DEFAULT_MARGIN);
-              }
+          @Override
+          public void init() {
+            currentResponse = textField.getText();
+            abb = (ActiveBoxBag) bg[0].clone();
+            abb.setContainer(this);
+            Dimension size = abb.getBounds().getSize();
+            abb.setBounds(DEFAULT_MARGIN, DEFAULT_MARGIN, size.width, size.height);
+            size.width += 2 * DEFAULT_MARGIN;
+            size.height += 2 * DEFAULT_MARGIN;
+            setPreferredSize(size);
+            setMaximumSize(size);
+            setMinimumSize(size);
+            Point p = (Point) getClientProperty(HelpActivityComponent.PREFERRED_LOCATION);
+            if (p != null)
+              p.translate((int) bg[0].x - DEFAULT_MARGIN, (int) bg[0].y - DEFAULT_MARGIN);
+          }
 
-              @Override
-              public void end() {
-                super.end();
-                textField.setText(currentResponse);
-              }
+          @Override
+          public void end() {
+            super.end();
+            textField.setText(currentResponse);
+          }
 
-              @Override
-              public void processMouse(MouseEvent e) {
-                ActiveBox bx;
-                if (abb != null)
-                  switch (e.getID()) {
-                    case MouseEvent.MOUSE_PRESSED:
-                      bx = abb.findActiveBox(e.getPoint());
-                      if (bx != null) {
-                        boolean m = bx.playMedia(ps);
-                        String s = abc[1].getActiveBoxContent(bx.idOrder).text;
-                        if (s != null) textField.setText(s.replace('|', ' '));
-                        ps.reportNewAction(
-                            getActivity(),
-                            ACTION_HELP,
-                            bx.getDescription(),
-                            null,
-                            false,
-                            cellsPlaced);
-                        if (!m) playEvent(EventSounds.CLICK);
-                      }
-                      break;
-                    case MouseEvent.MOUSE_RELEASED:
-                      unmarkBox();
-                      textField.setText("");
-                      break;
-                  }
+          @Override
+          public void processMouse(MouseEvent e) {
+            ActiveBox bx;
+            if (abb != null)
+              switch (e.getID()) {
+              case MouseEvent.MOUSE_PRESSED:
+                bx = abb.findActiveBox(e.getPoint());
+                if (bx != null) {
+                  boolean m = bx.playMedia(ps);
+                  String s = abc[1].getActiveBoxContent(bx.idOrder).text;
+                  if (s != null)
+                    textField.setText(s.replace('|', ' '));
+                  ps.reportNewAction(getActivity(), ACTION_HELP, bx.getDescription(), null, false, cellsPlaced);
+                  if (!m)
+                    playEvent(EventSounds.CLICK);
+                }
+                break;
+              case MouseEvent.MOUSE_RELEASED:
+                unmarkBox();
+                textField.setText("");
+                break;
               }
-            };
+          }
+        };
         hac.init();
       }
       if (ps.showHelp(hac, helpMsg))
-        ps.reportNewAction(
-            getActivity(), ACTION_HELP, null, null, false, bg[0].countCellsWithIdAss(-1));
+        ps.reportNewAction(getActivity(), ACTION_HELP, null, null, false, bg[0].countCellsWithIdAss(-1));
 
-      if (hac != null) hac.end();
+      if (hac != null)
+        hac.end();
     }
   }
 }

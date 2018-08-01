@@ -34,21 +34,10 @@ import javax.swing.UIManager;
 public class MediaContentButton extends NullableObject {
 
   public static final String PROP_MEDIA_CONTENT = "mediaContent";
-  public static final String[] MEDIA_ICONS = {
-    "icons/unknown_small.gif",
-    "icons/audio_on.gif",
-    "icons/movie.gif",
-    "icons/music.gif",
-    "icons/cdaudio.gif",
-    "icons/speak.gif",
-    "icons/play_speaked.gif",
-    "icons/jump_to_activity.gif",
-    "icons/jump_to_sequence.gif",
-    "icons/run_external.gif",
-    "icons/html_doc.gif",
-    "icons/cancel.gif",
-    "icons/return.gif"
-  };
+  public static final String[] MEDIA_ICONS = { "icons/unknown_small.gif", "icons/audio_on.gif", "icons/movie.gif",
+      "icons/music.gif", "icons/cdaudio.gif", "icons/speak.gif", "icons/play_speaked.gif", "icons/jump_to_activity.gif",
+      "icons/jump_to_sequence.gif", "icons/run_external.gif", "icons/html_doc.gif", "icons/cancel.gif",
+      "icons/return.gif" };
 
   MediaBagEditor mbe;
 
@@ -83,8 +72,6 @@ public class MediaContentButton extends NullableObject {
       button.setIcon(null);
     } else {
       MediaContent mc = (MediaContent) value;
-      // button.setBackground(bb.backColor);
-      // button.setForeground(bb.textColor);
       String imgName = "unknown_small.gif";
       if (mc.mediaType >= 0 && mc.mediaType < MEDIA_ICONS.length)
         imgName = MEDIA_ICONS[mc.mediaType];

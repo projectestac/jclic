@@ -24,8 +24,9 @@ package edu.xtec.util;
 import java.io.ByteArrayInputStream;
 
 /**
- * This class extends {@link java.io.ByteArrayInputStream} in two ways: it adds a "name" member, and
- * gives read-only acces to its protected members <CODE>pos</CODE>, <CODE>mark</CODE> and <CODE>
+ * This class extends {@link java.io.ByteArrayInputStream} in two ways: it adds
+ * a "name" member, and gives read-only acces to its protected members
+ * <CODE>pos</CODE>, <CODE>mark</CODE> and <CODE>
  * count</CODE>.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)

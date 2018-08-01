@@ -22,8 +22,9 @@
 package edu.xtec.util;
 
 /**
- * Utilities to encrypt and decrypt strings using simple methods, just to avoid write passwords in
- * plain text in data and configuration files. Do not use it as a secure cryptographic system!
+ * Utilities to encrypt and decrypt strings using simple methods, just to avoid
+ * write passwords in plain text in data and configuration files. Do not use it
+ * as a secure cryptographic system!
  *
  * @author Albert Llastarri (allastar@xtec.cat)
  * @version 13.08.08
@@ -33,7 +34,8 @@ public final class Encryption {
   private static final String BLANK = "___blank___##";
 
   public static String Encrypt(String txt) {
-    if (txt == null || txt.length() == 0) txt = BLANK;
+    if (txt == null || txt.length() == 0)
+      txt = BLANK;
 
     String result = null;
     try {
@@ -46,10 +48,12 @@ public final class Encryption {
 
   public static String Decrypt(String txt) {
 
-    if (txt == null || txt.length() == 0) return null;
+    if (txt == null || txt.length() == 0)
+      return null;
 
     String s = decodify(txt);
-    if (BLANK.equals(s)) s = new String();
+    if (BLANK.equals(s))
+      s = new String();
 
     return s;
   }
@@ -104,8 +108,10 @@ public final class Encryption {
       for (int i = 0; i <= 7; i++) {
         b <<= 1;
         if (total < cA.length) {
-          if (cA[total] == '0') b += 1;
-          else sb.append(cA[total]);
+          if (cA[total] == '0')
+            b += 1;
+          else
+            sb.append(cA[total]);
         }
         total++;
       }
@@ -123,9 +129,8 @@ public final class Encryption {
       int num = 1;
       int currentChar = 2;
       while (currentChar < hexZeros.length()) {
-        if (c1 == hexZeros.charAt(currentChar)
-            && c2 == hexZeros.charAt(currentChar + 1)
-            && num < 32) num++;
+        if (c1 == hexZeros.charAt(currentChar) && c2 == hexZeros.charAt(currentChar + 1) && num < 32)
+          num++;
         else { // New sequence
           codified.append(Character.forDigit(num, 32));
           codified.append(c1);
@@ -156,10 +161,13 @@ public final class Encryption {
         num--;
         k++;
       }
-      if (cA.length > ((i * 3) + 3)) num = Character.digit(cA[(i * 3) + 3], 32);
-      else num = 0;
+      if (cA.length > ((i * 3) + 3))
+        num = Character.digit(cA[(i * 3) + 3], 32);
+      else
+        num = 0;
     }
-    for (int j = (i * 3) + 1; j < cA.length; j++) sb.append(cA[j]);
+    for (int j = (i * 3) + 1; j < cA.length; j++)
+      sb.append(cA[j]);
     char c = Character.forDigit(k, 32);
     return c + sb.toString();
   }
@@ -173,14 +181,16 @@ public final class Encryption {
     for (int i = 0; i < numBytesZeros && !bFi; i++) {
       int zeros = hexCharArrayToInt(cA, 1 + (i * 2));
       String s = Integer.toBinaryString(zeros);
-      while (s.length() < 8) s = "0" + s;
+      while (s.length() < 8)
+        s = "0" + s;
       for (int j = 0; j <= 7 && !bFi; j++) {
         if (s.charAt(j) == '1') {
           sb.append('0');
         } else if (iniNoZeros < cA.length) {
           sb.append(cA[iniNoZeros]);
           iniNoZeros++;
-        } else bFi = true;
+        } else
+          bFi = true;
       }
     }
     return sb;
@@ -266,7 +276,8 @@ public final class Encryption {
   }
 
   private static String codify(String word) throws TooLargePasswordException {
-    if (word.length() > 24) throw new TooLargePasswordException();
+    if (word.length() > 24)
+      throw new TooLargePasswordException();
     return new String(changeOrder(compressZeros(codifyToHex(word))));
   }
 

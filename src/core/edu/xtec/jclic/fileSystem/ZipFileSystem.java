@@ -53,10 +53,12 @@ public abstract class ZipFileSystem extends FileSystem {
     loaded = false;
   }
 
-  public static ZipFileSystem createZipFileSystem(
-      String rootPath, String zipFileName, ResourceBridge rb) throws Exception {
-    if (isStrUrl(rootPath)) return new UrlZip(rootPath, zipFileName, rb);
-    else return new FileZip(rootPath, zipFileName, rb);
+  public static ZipFileSystem createZipFileSystem(String rootPath, String zipFileName, ResourceBridge rb)
+      throws Exception {
+    if (isStrUrl(rootPath))
+      return new UrlZip(rootPath, zipFileName, rb);
+    else
+      return new FileZip(rootPath, zipFileName, rb);
   }
 
   @Override
@@ -86,18 +88,22 @@ public abstract class ZipFileSystem extends FileSystem {
   }
 
   public ExtendedZipEntry getEntry(String fName) {
-    if (fName == null || fName.length() == 0 || entries == null) return null;
+    if (fName == null || fName.length() == 0 || entries == null)
+      return null;
     String name = getCanonicalNameOf(fName);
-    for (ExtendedZipEntry eze : entries) if (!eze.ignore && eze.getName().equals(name)) return eze;
+    for (ExtendedZipEntry eze : entries)
+      if (!eze.ignore && eze.getName().equals(name))
+        return eze;
     return null;
   }
 
   @Override
   public byte[] getBytes(String fileName) throws IOException {
-    // System.out.println("requesting "+fileName);
     ExtendedZipEntry entry;
-    if ((entry = getEntry(fileName)) == null) return super.getBytes(fileName);
-    else return entry.getBytes();
+    if ((entry = getEntry(fileName)) == null)
+      return super.getBytes(fileName);
+    else
+      return entry.getBytes();
   }
 
   @Override
@@ -113,14 +119,17 @@ public abstract class ZipFileSystem extends FileSystem {
   @Override
   public long getFileLength(String fileName) throws IOException {
     ExtendedZipEntry entry;
-    if ((entry = getEntry(fileName)) == null) return super.getFileLength(fileName);
-    else return entry.getSize();
+    if ((entry = getEntry(fileName)) == null)
+      return super.getFileLength(fileName);
+    else
+      return entry.getSize();
   }
 
   @Override
   public Image getImageFile(String fName) throws Exception {
     ExtendedZipEntry entry;
-    if ((entry = getEntry(fName)) == null) return super.getImageFile(fName);
+    if ((entry = getEntry(fName)) == null)
+      return super.getImageFile(fName);
 
     return Toolkit.getDefaultToolkit().createImage(entry.getBytes());
   }
@@ -128,7 +137,8 @@ public abstract class ZipFileSystem extends FileSystem {
   @Override
   public InputStream getInputStream(String fName) throws IOException {
     ExtendedZipEntry entry;
-    if ((entry = getEntry(fName)) == null) return super.getInputStream(fName);
+    if ((entry = getEntry(fName)) == null)
+      return super.getInputStream(fName);
 
     return entry.getInputStream();
   }
@@ -136,7 +146,8 @@ public abstract class ZipFileSystem extends FileSystem {
   @Override
   public Object getMediaDataSource(String fName) throws Exception {
     ExtendedZipEntry entry;
-    if ((entry = getEntry(fName)) == null) return super.getMediaDataSource(fName);
+    if ((entry = getEntry(fName)) == null)
+      return super.getMediaDataSource(fName);
 
     return new edu.xtec.util.ExtendedByteArrayInputStream(entry.getBytes(), fName);
   }
@@ -147,9 +158,11 @@ public abstract class ZipFileSystem extends FileSystem {
       ArrayList<String> v = new ArrayList<String>();
       for (ExtendedZipEntry eze : entries) {
         String entryName = eze.getName();
-        if (ext == null || entryName.endsWith(ext)) v.add(entryName);
+        if (ext == null || entryName.endsWith(ext))
+          v.add(entryName);
       }
-      if (!v.isEmpty()) result = v.toArray(new String[v.size()]);
+      if (!v.isEmpty())
+        result = v.toArray(new String[v.size()]);
     }
     return result;
   }

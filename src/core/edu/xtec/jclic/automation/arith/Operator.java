@@ -25,8 +25,9 @@ import edu.xtec.util.Domable;
 import edu.xtec.util.JDomUtility;
 
 /**
- * Utility class used by {@link edu.xtec.jclic.automation.arith.Arith} to encapsulate the properties
- * and methods related to the members of the operations.
+ * Utility class used by {@link edu.xtec.jclic.automation.arith.Arith} to
+ * encapsulate the properties and methods related to the members of the
+ * operations.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
@@ -36,20 +37,16 @@ public class Operator implements Domable {
   protected static final int MAX_VALUE = 100000000;
   protected static final int WZERO = 1, WONE = 2, WMINUSONE = 4;
   protected static final int NLIMITS = 26;
-  protected static final int[] LIMITS = {
-    0, -9999, -1000, -999, -100, -99, -50, -25, -20, -10, -9, -5, -1, 0, 1, 5, 9, 10, 20, 25, 50,
-    99, 100, 999, 1000, 9999
-  };
+  protected static final int[] LIMITS = { 0, -9999, -1000, -999, -100, -99, -50, -25, -20, -10, -9, -5, -1, 0, 1, 5, 9,
+      10, 20, 25, 50, 99, 100, 999, 1000, 9999 };
   protected static final int DEFAULT_LIMIT = 13;
   protected static final int LIM0 = 13;
   protected static final int LIM10 = 17;
   protected static final int LIMI25 = 7;
   protected static final int LIMS25 = 19;
   protected static final int NOLIM = 25;
-  protected static final String[] LIM_CH = {
-    "x", "-9999", "-1000", "-999", "-100", "-99", "-50", "-25", "-20", "-10", "-9", "-5", "-1", "0",
-    "1", "5", "9", "10", "20", "25", "50", "99", "100", "999", "1000", "9999"
-  };
+  protected static final String[] LIM_CH = { "x", "-9999", "-1000", "-999", "-100", "-99", "-50", "-25", "-20", "-10",
+      "-9", "-5", "-1", "0", "1", "5", "9", "10", "20", "25", "50", "99", "100", "999", "1000", "9999" };
   protected static final int NUMLST = 20;
 
   int limInf;
@@ -60,15 +57,8 @@ public class Operator implements Domable {
   int[] lst = new int[NUMLST];
   protected boolean fromBlank;
 
-  static final String ELEMENT_NAME = "operand",
-      DECIMALS = "decimals",
-      VALUES = "values",
-      FROM = "from",
-      TO = "to",
-      INCLUDE = "include",
-      ZERO = "zero",
-      ONE = "one",
-      MINUSONE = "minusOne";
+  static final String ELEMENT_NAME = "operand", DECIMALS = "decimals", VALUES = "values", FROM = "from", TO = "to",
+      INCLUDE = "include", ZERO = "zero", ONE = "one", MINUSONE = "minusOne";
 
   public Operator() {
     limInf = LIM0;
@@ -82,8 +72,8 @@ public class Operator implements Domable {
 
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
-    // e.setAttribute(ID, id);
-    if (numDec > 0) e.setAttribute(DECIMALS, Integer.toString(numDec));
+    if (numDec > 0)
+      e.setAttribute(DECIMALS, Integer.toString(numDec));
     if (fromList > 0) {
       e.setAttribute(VALUES, JDomUtility.intArrayToString(lst, fromList));
     } else {
@@ -144,14 +134,17 @@ public class Operator implements Domable {
       v = ops[p++] & 0x7F;
       hb = v & 0x3F;
       lst[i] = lb + hb * 128;
-      if ((v & 0x40) != 0) lst[i] *= -1;
+      if ((v & 0x40) != 0)
+        lst[i] *= -1;
     }
     return p;
   }
 
   protected static int adjustLimVer(int l) {
-    if (l >= LIMI25) l++;
-    if (l >= LIMS25) l++;
+    if (l >= LIMI25)
+      l++;
+    if (l >= LIMS25)
+      l++;
     return l;
   }
 }

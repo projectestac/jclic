@@ -32,8 +32,9 @@ public class RollPanelBeanInfo extends SimpleBeanInfo {
   /**
    * Gets the bean's <code>BeanDescriptor</code>s.
    *
-   * @return BeanDescriptor describing the editable properties of this bean. May return null if the
-   *     information should be obtained by automatic analysis.
+   * @return BeanDescriptor describing the editable properties of this bean. May
+   *         return null if the information should be obtained by automatic
+   *         analysis.
    */
   @Override
   public BeanDescriptor getBeanDescriptor() {

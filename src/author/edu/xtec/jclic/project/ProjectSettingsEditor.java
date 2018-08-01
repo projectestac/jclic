@@ -36,7 +36,8 @@ public class ProjectSettingsEditor extends Editor {
     super(ps);
   }
 
-  protected void createChildren() {}
+  protected void createChildren() {
+  }
 
   public EditorPanel createEditorPanel(Options options) {
     return new ProjectSettingsEditorPanel(options);

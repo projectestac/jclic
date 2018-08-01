@@ -61,7 +61,8 @@ public class Menu extends Activity implements Editable {
   @Override
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = super.getJDomElement();
-    for (MenuElement el : menuElements) e.addContent(el.getJDomElement());
+    for (MenuElement el : menuElements)
+      e.addContent(el.getJDomElement());
     return e;
   }
 
@@ -70,7 +71,8 @@ public class Menu extends Activity implements Editable {
     super.setProperties(e, aux);
     includeInReports = false;
     java.util.Iterator it = e.getChildren(MenuElement.ELEMENT_NAME).iterator();
-    while (it.hasNext()) menuElements.add(MenuElement.getMenuElement((org.jdom.Element) it.next()));
+    while (it.hasNext())
+      menuElements.add(MenuElement.getMenuElement((org.jdom.Element) it.next()));
   }
 
   public int getMenuElementCount() {
@@ -78,7 +80,8 @@ public class Menu extends Activity implements Editable {
   }
 
   public MenuElement getMenuElement(int n) {
-    if (n < 0 || n >= menuElements.size()) return null;
+    if (n < 0 || n >= menuElements.size())
+      return null;
     return (MenuElement) menuElements.get(n);
   }
 
@@ -116,9 +119,7 @@ public class Menu extends Activity implements Editable {
       panel.setLayout(new java.awt.FlowLayout());
       scrollPane = new VFlowScrollPane(panel);
       scrollPane.setBorder(BorderFactory.createEmptyBorder());
-      scrollPane
-          .getVerticalScrollBar()
-          .setBorder(BorderFactory.createLineBorder(Color.darkGray, 1));
+      scrollPane.getVerticalScrollBar().setBorder(BorderFactory.createLineBorder(Color.darkGray, 1));
       addButtons();
       add(scrollPane);
     }
@@ -128,15 +129,16 @@ public class Menu extends Activity implements Editable {
       for (int i = 0; i < menuElements.size(); i++) {
         MenuElement me = getMenuElement(i);
         JButton button = new JButton();
-        // button.setPreferredSize(BUTTON_PREF_SIZE);
 
         button.setIcon(me.getIcon(project.mediaBag));
 
         if (me.caption != null)
           button.setText(StrUtils.getShortExpression(me.caption, MAX_LABEL_LENGTH));
 
-        if (me.description != null) button.setToolTipText(me.description);
-        else if (me.caption != null) button.setToolTipText(me.caption);
+        if (me.description != null)
+          button.setToolTipText(me.description);
+        else if (me.caption != null)
+          button.setToolTipText(me.caption);
 
         button.setHorizontalTextPosition(SwingConstants.CENTER);
         button.setVerticalTextPosition(SwingConstants.BOTTOM);
@@ -153,7 +155,8 @@ public class Menu extends Activity implements Editable {
       scrollPane.setBounds(0, 0, getWidth(), getHeight());
     }
 
-    public void clear() {}
+    public void clear() {
+    }
 
     public Dimension setDimension(Dimension maxSize) {
       return maxSize;
@@ -162,19 +165,15 @@ public class Menu extends Activity implements Editable {
     @Override
     public void initActivity() throws Exception {
       super.initActivity();
-
-      if (!firstRun) buildVisualComponents();
+      if (!firstRun)
+        buildVisualComponents();
       firstRun = false;
-
       setAndPlayMsg(MAIN, EventSounds.START);
-      // ps.setMsg(messages[MAIN]);
-      // ps.playMsg();
-      // if(messages[MAIN]==null || messages[MAIN].mediaContent==null)
-      //    playEvent(EventSounds.START);
       playing = true;
     }
 
-    public void render(Graphics2D g2, Rectangle dirtyRegion) {}
+    public void render(Graphics2D g2, Rectangle dirtyRegion) {
+    }
 
     public void actionPerformed(ActionEvent ae) {
       int i;

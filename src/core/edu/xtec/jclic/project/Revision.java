@@ -50,22 +50,23 @@ public class Revision extends Object implements Domable {
   public Revision(Date setDate, String setDescription) {
     date = setDate;
     description = setDescription;
-    // by=null;
     authors = null;
     comments = null;
   }
 
   public static final String ELEMENT_NAME = "revision";
-  public static final String DATE = "date", /*BY="by",*/
-      DESCRIPTION = "description",
-      COMMENTS = "comments";
+  public static final String DATE = "date", /* BY="by", */
+      DESCRIPTION = "description", COMMENTS = "comments";
 
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
     e.setAttribute(DESCRIPTION, description);
     e.setAttribute(DATE, JDomUtility.dateToStringShortUS(date));
-    if (comments != null) JDomUtility.addParagraphs(e, COMMENTS, comments);
-    if (authors != null) for (Author author : authors) e.addContent(author.getJDomElement());
+    if (comments != null)
+      JDomUtility.addParagraphs(e, COMMENTS, comments);
+    if (authors != null)
+      for (Author author : authors)
+        e.addContent(author.getJDomElement());
     return e;
   }
 
@@ -85,16 +86,22 @@ public class Revision extends Object implements Domable {
 
     ArrayList<Author> al = new ArrayList<Author>();
     Iterator itr = e.getChildren(Author.ELEMENT_NAME).iterator();
-    while (itr.hasNext()) al.add(Author.getAuthor((org.jdom.Element) itr.next()));
-    if (!al.isEmpty()) authors = al.toArray(new Author[al.size()]);
+    while (itr.hasNext())
+      al.add(Author.getAuthor((org.jdom.Element) itr.next()));
+    if (!al.isEmpty())
+      authors = al.toArray(new Author[al.size()]);
   }
 
   public String toHtmlString(edu.xtec.util.Messages msg) {
     Html html = new Html(300);
     html.bold(msg.getShortDateStr(date));
-    if (description != null) html.append("<B>: ").appendParagraphs(description).append("</B>");
-    if (authors != null) for (Author author : authors) html.br().append(author.toHtmlString(msg));
-    if (comments != null && comments.length() > 0) html.br().appendParagraphs(comments);
+    if (description != null)
+      html.append("<B>: ").appendParagraphs(description).append("</B>");
+    if (authors != null)
+      for (Author author : authors)
+        html.br().append(author.toHtmlString(msg));
+    if (comments != null && comments.length() > 0)
+      html.br().appendParagraphs(comments);
     return html.toString();
   }
 
@@ -103,7 +110,8 @@ public class Revision extends Object implements Domable {
     DateFormat df = DateFormat.getDateInstance(DateFormat.SHORT);
     StringBuilder sb = new StringBuilder();
     sb.append(df.format(date)).append(" - ");
-    if (description != null && description.length() > 0) sb.append(description);
+    if (description != null && description.length() > 0)
+      sb.append(description);
     return sb.substring(0);
   }
 }

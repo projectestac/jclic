@@ -120,21 +120,12 @@ public class FressaFunctions {
   // Messages
   Messages msg;
   // Keys for storing options
-  public static final String SCAN_TIMER_SPAN = "scanTimerSpan",
-      SCAN_INCLUDING_ARROWS = "scanIncludingArrows",
-      CHANGE_ZONE_BUTTON = "changeZoneButton",
-      SCAN_ARROWS_AT_END = "scanArrowsAtEnd",
-      SCAN_FLAG = "scanFlag",
-      JUMP_WELL_PLACED = "jumpWellPlaced",
-      SHOW_KEYBOARD = "showKeyboard",
-      CHANGE_ZONE_IF_NO_CLICK = "changeZoneIfNoClick",
-      AUTO_SCAN_ON_START = "autoScanOnStart",
-      DIRECTED_SCAN_ON_START = "directedScanOnStart",
-      AUTO_AUTO_SCAN = "autoAutoScan",
-      SWAYING = "swaying",
-      NO_HAND_CURSOR = "noHandCursor",
-      FORCE_RECTANGLES = "forceRectangles",
-      READ_LABELS = "readLabels",
+  public static final String SCAN_TIMER_SPAN = "scanTimerSpan", SCAN_INCLUDING_ARROWS = "scanIncludingArrows",
+      CHANGE_ZONE_BUTTON = "changeZoneButton", SCAN_ARROWS_AT_END = "scanArrowsAtEnd", SCAN_FLAG = "scanFlag",
+      JUMP_WELL_PLACED = "jumpWellPlaced", SHOW_KEYBOARD = "showKeyboard",
+      CHANGE_ZONE_IF_NO_CLICK = "changeZoneIfNoClick", AUTO_SCAN_ON_START = "autoScanOnStart",
+      DIRECTED_SCAN_ON_START = "directedScanOnStart", AUTO_AUTO_SCAN = "autoAutoScan", SWAYING = "swaying",
+      NO_HAND_CURSOR = "noHandCursor", FORCE_RECTANGLES = "forceRectangles", READ_LABELS = "readLabels",
       WITH_VOICE = "withVoice";
 
   public FressaFunctions(Options options) {
@@ -170,10 +161,8 @@ public class FressaFunctions {
 
     if (withVoice) {
       /*
-      fressaVoice=new FressaVoice();
-      fressaVoice.start();
-      readText(msg.get("acc_voiceGreeting"));
-      withVoice=fressaVoice.xxxxrunning;
+       * fressaVoice=new FressaVoice(); fressaVoice.start();
+       * readText(msg.get("acc_voiceGreeting")); withVoice=fressaVoice.xxxxrunning;
        */
     }
   }
@@ -284,15 +273,12 @@ public class FressaFunctions {
 
   public void startSwayingTimer() {
     if (swayingTimer == null) {
-      swayingTimer =
-          new Timer(
-              SWAYING_SPAN,
-              new ActionListener() {
+      swayingTimer = new Timer(SWAYING_SPAN, new ActionListener() {
 
-                public void actionPerformed(ActionEvent e) {
-                  changeSwayingPos();
-                }
-              });
+        public void actionPerformed(ActionEvent e) {
+          changeSwayingPos();
+        }
+      });
       swayingCounter = 0;
       Point p = MouseInfo.getPointerInfo().getLocation();
       swayingCursorX = p.x;
@@ -320,22 +306,22 @@ public class FressaFunctions {
     int dy = 0;
 
     switch (swayingCounter) {
-      case 0:
-        dx = -1;
-        dy = -1;
-        break;
-      case 1:
-        dx = 1;
-        dy = -1;
-        break;
-      case 2:
-        dx = 1;
-        dy = 1;
-        break;
-      case 3:
-        dx = -1;
-        dy = 1;
-        break;
+    case 0:
+      dx = -1;
+      dy = -1;
+      break;
+    case 1:
+      dx = 1;
+      dy = -1;
+      break;
+    case 2:
+      dx = 1;
+      dy = 1;
+      break;
+    case 3:
+      dx = -1;
+      dy = 1;
+      break;
     }
 
     swayingCounter = ++swayingCounter % 4;
@@ -347,16 +333,13 @@ public class FressaFunctions {
 
   public void startDirectedScanSwayingTimer() {
     if (swayingTimer == null && directedScanStartSwayingTimer == null) {
-      directedScanStartSwayingTimer =
-          new Timer(
-              SWAYING_ACTIVATION_DELAY,
-              new ActionListener() {
+      directedScanStartSwayingTimer = new Timer(SWAYING_ACTIVATION_DELAY, new ActionListener() {
 
-                public void actionPerformed(ActionEvent e) {
-                  startSwayingTimer();
-                  directedScanStartSwayingTimer = null;
-                }
-              });
+        public void actionPerformed(ActionEvent e) {
+          startSwayingTimer();
+          directedScanStartSwayingTimer = null;
+        }
+      });
       directedScanStartSwayingTimer.setRepeats(false);
       directedScanStartSwayingTimer.start();
     }
@@ -385,27 +368,23 @@ public class FressaFunctions {
     startScanning();
     isAutoScanning = true;
     startScanTimer();
-    Toolkit.getDefaultToolkit()
-        .addAWTEventListener(autoScanMouseListener, AWTEvent.MOUSE_EVENT_MASK);
+    Toolkit.getDefaultToolkit().addAWTEventListener(autoScanMouseListener, AWTEvent.MOUSE_EVENT_MASK);
   }
 
   public void startScanTimer() {
     if (scanTimer == null) {
-      scanTimer =
-          new Timer(
-              scanTimerSpan * 100,
-              new ActionListener() {
+      scanTimer = new Timer(scanTimerSpan * 100, new ActionListener() {
 
-                public void actionPerformed(ActionEvent e) {
-                  if (withSwaying) {
-                    stopSwayingTimer();
-                  }
-                  actPanel.nextScanPosition();
-                  if (withSwaying) {
-                    startSwayingTimer();
-                  }
-                }
-              });
+        public void actionPerformed(ActionEvent e) {
+          if (withSwaying) {
+            stopSwayingTimer();
+          }
+          actPanel.nextScanPosition();
+          if (withSwaying) {
+            startSwayingTimer();
+          }
+        }
+      });
       scanTimer.start();
     }
   }
@@ -417,32 +396,31 @@ public class FressaFunctions {
     }
   }
 
-  private AWTEventListener autoScanMouseListener =
-      new AWTEventListener() {
+  private AWTEventListener autoScanMouseListener = new AWTEventListener() {
 
-        public void eventDispatched(AWTEvent event) {
-          if (isAutoScanning && event instanceof MouseEvent) {
-            MouseEvent me = (MouseEvent) event;
-            if (me.getButton() == MouseEvent.BUTTON1) {
-              if (withSwaying) {
-                stopSwayingTimer();
-              }
-
-              // WARNING: Is this really needed?
-              // if(event.getID()==MouseEvent.MOUSE_RELEASED) {
-              //  actPanel.ClickLeftButton();
-              // }
-            } else if (me.getButton() == MouseEvent.BUTTON3) {
-              if (withSwaying) {
-                stopSwayingTimer();
-              }
-              stopScanning();
-              stopScanTimer();
-              Toolkit.getDefaultToolkit().removeAWTEventListener(autoScanMouseListener);
-            }
+    public void eventDispatched(AWTEvent event) {
+      if (isAutoScanning && event instanceof MouseEvent) {
+        MouseEvent me = (MouseEvent) event;
+        if (me.getButton() == MouseEvent.BUTTON1) {
+          if (withSwaying) {
+            stopSwayingTimer();
           }
+
+          // WARNING: Is this really needed?
+          // if(event.getID()==MouseEvent.MOUSE_RELEASED) {
+          // actPanel.ClickLeftButton();
+          // }
+        } else if (me.getButton() == MouseEvent.BUTTON3) {
+          if (withSwaying) {
+            stopSwayingTimer();
+          }
+          stopScanning();
+          stopScanTimer();
+          Toolkit.getDefaultToolkit().removeAWTEventListener(autoScanMouseListener);
         }
-      };
+      }
+    }
+  };
 
   public void enableAutoScanTimer() {
     if (autoAutoScan && (autoScanActivationTimer == null || !autoScanActivationTimer.isRunning())) {
@@ -450,31 +428,29 @@ public class FressaFunctions {
       cursorPosX = p.x;
       cursorPosY = p.y;
       tickCountTime = System.currentTimeMillis();
-      autoScanActivationTimer =
-          new Timer(
-              SCAN_ACTIVATION_CHECK_SPAN,
-              new ActionListener() {
+      autoScanActivationTimer = new Timer(SCAN_ACTIVATION_CHECK_SPAN, new ActionListener() {
 
-                public void actionPerformed(ActionEvent e) {
-                  if (!isScanning) {
-                    Point p = MouseInfo.getPointerInfo().getLocation();
-                    int x = p.x;
-                    int y = p.y;
-                    if ((x != cursorPosX) || (y != cursorPosY)) {
-                      cursorPosX = x;
-                      cursorPosY = y;
-                      tickCountTime = System.currentTimeMillis();
-                    } else if (System.currentTimeMillis() - tickCountTime > SCAN_ACTIVATION_DELAY) {
-                      enableAutoScan();
-                    }
-                  }
-                }
-              });
+        public void actionPerformed(ActionEvent e) {
+          if (!isScanning) {
+            Point p = MouseInfo.getPointerInfo().getLocation();
+            int x = p.x;
+            int y = p.y;
+            if ((x != cursorPosX) || (y != cursorPosY)) {
+              cursorPosX = x;
+              cursorPosY = y;
+              tickCountTime = System.currentTimeMillis();
+            } else if (System.currentTimeMillis() - tickCountTime > SCAN_ACTIVATION_DELAY) {
+              enableAutoScan();
+            }
+          }
+        }
+      });
       autoScanActivationTimer.start();
     }
   }
 
-  // WARNING: Why not recicle timers instead of destroying and creating it every time?
+  // WARNING: Why not recicle timers instead of destroying and creating it every
+  // time?
   public void disableAutoScanTimer() {
     if (autoScanActivationTimer != null) {
       autoScanActivationTimer.stop();
@@ -493,57 +469,53 @@ public class FressaFunctions {
     if (withSwaying) {
       stopSwayingTimer();
     }
-    Toolkit.getDefaultToolkit()
-        .addAWTEventListener(mouseDirectedScanListener, AWTEvent.MOUSE_EVENT_MASK);
-    Toolkit.getDefaultToolkit()
-        .addAWTEventListener(directedScanKeyboardListener, AWTEvent.KEY_EVENT_MASK);
+    Toolkit.getDefaultToolkit().addAWTEventListener(mouseDirectedScanListener, AWTEvent.MOUSE_EVENT_MASK);
+    Toolkit.getDefaultToolkit().addAWTEventListener(directedScanKeyboardListener, AWTEvent.KEY_EVENT_MASK);
   }
 
-  private AWTEventListener mouseDirectedScanListener =
-      new AWTEventListener() {
+  private AWTEventListener mouseDirectedScanListener = new AWTEventListener() {
 
-        public void eventDispatched(AWTEvent event) {
-          if (isDirectedScanning) {
-            MouseEvent me = (MouseEvent) event;
-            if (me.getButton() == MouseEvent.BUTTON1) {
-              if (me.getID() == MouseEvent.MOUSE_RELEASED) {
-                if (withSwaying) {
-                  stopSwayingTimer();
-                }
-                actPanel.clickLeftButton();
-                if (withSwaying) {
-                  startDirectedScanSwayingTimer();
-                }
-              }
-            } else if (me.getButton() == MouseEvent.BUTTON3) {
-              if (event.getID() == MouseEvent.MOUSE_RELEASED) {
-                if (withSwaying) {
-                  stopSwayingTimer();
-                }
-                actPanel.nextScanPosition();
-                if (withSwaying) {
-                  startSwayingTimer();
-                }
-              }
+    public void eventDispatched(AWTEvent event) {
+      if (isDirectedScanning) {
+        MouseEvent me = (MouseEvent) event;
+        if (me.getButton() == MouseEvent.BUTTON1) {
+          if (me.getID() == MouseEvent.MOUSE_RELEASED) {
+            if (withSwaying) {
+              stopSwayingTimer();
+            }
+            actPanel.clickLeftButton();
+            if (withSwaying) {
+              startDirectedScanSwayingTimer();
+            }
+          }
+        } else if (me.getButton() == MouseEvent.BUTTON3) {
+          if (event.getID() == MouseEvent.MOUSE_RELEASED) {
+            if (withSwaying) {
+              stopSwayingTimer();
+            }
+            actPanel.nextScanPosition();
+            if (withSwaying) {
+              startSwayingTimer();
             }
           }
         }
-      };
-  private AWTEventListener directedScanKeyboardListener =
-      new AWTEventListener() {
+      }
+    }
+  };
+  private AWTEventListener directedScanKeyboardListener = new AWTEventListener() {
 
-        public void eventDispatched(AWTEvent event) {
-          KeyEvent ke = (KeyEvent) event;
-          if (ke.getID() == KeyEvent.KEY_TYPED) {
-            if (ke.getKeyChar() == KeyEvent.VK_ESCAPE) {
-              disableScanning();
-            } else {
-              // JOptionPane.showMessageDialog(null,ke.getKeyText(ke.getKeyChar()),"JAVA
-              // PLAPHOONS",JOptionPane.INFORMATION_MESSAGE);
-            }
-          }
+    public void eventDispatched(AWTEvent event) {
+      KeyEvent ke = (KeyEvent) event;
+      if (ke.getID() == KeyEvent.KEY_TYPED) {
+        if (ke.getKeyChar() == KeyEvent.VK_ESCAPE) {
+          disableScanning();
+        } else {
+          // JOptionPane.showMessageDialog(null,ke.getKeyText(ke.getKeyChar()),"JAVA
+          // PLAPHOONS",JOptionPane.INFORMATION_MESSAGE);
         }
-      };
+      }
+    }
+  };
 
   public void clickLeftButton() {
     if (withChangeZoneButton) {
@@ -562,9 +534,8 @@ public class FressaFunctions {
         return;
       }
 
-      if (changeZoneIfNoClick
-          && (activityType.equals("@associations.SimpleAssociation")
-              || activityType.equals("@associations.ComplexAssociation"))) {
+      if (changeZoneIfNoClick && (activityType.equals("@associations.SimpleAssociation")
+          || activityType.equals("@associations.ComplexAssociation"))) {
         if (currentZone == 0 || currentZone == 2) {
           if (place > zonePoints[currentZone]) {
             if (currentZone == 0 && numberOfZones > 0) {
@@ -597,10 +568,8 @@ public class FressaFunctions {
     }
     if (numberOfZones == 1) {
       if (currentZone == 1) {
-        if (!activityType.equals("@panels.InformationScreen")
-            && !activityType.equals("@panels.Explore")
-            && !activityType.equals("@panels.Identify")
-            && !activityType.equals("@textGrid.WordSearch")) {
+        if (!activityType.equals("@panels.InformationScreen") && !activityType.equals("@panels.Explore")
+            && !activityType.equals("@panels.Identify") && !activityType.equals("@textGrid.WordSearch")) {
           place = 0;
         }
       }
@@ -616,11 +585,15 @@ public class FressaFunctions {
   }
 
   // provisional
-  public void readText(String txt) {}
+  public void readText(String txt) {
+  }
 
-  public void calcScanPoints() {}
+  public void calcScanPoints() {
+  }
 
-  public void activityFinished() {}
+  public void activityFinished() {
+  }
 
-  public void nextScanPosition() {}
+  public void nextScanPosition() {
+  }
 }

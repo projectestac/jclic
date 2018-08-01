@@ -47,7 +47,8 @@ public class EditableEllipse2D extends EditableRectangle implements Cloneable {
       g.setColor(Color.red);
       drawBorders(g);
       g.setColor(c);
-    } else g.setColor(c);
+    } else
+      g.setColor(c);
     g.drawOval((int) getX(), (int) getY(), (int) getWidth(), (int) getHeight());
   }
 
@@ -71,8 +72,7 @@ public class EditableEllipse2D extends EditableRectangle implements Cloneable {
     return divide(x, y);
   }
 
-  public EditableShape[] divide(
-      double x, double y) { // The ellipse will be converted to an array of Bezier curves
+  public EditableShape[] divide(double x, double y) { // The ellipse will be converted to an array of Bezier curves
     EditableShape[] shapes = new EditableShape[10];
     int currentShape = 0;
     double currentX = 0, currentY = 0;
@@ -81,33 +81,29 @@ public class EditableEllipse2D extends EditableRectangle implements Cloneable {
       double[] points = new double[6];
       int type = pi.currentSegment(points);
       switch (type) {
-        case PathIterator.SEG_MOVETO:
-          currentX = points[0];
-          currentY = points[1];
-          break;
-        case PathIterator.SEG_LINETO:
-          shapes[currentShape] = new EditableLine2D(currentX, currentY, points[0], points[1]);
-          currentShape++;
-          currentX = points[0];
-          currentY = points[1];
-          break;
-        case PathIterator.SEG_CUBICTO:
-          shapes[currentShape] =
-              new EditableCubicCurve2D(
-                  currentX, currentY, points[0], points[1], points[2], points[3], points[4],
-                  points[5]);
-          currentShape++;
-          currentX = points[4];
-          currentY = points[5];
-          break;
-        case PathIterator.SEG_QUADTO:
-          shapes[currentShape] =
-              new EditableQuadCurve2D(
-                  currentX, currentY, points[0], points[1], points[2], points[3]);
-          currentShape++;
-          currentX = points[2];
-          currentY = points[3];
-          break;
+      case PathIterator.SEG_MOVETO:
+        currentX = points[0];
+        currentY = points[1];
+        break;
+      case PathIterator.SEG_LINETO:
+        shapes[currentShape] = new EditableLine2D(currentX, currentY, points[0], points[1]);
+        currentShape++;
+        currentX = points[0];
+        currentY = points[1];
+        break;
+      case PathIterator.SEG_CUBICTO:
+        shapes[currentShape] = new EditableCubicCurve2D(currentX, currentY, points[0], points[1], points[2], points[3],
+            points[4], points[5]);
+        currentShape++;
+        currentX = points[4];
+        currentY = points[5];
+        break;
+      case PathIterator.SEG_QUADTO:
+        shapes[currentShape] = new EditableQuadCurve2D(currentX, currentY, points[0], points[1], points[2], points[3]);
+        currentShape++;
+        currentX = points[2];
+        currentY = points[3];
+        break;
       }
       pi.next();
     }
@@ -119,8 +115,7 @@ public class EditableEllipse2D extends EditableRectangle implements Cloneable {
   }
 
   public Object clone() {
-    return new EditableEllipse2D(
-        getLocation(),
+    return new EditableEllipse2D(getLocation(),
         new Point2D.Double(getLocation().getX() + getWidth(), getLocation().getY() + getHeight()));
   }
 }

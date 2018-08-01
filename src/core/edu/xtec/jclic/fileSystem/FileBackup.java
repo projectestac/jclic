@@ -38,7 +38,8 @@ public class FileBackup {
     this.file = file;
     if (file.exists() && file.isFile()) {
       backup = new File(file.getAbsolutePath() + BAK_EXT);
-      if (backup.exists()) backup.delete();
+      if (backup.exists())
+        backup.delete();
       file.renameTo(backup);
     } else if (!file.exists() && file.getParentFile() != null && !file.getParentFile().exists()) {
       File f = file.getParentFile();
@@ -53,7 +54,8 @@ public class FileBackup {
 
   public void rollback() throws java.io.IOException {
     if (backup != null) {
-      if (file.exists()) file.delete();
+      if (file.exists())
+        file.delete();
       backup.renameTo(file);
       backup = null;
     } else {
@@ -62,7 +64,8 @@ public class FileBackup {
       if (createdDirs != null) {
         for (int i = 0; i < createdDirs.size(); i++) {
           File f = createdDirs.get(i);
-          if (f.isDirectory()) f.delete();
+          if (f.isDirectory())
+            f.delete();
         }
         createdDirs = null;
       }

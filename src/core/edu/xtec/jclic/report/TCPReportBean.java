@@ -32,43 +32,20 @@ import java.util.ArrayList;
  */
 public class TCPReportBean extends DomableBean {
 
-  public static final String GET_PROPERTY = "get property",
-      GET_PROPERTIES = "get_properties",
-      ADD_SESSION = "add session",
-      ADD_ACTIVITY = "add activity",
-      GET_GROUPS = "get groups",
-      GET_USERS = "get users",
-      GET_USER_DATA = "get user data",
-      GET_GROUP_DATA = "get group data",
-      NEW_GROUP = "new group",
-      NEW_USER = "new user",
-      MULTIPLE = "multiple",
-      UNKNOWN_KEY = "unknown";
+  public static final String GET_PROPERTY = "get property", GET_PROPERTIES = "get_properties",
+      ADD_SESSION = "add session", ADD_ACTIVITY = "add activity", GET_GROUPS = "get groups", GET_USERS = "get users",
+      GET_USER_DATA = "get user data", GET_GROUP_DATA = "get group data", NEW_GROUP = "new group",
+      NEW_USER = "new user", MULTIPLE = "multiple", UNKNOWN_KEY = "unknown";
 
   public static final String ERROR = "error";
 
-  public static final Class[] DOMABLES = {
-    TCPReportBean.class, GroupData.class, UserData.class, ActivityReg.class
-  };
+  public static final Class[] DOMABLES = { TCPReportBean.class, GroupData.class, UserData.class, ActivityReg.class };
 
-  public static final String[] DOMABLE_NAMES = {
-    TCPReportBean.ELEMENT_NAME,
-    GroupData.ELEMENT_NAME,
-    UserData.ELEMENT_NAME,
-    ActivityReg.ELEMENT_NAME
-  };
+  public static final String[] DOMABLE_NAMES = { TCPReportBean.ELEMENT_NAME, GroupData.ELEMENT_NAME,
+      UserData.ELEMENT_NAME, ActivityReg.ELEMENT_NAME };
 
-  public static final String SESSION = "session",
-      USER = "user",
-      KEY = "key",
-      CONTEXT = "context",
-      TIME = "time",
-      PROJECT = "project",
-      CODE = "code",
-      NUM = "num",
-      DEFAULT = "default",
-      RESULT = "result",
-      GROUP = "group",
+  public static final String SESSION = "session", USER = "user", KEY = "key", CONTEXT = "context", TIME = "time",
+      PROJECT = "project", CODE = "code", NUM = "num", DEFAULT = "default", RESULT = "result", GROUP = "group",
       ACTIVITY = "activity";
 
   /** Creates a new instance of TCPReportBean */
@@ -98,8 +75,8 @@ public class TCPReportBean extends DomableBean {
       for (int j = 0; j < DOMABLES.length; j++) {
         if (name.equals(DOMABLE_NAMES[j])) {
           Class<?> cl = DOMABLES[j];
-          Constructor cons = cl.getConstructor(new Class[] {org.jdom.Element.class});
-          v.add((Domable) cons.newInstance(new Object[] {element}));
+          Constructor cons = cl.getConstructor(new Class[] { org.jdom.Element.class });
+          v.add((Domable) cons.newInstance(new Object[] { element }));
           break;
         }
       }
@@ -108,11 +85,14 @@ public class TCPReportBean extends DomableBean {
   }
 
   public void setData(Domable[] data) {
-    if (data != null) for (Domable d : data) setData(d);
+    if (data != null)
+      for (Domable d : data)
+        setData(d);
   }
 
   public void setData(Domable data) {
-    if (data != null) addElement(data.getJDomElement());
+    if (data != null)
+      addElement(data.getJDomElement());
   }
 
   public Domable getSingleData() throws Exception {

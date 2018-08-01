@@ -36,11 +36,13 @@ import net.sf.image4j.codec.bmp.BMPDecoder;
 import net.sf.image4j.codec.ico.ICODecoder;
 
 /**
- * <CODE>MediaBagElements</CODE> are the members of {@link edu.xtec.jclic.bags.MediaBag} objects.
- * Media elements have a name, a reference to a file (the <CODE>fileName</CODE>) and, when
- * initialized, a <CODE>data</CODE> field containing the raw content of the media. They have also a
- * flag indicating if the data must be saved into the {@link edu.xtec.jclic.project.JClicProject}
- * file or must be mantained as a single reference to a external file.
+ * <CODE>MediaBagElements</CODE> are the members of
+ * {@link edu.xtec.jclic.bags.MediaBag} objects. Media elements have a name, a
+ * reference to a file (the <CODE>fileName</CODE>) and, when initialized, a
+ * <CODE>data</CODE> field containing the raw content of the media. They have
+ * also a flag indicating if the data must be saved into the
+ * {@link edu.xtec.jclic.project.JClicProject} file or must be mantained as a
+ * single reference to a external file.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
@@ -81,11 +83,7 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
   }
 
   public static final String ELEMENT_NAME = "media";
-  public static final String FILE = "file",
-      NAME = "name",
-      SAVE = "save",
-      USAGE = "usage",
-      ANIMATED = "animated";
+  public static final String FILE = "file", NAME = "name", SAVE = "save", USAGE = "usage", ANIMATED = "animated";
 
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
@@ -98,8 +96,7 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
       e.setAttribute(USAGE, Integer.toString(usageCount));
     }
     if (isGif) {
-      e.setAttribute(
-          ANIMATED, JDomUtility.BOOL_STR[animated ? JDomUtility.TRUE : JDomUtility.FALSE]);
+      e.setAttribute(ANIMATED, JDomUtility.BOOL_STR[animated ? JDomUtility.TRUE : JDomUtility.FALSE]);
     }
     return e;
   }
@@ -206,10 +203,6 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
       if (data == null || !(data instanceof Image)) {
         String fn = fileName.toLowerCase();
         if (fn.endsWith(".bmp")) {
-
-          // Old edu.xtec.jclic.misc.Bmp replaced by image4j
-          // Bmp bmp=new Bmp(fs.getInputStream(fileName));
-          // setData(bmp.getImage());
           BufferedImage img = BMPDecoder.read(fs.getInputStream(fileName));
           setData(Toolkit.getDefaultToolkit().createImage(img.getSource()));
         } else if (fn.endsWith(".ico")) {
@@ -248,8 +241,7 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
       while (true) {
         imgStatus = Toolkit.getDefaultToolkit().checkImage((Image) data, -1, -1, null);
         if ((imgStatus & (ImageObserver.ERROR | ImageObserver.ABORT)) != 0) {
-          System.err.println(
-              "Error loading " + getName() + " - Toolkit.checkImage returned status: " + imgStatus);
+          System.err.println("Error loading " + getName() + " - Toolkit.checkImage returned status: " + imgStatus);
           data = null;
           break;
         } else if ((imgStatus & imgReadyFlag) == imgReadyFlag) {
@@ -282,8 +274,7 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
       try {
         result = fs.getFileLength(fileName);
       } catch (IOException ex) {
-        System.err.println(
-            "Error recovering the file size of \"" + fileName + "\": " + ex.getMessage());
+        System.err.println("Error recovering the file size of \"" + fileName + "\": " + ex.getMessage());
       }
     }
     return result;

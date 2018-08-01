@@ -40,8 +40,7 @@ public class EditableQuadCurve2D extends QuadCurve2D.Double implements EditableS
     setCurve(curve);
   }
 
-  public EditableQuadCurve2D(
-      double x1, double y1, double ctrlx, double ctrly, double x2, double y2) {
+  public EditableQuadCurve2D(double x1, double y1, double ctrlx, double ctrly, double x2, double y2) {
     super(x1, y1, ctrlx, ctrly, x2, y2);
   }
 
@@ -55,35 +54,25 @@ public class EditableQuadCurve2D extends QuadCurve2D.Double implements EditableS
 
   public void drawBorders(java.awt.Graphics g) {
     if (getP1().getX() != -1)
-      g.drawRect(
-          (int) getP1().getX() - (EditableShapeConstants.selectLength / 2),
-          (int) getP1().getY() - (EditableShapeConstants.selectLength / 2),
-          EditableShapeConstants.selectLength,
+      g.drawRect((int) getP1().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getP1().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
           EditableShapeConstants.selectLength);
     if (getP2().getX() != -1)
-      g.drawRect(
-          (int) getP2().getX() - (EditableShapeConstants.selectLength / 2),
-          (int) getP2().getY() - (EditableShapeConstants.selectLength / 2),
-          EditableShapeConstants.selectLength,
+      g.drawRect((int) getP2().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getP2().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
           EditableShapeConstants.selectLength);
     if (getCtrlPt().getX() != -1)
-      g.fillRect(
-          (int) getCtrlPt().getX() - (EditableShapeConstants.selectLength / 2),
-          (int) getCtrlPt().getY() - (EditableShapeConstants.selectLength / 2),
-          EditableShapeConstants.selectLength,
+      g.fillRect((int) getCtrlPt().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getCtrlPt().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
           EditableShapeConstants.selectLength);
     g.setColor(EditableShapeConstants.SELECTED_BORDER_COLOR);
     if (selectedBorder == 1) {
-      g.fillRect(
-          (int) getP1().getX() - (EditableShapeConstants.selectLength / 2),
-          (int) getP1().getY() - (EditableShapeConstants.selectLength / 2),
-          EditableShapeConstants.selectLength,
+      g.fillRect((int) getP1().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getP1().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
           EditableShapeConstants.selectLength);
     } else if (selectedBorder == 2) {
-      g.fillRect(
-          (int) getP2().getX() - (EditableShapeConstants.selectLength / 2),
-          (int) getP2().getY() - (EditableShapeConstants.selectLength / 2),
-          EditableShapeConstants.selectLength,
+      g.fillRect((int) getP2().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getP2().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
           EditableShapeConstants.selectLength);
     }
   }
@@ -91,24 +80,15 @@ public class EditableQuadCurve2D extends QuadCurve2D.Double implements EditableS
   public boolean hasClickedBorder(double x, double y, boolean needSelected) {
     boolean hasClicked = false;
     if (!needSelected || selected) {
-      Rectangle r1 =
-          new Rectangle(
-              (int) getP1().getX() - (EditableShapeConstants.selectLength / 2),
-              (int) getP1().getY() - (EditableShapeConstants.selectLength / 2),
-              EditableShapeConstants.selectLength,
-              EditableShapeConstants.selectLength);
-      Rectangle r2 =
-          new Rectangle(
-              (int) getP2().getX() - (EditableShapeConstants.selectLength / 2),
-              (int) getP2().getY() - (EditableShapeConstants.selectLength / 2),
-              EditableShapeConstants.selectLength,
-              EditableShapeConstants.selectLength);
-      Rectangle r3 =
-          new Rectangle(
-              (int) getCtrlPt().getX() - (EditableShapeConstants.selectLength / 2),
-              (int) getCtrlPt().getY() - (EditableShapeConstants.selectLength / 2),
-              EditableShapeConstants.selectLength,
-              EditableShapeConstants.selectLength);
+      Rectangle r1 = new Rectangle((int) getP1().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getP1().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
+          EditableShapeConstants.selectLength);
+      Rectangle r2 = new Rectangle((int) getP2().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getP2().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
+          EditableShapeConstants.selectLength);
+      Rectangle r3 = new Rectangle((int) getCtrlPt().getX() - (EditableShapeConstants.selectLength / 2),
+          (int) getCtrlPt().getY() - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
+          EditableShapeConstants.selectLength);
       if (r1.contains(x, y)) {
         border = 1;
         hasClicked = true;
@@ -124,8 +104,8 @@ public class EditableQuadCurve2D extends QuadCurve2D.Double implements EditableS
   }
 
   public void aproximateNearestBorder(double x, double y) {
-    // getNearestBorder(x,y).setLocation(x,y);
-    if (hasClickedBorder(x, y, false)) changeBorder(x, y);
+    if (hasClickedBorder(x, y, false))
+      changeBorder(x, y);
   }
 
   public java.awt.geom.Point2D getNearestBorder(double x, double y) {
@@ -133,12 +113,14 @@ public class EditableQuadCurve2D extends QuadCurve2D.Double implements EditableS
     double d1 = getP1().distance(x, y);
     double d2 = getP2().distance(x, y);
     double d3 = getCtrlPt().distance(x, y);
-    if (d1 < d2) p1 = getP1();
+    if (d1 < d2)
+      p1 = getP1();
     else {
       p1 = getP2();
       d1 = d2;
     }
-    if (d3 < d1) p1 = getCtrlPt();
+    if (d3 < d1)
+      p1 = getCtrlPt();
     return p1;
   }
 
@@ -172,7 +154,8 @@ public class EditableQuadCurve2D extends QuadCurve2D.Double implements EditableS
       g.setColor(Color.red);
       drawBorders(g);
       g.setColor(c);
-    } else g.setColor(c);
+    } else
+      g.setColor(c);
     ((Graphics2D) g).draw(this);
   }
 
@@ -187,12 +170,7 @@ public class EditableQuadCurve2D extends QuadCurve2D.Double implements EditableS
   }
 
   public void move(double incX, double incY) {
-    setCurve(
-        getP1().getX() + incX,
-        getP1().getY() + incY,
-        getCtrlX() + incX,
-        getCtrlY() + incY,
-        getP2().getX() + incX,
+    setCurve(getP1().getX() + incX, getP1().getY() + incY, getCtrlX() + incX, getCtrlY() + incY, getP2().getX() + incX,
         getP2().getY() + incY);
   }
 
@@ -213,16 +191,17 @@ public class EditableQuadCurve2D extends QuadCurve2D.Double implements EditableS
     subdivide(left, right);
     newShapes[0] = new EditableQuadCurve2D(left);
     newShapes[1] = new EditableQuadCurve2D(right);
-    //// setCurve(left);
     return newShapes;
   }
 
   public boolean isAdjacentTo(java.awt.geom.Point2D p) {
-    if (getP1().equals(p)) return true;
+    if (getP1().equals(p))
+      return true;
     else if (getP2().equals(p)) {
       setCurve(getP2(), getCtrlPt(), getP1());
       return true;
-    } else return false;
+    } else
+      return false;
   }
 
   public java.awt.geom.Point2D getEndPoint() {
@@ -238,14 +217,17 @@ public class EditableQuadCurve2D extends QuadCurve2D.Double implements EditableS
   }
 
   public java.awt.geom.Point2D[] getBorders() {
-    return new Point2D[] {getP1(), getP2(), getCtrlPt()};
+    return new Point2D[] { getP1(), getP2(), getCtrlPt() };
   }
 
   public void selectBorder(double x, double y) {
     Point2D p = new Point2D.Double(x, y);
-    if (getP1().equals(p)) selectedBorder = 1;
-    else if (getP2().equals(p)) selectedBorder = 2;
-    else selectedBorder = -1;
+    if (getP1().equals(p))
+      selectedBorder = 1;
+    else if (getP2().equals(p))
+      selectedBorder = 2;
+    else
+      selectedBorder = -1;
   }
 
   public void deselectBorder() {
@@ -257,7 +239,9 @@ public class EditableQuadCurve2D extends QuadCurve2D.Double implements EditableS
   }
 
   public java.awt.geom.Point2D getNotSelectedBorder() {
-    if (selectedBorder == 1) return getP2();
-    else return getP1();
+    if (selectedBorder == 1)
+      return getP2();
+    else
+      return getP1();
   }
 }

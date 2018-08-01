@@ -37,27 +37,13 @@ public class Options extends HashMap<String, Object> {
 
   public static final String TRUE = "true", FALSE = "false";
   public static final Boolean BTRUE = true, BFALSE = false;
-  public static final String MAC = "Mac",
-      WIN = "Windows",
-      JAVA131 = "java131",
-      JAVA14 = "java14",
-      JAVA141 = "java141",
+  public static final String MAC = "Mac", WIN = "Windows", JAVA131 = "java131", JAVA14 = "java14", JAVA141 = "java141",
       ARCH64BIT = "arch64bit";
   public static final String MAIN_PARENT_COMPONENT = "mainParentComponent", APPLET = "applet";
   public static final String LANGUAGE_BY_PARAM = "languageByParam";
 
-  protected static final String[] TRANSIENT_KEYS = {
-    MAIN_PARENT_COMPONENT,
-    APPLET,
-    LANGUAGE_BY_PARAM,
-    MAC,
-    WIN,
-    JAVA14,
-    JAVA131,
-    JAVA141,
-    ARCH64BIT,
-    Messages.MESSAGES
-  };
+  protected static final String[] TRANSIENT_KEYS = { MAIN_PARENT_COMPONENT, APPLET, LANGUAGE_BY_PARAM, MAC, WIN, JAVA14,
+      JAVA131, JAVA141, ARCH64BIT, Messages.MESSAGES };
 
   public Options() {
     init();
@@ -70,27 +56,32 @@ public class Options extends HashMap<String, Object> {
 
   public Options(Component cmp) {
     init();
-    if (cmp != null) setMainComponent(cmp);
+    if (cmp != null)
+      setMainComponent(cmp);
   }
 
   protected void init() {
     String ver = System.getProperty("java.version");
-    if (ver != null && ver.compareTo("1.3.1") >= 0) put(JAVA131, true);
+    if (ver != null && ver.compareTo("1.3.1") >= 0)
+      put(JAVA131, true);
 
-    if (ver != null && ver.compareTo("1.4.0") >= 0) put(JAVA14, true);
+    if (ver != null && ver.compareTo("1.4.0") >= 0)
+      put(JAVA14, true);
 
-    if (ver != null && ver.compareTo("1.4.1") >= 0) put(JAVA141, true);
+    if (ver != null && ver.compareTo("1.4.1") >= 0)
+      put(JAVA141, true);
 
     String s = System.getProperty("os.name").toLowerCase();
-    // String s=System.getProperty("java.vendor");
     if (s != null) {
       if (s.indexOf("mac") >= 0) {
         put(MAC, true);
         put(LFUtil.LOOK_AND_FEEL, LFUtil.SYSTEM);
-      } else if (s.toLowerCase().indexOf("win") >= 0) put(WIN, true);
+      } else if (s.toLowerCase().indexOf("win") >= 0)
+        put(WIN, true);
     }
     s = System.getProperty("sun.arch.data.model");
-    if ("64".equals(s)) put(ARCH64BIT, true);
+    if ("64".equals(s))
+      put(ARCH64BIT, true);
   }
 
   public Properties toProperties() {
@@ -100,10 +91,13 @@ public class Options extends HashMap<String, Object> {
       Object k = it.next();
       if (k != null && k instanceof String) {
         int i;
-        for (i = 0; i < TRANSIENT_KEYS.length; i++) if (k.equals(TRANSIENT_KEYS[i])) break;
+        for (i = 0; i < TRANSIENT_KEYS.length; i++)
+          if (k.equals(TRANSIENT_KEYS[i]))
+            break;
         if (i == TRANSIENT_KEYS.length) {
           Object v = get((String) k);
-          if (v != null) prop.setProperty((String) k, v.toString());
+          if (v != null)
+            prop.setProperty((String) k, v.toString());
         }
       }
     }
@@ -118,9 +112,12 @@ public class Options extends HashMap<String, Object> {
     boolean result = defaultValue;
     Object r = get(key);
     if (r != null) {
-      if (r instanceof Boolean) result = ((Boolean) r).booleanValue();
-      else if (r instanceof String) result = ((String) r).equalsIgnoreCase(TRUE);
-      else if (r instanceof Integer) result = ((Integer) r).intValue() != 0;
+      if (r instanceof Boolean)
+        result = ((Boolean) r).booleanValue();
+      else if (r instanceof String)
+        result = ((String) r).equalsIgnoreCase(TRUE);
+      else if (r instanceof Integer)
+        result = ((Integer) r).intValue() != 0;
     }
     return result;
   }
@@ -141,7 +138,8 @@ public class Options extends HashMap<String, Object> {
     int result = defaultValue;
     Object r = get(key);
     if (r != null) {
-      if (r instanceof Integer) result = ((Integer) r).intValue();
+      if (r instanceof Integer)
+        result = ((Integer) r).intValue();
       else if (r instanceof String) {
         try {
           result = Integer.parseInt((String) r);
@@ -175,12 +173,14 @@ public class Options extends HashMap<String, Object> {
 
   public void setMainComponent(Component cmp) {
     put(MAIN_PARENT_COMPONENT, cmp);
-    if (cmp instanceof Applet) put(APPLET, cmp);
+    if (cmp instanceof Applet)
+      put(APPLET, cmp);
   }
 
   public void setLookAndFeel() {
     String s = getString(LFUtil.LOOK_AND_FEEL);
-    if (s != null) LFUtil.setLookAndFeel(s, getMainComponent());
+    if (s != null)
+      LFUtil.setLookAndFeel(s, getMainComponent());
   }
 
   public void syncProperties(Map src, boolean preserveExistingValues) {
@@ -192,8 +192,8 @@ public class Options extends HashMap<String, Object> {
     }
   }
 
-  public static Map<String, Object> strToMap(
-      String values, Map<String, Object> map, String delim, char equals, boolean nullsAllowed) {
+  public static Map<String, Object> strToMap(String values, Map<String, Object> map, String delim, char equals,
+      boolean nullsAllowed) {
     if (values != null && values.length() >= 0) {
       java.util.StringTokenizer st = new java.util.StringTokenizer(values, delim);
       while (st.hasMoreTokens()) {
@@ -216,8 +216,10 @@ public class Options extends HashMap<String, Object> {
   }
 
   public static java.awt.Window getWindowForComponent(Component parentComponent) {
-    if (parentComponent == null) return null;
-    if (parentComponent instanceof java.awt.Window) return (java.awt.Window) parentComponent;
+    if (parentComponent == null)
+      return null;
+    if (parentComponent instanceof java.awt.Window)
+      return (java.awt.Window) parentComponent;
     return getWindowForComponent(parentComponent.getParent());
   }
 

@@ -70,15 +70,12 @@ public class AuthorSingleFrame extends JPanel
   protected Action[] actions;
   protected Action[] projectActions;
   private edu.xtec.util.SwingWorker worker = null;
-  // protected JInternalFrame mediaBagFrame, activityBagFrame, activitySequenceFrame, playerFrame;
   protected JDialog playerDlg;
   protected JClicProjectEditor projectEditor;
   protected EditorPanel mediaBagEditorPanel;
-  // protected ActivityBagTreePanel activityBagTreePanel;
   protected EditorPanel activityBagEditorPanel;
   protected EditorPanel activitySequenceEditorPanel;
   protected EditorPanel projectSettingsEditorPanel;
-  // protected boolean trace;
   protected ProgressDialog progressDialog;
 
   public static final String MESSAGES_BUNDLE = "messages.AuthorMessages";
@@ -91,7 +88,6 @@ public class AuthorSingleFrame extends JPanel
   }
 
   protected final void init() {
-    // setDragMode(JDesktopPane.OUTLINE_DRAG_MODE);
     settings = AuthorSettings.loadAuthorSettings(this);
     options.setLookAndFeel();
     Utils.checkRenderingHints(options);
@@ -100,7 +96,6 @@ public class AuthorSingleFrame extends JPanel
     buildActions();
     setActionsText();
     progressDialog = new ProgressDialog(this, options);
-    // trace=options.getBoolean(TRACE);
     ActiveBox.compressImages = options.getBoolean(COMPRESS_IMAGES, true);
     createFrames();
   }
@@ -110,11 +105,8 @@ public class AuthorSingleFrame extends JPanel
   }
 
   // Methods inherited from ResourceBridge interface:
-  public java.io.InputStream getProgressInputStream(
-      java.io.InputStream is, int expectedLength, String name) {
-    return progressDialog == null
-        ? is
-        : progressDialog.getProgressInputStream(is, expectedLength, name);
+  public java.io.InputStream getProgressInputStream(java.io.InputStream is, int expectedLength, String name) {
+    return progressDialog == null ? is : progressDialog.getProgressInputStream(is, expectedLength, name);
   }
 
   public edu.xtec.util.Options getOptions() {
@@ -132,7 +124,6 @@ public class AuthorSingleFrame extends JPanel
   // Methods inherited from interface RunnableComponent:
   public void addTo(javax.swing.RootPaneContainer cont, Object constraints) {
     cont.setContentPane(this);
-    // cont.add(this, constraints);
     checkMenu(false);
   }
 
@@ -144,9 +135,11 @@ public class AuthorSingleFrame extends JPanel
     return result;
   }
 
-  public void stop() {}
+  public void stop() {
+  }
 
-  public void end() {}
+  public void end() {
+  }
 
   public Messages setMessages() {
     messages = Messages.getMessages(options, DEFAULT_BUNDLE);
@@ -178,256 +171,224 @@ public class AuthorSingleFrame extends JPanel
       System.gc();
     }
 
-    worker =
-        new edu.xtec.util.SwingWorker() {
+    worker = new edu.xtec.util.SwingWorker() {
 
-          ActivityBagElement abe = null;
-          Exception exception = null;
-          AuthorSingleFrame thisAuthor = AuthorSingleFrame.this;
-          String fullPath = null;
-          String sequence = null;
-          String activityName = null;
-          boolean imported = false;
+      ActivityBagElement abe = null;
+      Exception exception = null;
+      AuthorSingleFrame thisAuthor = AuthorSingleFrame.this;
+      String fullPath = null;
+      String sequence = null;
+      String activityName = null;
+      boolean imported = false;
 
-          @Override
-          public Object construct() {
+      @Override
+      public Object construct() {
 
-            setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
 
-            try {
-              fullPath = Clic3.pacNameToLowerCase(sFullPath);
-              sequence = Clic3.pacNameToLowerCase(sSequence);
-              activityName = sActivity;
-              boolean prompted = false;
+        try {
+          fullPath = Clic3.pacNameToLowerCase(sFullPath);
+          sequence = Clic3.pacNameToLowerCase(sSequence);
+          activityName = sActivity;
+          boolean prompted = false;
 
-              // boolean exit=false;
-              // while(!exit && !isCancelled()){
-              while (!isCancelled()) {
-                String dn =
-                    fullPath != null ? fullPath : sequence != null ? sequence : activityName;
-                progressDialog.setText(messages.get("msg_loading") + " " + dn);
+          while (!isCancelled()) {
+            String dn = fullPath != null ? fullPath : sequence != null ? sequence : activityName;
+            progressDialog.setText(messages.get("msg_loading") + " " + dn);
 
-                FileSystem fileSystem =
-                    project == null ? createFileSystem() : project.getFileSystem();
+            FileSystem fileSystem = project == null ? createFileSystem() : project.getFileSystem();
 
-                // Step 1: load project
-                if (fullPath != null) {
-                  if (fileSystem != null) {
-                    fullPath = fileSystem.getUrl(fullPath);
-                    if (fullPath.startsWith("file://")) {
-                      fullPath = fullPath.substring(7);
-                    } // Added 03-Feb-2011
-                    // Remove trailing parameters of URLs
-                    else if (fullPath.indexOf('?') > 0) {
-                      fullPath = fullPath.substring(0, fullPath.indexOf('?'));
-                    }
-                    // ----------
-                  }
-                  if (sequence == null) {
-                    sequence = "0";
-                  }
-
-                  String projectName = null;
-                  JSONObject json = null;
-                  if (fullPath.endsWith(Utils.EXT_JCLIC_ZIP)) {
-                    fileSystem = FileSystem.createFileSystem(fullPath, thisAuthor);
-                    String[] projects = ((ZipFileSystem) fileSystem).getEntries(".jclic");
-                    if (projects == null) {
-                      throw new Exception(
-                          "File " + fullPath + " does not contain any jclic project");
-                    }
-                    projectName = projects[0];
-                  } else if (fullPath.endsWith(Utils.EXT_SCORM_ZIP)) {
-                    fileSystem = FileSystem.createFileSystem(fullPath, thisAuthor);
-                    if (fileSystem.fileExists("project.json")) {
-                      json = new JSONObject(new String(fileSystem.getBytes("project.json")));
-                      projectName = json.optString("mainFile", null);
-                    }
-                    if (projectName == null) {
-                      throw new Exception("Invalid JClic SCORM file: " + fullPath);
-                    }
-                  } else {
-                    fileSystem = new FileSystem(FileSystem.getPathPartOf(fullPath), thisAuthor);
-                    projectName = FileSystem.getFileNameOf(fullPath);
-                    if (fileSystem.fileExists("project.json"))
-                      json = new JSONObject(new String(fileSystem.getBytes("project.json")));
-                  }
-
-                  if (projectName.endsWith(".jclic")) {
-                    org.jdom.Document doc = fileSystem.getXMLDocument(projectName);
-                    System.gc();
-                    JClicProject prj =
-                        JClicProject.getJClicProject(
-                            doc.getRootElement(), thisAuthor, fileSystem, fullPath);
-                    if (json != null) {
-                      prj.readJSON(json, false);
-                    }
-                    setProject(prj);
-                  } else {
-                    sequence = projectName;
-                    setProject(new JClicProject(thisAuthor, fileSystem, fullPath));
-                  }
+            // Step 1: load project
+            if (fullPath != null) {
+              if (fileSystem != null) {
+                fullPath = fileSystem.getUrl(fullPath);
+                if (fullPath.startsWith("file://")) {
+                  fullPath = fullPath.substring(7);
+                } else if (fullPath.indexOf('?') > 0) {
+                  fullPath = fullPath.substring(0, fullPath.indexOf('?'));
                 }
+              }
+              if (sequence == null) {
+                sequence = "0";
+              }
 
-                // load sequence
-                if (sequence != null) {
-                  ActivitySequenceElement ase = null;
-                  String seqName = FileSystem.stdFn(sequence);
-                  // get existing sequence by name
-                  if (project != null) {
+              String projectName = null;
+              JSONObject json = null;
+              if (fullPath.endsWith(Utils.EXT_JCLIC_ZIP)) {
+                fileSystem = FileSystem.createFileSystem(fullPath, thisAuthor);
+                String[] projects = ((ZipFileSystem) fileSystem).getEntries(".jclic");
+                if (projects == null) {
+                  throw new Exception("File " + fullPath + " does not contain any jclic project");
+                }
+                projectName = projects[0];
+              } else if (fullPath.endsWith(Utils.EXT_SCORM_ZIP)) {
+                fileSystem = FileSystem.createFileSystem(fullPath, thisAuthor);
+                if (fileSystem.fileExists("project.json")) {
+                  json = new JSONObject(new String(fileSystem.getBytes("project.json")));
+                  projectName = json.optString("mainFile", null);
+                }
+                if (projectName == null) {
+                  throw new Exception("Invalid JClic SCORM file: " + fullPath);
+                }
+              } else {
+                fileSystem = new FileSystem(FileSystem.getPathPartOf(fullPath), thisAuthor);
+                projectName = FileSystem.getFileNameOf(fullPath);
+                if (fileSystem.fileExists("project.json"))
+                  json = new JSONObject(new String(fileSystem.getBytes("project.json")));
+              }
+
+              if (projectName.endsWith(".jclic")) {
+                org.jdom.Document doc = fileSystem.getXMLDocument(projectName);
+                System.gc();
+                JClicProject prj = JClicProject.getJClicProject(doc.getRootElement(), thisAuthor, fileSystem, fullPath);
+                if (json != null) {
+                  prj.readJSON(json, false);
+                }
+                setProject(prj);
+              } else {
+                sequence = projectName;
+                setProject(new JClicProject(thisAuthor, fileSystem, fullPath));
+              }
+            }
+
+            // load sequence
+            if (sequence != null) {
+              ActivitySequenceElement ase = null;
+              String seqName = FileSystem.stdFn(sequence);
+              // get existing sequence by name
+              if (project != null) {
+                ase = project.activitySequence.getElementByTag(seqName, true);
+              }
+              // get existing sequence by number
+              if (ase == null && project != null) {
+                int i = StrUtils.getAbsIntValueOf(seqName);
+                if (i >= 0) {
+                  ase = project.activitySequence.getElement(i, true);
+                }
+              }
+              // load new sequence (only with Clic3 files)
+              if (ase == null && project != null) {
+                boolean firstPac = (project.activitySequence.getSize() == 0);
+                boolean isPcc = seqName.endsWith(".pcc");
+                boolean isPac = seqName.endsWith(".pac");
+                if (isPcc || isPac) {
+                  imported = true;
+                  if (isPcc) {
+                    String path = fileSystem.root + seqName;
+                    fileSystem = FileSystem.createFileSystem(path, thisAuthor);
+                    if (firstPac) {
+                      project.setFileSystem(fileSystem);
+                      project.setFullPath(path);
+                    } else {
+                      setProject(new JClicProject(thisAuthor, fileSystem, path));
+                    }
+                    firstPac = true;
+                    Clic3.readPccFile(project);
+                    ase = project.activitySequence.getCurrentAct();
+                  } else if (isPac) {
+                    Clic3.addPacToSequence(project, seqName);
                     ase = project.activitySequence.getElementByTag(seqName, true);
                   }
-                  // get existing sequence by number
-                  if (ase == null && project != null) {
-                    int i = StrUtils.getAbsIntValueOf(seqName);
-                    if (i >= 0) {
-                      ase = project.activitySequence.getElement(i, true);
-                    }
-                  }
-                  // load new sequence (only with Clic3 files)
-                  if (ase == null && project != null) {
-                    boolean firstPac = (project.activitySequence.getSize() == 0);
-                    boolean isPcc = seqName.endsWith(".pcc");
-                    boolean isPac = seqName.endsWith(".pac");
-                    if (isPcc || isPac) {
-                      imported = true;
-                      if (isPcc) {
-                        String path = fileSystem.root + seqName;
-                        fileSystem = FileSystem.createFileSystem(path, thisAuthor);
-                        if (firstPac) {
-                          project.setFileSystem(fileSystem);
-                          project.setFullPath(path);
-                        } else {
-                          setProject(new JClicProject(thisAuthor, fileSystem, path));
-                        }
-                        firstPac = true;
-                        Clic3.readPccFile(project);
-                        ase = project.activitySequence.getCurrentAct();
-                      } else if (isPac) {
-                        Clic3.addPacToSequence(project, seqName);
-                        ase = project.activitySequence.getElementByTag(seqName, true);
-                      }
 
-                      if (firstPac) {
-                        project.setName(seqName);
-                      }
-                    }
-                  }
-
-                  // if(ase==null)
-                  //    throw new Exception("Unable to load sequence: "+seqName);
-                  if (ase != null) {
-                    activityName = ase.getActivityName();
+                  if (firstPac) {
+                    project.setName(seqName);
                   }
                 }
+              }
 
-                // load activity
-                if (activityName != null && project != null) {
-                  String actName = FileSystem.stdFn(activityName);
-                  abe = project.activityBag.getElement(actName);
-                }
+              if (ase != null) {
+                activityName = ase.getActivityName();
+              }
+            }
 
-                // if(abe==null)
-                //    throw new Exception("Unable to load activity: "+activityName);
-                fullPath = null;
-                sequence = null;
-                activityName = null;
+            // load activity
+            if (activityName != null && project != null) {
+              String actName = FileSystem.stdFn(activityName);
+              abe = project.activityBag.getElement(actName);
+            }
 
-                if (project != null) {
-                  project.activitySequence.checkAllElements();
-                }
+            fullPath = null;
+            sequence = null;
+            activityName = null;
 
-                if (project != null) {
-                  Map<String, String> hm = new HashMap<String, String>();
-                  // project.activitySequence.listReferences(null, hm);
-                  project.activityBag.listReferences(SEQUENCE_OBJECT, hm);
-                  project.activityBag.listReferences(ACTIVITY_OBJECT, hm);
-                  project.activitySequence.listReferences(null, hm);
-                  java.util.Iterator it = hm.keySet().iterator();
-                  while (it.hasNext() && !isCancelled()) {
-                    String s = (String) it.next();
-                    if (SEQUENCE_OBJECT.equals(hm.get(s))) {
-                      if (project.activitySequence.getElementByTag(s, false) == null) {
-                        sequence = Clic3.pacNameToLowerCase(s);
-                        break;
-                      }
-                    } else if (!project.activityBag.activityExists(s)) {
-                      activityName = s;
-                      break;
-                    }
+            if (project != null) {
+              project.activitySequence.checkAllElements();
+            }
+
+            if (project != null) {
+              Map<String, String> hm = new HashMap<String, String>();
+              project.activityBag.listReferences(SEQUENCE_OBJECT, hm);
+              project.activityBag.listReferences(ACTIVITY_OBJECT, hm);
+              project.activitySequence.listReferences(null, hm);
+              java.util.Iterator it = hm.keySet().iterator();
+              while (it.hasNext() && !isCancelled()) {
+                String s = (String) it.next();
+                if (SEQUENCE_OBJECT.equals(hm.get(s))) {
+                  if (project.activitySequence.getElementByTag(s, false) == null) {
+                    sequence = Clic3.pacNameToLowerCase(s);
+                    break;
                   }
-                }
-
-                if (fullPath == null && sequence == null && activityName == null) {
-                  // exit=true;
+                } else if (!project.activityBag.activityExists(s)) {
+                  activityName = s;
                   break;
-                } else {
-                  if (!prompted) {
-                    prompted =
-                        (messages.showQuestionDlg(
-                                progressDialog, "msg_prompt_loadReferences", null, "yn")
-                            == Messages.YES);
-                    if (!prompted) {
-                      // exit=true;
-                      break;
-                    }
-                  }
-                  abe = null;
                 }
               }
-              if (project != null && !isCancelled()) {
-                project.mediaBag.waitForAllImages();
-              }
-              // System.gc();
-            } catch (Exception ex) {
-              exception = ex;
-              System.err.println("Exception:" + ex);
-              // if(project==null)
-              // setProject(new JClicProject(thisAuthor, createFileSystem(), null));
             }
 
-            attachProject();
-            if (imported && projectEditor != null) {
-              projectEditor.setModified(true);
+            if (fullPath == null && sequence == null && activityName == null) {
+              break;
+            } else {
+              if (!prompted) {
+                prompted = (messages.showQuestionDlg(progressDialog, "msg_prompt_loadReferences", null,
+                    "yn") == Messages.YES);
+                if (!prompted) {
+                  break;
+                }
+              }
+              abe = null;
             }
-            return abe;
+          }
+          if (project != null && !isCancelled()) {
+            project.mediaBag.waitForAllImages();
+          }
+        } catch (Exception ex) {
+          exception = ex;
+          System.err.println("Exception:" + ex);
+        }
+
+        attachProject();
+        if (imported && projectEditor != null) {
+          projectEditor.setModified(true);
+        }
+        return abe;
+      }
+
+      @Override
+      public void finished() {
+
+        progressDialog.setVisible(false);
+
+        setCursor(null);
+
+        if (worker == null || exception != null) {
+          List<Object> v = new ArrayList<Object>();
+          if (fullPath != null) {
+            v.add(fullPath);
+          }
+          if (sequence != null) {
+            v.add(sequence);
+          }
+          if (activityName != null) {
+            v.add(activityName);
           }
 
-          @Override
-          public void finished() {
-
-            progressDialog.setVisible(false);
-
-            setCursor(null);
-
-            if (
-            /*abe==null || */ worker == null || exception != null) {
-              // String sType=null;
-              List<Object> v = new ArrayList<Object>();
-              if (fullPath != null) {
-                v.add(fullPath);
-                // sType="msg_error_loading_project";
-              }
-              if (sequence != null) {
-                v.add(sequence);
-                // if(sType==null)
-                //    sType="msg_error_loading_sequence";
-              }
-              if (activityName != null) {
-                v.add(activityName);
-                // if(sType==null)
-                //    sType="msg_error_loading_activity";
-              }
-              // if(sType==null)
-              //    sType=Messages.ERROR;
-
-              messages.showErrorWarning(thisAuthor, "err_reading_data", v, exception, null);
-            }
-            // unlock events
-            worker = null;
-            setEnabled(true);
-          }
-        };
+          messages.showErrorWarning(thisAuthor, "err_reading_data", v, exception, null);
+        }
+        // unlock events
+        worker = null;
+        setEnabled(true);
+      }
+    };
 
     // finalization process
     setCursor(null);
@@ -435,7 +396,6 @@ public class AuthorSingleFrame extends JPanel
     setEnabled(false);
 
     // Done by progressDialog!
-    // worker.start();
     progressDialog.start("WORKING", "msg_loading_project", worker, true, true, false);
   }
 
@@ -523,7 +483,6 @@ public class AuthorSingleFrame extends JPanel
     toolsMenu.addSeparator();
     toolsMenu.add(new KJMenuItem(getAction(ACTION_DOCTREE)));
     toolsMenu.addSeparator();
-    // toolsMenu.add(new KJMenuItem(getAction(ACTION_CREATE_HTML)));
     toolsMenu.add(new KJMenuItem(getAction(ACTION_CREATE_INSTALLER)));
     menuBar.add(toolsMenu);
 
@@ -586,22 +545,14 @@ public class AuthorSingleFrame extends JPanel
           if (k >= 0) {
             s = s.substring(k + 1);
           }
-          createMenuItem(
-              recentFilesMenu,
-              Integer.toString(i + 1) + ". " + s,
-              "recent" + i,
-              true,
+          createMenuItem(recentFilesMenu, Integer.toString(i + 1) + ". " + s, "recent" + i, true,
               KeyStroke.getKeyStroke(KeyEvent.VK_1 + i, ActionEvent.ALT_MASK));
         }
       }
     }
   }
 
-  JMenuItem createMenuItem(
-      JComponent parent,
-      String text,
-      String actionCommand,
-      boolean mnemonic,
+  JMenuItem createMenuItem(JComponent parent, String text, String actionCommand, boolean mnemonic,
       KeyStroke accelerator) {
     JMenuItem jmi = new JMenuItem(text);
     if (actionCommand != null) {
@@ -618,63 +569,18 @@ public class AuthorSingleFrame extends JPanel
     return jmi;
   }
 
-  public static final int ACTION_OPEN_FILE = 0,
-      ACTION_OPEN_URL = 1,
-      ACTION_SAVE_FILE = 2,
-      ACTION_SAVE_FILE_AS = 3,
-      ACTION_EXIT = 4,
-      ACTION_SETTINGS = 5,
-      ACTION_DOCTREE = 6,
-      ACTION_ABOUT = 7,
-      ACTION_NEW_PROJECT = 8,
-      ACTION_EDIT_PROJECT = 9,
-      ACTION_EDIT_MEDIA = 10,
-      ACTION_EDIT_ACTIVITIES = 11,
-      ACTION_EDIT_SEQ = 12,
-      // ACTION_CREATE_HTML = 13,
-      ACTION_CREATE_INSTALLER = 13,
-      ACTION_IMPORT_ACTIVITIES = 14,
-      ACTION_EXPORT_HTML5 = 15,
-      AUTHOR_NUM_ACTIONS = 16;
+  public static final int ACTION_OPEN_FILE = 0, ACTION_OPEN_URL = 1, ACTION_SAVE_FILE = 2, ACTION_SAVE_FILE_AS = 3,
+      ACTION_EXIT = 4, ACTION_SETTINGS = 5, ACTION_DOCTREE = 6, ACTION_ABOUT = 7, ACTION_NEW_PROJECT = 8,
+      ACTION_EDIT_PROJECT = 9, ACTION_EDIT_MEDIA = 10, ACTION_EDIT_ACTIVITIES = 11, ACTION_EDIT_SEQ = 12,
+      ACTION_CREATE_INSTALLER = 13, ACTION_IMPORT_ACTIVITIES = 14, ACTION_EXPORT_HTML5 = 15, AUTHOR_NUM_ACTIONS = 16;
 
-  public static final String[] ACTION_NAMES = {
-    "openFile",
-    "openUrl",
-    "saveFile",
-    "saveFileAs",
-    "exit",
-    "settings",
-    "docTree",
-    "helpAbout",
-    "newProject",
-    "editProject",
-    "editMedia",
-    "editActivities",
-    "editSeq",
-    // "createHTML",
-    "createInstaller",
-    "importActivities",
-    "exportProject"
-  };
-  public static final String[] ACTION_ICONS = {
-    "icons/file_open.gif",
-    "icons/world.gif",
-    "icons/file_save.gif",
-    "icons/file_save_as.gif",
-    "icons/exit_small.gif",
-    "icons/settings.gif",
-    "icons/tree.gif",
-    "icons/help.gif",
-    "icons/project_new.gif",
-    "icons/project_settings.gif",
-    "icons/media_bag.gif",
-    "icons/miniclic.png",
-    "icons/sequence.gif",
-    // "icons/html_doc.gif",
-    "icons/installer.gif",
-    "icons/import_act.png",
-    "icons/html_doc.gif"
-  };
+  public static final String[] ACTION_NAMES = { "openFile", "openUrl", "saveFile", "saveFileAs", "exit", "settings",
+      "docTree", "helpAbout", "newProject", "editProject", "editMedia", "editActivities", "editSeq", "createInstaller",
+      "importActivities", "exportProject" };
+  public static final String[] ACTION_ICONS = { "icons/file_open.gif", "icons/world.gif", "icons/file_save.gif",
+      "icons/file_save_as.gif", "icons/exit_small.gif", "icons/settings.gif", "icons/tree.gif", "icons/help.gif",
+      "icons/project_new.gif", "icons/project_settings.gif", "icons/media_bag.gif", "icons/miniclic.png",
+      "icons/sequence.gif", "icons/installer.gif", "icons/import_act.png", "icons/html_doc.gif" };
 
   protected int getNumActions() {
     return AUTHOR_NUM_ACTIONS;
@@ -684,319 +590,240 @@ public class AuthorSingleFrame extends JPanel
 
     actions = new Action[getNumActions()];
 
-    actions[ACTION_OPEN_FILE] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            if (checkSaveChanges(false)) {
-              int[] filters = {Utils.ALL_CLIC_FF, Utils.INSTALL_FF, Utils.ALL_JCLIC_SCORM_FF};
-              FileSystem fs = settings.fileSystem;
-              String result =
-                  fs.chooseFile(null, false, filters, options, null, AuthorSingleFrame.this, false);
-              if (result != null) {
-                String fileName = fs.getFullFileNamePath(result);
-                if (load(fileName, null)) {
-                  addRecentFile(fileName);
-                }
-              }
-            }
-          }
-        };
-
-    actions[ACTION_OPEN_URL] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            if (checkSaveChanges(false)) {
-              String url =
-                  messages.showInputDlg(
-                      AuthorSingleFrame.this, "URL_OPEN", "URL", "http://", "URL_OPEN", false);
-              if (url != null) {
-                url = url.trim();
-                if (url.startsWith("http://http://")) {
-                  url = url.substring(7);
-                }
-                if (url.length() > 0 && !url.equals("http://")) {
-                  if (load(url, null)) {
-                    addRecentFile(url);
-                  }
-                }
-              }
-            }
-          }
-        };
-
-    actions[ACTION_SAVE_FILE] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            saveFile(false);
-          }
-        };
-
-    actions[ACTION_SAVE_FILE_AS] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            saveFile(true);
-          }
-        };
-
-    actions[ACTION_EXIT] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            exit();
-          }
-        };
-
-    actions[ACTION_SETTINGS] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            String currentLook = options.getString(LFUtil.LOOK_AND_FEEL);
-            String currentLanguage = options.getString(Messages.LANGUAGE);
-            String currentCountry = options.getString(Messages.COUNTRY);
-            String currentVariant = options.getString(Messages.VARIANT);
-            String currentMediaSystem = settings.mediaSystem;
-            if (settings.edit(AuthorSingleFrame.this)) {
-              settings.save();
-              options.syncProperties(settings.getProperties(), false);
-              boolean recreateMenu = false;
-              if (!settings.lookAndFeel.equals(currentLook)) {
-                options.setLookAndFeel();
-                recreateMenu = true;
-              }
-              if (settings.language != null
-                  && (!StrUtils.compareObjects(settings.language, currentLanguage)
-                      || !StrUtils.compareObjects(settings.country, currentCountry)
-                      || !StrUtils.compareObjects(settings.variant, currentVariant))) {
-                setMessages();
-                recreateMenu = true;
-              }
-              if (recreateMenu) {
-                checkMenu(true);
-              }
-              if (!currentMediaSystem.equals(settings.mediaSystem)) {
-                options.put(MEDIA_SYSTEM, settings.mediaSystem);
-                edu.xtec.jclic.media.CheckMediaSystem.check(options, false);
-              }
-            }
-          }
-        };
-
-    actions[ACTION_DOCTREE] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            if (project != null) {
-              org.jdom.Element e =
-                  JDomTreePanel.editElement(
-                      AuthorSingleFrame.this,
-                      project.getJDomElement(),
-                      AuthorSingleFrame.this,
-                      project.getFileSystem(),
-                      project.getName(),
-                      "edit_docTree_title");
-              if (e != null) {
-                try {
-                  // JClicProject prj=JClicProject.getJClicProject(e, Author.this,
-                  // project.getFileSystem(), project.getFullPath());
-                  String fullPath = project.getFullPath();
-                  JClicProject prj =
-                      JClicProject.getJClicProject(
-                          e,
-                          AuthorSingleFrame.this,
-                          FileSystem.createFileSystem(fullPath, AuthorSingleFrame.this),
-                          fullPath);
-                  if (prj != null) {
-                    setProject(prj);
-                    attachProject();
-                    projectEditor.setModified(true);
-                  }
-                } catch (Exception ex) {
-                  messages.showErrorWarning(AuthorSingleFrame.this, "edit_tree_badFormat", ex);
-                }
-              }
-            }
-          }
-        };
-
-    actions[ACTION_IMPORT_ACTIVITIES] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            if (project != null) {
-              int[] filters = {Utils.ALL_JCLIC_FF};
-              FileSystem fs = settings.fileSystem;
-              String result =
-                  fs.chooseFile(
-                      null,
-                      false,
-                      filters,
-                      options,
-                      "import_selectProject",
-                      AuthorSingleFrame.this,
-                      false);
-
-              if (result != null) {
-                String fullPath = fs.getFullFileNamePath(result);
-                if ((new File(project.getFileSystem().getFullRoot())).equals(new File(fullPath))) {
-                  messages.showAlert(AuthorSingleFrame.this, "import_warn_samefile");
-                } else {
-                  doImportActivities(fullPath);
-                }
-              }
-            }
-          }
-        };
-
-    actions[ACTION_ABOUT] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            AboutWindow aw =
-                new AboutWindow(
-                    AuthorSingleFrame.this, AuthorSingleFrame.this, new Dimension(500, 400));
-            try {
-              aw.buildAboutTab(
-                  "JClic author",
-                  getMsg("AUTHOR_VERSION"),
-                  "logo_author_small.png",
-                  null,
-                  null,
-                  null,
-                  null);
-              aw.buildStandardTab(
-                  aw.getHtmlSystemInfo(),
-                  "about_window_systemInfo",
-                  "about_window_lb_system",
-                  "icons/system_small.gif");
-              aw.setVisible(true);
-            } catch (Exception ex) {
-              System.err.println("Error building about window: " + ex);
-            }
-          }
-        };
-
-    actions[ACTION_NEW_PROJECT] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            if (checkSaveChanges(false)) {
-              JClicProject prj =
-                  NewProjectDlg.prompt(
-                      AuthorSingleFrame.this, AuthorSingleFrame.this, createFileSystem());
-              if (prj != null) {
-                setProject(prj);
-                attachProject();
-              }
-            }
-          }
-        };
-
-    actions[ACTION_EXPORT_HTML5] =
-        new AbstractAction() {
-          @Override
-          public void actionPerformed(ActionEvent ev) {
-            if (checkSaveChanges(project.isScorm)) {
-              String inputPath = project.getFileSystem().getFullFileNamePath("");
-              String[] folders =
-                  ExportToJSDlg.prompt(
-                      AuthorSingleFrame.this,
-                      AuthorSingleFrame.this,
-                      inputPath,
-                      AuthorSingleFrame.this.settings.rootExportPath,
-                      AuthorSingleFrame.this.settings.rootScormPath);
-              if (folders != null) {
-                try {
-                  boolean exportAll = folders[2].equals("true");
-                  String scormFile = folders[3];
-                  if (!exportAll) {
-                    inputPath = project.getFileSystem().getFullRoot();
-                  }
-                  String fullPath = (new File(project.getFullPath())).getCanonicalPath();
-                  String mainFile = project.getFileSystem().getRelativeFileNamePath(fullPath);
-                  if (mainFile.endsWith(".zip")) {
-                    mainFile = mainFile.substring(0, mainFile.length() - 4);
-                  }
-                  ExportTaskDlg.doTask(
-                      AuthorSingleFrame.this,
-                      settings,
-                      AuthorSingleFrame.this,
-                      inputPath,
-                      folders[0],
-                      mainFile,
-                      project,
-                      exportAll,
-                      scormFile);
-                } catch (IOException ex) {
-                  System.err.println("Error: " + ex);
-                }
-              }
-            }
-          }
-        };
-
-    actions[ACTION_EDIT_PROJECT] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            if (tabbedPane != null) {
-              tabbedPane.setSelectedComponent(projectSettingsEditorPanel);
-            }
-          }
-        };
-
-    actions[ACTION_EDIT_MEDIA] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            if (tabbedPane != null) {
-              tabbedPane.setSelectedComponent(mediaBagEditorPanel);
-            }
-          }
-        };
-
-    actions[ACTION_EDIT_ACTIVITIES] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            if (tabbedPane != null) {
-              tabbedPane.setSelectedComponent(activityBagEditorPanel);
-            }
-          }
-        };
-
-    actions[ACTION_EDIT_SEQ] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            if (tabbedPane != null) {
-              tabbedPane.setSelectedComponent(activitySequenceEditorPanel);
-            }
-          }
-        };
-
-    /*
-    actions[ACTION_CREATE_HTML] = new AbstractAction() {
+    actions[ACTION_OPEN_FILE] = new AbstractAction() {
       public void actionPerformed(ActionEvent ev) {
-        if (checkSaveChanges(project.isScorm)) {
-          AppletHtmlCreator.createHtml(project, settings, AuthorSingleFrame.this);
+        if (checkSaveChanges(false)) {
+          int[] filters = { Utils.ALL_CLIC_FF, Utils.INSTALL_FF, Utils.ALL_JCLIC_SCORM_FF };
+          FileSystem fs = settings.fileSystem;
+          String result = fs.chooseFile(null, false, filters, options, null, AuthorSingleFrame.this, false);
+          if (result != null) {
+            String fileName = fs.getFullFileNamePath(result);
+            if (load(fileName, null)) {
+              addRecentFile(fileName);
+            }
+          }
         }
       }
     };
-    */
 
-    actions[ACTION_CREATE_INSTALLER] =
-        new AbstractAction() {
-          public void actionPerformed(ActionEvent ev) {
-            if (checkSaveChanges(project.isScorm)) {
-              ProjectInstallerEditPanel.createInstaller(project, AuthorSingleFrame.this);
+    actions[ACTION_OPEN_URL] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        if (checkSaveChanges(false)) {
+          String url = messages.showInputDlg(AuthorSingleFrame.this, "URL_OPEN", "URL", "http://", "URL_OPEN", false);
+          if (url != null) {
+            url = url.trim();
+            if (url.startsWith("http://http://")) {
+              url = url.substring(7);
+            }
+            if (url.length() > 0 && !url.equals("http://")) {
+              if (load(url, null)) {
+                addRecentFile(url);
+              }
             }
           }
-        };
+        }
+      }
+    };
 
-    projectActions =
-        new Action[] {
-          actions[ACTION_SAVE_FILE],
-          actions[ACTION_SAVE_FILE_AS],
-          actions[ACTION_DOCTREE],
-          actions[ACTION_EDIT_SEQ],
-          actions[ACTION_EDIT_ACTIVITIES],
-          actions[ACTION_EDIT_MEDIA],
-          actions[ACTION_EDIT_PROJECT],
-          // actions[ACTION_CREATE_HTML],
-          actions[ACTION_CREATE_INSTALLER],
-          actions[ACTION_IMPORT_ACTIVITIES],
-          actions[ACTION_EXPORT_HTML5]
-        };
+    actions[ACTION_SAVE_FILE] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        saveFile(false);
+      }
+    };
+
+    actions[ACTION_SAVE_FILE_AS] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        saveFile(true);
+      }
+    };
+
+    actions[ACTION_EXIT] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        exit();
+      }
+    };
+
+    actions[ACTION_SETTINGS] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        String currentLook = options.getString(LFUtil.LOOK_AND_FEEL);
+        String currentLanguage = options.getString(Messages.LANGUAGE);
+        String currentCountry = options.getString(Messages.COUNTRY);
+        String currentVariant = options.getString(Messages.VARIANT);
+        String currentMediaSystem = settings.mediaSystem;
+        if (settings.edit(AuthorSingleFrame.this)) {
+          settings.save();
+          options.syncProperties(settings.getProperties(), false);
+          boolean recreateMenu = false;
+          if (!settings.lookAndFeel.equals(currentLook)) {
+            options.setLookAndFeel();
+            recreateMenu = true;
+          }
+          if (settings.language != null && (!StrUtils.compareObjects(settings.language, currentLanguage)
+              || !StrUtils.compareObjects(settings.country, currentCountry)
+              || !StrUtils.compareObjects(settings.variant, currentVariant))) {
+            setMessages();
+            recreateMenu = true;
+          }
+          if (recreateMenu) {
+            checkMenu(true);
+          }
+          if (!currentMediaSystem.equals(settings.mediaSystem)) {
+            options.put(MEDIA_SYSTEM, settings.mediaSystem);
+            edu.xtec.jclic.media.CheckMediaSystem.check(options, false);
+          }
+        }
+      }
+    };
+
+    actions[ACTION_DOCTREE] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        if (project != null) {
+          org.jdom.Element e = JDomTreePanel.editElement(AuthorSingleFrame.this, project.getJDomElement(),
+              AuthorSingleFrame.this, project.getFileSystem(), project.getName(), "edit_docTree_title");
+          if (e != null) {
+            try {
+              String fullPath = project.getFullPath();
+              JClicProject prj = JClicProject.getJClicProject(e, AuthorSingleFrame.this,
+                  FileSystem.createFileSystem(fullPath, AuthorSingleFrame.this), fullPath);
+              if (prj != null) {
+                setProject(prj);
+                attachProject();
+                projectEditor.setModified(true);
+              }
+            } catch (Exception ex) {
+              messages.showErrorWarning(AuthorSingleFrame.this, "edit_tree_badFormat", ex);
+            }
+          }
+        }
+      }
+    };
+
+    actions[ACTION_IMPORT_ACTIVITIES] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        if (project != null) {
+          int[] filters = { Utils.ALL_JCLIC_FF };
+          FileSystem fs = settings.fileSystem;
+          String result = fs.chooseFile(null, false, filters, options, "import_selectProject", AuthorSingleFrame.this,
+              false);
+
+          if (result != null) {
+            String fullPath = fs.getFullFileNamePath(result);
+            if ((new File(project.getFileSystem().getFullRoot())).equals(new File(fullPath))) {
+              messages.showAlert(AuthorSingleFrame.this, "import_warn_samefile");
+            } else {
+              doImportActivities(fullPath);
+            }
+          }
+        }
+      }
+    };
+
+    actions[ACTION_ABOUT] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        AboutWindow aw = new AboutWindow(AuthorSingleFrame.this, AuthorSingleFrame.this, new Dimension(500, 400));
+        try {
+          aw.buildAboutTab("JClic author", getMsg("AUTHOR_VERSION"), "logo_author_small.png", null, null, null, null);
+          aw.buildStandardTab(aw.getHtmlSystemInfo(), "about_window_systemInfo", "about_window_lb_system",
+              "icons/system_small.gif");
+          aw.setVisible(true);
+        } catch (Exception ex) {
+          System.err.println("Error building about window: " + ex);
+        }
+      }
+    };
+
+    actions[ACTION_NEW_PROJECT] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        if (checkSaveChanges(false)) {
+          JClicProject prj = NewProjectDlg.prompt(AuthorSingleFrame.this, AuthorSingleFrame.this, createFileSystem());
+          if (prj != null) {
+            setProject(prj);
+            attachProject();
+          }
+        }
+      }
+    };
+
+    actions[ACTION_EXPORT_HTML5] = new AbstractAction() {
+      @Override
+      public void actionPerformed(ActionEvent ev) {
+        if (checkSaveChanges(project.isScorm)) {
+          String inputPath = project.getFileSystem().getFullFileNamePath("");
+          String[] folders = ExportToJSDlg.prompt(AuthorSingleFrame.this, AuthorSingleFrame.this, inputPath,
+              AuthorSingleFrame.this.settings.rootExportPath, AuthorSingleFrame.this.settings.rootScormPath);
+          if (folders != null) {
+            try {
+              boolean exportAll = folders[2].equals("true");
+              String scormFile = folders[3];
+              if (!exportAll) {
+                inputPath = project.getFileSystem().getFullRoot();
+              }
+              String fullPath = (new File(project.getFullPath())).getCanonicalPath();
+              String mainFile = project.getFileSystem().getRelativeFileNamePath(fullPath);
+              if (mainFile.endsWith(".zip")) {
+                mainFile = mainFile.substring(0, mainFile.length() - 4);
+              }
+              ExportTaskDlg.doTask(AuthorSingleFrame.this, settings, AuthorSingleFrame.this, inputPath, folders[0],
+                  mainFile, project, exportAll, scormFile);
+            } catch (IOException ex) {
+              System.err.println("Error: " + ex);
+            }
+          }
+        }
+      }
+    };
+
+    actions[ACTION_EDIT_PROJECT] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        if (tabbedPane != null) {
+          tabbedPane.setSelectedComponent(projectSettingsEditorPanel);
+        }
+      }
+    };
+
+    actions[ACTION_EDIT_MEDIA] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        if (tabbedPane != null) {
+          tabbedPane.setSelectedComponent(mediaBagEditorPanel);
+        }
+      }
+    };
+
+    actions[ACTION_EDIT_ACTIVITIES] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        if (tabbedPane != null) {
+          tabbedPane.setSelectedComponent(activityBagEditorPanel);
+        }
+      }
+    };
+
+    actions[ACTION_EDIT_SEQ] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        if (tabbedPane != null) {
+          tabbedPane.setSelectedComponent(activitySequenceEditorPanel);
+        }
+      }
+    };
+
+    /*
+     * actions[ACTION_CREATE_HTML] = new AbstractAction() { public void
+     * actionPerformed(ActionEvent ev) { if (checkSaveChanges(project.isScorm)) {
+     * AppletHtmlCreator.createHtml(project, settings, AuthorSingleFrame.this); } }
+     * };
+     */
+
+    actions[ACTION_CREATE_INSTALLER] = new AbstractAction() {
+      public void actionPerformed(ActionEvent ev) {
+        if (checkSaveChanges(project.isScorm)) {
+          ProjectInstallerEditPanel.createInstaller(project, AuthorSingleFrame.this);
+        }
+      }
+    };
+
+    projectActions = new Action[] { actions[ACTION_SAVE_FILE], actions[ACTION_SAVE_FILE_AS], actions[ACTION_DOCTREE],
+        actions[ACTION_EDIT_SEQ], actions[ACTION_EDIT_ACTIVITIES], actions[ACTION_EDIT_MEDIA],
+        actions[ACTION_EDIT_PROJECT], actions[ACTION_CREATE_INSTALLER], actions[ACTION_IMPORT_ACTIVITIES],
+        actions[ACTION_EXPORT_HTML5] };
 
     checkActions();
   }
@@ -1004,18 +831,16 @@ public class AuthorSingleFrame extends JPanel
   protected boolean saveFile(boolean saveAs) {
     boolean ok = false;
     if (project != null && projectEditor.checkProject(options, this, true)) {
-      int[] filters = {Utils.JCLIC_ZIP_FF};
+      int[] filters = { Utils.JCLIC_ZIP_FF };
       FileSystem fs = project.getFileSystem();
-      String path =
-          StrUtils.secureString(project.getFullPath(), project.getName() + Utils.EXT_JCLIC_ZIP);
+      String path = StrUtils.secureString(project.getFullPath(), project.getName() + Utils.EXT_JCLIC_ZIP);
       ;
       if (project.isScorm) {
         if (messages.showQuestionDlg(this, "warn_save_scorm_file", "CONFIRM", "yn") != Messages.YES)
           return false;
         saveAs = true;
-        path =
-            settings.fileSystem.getFullFileNamePath(
-                project.getName() + File.separator + project.getName() + Utils.EXT_JCLIC_ZIP);
+        path = settings.fileSystem
+            .getFullFileNamePath(project.getName() + File.separator + project.getName() + Utils.EXT_JCLIC_ZIP);
       }
       String pLower = path.toLowerCase();
       if (!pLower.endsWith(Utils.EXT_JCLIC_ZIP)) {
@@ -1047,11 +872,7 @@ public class AuthorSingleFrame extends JPanel
         result = fs.chooseFile(path, true, filters, options, null, AuthorSingleFrame.this, false);
       }
       if (result != null) {
-
         ok = doSaveFile(result);
-
-        // 03-Feb-2011
-        // Correction of bug #53
         setFrameTitle(null);
       }
     }
@@ -1062,47 +883,44 @@ public class AuthorSingleFrame extends JPanel
 
   protected boolean doSaveFile(final String fName) {
 
-    // TODO: Save also in SCORM format!
     if (worker != null) {
       return false;
     }
 
     saveResult = false;
 
-    // System.gc();
-    worker =
-        new edu.xtec.util.SwingWorker() {
-          Exception exception = null;
-          AuthorSingleFrame thisAuthor = AuthorSingleFrame.this;
+    worker = new edu.xtec.util.SwingWorker() {
+      Exception exception = null;
+      AuthorSingleFrame thisAuthor = AuthorSingleFrame.this;
 
-          @Override
-          public Object construct() {
-            Object o = null;
-            setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            try {
-              projectEditor.saveProject(fName);
-              saveResult = true;
-              project.isScorm = false;
-              addRecentFile(project.getFullPath());
-              o = true;
-            } catch (Exception ex) {
-              exception = ex;
-            }
-            return o;
-          }
+      @Override
+      public Object construct() {
+        Object o = null;
+        setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        try {
+          projectEditor.saveProject(fName);
+          saveResult = true;
+          project.isScorm = false;
+          addRecentFile(project.getFullPath());
+          o = true;
+        } catch (Exception ex) {
+          exception = ex;
+        }
+        return o;
+      }
 
-          @Override
-          public void finished() {
-            progressDialog.setVisible(false);
-            setCursor(null);
-            if (worker == null || exception != null) {
-              messages.showErrorWarning(thisAuthor, "FILE_ERR_SAVING", fName, exception, null);
-            }
-            // unlock events
-            worker = null;
-            setEnabled(true);
-          }
-        };
+      @Override
+      public void finished() {
+        progressDialog.setVisible(false);
+        setCursor(null);
+        if (worker == null || exception != null) {
+          messages.showErrorWarning(thisAuthor, "FILE_ERR_SAVING", fName, exception, null);
+        }
+        // unlock events
+        worker = null;
+        setEnabled(true);
+      }
+    };
 
     setCursor(null);
     setEnabled(false);
@@ -1118,139 +936,130 @@ public class AuthorSingleFrame extends JPanel
 
     System.gc();
 
-    worker =
-        new edu.xtec.util.SwingWorker() {
-          Exception exception = null;
-          AuthorSingleFrame thisAuthor = AuthorSingleFrame.this;
+    worker = new edu.xtec.util.SwingWorker() {
+      Exception exception = null;
+      AuthorSingleFrame thisAuthor = AuthorSingleFrame.this;
 
-          @Override
-          public Object construct() {
-            Object o = null;
-            setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            try {
-              JClicProject jcp = JClicProject.getJClicProject(thisAuthor, fullPath, progressDialog);
-              if (jcp != null) {
-                progressDialog.setText(messages.get("import_importing"));
+      @Override
+      public Object construct() {
+        Object o = null;
+        setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+        try {
+          JClicProject jcp = JClicProject.getJClicProject(thisAuthor, fullPath, progressDialog);
+          if (jcp != null) {
+            progressDialog.setText(messages.get("import_importing"));
 
-                // Select activities to import
-                JClicProjectEditor jcped = (JClicProjectEditor) jcp.getEditor(null);
-                javax.swing.JList<Object> actList =
-                    new javax.swing.JList<Object>(jcp.activityBag.getElements());
-                // Error: setpreferedSize must be called on the JScrollPane, not on the JList
-                // actList.setPreferredSize(new java.awt.Dimension(200, 300));
-                javax.swing.JScrollPane pane = new javax.swing.JScrollPane(actList);
-                pane.setPreferredSize(new java.awt.Dimension(300, 300));
-                if (messages.showInputDlg(
-                        thisAuthor,
-                        new String[] {"import_selectActivities"},
-                        new String[] {},
-                        new JComponent[] {pane},
-                        "action_importActivities_caption")
-                    && actList.getSelectedIndices().length > 0) {
+            // Select activities to import
+            JClicProjectEditor jcped = (JClicProjectEditor) jcp.getEditor(null);
+            javax.swing.JList<Object> actList = new javax.swing.JList<Object>(jcp.activityBag.getElements());
+            javax.swing.JScrollPane pane = new javax.swing.JScrollPane(actList);
+            pane.setPreferredSize(new java.awt.Dimension(300, 300));
+            if (messages.showInputDlg(thisAuthor, new String[] { "import_selectActivities" }, new String[] {},
+                new JComponent[] { pane }, "action_importActivities_caption")
+                && actList.getSelectedIndices().length > 0) {
 
-                  progressDialog.setText(messages.get("import_checkdep"));
-                  Object[] selection = actList.getSelectedValues();
+              progressDialog.setText(messages.get("import_checkdep"));
+              Object[] selection = actList.getSelectedValues();
 
-                  // check media elements to import
-                  List<String> mediaNames = new ArrayList<String>();
-                  for (int i = 0; i < selection.length; i++) {
-                    ActivityBagElement abe = (ActivityBagElement) selection[i];
-                    Map map = abe.getReferences();
-                    Iterator it = map.keySet().iterator();
-                    while (it.hasNext()) {
-                      String media = (String) it.next();
-                      Object mediaType = map.get(media);
-                      if (Constants.MEDIA_OBJECT.equals(mediaType) && !mediaNames.contains(media)) {
-                        mediaNames.add(media);
-                      }
-
-                      // Todo: process also objects of type Constants.EXTERNAL_OBJECT
-                    }
+              // check media elements to import
+              List<String> mediaNames = new ArrayList<String>();
+              for (int i = 0; i < selection.length; i++) {
+                ActivityBagElement abe = (ActivityBagElement) selection[i];
+                Map map = abe.getReferences();
+                Iterator it = map.keySet().iterator();
+                while (it.hasNext()) {
+                  String media = (String) it.next();
+                  Object mediaType = map.get(media);
+                  if (Constants.MEDIA_OBJECT.equals(mediaType) && !mediaNames.contains(media)) {
+                    mediaNames.add(media);
                   }
 
-                  // get the list of media bag elements
-                  ArrayList<MediaBagElement> mediaBagElements = new ArrayList<MediaBagElement>();
-                  for (int i = 0; i < mediaNames.size(); i++) {
-                    MediaBagElement mb = jcp.mediaBag.getElement((String) mediaNames.get(i));
-                    if (mb != null) {
-                      mediaBagElements.add(mb);
-                    }
-                  }
-
-                  // check for repeated media names and import media
-                  for (MediaBagElement mbe : mediaBagElements) {
-                    String name = mbe.getName();
-                    String rootName = name;
-                    progressDialog.setText(messages.get("import_impmedia") + " " + name);
-                    int prefix = 0;
-                    while (project.mediaBag.getElement(name) != null) {
-                      name = "i0" + Integer.toString(++prefix) + "-" + rootName;
-                    }
-                    String fName = mbe.getFileName();
-                    String rootFName = fName;
-                    prefix = 0;
-                    while (project.getFileSystem().fileExists(fName)) {
-                      fName = "i0" + Integer.toString(++prefix) + "-" + rootFName;
-                    }
-                    File outFile = new File(project.getFileSystem().getFullFileNamePath(fName));
-                    outFile.getParentFile().mkdirs();
-                    java.io.FileOutputStream fos = new java.io.FileOutputStream(outFile);
-                    edu.xtec.util.StreamIO.writeStreamTo(
-                        jcp.mediaBag.getInputStream(mbe.getName()), fos);
-
-                    if (!name.equals(rootName)) {
-                      jcped.getActivityBagEditor().nameChanged(Constants.T_MEDIA, rootName, name);
-                      mbe.setName(name);
-                    }
-
-                    if (!fName.equals(rootFName)) {
-                      mbe.setFileName(fName);
-                    }
-
-                    mbe.setData(null);
-                    projectEditor.getMediaBagEditor().addMediaBagElement(mbe);
-                  }
-
-                  // Import activities
-                  for (int i = 0; i < selection.length; i++) {
-                    ActivityBagElement abe = (ActivityBagElement) selection[i];
-                    String actName = abe.toString();
-                    String rootName = actName;
-                    progressDialog.setText(messages.get("import_impact") + " " + actName);
-                    int prefix = 0;
-                    while (project.activityBag.getElementByName(actName) != null) {
-                      actName = "i0" + Integer.toString(++prefix) + rootName;
-                    }
-                    if (!actName.equals(rootName)) {
-                      jcped.nameChanged(Constants.T_ACTIVITY, rootName, actName);
-                    }
-
-                    ActivityBagElementEditor abeed = (ActivityBagElementEditor) abe.getEditor(null);
-                    projectEditor.getActivityBagEditor().insertEditor(abeed, true, -1, false);
-                  }
-
-                  o = true;
+                  // Todo: process also objects of type Constants.EXTERNAL_OBJECT
                 }
               }
 
-            } catch (Exception ex) {
-              exception = ex;
+              // get the list of media bag elements
+              ArrayList<MediaBagElement> mediaBagElements = new ArrayList<MediaBagElement>();
+              for (int i = 0; i < mediaNames.size(); i++) {
+                MediaBagElement mb = jcp.mediaBag.getElement((String) mediaNames.get(i));
+                if (mb != null) {
+                  mediaBagElements.add(mb);
+                }
+              }
+
+              // check for repeated media names and import media
+              for (MediaBagElement mbe : mediaBagElements) {
+                String name = mbe.getName();
+                String rootName = name;
+                progressDialog.setText(messages.get("import_impmedia") + " " + name);
+                int prefix = 0;
+                while (project.mediaBag.getElement(name) != null) {
+                  name = "i0" + Integer.toString(++prefix) + "-" + rootName;
+                }
+                String fName = mbe.getFileName();
+                String rootFName = fName;
+                prefix = 0;
+                while (project.getFileSystem().fileExists(fName)) {
+                  fName = "i0" + Integer.toString(++prefix) + "-" + rootFName;
+                }
+                File outFile = new File(project.getFileSystem().getFullFileNamePath(fName));
+                outFile.getParentFile().mkdirs();
+                java.io.FileOutputStream fos = new java.io.FileOutputStream(outFile);
+                edu.xtec.util.StreamIO.writeStreamTo(jcp.mediaBag.getInputStream(mbe.getName()), fos);
+
+                if (!name.equals(rootName)) {
+                  jcped.getActivityBagEditor().nameChanged(Constants.T_MEDIA, rootName, name);
+                  mbe.setName(name);
+                }
+
+                if (!fName.equals(rootFName)) {
+                  mbe.setFileName(fName);
+                }
+
+                mbe.setData(null);
+                projectEditor.getMediaBagEditor().addMediaBagElement(mbe);
+              }
+
+              // Import activities
+              for (int i = 0; i < selection.length; i++) {
+                ActivityBagElement abe = (ActivityBagElement) selection[i];
+                String actName = abe.toString();
+                String rootName = actName;
+                progressDialog.setText(messages.get("import_impact") + " " + actName);
+                int prefix = 0;
+                while (project.activityBag.getElementByName(actName) != null) {
+                  actName = "i0" + Integer.toString(++prefix) + rootName;
+                }
+                if (!actName.equals(rootName)) {
+                  jcped.nameChanged(Constants.T_ACTIVITY, rootName, actName);
+                }
+
+                ActivityBagElementEditor abeed = (ActivityBagElementEditor) abe.getEditor(null);
+                projectEditor.getActivityBagEditor().insertEditor(abeed, true, -1, false);
+              }
+
+              o = true;
             }
-            return o;
           }
 
-          @Override
-          public void finished() {
-            progressDialog.setVisible(false);
-            setCursor(null);
-            if (worker == null || exception != null) {
-              messages.showErrorWarning(thisAuthor, "FILE_ERR_OPENING", fullPath, exception, null);
-            }
-            // unlock events
-            worker = null;
-            setEnabled(true);
-          }
-        };
+        } catch (Exception ex) {
+          exception = ex;
+        }
+        return o;
+      }
+
+      @Override
+      public void finished() {
+        progressDialog.setVisible(false);
+        setCursor(null);
+        if (worker == null || exception != null) {
+          messages.showErrorWarning(thisAuthor, "FILE_ERR_OPENING", fullPath, exception, null);
+        }
+        // unlock events
+        worker = null;
+        setEnabled(true);
+      }
+    };
 
     setCursor(null);
     setEnabled(false);
@@ -1273,8 +1082,7 @@ public class AuthorSingleFrame extends JPanel
           if (s != null && s.length() == 2) {
             actions[i].putValue(Action.MNEMONIC_KEY, new Integer(s.charAt(0)));
             if (s.charAt(1) != '*') {
-              actions[i].putValue(
-                  Action.ACCELERATOR_KEY,
+              actions[i].putValue(Action.ACCELERATOR_KEY,
                   KeyStroke.getKeyStroke((int) s.charAt(1), KeyEvent.CTRL_MASK));
             }
           }
@@ -1312,10 +1120,7 @@ public class AuthorSingleFrame extends JPanel
     if (ac.startsWith("recent") && ac.length() > 6) {
       try {
         int i = Integer.parseInt(ac.substring(6));
-        if (i >= 0
-            && i < PlayerSettings.MAX_RECENT
-            && settings.recentFiles[i] != null
-            && checkSaveChanges(false)) {
+        if (i >= 0 && i < PlayerSettings.MAX_RECENT && settings.recentFiles[i] != null && checkSaveChanges(false)) {
           load(settings.recentFiles[i], null);
         }
       } catch (Exception ex) {
@@ -1343,46 +1148,40 @@ public class AuthorSingleFrame extends JPanel
 
   public void exit() {
     if (checkSaveChanges(false)) {
-      SwingUtilities.invokeLater(
-          new Runnable() {
-            public void run() {
-              if (options.getApplet() == null) {
-                try {
-                  end();
-                  java.awt.Frame fr = JOptionPane.getFrameForComponent(AuthorSingleFrame.this);
-                  if (fr != null) {
-                    fr.dispose();
-                  } else {
-                    System.exit(0);
-                  }
-                } catch (Exception ex) {
-                  System.err.println("Unable to exit!\n" + ex);
-                }
+      SwingUtilities.invokeLater(new Runnable() {
+        public void run() {
+          if (options.getApplet() == null) {
+            try {
+              end();
+              java.awt.Frame fr = JOptionPane.getFrameForComponent(AuthorSingleFrame.this);
+              if (fr != null) {
+                fr.dispose();
+              } else {
+                System.exit(0);
               }
+            } catch (Exception ex) {
+              System.err.println("Unable to exit!\n" + ex);
             }
-          });
+          }
+        }
+      });
     }
   }
 
   protected void attachProject() {
     lastFocusedPanel = null;
-    // if(mediaBagFrame!=null && activityBagFrame!=null && activitySequenceFrame!=null){
-    if (projectSettingsEditorPanel != null
-        && mediaBagEditorPanel != null
-        && activityBagEditorPanel != null
+    if (projectSettingsEditorPanel != null && mediaBagEditorPanel != null && activityBagEditorPanel != null
         && activitySequenceEditorPanel != null) {
       if (project != null) {
         project.activityBag.sortByName();
       }
       projectEditor = project == null ? null : (JClicProjectEditor) project.getEditor(null);
-      projectSettingsEditorPanel.attachEditor(
-          projectEditor == null ? null : projectEditor.getProjectSettingsEditor(), true);
-      mediaBagEditorPanel.attachEditor(
-          projectEditor == null ? null : projectEditor.getMediaBagEditor(), true);
-      activityBagEditorPanel.attachEditor(
-          projectEditor == null ? null : projectEditor.getActivityBagEditor(), true);
-      activitySequenceEditorPanel.attachEditor(
-          projectEditor == null ? null : projectEditor.getActivitySequenceEditor(), true);
+      projectSettingsEditorPanel.attachEditor(projectEditor == null ? null : projectEditor.getProjectSettingsEditor(),
+          true);
+      mediaBagEditorPanel.attachEditor(projectEditor == null ? null : projectEditor.getMediaBagEditor(), true);
+      activityBagEditorPanel.attachEditor(projectEditor == null ? null : projectEditor.getActivityBagEditor(), true);
+      activitySequenceEditorPanel.attachEditor(projectEditor == null ? null : projectEditor.getActivitySequenceEditor(),
+          true);
       if (project != null) {
         player.setProject(project);
         player.getHistory().clearHistory();
@@ -1412,31 +1211,29 @@ public class AuthorSingleFrame extends JPanel
     }
   }
 
-  protected java.awt.event.FocusListener focusListener =
-      new java.awt.event.FocusListener() {
-        public void focusGained(java.awt.event.FocusEvent ev) {
-          if (playerDlg != null && playerDlg.isShowing()) {
-            playerDlg.requestFocus();
-          } else {
-            checkTabbedPaneFocus(false);
-          }
-        }
+  protected java.awt.event.FocusListener focusListener = new java.awt.event.FocusListener() {
+    public void focusGained(java.awt.event.FocusEvent ev) {
+      if (playerDlg != null && playerDlg.isShowing()) {
+        playerDlg.requestFocus();
+      } else {
+        checkTabbedPaneFocus(false);
+      }
+    }
 
-        public void focusLost(java.awt.event.FocusEvent ev) {
-          checkTabbedPaneFocus(true);
-        }
-      };
+    public void focusLost(java.awt.event.FocusEvent ev) {
+      checkTabbedPaneFocus(true);
+    }
+  };
 
   protected void createFrames() {
 
     tabbedPane = new JTabbedPane();
 
-    tabbedPane.addChangeListener(
-        new javax.swing.event.ChangeListener() {
-          public void stateChanged(javax.swing.event.ChangeEvent ev) {
-            checkTabbedPaneFocus(false);
-          }
-        });
+    tabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
+      public void stateChanged(javax.swing.event.ChangeEvent ev) {
+        checkTabbedPaneFocus(false);
+      }
+    });
 
     JClicProject newProject = new JClicProject(this, new FileSystem(this), "");
 
@@ -1444,33 +1241,20 @@ public class AuthorSingleFrame extends JPanel
 
     ProjectSettingsEditor psed = projectEditor.getProjectSettingsEditor();
     projectSettingsEditorPanel = psed.createEditorPanel(options);
-    tabbedPane.addTab(
-        messages.get("edit_project"),
-        JClicProjectEditor.getIcon(),
-        projectSettingsEditorPanel,
+    tabbedPane.addTab(messages.get("edit_project"), JClicProjectEditor.getIcon(), projectSettingsEditorPanel,
         messages.get("edit_project_tooltip"));
 
     mediaBagEditorPanel = new MediaBagMultiEditorPanel(options);
-    tabbedPane.addTab(
-        messages.get("edit_media"),
-        MediaBagEditor.getIcon(),
-        mediaBagEditorPanel,
+    tabbedPane.addTab(messages.get("edit_media"), MediaBagEditor.getIcon(), mediaBagEditorPanel,
         messages.get("edit_media_tooltip"));
 
     ActivityBagEditor abe = projectEditor.getActivityBagEditor();
     activityBagEditorPanel = abe.createEditorPanel(options);
-    tabbedPane.addTab(
-        messages.get("edit_activities"),
-        ActivityEditor.getIcon(),
-        activityBagEditorPanel,
+    tabbedPane.addTab(messages.get("edit_activities"), ActivityEditor.getIcon(), activityBagEditorPanel,
         messages.get("edit_activities_tooltip"));
 
-    activitySequenceEditorPanel =
-        projectEditor.getActivitySequenceEditor().createEditorPanel(options);
-    tabbedPane.addTab(
-        messages.get("edit_sequences"),
-        ActivitySequenceEditor.getIcon(),
-        activitySequenceEditorPanel,
+    activitySequenceEditorPanel = projectEditor.getActivitySequenceEditor().createEditorPanel(options);
+    tabbedPane.addTab(messages.get("edit_sequences"), ActivitySequenceEditor.getIcon(), activitySequenceEditorPanel,
         messages.get("edit_sequences_tooltip"));
 
     playerDlg = new JDialog(JOptionPane.getFrameForComponent(this), "test player", true);
@@ -1478,16 +1262,13 @@ public class AuthorSingleFrame extends JPanel
     player.getHistory().setTestMode(true);
     player.appName = "JClic test player";
     player.addTo(playerDlg, null);
-    playerDlg.addWindowListener(
-        new WindowAdapter() {
-          // public void windowClosing(WindowEvent e){
-          @Override
-          public void windowClosed(WindowEvent e) {
-            player.closeHelpWindow();
-            // player.stopMedia(-1);
-            player.removeActivity();
-          }
-        });
+    playerDlg.addWindowListener(new WindowAdapter() {
+      @Override
+      public void windowClosed(WindowEvent e) {
+        player.closeHelpWindow();
+        player.removeActivity();
+      }
+    });
     playerDlg.pack();
 
     add(tabbedPane, BorderLayout.CENTER);
@@ -1508,17 +1289,15 @@ public class AuthorSingleFrame extends JPanel
   }
 
   public boolean newInstanceRequest(final String param1, final String param2) {
-    SwingUtilities.invokeLater(
-        new Runnable() {
-          public void run() {
-            Frame frame = JOptionPane.getFrameForComponent(AuthorSingleFrame.this);
-            if (frame != null) {
-              frame.toFront();
-            }
-            messages.showAlert(
-                AuthorSingleFrame.this, new String[] {"new instance request", param1, param2});
-          }
-        });
+    SwingUtilities.invokeLater(new Runnable() {
+      public void run() {
+        Frame frame = JOptionPane.getFrameForComponent(AuthorSingleFrame.this);
+        if (frame != null) {
+          frame.toFront();
+        }
+        messages.showAlert(AuthorSingleFrame.this, new String[] { "new instance request", param1, param2 });
+      }
+    });
     return true;
   }
 
@@ -1527,18 +1306,16 @@ public class AuthorSingleFrame extends JPanel
     if (projectEditor != null) {
       projectEditor.collectData();
       if (force || projectEditor.isModified()) {
-        // switch(JOptionPane.showConfirmDialog(this, messages.get("warn_project_modified"),
-        // messages.get("CONFIRM"), JOptionPane.YES_NO_CANCEL_OPTION)){
         switch (messages.showQuestionDlg(this, "warn_project_modified", "CONFIRM", "ync")) {
-          case Messages.YES:
-            result = saveFile(false);
-            break;
-          case Messages.CANCEL:
-            result = false;
-            break;
-          case Messages.NO:
-            result = !force;
-            break;
+        case Messages.YES:
+          result = saveFile(false);
+          break;
+        case Messages.CANCEL:
+          result = false;
+          break;
+        case Messages.NO:
+          result = !force;
+          break;
         }
       }
     }

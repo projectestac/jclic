@@ -43,7 +43,8 @@ public abstract class AutoContentProviderEditor extends Editor {
     super(acp);
   }
 
-  protected void createChildren() {}
+  protected void createChildren() {
+  }
 
   public AutoContentProvider getAutoContentProvider() {
     return (AutoContentProvider) userObject;
@@ -55,7 +56,8 @@ public abstract class AutoContentProviderEditor extends Editor {
   }
 
   public static Icon getIcon() {
-    if (icon == null) icon = edu.xtec.util.ResourceManager.getImageIcon("icons/miniclic.png");
+    if (icon == null)
+      icon = edu.xtec.util.ResourceManager.getImageIcon("icons/miniclic.png");
     return icon;
   }
 

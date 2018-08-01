@@ -72,46 +72,56 @@ public class ProgressInputStream extends FilterInputStream {
 
   @Override
   public int read() throws IOException {
-    if (!started) start();
+    if (!started)
+      start();
     int c = in.read();
-    if (c >= 0) notifyListeners(VALUE, size);
+    if (c >= 0)
+      notifyListeners(VALUE, size);
     return c;
   }
 
   @Override
   public int read(byte b[]) throws IOException {
-    if (!started) start();
+    if (!started)
+      start();
     int nr = in.read(b);
-    if (nr > 0) notifyListeners(VALUE, nread += nr);
+    if (nr > 0)
+      notifyListeners(VALUE, nread += nr);
     return nr;
   }
 
   @Override
   public int read(byte b[], int off, int len) throws IOException {
-    if (!started) start();
+    if (!started)
+      start();
     int nr = in.read(b, off, len);
-    if (nr > 0) notifyListeners(VALUE, nread += nr);
+    if (nr > 0)
+      notifyListeners(VALUE, nread += nr);
     return nr;
   }
 
   @Override
   public long skip(long n) throws IOException {
-    if (!started) start();
+    if (!started)
+      start();
     long nr = in.skip(n);
-    if (nr > 0) notifyListeners(VALUE, nread += nr);
+    if (nr > 0)
+      notifyListeners(VALUE, nread += nr);
     return nr;
   }
 
   @Override
   public void close() throws IOException {
-    if (!started) start();
+    if (!started)
+      start();
     in.close();
     notifyListeners(END, 0);
   }
 
   @Override
   public synchronized void reset() throws IOException {
-    if (!started) start();
+    if (!started)
+      start();
     in.reset();
     nread = size - in.available();
     notifyListeners(VALUE, nread);
@@ -122,20 +132,20 @@ public class ProgressInputStream extends FilterInputStream {
   private void notifyListeners(int action, int value) {
     for (ProgressInputStreamListener isl : listeners) {
       switch (action) {
-        case MAX:
-          isl.setProgressMax(value);
-          break;
-        case VALUE:
-          isl.setProgressValue(value);
-          break;
-        case START:
-          isl.startProgress(name);
-          break;
-        case END:
-          isl.endProgress();
-          break;
-        default:
-          break;
+      case MAX:
+        isl.setProgressMax(value);
+        break;
+      case VALUE:
+        isl.setProgressValue(value);
+        break;
+      case START:
+        isl.startProgress(name);
+        break;
+      case END:
+        isl.endProgress();
+        break;
+      default:
+        break;
       }
     }
   }

@@ -46,11 +46,7 @@ public abstract class Basic extends ReportsRequestProcessor {
   public static final long DEFAULT_SESSION_LIFETIME = 20L;
 
   // Parameters
-  public static final String ACTION = "action",
-      PWD = "pwd",
-      RETRY = "retry",
-      ON = "on",
-      MAIN_FORM = "mainForm";
+  public static final String ACTION = "action", PWD = "pwd", RETRY = "retry", ON = "on", MAIN_FORM = "mainForm";
 
   // Authentication cookie
   public static final String AUTH = "AUTH";
@@ -73,7 +69,8 @@ public abstract class Basic extends ReportsRequestProcessor {
     if (F_NUMBERS == null) {
       java.text.DecimalFormat df = new java.text.DecimalFormat("00");
       List<String> v = new ArrayList<String>(100);
-      for (int i = 0; i < 100; i++) v.add(df.format(i));
+      for (int i = 0; i < 100; i++)
+        v.add(df.format(i));
       F_NUMBERS = (String[]) v.toArray(new String[100]);
     }
     return F_NUMBERS;
@@ -90,12 +87,14 @@ public abstract class Basic extends ReportsRequestProcessor {
   @Override
   public boolean init() throws Exception {
 
-    if (!super.init()) return false;
+    if (!super.init())
+      return false;
 
     lang = getParam(LANG);
     if (lang == null || lang.length() != 2)
       lang = prop.getProperty("language", Locale.getDefault().getLanguage());
-    else lang = lang.toLowerCase();
+    else
+      lang = lang.toLowerCase();
 
     Object[] obj = localeObjects.get(lang);
     if (obj != null) {
@@ -107,19 +106,21 @@ public abstract class Basic extends ReportsRequestProcessor {
     } else {
       Locale l = new Locale(lang, "");
       bundle = ResourceBundle.getBundle(BUNDLE, l);
-      if (bundle == null) throw new Exception("Internal error!");
+      if (bundle == null)
+        throw new Exception("Internal error!");
       months = new String[12];
-      for (int i = 0; i < 12; i++) months[i] = bundle.getString("month_" + (i + 1));
+      for (int i = 0; i < 12; i++)
+        months[i] = bundle.getString("month_" + (i + 1));
       shortDateFormat = DateFormat.getDateInstance(DateFormat.SHORT, l);
       veryShortDateFormat = new SimpleDateFormat("dd/MM", l);
-      // numberFormat=NumberFormat.getIntegerInstance(l);
       numberFormat = NumberFormat.getInstance(l);
-      obj = new Object[] {bundle, months, shortDateFormat, veryShortDateFormat, numberFormat};
+      obj = new Object[] { bundle, months, shortDateFormat, veryShortDateFormat, numberFormat };
       localeObjects.put(lang, obj);
     }
 
     checkAuth();
-    if (auth != null) setCookie(AUTH, auth);
+    if (auth != null)
+      setCookie(AUTH, auth);
     return auth != null;
   }
 
@@ -131,9 +132,7 @@ public abstract class Basic extends ReportsRequestProcessor {
       if (timeCheck != null) {
         long lifeTime;
         try {
-          lifeTime =
-              Long.parseLong(
-                  prop.getProperty(SESSION_LIFETIME, Long.toString(DEFAULT_SESSION_LIFETIME)));
+          lifeTime = Long.parseLong(prop.getProperty(SESSION_LIFETIME, Long.toString(DEFAULT_SESSION_LIFETIME)));
         } catch (NumberFormatException ex) {
           lifeTime = DEFAULT_SESSION_LIFETIME;
         }
@@ -141,8 +140,10 @@ public abstract class Basic extends ReportsRequestProcessor {
         if (timeCheck.longValue() < System.currentTimeMillis() - lifeTime * 60 * 1000) {
           auth = null;
           sessions.remove(auth);
-        } else sessions.put(auth, new Long(System.currentTimeMillis()));
-      } else auth = null;
+        } else
+          sessions.put(auth, new Long(System.currentTimeMillis()));
+      } else
+        auth = null;
     }
 
     if (auth == null) {
@@ -153,8 +154,10 @@ public abstract class Basic extends ReportsRequestProcessor {
           String sTypedPwd = getParam(PWD);
           if (sTypedPwd != null && sPwd.equals(edu.xtec.util.Encryption.Encrypt(sTypedPwd)))
             ok = true;
-          else retry = true;
-        } else ok = true;
+          else
+            retry = true;
+        } else
+          ok = true;
       } catch (Exception ex) {
         ok = false;
       }
@@ -163,8 +166,10 @@ public abstract class Basic extends ReportsRequestProcessor {
         char[] key = new char[12];
         for (int i = 0; i < 12; i++) {
           char k = (char) (Math.random() * 36);
-          if (k < 10) key[i] = (char) ('0' + k);
-          else key[i] = (char) ('A' + k - 10);
+          if (k < 10)
+            key[i] = (char) ('0' + k);
+          else
+            key[i] = (char) ('A' + k - 10);
         }
         auth = new String(key);
         sessions.put(auth, new Long(System.currentTimeMillis()));
@@ -177,7 +182,7 @@ public abstract class Basic extends ReportsRequestProcessor {
   public void header(List<String[]> v) {
     super.header(v);
     if (!checkAuth()) {
-      v.add(new String[] {REDIRECT, urlParam(Login.URL, RETRY, retry ? TRUE : FALSE)});
+      v.add(new String[] { REDIRECT, urlParam(Login.URL, RETRY, retry ? TRUE : FALSE) });
     }
   }
 
@@ -190,11 +195,7 @@ public abstract class Basic extends ReportsRequestProcessor {
 
   public void standardHeader(java.io.PrintWriter out, String title, String menu) throws Exception {
     StringBuilder sb = new StringBuilder(300);
-    sb.append("<h1>")
-        .append(getMsg("jclic_reports"))
-        .append("<br>")
-        .append(title)
-        .append("</h1>\n");
+    sb.append("<h1>").append(getMsg("jclic_reports")).append("<br>").append(title).append("</h1>\n");
     sb.append("<p class=\"topMenu\">").append(menu).append("</p>");
     out.println(sb.substring(0));
   }
@@ -203,8 +204,10 @@ public abstract class Basic extends ReportsRequestProcessor {
     boolean result = false;
     String s = getParam(paramStr);
     if (s != null && s.length() > 0) {
-      if (expectedValue == null) result = true;
-      else result = expectedValue.toLowerCase().equals(s.trim().toLowerCase());
+      if (expectedValue == null)
+        result = true;
+      else
+        result = expectedValue.toLowerCase().equals(s.trim().toLowerCase());
     }
     return result;
   }
@@ -212,9 +215,9 @@ public abstract class Basic extends ReportsRequestProcessor {
   public static String linkTo(String url, String text, String style) {
     StringBuilder sb = new StringBuilder(url.length() + text.length() + 200);
     sb.append("<a href=\"");
-    // was "escape(url)"
     sb.append(url).append("\"");
-    if (style != null) sb.append(" class=\"").append(style).append("\"");
+    if (style != null)
+      sb.append(" class=\"").append(style).append("\"");
     sb.append(">");
     sb.append(filter(text));
     sb.append("</a>");
@@ -224,8 +227,10 @@ public abstract class Basic extends ReportsRequestProcessor {
   public static String buttonAction(String action, String text, String extra) {
     StringBuilder sb = new StringBuilder(text.length() + 200);
     sb.append("<input type=\"button\" value=\"").append(filter(text)).append("\"");
-    if (action != null) sb.append(" onClick=\"").append(action).append("\"");
-    if (extra != null) sb.append(" ").append(extra);
+    if (action != null)
+      sb.append(" onClick=\"").append(action).append("\"");
+    if (extra != null)
+      sb.append(" ").append(extra);
     sb.append(" id=\"noPrint\">");
     return sb.substring(0);
   }
@@ -235,13 +240,10 @@ public abstract class Basic extends ReportsRequestProcessor {
   }
 
   protected static String urlParam(String url, String key, String value) {
-    return urlParamSb(
-            new StringBuilder(url.length() + 100).append(url), key, value, url.indexOf('?') < 0)
-        .substring(0);
+    return urlParamSb(new StringBuilder(url.length() + 100).append(url), key, value, url.indexOf('?') < 0).substring(0);
   }
 
-  protected static StringBuilder urlParamSb(
-      StringBuilder sb, String key, String value, boolean first) {
+  protected static StringBuilder urlParamSb(StringBuilder sb, String key, String value, boolean first) {
     if (value != null && value.length() > 0) {
       sb.append(first ? "?" : "&");
       sb.append(key).append("=").append(ReportUtils.urlEncode(value, false, false));
@@ -268,8 +270,7 @@ public abstract class Basic extends ReportsRequestProcessor {
     return vectorToArray(v, isCompoundObject, null, null);
   }
 
-  public String[][] vectorToArray(
-      List v, boolean isCompoundObject, String wildCardKey, String wildCardMsg) {
+  public String[][] vectorToArray(List v, boolean isCompoundObject, String wildCardKey, String wildCardMsg) {
     String[][] result = null;
     if (wildCardKey != null || (v != null && v.size() > 0)) {
       int l = (v != null ? v.size() : 0);
@@ -277,8 +278,9 @@ public abstract class Basic extends ReportsRequestProcessor {
       int k = 0;
       if (wildCardKey != null) {
         String s = wildCardKey;
-        if (wildCardMsg != null) s = getMsg(wildCardMsg);
-        result[k++] = new String[] {wildCardKey, s};
+        if (wildCardMsg != null)
+          s = getMsg(wildCardMsg);
+        result[k++] = new String[] { wildCardKey, s };
       }
       if (v != null) {
         for (int i = 0; i < l; i++) {
@@ -291,7 +293,7 @@ public abstract class Basic extends ReportsRequestProcessor {
             sKey = ((String) v.get(i)).trim();
             sValue = sKey;
           }
-          result[k++] = new String[] {sKey, sValue};
+          result[k++] = new String[] { sKey, sValue };
         }
       }
     }

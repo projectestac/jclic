@@ -50,8 +50,7 @@ import javax.swing.table.TableColumn;
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.29
  */
-public class ActivitySequenceEditorPanel extends EditorPanel
-    implements ListSelectionListener, ListDataListener {
+public class ActivitySequenceEditorPanel extends EditorPanel implements ListSelectionListener, ListDataListener {
 
   public static final int ICON_WIDTH = 20;
 
@@ -83,83 +82,85 @@ public class ActivitySequenceEditorPanel extends EditorPanel
     seqTable.getSelectionModel().addListSelectionListener(ActivitySequenceEditorPanel.this);
   }
 
-  private TableCellRenderer headerIcoCellRenderer =
-      new TableCellRenderer() {
-        JLabel lb;
+  private TableCellRenderer headerIcoCellRenderer = new TableCellRenderer() {
+    JLabel lb;
 
-        public Component getTableCellRendererComponent(
-            JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-          if (lb == null) {
-            lb = new JLabel();
-            Object o = UIManager.get("TableHeader.background");
-            if (o instanceof Color) lb.setBackground((Color) o);
-            o = UIManager.get("TableHeader.cellBorder");
-            if (o instanceof Border) lb.setBorder((Border) o);
-            o = UIManager.get("TableHeader.font");
-            if (o instanceof Font) lb.setFont((Font) o);
-            o = UIManager.get("TableHeader.foreground");
-            if (o instanceof Color) lb.setForeground((Color) o);
-          }
-          if ("prev".equals(value)) {
-            lb.setText("");
-            lb.setIcon(ResourceManager.getImageIcon("icons/prev.gif"));
-            lb.setToolTipText(options.getMsg("action_prev_tooltip"));
-          } else if ("next".equals(value)) {
-            lb.setText("");
-            lb.setIcon(ResourceManager.getImageIcon("icons/next.gif"));
-            lb.setToolTipText(options.getMsg("action_next_tooltip"));
-          }
-          return lb;
-        }
-      };
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
+        int row, int column) {
+      if (lb == null) {
+        lb = new JLabel();
+        Object o = UIManager.get("TableHeader.background");
+        if (o instanceof Color)
+          lb.setBackground((Color) o);
+        o = UIManager.get("TableHeader.cellBorder");
+        if (o instanceof Border)
+          lb.setBorder((Border) o);
+        o = UIManager.get("TableHeader.font");
+        if (o instanceof Font)
+          lb.setFont((Font) o);
+        o = UIManager.get("TableHeader.foreground");
+        if (o instanceof Color)
+          lb.setForeground((Color) o);
+      }
+      if ("prev".equals(value)) {
+        lb.setText("");
+        lb.setIcon(ResourceManager.getImageIcon("icons/prev.gif"));
+        lb.setToolTipText(options.getMsg("action_prev_tooltip"));
+      } else if ("next".equals(value)) {
+        lb.setText("");
+        lb.setIcon(ResourceManager.getImageIcon("icons/next.gif"));
+        lb.setToolTipText(options.getMsg("action_next_tooltip"));
+      }
+      return lb;
+    }
+  };
 
   protected void currentItemChanged() {
     if (!isInitializing()) {
       ActivitySequenceElementEditorPanel asep = (ActivitySequenceElementEditorPanel) edit;
-      // asep.removeEditor(true);
-      // if(currentItem!=null)
       asep.attachEditor(currentItem, true);
     }
   }
 
   public void valueChanged(ListSelectionEvent ev) {
 
-    if (ev.getValueIsAdjusting() || getActivitySequenceEditor() == null) return;
+    if (ev.getValueIsAdjusting() || getActivitySequenceEditor() == null)
+      return;
 
     ActivitySequenceElementEditorPanel asep = (ActivitySequenceElementEditorPanel) edit;
-
-    // if(currentItem!=null)
-    //    modified|=asep.dataChanged();
 
     int row = seqTable.getSelectionModel().getAnchorSelectionIndex();
     if (row >= 0 && row < getActivitySequenceEditor().getChildCount()) {
       currentItem = (ActivitySequenceElementEditor) getActivitySequenceEditor().getChildAt(row);
-    } else currentItem = null;
+    } else
+      currentItem = null;
     currentItemChanged();
   }
 
   public void contentsChanged(ListDataEvent e) {
-    if (tableModel != null) tableModel.fireTableDataChanged();
+    if (tableModel != null)
+      tableModel.fireTableDataChanged();
   }
 
   public void intervalAdded(ListDataEvent e) {
-    if (tableModel != null) tableModel.fireTableDataChanged();
+    if (tableModel != null)
+      tableModel.fireTableDataChanged();
   }
 
   public void intervalRemoved(ListDataEvent e) {
-    if (tableModel != null) tableModel.fireTableDataChanged();
+    if (tableModel != null)
+      tableModel.fireTableDataChanged();
   }
 
   @Override
   public void focusGained(FocusEvent focusEvent) {
-    // if(currentItem!=null)
-    //    currentItem.setActionsOwner();
     ((ActivitySequenceElementEditorPanel) edit).focusGained(focusEvent);
   }
 
   /**
-   * This method is called from within the constructor to initialize the form. WARNING: Do NOT
-   * modify this code. The content of this method is always regenerated by the Form Editor.
+   * This method is called from within the constructor to initialize the form.
+   * WARNING: Do NOT modify this code. The content of this method is always
+   * regenerated by the Form Editor.
    */
   private void initComponents() { // GEN-BEGIN:initComponents
     javax.swing.JScrollPane scroll;
@@ -186,19 +187,17 @@ public class ActivitySequenceEditorPanel extends EditorPanel
   }
 
   protected ActivitySequence getActivitySequence() {
-    if (editor == null) return null;
-    else return ((ActivitySequenceEditor) editor).getActivitySequence();
+    if (editor == null)
+      return null;
+    else
+      return ((ActivitySequenceEditor) editor).getActivitySequence();
   }
 
   /*
-  public void clear() {
-      super.clear();
-      ActivitySequenceElementEditorPanel asep=(ActivitySequenceElementEditorPanel)edit;
-      asep.removeEditor(true);
-      ActivitySequenceEditor ased=getActivitySequenceEditor();
-      if(ased!=null)
-          ased.setListSelectionModel(null);
-  }
+   * public void clear() { super.clear(); ActivitySequenceElementEditorPanel
+   * asep=(ActivitySequenceElementEditorPanel)edit; asep.removeEditor(true);
+   * ActivitySequenceEditor ased=getActivitySequenceEditor(); if(ased!=null)
+   * ased.setListSelectionModel(null); }
    */
 
   @Override
@@ -226,21 +225,13 @@ public class ActivitySequenceEditorPanel extends EditorPanel
 
   public void saveData() {
     ActivitySequence as = getActivitySequence();
-    if (as != null) {
-      // p.settings.title=checkEmptyString(titleText.getText(), true, "UNNAMED");
-      // titleText.setText(p.settings.title);
-    }
   }
 
   /*
-  public boolean isModified(){
-      boolean result=super.isModified();
-      if(!result){
-          ActivitySequenceElementEditorPanel asep=(ActivitySequenceElementEditorPanel)edit;
-          result=asep.isModified();
-      }
-      return result;
-  }
+   * public boolean isModified(){ boolean result=super.isModified(); if(!result){
+   * ActivitySequenceElementEditorPanel
+   * asep=(ActivitySequenceElementEditorPanel)edit; result=asep.isModified(); }
+   * return result; }
    */
 
   @Override
@@ -251,7 +242,6 @@ public class ActivitySequenceEditorPanel extends EditorPanel
   @Override
   protected String getTitle() {
     return "Activity sequence";
-    // return options.getMsg("library_dlg_title");
   }
 
   public ActivitySequenceEditor getActivitySequenceEditor() {
@@ -260,9 +250,11 @@ public class ActivitySequenceEditorPanel extends EditorPanel
 
   @Override
   protected void setEditor(Editor e) {
-    if (getEditor() != null) getEditor().getListModel().removeListDataListener(this);
+    if (getEditor() != null)
+      getEditor().getListModel().removeListDataListener(this);
     super.setEditor(e);
-    if (getEditor() != null) getEditor().getListModel().addListDataListener(this);
+    if (getEditor() != null)
+      getEditor().getListModel().addListDataListener(this);
   }
 
   @Override
@@ -289,19 +281,11 @@ public class ActivitySequenceEditorPanel extends EditorPanel
       boolean result = false;
       ActivitySequenceEditor ase = getActivitySequenceEditor();
       if (ase != null) {
-        // ActivitySequence as=ase.getActivitySequence();
         ActivitySequenceElementEditor ased1 = (ActivitySequenceElementEditor) ase.getChildAt(row);
-        // ActivitySequenceElement e1 = as==null ? null : as.getElement(row, false);
-        ActivitySequenceElementEditor ased2 =
-            (row == ase.getChildCount() - 1)
-                ? null
-                : (ActivitySequenceElementEditor) ase.getChildAt(row + 1);
-        // ActivitySequenceElement e2 = (as==null || row==as.getSize()-1) ? null :
-        // as.getElement(row+1, false);
-        result =
-            (ased1 != null && ased1.getActivitySequenceElement().fwdJump != null)
-                || (ased2 != null && ased2.getActivitySequenceElement().backJump != null);
-        // result=(e1!=null && e1.fwdJump!=null)||(e2!=null && e2.backJump!=null);
+        ActivitySequenceElementEditor ased2 = (row == ase.getChildCount() - 1) ? null
+            : (ActivitySequenceElementEditor) ase.getChildAt(row + 1);
+        result = (ased1 != null && ased1.getActivitySequenceElement().fwdJump != null)
+            || (ased2 != null && ased2.getActivitySequenceElement().backJump != null);
       }
       return result;
     }
@@ -317,8 +301,10 @@ public class ActivitySequenceEditorPanel extends EditorPanel
 
     @Override
     public Class getColumnClass(int columnIndex) {
-      if (columnIndex == 2 || columnIndex == 3) return ImageIcon.class;
-      else return java.lang.String.class;
+      if (columnIndex == 2 || columnIndex == 3)
+        return ImageIcon.class;
+      else
+        return java.lang.String.class;
     }
 
     public Object getValueAt(int row, int column) {
@@ -328,25 +314,22 @@ public class ActivitySequenceEditorPanel extends EditorPanel
         ActivitySequenceElementEditor ased = (ActivitySequenceElementEditor) ase.getChildAt(row);
         if (ased != null) {
           switch (column) {
-            case 0:
-              result = ased.getTag();
-              break;
+          case 0:
+            result = ased.getTag();
+            break;
 
-            case 1:
-              result = ased.getActivitySequenceElement().getActivityName();
-              break;
+          case 1:
+            result = ased.getActivitySequenceElement().getActivityName();
+            break;
 
-            case 2:
-            case 3:
-              result =
-                  ActivitySequenceElementEditor.getElementIcon(
-                      ased.getActivitySequenceElement(), column == 3);
-              break;
-              /*
-              case 4:
-                  result=ActivitySequenceElementEditor.getElementJumpDescription(asel);
-                  break;
-               */
+          case 2:
+          case 3:
+            result = ActivitySequenceElementEditor.getElementIcon(ased.getActivitySequenceElement(), column == 3);
+            break;
+          /*
+           * case 4: result=ActivitySequenceElementEditor.getElementJumpDescription(asel);
+           * break;
+           */
           }
         }
       }
@@ -357,18 +340,18 @@ public class ActivitySequenceEditorPanel extends EditorPanel
     public String getColumnName(int column) {
       String result = "";
       switch (column) {
-        case 0:
-          result = options.getMsg("edit_seq_tag_header");
-          break;
-        case 1:
-          result = options.getMsg("edit_seq_activity_header");
-          break;
-        case 2:
-          result = "prev";
-          break;
-        case 3:
-          result = "next";
-          break;
+      case 0:
+        result = options.getMsg("edit_seq_tag_header");
+        break;
+      case 1:
+        result = options.getMsg("edit_seq_activity_header");
+        break;
+      case 2:
+        result = "prev";
+        break;
+      case 3:
+        result = "next";
+        break;
       }
       return result;
     }

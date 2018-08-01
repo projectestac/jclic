@@ -35,23 +35,6 @@ public class QT61Tools extends Object {
 
   public QT61Tools() throws Exception {
     if (lock == null) {
-
-      // System.out.println("IsValid: "+QTBuild.isValid());
-      // System.out.println("Expired: "+QTBuild.expired());
-      /*
-      System.out.println("Info: "+QTBuild.info());
-      System.out.println("Version: "+QTBuild.getVersion());
-      System.out.println("SubVersion: "+QTBuild.getSubVersion());
-      System.out.println("BugFixVersion: "+QTSession.getJavaVersion());
-      System.out.println("BugFixVersion: "+QTSession.getBugFixVersion());
-      System.out.println("DeveloperVersion: "+QTSession.getDeveloperVersion());
-      System.out.println("MajorVersion: "+QTSession.getMajorVersion());
-      System.out.println("MinorVersion: "+QTSession.getMinorVersion());
-      System.out.println("QTMajorVersion: "+QTSession.getQTMajorVersion());
-      System.out.println("QTMinorVersion: "+QTSession.getQTMinorVersion());
-      System.out.println("QTVersion: "+QTSession.getQTVersion());
-       */
-
       lock = new QT61Lock();
     }
   }
@@ -95,11 +78,10 @@ public class QT61Tools extends Object {
     }
 
     if (midi) {
-      quicktime.std.qtcomponents.MovieImporter movieimporter =
-          new quicktime.std.qtcomponents.MovieImporter(quicktime.util.QTUtils.toOSType("Midi"));
+      quicktime.std.qtcomponents.MovieImporter movieimporter = new quicktime.std.qtcomponents.MovieImporter(
+          quicktime.util.QTUtils.toOSType("Midi"));
       movie = new quicktime.std.movies.Movie(1);
-      movie.setDefaultDataRef(
-          new quicktime.std.movies.media.DataRef(new quicktime.util.QTHandle()));
+      movie.setDefaultDataRef(new quicktime.std.movies.media.DataRef(new quicktime.util.QTHandle()));
       movieimporter.fromHandle(handle, movie, null, 0, 1);
     } else {
       quicktime.std.movies.media.DataRef dr;
@@ -107,32 +89,14 @@ public class QT61Tools extends Object {
         dr = (quicktime.std.movies.media.DataRef) handle;
       else {
         String extension = sourceName.substring(sourceName.lastIndexOf('.'));
-        dr =
-            new quicktime.std.movies.media.DataRef(
-                handle, quicktime.std.StdQTConstants.kDataRefFileExtensionTag, extension);
+        dr = new quicktime.std.movies.media.DataRef(handle, quicktime.std.StdQTConstants.kDataRefFileExtensionTag,
+            extension);
       }
       movie = quicktime.std.movies.Movie.fromDataRef(dr, 1);
-      // movie=Movie.fromDataRef(dr, StdQTConstants4.newMovieAsyncOK);
     }
 
     return movie;
   }
-
-  /*
-  public static QTPlayer getPlayer(Object source) throws Exception{
-      QTPlayer player=null;
-      if(source instanceof ExtendedByteArrayInputStream){
-          ExtendedByteArrayInputStream eias=(ExtendedByteArrayInputStream)source;
-          String s=eias.getName();
-          s=s.substring(s.lastIndexOf('.'));
-          player=(QTPlayer)QTFactory.makeDrawable(eias, StdQTConstants.kDataRefFileExtensionTag, s);
-      }
-      else if(source instanceof String){
-          player=(QTPlayer)QTFactory.makeDrawable((String)source);
-      }
-      return player;
-  }
-   */
 
   public static quicktime.app.view.MoviePlayer getPlayer(Object source) throws Exception {
     quicktime.std.movies.Movie mv = getMovie(source, false);

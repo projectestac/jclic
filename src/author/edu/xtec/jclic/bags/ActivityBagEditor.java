@@ -83,7 +83,8 @@ public class ActivityBagEditor extends Editor {
   }
 
   public static Icon getIcon() {
-    if (icon == null) icon = edu.xtec.util.ResourceManager.getImageIcon("icons/database.gif");
+    if (icon == null)
+      icon = edu.xtec.util.ResourceManager.getImageIcon("icons/database.gif");
     return icon;
   }
 
@@ -110,16 +111,15 @@ public class ActivityBagEditor extends Editor {
 
     // Modified: 14-09-2010 - suggested by Camille Manoury
     // On errors (empty class name, empty or repeated activity name...) prompt again
-    //
-
     while (true) {
 
-      if (newActivityPanel == null) newActivityPanel = new NewActivityPanel(getOptions());
-      else newActivityPanel.setActivityName(null);
+      if (newActivityPanel == null)
+        newActivityPanel = new NewActivityPanel(getOptions());
+      else
+        newActivityPanel.setActivityName(null);
 
-      if (!getOptions()
-          .getMessages()
-          .showInputDlg(dlgParent, newActivityPanel, "edit_act_newActivity")) return false;
+      if (!getOptions().getMessages().showInputDlg(dlgParent, newActivityPanel, "edit_act_newActivity"))
+        return false;
 
       actClassName = newActivityPanel.gectActivityClassName();
       if (actClassName == null) {
@@ -141,24 +141,18 @@ public class ActivityBagEditor extends Editor {
       break;
     }
 
-    // ------------------
-
     Activity act;
     try {
       act = Activity.getActivity(actClassName, getProjectEditor().getProject());
       act.name = actName;
     } catch (Exception ex) {
-      getOptions()
-          .getMessages()
-          .showErrorWarning(dlgParent, "edit_act_newActivity_error_creating", ex);
+      getOptions().getMessages().showErrorWarning(dlgParent, "edit_act_newActivity_error_creating", ex);
       return false;
     }
 
     org.jdom.Element e = act.getJDomElement();
     if (e == null) {
-      getOptions()
-          .getMessages()
-          .showErrorWarning(dlgParent, "edit_act_newActivity_error_creating", null);
+      getOptions().getMessages().showErrorWarning(dlgParent, "edit_act_newActivity_error_creating", null);
       return false;
     }
 
@@ -166,14 +160,15 @@ public class ActivityBagEditor extends Editor {
 
     ActivityBagElementEditor abeed = (ActivityBagElementEditor) abe.getEditor(null);
 
-    if (index < 0) index = getChildCount();
-    else index = Math.min(index, getChildCount());
+    if (index < 0)
+      index = getChildCount();
+    else
+      index = Math.min(index, getChildCount());
 
     return insertEditor(abeed, true, index, true);
   }
 
-  public void changeActivityClass(ActivityBagElementEditor abed, String newClassName)
-      throws Exception {
+  public void changeActivityClass(ActivityBagElementEditor abed, String newClassName) throws Exception {
     abed.collectData();
     ActivityBagElement abe = abed.getActivityBagElement();
     abed.forgetActivityEditor();
@@ -203,42 +198,29 @@ public class ActivityBagEditor extends Editor {
   public static void createActions(Options options) {
     createBasicActions(options);
     if (!actionsCreated) {
-      newActivityBagElementAction =
-          new EditorAction(
-              "edit_act_newActivity",
-              "icons/new_miniclic.png",
-              "edit_act_newActivity_tooltip",
-              options) {
-            protected void doAction(Editor e) {
-              Editor ch = null;
-              if (e instanceof ActivityBagElementEditor) {
-                ch = e;
-                e = e.getEditorParent();
-              }
-              if (e instanceof ActivityBagEditor)
-                ((ActivityBagEditor) e)
-                    .createNewActivityBagElement(e.getNearestIndex(ch, true), getComponentSrc());
-            }
-          };
-      copyActivityAttributesAction =
-          new EditorAction(
-              "edit_act_copyAttributes",
-              "icons/copy_properties.gif",
-              "edit_act_copyAttributes_tooltip",
-              options) {
-            protected void doAction(Editor e) {
-              Editor ch = null;
-              // if(e instanceof ActivityBagElementEditor){
-              //    ch=e;
-              //    e=e.getEditorParent();
-              // }
-              if (e instanceof ActivityBagElementEditor) {
-                CopyActivityAttributesPanel catrp =
-                    new CopyActivityAttributesPanel(this.options, (ActivityBagElementEditor) e);
-                catrp.showDialog(getComponentSrc());
-              }
-            }
-          };
+      newActivityBagElementAction = new EditorAction("edit_act_newActivity", "icons/new_miniclic.png",
+          "edit_act_newActivity_tooltip", options) {
+        protected void doAction(Editor e) {
+          Editor ch = null;
+          if (e instanceof ActivityBagElementEditor) {
+            ch = e;
+            e = e.getEditorParent();
+          }
+          if (e instanceof ActivityBagEditor)
+            ((ActivityBagEditor) e).createNewActivityBagElement(e.getNearestIndex(ch, true), getComponentSrc());
+        }
+      };
+      copyActivityAttributesAction = new EditorAction("edit_act_copyAttributes", "icons/copy_properties.gif",
+          "edit_act_copyAttributes_tooltip", options) {
+        protected void doAction(Editor e) {
+          Editor ch = null;
+          if (e instanceof ActivityBagElementEditor) {
+            CopyActivityAttributesPanel catrp = new CopyActivityAttributesPanel(this.options,
+                (ActivityBagElementEditor) e);
+            catrp.showDialog(getComponentSrc());
+          }
+        }
+      };
       actionsCreated = true;
     }
   }
@@ -251,11 +233,14 @@ public class ActivityBagEditor extends Editor {
       if (getActivityBag().getElementIndex(abe.getName()) >= 0) {
         String name = abe.getName();
         int i = name.length() - 1;
-        while (i >= 0 && Character.isDigit(name.charAt(i))) i--;
+        while (i >= 0 && Character.isDigit(name.charAt(i)))
+          i--;
         name = name.substring(0, i + 1);
-        if (!name.endsWith("_")) name = name + "_";
+        if (!name.endsWith("_"))
+          name = name + "_";
         int suffix = 2;
-        while (getActivityBag().getElementIndex(name + suffix) >= 0) suffix++;
+        while (getActivityBag().getElementIndex(name + suffix) >= 0)
+          suffix++;
         abe.getData().setAttribute(Activity.NAME, name + suffix);
       }
       getActivityBag().insertElementAt(abe, childIndex);
@@ -286,7 +271,8 @@ public class ActivityBagEditor extends Editor {
       String actName = abel[i].getName();
       int j;
       for (j = 0; j < asel.length; j++) {
-        if (asel[j].getActivityName().equals(actName)) break;
+        if (asel[j].getActivityName().equals(actName))
+          break;
       }
       if (j == asel.length) {
         v.add(actName);
@@ -295,21 +281,11 @@ public class ActivityBagEditor extends Editor {
     if (!v.isEmpty()) {
       boolean doIt = !prompt;
       if (!doIt) {
-        // result=options.getMessages().showQuestionDlg(parent, "edit_project_orphanActivities",
-        // null, true);
-        Object[] object =
-            new Object[] {
-              options.getMsg("edit_project_orphanActivities"),
-              v.size() > 10
-                  ? (Object)
-                      (new javax.swing.JScrollPane(new javax.swing.JList<Object>(v.toArray())))
-                  : (Object) v,
-              options.getMsg("edit_project_orphanActivities_prompt"),
-            };
-        result =
-            options
-                .getMessages()
-                .showQuestionDlgObj(parent, object, "edit_project_orphanActivities_title", "ync");
+        Object[] object = new Object[] { options.getMsg("edit_project_orphanActivities"),
+            v.size() > 10 ? (Object) (new javax.swing.JScrollPane(new javax.swing.JList<Object>(v.toArray())))
+                : (Object) v,
+            options.getMsg("edit_project_orphanActivities_prompt"), };
+        result = options.getMessages().showQuestionDlgObj(parent, object, "edit_project_orphanActivities_title", "ync");
         doIt = (result == Messages.YES);
       }
       if (doIt) {

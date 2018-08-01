@@ -82,13 +82,9 @@ public class FileChooserForFiles extends JFileChooser {
 
   static {
     try {
-      // 03-Apr-2008: Perform a previous check of the class as resource in order to avoid
-      // uncatchable exceptions in applets
-      if (FileChooserForFiles.class.getResource(
-              "/com/sun/java/swing/plaf/windows/WindowsFileChooserUI.class")
-          != null) {
-        WindowsFileChooserUIClass =
-            Class.forName("com.sun.java.swing.plaf.windows.WindowsFileChooserUI");
+      if (FileChooserForFiles.class
+          .getResource("/com/sun/java/swing/plaf/windows/WindowsFileChooserUI.class") != null) {
+        WindowsFileChooserUIClass = Class.forName("com.sun.java.swing.plaf.windows.WindowsFileChooserUI");
         if (WindowsFileChooserUIClass != null) {
           getFileNameMethod = WindowsFileChooserUIClass.getMethod("getFileName", (Class[]) null);
         }
@@ -104,8 +100,7 @@ public class FileChooserForFiles extends JFileChooser {
     String fileName;
     if (fchui instanceof MetalFileChooserUI) {
       fileName = ((MetalFileChooserUI) fchui).getFileName();
-    } else if (WindowsFileChooserUIClass != null
-        && WindowsFileChooserUIClass.isInstance(fchui)
+    } else if (WindowsFileChooserUIClass != null && WindowsFileChooserUIClass.isInstance(fchui)
         && getFileNameMethod != null) {
       try {
         fileName = (String) getFileNameMethod.invoke(fchui, (Object[]) null);

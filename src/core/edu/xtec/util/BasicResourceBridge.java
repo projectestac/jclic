@@ -55,5 +55,6 @@ public class BasicResourceBridge implements ResourceBridge {
     return new ProgressInputStream(is, expectedLength, name);
   }
 
-  public void displayUrl(String url, boolean inFrame) {}
+  public void displayUrl(String url, boolean inFrame) {
+  }
 }

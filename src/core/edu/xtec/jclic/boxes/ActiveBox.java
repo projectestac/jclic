@@ -48,14 +48,18 @@ import javax.swing.RepaintManager;
 import javax.swing.SwingUtilities;
 
 /**
- * Objects of this class are widely used in JClic activities: cells in puzzles and associations,
- * messages and other objects are active boxes. The specific content, size and location of <CODE>
- * ActiveBox</CODE> is determined by its {@link edu.xtec.jclic.boxes.ActiveBoxContent} members. Most
- * ActiveBoxes have only one content, but some of them can have a secondary or "alternative"
- * content, indicated by the <CODE>altContent</CODE> member. This content is used only when the
- * <CODE>alternative</CODE> flag of the <CODE>ActiveBox</CODE> is on. Active boxes can host video
- * and interactive media content (specified in the mediaContent member of the {@link
- * edu.xtec.jclic.boxes.ActiveBoxContent}) through the <CODE>hostedMediaPlayer</CODE> member.
+ * Objects of this class are widely used in JClic activities: cells in puzzles
+ * and associations, messages and other objects are active boxes. The specific
+ * content, size and location of <CODE>
+ * ActiveBox</CODE> is determined by its
+ * {@link edu.xtec.jclic.boxes.ActiveBoxContent} members. Most ActiveBoxes have
+ * only one content, but some of them can have a secondary or "alternative"
+ * content, indicated by the <CODE>altContent</CODE> member. This content is
+ * used only when the <CODE>alternative</CODE> flag of the
+ * <CODE>ActiveBox</CODE> is on. Active boxes can host video and interactive
+ * media content (specified in the mediaContent member of the
+ * {@link edu.xtec.jclic.boxes.ActiveBoxContent}) through the
+ * <CODE>hostedMediaPlayer</CODE> member.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
@@ -81,19 +85,18 @@ public class ActiveBox extends AbstractBox implements Cloneable {
     hasHostedComponent = false;
   }
 
-  public ActiveBox(
-      AbstractBox parent, JComponent container, int setIdLoc, Rectangle2D r, BoxBase boxBase) {
+  public ActiveBox(AbstractBox parent, JComponent container, int setIdLoc, Rectangle2D r, BoxBase boxBase) {
     super(parent, container, boxBase);
     clear();
     idLoc = setIdLoc;
-    // idAss=-1;
     setBounds(r);
   }
 
   public void setHostedMediaPlayer(ActiveMediaPlayer amp) {
     ActiveMediaPlayer old = hostedMediaPlayer;
     hostedMediaPlayer = amp;
-    if (old != null && old != amp) old.linkTo(null);
+    if (old != null && old != amp)
+      old.linkTo(null);
   }
 
   public ActiveBoxContent getCurrentContent() {
@@ -101,7 +104,8 @@ public class ActiveBox extends AbstractBox implements Cloneable {
   }
 
   public ActiveBoxContent getContent() {
-    if (content == null) setContent(new ActiveBoxContent());
+    if (content == null)
+      setContent(new ActiveBoxContent());
     return content;
   }
 
@@ -110,7 +114,8 @@ public class ActiveBox extends AbstractBox implements Cloneable {
     altContent = null;
     idOrder = -1;
     setInactive(true);
-    if (!hasHostedComponent) setHostedComponent(null);
+    if (!hasHostedComponent)
+      setHostedComponent(null);
     setHostedMediaPlayer(null);
   }
 
@@ -119,8 +124,7 @@ public class ActiveBox extends AbstractBox implements Cloneable {
   }
 
   public boolean isCurrentContentEquivalent(ActiveBox bx, boolean checkCase) {
-    return bx != null
-        && getCurrentContent() != null
+    return bx != null && getCurrentContent() != null
         && getCurrentContent().isEquivalent(bx.getCurrentContent(), checkCase);
   }
 
@@ -139,10 +143,12 @@ public class ActiveBox extends AbstractBox implements Cloneable {
     content = bx.content;
     altContent = bx.altContent;
     if (content != null) {
-      if (content.bb != null) setBoxBase(content.bb);
+      if (content.bb != null)
+        setBoxBase(content.bb);
       if (content.border != null && bx.hasBorder() != content.border.booleanValue())
         setBorder(content.border.booleanValue());
-      if (content.img != null && content.animated) Utils.refreshAnimatedImage(content.img);
+      if (content.img != null && content.animated)
+        Utils.refreshAnimatedImage(content.img);
     }
     setInactive(bx.isInactive());
     setInverted(bx.isInverted());
@@ -163,8 +169,10 @@ public class ActiveBox extends AbstractBox implements Cloneable {
 
   public void setTextContent(String tx) {
     // only plain text!
-    if (tx == null) tx = "";
-    if (content == null) content = new ActiveBoxContent();
+    if (tx == null)
+      tx = "";
+    if (content == null)
+      content = new ActiveBoxContent();
     content.rawText = tx;
     content.text = tx;
     content.mediaContent = null;
@@ -197,59 +205,67 @@ public class ActiveBox extends AbstractBox implements Cloneable {
     setHostedMediaPlayer(null);
     content = abc;
     if (content != null) {
-      if (content.bb != getBoxBaseX()) setBoxBase(content.bb);
+      if (content.bb != getBoxBaseX())
+        setBoxBase(content.bb);
       if (content.border != null && hasBorder() != content.border.booleanValue())
         setBorder(content.border.booleanValue());
       setInactive(false);
-      if (abc.img != null && abc.animated) Utils.refreshAnimatedImage(abc.img);
+      if (abc.img != null && abc.animated)
+        Utils.refreshAnimatedImage(abc.img);
       checkHostedComponent();
       checkAutoStartMedia();
-    } else clear();
+    } else
+      clear();
   }
 
   public void checkAutoStartMedia() {
     ActiveBoxContent cnt = getContent();
-    if (cnt != null
-        && cnt.mediaContent != null
-        && cnt.mediaContent.autoStart == true
-        && cnt.amp != null) {
+    if (cnt != null && cnt.mediaContent != null && cnt.mediaContent.autoStart == true && cnt.amp != null) {
       final ActiveMediaPlayer amp = cnt.amp;
-      SwingUtilities.invokeLater(
-          new Runnable() {
-            public void run() {
-              amp.play(ActiveBox.this);
-            }
-          });
+      SwingUtilities.invokeLater(new Runnable() {
+        public void run() {
+          amp.play(ActiveBox.this);
+        }
+      });
     }
   }
 
   public void setAltContent(ActiveBoxContent abc) {
     altContent = abc;
     checkHostedComponent();
-    if (isAlternative() && hostedMediaPlayer != null) setHostedMediaPlayer(null);
+    if (isAlternative() && hostedMediaPlayer != null)
+      setHostedMediaPlayer(null);
   }
 
   public void setCurrentContent(ActiveBoxContent abc) {
-    if (isAlternative()) setAltContent(abc);
-    else setContent(abc);
+    if (isAlternative())
+      setAltContent(abc);
+    else
+      setContent(abc);
     repaint();
   }
 
   public void setContent(ActiveBagContent abc, int i) {
-    if (i < 0) i = idOrder;
-    if (abc == null || i >= abc.getNumCells()) return;
-    if (abc.bb != getBoxBaseX()) setBoxBase(abc.bb);
+    if (i < 0)
+      i = idOrder;
+    if (abc == null || i >= abc.getNumCells())
+      return;
+    if (abc.bb != getBoxBaseX())
+      setBoxBase(abc.bb);
     setContent(abc.getActiveBoxContent(i));
   }
 
   public void setAltContent(ActiveBagContent abc, int i) {
-    if (i < 0) i = idOrder;
-    if (abc == null || abc.isEmpty() || i > abc.getNumCells()) return;
+    if (i < 0)
+      i = idOrder;
+    if (abc == null || abc.isEmpty() || i > abc.getNumCells())
+      return;
     setAltContent(abc.getActiveBoxContent(i));
   }
 
   public boolean switchToAlt(ResourceBridge rb) {
-    if (isAlternative() || altContent == null || altContent.isEmpty()) return false;
+    if (isAlternative() || altContent == null || altContent.isEmpty())
+      return false;
     setHostedComponent(null);
     setHostedMediaPlayer(null);
     setAlternative(true);
@@ -260,47 +276,24 @@ public class ActiveBox extends AbstractBox implements Cloneable {
 
   @Override
   protected void checkHostedComponent() {
-    if (hasHostedComponent) return;
+    if (hasHostedComponent)
+      return;
     ActiveBoxContent abc = getCurrentContent();
     BoxBase bb = getBoxBaseResolve();
     Component jc = null;
     if (!isInactive() && abc != null && abc.htmlText != null) {
       String s = abc.htmlText;
       if (abc.innerHtmlText != null) {
-        Color backColor =
-            isInactive() ? bb.inactiveColor : isInverted() ? bb.textColor : bb.backColor;
-        Color foreColor =
-            isInverted() ? bb.backColor : isAlternative() ? bb.alternativeColor : bb.textColor;
+        Color backColor = isInactive() ? bb.inactiveColor : isInverted() ? bb.textColor : bb.backColor;
+        Color foreColor = isInverted() ? bb.backColor : isAlternative() ? bb.alternativeColor : bb.textColor;
         Font f = bb.getOriginalFont();
-        s =
-            "<html>"
-                + "<body bgcolor=\"#"
-                + Integer.toHexString(backColor.getRGB() & 0xFFFFFF)
-                + "\">"
-                + "<div style=\""
-                + "background: #"
-                + Integer.toHexString(backColor.getRGB() & 0xFFFFFF)
-                + "; "
-                + "color: #"
-                + Integer.toHexString(foreColor.getRGB() & 0xFFFFFF)
-                + "; "
-                + "font-family: "
-                + f.getFontName()
-                + "; "
-                + "font-size: "
-                + f.getSize()
-                + "pt; "
-                + (f.isBold() ? "font-weight: bold;" : "")
-                + "text-align: "
-                + (abc.txtAlign[0] == JDomUtility.ALIGN_LEFT
-                    ? "left"
-                    : abc.txtAlign[0] == JDomUtility.ALIGN_RIGHT ? "right" : "center")
-                + "; "
-                + "width: 100%; "
-                + "\">"
-                + abc.innerHtmlText
-                + "</div>"
-                + "</body></html>";
+        s = "<html>" + "<body bgcolor=\"#" + Integer.toHexString(backColor.getRGB() & 0xFFFFFF) + "\">"
+            + "<div style=\"" + "background: #" + Integer.toHexString(backColor.getRGB() & 0xFFFFFF) + "; " + "color: #"
+            + Integer.toHexString(foreColor.getRGB() & 0xFFFFFF) + "; " + "font-family: " + f.getFontName() + "; "
+            + "font-size: " + f.getSize() + "pt; " + (f.isBold() ? "font-weight: bold;" : "") + "text-align: "
+            + (abc.txtAlign[0] == JDomUtility.ALIGN_LEFT ? "left"
+                : abc.txtAlign[0] == JDomUtility.ALIGN_RIGHT ? "right" : "center")
+            + "; " + "width: 100%; " + "\">" + abc.innerHtmlText + "</div>" + "</body></html>";
       }
       jc = getHostedComponent();
       if (jc != null && jc instanceof JLabel) {
@@ -318,7 +311,8 @@ public class ActiveBox extends AbstractBox implements Cloneable {
     ActiveBoxContent abc = getCurrentContent();
     BoxBase bb = getBoxBaseResolve();
 
-    if (isInactive() || abc == null || width < 2 || height < 2) return true;
+    if (isInactive() || abc == null || width < 2 || height < 2)
+      return true;
 
     Rectangle2D.Double imgRect = null;
 
@@ -327,16 +321,13 @@ public class ActiveBox extends AbstractBox implements Cloneable {
         Rectangle r = abc.imgClip.getBounds();
 
         /*
-         * We have two methods to draw:
-         *  # Using AffineTransform
-         *      * Compatible with Mac OS-X 10.1, JRE 1.3.1 rev 1.
-         *      * Possibly more slow ?
+         * We have two methods to draw: # Using AffineTransform * Compatible with Mac
+         * OS-X 10.1, JRE 1.3.1 rev 1. * Possibly more slow ?
          *
-         *  # Using Graphics.drawImage
-         *     * Doesn't work with Mac OSX 10.1 Java 1.3.1 rev. 1
+         * # Using Graphics.drawImage * Doesn't work with Mac OSX 10.1 Java 1.3.1 rev. 1
          *
-         *  Comment one of the two, or apply method 1 only to objects of class:
-         *  com.apple.mrj.internal.awt.graphics.VImage
+         * Comment one of the two, or apply method 1 only to objects of class:
+         * com.apple.mrj.internal.awt.graphics.VImage
          */
 
         // Method 1
@@ -348,47 +339,33 @@ public class ActiveBox extends AbstractBox implements Cloneable {
               double sy = height / r.height;
               at = AffineTransform.getScaleInstance(sx, sy);
               at.translate(x / sx - r.x, y / sy - r.y);
-            } else at = AffineTransform.getTranslateInstance(x - r.x, y - r.y);
+            } else
+              at = AffineTransform.getTranslateInstance(x - r.x, y - r.y);
             g2.drawImage(abc.img, at, io);
           }
         } else {
           // Method 2
-          g2.drawImage(
-              abc.img,
-              (int) x,
-              (int) y,
-              (int) (x + width),
-              (int) (y + height),
-              (int) r.x,
-              (int) r.y,
-              (int) (r.x + r.width),
-              (int) (r.y + r.height),
-              io);
+          g2.drawImage(abc.img, (int) x, (int) y, (int) (x + width), (int) (y + height), (int) r.x, (int) r.y,
+              (int) (r.x + r.width), (int) (r.y + r.height), io);
         }
       } else {
         double imgw, imgh;
         boolean compress = false;
-        if ((imgw = abc.img.getWidth(io)) == 0) imgw = width;
-        if ((imgh = abc.img.getHeight(io)) == 0) imgh = height;
+        if ((imgw = abc.img.getWidth(io)) == 0)
+          imgw = width;
+        if ((imgh = abc.img.getHeight(io)) == 0)
+          imgh = height;
         double scale = 1.0;
-        if (compressImages == true
-            && (width > 0 && height > 0)
-            && (imgw > width || imgh > height)) {
+        if (compressImages == true && (width > 0 && height > 0) && (imgw > width || imgh > height)) {
           scale = Math.min(width / imgw, height / imgh);
           imgw *= scale;
           imgh *= scale;
           compress = true;
         }
-        double xs =
-            (abc.imgAlign[0] == JDomUtility.ALIGN_LEFT
-                ? 0
-                : abc.imgAlign[0] == JDomUtility.ALIGN_RIGHT ? width - imgw : (width - imgw) / 2);
-        double ys =
-            (abc.imgAlign[1] == JDomUtility.ALIGN_TOP
-                ? 0
-                : abc.imgAlign[1] == JDomUtility.ALIGN_BOTTOM
-                    ? height - imgh
-                    : (height - imgh) / 2);
+        double xs = (abc.imgAlign[0] == JDomUtility.ALIGN_LEFT ? 0
+            : abc.imgAlign[0] == JDomUtility.ALIGN_RIGHT ? width - imgw : (width - imgw) / 2);
+        double ys = (abc.imgAlign[1] == JDomUtility.ALIGN_TOP ? 0
+            : abc.imgAlign[1] == JDomUtility.ALIGN_BOTTOM ? height - imgh : (height - imgh) / 2);
         if (compress) {
           if (USE_TRANSFORM) {
             // Method 1:
@@ -399,14 +376,12 @@ public class ActiveBox extends AbstractBox implements Cloneable {
             // Method 2:
             g2.drawImage(abc.img, (int) (x + xs), (int) (y + ys), (int) imgw, (int) imgh, io);
           }
-        } else g2.drawImage(abc.img, (int) (x + xs), (int) (y + ys), io);
+        } else
+          g2.drawImage(abc.img, (int) (x + xs), (int) (y + ys), io);
 
-        if (abc.avoidOverlapping
-            && abc.text != null /*&& !JDomUtility.isDefaultAlign(abc.imgAlign)*/)
-          imgRect =
-              new Rectangle2D.Double(
-                  Math.max(0.0, xs), Math.max(0.0, ys),
-                  Math.min(width, imgw), Math.min(height, imgh));
+        if (abc.avoidOverlapping && abc.text != null /* && !JDomUtility.isDefaultAlign(abc.imgAlign) */)
+          imgRect = new Rectangle2D.Double(Math.max(0.0, xs), Math.max(0.0, ys), Math.min(width, imgw),
+              Math.min(height, imgh));
       }
     }
     if (abc.text != null && abc.text.length() > 0) {
@@ -415,15 +390,12 @@ public class ActiveBox extends AbstractBox implements Cloneable {
       double pWidth = this.width;
       double pHeight = this.height;
       if (imgRect != null) {
-        double[] prx = new double[] {0, imgRect.x, imgRect.x + imgRect.width, pWidth};
-        double[] pry = new double[] {0, imgRect.y, imgRect.y + imgRect.height, pHeight};
-        Rectangle2D.Double[] rr =
-            new Rectangle2D.Double[] {
-              new Rectangle2D.Double(prx[0], pry[0], prx[3], pry[1]),
-              new Rectangle2D.Double(prx[0], pry[2], prx[3], pry[3] - pry[2]),
-              new Rectangle2D.Double(prx[0], pry[0], prx[1], pry[3]),
-              new Rectangle2D.Double(prx[2], pry[0], prx[3] - prx[2], pry[3])
-            };
+        double[] prx = new double[] { 0, imgRect.x, imgRect.x + imgRect.width, pWidth };
+        double[] pry = new double[] { 0, imgRect.y, imgRect.y + imgRect.height, pHeight };
+        Rectangle2D.Double[] rr = new Rectangle2D.Double[] { new Rectangle2D.Double(prx[0], pry[0], prx[3], pry[1]),
+            new Rectangle2D.Double(prx[0], pry[2], prx[3], pry[3] - pry[2]),
+            new Rectangle2D.Double(prx[0], pry[0], prx[1], pry[3]),
+            new Rectangle2D.Double(prx[2], pry[0], prx[3] - prx[2], pry[3]) };
         Rectangle2D.Double rmax = rr[0];
         double maxSurface = rmax.width * rmax.height;
         for (int i = 1; i < rr.length; i++) {
@@ -432,17 +404,18 @@ public class ActiveBox extends AbstractBox implements Cloneable {
             if (Math.abs(s - maxSurface) <= 1) {
               boolean b = false;
               switch (i) {
-                case 1:
-                  b = (abc.txtAlign[1] == JDomUtility.ALIGN_BOTTOM);
-                  break;
-                case 2:
-                  b = (abc.txtAlign[0] == JDomUtility.ALIGN_LEFT);
-                  break;
-                case 3:
-                  b = (abc.txtAlign[0] == JDomUtility.ALIGN_RIGHT);
-                  break;
+              case 1:
+                b = (abc.txtAlign[1] == JDomUtility.ALIGN_BOTTOM);
+                break;
+              case 2:
+                b = (abc.txtAlign[0] == JDomUtility.ALIGN_LEFT);
+                break;
+              case 3:
+                b = (abc.txtAlign[0] == JDomUtility.ALIGN_RIGHT);
+                break;
               }
-              if (!b) continue;
+              if (!b)
+                continue;
             }
             maxSurface = s;
             rmax = rr[i];
@@ -462,7 +435,7 @@ public class ActiveBox extends AbstractBox implements Cloneable {
       LineBreakMeasurer lbm;
       int maxLines = StrUtils.countSpaces(abc.text) + 1;
 
-      for (; ; ) {
+      for (;;) {
         int i;
         atext = new AttributedString(abc.text);
         atext.addAttribute(TextAttribute.FONT, bb.getFont());
@@ -476,26 +449,27 @@ public class ActiveBox extends AbstractBox implements Cloneable {
           if (rt > lbm.getPosition()) {
             layout = lbm.nextLayout((float) ww, rt, false);
             rt = abc.text.indexOf('\n', lbm.getPosition());
-          } else layout = lbm.nextLayout((float) ww);
+          } else
+            layout = lbm.nextLayout((float) ww);
 
-          if (layout == null) break;
+          if (layout == null)
+            break;
           wtl = layout.getVisibleAdvance();
-          if (wtl > w) w = wtl;
+          if (wtl > w)
+            w = wtl;
           hl = layout.getLeading();
           h += layout.getAscent() + layout.getDescent() + hl;
         }
         h -= hl;
-        if ((h <= pHeight && i <= maxLines) || bb.reduceFont() == false) break;
+        if ((h <= pHeight && i <= maxLines) || bb.reduceFont() == false)
+          break;
         JComponent jc = getContainerResolve();
-        if (jc != null) RepaintManager.currentManager(jc).markCompletelyDirty(jc);
+        if (jc != null)
+          RepaintManager.currentManager(jc).markCompletelyDirty(jc);
       }
-      dy =
-          py
-              + (abc.txtAlign[1] == JDomUtility.ALIGN_TOP
-                  ? 0
-                  : abc.txtAlign[1] == JDomUtility.ALIGN_BOTTOM ? pHeight - h : (pHeight - h) / 2);
-      g2.setColor(
-          isInverted() ? bb.backColor : isAlternative() ? bb.alternativeColor : bb.textColor);
+      dy = py + (abc.txtAlign[1] == JDomUtility.ALIGN_TOP ? 0
+          : abc.txtAlign[1] == JDomUtility.ALIGN_BOTTOM ? pHeight - h : (pHeight - h) / 2);
+      g2.setColor(isInverted() ? bb.backColor : isAlternative() ? bb.alternativeColor : bb.textColor);
       lbm.setPosition(0);
       rt = abc.text.indexOf('\n');
       h = 0;
@@ -504,33 +478,20 @@ public class ActiveBox extends AbstractBox implements Cloneable {
         if (rt > lbm.getPosition()) {
           layout = lbm.nextLayout((float) ww, rt, false);
           rt = abc.text.indexOf('\n', lbm.getPosition());
-        } else layout = lbm.nextLayout((float) ww);
+        } else
+          layout = lbm.nextLayout((float) ww);
 
-        if (layout == null) break;
+        if (layout == null)
+          break;
         wtl = layout.getVisibleAdvance();
-        dx =
-            px
-                + bb.textMargin
-                + (abc.txtAlign[0] == JDomUtility.ALIGN_LEFT
-                    ? 0
-                    : abc.txtAlign[0] == JDomUtility.ALIGN_RIGHT ? ww - wtl : (ww - wtl) / 2);
+        dx = px + bb.textMargin + (abc.txtAlign[0] == JDomUtility.ALIGN_LEFT ? 0
+            : abc.txtAlign[0] == JDomUtility.ALIGN_RIGHT ? ww - wtl : (ww - wtl) / 2);
 
-        // 21-dec-1009
-        // Removed: right-to-left writting is automatically computed
-        // by TextLayout!
-        //
-        // if(!layout.isLeftToRight()){
-        //    dx-=wtl;
-        // }
         h += layout.getAscent();
         if (bb.shadow) {
           g2.setColor(bb.shadowColor);
-          layout.draw(
-              g2,
-              (float) (dx + bb.getDynFontSize() / 10),
-              (float) (dy + h + bb.getDynFontSize() / 10));
-          g2.setColor(
-              isInverted() ? bb.backColor : isAlternative() ? bb.alternativeColor : bb.textColor);
+          layout.draw(g2, (float) (dx + bb.getDynFontSize() / 10), (float) (dy + h + bb.getDynFontSize() / 10));
+          g2.setColor(isInverted() ? bb.backColor : isAlternative() ? bb.alternativeColor : bb.textColor);
         }
         layout.draw(g2, (float) dx, (float) (dy + h));
         h += layout.getDescent() + layout.getLeading();
@@ -543,10 +504,8 @@ public class ActiveBox extends AbstractBox implements Cloneable {
     ActiveBoxContent abc = getCurrentContent();
     // ORIGINAL
     /*
-    if(abc!=null && abc.mediaContent!=null){
-        ac.playMedia(abc.mediaContent, this);
-        return true;
-    }
+     * if(abc!=null && abc.mediaContent!=null){ ac.playMedia(abc.mediaContent,
+     * this); return true; }
      */
     // MODIFIED TO REPAINT ANIMATED GIFS
     if (abc != null) {
@@ -569,7 +528,8 @@ public class ActiveBox extends AbstractBox implements Cloneable {
   @Override
   public void setBounds(Rectangle2D r) {
     super.setBounds(r);
-    if (hostedMediaPlayer != null) hostedMediaPlayer.checkVisualComponentBounds(this);
+    if (hostedMediaPlayer != null)
+      hostedMediaPlayer.checkVisualComponentBounds(this);
   }
 
   @Override

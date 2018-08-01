@@ -100,10 +100,9 @@ public class JClicProjectEditor extends Editor {
   }
 
   public boolean nameChanged(int type, String oldName, String newName) {
-    boolean result =
-        getActivityBagEditor().nameChanged(type, oldName, newName)
-            | getActivitySequenceEditor().nameChanged(type, oldName, newName)
-            | getMediaBagEditor().nameChanged(type, oldName, newName);
+    boolean result = getActivityBagEditor().nameChanged(type, oldName, newName)
+        | getActivitySequenceEditor().nameChanged(type, oldName, newName)
+        | getMediaBagEditor().nameChanged(type, oldName, newName);
     return result;
   }
 

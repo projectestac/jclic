@@ -40,8 +40,6 @@ public class Identify extends TextActivityBase {
   public static final int IDENTIFY_WORDS = 0, IDENTIFY_CHARS = 1;
   protected int type;
 
-  // boolean evalOnTheFly;
-
   /** Creates new Identify */
   public Identify(JClicProject project) {
     super(project);
@@ -51,7 +49,7 @@ public class Identify extends TextActivityBase {
     checkButtonText = "";
   }
 
-  public static final String[] TYPES = {"identifyWords", "identifyChars"};
+  public static final String[] TYPES = { "identifyWords", "identifyChars" };
 
   @Override
   public org.jdom.Element getJDomElement() {
@@ -63,7 +61,6 @@ public class Identify extends TextActivityBase {
   @Override
   public void setProperties(org.jdom.Element e, Object aux) throws Exception {
     super.setProperties(e, aux);
-    // evalOnTheFly=!hasCheckButton;
     setType(JDomUtility.getStrIndexAttr(e, TYPE, TYPES, type));
   }
 
@@ -71,10 +68,6 @@ public class Identify extends TextActivityBase {
   public void setProperties(edu.xtec.jclic.clic3.Clic3Activity c3a) throws Exception {
     super.setProperties(c3a);
     setType(c3a.puzMode == edu.xtec.jclic.clic3.Clic3.IDPARAULES ? IDENTIFY_WORDS : IDENTIFY_CHARS);
-    // evalOnTheFly=!hasCheckButton;
-    // evalOnTheFly=c3a.avCont;
-    // if(evalOnTheFly)
-    //  hasCheckButton=false;
   }
 
   @Override
@@ -98,8 +91,7 @@ public class Identify extends TextActivityBase {
    */
   public void setType(int type) {
     this.type = (type == IDENTIFY_CHARS ? IDENTIFY_CHARS : IDENTIFY_WORDS);
-    tad.setTargetType(
-        type == IDENTIFY_CHARS ? TextActivityDocument.TT_CHAR : TextActivityDocument.TT_WORD);
+    tad.setTargetType(type == IDENTIFY_CHARS ? TextActivityDocument.TT_CHAR : TextActivityDocument.TT_WORD);
   }
 
   class Panel extends TextActivityBase.Panel {
@@ -127,7 +119,8 @@ public class Identify extends TextActivityBase {
         playing = false;
         playDoc = new TextActivityDocument(styleContext);
         tad.cloneDoc(playDoc, false, false, true);
-        if (!buildCheckArrays()) return;
+        if (!buildCheckArrays())
+          return;
         pane.setStyledDocument(playDoc);
         playDoc.attachTo(pane, Identify.Panel.this);
         pane.setEditable(false);
@@ -138,7 +131,8 @@ public class Identify extends TextActivityBase {
     }
 
     private boolean buildCheckArrays() {
-      if (playDoc == null) return false;
+      if (playDoc == null)
+        return false;
       int l = playDoc.getLength();
       if (l > 0) {
         char[] chars;
@@ -158,7 +152,8 @@ public class Identify extends TextActivityBase {
         }
         for (int i = 0; i < playDoc.tmb.size(); i++) {
           TargetMarker tm = playDoc.tmb.getElement(i);
-          for (int j = tm.begOffset; j < tm.endOffset; j++) targets[j] = true;
+          for (int j = tm.begOffset; j < tm.endOffset; j++)
+            targets[j] = true;
         }
       } else {
         validChars = new boolean[1];
@@ -170,7 +165,6 @@ public class Identify extends TextActivityBase {
 
     @Override
     protected TextActivityPane buildPane() {
-      // IdentifyPane p=new IdentifyPane(this);
       IdentifyPane p = new IdentifyPane();
       p.setActions();
       return p;
@@ -178,7 +172,6 @@ public class Identify extends TextActivityBase {
 
     class IdentifyPane extends TextActivityPane {
 
-      // public IdentifyPane(Identify act){
       protected IdentifyPane() {
         super(Identify.Panel.this);
         enableEvents(AWTEvent.MOUSE_EVENT_MASK);
@@ -186,9 +179,11 @@ public class Identify extends TextActivityBase {
 
       @Override
       public boolean processMouse(MouseEvent e) {
-        if (!super.processMouse(e) || !playing || playDoc == null) return false;
+        if (!super.processMouse(e) || !playing || playDoc == null)
+          return false;
 
-        if (e.getID() == MouseEvent.MOUSE_PRESSED) select(viewToModel(e.getPoint()));
+        if (e.getID() == MouseEvent.MOUSE_PRESSED)
+          select(viewToModel(e.getPoint()));
 
         return false;
       }
@@ -214,37 +209,30 @@ public class Identify extends TextActivityBase {
           }
           if (type == IDENTIFY_WORDS) {
             int it = p;
-            while (it > 0 && validChars[it] == true) it--;
+            while (it > 0 && validChars[it] == true)
+              it--;
             int p0 = it + 1;
             it = p;
             p = p0;
-            while (it < validChars.length && validChars[it] == true) it++;
+            while (it < validChars.length && validChars[it] == true)
+              it++;
             l = it - p0;
           }
         }
 
-        playDoc.setCharacterAttributes(
-            p,
-            l,
-            styleContext.getStyle(
-                marked ? StyleContext.DEFAULT_STYLE : TextActivityDocument.TARGET),
-            true);
+        playDoc.setCharacterAttributes(p, l,
+            styleContext.getStyle(marked ? StyleContext.DEFAULT_STYLE : TextActivityDocument.TARGET), true);
 
-        for (int i = 0; i < l; i++) marks[p + i] = !marked;
+        for (int i = 0; i < l; i++)
+          marks[p + i] = !marked;
 
-        // if(evalOnTheFly){
         if (!hasCheckButton) {
           TargetMarkerBag tmb = playDoc.tmb;
           boolean ok = (tm != null && marks[p] == true);
           boolean finishedOk = checkScore();
           try {
-            tabp.ps.reportNewAction(
-                Identify.this,
-                ACTION_SELECT,
-                playDoc.getText(p, l),
-                (marked ? "true" : "false"),
-                ok,
-                score);
+            tabp.ps.reportNewAction(Identify.this, ACTION_SELECT, playDoc.getText(p, l), (marked ? "true" : "false"),
+                ok, score);
           } catch (Exception ex) {
             // should never done
           }
@@ -272,36 +260,37 @@ public class Identify extends TextActivityBase {
     protected boolean checkScore() {
       score = 0;
       for (int i = 0; i < playDoc.tmb.size(); i++) {
-        if (marks[playDoc.tmb.getElement(i).begOffset] == true) score++;
+        if (marks[playDoc.tmb.getElement(i).begOffset] == true)
+          score++;
       }
 
-      for (int i = 0; i < targets.length; i++) if (marks[i] && !targets[i]) return false;
+      for (int i = 0; i < targets.length; i++)
+        if (marks[i] && !targets[i])
+          return false;
 
       return (score == playDoc.tmb.size());
     }
 
     @Override
     protected void doCheck(boolean fromButton) {
-      if (playDoc == null || playDoc.tmb.size() == 0) return;
+      if (playDoc == null || playDoc.tmb.size() == 0)
+        return;
       TargetMarkerBag tmb = playDoc.tmb;
       int i, j;
-      playDoc.setCharacterAttributes(
-          0, marks.length, styleContext.getStyle(StyleContext.DEFAULT_STYLE), true);
+      playDoc.setCharacterAttributes(0, marks.length, styleContext.getStyle(StyleContext.DEFAULT_STYLE), true);
       for (i = 0; i < marks.length; i++) {
         if (marks[i]) {
-          for (j = i; j < marks.length; j++) if (!marks[j]) break;
-          playDoc.setCharacterAttributes(
-              i, j - i, styleContext.getStyle(TextActivityDocument.TARGET_ERROR), true);
+          for (j = i; j < marks.length; j++)
+            if (!marks[j])
+              break;
+          playDoc.setCharacterAttributes(i, j - i, styleContext.getStyle(TextActivityDocument.TARGET_ERROR), true);
           i = j;
         }
       }
       for (i = 0; i < tmb.size(); i++) {
         TargetMarker tm = tmb.getElement(i);
-        playDoc.applyStyleToTarget(
-            tm,
-            marks[tm.begOffset] ? TextActivityDocument.TARGET : StyleContext.DEFAULT_STYLE,
-            false,
-            true);
+        playDoc.applyStyleToTarget(tm, marks[tm.begOffset] ? TextActivityDocument.TARGET : StyleContext.DEFAULT_STYLE,
+            false, true);
       }
       boolean finishedOk = checkScore();
       ps.setCounterValue(SCORE_COUNTER, score);
@@ -311,7 +300,8 @@ public class Identify extends TextActivityBase {
           playEvent(EventSounds.FINISHED_ERROR);
           pane.requestFocus();
         }
-      } else finishActivity(true);
+      } else
+        finishActivity(true);
     }
 
     @Override

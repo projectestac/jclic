@@ -35,30 +35,15 @@ public class UserAdmin extends Basic {
   public static String TITLE = "user_admin_title";
   public static String URL = "userAdmin";
 
-  public static final String GROUP = "group",
-      ID = "id",
-      NAME = "name",
-      ICON = "icon",
-      USER = "user";
+  public static final String GROUP = "group", ID = "id", NAME = "name", ICON = "icon", USER = "user";
 
-  // 22-mai-06: Added password fields
   public static final String PASS = "pass", PASSC = "passc";
-  // ---
 
-  public static final int USER_MENU = 0,
-      EDIT = 1,
-      EDIT_UPDATE = 2,
-      CREATE = 3,
-      CREATE_UPDATE = 4,
-      DELETE = 5,
-      DELETE_UPDATE = 6,
-      CLEAR = 7,
-      CLEAR_UPDATE = 8,
-      ERR = 9;
+  public static final int USER_MENU = 0, EDIT = 1, EDIT_UPDATE = 2, CREATE = 3, CREATE_UPDATE = 4, DELETE = 5,
+      DELETE_UPDATE = 6, CLEAR = 7, CLEAR_UPDATE = 8, ERR = 9;
 
-  public static final String[] ACTIONS = {
-    "", "edit", "editUpd", "create", "createUpd", "del", "delUpd", "clear", "clearUpd"
-  };
+  public static final String[] ACTIONS = { "", "edit", "editUpd", "create", "createUpd", "del", "delUpd", "clear",
+      "clearUpd" };
 
   protected int page;
   protected DateManager dm;
@@ -70,10 +55,9 @@ public class UserAdmin extends Basic {
 
   public String getTitle(ResourceBundle bundle) {
     /*
-    StringBuilder sb=new StringBuilder(bundle.getString(TITLE));
-    if(ud!=null && ud.text!=null && ud.text.length()>0)
-        sb.append(": ").append(filter(ud.text));
-    return sb.toString();
+     * StringBuilder sb=new StringBuilder(bundle.getString(TITLE)); if(ud!=null &&
+     * ud.text!=null && ud.text.length()>0) sb.append(": ").append(filter(ud.text));
+     * return sb.toString();
      */
     return bundle.getString(TITLE);
   }
@@ -87,43 +71,50 @@ public class UserAdmin extends Basic {
     sb.append(URL);
     urlParamSb(sb, LANG, lang, true);
     urlParamSb(sb, ACTION, ACTIONS[action], false);
-    if (ud != null) urlParamSb(sb, USER, ud.getId(), false);
-    else if (gd != null) urlParamSb(sb, GROUP, gd.getId(), false);
+    if (ud != null)
+      urlParamSb(sb, USER, ud.getId(), false);
+    else if (gd != null)
+      urlParamSb(sb, GROUP, gd.getId(), false);
     return sb.substring(0);
   }
 
   @Override
   public boolean init() throws Exception {
-    if (!super.init()) return false;
+    if (!super.init())
+      return false;
 
     String uId = getParamNotNull(USER);
-    if (uId.length() > 0) ud = bridge.getUserData(uId);
+    if (uId.length() > 0)
+      ud = bridge.getUserData(uId);
 
     String gId = getParamNotNull(GROUP);
-    if (ud != null) gId = ud.groupId;
+    if (ud != null)
+      gId = ud.groupId;
 
-    if (gId.length() > 0) gd = bridge.getGroupData(gId);
+    if (gId.length() > 0)
+      gd = bridge.getGroupData(gId);
 
     page = getAction(ACTIONS, USER_MENU);
 
     if (page == CLEAR || page == CLEAR_UPDATE) {
       dm = new DateManager(this);
-      if (!dm.init()) return false;
+      if (!dm.init())
+        return false;
     }
 
     switch (page) {
-      case EDIT_UPDATE:
-        edit();
-        break;
-      case CREATE_UPDATE:
-        create();
-        break;
-      case DELETE_UPDATE:
-        delete();
-        break;
-      case CLEAR_UPDATE:
-        clear();
-        break;
+    case EDIT_UPDATE:
+      edit();
+      break;
+    case CREATE_UPDATE:
+      create();
+      break;
+    case DELETE_UPDATE:
+      delete();
+      break;
+    case CLEAR_UPDATE:
+      clear();
+      break;
     }
 
     return true;
@@ -134,23 +125,16 @@ public class UserAdmin extends Basic {
     errMsg = getMsg("db_error") + "<BR>";
     String name = getParamNotNull(NAME).trim();
 
-    // 22-mai-06: Added password fields
     String pass = StrUtils.nullableString(getParam(PASS));
     String passc = StrUtils.nullableString(getParam(PASSC));
-    // ---
 
-    if (name.length() == 0) errMsg = errMsg + getMsg("user_admin_invalid_name");
-    // 22-mai-06: Added password fields
+    if (name.length() == 0)
+      errMsg = errMsg + getMsg("user_admin_invalid_name");
     else if (!StrUtils.compareObjects(pass, passc))
       errMsg = errMsg + getMsg("user_admin_err_bad_pw");
-    // ---
     else {
       ud.setText(name);
-
-      // 22-mai-06: Added password fields
       ud.pwd = (pass == null ? null : edu.xtec.util.Encryption.Encrypt(pass));
-      // ---
-
       ud.setIconUrl(getParamNotNull(ICON).trim());
       try {
         bridge.updateUser(ud, false);
@@ -176,18 +160,15 @@ public class UserAdmin extends Basic {
     String name = getParamNotNull(NAME).trim();
     String id = getParamNotNull(ID).trim();
     String icon = getParamNotNull(ICON).trim();
-
-    // 22-mai-06: Added password fields
     String pass = StrUtils.nullableString(getParam(PASS));
     String passc = StrUtils.nullableString(getParam(PASSC));
-    // ---
 
-    if (name.length() == 0) errMsg = errMsg + getMsg("user_admin_invalid_name");
-    else if (id.length() == 0) errMsg = errMsg + getMsg("user_admin_invalid_id");
-    // 22-mai-06: Added password fields
+    if (name.length() == 0)
+      errMsg = errMsg + getMsg("user_admin_invalid_name");
+    else if (id.length() == 0)
+      errMsg = errMsg + getMsg("user_admin_invalid_id");
     else if (!StrUtils.compareObjects(pass, passc))
       errMsg = errMsg + getMsg("user_admin_err_bad_pw");
-    // ---
     else {
       ud = bridge.getUserData(id);
       if (ud != null) {
@@ -196,11 +177,7 @@ public class UserAdmin extends Basic {
       } else {
         try {
           ud = new UserData(id, name, icon, null, gd.getId());
-
-          // 22-mai-06: Added password fields
           ud.pwd = (pass == null ? null : edu.xtec.util.Encryption.Encrypt(pass));
-          // ---
-
           bridge.updateUser(ud, true);
           page = USER_MENU;
         } catch (Exception ex) {
@@ -255,8 +232,7 @@ public class UserAdmin extends Basic {
 
     sb.append(linkTo(urlParam(Main.URL, LANG, lang), bundle.getString(Main.TITLE), null));
     sb.append(" | ");
-    sb.append(
-        linkTo(urlParam(GroupAdmin.URL, LANG, lang), bundle.getString(GroupAdmin.TITLE), null));
+    sb.append(linkTo(urlParam(GroupAdmin.URL, LANG, lang), bundle.getString(GroupAdmin.TITLE), null));
     if (gd != null) {
       sb.append(" | ");
       sb.append(linkTo(getGroupUrl(), gd.getText(), null));
@@ -269,153 +245,102 @@ public class UserAdmin extends Basic {
 
     if (ud == null && page != CREATE && page != DELETE_UPDATE) {
       page = ERR;
-      if (errMsg == null) errMsg = getMsg("bad_data");
+      if (errMsg == null)
+        errMsg = getMsg("bad_data");
       err = true;
     }
 
     switch (page) {
-      case USER_MENU:
-        sb.append("<form class=\"info\">\n");
-        sb.append("<p><strong>")
-            .append(getMsg("user_admin_id"))
-            .append("</strong> ")
-            .append(filter(ud.getId()))
-            .append("</p>\n");
-        sb.append("<p><strong>")
-            .append(getMsg("user_admin_name"))
-            .append("</strong> ")
-            .append(filter(ud.getText()))
-            .append("</p>\n");
+    case USER_MENU:
+      sb.append("<form class=\"info\">\n");
+      sb.append("<p><strong>").append(getMsg("user_admin_id")).append("</strong> ").append(filter(ud.getId()))
+          .append("</p>\n");
+      sb.append("<p><strong>").append(getMsg("user_admin_name")).append("</strong> ").append(filter(ud.getText()))
+          .append("</p>\n");
+      sb.append("<p><strong>").append(getMsg("user_admin_pw_prompt")).append("</strong> ")
+          .append(ud.pwd == null ? "" : "***").append("</p>\n");
+      sb.append("<p><strong>").append(getMsg("user_admin_icon")).append("</strong> ");
+      if (ud.getIconUrl() != null && ud.getIconUrl().length() > 0) {
+        sb.append("<img src=\"").append(filter(ud.getIconUrl())).append("\"");
+        sb.append(" title=\"").append(filter(ud.getIconUrl())).append("\">");
+      } else
+        sb.append("---\n");
+      sb.append("</p>\n");
+      sb.append("<p>");
+      sb.append(buttonTo(getUrl(EDIT), getMsg("user_admin_edit_button"), null));
+      sb.append(buttonTo(getUrl(DELETE), getMsg("user_admin_delete_button"), null));
+      sb.append(buttonTo(getUrl(CLEAR), getMsg("user_admin_clear_button"), null));
+      sb.append("</p>\n");
+      sb.append("</form>\n");
+      sb.append("<br clear=\"all\">\n");
+      break;
 
-        // 22-mai-06: Added password fields
-        sb.append("<p><strong>")
-            .append(getMsg("user_admin_pw_prompt"))
-            .append("</strong> ")
-            .append(ud.pwd == null ? "" : "***")
-            .append("</p>\n");
-        // ---
+    case EDIT:
+      flag = true;
+    case CREATE:
+      String id = (ud != null ? ud.getId() : getParamNotNull(ID).trim());
+      String name = (ud != null ? ud.getText() : getParamNotNull(NAME).trim());
+      String icon = (ud != null ? ud.getIconUrl() : getParamNotNull(ICON).trim());
+      String pass = (ud != null ? edu.xtec.util.Encryption.Decrypt(ud.pwd) : getParam(PASS));
 
-        sb.append("<p><strong>").append(getMsg("user_admin_icon")).append("</strong> ");
-        if (ud.getIconUrl() != null && ud.getIconUrl().length() > 0) {
-          sb.append("<img src=\"").append(filter(ud.getIconUrl())).append("\"");
-          sb.append(" title=\"").append(filter(ud.getIconUrl())).append("\">");
-        } else sb.append("---\n");
-        sb.append("</p>\n");
-        sb.append("<p>");
-        sb.append(buttonTo(getUrl(EDIT), getMsg("user_admin_edit_button"), null));
-        sb.append(buttonTo(getUrl(DELETE), getMsg("user_admin_delete_button"), null));
-        sb.append(buttonTo(getUrl(CLEAR), getMsg("user_admin_clear_button"), null));
-        sb.append("</p>\n");
-        sb.append("</form>\n");
-        sb.append("<br clear=\"all\">\n");
-        break;
+      sb.append("<form class=\"inputForm\" method=\"post\" action=\"")
+          .append(getUrl(flag ? EDIT_UPDATE : CREATE_UPDATE)).append("\">\n");
+      sb.append("<p><strong>").append(getMsg("user_admin_id")).append("</strong> ");
+      sb.append("<input name=\"").append(ID).append("\" value=\"").append(filter(id)).append("\" size=40 ");
+      if (flag)
+        sb.append("readonly");
+      sb.append(">\n");
 
-      case EDIT:
-        flag = true;
-      case CREATE:
-        String id = (ud != null ? ud.getId() : getParamNotNull(ID).trim());
-        String name = (ud != null ? ud.getText() : getParamNotNull(NAME).trim());
-        String icon = (ud != null ? ud.getIconUrl() : getParamNotNull(ICON).trim());
+      sb.append("<p><strong>").append(getMsg("user_admin_name")).append("</strong> ");
+      sb.append("<input name=\"").append(NAME).append("\" value=\"").append(filter(name)).append("\" size=40></p>\n");
 
-        // 22-mai-06: Added password fields
-        String pass = (ud != null ? edu.xtec.util.Encryption.Decrypt(ud.pwd) : getParam(PASS));
-        // ---
+      sb.append("<p><strong>").append(getMsg("user_admin_pw_prompt")).append("</strong> ");
+      sb.append("<input name=\"").append(PASS).append("\" type=\"password\" value=\"")
+          .append(pass == null ? "" : filter(pass)).append("\" size=20><br>\n");
+      sb.append("<strong>").append(getMsg("user_admin_pw_prompt_confirm")).append("</strong> ");
+      sb.append("<input name=\"").append(PASSC).append("\" type=\"password\" value=\"")
+          .append(pass == null ? "" : filter(pass)).append("\" size=20></p>\n");
 
-        sb.append("<form class=\"inputForm\" method=\"post\" action=\"")
-            .append(getUrl(flag ? EDIT_UPDATE : CREATE_UPDATE))
-            .append("\">\n");
-        sb.append("<p><strong>").append(getMsg("user_admin_id")).append("</strong> ");
-        sb.append("<input name=\"")
-            .append(ID)
-            .append("\" value=\"")
-            .append(filter(id))
-            .append("\" size=40 ");
-        if (flag) sb.append("readonly");
-        sb.append(">\n");
+      sb.append("<p><strong>").append(getMsg("user_admin_icon")).append("</strong> ");
+      sb.append("<input name=\"").append(ICON).append("\" value=\"").append(filter(icon)).append("\" size=40></p>\n");
+      sb.append("<p><input type=\"submit\" value=\"").append(getMsg("submit")).append("\"> ");
+      sb.append(buttonTo(flag ? getUrl(USER_MENU) : getGroupUrl(), getMsg("cancel"), null)).append("</p>\n");
+      sb.append("</form>\n");
+      sb.append("<br clear=\"all\">\n");
+      break;
 
-        sb.append("<p><strong>").append(getMsg("user_admin_name")).append("</strong> ");
-        sb.append("<input name=\"")
-            .append(NAME)
-            .append("\" value=\"")
-            .append(filter(name))
-            .append("\" size=40></p>\n");
+    case DELETE:
+      sb.append("<p><strong>").append(getMsg("user_admin_delete_user")).append(" \"").append(filter(ud.getText()))
+          .append("\"</strong></p>\n");
+      sb.append("<p>").append(getMsg("user_admin_delete_user_explain")).append("</p>\n");
+      sb.append("<p>").append(getMsg("report_areyousure")).append("</p>\n");
+      sb.append("<form method=\"post\" action=\"").append(getUrl(DELETE_UPDATE)).append("\">\n");
+      sb.append("<p><input type=\"submit\" value=\"").append(getMsg("YES")).append("\" width=50> ");
+      sb.append(buttonTo(getUrl(USER_MENU), getMsg("NOT"), "width=50"));
+      sb.append("</p>\n");
+      sb.append("</form>\n");
+      break;
 
-        // 22-mai-06: Added password fields
-        sb.append("<p><strong>").append(getMsg("user_admin_pw_prompt")).append("</strong> ");
-        sb.append("<input name=\"")
-            .append(PASS)
-            .append("\" type=\"password\" value=\"")
-            .append(pass == null ? "" : filter(pass))
-            .append("\" size=20><br>\n");
-        sb.append("<strong>").append(getMsg("user_admin_pw_prompt_confirm")).append("</strong> ");
-        sb.append("<input name=\"")
-            .append(PASSC)
-            .append("\" type=\"password\" value=\"")
-            .append(pass == null ? "" : filter(pass))
-            .append("\" size=20></p>\n");
-        // ---
+    case CLEAR:
+      sb.append("<p><strong>").append(getMsg("user_admin_clear_user")).append(" \"").append(filter(ud.getText()))
+          .append("\"</strong></p>\n");
+      sb.append("<p>").append(getMsg("user_admin_clear_user_explain")).append("</p>\n");
+      sb.append("<form class=\"inputForm\" action=\"").append(getUrl(CLEAR_UPDATE)).append("\" method=\"post\" name=\"")
+          .append(MAIN_FORM).append("\">\n");
+      dm.writeHiddenFields(sb);
+      sb2.setLength(0);
+      sb2.append("document.").append(MAIN_FORM).append(".submit()");
+      dm.zonaData(sb, buttonAction(sb2.substring(0), getMsg("db_clear_reports_date"), null));
+      sb.append("</form>\n");
+      sb.append("<br clear=\"all\">\n");
+      break;
 
-        sb.append("<p><strong>").append(getMsg("user_admin_icon")).append("</strong> ");
-        sb.append("<input name=\"")
-            .append(ICON)
-            .append("\" value=\"")
-            .append(filter(icon))
-            .append("\" size=40></p>\n");
-        sb.append("<p><input type=\"submit\" value=\"").append(getMsg("submit")).append("\"> ");
-        sb.append(buttonTo(flag ? getUrl(USER_MENU) : getGroupUrl(), getMsg("cancel"), null))
-            .append("</p>\n");
-        sb.append("</form>\n");
-        sb.append("<br clear=\"all\">\n");
-        break;
-
-      case DELETE:
-        sb.append("<p><strong>")
-            .append(getMsg("user_admin_delete_user"))
-            .append(" \"")
-            .append(filter(ud.getText()))
-            .append("\"</strong></p>\n");
-        sb.append("<p>").append(getMsg("user_admin_delete_user_explain")).append("</p>\n");
-        sb.append("<p>").append(getMsg("report_areyousure")).append("</p>\n");
-        sb.append("<form method=\"post\" action=\"").append(getUrl(DELETE_UPDATE)).append("\">\n");
-        sb.append("<p><input type=\"submit\" value=\"")
-            .append(getMsg("YES"))
-            .append("\" width=50> ");
-        sb.append(buttonTo(getUrl(USER_MENU), getMsg("NOT"), "width=50"));
-        sb.append("</p>\n");
-        sb.append("</form>\n");
-        break;
-
-      case CLEAR:
-        sb.append("<p><strong>")
-            .append(getMsg("user_admin_clear_user"))
-            .append(" \"")
-            .append(filter(ud.getText()))
-            .append("\"</strong></p>\n");
-        sb.append("<p>").append(getMsg("user_admin_clear_user_explain")).append("</p>\n");
-        sb.append("<form class=\"inputForm\" action=\"")
-            .append(getUrl(CLEAR_UPDATE))
-            .append("\" method=\"post\" name=\"")
-            .append(MAIN_FORM)
-            .append("\">\n");
-        dm.writeHiddenFields(sb);
-        sb2.setLength(0);
-        sb2.append("document.").append(MAIN_FORM).append(".submit()");
-        dm.zonaData(sb, buttonAction(sb2.substring(0), getMsg("db_clear_reports_date"), null));
-        sb.append("</form>\n");
-        sb.append("<br clear=\"all\">\n");
-        break;
-
-      default:
-        sb.append("<p><strong>")
-            .append(getMsg(err ? "error" : "success"))
-            .append("</strong></p>\n");
-        if (errMsg != null) sb.append("<p>").append(errMsg).append("</p>\n");
-        if (returnUrl != null)
-          sb.append("<p><a href=\"")
-              .append(returnUrl)
-              .append("\">")
-              .append(getMsg("return"))
-              .append("</a></p>\n");
+    default:
+      sb.append("<p><strong>").append(getMsg(err ? "error" : "success")).append("</strong></p>\n");
+      if (errMsg != null)
+        sb.append("<p>").append(errMsg).append("</p>\n");
+      if (returnUrl != null)
+        sb.append("<p><a href=\"").append(returnUrl).append("\">").append(getMsg("return")).append("</a></p>\n");
     }
     out.println(sb.substring(0));
   };

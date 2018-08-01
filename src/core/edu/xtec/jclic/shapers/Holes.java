@@ -32,7 +32,6 @@ public class Holes extends Shaper {
   protected double scaleW;
   protected double scaleH;
   protected ShapeData enclosingShapeData;
-  // may be supressed?
   protected boolean showEnclosure;
 
   public Holes(int nx, int ny) {
@@ -65,15 +64,17 @@ public class Holes extends Shaper {
   @Override
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = super.getJDomElement();
-    if (!showEnclosure) e.setAttribute(SHOW_ENCLOSURE, JDomUtility.boolString(showEnclosure));
-    if (scaleW != 1.0) e.setAttribute(SCALE_W, Double.toString(scaleW));
-    if (scaleH != 1.0) e.setAttribute(SCALE_H, Double.toString(scaleH));
+    if (!showEnclosure)
+      e.setAttribute(SHOW_ENCLOSURE, JDomUtility.boolString(showEnclosure));
+    if (scaleW != 1.0)
+      e.setAttribute(SCALE_W, Double.toString(scaleW));
+    if (scaleH != 1.0)
+      e.setAttribute(SCALE_H, Double.toString(scaleH));
     if (enclosingShapeData != null)
-      e.addContent(
-          new org.jdom.Element(ENCLOSING)
-              .addContent(enclosingShapeData.getJDomElement(scaleW, scaleH)));
+      e.addContent(new org.jdom.Element(ENCLOSING).addContent(enclosingShapeData.getJDomElement(scaleW, scaleH)));
     if (shapeData != null)
-      for (int i = 0; i < nCells; i++) e.addContent(shapeData[i].getJDomElement(scaleW, scaleH));
+      for (int i = 0; i < nCells; i++)
+        e.addContent(shapeData[i].getJDomElement(scaleW, scaleH));
     return e;
   }
 
@@ -86,13 +87,11 @@ public class Holes extends Shaper {
     if (child != null) {
       child = child.getChild(ShapeData.ELEMENT_NAME);
       enclosingShapeData = ShapeData.getShapeData(child, scaleW, scaleH);
-      // WARNING:
       showEnclosure = true;
     }
     java.util.List childs = e.getChildren(ShapeData.ELEMENT_NAME);
     if (!childs.isEmpty()) {
       nCells = childs.size();
-      // nCols=nRows=1;
       shapeData = new ShapeData[nCells];
       for (int i = 0; i < nCells; i++)
         shapeData[i] = ShapeData.getShapeData((org.jdom.Element) childs.get(i), scaleW, scaleH);
@@ -104,7 +103,8 @@ public class Holes extends Shaper {
   }
 
   protected void buildShapes() {
-    if (nCells > 0) initiated = true;
+    if (nCells > 0)
+      initiated = true;
   }
 
   @Override
@@ -114,19 +114,22 @@ public class Holes extends Shaper {
 
   @Override
   protected ShapeData getEnclosingShapeData() {
-    if (!showEnclosure) return null;
+    if (!showEnclosure)
+      return null;
     return enclosingShapeData != null ? enclosingShapeData : super.getEnclosingShapeData();
   }
 
   @Override
   public Object clone() throws CloneNotSupportedException {
     Holes clon = (Holes) super.clone();
-    if (enclosingShapeData != null) enclosingShapeData = (ShapeData) enclosingShapeData.clone();
+    if (enclosingShapeData != null)
+      enclosingShapeData = (ShapeData) enclosingShapeData.clone();
     return clon;
   }
 
   public void removeShape(int iIndex) {
-    if (shapeData == null || iIndex < 0 || iIndex >= shapeData.length) return;
+    if (shapeData == null || iIndex < 0 || iIndex >= shapeData.length)
+      return;
     ShapeData[] newShapeData = new ShapeData[shapeData.length - 1];
     System.arraycopy(shapeData, 0, newShapeData, 0, iIndex);
     System.arraycopy(shapeData, iIndex + 1, newShapeData, iIndex, shapeData.length - iIndex - 1);

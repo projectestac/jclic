@@ -36,12 +36,8 @@ import java.util.TimeZone;
  */
 public abstract class RequestProcessor {
 
-  public static final String REDIRECT = "REDIRECT",
-      CONTENT_TYPE = "CONTENT_TYPE",
-      CONTENT_LENGTH = "CONTENT_LENGTH",
-      COOKIE = "COOKIE",
-      EXTRA = "EXTRA",
-      ERROR = "ERROR";
+  public static final String REDIRECT = "REDIRECT", CONTENT_TYPE = "CONTENT_TYPE", CONTENT_LENGTH = "CONTENT_LENGTH",
+      COOKIE = "COOKIE", EXTRA = "EXTRA", ERROR = "ERROR";
   public static final int HTTP_NOT_FOUND = 404, HTTP_BAD_REQUEST = 400, HTTP_UNAUTHORIZED = 401;
   public static final String CHARSET = "ISO-8859-1";
   private Map<String, Object> params;
@@ -81,7 +77,8 @@ public abstract class RequestProcessor {
     return true;
   }
 
-  public void process(java.io.OutputStream out) throws Exception {}
+  public void process(java.io.OutputStream out) throws Exception {
+  }
 
   public void process(java.io.PrintWriter out) throws Exception {
     startHead(out);
@@ -96,12 +93,13 @@ public abstract class RequestProcessor {
     if (cookies.size() > 0) {
       for (String key : cookies.keySet()) {
         String value = (String) cookies.get(key);
-        v.add(new String[] {COOKIE, key, value});
+        v.add(new String[] { COOKIE, key, value });
       }
     }
   }
 
-  public void end() {}
+  public void end() {
+  }
 
   public boolean wantsInputStream() {
     return false;
@@ -165,7 +163,7 @@ public abstract class RequestProcessor {
   }
 
   public void setParam(String name, String value) {
-    params.put(name, new String[] {value});
+    params.put(name, new String[] { value });
   }
 
   public void setParam(String name, String[] value) {
@@ -173,7 +171,6 @@ public abstract class RequestProcessor {
   }
 
   public void setParams(Map<String, Object> map) {
-    // params.putAll(map);
     if (map != null) {
       for (String s : map.keySet()) {
         Object val = map.get(s);
@@ -225,7 +222,8 @@ public abstract class RequestProcessor {
     out.println("\">");
   }
 
-  protected void head(java.io.PrintWriter out) throws Exception {}
+  protected void head(java.io.PrintWriter out) throws Exception {
+  }
 
   protected void endHead(java.io.PrintWriter out) {
     out.println("</head>");
@@ -275,7 +273,8 @@ public abstract class RequestProcessor {
     out.println("<body>");
   }
 
-  protected void body(java.io.PrintWriter out) throws Exception {}
+  protected void body(java.io.PrintWriter out) throws Exception {
+  }
 
   protected void endBody(java.io.PrintWriter out) {
     out.println("</body>");
@@ -291,18 +290,18 @@ public abstract class RequestProcessor {
         c = input.charAt(i);
         String s = null;
         switch (c) {
-          case '<':
-            s = "&lt;";
-            break;
-          case '>':
-            s = "&gt;";
-            break;
-          case '"':
-            s = "&quot;";
-            break;
-          case '&':
-            s = "&amp;";
-            break;
+        case '<':
+          s = "&lt;";
+          break;
+        case '>':
+          s = "&gt;";
+          break;
+        case '"':
+          s = "&quot;";
+          break;
+        case '&':
+          s = "&amp;";
+          break;
         }
         if (s != null) {
           filtered.append(s);
@@ -324,13 +323,12 @@ public abstract class RequestProcessor {
         c = input.charAt(i);
         String s = null;
         switch (c) {
-          case '\'':
-            // s="&#39;"
-            s = "\\'";
-            break;
-          case '\\':
-            s = "\\\\";
-            break;
+        case '\'':
+          s = "\\'";
+          break;
+        case '\\':
+          s = "\\\\";
+          break;
         }
         if (s != null) {
           filtered.append(s);

@@ -62,7 +62,8 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
   public org.jdom.Element getJDomElement() {
     org.jdom.Element ex, ex2;
 
-    if (clues == null || tgc == null) return null;
+    if (clues == null || tgc == null)
+      return null;
 
     org.jdom.Element e = super.getJDomElement();
 
@@ -129,7 +130,8 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
       } else {
         scramble[0] = false;
       }
-    } else abc[0] = null;
+    } else
+      abc[0] = null;
 
     if ((child = e.getChild(LAYOUT)) != null)
       boxGridPos = JDomUtility.getStrIndexAttr(child, POSITION, LAYOUT_NAMES, boxGridPos);
@@ -148,7 +150,8 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
     tgc.text = c3a.graTxt;
     clues = c3a.tags[0];
     clueItems = new int[clues.length];
-    for (int i = 0; i < clues.length; i++) clueItems[i] = i;
+    for (int i = 0; i < clues.length; i++)
+      clueItems[i] = i;
     tgc.bb = c3a.getBoxBase(0);
 
     // read second grid
@@ -159,7 +162,8 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
       // ---
       abc[0] = c3a.createActiveBagContent(0);
       abc[0].setBoxBase(c3a.getBoxBase(1));
-    } else abc[0] = null;
+    } else
+      abc[0] = null;
   }
 
   public int getMinNumActions() {
@@ -192,16 +196,18 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
   /**
    * Setter for property clues.
    *
-   * @param cl New value of property "clues"
+   * @param cl      New value of property "clues"
    * @param clItems New value of property "clueItems"
    */
   public void setClues(String[] cl, int[] clItems) {
     clues = cl;
-    if (clues == null) clues = new String[0];
+    if (clues == null)
+      clues = new String[0];
     clueItems = clItems;
     if (clueItems == null || clueItems.length != clues.length) {
       clueItems = new int[clues.length];
-      for (int i = 0; i < clueItems.length; i++) clueItems[i] = i;
+      for (int i = 0; i < clueItems.length; i++)
+        clueItems[i] = i;
     }
   }
 
@@ -232,7 +238,8 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
     @Override
     public void buildVisualComponents() throws Exception {
 
-      if (firstRun) super.buildVisualComponents();
+      if (firstRun)
+        super.buildVisualComponents();
 
       clear();
 
@@ -241,7 +248,6 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
 
       if (tgc != null) {
         grid = TextGrid.createEmptyGrid(null, this, margin, margin, tgc, false);
-        // if(acp!=null) acp.generateContent(abc[0].nch, abc[0].ncw, abc, false, ac);
 
         if (abc[0] != null)
           bgAlt = ActiveBoxGrid.createEmptyGrid(null, this, margin, margin, abc[0]);
@@ -255,48 +261,56 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
     public void initActivity() throws Exception {
       super.initActivity();
 
-      if (!firstRun) buildVisualComponents();
-      else firstRun = false;
+      if (!firstRun)
+        buildVisualComponents();
+      else
+        firstRun = false;
 
       setAndPlayMsg(MAIN, EventSounds.START);
-      // ps.setMsg(messages[MAIN]);
       if (grid != null) {
         grid.setChars(tgc.text);
         grid.randomize();
         grid.setAllCellsAttribute(TextGrid.INVERTED, false);
 
-        for (int i = 0; i < clueItems.length; i++) resolvedClues[i] = false;
+        for (int i = 0; i < clueItems.length; i++)
+          resolvedClues[i] = false;
 
         if (bgAlt != null) {
           bgAlt.setContent(abc[0]);
-          if (scramble[0]) shuffle(new ActiveBoxBag[] {bgAlt}, true, true);
+          if (scramble[0])
+            shuffle(new ActiveBoxBag[] { bgAlt }, true, true);
           bgAlt.setVisible(false);
         }
 
-        // ps.playMsg();
-        // if(messages[MAIN]==null || messages[MAIN].mediaContent==null)
-        //    playEvent(EventSounds.START);
         playing = true;
       }
     }
 
     public int getCurrentScore() {
       int result = 0;
-      if (clues != null) for (int i = 0; i < clues.length; i++) if (resolvedClues[i]) result++;
+      if (clues != null)
+        for (int i = 0; i < clues.length; i++)
+          if (resolvedClues[i])
+            result++;
       return result;
     }
 
     public void render(Graphics2D g2, Rectangle dirtyRegion) {
-      if (grid != null) grid.update(g2, dirtyRegion, this);
-      if (bgAlt != null) bgAlt.update(g2, dirtyRegion, this);
-      if (bc.active) bc.update(g2, dirtyRegion, this);
+      if (grid != null)
+        grid.update(g2, dirtyRegion, this);
+      if (bgAlt != null)
+        bgAlt.update(g2, dirtyRegion, this);
+      if (bc.active)
+        bc.update(g2, dirtyRegion, this);
     }
 
     public Dimension setDimension(Dimension preferredMaxSize) {
-      if (grid == null || getSize().equals(preferredMaxSize)) return preferredMaxSize;
+      if (grid == null || getSize().equals(preferredMaxSize))
+        return preferredMaxSize;
       if (bgAlt != null)
         return BoxBag.layoutDouble(preferredMaxSize, grid, bgAlt, boxGridPos, margin);
-      else return BoxBag.layoutSingle(preferredMaxSize, grid, margin);
+      else
+        return BoxBag.layoutSingle(preferredMaxSize, grid, margin);
     }
 
     @Override
@@ -307,126 +321,127 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
 
       if (playing)
         switch (e.getID()) {
-          case MouseEvent.MOUSE_PRESSED:
-            ps.stopMedia(1);
-            if (bc.active) {
-              bc.end();
-              pt1 = grid.getLogicalCoords(bc.origin);
-              pt2 = grid.getLogicalCoords(bc.dest);
-              if (pt1 != null && pt2 != null) {
-                String s = grid.getStringBetween(pt1.x, pt1.y, pt2.x, pt2.y);
-                if (s != null && s.length() > 0) {
-                  boolean ok = false;
-                  boolean repeated = false;
-                  int c;
-                  for (c = 0; c < clues.length; c++)
-                    if (s.equals(clues[c])) {
-                      ok = true;
-                      break;
-                    }
-                  if (ok && !(repeated = resolvedClues[c])) {
-                    resolvedClues[c] = true;
-                    grid.setAttributeBetween(pt1.x, pt1.y, pt2.x, pt2.y, TextGrid.INVERTED, true);
-                    if (bgAlt != null) {
-                      int k = clueItems[c];
-                      if (k >= 0 && k < bgAlt.getNumCells()) {
-                        // ActiveBox bx=bgAlt.getActiveBoxWithIdLoc(clueItems[c]);
-                        ActiveBox bx = bgAlt.getActiveBox(clueItems[c]);
-                        if (bx != null) {
-                          bx.setVisible(true);
-                          m = bx.playMedia(ps);
-                        }
+        case MouseEvent.MOUSE_PRESSED:
+          ps.stopMedia(1);
+          if (bc.active) {
+            bc.end();
+            pt1 = grid.getLogicalCoords(bc.origin);
+            pt2 = grid.getLogicalCoords(bc.dest);
+            if (pt1 != null && pt2 != null) {
+              String s = grid.getStringBetween(pt1.x, pt1.y, pt2.x, pt2.y);
+              if (s != null && s.length() > 0) {
+                boolean ok = false;
+                boolean repeated = false;
+                int c;
+                for (c = 0; c < clues.length; c++)
+                  if (s.equals(clues[c])) {
+                    ok = true;
+                    break;
+                  }
+                if (ok && !(repeated = resolvedClues[c])) {
+                  resolvedClues[c] = true;
+                  grid.setAttributeBetween(pt1.x, pt1.y, pt2.x, pt2.y, TextGrid.INVERTED, true);
+                  if (bgAlt != null) {
+                    int k = clueItems[c];
+                    if (k >= 0 && k < bgAlt.getNumCells()) {
+                      ActiveBox bx = bgAlt.getActiveBox(clueItems[c]);
+                      if (bx != null) {
+                        bx.setVisible(true);
+                        m = bx.playMedia(ps);
                       }
                     }
                   }
-                  if (!repeated) {
-                    int r = getCurrentScore();
-                    ps.reportNewAction(getActivity(), ACTION_SELECT, s, null, ok, r);
-                    if (r == clues.length) finishActivity(true);
-                    else if (!m) playEvent(ok ? EventSounds.ACTION_OK : EventSounds.ACTION_ERROR);
-                  } else if (!ok && !m) playEvent(EventSounds.ACTION_ERROR);
-                } else playEvent(EventSounds.ACTION_ERROR);
-              }
-            } else {
-              if (grid.contains(p)) {
-                playEvent(EventSounds.CLICK);
-                bc.begin(p);
-              }
+                }
+                if (!repeated) {
+                  int r = getCurrentScore();
+                  ps.reportNewAction(getActivity(), ACTION_SELECT, s, null, ok, r);
+                  if (r == clues.length)
+                    finishActivity(true);
+                  else if (!m)
+                    playEvent(ok ? EventSounds.ACTION_OK : EventSounds.ACTION_ERROR);
+                } else if (!ok && !m)
+                  playEvent(EventSounds.ACTION_ERROR);
+              } else
+                playEvent(EventSounds.ACTION_ERROR);
             }
-            break;
+          } else {
+            if (grid.contains(p)) {
+              playEvent(EventSounds.CLICK);
+              bc.begin(p);
+            }
+          }
+          break;
 
-          case MouseEvent.MOUSE_MOVED:
-          case MouseEvent.MOUSE_DRAGGED:
-            if (bc.active) {
-              bc.moveTo(p);
-            }
-            break;
+        case MouseEvent.MOUSE_MOVED:
+        case MouseEvent.MOUSE_DRAGGED:
+          if (bc.active) {
+            bc.moveTo(p);
+          }
+          break;
         }
     }
 
     @Override
     public void showHelp() {
-      if (!helpWindowAllowed() || grid == null) return;
+      if (!helpWindowAllowed() || grid == null)
+        return;
 
       HelpActivityComponent hac = null;
       if (showSolution) {
-        hac =
-            new HelpActivityComponent(this) {
-              JScrollPane scrollPane = null;
-              JList<Object> cluesList = null;
+        hac = new HelpActivityComponent(this) {
+          JScrollPane scrollPane = null;
+          JList<Object> cluesList = null;
 
-              public void render(Graphics2D g2, Rectangle dirtyRegion) {
-                // do nothing
-              }
+          public void render(Graphics2D g2, Rectangle dirtyRegion) {
+            // do nothing
+          }
 
-              @Override
-              public void init() {
-                cluesList = new JList<Object>(clues);
-                cluesList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-                cluesList.addListSelectionListener(this);
-                scrollPane = new JScrollPane(cluesList);
-                add(scrollPane);
-                Dimension size = grid.getBounds().getSize();
-                scrollPane.setBounds(DEFAULT_MARGIN, DEFAULT_MARGIN, size.width, size.height);
-                size.width += 2 * DEFAULT_MARGIN;
-                size.height += 2 * DEFAULT_MARGIN;
-                setPreferredSize(size);
-                setMaximumSize(size);
-                setMinimumSize(size);
-                Point p = (Point) getClientProperty(HelpActivityComponent.PREFERRED_LOCATION);
-                if (p != null)
-                  p.translate((int) grid.x - DEFAULT_MARGIN, (int) grid.y - DEFAULT_MARGIN);
-              }
+          @Override
+          public void init() {
+            cluesList = new JList<Object>(clues);
+            cluesList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+            cluesList.addListSelectionListener(this);
+            scrollPane = new JScrollPane(cluesList);
+            add(scrollPane);
+            Dimension size = grid.getBounds().getSize();
+            scrollPane.setBounds(DEFAULT_MARGIN, DEFAULT_MARGIN, size.width, size.height);
+            size.width += 2 * DEFAULT_MARGIN;
+            size.height += 2 * DEFAULT_MARGIN;
+            setPreferredSize(size);
+            setMaximumSize(size);
+            setMinimumSize(size);
+            Point p = (Point) getClientProperty(HelpActivityComponent.PREFERRED_LOCATION);
+            if (p != null)
+              p.translate((int) grid.x - DEFAULT_MARGIN, (int) grid.y - DEFAULT_MARGIN);
+          }
 
-              @Override
-              public void doLayout() {
-                Rectangle r = getBounds();
-                if (scrollPane != null)
-                  scrollPane.setBounds(
-                      DEFAULT_MARGIN,
-                      DEFAULT_MARGIN,
-                      r.width - 2 * DEFAULT_MARGIN,
-                      r.height - 2 * DEFAULT_MARGIN);
-              }
+          @Override
+          public void doLayout() {
+            Rectangle r = getBounds();
+            if (scrollPane != null)
+              scrollPane.setBounds(DEFAULT_MARGIN, DEFAULT_MARGIN, r.width - 2 * DEFAULT_MARGIN,
+                  r.height - 2 * DEFAULT_MARGIN);
+          }
 
-              @Override
-              public void valueChanged(javax.swing.event.ListSelectionEvent ev) {
-                if (bgAlt != null && !ev.getValueIsAdjusting()) {
-                  int i = cluesList.getSelectedIndex();
-                  if (i < 0) {
-                    unmarkBox();
-                  } else {
-                    playEvent(EventSounds.CLICK);
-                    markBox(bgAlt.getActiveBox(clueItems[i]), true);
-                  }
-                }
+          @Override
+          public void valueChanged(javax.swing.event.ListSelectionEvent ev) {
+            if (bgAlt != null && !ev.getValueIsAdjusting()) {
+              int i = cluesList.getSelectedIndex();
+              if (i < 0) {
+                unmarkBox();
+              } else {
+                playEvent(EventSounds.CLICK);
+                markBox(bgAlt.getActiveBox(clueItems[i]), true);
               }
-            };
+            }
+          }
+        };
         hac.init();
       }
       if (ps.showHelp(hac, helpMsg))
         ps.reportNewAction(getActivity(), ACTION_HELP, null, null, false, getCurrentScore());
-      if (hac != null) hac.end();
+      if (hac != null)
+        hac.end();
     }
   }
 }

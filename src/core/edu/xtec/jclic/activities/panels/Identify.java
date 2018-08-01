@@ -43,8 +43,6 @@ public class Identify extends Activity implements ActiveBagContentKit.Compatible
   public Identify(JClicProject project) {
     super(project);
     abc = new ActiveBagContent[2];
-    // for(int i=0; i<2; i++)
-    //    abc[i]=null;
     scramble[0] = true;
     nonAssignedCells = 0;
     cellsToMatch = 1;
@@ -54,7 +52,6 @@ public class Identify extends Activity implements ActiveBagContentKit.Compatible
   public void initNew() {
     super.initNew();
     abc[0] = ActiveBagContent.initNew(3, 2, 'A');
-    // abc[0].getActiveBoxContent(0).id=1;
     abc[0].setAllIdsTo(0);
     abc[0].defaultIdValue = 0;
   }
@@ -63,12 +60,14 @@ public class Identify extends Activity implements ActiveBagContentKit.Compatible
   public org.jdom.Element getJDomElement() {
     org.jdom.Element ex;
 
-    if (abc[0] == null) return null;
+    if (abc[0] == null)
+      return null;
 
     org.jdom.Element e = super.getJDomElement();
 
     e.addContent(abc[0].getJDomElement().setAttribute(ID, PRIMARY));
-    if (abc[1] != null) e.addContent(abc[1].getJDomElement().setAttribute(ID, SOLVED_PRIMARY));
+    if (abc[1] != null)
+      e.addContent(abc[1].getJDomElement().setAttribute(ID, SOLVED_PRIMARY));
 
     ex = new org.jdom.Element(SCRAMBLE);
     {
@@ -91,10 +90,13 @@ public class Identify extends Activity implements ActiveBagContentKit.Compatible
       child = ((org.jdom.Element) itr.next());
       bag = ActiveBagContent.getActiveBagContent(child, project.mediaBag);
       String id = JDomUtility.getStringAttr(child, ID, PRIMARY, false);
-      if (PRIMARY.equals(id)) abc[0] = bag;
-      else if (SOLVED_PRIMARY.equals(id)) abc[1] = bag;
+      if (PRIMARY.equals(id))
+        abc[0] = bag;
+      else if (SOLVED_PRIMARY.equals(id))
+        abc[1] = bag;
     }
-    if (abc[0] == null) throw new IllegalArgumentException("Identify activity without contents");
+    if (abc[0] == null)
+      throw new IllegalArgumentException("Identify activity without contents");
 
     if ((child = e.getChild(SCRAMBLE)) != null) {
       shuffles = JDomUtility.getIntAttr(child, TIMES, shuffles);
@@ -144,7 +146,8 @@ public class Identify extends Activity implements ActiveBagContentKit.Compatible
     @Override
     public void buildVisualComponents() throws Exception {
 
-      if (firstRun) super.buildVisualComponents();
+      if (firstRun)
+        super.buildVisualComponents();
 
       clear();
 
@@ -152,8 +155,7 @@ public class Identify extends Activity implements ActiveBagContentKit.Compatible
         // considerar assIds ?
         if (acp != null)
           acp.generateContent(
-              new ActiveBagContentKit(
-                  abc[0].nch, abc[0].ncw, (new ActiveBagContent[] {abc[0], null, abc[1]}), true),
+              new ActiveBagContentKit(abc[0].nch, abc[0].ncw, (new ActiveBagContent[] { abc[0], null, abc[1] }), true),
               ps);
 
         bg = ActiveBoxGrid.createEmptyGrid(null, this, margin, margin, abc[0]);
@@ -166,7 +168,8 @@ public class Identify extends Activity implements ActiveBagContentKit.Compatible
         for (int i = 0; i < bg.getNumCells(); i++) {
           ActiveBox bx = bg.getActiveBox(i);
           int id = bx.idAss;
-          if (id == 1) cellsToMatch++;
+          if (id == 1)
+            cellsToMatch++;
           else if (id == -1) {
             nonAssignedCells++;
             bx.switchToAlt(ps);
@@ -181,27 +184,28 @@ public class Identify extends Activity implements ActiveBagContentKit.Compatible
     public void initActivity() throws Exception {
       super.initActivity();
 
-      if (!firstRun) buildVisualComponents();
+      if (!firstRun)
+        buildVisualComponents();
       firstRun = false;
 
       setAndPlayMsg(MAIN, EventSounds.START);
-      // ps.setMsg(messages[MAIN]);
       if (bg != null) {
-        if (scramble[0]) shuffle(new ActiveBoxBag[] {bg}, true, true);
-        // ps.playMsg();
-        // if(messages[MAIN]==null || messages[MAIN].mediaContent==null)
-        //    playEvent(EventSounds.START);
-        if (useOrder) currentItem = bg.getNextItem(-1, 1);
+        if (scramble[0])
+          shuffle(new ActiveBoxBag[] { bg }, true, true);
+        if (useOrder)
+          currentItem = bg.getNextItem(-1, 1);
         playing = true;
       }
     }
 
     public void render(Graphics2D g2, Rectangle dirtyRegion) {
-      if (bg != null) bg.update(g2, dirtyRegion, this);
+      if (bg != null)
+        bg.update(g2, dirtyRegion, this);
     }
 
     public Dimension setDimension(Dimension preferredMaxSize) {
-      if (getSize().equals(preferredMaxSize)) return preferredMaxSize;
+      if (getSize().equals(preferredMaxSize))
+        return preferredMaxSize;
       return BoxBag.layoutSingle(preferredMaxSize, bg, margin);
     }
 
@@ -216,20 +220,23 @@ public class Identify extends Activity implements ActiveBagContentKit.Compatible
           if (bx.idAss != -1) {
             boolean ok = false;
             String src = bx.getDescription();
-            // ac.incCounterValue(ActivityContainer.ACTIONS_COUNTER);
             m |= bx.playMedia(ps);
             if (bx.idAss == 1 && (!useOrder || bx.idOrder == currentItem)) {
               ok = true;
               bx.idAss = -1;
-              if (bx.switchToAlt(ps)) m |= bx.playMedia(ps);
-              else bx.clear();
-              if (useOrder) currentItem = bg.getNextItem(currentItem, 1);
+              if (bx.switchToAlt(ps))
+                m |= bx.playMedia(ps);
+              else
+                bx.clear();
+              if (useOrder)
+                currentItem = bg.getNextItem(currentItem, 1);
             }
             int cellsOk = bg.countCellsWithIdAss(-1);
-            ps.reportNewAction(
-                getActivity(), ACTION_SELECT, src, null, ok, cellsOk - nonAssignedCells);
-            if (ok && cellsOk == cellsToMatch + nonAssignedCells) finishActivity(true);
-            else if (!m) playEvent(ok ? EventSounds.ACTION_OK : EventSounds.ACTION_ERROR);
+            ps.reportNewAction(getActivity(), ACTION_SELECT, src, null, ok, cellsOk - nonAssignedCells);
+            if (ok && cellsOk == cellsToMatch + nonAssignedCells)
+              finishActivity(true);
+            else if (!m)
+              playEvent(ok ? EventSounds.ACTION_OK : EventSounds.ACTION_ERROR);
           }
         }
       }

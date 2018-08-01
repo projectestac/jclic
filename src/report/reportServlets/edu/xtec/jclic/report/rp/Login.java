@@ -34,7 +34,6 @@ public class Login extends Basic {
 
   public Login() {
     super();
-    // auth=true;
   }
 
   public String getTitle(ResourceBundle bundle) {

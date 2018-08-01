@@ -42,8 +42,9 @@ import javax.swing.RepaintManager;
 import javax.swing.Timer;
 
 /**
- * This class is a special {@link edu.xtec.jclic.boxes.AbstractBox} that displays a grid of single
- * characters. It is used in activities like crosswords and scrambled letters.
+ * This class is a special {@link edu.xtec.jclic.boxes.AbstractBox} that
+ * displays a grid of single characters. It is used in activities like
+ * crosswords and scrambled letters.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.08
@@ -67,25 +68,11 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
   boolean wildTransparent;
 
   public static final int MIN_CELL_SIZE = 12, DEFAULT_CELL_SIZE = 20, MIN_INTERNAL_MARGIN = 2;
-  public static final int NORMAL = 0,
-      INVERTED = 1,
-      HIDDEN = 2,
-      LOCKED = 4,
-      MARKED = 8,
-      TRANSPARENT = 16;
+  public static final int NORMAL = 0, INVERTED = 1, HIDDEN = 2, LOCKED = 4, MARKED = 8, TRANSPARENT = 16;
 
   /** Creates new TextGridBox */
-  public TextGrid(
-      AbstractBox parent,
-      JComponent container,
-      double setX,
-      double setY,
-      int setNcw,
-      int setNch,
-      double setCellW,
-      double setCellH,
-      BoxBase boxBase,
-      boolean setBorder) {
+  public TextGrid(AbstractBox parent, JComponent container, double setX, double setY, int setNcw, int setNch,
+      double setCellW, double setCellH, BoxBase boxBase, boolean setBorder) {
     super(parent, container, boxBase);
     x = setX;
     y = setY;
@@ -107,16 +94,9 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
     answers = null;
   }
 
-  public static TextGrid createEmptyGrid(
-      AbstractBox parent,
-      JComponent container,
-      double setX,
-      double setY,
-      TextGridContent tgc,
-      boolean wildTransparent) {
-    TextGrid result =
-        new TextGrid(
-            parent, container, setX, setY, tgc.ncw, tgc.nch, tgc.w, tgc.h, tgc.bb, tgc.border);
+  public static TextGrid createEmptyGrid(AbstractBox parent, JComponent container, double setX, double setY,
+      TextGridContent tgc, boolean wildTransparent) {
+    TextGrid result = new TextGrid(parent, container, setX, setY, tgc.ncw, tgc.nch, tgc.w, tgc.h, tgc.bb, tgc.border);
     result.wild = tgc.wild;
     result.randomChars = tgc.randomChars;
     result.wildTransparent = wildTransparent;
@@ -145,33 +125,38 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
 
   public void setCellAttributes(boolean lockWild, boolean clearChars) {
     int atr = LOCKED;
-    if (wildTransparent) atr |= TRANSPARENT;
-    else atr |= INVERTED | HIDDEN;
+    if (wildTransparent)
+      atr |= TRANSPARENT;
+    else
+      atr |= INVERTED | HIDDEN;
     for (int py = 0; py < nRows; py++)
       for (int px = 0; px < nCols; px++)
-        if (lockWild && chars[py][px] == wild) attributes[py][px] = atr;
+        if (lockWild && chars[py][px] == wild)
+          attributes[py][px] = atr;
         else {
           attributes[py][px] = NORMAL;
-          if (clearChars) chars[py][px] = ' ';
+          if (clearChars)
+            chars[py][px] = ' ';
         }
     repaint();
   }
 
   public void setCellLocked(int px, int py, boolean locked) {
     if (px >= 0 && px < nCols && py >= 0 && py < nRows) {
-      attributes[py][px] =
-          locked ? LOCKED | (wildTransparent ? TRANSPARENT : INVERTED | HIDDEN) : NORMAL;
+      attributes[py][px] = locked ? LOCKED | (wildTransparent ? TRANSPARENT : INVERTED | HIDDEN) : NORMAL;
     }
   }
 
   public Point getItemFor(int rx, int ry) {
-    if (!isValidCell(rx, ry)) return null;
+    if (!isValidCell(rx, ry))
+      return null;
     Point point = new Point();
     boolean inBlack = false, startCount = false;
     for (int px = 0; px < rx; px++) {
       if ((attributes[ry][px] & LOCKED) != 0) {
         if (!inBlack) {
-          if (startCount) point.x++;
+          if (startCount)
+            point.x++;
           inBlack = true;
         }
       } else {
@@ -184,7 +169,8 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
     for (int py = 0; py < ry; py++) {
       if ((attributes[py][rx] & LOCKED) != 0) {
         if (!inBlack) {
-          if (startCount) point.y++;
+          if (startCount)
+            point.y++;
           inBlack = true;
         }
       } else {
@@ -197,8 +183,10 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
 
   public void setCursorEnabled(boolean status) {
     cursorEnabled = status;
-    if (status == true) startCursorBlink();
-    else stopCursorBlink();
+    if (status == true)
+      startCursorBlink();
+    else
+      stopCursorBlink();
   }
 
   public void startCursorBlink() {
@@ -217,9 +205,9 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
 
   public void moveCursor(int dx, int dy, boolean skipLocked) {
     if (useCursor) {
-      Point point =
-          findNextCellWithAttr(cursor.x, cursor.y, skipLocked ? LOCKED : NORMAL, dx, dy, false);
-      if (!cursor.equals(point)) setCursorAt(point.x, point.y, skipLocked);
+      Point point = findNextCellWithAttr(cursor.x, cursor.y, skipLocked ? LOCKED : NORMAL, dx, dy, false);
+      if (!cursor.equals(point))
+        setCursorAt(point.x, point.y, skipLocked);
     }
   }
 
@@ -230,8 +218,10 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
       while (result == null) {
         scan.x += dx;
         scan.y += dy;
-        if (scan.x < 0 || scan.x >= nCols || scan.y < 0 || scan.y >= nRows) break;
-        if (!getCellAttribute(scan.x, scan.y, LOCKED)) result = scan;
+        if (scan.x < 0 || scan.x >= nCols || scan.y < 0 || scan.y >= nRows)
+          break;
+        if (!getCellAttribute(scan.x, scan.y, LOCKED))
+          result = scan;
       }
     }
     return result;
@@ -240,13 +230,11 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
   public boolean isIntoBlacks(Point pt, boolean checkHorizontal) {
     boolean result;
     if (checkHorizontal) {
-      result =
-          (pt.x <= 0 || getCellAttribute(pt.x - 1, pt.y, LOCKED))
-              && (pt.x >= nCols - 1 || getCellAttribute(pt.x + 1, pt.y, LOCKED));
+      result = (pt.x <= 0 || getCellAttribute(pt.x - 1, pt.y, LOCKED))
+          && (pt.x >= nCols - 1 || getCellAttribute(pt.x + 1, pt.y, LOCKED));
     } else {
-      result =
-          (pt.y <= 0 || getCellAttribute(pt.x, pt.y - 1, LOCKED))
-              && (pt.y >= nRows - 1 || getCellAttribute(pt.x, pt.y + 1, LOCKED));
+      result = (pt.y <= 0 || getCellAttribute(pt.x, pt.y - 1, LOCKED))
+          && (pt.y >= nRows - 1 || getCellAttribute(pt.x, pt.y + 1, LOCKED));
     }
     return result;
   }
@@ -254,41 +242,46 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
   public boolean isIntoWhites(Point pt, boolean checkHorizontal) {
     boolean result;
     if (checkHorizontal) {
-      result =
-          (pt.x > 0 && !getCellAttribute(pt.x - 1, pt.y, LOCKED))
-              && (pt.x < nCols - 1 && !getCellAttribute(pt.x + 1, pt.y, LOCKED));
+      result = (pt.x > 0 && !getCellAttribute(pt.x - 1, pt.y, LOCKED))
+          && (pt.x < nCols - 1 && !getCellAttribute(pt.x + 1, pt.y, LOCKED));
     } else {
-      result =
-          (pt.y > 0 && !getCellAttribute(pt.x, pt.y - 1, LOCKED))
-              && (pt.y < nRows - 1 && !getCellAttribute(pt.x, pt.y + 1, LOCKED));
+      result = (pt.y > 0 && !getCellAttribute(pt.x, pt.y - 1, LOCKED))
+          && (pt.y < nRows - 1 && !getCellAttribute(pt.x, pt.y + 1, LOCKED));
     }
     return result;
   }
 
-  public Point findNextCellWithAttr(
-      int startX, int startY, int attr, int dx, int dy, boolean attrState) {
+  public Point findNextCellWithAttr(int startX, int startY, int attr, int dx, int dy, boolean attrState) {
     Point point = new Point(startX + dx, startY + dy);
     while (true) {
       if (point.x < 0) {
         point.x = nCols - 1;
-        if (point.y > 0) point.y--;
-        else point.y = nRows - 1;
+        if (point.y > 0)
+          point.y--;
+        else
+          point.y = nRows - 1;
       } else if (point.x >= nCols) {
         point.x = 0;
-        if (point.y < nRows - 1) point.y++;
-        else point.y = 0;
+        if (point.y < nRows - 1)
+          point.y++;
+        else
+          point.y = 0;
       }
       if (point.y < 0) {
         point.y = nRows - 1;
-        if (point.x > 0) point.x--;
-        else point.x = nCols - 1;
+        if (point.x > 0)
+          point.x--;
+        else
+          point.x = nCols - 1;
       } else if (point.y >= nRows) {
         point.y = 0;
-        if (point.x < nCols - 1) point.x++;
-        else point.x = 0;
+        if (point.x < nCols - 1)
+          point.x++;
+        else
+          point.x = 0;
       }
-      if ((point.x == startX && point.y == startY)
-          || getCellAttribute(point.x, point.y, attr) == attrState) break;
+      if ((point.x == startX && point.y == startY) || getCellAttribute(point.x, point.y, attr) == attrState)
+        break;
       point.x += dx;
       point.y += dy;
     }
@@ -304,7 +297,8 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
       if (skipLocked && getCellAttribute(px, py, LOCKED)) {
         moveCursor(1, 0, skipLocked);
       } else {
-        if (cursorEnabled) startCursorBlink();
+        if (cursorEnabled)
+          startCursorBlink();
       }
     }
   }
@@ -320,7 +314,9 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
   public int countCharsLike(char ch) {
     int result = 0;
     for (int py = 0; py < nRows; py++)
-      for (int px = 0; px < nCols; px++) if (chars[py][px] == ch) result++;
+      for (int px = 0; px < nCols; px++)
+        if (chars[py][px] == ch)
+          result++;
     return result;
   }
 
@@ -332,7 +328,9 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
     int result = 0;
     if (answers != null)
       for (int py = 0; py < nRows; py++)
-        for (int px = 0; px < nCols; px++) if (isCellOk(px, py, checkCase)) result++;
+        for (int px = 0; px < nCols; px++)
+          if (isCellOk(px, py, checkCase))
+            result++;
     return result;
   }
 
@@ -350,12 +348,14 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
   }
 
   public Point getLogicalCoords(Point2D devicePoint) {
-    if (!contains(devicePoint)) return null;
+    if (!contains(devicePoint))
+      return null;
     int px = (int) ((devicePoint.getX() - getX()) / cellWidth);
     int py = (int) ((devicePoint.getY() - getY()) / cellHeight);
     if (isValidCell(px, py)) {
       return new Point(px, py);
-    } else return null;
+    } else
+      return null;
   }
 
   public boolean isValidCell(int px, int py) {
@@ -370,8 +370,10 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
   }
 
   public char getCharAt(int px, int py) {
-    if (isValidCell(px, py)) return chars[py][px];
-    else return ' ';
+    if (isValidCell(px, py))
+      return chars[py][px];
+    else
+      return ' ';
   }
 
   public String getStringBetween(int x0, int y0, int x1, int y1) {
@@ -385,7 +387,8 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
           dx /= steps;
           dy /= steps;
         }
-        for (int i = 0; i <= steps; i++) sb.append(getCharAt(x0 + dx * i, y0 + dy * i));
+        for (int i = 0; i <= steps; i++)
+          sb.append(getCharAt(x0 + dx * i, y0 + dy * i));
       }
     }
     return sb.substring(0);
@@ -401,28 +404,34 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
           dx /= steps;
           dy /= steps;
         }
-        for (int i = 0; i <= steps; i++) setAttribute(x0 + dx * i, y0 + dy * i, attribute, value);
+        for (int i = 0; i <= steps; i++)
+          setAttribute(x0 + dx * i, y0 + dy * i, attribute, value);
       }
     }
   }
 
   public void setAttribute(int px, int py, int attribute, boolean state) {
     if (isValidCell(px, py)) {
-      if (attribute == MARKED && !state) repaintCell(px, py);
+      if (attribute == MARKED && !state)
+        repaintCell(px, py);
       attributes[py][px] &= ~attribute;
       attributes[py][px] |= (state ? attribute : 0);
-      if (attribute != MARKED || state) repaintCell(px, py);
+      if (attribute != MARKED || state)
+        repaintCell(px, py);
     }
   }
 
   public void setAllCellsAttribute(int attribute, boolean state) {
     for (int py = 0; py < nRows; py++)
-      for (int px = 0; px < nCols; px++) setAttribute(px, py, attribute, state);
+      for (int px = 0; px < nCols; px++)
+        setAttribute(px, py, attribute, state);
   }
 
   public boolean getCellAttribute(int px, int py, int attribute) {
-    if (isValidCell(px, py)) return (attributes[py][px] & attribute) != 0;
-    else return false;
+    if (isValidCell(px, py))
+      return (attributes[py][px] & attribute) != 0;
+    else
+      return false;
   }
 
   public Rectangle2D getCellRect(int px, int py) {
@@ -431,7 +440,8 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
 
   public Rectangle getCellBorderBounds(int px, int py) {
     boolean isMarked = getCellAttribute(px, py, MARKED);
-    if (!border && !isMarked) return getCellRect(px, py).getBounds();
+    if (!border && !isMarked)
+      return getCellRect(px, py).getBounds();
     BoxBase bb = getBoxBaseResolve();
     Stroke strk = isMarked ? bb.getMarker() : bb.getBorder();
     return strk.createStrokedShape(getCellRect(px, py)).getBounds();
@@ -439,7 +449,8 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
 
   public void repaintCell(int px, int py) {
     JComponent jc = getContainerResolve();
-    if (jc != null) jc.repaint(getCellBorderBounds(px, py));
+    if (jc != null)
+      jc.repaint(getCellBorderBounds(px, py));
   }
 
   @Override
@@ -468,8 +479,7 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
   }
 
   public Dimension getScaledSize(double scale) {
-    return new Dimension(
-        StrUtils.roundTo(scale * preferredBounds.getWidth(), nCols),
+    return new Dimension(StrUtils.roundTo(scale * preferredBounds.getWidth(), nCols),
         StrUtils.roundTo(scale * preferredBounds.getHeight(), nRows));
   }
 
@@ -482,8 +492,10 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
 
   @Override
   public boolean update(Graphics2D g2, Rectangle dirtyRegion, ImageObserver io) {
-    if (isEmpty() || !isVisible() || isTemporaryHidden()) return false;
-    if (dirtyRegion != null && !shape.intersects(dirtyRegion)) return false;
+    if (isEmpty() || !isVisible() || isTemporaryHidden())
+      return false;
+    if (dirtyRegion != null && !shape.intersects(dirtyRegion))
+      return false;
 
     updateContent(g2, dirtyRegion, io);
 
@@ -500,14 +512,17 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
     boolean resize = false;
     while (true) {
       if (fm.charWidth('W') <= cellWidth - 2 * MIN_INTERNAL_MARGIN
-          && fm.getAscent() + fm.getDescent() <= cellHeight - 2 * MIN_INTERNAL_MARGIN) break;
-      if (bb.reduceFont() == false) break;
+          && fm.getAscent() + fm.getDescent() <= cellHeight - 2 * MIN_INTERNAL_MARGIN)
+        break;
+      if (bb.reduceFont() == false)
+        break;
       resize = true;
       fm = g2.getFontMetrics(bb.getFont());
     }
     if (resize) {
       JComponent jc = getContainerResolve();
-      if (jc != null) RepaintManager.currentManager(jc).markCompletelyDirty(jc);
+      if (jc != null)
+        RepaintManager.currentManager(jc).markCompletelyDirty(jc);
       return true;
     }
 
@@ -528,10 +543,7 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
             isMarked = (attr & MARKED) != 0;
             isCursor = (useCursor && cursor.x == px && cursor.y == py);
             boxBounds = getCellRect(px, py);
-            g2.setColor(
-                (isCursor && cursorBlink)
-                    ? bb.inactiveColor
-                    : isInverted ? bb.textColor : bb.backColor);
+            g2.setColor((isCursor && cursorBlink) ? bb.inactiveColor : isInverted ? bb.textColor : bb.backColor);
             g2.fill(boxBounds);
             g2.setColor(Color.black);
             if ((attr & HIDDEN) == 0) {
@@ -542,24 +554,21 @@ public class TextGrid extends AbstractBox implements Cloneable, Resizable, Actio
                 GlyphVector gv = bb.getFont().createGlyphVector(frc, ch);
                 if (bb.shadow) {
                   g2.setColor(bb.shadowColor);
-                  g2.drawGlyphVector(
-                      gv,
-                      (float) (dx + bb.getDynFontSize() / 10),
+                  g2.drawGlyphVector(gv, (float) (dx + bb.getDynFontSize() / 10),
                       (float) (dy + bb.getDynFontSize() / 10));
                 }
-                g2.setColor(
-                    isInverted
-                        ? bb.backColor
-                        : isAlternative() ? bb.alternativeColor : bb.textColor);
+                g2.setColor(isInverted ? bb.backColor : isAlternative() ? bb.alternativeColor : bb.textColor);
                 g2.drawGlyphVector(gv, (float) dx, (float) dy);
               }
             }
             if (border || isMarked) {
               g2.setColor(bb.borderColor);
               g2.setStroke(isMarked ? bb.getMarker() : bb.getBorder());
-              if (isMarked) g2.setXORMode(Color.white);
+              if (isMarked)
+                g2.setXORMode(Color.white);
               g2.draw(boxBounds);
-              if (isMarked) g2.setPaintMode();
+              if (isMarked)
+                g2.setPaintMode();
               g2.setStroke(BoxBase.DEFAULT_STROKE);
             }
             g2.setColor(Color.black);

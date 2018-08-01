@@ -42,7 +42,8 @@ public class UrlZip extends ZipFileSystem {
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
       byte[] buffer = new byte[1024];
       int bytesRead;
-      while ((bytesRead = zis.read(buffer, 0, 1024)) > 0) baos.write(buffer, 0, bytesRead);
+      while ((bytesRead = zis.read(buffer, 0, 1024)) > 0)
+        baos.write(buffer, 0, bytesRead);
       v.add(new UrlZipEntry(entry, baos.toByteArray()));
       zis.closeEntry();
     }

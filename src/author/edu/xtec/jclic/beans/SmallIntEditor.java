@@ -50,8 +50,6 @@ public class SmallIntEditor extends JPanel implements ActionListener {
 
   /** Creates a new instance of SmallIntEditor */
   public SmallIntEditor() {
-    // super(new BorderLayout());
-    // super(new FlowLayout(FlowLayout.RIGHT, 0, 0));
     setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
     setOpaque(false);
     editable = true;
@@ -60,26 +58,18 @@ public class SmallIntEditor extends JPanel implements ActionListener {
     integerFormatter.setParseIntegerOnly(true);
     max = 10;
     min = 0;
-    plusButton =
-        new JButton(new ImageIcon(getClass().getResource("/edu/xtec/resources/icons/plus.gif")));
-    // plusButton=new RepeaterButton(new
-    // ImageIcon(getClass().getResource("/edu/xtec/resources/icons/plus.gif")));
+    plusButton = new JButton(new ImageIcon(getClass().getResource("/edu/xtec/resources/icons/plus.gif")));
     plusButton.setMnemonic('+');
     plusButton.addActionListener(this);
     plusButton.setPreferredSize(new java.awt.Dimension(16, 16));
-    // minusButton=new RepeaterButton(new
-    // ImageIcon(getClass().getResource("/edu/xtec/resources/icons/minus.gif")));
-    minusButton =
-        new JButton(new ImageIcon(getClass().getResource("/edu/xtec/resources/icons/minus.gif")));
+    minusButton = new JButton(new ImageIcon(getClass().getResource("/edu/xtec/resources/icons/minus.gif")));
     minusButton.setMnemonic('-');
     minusButton.addActionListener(this);
     minusButton.setPreferredSize(new java.awt.Dimension(16, 16));
     textFld = new NumberField(4);
     textFld.setColumns(4);
-    // textFld.setPreferredSize(new java.awt.Dimension(32, 16));
     textFld.setHorizontalAlignment(JTextField.CENTER);
     textFld.setText("0");
-    // textFld.setEnabled(false);
     textFld.addActionListener(this);
     add(minusButton, BorderLayout.WEST);
     add(textFld, BorderLayout.CENTER);
@@ -101,10 +91,14 @@ public class SmallIntEditor extends JPanel implements ActionListener {
     int delta = btPlus ? 1 : btMinus ? -1 : 0;
     if (delta != 0 && values != null && values.length > 0) {
       int p = 0;
-      while (p < values.length && oldValue > values[p]) p++;
-      if (delta < 0 || (p < values.length && values[p] == oldValue)) p += delta;
-      if (p >= 0 && p < values.length) delta = values[p] - oldValue;
-      else delta = 0;
+      while (p < values.length && oldValue > values[p])
+        p++;
+      if (delta < 0 || (p < values.length && values[p] == oldValue))
+        p += delta;
+      if (p >= 0 && p < values.length)
+        delta = values[p] - oldValue;
+      else
+        delta = 0;
     }
 
     if (delta != 0) {
@@ -160,7 +154,8 @@ public class SmallIntEditor extends JPanel implements ActionListener {
       v = integerFormatter.parse(textFld.getText()).intValue();
     } catch (ParseException e) {
     }
-    if (v < min || v > max) setValue(correctValue(v));
+    if (v < min || v > max)
+      setValue(correctValue(v));
   }
 
   public void setEditColumns(int columns) {
@@ -263,7 +258,8 @@ public class SmallIntEditor extends JPanel implements ActionListener {
         int j = 0;
 
         for (int i = 0; i < result.length; i++) {
-          if (Character.isDigit(source[i]) || source[i] == '-') result[j++] = source[i];
+          if (Character.isDigit(source[i]) || source[i] == '-')
+            result[j++] = source[i];
           else {
             toolkit.beep();
           }

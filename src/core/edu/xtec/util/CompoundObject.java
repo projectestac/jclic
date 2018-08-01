@@ -27,8 +27,9 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 
 /**
- * This class encapsulates three fields: a text <CODE>identifier</CODE>, a <CODE>label</CODE> and an
- * <CODE>icon</CODE>. The icon is always an external resource, accessible through an URL.
+ * This class encapsulates three fields: a text <CODE>identifier</CODE>, a
+ * <CODE>label</CODE> and an <CODE>icon</CODE>. The icon is always an external
+ * resource, accessible through an URL.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 1.0
@@ -41,7 +42,8 @@ public class CompoundObject implements Serializable {
   private transient ImageIcon icon = null;
 
   /** Creates a new instance of CompoundObject */
-  protected CompoundObject() {}
+  protected CompoundObject() {
+  }
 
   /** Creates a new instance of CompoundObject */
   public CompoundObject(String id, String text, String iconUrl) {
@@ -58,11 +60,6 @@ public class CompoundObject implements Serializable {
     if (icon == null && iconUrl != null && iconUrl.length() > 0) {
       String s = iconUrl;
       try {
-        // Modified 18/Jan/2010
-        // Try a more generic URL protocol detection
-        //
-        // if(!s.startsWith("http:"))
-        //    s="file:/"+s;
         URL url;
         try {
           url = new URL(s);

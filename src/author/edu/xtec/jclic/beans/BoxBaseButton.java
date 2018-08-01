@@ -42,9 +42,8 @@ public class BoxBaseButton extends NullableObject {
 
   /** Creates a new instance of BoxBasePanel */
   /*
-  public BoxBaseButton(Options options, String tooltipKey) {
-      super(options, tooltipKey);
-  }
+   * public BoxBaseButton(Options options, String tooltipKey) { super(options,
+   * tooltipKey); }
    */
   public BoxBaseButton() {
     super();
@@ -67,17 +66,12 @@ public class BoxBaseButton extends NullableObject {
   public void setObject(Object value) {
     super.setObject(value);
     /*
-    if(nullValue || object==null){
-        button.setBackground(UIManager.getColor("Button.background"));
-        button.setForeground(UIManager.getColor("Button.foreground"));
-        button.setText("");
-    }
-    else{
-        BoxBase bb=(BoxBase)value;
-        button.setBackground(bb.backColor);
-        button.setForeground(bb.textColor);
-        button.setText("S");
-    }
+     * if(nullValue || object==null){
+     * button.setBackground(UIManager.getColor("Button.background"));
+     * button.setForeground(UIManager.getColor("Button.foreground"));
+     * button.setText(""); } else{ BoxBase bb=(BoxBase)value;
+     * button.setBackground(bb.backColor); button.setForeground(bb.textColor);
+     * button.setText("S"); }
      */
   }
 

@@ -58,8 +58,10 @@ public class BasicEvaluator extends Evaluator {
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = super.getJDomElement();
 
-    if (checkCase) e.setAttribute(CHECK_CASE, JDomUtility.boolString(checkCase));
-    if (!checkAccents) e.setAttribute(CHECK_ACCENTS, JDomUtility.boolString(checkAccents));
+    if (checkCase)
+      e.setAttribute(CHECK_CASE, JDomUtility.boolString(checkCase));
+    if (!checkAccents)
+      e.setAttribute(CHECK_ACCENTS, JDomUtility.boolString(checkAccents));
     if (!checkPunctuation)
       e.setAttribute(CHECK_PUNCTUATION, JDomUtility.boolString(checkPunctuation));
     if (checkDoubleSpaces)
@@ -110,23 +112,30 @@ public class BasicEvaluator extends Evaluator {
 
   protected String getClearedText(String src, boolean[] skipped) {
 
-    if (skipped == null) skipped = new boolean[src.length()];
+    if (skipped == null)
+      skipped = new boolean[src.length()];
 
-    for (int i = 0; i < src.length(); i++) skipped[i] = false;
+    for (int i = 0; i < src.length(); i++)
+      skipped[i] = false;
 
-    if (checkPunctuation && checkDoubleSpaces) return src;
+    if (checkPunctuation && checkDoubleSpaces)
+      return src;
 
     StringBuilder sb = new StringBuilder();
     boolean wasSpace = false;
     for (int i = 0; i < src.length(); i++) {
       char ch = src.charAt(i);
       if (PUNCTUATION.indexOf(ch) >= 0 && !checkPunctuation) {
-        if (!wasSpace) sb.append(' ');
-        else skipped[i] = true;
+        if (!wasSpace)
+          sb.append(' ');
+        else
+          skipped[i] = true;
         wasSpace = true;
       } else if (ch == ' ') {
-        if (checkDoubleSpaces || !wasSpace) sb.append(ch);
-        else skipped[i] = true;
+        if (checkDoubleSpaces || !wasSpace)
+          sb.append(ch);
+        else
+          skipped[i] = true;
         wasSpace = true;
       } else {
         wasSpace = false;

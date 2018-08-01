@@ -52,7 +52,8 @@ public class ExchangePuzzle extends Activity implements ActiveBagContentKit.Comp
   @Override
   public org.jdom.Element getJDomElement() {
     org.jdom.Element ex;
-    if (abc[0] == null) return null;
+    if (abc[0] == null)
+      return null;
 
     org.jdom.Element e = super.getJDomElement();
 
@@ -71,8 +72,10 @@ public class ExchangePuzzle extends Activity implements ActiveBagContentKit.Comp
     org.jdom.Element child;
     super.setProperties(e, aux);
     child = e.getChild(ActiveBagContent.ELEMENT_NAME);
-    if (child != null) abc[0] = ActiveBagContent.getActiveBagContent(child, project.mediaBag);
-    if (abc[0] == null) throw new IllegalArgumentException("Puzzle without content!");
+    if (child != null)
+      abc[0] = ActiveBagContent.getActiveBagContent(child, project.mediaBag);
+    if (abc[0] == null)
+      throw new IllegalArgumentException("Puzzle without content!");
 
     if ((child = e.getChild(SCRAMBLE)) != null)
       shuffles = JDomUtility.getIntAttr(child, TIMES, shuffles);
@@ -128,7 +131,8 @@ public class ExchangePuzzle extends Activity implements ActiveBagContentKit.Comp
     @Override
     public void buildVisualComponents() throws Exception {
 
-      if (firstRun) super.buildVisualComponents();
+      if (firstRun)
+        super.buildVisualComponents();
 
       clear();
 
@@ -148,28 +152,28 @@ public class ExchangePuzzle extends Activity implements ActiveBagContentKit.Comp
     public void initActivity() throws Exception {
       super.initActivity();
 
-      if (!firstRun) buildVisualComponents();
+      if (!firstRun)
+        buildVisualComponents();
       firstRun = false;
 
       setAndPlayMsg(MAIN, EventSounds.START);
-      // ps.setMsg(messages[MAIN]);
       if (bg != null) {
-        shuffle(new ActiveBoxBag[] {bg}, true, false);
+        shuffle(new ActiveBoxBag[] { bg }, true, false);
         ps.setCounterValue(SCORE_COUNTER, bg.countCellsAtEquivalentPlace(true));
-        // ps.playMsg();
-        // if(messages[MAIN]==null || messages[MAIN].mediaContent==null)
-        //    playEvent(EventSounds.START);
         playing = true;
       }
     }
 
     public void render(Graphics2D g2, Rectangle dirtyRegion) {
-      if (bg != null) bg.update(g2, dirtyRegion, this);
-      if (bc.active) bc.update(g2, dirtyRegion, this);
+      if (bg != null)
+        bg.update(g2, dirtyRegion, this);
+      if (bc.active)
+        bc.update(g2, dirtyRegion, this);
     }
 
     public Dimension setDimension(Dimension preferredMaxSize) {
-      if (bg == null || getSize().equals(preferredMaxSize)) return preferredMaxSize;
+      if (bg == null || getSize().equals(preferredMaxSize))
+        return preferredMaxSize;
       return BoxBag.layoutSingle(preferredMaxSize, bg, margin);
     }
 
@@ -180,85 +184,92 @@ public class ExchangePuzzle extends Activity implements ActiveBagContentKit.Comp
 
       if (playing)
         switch (e.getID()) {
-          case MouseEvent.MOUSE_PRESSED:
-            ps.stopMedia(1);
-            if (bc.active) {
-              if (dragCells) bx1 = bc.getBox();
-              else bx1 = bg.findActiveBox(bc.origin);
-              bc.end();
-              bx2 = bg.findActiveBox(p);
-              if (bx1 != null && bx2 != null) {
-                String src = bx1.getDescription() + "(" + bx1.idOrder + ")";
-                String dest = "(" + bx2.idLoc + ")";
-                boolean ok = (bx1.idOrder == bx2.idLoc);
-                bx1.exchangeLocation(bx2);
-                int cellsAtPlace = bg.countCellsAtEquivalentPlace(true);
-                ps.reportNewAction(getActivity(), ACTION_PLACE, src, dest, ok, cellsAtPlace);
-                if (ok && cellsAtPlace == bg.getNumCells()) finishActivity(true);
-                else playEvent(ok ? EventSounds.ACTION_OK : EventSounds.ACTION_ERROR);
-              }
-              repaint();
-            } else {
-              if ((bx1 = bg.findActiveBox(p)) != null) {
-                if (dragCells) bc.begin(p, bx1);
-                else bc.begin(p);
-                if (!bx1.playMedia(ps)) playEvent(EventSounds.CLICK);
-              }
+        case MouseEvent.MOUSE_PRESSED:
+          ps.stopMedia(1);
+          if (bc.active) {
+            if (dragCells)
+              bx1 = bc.getBox();
+            else
+              bx1 = bg.findActiveBox(bc.origin);
+            bc.end();
+            bx2 = bg.findActiveBox(p);
+            if (bx1 != null && bx2 != null) {
+              String src = bx1.getDescription() + "(" + bx1.idOrder + ")";
+              String dest = "(" + bx2.idLoc + ")";
+              boolean ok = (bx1.idOrder == bx2.idLoc);
+              bx1.exchangeLocation(bx2);
+              int cellsAtPlace = bg.countCellsAtEquivalentPlace(true);
+              ps.reportNewAction(getActivity(), ACTION_PLACE, src, dest, ok, cellsAtPlace);
+              if (ok && cellsAtPlace == bg.getNumCells())
+                finishActivity(true);
+              else
+                playEvent(ok ? EventSounds.ACTION_OK : EventSounds.ACTION_ERROR);
             }
-            break;
+            repaint();
+          } else {
+            if ((bx1 = bg.findActiveBox(p)) != null) {
+              if (dragCells)
+                bc.begin(p, bx1);
+              else
+                bc.begin(p);
+              if (!bx1.playMedia(ps))
+                playEvent(EventSounds.CLICK);
+            }
+          }
+          break;
 
-          case MouseEvent.MOUSE_MOVED:
-          case MouseEvent.MOUSE_DRAGGED:
-            bc.moveTo(p);
-            break;
+        case MouseEvent.MOUSE_MOVED:
+        case MouseEvent.MOUSE_DRAGGED:
+          bc.moveTo(p);
+          break;
         }
     }
 
     @Override
     public void showHelp() {
-      if (!helpWindowAllowed() || bg == null) return;
+      if (!helpWindowAllowed() || bg == null)
+        return;
 
       HelpActivityComponent hac = null;
       if (showSolution) {
-        hac =
-            new HelpActivityComponent(this) {
-              ActiveBoxBag abb = null;
+        hac = new HelpActivityComponent(this) {
+          ActiveBoxBag abb = null;
 
-              public void render(Graphics2D g2, Rectangle dirtyRegion) {
-                if (abb != null) abb.update(g2, dirtyRegion, this);
-              }
+          public void render(Graphics2D g2, Rectangle dirtyRegion) {
+            if (abb != null)
+              abb.update(g2, dirtyRegion, this);
+          }
 
-              @Override
-              public void init() {
-                abb =
-                    ActiveBoxGrid.createEmptyGrid(
-                        null, this, DEFAULT_MARGIN, DEFAULT_MARGIN, abc[0]);
-                abb.setContent(abc[0]);
-                abb.setVisible(true);
-                Dimension size = bg.getBounds().getSize();
-                abb.setBounds(DEFAULT_MARGIN, DEFAULT_MARGIN, size.width, size.height);
-                size.width += 2 * DEFAULT_MARGIN;
-                size.height += 2 * DEFAULT_MARGIN;
-                setPreferredSize(size);
-                setMaximumSize(size);
-                setMinimumSize(size);
-                Point p = (Point) getClientProperty(HelpActivityComponent.PREFERRED_LOCATION);
-                if (p != null)
-                  p.translate((int) bg.x - DEFAULT_MARGIN, (int) bg.y - DEFAULT_MARGIN);
-              }
+          @Override
+          public void init() {
+            abb = ActiveBoxGrid.createEmptyGrid(null, this, DEFAULT_MARGIN, DEFAULT_MARGIN, abc[0]);
+            abb.setContent(abc[0]);
+            abb.setVisible(true);
+            Dimension size = bg.getBounds().getSize();
+            abb.setBounds(DEFAULT_MARGIN, DEFAULT_MARGIN, size.width, size.height);
+            size.width += 2 * DEFAULT_MARGIN;
+            size.height += 2 * DEFAULT_MARGIN;
+            setPreferredSize(size);
+            setMaximumSize(size);
+            setMinimumSize(size);
+            Point p = (Point) getClientProperty(HelpActivityComponent.PREFERRED_LOCATION);
+            if (p != null)
+              p.translate((int) bg.x - DEFAULT_MARGIN, (int) bg.y - DEFAULT_MARGIN);
+          }
 
-              @Override
-              public void processMouse(MouseEvent e) {
-                ActiveBox bx;
-                if (abb != null && (bx = abb.findActiveBox(e.getPoint())) != null) bx.playMedia(ps);
-              }
-            };
+          @Override
+          public void processMouse(MouseEvent e) {
+            ActiveBox bx;
+            if (abb != null && (bx = abb.findActiveBox(e.getPoint())) != null)
+              bx.playMedia(ps);
+          }
+        };
         hac.init();
       }
       if (ps.showHelp(hac, helpMsg))
-        ps.reportNewAction(
-            getActivity(), ACTION_HELP, null, null, false, bg.countCellsAtEquivalentPlace(true));
-      if (hac != null) hac.end();
+        ps.reportNewAction(getActivity(), ACTION_HELP, null, null, false, bg.countCellsAtEquivalentPlace(true));
+      if (hac != null)
+        hac.end();
     }
   }
 }

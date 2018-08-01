@@ -58,12 +58,7 @@ public class SingleInstanceJFrame extends javax.swing.JFrame implements Constant
   boolean armed;
 
   /** Creates a new instance of SingleInstanceJFrame */
-  public SingleInstanceJFrame(
-      String playerClass,
-      String[] args,
-      String windowTitle,
-      String logoIcon,
-      String frameIcon,
+  public SingleInstanceJFrame(String playerClass, String[] args, String windowTitle, String logoIcon, String frameIcon,
       int port) {
 
     initializing = true;
@@ -92,143 +87,144 @@ public class SingleInstanceJFrame extends javax.swing.JFrame implements Constant
           if (k > 0) {
             key = arg.substring(1, k);
             value = arg.substring(k + 1);
-          } else key = arg.substring(1);
+          } else
+            key = arg.substring(1);
           options.put(key, value);
-          // System.out.println(key+" is "+value);
-        } else result = arg;
+        } else
+          result = arg;
       }
     }
     return result;
   }
 
-  protected void build(
-      String playerClass, String[] args, String windowTitle, String frameIcon, String logoIcon) {
+  protected void build(String playerClass, String[] args, String windowTitle, String frameIcon, String logoIcon) {
 
     trace = options.getBoolean(TRACE);
     if (trace) {
-      for (String arg : args) System.out.println(arg);
+      for (String arg : args)
+        System.out.println(arg);
     }
 
     initComponents();
     setTitle(windowTitle);
-    if (frameIcon != null) setIconImage(ResourceManager.getImageIcon(frameIcon).getImage());
+    if (frameIcon != null)
+      setIconImage(ResourceManager.getImageIcon(frameIcon).getImage());
 
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     int scrW = (int) screenSize.getWidth();
     int scrH = (int) screenSize.getHeight();
 
-    splashLabel =
-        new javax.swing.JLabel(
-            " ", ResourceManager.getImageIcon(logoIcon), javax.swing.SwingConstants.CENTER);
+    splashLabel = new javax.swing.JLabel(" ", ResourceManager.getImageIcon(logoIcon),
+        javax.swing.SwingConstants.CENTER);
     splashLabel.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
     splashLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
     splashLabel.setBackground(BG_COLOR);
     splashLabel.setOpaque(true);
-    // splashLabel.setPreferredSize(new Dimension(scrW-40, scrH-80));
 
     getContentPane().add(splashLabel, java.awt.BorderLayout.CENTER);
     pack();
     setBounds((scrW - getWidth()) / 2, (scrH - getHeight()) / 3, scrW - 40, scrH - 80);
     setLocation((scrW - getWidth()) / 2, (scrH - getHeight()) / 3);
 
-    if (Check.checkSignature(options, true)) init();
-    else System.exit(0);
+    if (Check.checkSignature(options, true))
+      init();
+    else
+      System.exit(0);
   }
 
   protected void init() {
 
     final javax.swing.RootPaneContainer rpc = this;
 
-    edu.xtec.util.SwingWorker sw =
-        new edu.xtec.util.SwingWorker() {
+    edu.xtec.util.SwingWorker sw = new edu.xtec.util.SwingWorker() {
 
-          final StringBuilder sb = new StringBuilder();
+      final StringBuilder sb = new StringBuilder();
 
-          @Override
-          public Object construct() {
-            try {
-              // build messages
-              Messages messages =
-                  edu.xtec.util.PersistentSettings.getMessages(options, DEFAULT_BUNDLE);
-              messages.addBundle(COMMON_SETTINGS);
+      @Override
+      public Object construct() {
+        try {
+          // build messages
+          Messages messages = edu.xtec.util.PersistentSettings.getMessages(options, DEFAULT_BUNDLE);
+          messages.addBundle(COMMON_SETTINGS);
 
-              if (splashLabel != null) splashLabel.setText(messages.get("LOADING"));
+          if (splashLabel != null)
+            splashLabel.setText(messages.get("LOADING"));
 
-              Class<?> c = Class.forName(playerClass);
-              java.lang.reflect.Constructor cons =
-                  c.getConstructor(new Class[] {edu.xtec.util.Options.class});
-              rc = (RunnableComponent) cons.newInstance(new Object[] {options});
-            } catch (Exception ex) {
-              sb.append("ERROR: Unable to start!\n").append(ex);
-              ex.printStackTrace(System.err);
-            }
-            return rc;
+          Class<?> c = Class.forName(playerClass);
+          java.lang.reflect.Constructor cons = c.getConstructor(new Class[] { edu.xtec.util.Options.class });
+          rc = (RunnableComponent) cons.newInstance(new Object[] { options });
+        } catch (Exception ex) {
+          sb.append("ERROR: Unable to start!\n").append(ex);
+          ex.printStackTrace(System.err);
+        }
+        return rc;
+      }
+
+      @Override
+      public void finished() {
+        if (getValue() == null) {
+          // no player build!
+          if (splashLabel != null) {
+            String s = sb.substring(0);
+            splashLabel.setText(s);
+            System.err.println(s);
           }
-
-          @Override
-          public void finished() {
-            if (getValue() == null) {
-              // no player build!
-              if (splashLabel != null) {
-                String s = sb.substring(0);
-                splashLabel.setText(s);
-                System.err.println(s);
-              }
-            } else {
-              // remove label and place player
-              getContentPane().removeAll();
-              splashLabel = null;
-              // rc.addTo(getContentPane(), java.awt.BorderLayout.CENTER);
-              rc.addTo(rpc, java.awt.BorderLayout.CENTER);
-              getRootPane().revalidate();
-              // load project
-              javax.swing.SwingUtilities.invokeLater(
-                  new Runnable() {
-                    public void run() {
-                      rc.start(project, null);
-                      initializing = false;
-                    }
-                  });
+        } else {
+          // remove label and place player
+          getContentPane().removeAll();
+          splashLabel = null;
+          rc.addTo(rpc, java.awt.BorderLayout.CENTER);
+          getRootPane().revalidate();
+          // load project
+          javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+              rc.start(project, null);
+              initializing = false;
             }
-          }
-        };
+          });
+        }
+      }
+    };
 
-    if (trace) System.out.println(">>> initializing...");
+    if (trace)
+      System.out.println(">>> initializing...");
 
     // launch swingWorker
     sw.start();
   }
 
   private void initComponents() {
-    addWindowListener(
-        new java.awt.event.WindowAdapter() {
-          @Override
-          public void windowClosing(java.awt.event.WindowEvent evt) {
-            if (rc == null || rc.windowCloseRequested()) {
-              if (socketThread != null) socketThread.stopSocketThread();
-              if (rc != null) {
-                rc.end();
-                rc = null;
-              }
-              dispose();
-            }
+    addWindowListener(new java.awt.event.WindowAdapter() {
+      @Override
+      public void windowClosing(java.awt.event.WindowEvent evt) {
+        if (rc == null || rc.windowCloseRequested()) {
+          if (socketThread != null)
+            socketThread.stopSocketThread();
+          if (rc != null) {
+            rc.end();
+            rc = null;
           }
+          dispose();
+        }
+      }
 
-          @Override
-          public void windowActivated(java.awt.event.WindowEvent evt) {
-            if (rc != null) rc.activate();
-          }
+      @Override
+      public void windowActivated(java.awt.event.WindowEvent evt) {
+        if (rc != null)
+          rc.activate();
+      }
 
-          @Override
-          public void windowClosed(java.awt.event.WindowEvent evt) {
-            exitForm(evt);
-          }
-        });
+      @Override
+      public void windowClosed(java.awt.event.WindowEvent evt) {
+        exitForm(evt);
+      }
+    });
   }
 
   /** Exit the Application */
   private void exitForm(java.awt.event.WindowEvent evt) {
-    if (socketThread != null) socketThread.stopSocketThread();
+    if (socketThread != null)
+      socketThread.stopSocketThread();
     if (rc != null) {
       rc.end();
       rc = null;
@@ -299,24 +295,26 @@ public class SingleInstanceJFrame extends javax.swing.JFrame implements Constant
             String skArg1 = StrUtils.nullableString(in.readLine());
             String skArg2 = StrUtils.nullableString(in.readLine());
 
-            boolean result =
-                rc != null && !initializing && skPlayerClass.equals(playerClass) && skArg1 != null;
+            boolean result = rc != null && !initializing && skPlayerClass.equals(playerClass) && skArg1 != null;
 
             pw.println(result ? OK : CANCEL);
             pw.flush();
             socket.close();
-            if (result) rc.newInstanceRequest(skArg1, skArg2);
+            if (result)
+              rc.newInstanceRequest(skArg1, skArg2);
           } catch (InterruptedIOException ioex) {
             // Timeout. start again...
           } catch (Exception ex) {
-            if (!forceSocketClose) System.err.println("Socket error: " + ex);
+            if (!forceSocketClose)
+              System.err.println("Socket error: " + ex);
             running = false;
           }
         }
         forceSocketClose = true;
         ss.close();
       } catch (IOException ex) {
-        if (!forceSocketClose) System.err.println("Server socket error: " + ex);
+        if (!forceSocketClose)
+          System.err.println("Server socket error: " + ex);
       }
       running = false;
       inService = false;

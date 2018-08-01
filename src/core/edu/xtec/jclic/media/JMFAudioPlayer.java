@@ -42,9 +42,7 @@ public class JMFAudioPlayer implements AudioPlayer {
     close();
 
     if (source instanceof ExtendedByteArrayInputStream) {
-      player =
-          javax.media.Manager.createPlayer(
-              new ByteDataSource((ExtendedByteArrayInputStream) source));
+      player = javax.media.Manager.createPlayer(new ByteDataSource((ExtendedByteArrayInputStream) source));
     } else if (source instanceof String) {
       javax.media.MediaLocator ml = new javax.media.MediaLocator((String) source);
       javax.media.protocol.DataSource dataSource = javax.media.Manager.createDataSource(ml);
@@ -55,8 +53,10 @@ public class JMFAudioPlayer implements AudioPlayer {
   }
 
   public void realize(String fileName, MediaBag mediaBag) throws Exception {
-    if (fileName != null) setDataSource(mediaBag.getMediaDataSource(fileName));
-    if (player != null) player.realize();
+    if (fileName != null)
+      setDataSource(mediaBag.getMediaDataSource(fileName));
+    if (player != null)
+      player.realize();
   }
 
   public void close() {
@@ -77,6 +77,7 @@ public class JMFAudioPlayer implements AudioPlayer {
   }
 
   public void stop() {
-    if (player != null && player.getState() >= javax.media.Player.Started) player.stop();
+    if (player != null && player.getState() >= javax.media.Player.Started)
+      player.stop();
   }
 }

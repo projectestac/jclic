@@ -37,8 +37,7 @@ import java.util.Properties;
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.09.16
  */
-public abstract class ReportsRequestProcessor extends RequestProcessor
-    implements ReportServerConstants {
+public abstract class ReportsRequestProcessor extends RequestProcessor implements ReportServerConstants {
 
   protected static ReportServerJDBCBridge bridge;
   protected static Properties prop;
@@ -54,7 +53,8 @@ public abstract class ReportsRequestProcessor extends RequestProcessor
   }
 
   public static synchronized Properties getProperties() {
-    if (prop == null) prop = new Properties();
+    if (prop == null)
+      prop = new Properties();
     return prop;
   }
 
@@ -67,11 +67,14 @@ public abstract class ReportsRequestProcessor extends RequestProcessor
   }
 
   public static synchronized void loadLocalProperties(String file) throws Exception {
-    if (prop == null) prop = new Properties();
-    if (file == null) file = CFG_FILE;
+    if (prop == null)
+      prop = new Properties();
+    if (file == null)
+      file = CFG_FILE;
     if (file != null) {
       File f = new File(file);
-      if (!f.isAbsolute()) f = new File(System.getProperty("user.home"), file);
+      if (!f.isAbsolute())
+        f = new File(System.getProperty("user.home"), file);
       if (f.exists()) {
         FileInputStream is = new FileInputStream(f);
         prop.load(is);
@@ -81,12 +84,11 @@ public abstract class ReportsRequestProcessor extends RequestProcessor
   }
 
   public static synchronized void initJDBCBridge(String propFile) throws Exception {
-    if (prop == null) loadProperties(propFile);
+    if (prop == null)
+      loadProperties(propFile);
     if (bridge == null) {
-      ConnectionBeanProvider cbp =
-          ConnectionBeanProvider.getConnectionBeanProvider(true, Options.toStringMap(prop));
-      boolean createTables =
-          !"false".equalsIgnoreCase((String) prop.get(BasicJDBCBridge.CREATE_TABLES_KEY));
+      ConnectionBeanProvider cbp = ConnectionBeanProvider.getConnectionBeanProvider(true, Options.toStringMap(prop));
+      boolean createTables = !"false".equalsIgnoreCase((String) prop.get(BasicJDBCBridge.CREATE_TABLES_KEY));
       String tablePrefix = (String) prop.get(BasicJDBCBridge.TABLE_PREFIX_KEY);
       bridge = new ReportServerJDBCBridge(cbp, createTables, tablePrefix);
     }
@@ -95,9 +97,11 @@ public abstract class ReportsRequestProcessor extends RequestProcessor
   @Override
   public boolean init() throws Exception {
 
-    if (!super.init()) return false;
+    if (!super.init())
+      return false;
 
-    if (bridge == null) initJDBCBridge(null);
+    if (bridge == null)
+      initJDBCBridge(null);
 
     return true;
   }

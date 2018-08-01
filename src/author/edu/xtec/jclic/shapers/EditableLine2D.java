@@ -48,49 +48,33 @@ public class EditableLine2D extends Line2D.Double implements EditableShape {
   }
 
   public void drawBorders(java.awt.Graphics g) {
-    //        g.setXORMode(Color.white);
-    g.drawRect(
-        (int) x1 - (EditableShapeConstants.selectLength / 2),
-        (int) y1 - (EditableShapeConstants.selectLength / 2),
-        EditableShapeConstants.selectLength,
+    g.drawRect((int) x1 - (EditableShapeConstants.selectLength / 2),
+        (int) y1 - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
         EditableShapeConstants.selectLength);
-    g.drawRect(
-        (int) x2 - (EditableShapeConstants.selectLength / 2),
-        (int) y2 - (EditableShapeConstants.selectLength / 2),
-        EditableShapeConstants.selectLength,
+    g.drawRect((int) x2 - (EditableShapeConstants.selectLength / 2),
+        (int) y2 - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
         EditableShapeConstants.selectLength);
     g.setColor(EditableShapeConstants.SELECTED_BORDER_COLOR);
     if (selectedBorder == 1) {
-      g.fillRect(
-          (int) x1 - (EditableShapeConstants.selectLength / 2),
-          (int) y1 - (EditableShapeConstants.selectLength / 2),
-          EditableShapeConstants.selectLength,
+      g.fillRect((int) x1 - (EditableShapeConstants.selectLength / 2),
+          (int) y1 - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
           EditableShapeConstants.selectLength);
     } else if (selectedBorder == 2) {
-      g.fillRect(
-          (int) x2 - (EditableShapeConstants.selectLength / 2),
-          (int) y2 - (EditableShapeConstants.selectLength / 2),
-          EditableShapeConstants.selectLength,
+      g.fillRect((int) x2 - (EditableShapeConstants.selectLength / 2),
+          (int) y2 - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
           EditableShapeConstants.selectLength);
     }
-    //        g.setXORMode(Color.black);
   }
 
   public boolean hasClickedBorder(double x, double y, boolean needSelected) {
     boolean hasClicked = false;
     if (!needSelected || selected) {
-      Rectangle r1 =
-          new Rectangle(
-              (int) x1 - (EditableShapeConstants.selectLength / 2),
-              (int) y1 - (EditableShapeConstants.selectLength / 2),
-              EditableShapeConstants.selectLength,
-              EditableShapeConstants.selectLength);
-      Rectangle r2 =
-          new Rectangle(
-              (int) x2 - (EditableShapeConstants.selectLength / 2),
-              (int) y2 - (EditableShapeConstants.selectLength / 2),
-              EditableShapeConstants.selectLength,
-              EditableShapeConstants.selectLength);
+      Rectangle r1 = new Rectangle((int) x1 - (EditableShapeConstants.selectLength / 2),
+          (int) y1 - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
+          EditableShapeConstants.selectLength);
+      Rectangle r2 = new Rectangle((int) x2 - (EditableShapeConstants.selectLength / 2),
+          (int) y2 - (EditableShapeConstants.selectLength / 2), EditableShapeConstants.selectLength,
+          EditableShapeConstants.selectLength);
       if (r1.contains(x, y)) {
         border = 1;
         hasClicked = true;
@@ -129,7 +113,8 @@ public class EditableLine2D extends Line2D.Double implements EditableShape {
       g.setColor(Color.red);
       drawBorders(g);
       g.setColor(c);
-    } else g.setColor(c);
+    } else
+      g.setColor(c);
     g.drawLine((int) getX1(), (int) getY1(), (int) getX2(), (int) getY2());
   }
 
@@ -179,18 +164,19 @@ public class EditableLine2D extends Line2D.Double implements EditableShape {
   public EditableShape[] divide(double x, double y) {
     EditableShape[] newShapes = new EditableShape[2];
     Point2D p = new Point2D.Double(x, y);
-    // setLine(getP1(),p);
     newShapes[0] = new EditableLine2D(p, getP2());
-    newShapes[1] = new EditableLine2D(getP1(), p); // this;
+    newShapes[1] = new EditableLine2D(getP1(), p);
     return newShapes;
   }
 
   public boolean isAdjacentTo(java.awt.geom.Point2D p) {
-    if (getP1().equals(p)) return true;
+    if (getP1().equals(p))
+      return true;
     else if (getP2().equals(p)) {
       setLine(getP2(), getP1());
       return true;
-    } else return false;
+    } else
+      return false;
   }
 
   public java.awt.geom.Point2D getEndPoint() {
@@ -208,14 +194,17 @@ public class EditableLine2D extends Line2D.Double implements EditableShape {
   }
 
   public java.awt.geom.Point2D[] getBorders() {
-    return new Point2D[] {getP1(), getP2()};
+    return new Point2D[] { getP1(), getP2() };
   }
 
   public void selectBorder(double x, double y) {
     Point2D p = new Point2D.Double(x, y);
-    if (getP1().equals(p)) selectedBorder = 1;
-    else if (getP2().equals(p)) selectedBorder = 2;
-    else selectedBorder = -1;
+    if (getP1().equals(p))
+      selectedBorder = 1;
+    else if (getP2().equals(p))
+      selectedBorder = 2;
+    else
+      selectedBorder = -1;
   }
 
   public void deselectBorder() {
@@ -227,7 +216,9 @@ public class EditableLine2D extends Line2D.Double implements EditableShape {
   }
 
   public java.awt.geom.Point2D getNotSelectedBorder() {
-    if (selectedBorder == 1) return getP2();
-    else return getP1();
+    if (selectedBorder == 1)
+      return getP2();
+    else
+      return getP1();
   }
 }

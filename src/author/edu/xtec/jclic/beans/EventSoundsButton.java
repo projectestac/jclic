@@ -54,13 +54,13 @@ public class EventSoundsButton extends NullableObject {
   }
 
   public EventSounds getEventSounds() {
-    // return (EventSounds)getObject();
     evs.setEnabled(getObject() == null ? JDomUtility.FALSE : JDomUtility.DEFAULT);
     return evs;
   }
 
   public void setEventSounds(EventSounds evs) {
-    if (evs == null) evs = new EventSounds(null);
+    if (evs == null)
+      evs = new EventSounds(null);
     this.evs = evs;
     setObject(evs.getEnabled() == JDomUtility.FALSE ? null : evs);
   }
@@ -71,10 +71,10 @@ public class EventSoundsButton extends NullableObject {
     super.setObject(value);
     boolean status = (object != null);
     if (preStatus != status) {
-      button.setIcon(
-          ResourceManager.getImageIcon(status ? "icons/audio_on.gif" : "icons/audio_off.gif"));
+      button.setIcon(ResourceManager.getImageIcon(status ? "icons/audio_on.gif" : "icons/audio_off.gif"));
     }
-    if (value instanceof EventSounds) evs = (EventSounds) value;
+    if (value instanceof EventSounds)
+      evs = (EventSounds) value;
     evs.setEnabled(status ? JDomUtility.DEFAULT : JDomUtility.FALSE);
   }
 
@@ -86,8 +86,8 @@ public class EventSoundsButton extends NullableObject {
 
   @Override
   protected Object editObject(Object o) {
-    if (options == null || mbe == null) return null;
-    // return MediaBagEditorPanel.getMediaName((String)o, options, this, mbe, Utils.ALL_IMAGES_FF);
+    if (options == null || mbe == null)
+      return null;
     return EventSoundsEditorPanel.getEventSounds(evs, options, this, mbe);
   }
 }

@@ -39,14 +39,9 @@ public class TargetMarkerBag extends java.util.ArrayList<TargetMarker> {
   @Override
   public boolean add(TargetMarker tm) {
     int i;
-    /*
-    if (!(obj instanceof TargetMarker)) {
-        return false;
-    }
-    TargetMarker tm = (TargetMarker) obj;
-    */
     for (i = 0; i < size(); i++) {
-      if (getElement(i).begOffset >= tm.begOffset) break;
+      if (getElement(i).begOffset >= tm.begOffset)
+        break;
     }
     if (i == size()) {
       return super.add(tm);
@@ -66,16 +61,19 @@ public class TargetMarkerBag extends java.util.ArrayList<TargetMarker> {
   public void setParentPane(TextActivityPane parent) {
     for (int i = 0; i < size(); i++) {
       TargetMarker tm = getElement(i);
-      if (tm.target != null) tm.target.setParentPane(parent);
+      if (tm.target != null)
+        tm.target.setParentPane(parent);
     }
   }
 
   public void setPositions() {
-    for (int i = 0; i < size(); i++) getElement(i).setPositions();
+    for (int i = 0; i < size(); i++)
+      getElement(i).setPositions();
   }
 
   public void updateOffsets() {
-    for (int i = 0; i < size(); i++) getElement(i).updateOffsets();
+    for (int i = 0; i < size(); i++)
+      getElement(i).updateOffsets();
   }
 
   public void removeUnattachedElements() {
@@ -83,14 +81,16 @@ public class TargetMarkerBag extends java.util.ArrayList<TargetMarker> {
     while (it.hasNext()) {
       TargetMarker tm = (TargetMarker) it.next();
       tm.updateOffsets();
-      if (tm.begOffset < 0 || tm.endOffset < 0 || tm.begOffset == tm.endOffset) it.remove();
+      if (tm.begOffset < 0 || tm.endOffset < 0 || tm.begOffset == tm.endOffset)
+        it.remove();
     }
   }
 
   public int checkTargets(Evaluator ev) {
     int result = 0;
     for (int i = 0; i < size(); i++) {
-      if (getElement(i).checkText(ev)) result++;
+      if (getElement(i).checkText(ev))
+        result++;
     }
     return result;
   }
@@ -99,19 +99,22 @@ public class TargetMarkerBag extends java.util.ArrayList<TargetMarker> {
     int result = 0;
     for (int i = 0; i < size(); i++) {
       TextTarget tt = getElement(i).target;
-      if (tt != null && tt.targetStatus == TextTarget.SOLVED) result++;
+      if (tt != null && tt.targetStatus == TextTarget.SOLVED)
+        result++;
     }
     return result;
   }
 
   public void reset() {
-    for (int i = 0; i < size(); i++) getElement(i).reset();
+    for (int i = 0; i < size(); i++)
+      getElement(i).reset();
   }
 
   public TargetMarker getElementByOffset(int offset, boolean includeEndPos) {
     for (int i = 0; i < size(); i++) {
       TargetMarker tm = getElement(i);
-      if (tm.contains(offset, includeEndPos)) return tm;
+      if (tm.contains(offset, includeEndPos))
+        return tm;
     }
     return null;
   }
@@ -134,7 +137,7 @@ public class TargetMarkerBag extends java.util.ArrayList<TargetMarker> {
   }
 
   public void setCurrentTarget(TargetMarker tm, TextActivityBase.Panel tabp) {
-    if (currentTarget != null /* && currentTarget!=tm*/) {
+    if (currentTarget != null /* && currentTarget!=tm */) {
       currentTarget.lostFocus(tabp);
     }
 
@@ -156,7 +159,8 @@ public class TargetMarkerBag extends java.util.ArrayList<TargetMarker> {
   public TargetMarker getElement(TextTarget tt) {
     for (int i = 0; i < size(); i++) {
       TargetMarker tm = getElement(i);
-      if (tm.target == tt) return tm;
+      if (tm.target == tt)
+        return tm;
     }
     return null;
   }
@@ -196,10 +200,12 @@ public class TargetMarkerBag extends java.util.ArrayList<TargetMarker> {
   }
 
   public int[] getParagragraphOffsets() {
-    if (size() == 0) return null;
+    if (size() == 0)
+      return null;
 
     int[] pOffsets = new int[size()];
-    for (int i = 0; i < size(); i++) pOffsets[i] = getElement(i).getParagraphBegOffset();
+    for (int i = 0; i < size(); i++)
+      pOffsets[i] = getElement(i).getParagraphBegOffset();
 
     return pOffsets;
   }

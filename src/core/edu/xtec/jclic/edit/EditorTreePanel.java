@@ -70,21 +70,20 @@ public class EditorTreePanel extends JPanel implements TreeSelectionListener {
   protected void init() {
     tree = root.createJTree();
     if (onlySelect && selectable != null) {
-      tree.setSelectionModel(
-          new DefaultTreeSelectionModel() {
-            @Override
-            public void setSelectionPath(TreePath path) {
-              Object o = path.getLastPathComponent();
-              if (o instanceof Editor) {
-                Object u = ((Editor) o).getUserObject();
-                if (selectable.isInstance(u)) {
-                  super.setSelectionPath(path);
-                  return;
-                }
-              }
-              resetRowSelection();
+      tree.setSelectionModel(new DefaultTreeSelectionModel() {
+        @Override
+        public void setSelectionPath(TreePath path) {
+          Object o = path.getLastPathComponent();
+          if (o instanceof Editor) {
+            Object u = ((Editor) o).getUserObject();
+            if (selectable.isInstance(u)) {
+              super.setSelectionPath(path);
+              return;
             }
-          });
+          }
+          resetRowSelection();
+        }
+      });
     }
     tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
     tree.addTreeSelectionListener(this);
@@ -97,39 +96,23 @@ public class EditorTreePanel extends JPanel implements TreeSelectionListener {
       edit = new JPanel();
       edit.setLayout(new java.awt.BorderLayout());
       edit.setPreferredSize(new java.awt.Dimension(250, 300));
-      JSplitPane split =
-          new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, false, new JScrollPane(tree), edit);
+      JSplitPane split = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, false, new JScrollPane(tree), edit);
       split.setResizeWeight(1);
       split.setPreferredSize(new java.awt.Dimension(520, 300));
       add(split, BorderLayout.CENTER);
-      SwingUtilities.invokeLater(
-          new Runnable() {
-            public void run() {
-              tree.setSelectionInterval(0, 0);
-            }
-          });
+      SwingUtilities.invokeLater(new Runnable() {
+        public void run() {
+          tree.setSelectionInterval(0, 0);
+        }
+      });
     }
-
-    /*
-    add(new JScrollPane(tree), BorderLayout.CENTER);
-    if(!onlySelect){
-        edit=new JPanel();
-        edit.setLayout(new java.awt.BorderLayout());
-        edit.setPreferredSize(new java.awt.Dimension(200, 100));
-        //edit.setMinimumSize(new java.awt.Dimension(250, 100));
-        //edit.setMaximumSize(new java.awt.Dimension(250, 999));
-        //edit.setPreferredSize(new java.awt.Dimension(250, 200));
-        add(edit, BorderLayout.EAST);
-    }
-     */
   }
 
   public void valueChanged(TreeSelectionEvent treeSelectionEvent) {
     currentItem = null;
-    // DefaultMutableTreeNode node = (DefaultMutableTreeNode)tree.getLastSelectedPathComponent();
     Editor node = (Editor) tree.getLastSelectedPathComponent();
-    if (node == null) return;
-    // currentItem=(Editor)node.getUserObject();
+    if (node == null)
+      return;
     currentItem = node;
     currentItemChanged();
   }
@@ -147,7 +130,8 @@ public class EditorTreePanel extends JPanel implements TreeSelectionListener {
       }
       ep.attachEditor(currentItem, true);
       if (currentPanel != ep) {
-        if (currentPanel != null) edit.remove(currentPanel);
+        if (currentPanel != null)
+          edit.remove(currentPanel);
         edit.add(ep, BorderLayout.CENTER);
         edit.revalidate();
         edit.repaint();

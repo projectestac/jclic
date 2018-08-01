@@ -61,10 +61,7 @@ public class TagReplace extends AutoContentProvider {
   public String fileCharset;
   private HashMap<String, String> map;
 
-  public static final String TAG_START = "tagStart",
-      TAG_END = "tagEnd",
-      MAP_FN = "mapFn",
-      MAP_CHARSET = "charset";
+  public static final String TAG_START = "tagStart", TAG_END = "tagEnd", MAP_FN = "mapFn", MAP_CHARSET = "charset";
 
   /** Creates a new instance of TagReplace */
   public TagReplace() {
@@ -126,11 +123,13 @@ public class TagReplace extends AutoContentProvider {
     return result;
   }
 
-  protected boolean generateContent(
-      int nRows, int nCols, ActiveBagContent[] content, boolean useIds, ResourceBridge rb) {
-    if (content == null || content.length < 1 || rb == null) return false;
+  protected boolean generateContent(int nRows, int nCols, ActiveBagContent[] content, boolean useIds,
+      ResourceBridge rb) {
+    if (content == null || content.length < 1 || rb == null)
+      return false;
 
-    for (ActiveBagContent abc : content) filterActiveBagContent(abc);
+    for (ActiveBagContent abc : content)
+      filterActiveBagContent(abc);
 
     return true;
   }
@@ -161,7 +160,8 @@ public class TagReplace extends AutoContentProvider {
       int pEnd;
       while ((pStart = src.indexOf(tagStart, p)) >= 0) {
         pEnd = src.indexOf(tagEnd, pStart + tagStart.length());
-        if (pEnd <= pStart) break;
+        if (pEnd <= pStart)
+          break;
         Object[] tagMark = new Object[4];
         tagMark[0] = new Integer(pStart);
         tagMark[1] = new Integer(pEnd + tagEnd.length() - pStart);
@@ -256,7 +256,8 @@ public class TagReplace extends AutoContentProvider {
             if (p > 0) {
               String key = StrUtils.secureString(line.substring(0, p)).trim();
               String value = StrUtils.secureString(line.substring(p + 1)).trim();
-              if (key.length() > 0) map.put(key, value);
+              if (key.length() > 0)
+                map.put(key, value);
             }
           }
         }
@@ -268,6 +269,7 @@ public class TagReplace extends AutoContentProvider {
 
   @Override
   public void innerListReferences(Map<String, String> map) throws Exception {
-    if (mapFileName != null) map.put(mapFileName, Constants.EXTERNAL_OBJECT);
+    if (mapFileName != null)
+      map.put(mapFileName, Constants.EXTERNAL_OBJECT);
   }
 }

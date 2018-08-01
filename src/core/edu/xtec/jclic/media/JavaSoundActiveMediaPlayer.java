@@ -42,9 +42,7 @@ public class JavaSoundActiveMediaPlayer extends ActiveMediaPlayer {
   public static javax.sound.midi.Sequencer sequencer = null;
 
   /** Creates a new instance of JavaSoundActiveMediaPlayer */
-  public JavaSoundActiveMediaPlayer(
-      edu.xtec.jclic.media.MediaContent mc,
-      edu.xtec.jclic.bags.MediaBag mb,
+  public JavaSoundActiveMediaPlayer(edu.xtec.jclic.media.MediaContent mc, edu.xtec.jclic.bags.MediaBag mb,
       edu.xtec.jclic.PlayStation ps) {
     super(mc, mb, ps);
     InputStream is;
@@ -53,35 +51,35 @@ public class JavaSoundActiveMediaPlayer extends ActiveMediaPlayer {
     if (!useAudioBuffer) {
       try {
         switch (mc.mediaType) {
-          case MediaContent.PLAY_MIDI:
-            midi = true;
-            is = mb.getInputStream(mc.mediaFileName);
-            if (is instanceof ByteArrayInputStream) midiIs = (ByteArrayInputStream) is;
-            else
-              midiIs =
-                  new ExtendedByteArrayInputStream(StreamIO.readInputStream(is), mc.mediaFileName);
-            break;
+        case MediaContent.PLAY_MIDI:
+          midi = true;
+          is = mb.getInputStream(mc.mediaFileName);
+          if (is instanceof ByteArrayInputStream)
+            midiIs = (ByteArrayInputStream) is;
+          else
+            midiIs = new ExtendedByteArrayInputStream(StreamIO.readInputStream(is), mc.mediaFileName);
+          break;
 
-          case MediaContent.PLAY_AUDIO:
-            if (mc.to > 0 || mc.from > 0) clip = ClipWrapper.getClipWrapper(mb, mc.mediaFileName);
-            else clip = FalseClip.getFalseClip(mb, mc.mediaFileName);
+        case MediaContent.PLAY_AUDIO:
+          if (mc.to > 0 || mc.from > 0)
+            clip = ClipWrapper.getClipWrapper(mb, mc.mediaFileName);
+          else
+            clip = FalseClip.getFalseClip(mb, mc.mediaFileName);
 
-            if (clip != null && !mc.loop && mc.to > Math.max(0, mc.from)) {
-              timer =
-                  new Timer(
-                      mc.to - Math.max(0, mc.from),
-                      new ActionListener() {
-                        public void actionPerformed(ActionEvent ev) {
-                          if (clip != null && clip.isRunning()) clip.stop();
-                        }
-                      });
-              timer.setCoalesce(false);
-              timer.setRepeats(false);
-            }
-            break;
+          if (clip != null && !mc.loop && mc.to > Math.max(0, mc.from)) {
+            timer = new Timer(mc.to - Math.max(0, mc.from), new ActionListener() {
+              public void actionPerformed(ActionEvent ev) {
+                if (clip != null && clip.isRunning())
+                  clip.stop();
+              }
+            });
+            timer.setCoalesce(false);
+            timer.setRepeats(false);
+          }
+          break;
 
-          default:
-            break;
+        default:
+          break;
         }
       } catch (Exception ex) {
         System.err.println("Error reading media \"" + mc.mediaFileName + "\":\n" + ex);
@@ -95,8 +93,10 @@ public class JavaSoundActiveMediaPlayer extends ActiveMediaPlayer {
 
   public static void closeMidiSequencer() {
     if (sequencer != null) {
-      if (sequencer.isRunning()) sequencer.stop();
-      if (sequencer.isOpen()) sequencer.close();
+      if (sequencer.isRunning())
+        sequencer.stop();
+      if (sequencer.isOpen())
+        sequencer.close();
     }
   }
 
@@ -104,7 +104,8 @@ public class JavaSoundActiveMediaPlayer extends ActiveMediaPlayer {
     if (!useAudioBuffer) {
       try {
         if (midi) {
-          if (sequencer == null) sequencer = MidiSystem.getSequencer();
+          if (sequencer == null)
+            sequencer = MidiSystem.getSequencer();
         } else {
           if (clip != null && !clip.isOpen()) {
             clip.open();
@@ -112,21 +113,24 @@ public class JavaSoundActiveMediaPlayer extends ActiveMediaPlayer {
         }
       } catch (Exception e) {
         System.err.println("Error realizing media \"" + mc.mediaFileName + "\"\n" + e);
-        // e.printStackTrace();
       }
     }
   }
 
   @Override
   protected void playNow(edu.xtec.jclic.boxes.ActiveBox setBx) {
-    if (useAudioBuffer) super.playNow(setBx);
+    if (useAudioBuffer)
+      super.playNow(setBx);
     else {
       try {
         if (midi) {
-          if (sequencer == null) realize();
+          if (sequencer == null)
+            realize();
           if (sequencer != null && midiIs != null) {
-            if (sequencer.isRunning()) sequencer.stop();
-            if (!sequencer.isOpen()) sequencer.open();
+            if (sequencer.isRunning())
+              sequencer.stop();
+            if (!sequencer.isOpen())
+              sequencer.open();
             midiIs.reset();
             sequencer.setSequence(midiIs);
             sequencer.stop();
@@ -134,14 +138,16 @@ public class JavaSoundActiveMediaPlayer extends ActiveMediaPlayer {
             sequencer.start();
           }
         } else if (clip != null) {
-          if (!clip.isOpen()) realize();
+          if (!clip.isOpen())
+            realize();
           setTimeRanges();
           attachVisualComponent();
           if (mc.loop) {
             clip.loop(Clip.LOOP_CONTINUOUSLY);
           } else {
             clip.start();
-            if (timer != null) timer.start();
+            if (timer != null)
+              timer.start();
           }
         }
       } catch (Exception e) {
@@ -158,7 +164,8 @@ public class JavaSoundActiveMediaPlayer extends ActiveMediaPlayer {
         if (midi && sequencer != null) {
           closeMidiSequencer();
         } else if (clip != null && clip.isActive()) {
-          if (timer != null && timer.isRunning()) timer.stop();
+          if (timer != null && timer.isRunning())
+            timer.stop();
           clip.stop();
         }
       } catch (Exception e) {
@@ -195,24 +202,17 @@ public class JavaSoundActiveMediaPlayer extends ActiveMediaPlayer {
   }
 
   protected void setTimeRanges() {
-    if (useAudioBuffer) return;
+    if (useAudioBuffer)
+      return;
     try {
       if (midi && sequencer != null) {
         sequencer.setTickPosition(0L);
-        /*
-        if(mc.from!=-1){
-            //sequencer.setTickPosition(sequencer.getSequence().getResolution()*mc.from/2);
-        } else
-            sequencer.setTickPosition(0L);
-        //if(mc.to!=-1){
-        //    sequencer.
-        //}
-         */
       } else if (clip != null && clip.isOpen()) {
         if (mc.from >= 0 || mc.to >= 0) {
           int from = mc.from > 0 ? (int) ((clip.getFormat().getFrameRate() * mc.from) / 1000) : 0;
           int to = mc.to >= 0 ? (int) ((clip.getFormat().getFrameRate() * mc.to) / 1000) : -1;
-          if (mc.loop) clip.setLoopPoints(from, to);
+          if (mc.loop)
+            clip.setLoopPoints(from, to);
           clip.setFramePosition(from);
         } else {
           clip.setFramePosition(0);

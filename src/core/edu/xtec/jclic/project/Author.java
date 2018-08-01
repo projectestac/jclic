@@ -49,21 +49,22 @@ public class Author extends Object implements Domable {
   }
 
   public static final String ELEMENT_NAME = "author";
-  public static final String NAME = "name",
-      MAIL = "mail",
-      URL = "url",
-      ORGANIZATION = "organization",
-      COMMENTS = "comments",
-      ROL = "rol";
+  public static final String NAME = "name", MAIL = "mail", URL = "url", ORGANIZATION = "organization",
+      COMMENTS = "comments", ROL = "rol";
 
   public org.jdom.Element getJDomElement() {
     org.jdom.Element e = new org.jdom.Element(ELEMENT_NAME);
     e.setAttribute(NAME, name);
-    if (mail != null) e.setAttribute(MAIL, mail);
-    if (url != null) e.setAttribute(URL, url);
-    if (rol != null) e.setAttribute(ROL, rol);
-    if (organization != null) e.setAttribute(ORGANIZATION, organization);
-    if (comments != null) JDomUtility.addParagraphs(e, COMMENTS, comments);
+    if (mail != null)
+      e.setAttribute(MAIL, mail);
+    if (url != null)
+      e.setAttribute(URL, url);
+    if (rol != null)
+      e.setAttribute(ROL, rol);
+    if (organization != null)
+      e.setAttribute(ORGANIZATION, organization);
+    if (comments != null)
+      JDomUtility.addParagraphs(e, COMMENTS, comments);
     return e;
   }
 
@@ -94,19 +95,25 @@ public class Author extends Object implements Domable {
 
   public String toHtmlString(edu.xtec.util.Messages msg) {
     Html html = new Html(500);
-    if (rol != null) html.append(rol).append(": ");
+    if (rol != null)
+      html.append(rol).append(": ");
     html.append(name);
-    if (mail != null && mail.length() > 0) html.sp().mailTo(mail, true);
-    if (url != null && url.length() > 0) html.br().linkTo(url, null);
-    if (organization != null && organization.length() > 0) html.br().appendParagraphs(organization);
-    if (comments != null && comments.length() > 0) html.br().appendParagraphs(comments);
+    if (mail != null && mail.length() > 0)
+      html.sp().mailTo(mail, true);
+    if (url != null && url.length() > 0)
+      html.br().linkTo(url, null);
+    if (organization != null && organization.length() > 0)
+      html.br().appendParagraphs(organization);
+    if (comments != null && comments.length() > 0)
+      html.br().appendParagraphs(comments);
     return html.toString();
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder(name);
-    if (rol != null && rol.length() > 0) sb.append(" (").append(rol).append(")");
+    if (rol != null && rol.length() > 0)
+      sb.append(" (").append(rol).append(")");
     return sb.substring(0);
   }
 
@@ -117,7 +124,8 @@ public class Author extends Object implements Domable {
     if (p > 0) {
       result.name = str.substring(0, p);
       result.rol = str.substring(p + 2, str.length() - 1);
-    } else result.name = str;
+    } else
+      result.name = str;
     return result;
   }
 }

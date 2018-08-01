@@ -60,7 +60,8 @@ public abstract class AbstractServlet extends HttpServlet {
     RequestProcessor rp = null;
     try {
       rp = createRP();
-      if (rp.wantsInputStream()) rp.setInputStream(request.getInputStream());
+      if (rp.wantsInputStream())
+        rp.setInputStream(request.getInputStream());
       else {
         Map<String, Object> v = new HashMap<String, Object>();
         Map parameters = request.getParameterMap();
@@ -71,14 +72,16 @@ public abstract class AbstractServlet extends HttpServlet {
       }
       Cookie[] ck = request.getCookies();
       if (ck != null)
-        for (int i = 0; i < ck.length; i++) rp.setCookie(ck[i].getName(), ck[i].getValue());
+        for (int i = 0; i < ck.length; i++)
+          rp.setCookie(ck[i].getName(), ck[i].getValue());
       Enumeration en = request.getHeaderNames();
       Map<String, Object> map = new HashMap<String, Object>();
       while (en.hasMoreElements()) {
         String name = (String) en.nextElement();
         Enumeration enh = request.getHeaders(name);
         List<String> v = new ArrayList<String>();
-        while (enh.hasMoreElements()) v.add((String) enh.nextElement());
+        while (enh.hasMoreElements())
+          v.add((String) enh.nextElement());
         map.put(name.toLowerCase(), v);
       }
       rp.setHeaders(map);
@@ -101,11 +104,14 @@ public abstract class AbstractServlet extends HttpServlet {
           if (h[0].equals(RequestProcessor.REDIRECT)) {
             response.sendRedirect(h[1]);
             break;
-          } else if (h[0].equals(RequestProcessor.CONTENT_TYPE)) response.setContentType(h[1]);
+          } else if (h[0].equals(RequestProcessor.CONTENT_TYPE))
+            response.setContentType(h[1]);
           else if (h[0].equals(RequestProcessor.CONTENT_LENGTH))
             response.setContentLength(Integer.parseInt(h[1]));
-          else if (h[0].equals(RequestProcessor.EXTRA)) response.setHeader(h[1], h[2]);
-          else if (h[0].equals(RequestProcessor.COOKIE)) response.addCookie(new Cookie(h[1], h[2]));
+          else if (h[0].equals(RequestProcessor.EXTRA))
+            response.setHeader(h[1], h[2]);
+          else if (h[0].equals(RequestProcessor.COOKIE))
+            response.addCookie(new Cookie(h[1], h[2]));
         }
       }
       if (!response.isCommitted()) {
@@ -132,8 +138,7 @@ public abstract class AbstractServlet extends HttpServlet {
       rp.end();
       rp = null;
     } catch (Exception ex) {
-      int errCode =
-          rp != null && rp.errCode >= 0 ? rp.errCode : HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
+      int errCode = rp != null && rp.errCode >= 0 ? rp.errCode : HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
       String errMsg = rp != null && rp.errMsg != null ? rp.errMsg : ex.getMessage();
       if (!response.isCommitted()) {
         response.sendError(errCode, errMsg);
@@ -141,7 +146,8 @@ public abstract class AbstractServlet extends HttpServlet {
       System.err.println("ERROR " + errCode + ": " + errMsg);
       ex.printStackTrace(System.err);
     } finally {
-      if (rp != null) rp.end();
+      if (rp != null)
+        rp.end();
     }
   }
 

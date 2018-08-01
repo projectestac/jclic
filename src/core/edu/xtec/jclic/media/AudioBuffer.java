@@ -28,8 +28,9 @@ import java.awt.Component;
 import java.awt.Cursor;
 
 /**
- * The abtract class <code>AudioBuffer</code> supplies sound recording and playing services. Audio
- * data is discarded when the <code>AudioBuffer</code> object is destroyed.
+ * The abtract class <code>AudioBuffer</code> supplies sound recording and
+ * playing services. Audio data is discarded when the <code>AudioBuffer</code>
+ * object is destroyed.
  *
  * @author Francesc Busquets (fbusquets@xtec.cat)
  * @version 13.08.28
@@ -47,7 +48,8 @@ public abstract class AudioBuffer {
   protected static Cursor recCursor;
 
   /**
-   * Currently running <code>AudioBuffer</code> (static object, because only one can be running).
+   * Currently running <code>AudioBuffer</code> (static object, because only one
+   * can be running).
    */
   protected static AudioBuffer activeAudioBuffer;
 
@@ -57,10 +59,16 @@ public abstract class AudioBuffer {
   /** Original <code>Cursor</code> used by the active <code>AudioBuffer</code>. */
   protected static Cursor backOwnerCursor;
 
-  /** Main owner (usually a {@link java.awt.Frame}) of the active <code>AudioBuffer</code>. */
+  /**
+   * Main owner (usually a {@link java.awt.Frame}) of the active
+   * <code>AudioBuffer</code>.
+   */
   protected static Component mainOwner;
 
-  /** Original {@link java.awt.Cursor} of the main owner of the active <code>AudioBuffer</code>. */
+  /**
+   * Original {@link java.awt.Cursor} of the main owner of the active
+   * <code>AudioBuffer</code>.
+   */
   protected static Cursor backMainOwnerCursor;
 
   /**
@@ -71,8 +79,7 @@ public abstract class AudioBuffer {
    */
   public AudioBuffer(int seconds) throws Exception {
     if (seconds <= 0 || seconds > MAX_RECORD_LENGTH)
-      throw new Exception(
-          "Error: Audio buffer length can't exceed " + MAX_RECORD_LENGTH + " seconds");
+      throw new Exception("Error: Audio buffer length can't exceed " + MAX_RECORD_LENGTH + " seconds");
 
     m_seconds = seconds;
   }
@@ -91,7 +98,8 @@ public abstract class AudioBuffer {
   protected abstract void clear();
 
   /**
-   * Performs explicit cleanup of recorded audio data before destroying the object.
+   * Performs explicit cleanup of recorded audio data before destroying the
+   * object.
    *
    * @throws Throwable Throwed by <CODE>Object#finalize</CODE>
    */
@@ -102,32 +110,38 @@ public abstract class AudioBuffer {
   }
 
   /**
-   * Checks if the <CODE>AudioBuffer</CODE> is currently recording or playing sound.
+   * Checks if the <CODE>AudioBuffer</CODE> is currently recording or playing
+   * sound.
    *
-   * @return <CODE>true</CODE> if recording or playing, <CODE>false</CODE> otherwise.
+   * @return <CODE>true</CODE> if recording or playing, <CODE>false</CODE>
+   *         otherwise.
    */
   public static boolean busy() {
     return activeAudioBuffer != null;
   }
 
   /**
-   * Only one <CODE>AudioBuffer</CODE> can be "active", because the sound recording hardware cannot
-   * be shared between processes. This method returns the currently active <CODE>AudioBuffer</CODE>,
-   * if any.
+   * Only one <CODE>AudioBuffer</CODE> can be "active", because the sound
+   * recording hardware cannot be shared between processes. This method returns
+   * the currently active <CODE>AudioBuffer</CODE>, if any.
    *
-   * @return The currently active <CODE>AudioBuffer</CODE>, or <CODE>null</CODE> if none is active.
+   * @return The currently active <CODE>AudioBuffer</CODE>, or <CODE>null</CODE>
+   *         if none is active.
    */
   protected static AudioBuffer getActiveAudioBuffer() {
     return activeAudioBuffer;
   }
 
   /**
-   * Starts sound recording with visual indications: the mouse cursor switchs a microphone.
+   * Starts sound recording with visual indications: the mouse cursor switchs a
+   * microphone.
    *
-   * @param ps A valid {@link PlayStation}, used to retrieve the recording cursor image and to
-   *     determine the main component associated to this <CODE>AudioBuffer</CODE>.
-   * @param bx The {@link ActiveBox} associated to this recording. If <CODE>null</CODE>, the default
-   *     {@link Component} for the provided {@link PlayStation} will be used.
+   * @param ps A valid {@link PlayStation}, used to retrieve the recording cursor
+   *           image and to determine the main component associated to this
+   *           <CODE>AudioBuffer</CODE>.
+   * @param bx The {@link ActiveBox} associated to this recording. If
+   *           <CODE>null</CODE>, the default {@link Component} for the provided
+   *           {@link PlayStation} will be used.
    * @throws Exception If someting goes wrong
    */
   public void record(PlayStation ps, ActiveBox bx) throws Exception {
@@ -140,7 +154,8 @@ public abstract class AudioBuffer {
   }
 
   /**
-   * Starts the recording of sound, without any visual indication. Subclasses of <CODE>AudioBuffer
+   * Starts the recording of sound, without any visual indication. Subclasses of
+   * <CODE>AudioBuffer
    * </CODE> must implement this method.
    *
    * @throws Exception If something goes wrong.
@@ -148,8 +163,9 @@ public abstract class AudioBuffer {
   protected abstract void record() throws Exception;
 
   /**
-   * The usual way to stop the recording or playnig processes is to place a flag in their thread and
-   * wait to next cycle. This method allows to force an abrupt end of this threads.
+   * The usual way to stop the recording or playnig processes is to place a flag
+   * in their thread and wait to next cycle. This method allows to force an abrupt
+   * end of this threads.
    *
    * @throws Exception If something goes wrong
    */
@@ -157,24 +173,27 @@ public abstract class AudioBuffer {
     if (busy()) {
       getActiveAudioBuffer().stop();
       Thread.yield();
-      if (busy()) throw new Exception("Unable to stop recorder!");
+      if (busy())
+        throw new Exception("Unable to stop recorder!");
     }
   }
 
   /**
-   * Displays the recording cursor. Prior to call this method, the associated Component must be
-   * specified.
+   * Displays the recording cursor. Prior to call this method, the associated
+   * Component must be specified.
    */
   protected static void showRecordingCursor() {
     if (recCursor != null) {
       if (owner != null) {
         backOwnerCursor = owner.getCursor();
-        if (backOwnerCursor == Cursor.getDefaultCursor()) backOwnerCursor = null;
+        if (backOwnerCursor == Cursor.getDefaultCursor())
+          backOwnerCursor = null;
         owner.setCursor(recCursor);
       }
       if (mainOwner != null) {
         backMainOwnerCursor = mainOwner.getCursor();
-        if (backMainOwnerCursor == Cursor.getDefaultCursor()) backMainOwnerCursor = null;
+        if (backMainOwnerCursor == Cursor.getDefaultCursor())
+          backMainOwnerCursor = null;
         mainOwner.setCursor(recCursor);
       }
     }

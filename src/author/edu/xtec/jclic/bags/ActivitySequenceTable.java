@@ -56,7 +56,8 @@ public class ActivitySequenceTable extends JTable {
     ActivitySequenceEditorPanel.SeqTableModel model;
     if (getModel() instanceof ActivitySequenceEditorPanel.SeqTableModel)
       model = (ActivitySequenceEditorPanel.SeqTableModel) getModel();
-    else return;
+    else
+      return;
 
     if (getRowCount() <= 0 || getColumnCount() <= 0) {
       return;
@@ -88,9 +89,6 @@ public class ActivitySequenceTable extends JTable {
       cMax = getColumnCount() - 1;
     }
 
-    // ***************
-
-    // g.setColor(table.getGridColor());
     g.setColor(DIVIDER_COLOR);
     ((Graphics2D) g).setStroke(stroke);
 
@@ -103,7 +101,8 @@ public class ActivitySequenceTable extends JTable {
     for (int row = rMin; row <= rMax; row++) {
       int rh = getRowHeight(row);
       y += rh;
-      if (model.drawDivider(row)) g.drawLine(0, y - 1, tableWidth - 1, y - 1);
+      if (model.drawDivider(row))
+        g.drawLine(0, y - 1, tableWidth - 1, y - 1);
     }
   }
 }

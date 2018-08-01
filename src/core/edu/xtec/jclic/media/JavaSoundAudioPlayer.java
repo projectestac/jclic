@@ -56,7 +56,8 @@ public class JavaSoundAudioPlayer implements AudioPlayer {
   static final boolean BIG_ENDIAN = true;
 
   /** Creates a new instance of JavaSoundAudioPlayer */
-  public JavaSoundAudioPlayer() {}
+  public JavaSoundAudioPlayer() {
+  }
 
   public boolean setDataSource(Object source) throws Exception {
 
@@ -66,15 +67,15 @@ public class JavaSoundAudioPlayer implements AudioPlayer {
     javax.sound.sampled.AudioFileFormat m_audioFileFormat = null;
 
     if (source instanceof ExtendedByteArrayInputStream) {
-      is =
-          checkInputStream((InputStream) source, ((ExtendedByteArrayInputStream) source).getName());
+      is = checkInputStream((InputStream) source, ((ExtendedByteArrayInputStream) source).getName());
     } else if (source instanceof InputStream) {
       is = checkInputStream((InputStream) source, null);
     } else if (source instanceof File) {
       is = checkInputStream(new java.io.FileInputStream((File) source), ((File) source).getName());
     } else {
       java.net.URL url = null;
-      if (source instanceof java.net.URL) url = (java.net.URL) source;
+      if (source instanceof java.net.URL)
+        url = (java.net.URL) source;
       else if (source instanceof String) {
         url = new java.net.URL((String) source);
       }
@@ -117,20 +118,16 @@ public class JavaSoundAudioPlayer implements AudioPlayer {
       DataLine.Info info = new DataLine.Info(SourceDataLine.class, af, INTERNAL_BUFFER_SIZE);
       if (!AudioSystem.isLineSupported(info)) {
         AudioFormat sourceFormat = af;
-        AudioFormat targetFormat =
-            new AudioFormat(
-                AudioFormat.Encoding.PCM_SIGNED,
-                sourceFormat.getSampleRate(),
-                BIT_SAMPLE_SIZE,
-                sourceFormat.getChannels(),
-                sourceFormat.getChannels() * (BIT_SAMPLE_SIZE / 8),
-                sourceFormat.getSampleRate(),
-                // sourceFormat.getFrameRate(),
-                BIG_ENDIAN);
+        AudioFormat targetFormat = new AudioFormat(AudioFormat.Encoding.PCM_SIGNED, sourceFormat.getSampleRate(),
+            BIT_SAMPLE_SIZE, sourceFormat.getChannels(), sourceFormat.getChannels() * (BIT_SAMPLE_SIZE / 8),
+            sourceFormat.getSampleRate(), BIG_ENDIAN);
 
-        if (isMpeg) ais = AppletMpegSPIWorkaround.getAudioInputStream(targetFormat, ais);
-        else if (isOgg) ais = AppletVorbisSPIWorkaround.getAudioInputStream(targetFormat, ais);
-        else ais = AudioSystem.getAudioInputStream(targetFormat, ais);
+        if (isMpeg)
+          ais = AppletMpegSPIWorkaround.getAudioInputStream(targetFormat, ais);
+        else if (isOgg)
+          ais = AppletVorbisSPIWorkaround.getAudioInputStream(targetFormat, ais);
+        else
+          ais = AudioSystem.getAudioInputStream(targetFormat, ais);
       }
     }
     return ais != null;
@@ -138,16 +135,14 @@ public class JavaSoundAudioPlayer implements AudioPlayer {
 
   public Clip getClip() throws Exception {
     if (clip == null && ais != null) {
-      clip =
-          (Clip)
-              AudioSystem.getLine(
-                  new DataLine.Info(Clip.class, ais.getFormat(), INTERNAL_BUFFER_SIZE));
+      clip = (Clip) AudioSystem.getLine(new DataLine.Info(Clip.class, ais.getFormat(), INTERNAL_BUFFER_SIZE));
     }
     return clip;
   }
 
   public void realize(String fileName, MediaBag mediaBag) throws Exception {
-    if (fileName != null) setDataSource(mediaBag.getMediaDataSource(fileName));
+    if (fileName != null)
+      setDataSource(mediaBag.getMediaDataSource(fileName));
     if (ais != null && getClip() != null) {
       clip.open(ais);
     }
@@ -158,7 +153,8 @@ public class JavaSoundAudioPlayer implements AudioPlayer {
   // launched by org.classpath.icedtea.pulseaudio.PulseAudioClip.close
   public void close() {
     if (clip != null && clip.isOpen()) {
-      if (clip.isRunning()) clip.stop();
+      if (clip.isRunning())
+        clip.stop();
       clip.close();
     }
     clip = null;
@@ -178,15 +174,19 @@ public class JavaSoundAudioPlayer implements AudioPlayer {
   }
 
   public void stop() {
-    if (clip != null && clip.isActive()) clip.stop();
+    if (clip != null && clip.isActive())
+      clip.stop();
   }
 
   protected InputStream checkInputStream(InputStream is, String name) throws Exception {
     String s = (name == null ? null : name.toLowerCase());
     if (s != null) {
-      if (s.endsWith(".wav")) isWav = true;
-      else if (s.endsWith(".ogg")) isOgg = true;
-      else if (s.endsWith(".mp3")) isMpeg = true;
+      if (s.endsWith(".wav"))
+        isWav = true;
+      else if (s.endsWith(".ogg"))
+        isOgg = true;
+      else if (s.endsWith(".mp3"))
+        isMpeg = true;
     }
 
     if (s == null || isWav) {
@@ -199,20 +199,9 @@ public class JavaSoundAudioPlayer implements AudioPlayer {
       byte[] b = new byte[CHECK_BUFFER_SIZE];
       is.read(b);
       is.reset();
-      if (b[0x00] == 'R'
-          && b[0x01] == 'I'
-          && b[0x02] == 'F'
-          && b[0x03] == 'F'
-          && b[0x08] == 'W'
-          && b[0x09] == 'A'
-          && b[0x0A] == 'V'
-          && b[0x0B] == 'E'
-          && b[0x0C] == 'f'
-          && b[0x0D] == 'm'
-          && b[0x0E] == 't'
-          && b[0x0F] == ' '
-          && b[0x14] == 0x55
-          && b[0x15] == 0x00) {
+      if (b[0x00] == 'R' && b[0x01] == 'I' && b[0x02] == 'F' && b[0x03] == 'F' && b[0x08] == 'W' && b[0x09] == 'A'
+          && b[0x0A] == 'V' && b[0x0B] == 'E' && b[0x0C] == 'f' && b[0x0D] == 'm' && b[0x0E] == 't' && b[0x0F] == ' '
+          && b[0x14] == 0x55 && b[0x15] == 0x00) {
         for (int p = 0x11; p < CHECK_BUFFER_SIZE - 6; p++) {
           if (b[p] == 'd' && b[p + 1] == 'a' && b[p + 2] == 't' && b[p + 3] == 'a') {
             int offset = p + 4 + 4;

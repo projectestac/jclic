@@ -41,15 +41,14 @@ public class ActivitySequenceElementEditor extends Editor {
   protected static ImageIcon icon;
   public static boolean actionsCreated = false;
   protected ActivitySequence activitySequence;
-  // public static EditorAction testActivityAction;
-  // public static EditorAction newActivitySequenceElementAction;
 
   /** Creates a new instance of ActivitySequenceElementEditor */
   public ActivitySequenceElementEditor(ActivitySequenceElement el) {
     super(el);
   }
 
-  protected void createChildren() {}
+  protected void createChildren() {
+  }
 
   public Class getEditorPanelClass() {
     return ActivitySequenceElementEditorPanel.class;
@@ -68,16 +67,14 @@ public class ActivitySequenceElementEditor extends Editor {
     return StrUtils.nullableString(ase.getTag());
   }
 
-  protected void saveData() {}
+  protected void saveData() {
+  }
 
   /*
-  protected boolean delete(boolean changeSelection){
-      ActivitySequence as=getActivitySequenceElement().getParent();
-      boolean result=super.delete(changeSelection);
-      if(result && as!=null)
-          as.remove(getActivitySequenceElement());
-      return result;
-  }
+   * protected boolean delete(boolean changeSelection){ ActivitySequence
+   * as=getActivitySequenceElement().getParent(); boolean
+   * result=super.delete(changeSelection); if(result && as!=null)
+   * as.remove(getActivitySequenceElement()); return result; }
    */
 
   @Override
@@ -105,22 +102,15 @@ public class ActivitySequenceElementEditor extends Editor {
     super.setActionsOwner();
 
     /*
-    if(basicActionsCreated){
-        setActionsFlag();
-        boolean eUp=false, eDown=false;
-        ActivitySequence as=getActivitySequenceElement().getParent();
-        if(as!=null){
-            int i=as.getElementIndex(getActivitySequenceElement());
-            eUp=i>0;
-            eDown=i<as.getSize()-1;
-        }
-        moveUpAction.setActionOwner(eUp ? this : null);
-        moveDownAction.setActionOwner(eDown ? this : null);
-        copyAction.setActionOwner(allowCopy && canClone() ? this : null);
-        cutAction.setActionOwner(allowCut ? this : null);
-        pasteAction.setActionOwner(canPasteHere() ? this : null);
-        deleteAction.setActionOwner(allowDelete ? this : null);
-    }
+     * if(basicActionsCreated){ setActionsFlag(); boolean eUp=false, eDown=false;
+     * ActivitySequence as=getActivitySequenceElement().getParent(); if(as!=null){
+     * int i=as.getElementIndex(getActivitySequenceElement()); eUp=i>0;
+     * eDown=i<as.getSize()-1; } moveUpAction.setActionOwner(eUp ? this : null);
+     * moveDownAction.setActionOwner(eDown ? this : null);
+     * copyAction.setActionOwner(allowCopy && canClone() ? this : null);
+     * cutAction.setActionOwner(allowCut ? this : null);
+     * pasteAction.setActionOwner(canPasteHere() ? this : null);
+     * deleteAction.setActionOwner(allowDelete ? this : null); }
      */
 
     if (actionsCreated) {
@@ -137,13 +127,13 @@ public class ActivitySequenceElementEditor extends Editor {
   }
 
   public static Icon getIcon() {
-    if (icon == null) icon = edu.xtec.util.ResourceManager.getImageIcon("icons/miniclic.png");
+    if (icon == null)
+      icon = edu.xtec.util.ResourceManager.getImageIcon("icons/miniclic.png");
     return icon;
   }
 
   @Override
   public Icon getIcon(boolean leaf, boolean expanded) {
-    // return leaf ? getIcon() : null;
     return getIcon();
   }
 
@@ -180,51 +170,33 @@ public class ActivitySequenceElementEditor extends Editor {
   }
 
   /*
-  public boolean moveUp(boolean updateSelection){
-      boolean result=super.moveUp(updateSelection);
-      if(result){
-          ActivitySequenceElement ase=getActivitySequenceElement();
-          ActivitySequence as=ase.getParent();
-          if(as!=null){
-              int index=as.getElementIndex(ase);
-              if(index>0){
-                  as.remove(ase);
-                  as.insertElementAt(ase, index-1);
-                  if(updateSelection)
-                      select();
-              }
-          }
-      }
-      return result;
-  }
-
-  public boolean moveDown(boolean updateSelection){
-      boolean result=super.moveDown(updateSelection);
-      if(result){
-          ActivitySequenceElement ase=getActivitySequenceElement();
-          ActivitySequence as=ase.getParent();
-          if(as!=null && ase!=null){
-              int index=as.getElementIndex(ase);
-              if(index<as.getSize()-1){
-                  as.remove(ase);
-                  as.insertElementAt(ase, index+1);
-                  if(updateSelection)
-                      select();
-              }
-          }
-      }
-      return result;
-  }
+   * public boolean moveUp(boolean updateSelection){ boolean
+   * result=super.moveUp(updateSelection); if(result){ ActivitySequenceElement
+   * ase=getActivitySequenceElement(); ActivitySequence as=ase.getParent();
+   * if(as!=null){ int index=as.getElementIndex(ase); if(index>0){ as.remove(ase);
+   * as.insertElementAt(ase, index-1); if(updateSelection) select(); } } } return
+   * result; }
+   * 
+   * public boolean moveDown(boolean updateSelection){ boolean
+   * result=super.moveDown(updateSelection); if(result){ ActivitySequenceElement
+   * ase=getActivitySequenceElement(); ActivitySequence as=ase.getParent();
+   * if(as!=null && ase!=null){ int index=as.getElementIndex(ase);
+   * if(index<as.getSize()-1){ as.remove(ase); as.insertElementAt(ase, index+1);
+   * if(updateSelection) select(); } } } return result; }
    */
 
   public static Icon getElementIcon(ActivitySequenceElement ase, boolean fwd) {
     String iconName = fwd ? "seq_next" : "seq_prev";
     ActivitySequenceJump asj = fwd ? ase.fwdJump : ase.backJump;
     if (asj != null) {
-      if (asj.action == JumpInfo.STOP) iconName += "_stop";
-      else if (asj.action == JumpInfo.JUMP) iconName += "_jump";
-      else if (asj.action == JumpInfo.RETURN) iconName += "_return";
-      else if (asj.action == JumpInfo.EXIT) iconName = "seq_exit";
+      if (asj.action == JumpInfo.STOP)
+        iconName += "_stop";
+      else if (asj.action == JumpInfo.JUMP)
+        iconName += "_jump";
+      else if (asj.action == JumpInfo.RETURN)
+        iconName += "_return";
+      else if (asj.action == JumpInfo.EXIT)
+        iconName = "seq_exit";
     }
     return ResourceManager.getImageIcon("icons/" + iconName + ".gif");
   }
@@ -234,7 +206,8 @@ public class ActivitySequenceElementEditor extends Editor {
     ActivitySequenceJump asj = fwd ? ase.fwdJump : ase.backJump;
     if (asj != null) {
       result = StrUtils.secureString(asj.sequence);
-      if (asj.projectPath != null) result = result + " (" + asj.projectPath + ")";
+      if (asj.projectPath != null)
+        result = result + " (" + asj.projectPath + ")";
     }
     return result;
   }
@@ -246,7 +219,8 @@ public class ActivitySequenceElementEditor extends Editor {
       String r2 = getElementJumpDescription(ase, false);
       if (r2 != null && r2.length() > 0) {
         StringBuilder sb = new StringBuilder(100);
-        if (result != null && result.length() > 0) sb.append(result).append(" ");
+        if (result != null && result.length() > 0)
+          sb.append(result).append(" ");
         sb.append("* ").append(r2);
         result = sb.substring(0);
       }
@@ -268,28 +242,24 @@ public class ActivitySequenceElementEditor extends Editor {
         result = true;
       }
       if (ase.fwdJump != null) {
-        result |=
-            jumpInfoNameChanged(ase.fwdJump, oldName, newName)
-                | jumpInfoNameChanged(ase.fwdJump.upperJump, oldName, newName)
-                | jumpInfoNameChanged(ase.fwdJump.lowerJump, oldName, newName);
+        result |= jumpInfoNameChanged(ase.fwdJump, oldName, newName)
+            | jumpInfoNameChanged(ase.fwdJump.upperJump, oldName, newName)
+            | jumpInfoNameChanged(ase.fwdJump.lowerJump, oldName, newName);
       }
       if (ase.backJump != null) {
-        result |=
-            jumpInfoNameChanged(ase.backJump, oldName, newName)
-                | jumpInfoNameChanged(ase.backJump.upperJump, oldName, newName)
-                | jumpInfoNameChanged(ase.backJump.lowerJump, oldName, newName);
+        result |= jumpInfoNameChanged(ase.backJump, oldName, newName)
+            | jumpInfoNameChanged(ase.backJump.upperJump, oldName, newName)
+            | jumpInfoNameChanged(ase.backJump.lowerJump, oldName, newName);
       }
-      if (result) setModified(true);
+      if (result)
+        setModified(true);
     }
     return result;
   }
 
   private boolean jumpInfoNameChanged(JumpInfo ji, String oldName, String newName) {
     boolean result = false;
-    if (ji != null
-        && ji.action == JumpInfo.JUMP
-        && ji.projectPath == null
-        && oldName.equals(ji.sequence)) {
+    if (ji != null && ji.action == JumpInfo.JUMP && ji.projectPath == null && oldName.equals(ji.sequence)) {
       ji.sequence = newName;
       result = true;
     }

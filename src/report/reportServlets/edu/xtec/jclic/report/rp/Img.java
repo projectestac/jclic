@@ -48,26 +48,12 @@ public class Img extends BasicReport {
 
   public static final String URL = "img";
 
-  public static final String TYPE = "type",
-      HEADER = "header",
-      GRAPH = "graph",
-      TEXT = "text",
-      DIST = "dist",
-      WIDTH = "w",
-      HEIGHT = "h";
-  public static final String USER_GRAPH = "userGraph",
-      GROUP_GRAPH = "groupGraph",
-      PROJECT_GRAPH = "projectGraph";
+  public static final String TYPE = "type", HEADER = "header", GRAPH = "graph", TEXT = "text", DIST = "dist",
+      WIDTH = "w", HEIGHT = "h";
+  public static final String USER_GRAPH = "userGraph", GROUP_GRAPH = "groupGraph", PROJECT_GRAPH = "projectGraph";
   public static int DEFAULT_WIDTH = 0, DIST_WIDTH, DEFAULT_HEIGHT, DEFAULT_HEADER_HEIGHT, MRG;
-  public static Color BG_COLOR,
-      TEXT_COLOR,
-      BORDER_COLOR,
-      HEADER_BG_COLOR,
-      HEADER_TEXT_COLOR,
-      V1_COLOR,
-      V2_COLOR,
-      DIST_COLOR,
-      ALERT_COLOR;
+  public static Color BG_COLOR, TEXT_COLOR, BORDER_COLOR, HEADER_BG_COLOR, HEADER_TEXT_COLOR, V1_COLOR, V2_COLOR,
+      DIST_COLOR, ALERT_COLOR;
   public static Stroke THIN_STROKE, BOLD_STROKE;
   public static Font STD_FONT, BOLD_FONT, ALERT_FONT;
   public static int MARGE_X, MARGE_Y, NUM_DIVISIONS_Y, MAX_COLS;
@@ -111,10 +97,8 @@ public class Img extends BasicReport {
     MRG = Integer.parseInt(prop.getProperty(GRAPH_MARGIN, "8"));
     BG_COLOR = new Color(Integer.parseInt(prop.getProperty(GRAPH_COLOR_BG, "008080"), 16));
     TEXT_COLOR = new Color(Integer.parseInt(prop.getProperty(GRAPH_COLOR_TEXT, "FFFFFF"), 16));
-    HEADER_BG_COLOR =
-        new Color(Integer.parseInt(prop.getProperty(GRAPH_COLOR_HEADER_BG, "008080"), 16));
-    HEADER_TEXT_COLOR =
-        new Color(Integer.parseInt(prop.getProperty(GRAPH_COLOR_HEADER_TEXT, "FFFFFF"), 16));
+    HEADER_BG_COLOR = new Color(Integer.parseInt(prop.getProperty(GRAPH_COLOR_HEADER_BG, "008080"), 16));
+    HEADER_TEXT_COLOR = new Color(Integer.parseInt(prop.getProperty(GRAPH_COLOR_HEADER_TEXT, "FFFFFF"), 16));
     BORDER_COLOR = new Color(Integer.parseInt(prop.getProperty(GRAPH_COLOR_BORDER, "000000"), 16));
     V1_COLOR = new Color(Integer.parseInt(prop.getProperty(GRAPH_COLOR_V1, "00FF00"), 16));
     V2_COLOR = new Color(Integer.parseInt(prop.getProperty(GRAPH_COLOR_V2, "0000FF"), 16));
@@ -130,7 +114,7 @@ public class Img extends BasicReport {
       BOLD_FONT = new Font(fontFamily, Font.BOLD, fontSize);
       ALERT_FONT = new Font(fontFamily, Font.BOLD, 24);
     } catch (Exception ex) {
-      // Sense fonts!!!
+      // no fonts!!!
     }
 
     MARGE_X = Integer.parseInt(prop.getProperty(GRAPH_MARGIN_X, "50"));
@@ -144,7 +128,8 @@ public class Img extends BasicReport {
   @Override
   public boolean init() throws Exception {
 
-    if (!super.init()) return false;
+    if (!super.init())
+      return false;
 
     withHeader = getBoolParam(HEADER, TRUE);
     isDist = getBoolParam(DIST, TRUE);
@@ -165,7 +150,8 @@ public class Img extends BasicReport {
       throw new Exception();
     }
 
-    if (isDist) titleKey = "report_result_distribution";
+    if (isDist)
+      titleKey = "report_result_distribution";
 
     width = getIntParam(WIDTH, isDist ? DIST_WIDTH : DEFAULT_WIDTH);
     height = getIntParam(HEIGHT, DEFAULT_HEIGHT);
@@ -179,9 +165,7 @@ public class Img extends BasicReport {
 
   @Override
   public void header(List<String[]> v) {
-    // super.header(v);
-    // v.add(new String[]{CONTENT_TYPE, "image/gif"});
-    v.add(new String[] {CONTENT_TYPE, "image/png"});
+    v.add(new String[] { CONTENT_TYPE, "image/png" });
   }
 
   @Override
@@ -216,8 +200,10 @@ public class Img extends BasicReport {
       g2.drawLine(0, h, width, h);
     }
 
-    if (isDist) dibuixaDistribucio(g2, getSessionList(), gr);
-    else dibuixaImatge(g2, getSessionList(), gr);
+    if (isDist)
+      dibuixaDistribucio(g2, getSessionList(), gr);
+    else
+      dibuixaImatge(g2, getSessionList(), gr);
 
     g2.dispose();
     ImageIO.write(bi, "png", out);
@@ -237,12 +223,8 @@ public class Img extends BasicReport {
       String var2 = bundle.getString("report_solved_activities");
       int lvar1 = fm.stringWidth(var1);
       int lvar2 = fm.stringWidth(var2);
-      Rectangle r1 =
-          new Rectangle(
-              box.x + box.width - MRG - lvar2 - 6 - rs - 2 * MRG - lvar1 - 6 - fh,
-              box.y + dyr,
-              rs,
-              rs);
+      Rectangle r1 = new Rectangle(box.x + box.width - MRG - lvar2 - 6 - rs - 2 * MRG - lvar1 - 6 - fh, box.y + dyr, rs,
+          rs);
       Rectangle r2 = new Rectangle(box.x + box.width - MRG - lvar2 - 6 - rs, box.y + dyr, rs, rs);
       g2.setColor(V1_COLOR);
       g2.fill(r1);
@@ -289,14 +271,13 @@ public class Img extends BasicReport {
         numArgs++;
       }
       int columnesArgs = numArgs - 1;
-      int numColumnesX =
-          Math.min(MAX_COLS, columnesArgs); // nombre de columnes que s'acabara mostrant.
-      float longColumnaX =
-          gWidth / numColumnesX; // longitud horitzontal de cadascuna de les columnes
+      int numColumnesX = Math.min(MAX_COLS, columnesArgs); // nombre de columnes que s'acabara mostrant.
+      float longColumnaX = gWidth / numColumnesX; // longitud horitzontal de cadascuna de les columnes
       float increment = (float) columnesArgs / (float) numColumnesX;
       int[] puntsDePas = new int[numColumnesX + 2];
       int i = 0;
-      for (float f = 0.0f; f <= columnesArgs + 1; f += increment) puntsDePas[i++] = Math.round(f);
+      for (float f = 0.0f; f <= columnesArgs + 1; f += increment)
+        puntsDePas[i++] = Math.round(f);
 
       int[] abscises = new int[numArgs];
       int j = 0; // j indicara quantes columnes completes hem fet
@@ -312,8 +293,7 @@ public class Img extends BasicReport {
       }
       j = 0;
       Date dataFinal = null;
-      boolean validat =
-          true; // De moment mostrem les dades, quan trobem una a la que no te acces pararem.
+      boolean validat = true; // De moment mostrem les dades, quan trobem una a la que no te acces pararem.
       for (i = 0; i < columnesArgs && validat; i++) {
         SessionData sd1 = v.get(i);
         SessionData sd2 = v.get(i + 1);
@@ -321,46 +301,30 @@ public class Img extends BasicReport {
         if (puntsDePas[j] == i) { // mostrem punt i columna
           g2.setColor(TEXT_COLOR);
           g2.setStroke(THIN_STROKE);
-          g2.drawLine(
-              box.x + abscises[i], box.y + MARGE_Y, box.x + abscises[i], box.y + MARGE_Y + gHeight);
+          g2.drawLine(box.x + abscises[i], box.y + MARGE_Y, box.x + abscises[i], box.y + MARGE_Y + gHeight);
         }
         g2.setStroke(BOLD_STROKE);
         g2.setColor(V2_COLOR);
-        g2.drawLine(
-            box.x + abscises[i],
-                (int) (box.y + MARGE_Y + gHeight - ((sd1.percentSolved() * gHeight) / 100)),
-            box.x + abscises[i + 1],
-                (int) (box.y + MARGE_Y + gHeight - ((sd2.percentSolved() * gHeight) / 100)));
+        g2.drawLine(box.x + abscises[i], (int) (box.y + MARGE_Y + gHeight - ((sd1.percentSolved() * gHeight) / 100)),
+            box.x + abscises[i + 1], (int) (box.y + MARGE_Y + gHeight - ((sd2.percentSolved() * gHeight) / 100)));
         g2.setColor(V1_COLOR);
-        g2.drawLine(
-            box.x + abscises[i],
-                (int) (box.y + MARGE_Y + gHeight - ((sd1.percentPrec() * gHeight) / 100)),
-            box.x + abscises[i + 1],
-                (int) (box.y + MARGE_Y + gHeight - ((sd2.percentPrec() * gHeight) / 100)));
+        g2.drawLine(box.x + abscises[i], (int) (box.y + MARGE_Y + gHeight - ((sd1.percentPrec() * gHeight) / 100)),
+            box.x + abscises[i + 1], (int) (box.y + MARGE_Y + gHeight - ((sd2.percentPrec() * gHeight) / 100)));
         if (puntsDePas[j] == i) { // mostrem punt i columna
           g2.setColor(TEXT_COLOR);
-          g2.drawString(
-              veryShortDateFormat.format(sd1.date),
-              box.x + abscises[i],
-              box.y + MARGE_Y + gHeight + 15);
+          g2.drawString(veryShortDateFormat.format(sd1.date), box.x + abscises[i], box.y + MARGE_Y + gHeight + 15);
           j++;
         }
         dataFinal = sd2.date;
       }
       g2.setColor(TEXT_COLOR);
-      g2.drawString(
-          veryShortDateFormat.format(dataFinal),
-          box.x + abscises[i],
-          box.y + MARGE_Y + gHeight + 15);
+      g2.drawString(veryShortDateFormat.format(dataFinal), box.x + abscises[i], box.y + MARGE_Y + gHeight + 15);
     } else {
       String noDades = bundle.getString("report_no_data");
       g2.setColor(ALERT_COLOR);
       g2.setFont(ALERT_FONT);
       Rectangle r = ALERT_FONT.getStringBounds(noDades, g2.getFontRenderContext()).getBounds();
-      g2.drawString(
-          noDades,
-          box.x + MARGE_X + (gWidth - r.width) / 2,
-          box.y + MARGE_Y + gHeight / 2 + r.height / 4);
+      g2.drawString(noDades, box.x + MARGE_X + (gWidth - r.width) / 2, box.y + MARGE_Y + gHeight / 2 + r.height / 4);
     }
   }
 
@@ -393,11 +357,13 @@ public class Img extends BasicReport {
     float max = 0.0f, maxOrdenades = 0.0f, maxDivisio = 0.0f;
 
     boolean data = false;
-    for (int i = 0; i < dist.length && data == false; i++) data = (dist[i] > 0);
+    for (int i = 0; i < dist.length && data == false; i++)
+      data = (dist[i] > 0);
 
     if (data) {
       max = dist[0];
-      for (int i = 1; i < dist.length; i++) max = Math.max(max, dist[i]);
+      for (int i = 1; i < dist.length; i++)
+        max = Math.max(max, dist[i]);
       maxOrdenades = getMaximOrdenades(max, false);
       maxDivisio = getMaximOrdenades(max, true);
       String sNum = formatNumber(maxDivisio);
@@ -410,66 +376,51 @@ public class Img extends BasicReport {
 
     if (data) {
       int numDivisionsY = 0;
-      for (float f = max; f > 0.01; f -= maxDivisio) numDivisionsY++;
+      for (float f = max; f > 0.01; f -= maxDivisio)
+        numDivisionsY++;
 
       if (numDivisionsY > 0) {
         float longdivisioY = gHeight / numDivisionsY;
         for (int i = 1; i < numDivisionsY; i++) { // Posem les linies horitzontals
-          g2.drawLine(
-              box.x + leftMargin, box.y + topMargin + (int) (i * longdivisioY),
-              box.x + leftMargin + gWidth, box.y + topMargin + (int) (i * longdivisioY));
+          g2.drawLine(box.x + leftMargin, box.y + topMargin + (int) (i * longdivisioY), box.x + leftMargin + gWidth,
+              box.y + topMargin + (int) (i * longdivisioY));
         }
         for (int i = 0; i <= numDivisionsY; i++) { // Posem els valors horitzontals en %
           float num = (maxDivisio * numDivisionsY) - (i * maxDivisio);
           String sNum = formatNumber(num);
-          g2.drawString(
-              sNum,
-              box.x + leftMargin - 5 - (g2.getFontMetrics().stringWidth(sNum)),
+          g2.drawString(sNum, box.x + leftMargin - 5 - (g2.getFontMetrics().stringWidth(sNum)),
               box.y + topMargin + (int) (longdivisioY * i) + 3);
         }
       }
 
-      float longColumnaX =
-          gWidth / N_DIST_ELEMENTS; // longitud horitzontal de cadascuna de les columnes
+      float longColumnaX = gWidth / N_DIST_ELEMENTS; // longitud horitzontal de cadascuna de les columnes
       for (int i = 0; i < N_DIST_ELEMENTS; i++) {
         g2.setColor(TEXT_COLOR);
         g2.setStroke(THIN_STROKE);
-        g2.drawLine(
-            box.x + leftMargin + (int) (i * longColumnaX), box.y + topMargin,
+        g2.drawLine(box.x + leftMargin + (int) (i * longColumnaX), box.y + topMargin,
             box.x + leftMargin + (int) (i * longColumnaX), box.y + topMargin + gHeight);
         StringBuilder sb = new StringBuilder(Integer.toString(i * 20));
         sb.append("%");
-        g2.drawString(
-            sb.substring(0),
-            box.x + leftMargin + (int) (i * longColumnaX),
-            box.y + topMargin + gHeight + 15);
+        g2.drawString(sb.substring(0), box.x + leftMargin + (int) (i * longColumnaX), box.y + topMargin + gHeight + 15);
         g2.setColor(DIST_COLOR);
         int alt = ((dist[i] * 100 / (int) (maxDivisio * numDivisionsY) * gHeight) - 1) / 100;
-        int ample =
-            (i == (N_DIST_ELEMENTS - 1))
-                ? (int) (gWidth - (longColumnaX * i) - 1)
-                : (int) (longColumnaX - 1);
-        g2.fillRect(
-            box.x + leftMargin + (int) (i * longColumnaX) + 1,
-            box.y + topMargin + gHeight - alt,
-            ample,
-            alt);
+        int ample = (i == (N_DIST_ELEMENTS - 1)) ? (int) (gWidth - (longColumnaX * i) - 1) : (int) (longColumnaX - 1);
+        g2.fillRect(box.x + leftMargin + (int) (i * longColumnaX) + 1, box.y + topMargin + gHeight - alt, ample, alt);
       }
     } else {
       String noDades = bundle.getString("report_no_data");
       g2.setColor(ALERT_COLOR);
       g2.setFont(STD_FONT);
       Rectangle r = STD_FONT.getStringBounds(noDades, g2.getFontRenderContext()).getBounds();
-      g2.drawString(
-          noDades,
-          box.x + leftMargin + (gWidth - r.width) / 2,
+      g2.drawString(noDades, box.x + leftMargin + (gWidth - r.width) / 2,
           box.y + topMargin + gHeight / 2 + r.height / 4);
     }
   }
 
   public static float getMaximOrdenades(float maxim, boolean divisio) {
     float f = maxim * 100;
-    if (divisio) f /= 6;
+    if (divisio)
+      f /= 6;
     int i = (int) f; // enter entre 0 i 9 de mes a l'esquerra de f.
     int xifresTretes = 0;
     while (i > 9) {
@@ -477,10 +428,14 @@ public class Img extends BasicReport {
       f = f / 10;
       xifresTretes++;
     }
-    if (i == 1) i = 2;
-    else if (i > 1 && i < 5) i = 5;
-    else i = 10; // i>=5 || i==0
-    for (int k = 1; k < xifresTretes; k++) i *= 10;
+    if (i == 1)
+      i = 2;
+    else if (i > 1 && i < 5)
+      i = 5;
+    else
+      i = 10;
+    for (int k = 1; k < xifresTretes; k++)
+      i *= 10;
     return ((float) i) / 100;
   }
 

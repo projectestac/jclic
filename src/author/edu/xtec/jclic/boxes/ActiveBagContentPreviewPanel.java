@@ -53,7 +53,7 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
   TextGrid[] grid = new TextGrid[2];
   ActiveBagContent[] abc = new ActiveBagContent[2];
   ActiveBagContent[] altAbc = new ActiveBagContent[2];
-  ActiveBagContent[][] allAbc = new ActiveBagContent[][] {abc, altAbc};
+  ActiveBagContent[][] allAbc = new ActiveBagContent[][] { abc, altAbc };
   TextGridContent[] tgc = new TextGridContent[2];
   MediaBagEditor mbe;
   boolean[] allowResize = new boolean[2];
@@ -86,19 +86,15 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
     currentLine = -1;
     highlightLine = -1;
     editMode = EDIT_GRIDS;
-    enableEvents(
-        AWTEvent.MOUSE_EVENT_MASK | AWTEvent.MOUSE_MOTION_EVENT_MASK | AWTEvent.KEY_EVENT_MASK);
+    enableEvents(AWTEvent.MOUSE_EVENT_MASK | AWTEvent.MOUSE_MOTION_EVENT_MASK | AWTEvent.KEY_EVENT_MASK);
     addFocusListener(this);
   }
 
   /*
    * ATENCIO: DEPRECATED A Java 1.4!!
    *
-  public boolean isFocusTraversable(){
-      if(grid[0]!=null || grid[1]!=null)
-          return true;
-      return super.isFocusTraversable();
-  }
+   * public boolean isFocusTraversable(){ if(grid[0]!=null || grid[1]!=null)
+   * return true; return super.isFocusTraversable(); }
    */
 
   public AbstractBox getAbstractBox(int index) {
@@ -109,8 +105,7 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
     return crossWord;
   }
 
-  public void setActiveBagContent(
-      int index, ActiveBagContent abcx, ActiveBagContent altAbcx, TextGridContent tgcx) {
+  public void setActiveBagContent(int index, ActiveBagContent abcx, ActiveBagContent altAbcx, TextGridContent tgcx) {
     abc[index] = abcx;
     altAbc[index] = altAbcx;
     tgc[index] = tgcx;
@@ -121,7 +116,8 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
       grid[index] = TextGrid.createEmptyGrid(null, this, margin, margin, tgc[index], false);
       bg[index] = grid[index];
       grid[index].setChars(tgc[index].text);
-      if (crossWord) grid[index].setCellAttributes(true, false);
+      if (crossWord)
+        grid[index].setCellAttributes(true, false);
       grid[index].setCursorAt(0, 0, false);
       grid[index].setCursorEnabled(true);
       checkCursor(false);
@@ -131,16 +127,14 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
       bg[1] = abg[1];
       ActiveBox ab = new ActiveBox(abg[1], this, null);
       ActiveBoxContent abct = new ActiveBoxContent();
-      abct.setImgContent(
-          edu.xtec.util.ResourceManager.getImageIcon("buttons/textright.png").getImage(), null);
+      abct.setImgContent(edu.xtec.util.ResourceManager.getImageIcon("buttons/textright.png").getImage(), null);
       ab.setContent(abct);
       abg[1].addActiveBox(ab);
       hClue = new ActiveBox(abg[1], this, null);
       abg[1].addActiveBox(hClue);
       ab = new ActiveBox(abg[1], this, null);
       abct = new ActiveBoxContent();
-      abct.setImgContent(
-          edu.xtec.util.ResourceManager.getImageIcon("buttons/textdown.png").getImage(), null);
+      abct.setImgContent(edu.xtec.util.ResourceManager.getImageIcon("buttons/textdown.png").getImage(), null);
       ab.setContent(abct);
       abg[1].addActiveBox(ab);
       vClue = new ActiveBox(abg[1], this, null);
@@ -156,14 +150,15 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
       allowResize[index] = (abc[index].img == null);
     }
 
-    if (bg[index] != null) bg[index].setVisible(true);
+    if (bg[index] != null)
+      bg[index].setVisible(true);
     /*
-    if(index==0 && bg[index]!=null && abcx!=null){
-        activeLineColor=bg[index].getBoxBaseResolve().textColor;
-        bc.lineColor=activeLineColor;
-    }
+     * if(index==0 && bg[index]!=null && abcx!=null){
+     * activeLineColor=bg[index].getBoxBaseResolve().textColor;
+     * bc.lineColor=activeLineColor; }
      */
-    if (bc.active) bc.end();
+    if (bc.active)
+      bc.end();
     currentLine = -1;
     highlightLine = -1;
     dragCursorX = false;
@@ -194,8 +189,8 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
 
       abg[1].recalcSize();
       /*
-      abg[1].width = rowDist ? (2*CrossWord.LABEL_WIDTH)+2*w : CrossWord.LABEL_WIDTH+w;
-      abg[1].height = rowDist ? h : 2*h;
+       * abg[1].width = rowDist ? (2*CrossWord.LABEL_WIDTH)+2*w :
+       * CrossWord.LABEL_WIDTH+w; abg[1].height = rowDist ? h : 2*h;
        */
     }
   }
@@ -205,7 +200,8 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
     if (bg[0] != null) {
       if (bg[1] != null)
         BoxBag.layoutDouble(getSize(), (Resizable) bg[0], (Resizable) bg[1], boxGridPos, margin);
-      else BoxBag.layoutSingle(getSize(), (Resizable) bg[0], margin);
+      else
+        BoxBag.layoutSingle(getSize(), (Resizable) bg[0], margin);
     }
   }
 
@@ -218,15 +214,20 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
       g2.setRenderingHints(Constants.DEFAULT_RENDERING_HINTS);
       while (true) {
         BoxBase.flagFontReduced = false;
-        for (int i = 0; i < 2; i++) if (bg[i] != null) bg[i].update(g2, g2.getClipBounds(), this);
-        if (!BoxBase.flagFontReduced) break;
+        for (int i = 0; i < 2; i++)
+          if (bg[i] != null)
+            bg[i].update(g2, g2.getClipBounds(), this);
+        if (!BoxBase.flagFontReduced)
+          break;
       }
 
       if (editMode == EDIT_LINKS && abg[1] != null && abc[0] != null) {
         for (int i = 0; i < abc[0].getNumCells(); i++) {
-          if (showAllArrows && i != currentLine && i != highlightLine) drawArrow(g2, i);
+          if (showAllArrows && i != currentLine && i != highlightLine)
+            drawArrow(g2, i);
         }
-        if (highlightLine >= 0) drawArrow(g2, highlightLine);
+        if (highlightLine >= 0)
+          drawArrow(g2, highlightLine);
 
         bc.update(g2, g2.getClipBounds(), this);
       }
@@ -235,22 +236,17 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
   }
 
   private void drawArrow(Graphics2D g2, int i) {
-    if (abg[0] == null || abg[1] == null) return;
+    if (abg[0] == null || abg[1] == null)
+      return;
     ActiveBox bx = abg[0].getActiveBox(i);
     int id = abc[0].getActiveBoxContent(i).id;
     if (id >= 0 && id < abc[1].getNumCells()) {
       ActiveBox bx2 = abg[1].getActiveBox(id);
       if (bx != null && bx2 != null) {
-        BoxConnector.drawLine(
-            g2,
-            new Point2D.Double(bx.getX() + bx.getWidth() / 2, bx.getY() + bx.getHeight() / 2),
-            new Point2D.Double(bx2.getX() + bx2.getWidth() / 2, bx2.getY() + bx2.getHeight() / 2),
-            true,
-            (i == highlightLine ? activeLineColor : softLineColor),
-            arrowColor,
-            BoxConnector.ARROW_L,
-            BoxConnector.ARROW_ANGLE,
-            (i == highlightLine ? ARROW_WIDTH : BoxConnector.LINE_WIDTH));
+        BoxConnector.drawLine(g2, new Point2D.Double(bx.getX() + bx.getWidth() / 2, bx.getY() + bx.getHeight() / 2),
+            new Point2D.Double(bx2.getX() + bx2.getWidth() / 2, bx2.getY() + bx2.getHeight() / 2), true,
+            (i == highlightLine ? activeLineColor : softLineColor), arrowColor, BoxConnector.ARROW_L,
+            BoxConnector.ARROW_ANGLE, (i == highlightLine ? ARROW_WIDTH : BoxConnector.LINE_WIDTH));
       }
     }
   }
@@ -265,20 +261,21 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
     if (bg[0] != null) {
       if (e instanceof MouseEvent) {
         switch (editMode) {
-          case EDIT_GRIDS:
-            consumed = processMouseGrids((MouseEvent) e);
-            break;
-          case EDIT_LINKS:
-            consumed = processMouseLinks((MouseEvent) e);
-            break;
-          case EDIT_BOOL:
-            consumed = processMouseBool((MouseEvent) e);
-            break;
+        case EDIT_GRIDS:
+          consumed = processMouseGrids((MouseEvent) e);
+          break;
+        case EDIT_LINKS:
+          consumed = processMouseLinks((MouseEvent) e);
+          break;
+        case EDIT_BOOL:
+          consumed = processMouseBool((MouseEvent) e);
+          break;
         }
       } else if (e instanceof KeyEvent && (grid[0] != null || grid[1] != null))
         consumed = processKey((KeyEvent) e);
     }
-    if (!consumed) super.processEvent(e);
+    if (!consumed)
+      super.processEvent(e);
   }
 
   private boolean processMouseGrids(MouseEvent ev) {
@@ -287,9 +284,12 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
     int id = ev.getID();
     int index = cgrid;
     if (!dragging && (id == MouseEvent.MOUSE_MOVED || id == MouseEvent.MOUSE_PRESSED)) {
-      if (bg[0] != null && bg[0].contains(p)) index = 0;
-      else if (bg[1] != null && bg[1].contains(p)) index = 1;
-      else index = -1;
+      if (bg[0] != null && bg[0].contains(p))
+        index = 0;
+      else if (bg[1] != null && bg[1].contains(p))
+        index = 1;
+      else
+        index = -1;
     }
 
     AbstractBox xbox = index >= 0 ? bg[index] : null;
@@ -297,100 +297,94 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
     TextGrid xgrid = (grid[0] == xbox ? grid[0] : (grid[1] == xbox ? grid[1] : null));
 
     switch (ev.getID()) {
-      case MouseEvent.MOUSE_MOVED:
-        if (!dragging) {
-          Cursor newCursor = null;
-          if (xbox != null && allowResize[index]) {
-            dragCursorX =
-                Math.abs(p.x - xbox.x - xbox.width) < 5
-                    && p.y >= xbox.y
-                    && p.y < (xbox.y + xbox.height + 5);
-            dragCursorY =
-                Math.abs(p.y - xbox.y - xbox.height) < 5
-                    && p.x >= xbox.x
-                    && p.x < (xbox.x + xbox.width + 5);
-            if (dragCursorX && dragCursorY)
-              newCursor = Cursor.getPredefinedCursor(Cursor.NW_RESIZE_CURSOR);
-            else if (dragCursorY) newCursor = Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR);
-            else if (dragCursorX) newCursor = Cursor.getPredefinedCursor(Cursor.E_RESIZE_CURSOR);
-          }
-          if (newCursor == null && xbg != null && xbg.findActiveBox(p) != null)
-            newCursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
-
-          setCursor(newCursor);
+    case MouseEvent.MOUSE_MOVED:
+      if (!dragging) {
+        Cursor newCursor = null;
+        if (xbox != null && allowResize[index]) {
+          dragCursorX = Math.abs(p.x - xbox.x - xbox.width) < 5 && p.y >= xbox.y && p.y < (xbox.y + xbox.height + 5);
+          dragCursorY = Math.abs(p.y - xbox.y - xbox.height) < 5 && p.x >= xbox.x && p.x < (xbox.x + xbox.width + 5);
+          if (dragCursorX && dragCursorY)
+            newCursor = Cursor.getPredefinedCursor(Cursor.NW_RESIZE_CURSOR);
+          else if (dragCursorY)
+            newCursor = Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR);
+          else if (dragCursorX)
+            newCursor = Cursor.getPredefinedCursor(Cursor.E_RESIZE_CURSOR);
         }
-        break;
+        if (newCursor == null && xbg != null && xbg.findActiveBox(p) != null)
+          newCursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR);
 
-      case MouseEvent.MOUSE_PRESSED:
-        if (xbox != null) {
-          setPanelSelected(index);
-          if (dragCursorX || dragCursorY) {
-            dragging = true;
-            resizeByDrag(p, false);
-          } else if (xgrid != null) {
-            if (xgrid.contains(p)) {
-              Point pt = xgrid.getLogicalCoords(p);
-              if (pt != null) {
-                setCursorAt(pt.x, pt.y);
-              }
-            }
-          }
-          consumed = true;
-        }
-        break;
+        setCursor(newCursor);
+      }
+      break;
 
-      case MouseEvent.MOUSE_RELEASED:
-        if (xbox != null) {
-          if (dragging) {
-            resizeByDrag(p, true);
-            dragging = false;
-          } else if (xbg != null) {
-            ActiveBox ab = xbg.findActiveBox(p);
-            if (ab != null) {
-              ActiveBoxContent abxcnt = ab.getCurrentContent();
-              int group = -1;
-              int bag = -1;
-              int item = -1;
-              for (int i = 0; i < allAbc.length && item < 0; i++) {
-                for (int j = 0; j < allAbc[i].length && item < 0; j++) {
-                  if (allAbc[i][j] != null) {
-                    item = allAbc[i][j].indexOf(abxcnt);
-                    if (item >= 0) {
-                      bag = j;
-                      group = i;
-                    }
-                  }
-                }
-              }
-              if (item >= 0) {
-                ActiveBoxContent abxc =
-                    ActiveBoxContentEditor.getActiveBoxContent(
-                        abxcnt, this, parent.getOptions(), mbe, ab);
-                if (abxc != null) {
-                  allAbc[group][bag].setActiveBoxContentAt(abxc, item);
-                  setModified(true);
-                  if (!ab.isAlternative()) {
-                    ab.setContent(abxc);
-                  } else {
-                    ab.setAltContent(abxc);
-                  }
-                  // ab.setAlternative(alt);
-                  BoxBase.resetAllFonts();
-                  repaint();
-                }
-              }
-            }
-          }
-          consumed = true;
-        }
-        break;
-
-      case MouseEvent.MOUSE_DRAGGED:
-        if (xbox != null && dragging) {
+    case MouseEvent.MOUSE_PRESSED:
+      if (xbox != null) {
+        setPanelSelected(index);
+        if (dragCursorX || dragCursorY) {
+          dragging = true;
           resizeByDrag(p, false);
-          consumed = true;
+        } else if (xgrid != null) {
+          if (xgrid.contains(p)) {
+            Point pt = xgrid.getLogicalCoords(p);
+            if (pt != null) {
+              setCursorAt(pt.x, pt.y);
+            }
+          }
         }
-        break;
+        consumed = true;
+      }
+      break;
+
+    case MouseEvent.MOUSE_RELEASED:
+      if (xbox != null) {
+        if (dragging) {
+          resizeByDrag(p, true);
+          dragging = false;
+        } else if (xbg != null) {
+          ActiveBox ab = xbg.findActiveBox(p);
+          if (ab != null) {
+            ActiveBoxContent abxcnt = ab.getCurrentContent();
+            int group = -1;
+            int bag = -1;
+            int item = -1;
+            for (int i = 0; i < allAbc.length && item < 0; i++) {
+              for (int j = 0; j < allAbc[i].length && item < 0; j++) {
+                if (allAbc[i][j] != null) {
+                  item = allAbc[i][j].indexOf(abxcnt);
+                  if (item >= 0) {
+                    bag = j;
+                    group = i;
+                  }
+                }
+              }
+            }
+            if (item >= 0) {
+              ActiveBoxContent abxc = ActiveBoxContentEditor.getActiveBoxContent(abxcnt, this, parent.getOptions(), mbe,
+                  ab);
+              if (abxc != null) {
+                allAbc[group][bag].setActiveBoxContentAt(abxc, item);
+                setModified(true);
+                if (!ab.isAlternative()) {
+                  ab.setContent(abxc);
+                } else {
+                  ab.setAltContent(abxc);
+                }
+                BoxBase.resetAllFonts();
+                repaint();
+              }
+            }
+          }
+        }
+        consumed = true;
+      }
+      break;
+
+    case MouseEvent.MOUSE_DRAGGED:
+      if (xbox != null && dragging) {
+        resizeByDrag(p, false);
+        consumed = true;
+      }
+      break;
     }
     return consumed;
   }
@@ -400,46 +394,48 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
     if (abg[0] != null && abg[1] != null) {
       Point pt = ev.getPoint();
       switch (ev.getID()) {
-        case MouseEvent.MOUSE_DRAGGED:
-        case MouseEvent.MOUSE_MOVED:
-          if (bc.active) bc.moveTo(pt);
-          else {
-            int newLine = -1;
-            ActiveBox bx = abg[0].findActiveBox(pt);
-            if (bx != null) {
-              setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-              newLine = bx.idOrder;
-            } else setCursor(null);
+      case MouseEvent.MOUSE_DRAGGED:
+      case MouseEvent.MOUSE_MOVED:
+        if (bc.active)
+          bc.moveTo(pt);
+        else {
+          int newLine = -1;
+          ActiveBox bx = abg[0].findActiveBox(pt);
+          if (bx != null) {
+            setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            newLine = bx.idOrder;
+          } else
+            setCursor(null);
 
-            if (newLine != highlightLine) {
-              highlightLine = newLine;
-              repaint();
-            }
-          }
-          consumed = true;
-          break;
-
-        case MouseEvent.MOUSE_PRESSED:
-          if (bc.active) {
-            bc.end();
-            ActiveBox bx = abg[1].findActiveBox(bc.dest);
-            ActiveBoxContent bc0 = abc[0].getActiveBoxContent(currentLine);
-            bc0.id = (bx == null ? -1 : bx.idOrder);
-            highlightLine = currentLine;
-            currentLine = -1;
-            setModified(true);
+          if (newLine != highlightLine) {
+            highlightLine = newLine;
             repaint();
-          } else {
-            ActiveBox bx = abg[0].findActiveBox(pt);
-            if (bx != null) {
-              highlightLine = -1;
-              currentLine = bx.idOrder;
-              repaint();
-              bc.begin(pt);
-            }
           }
-          consumed = true;
-          break;
+        }
+        consumed = true;
+        break;
+
+      case MouseEvent.MOUSE_PRESSED:
+        if (bc.active) {
+          bc.end();
+          ActiveBox bx = abg[1].findActiveBox(bc.dest);
+          ActiveBoxContent bc0 = abc[0].getActiveBoxContent(currentLine);
+          bc0.id = (bx == null ? -1 : bx.idOrder);
+          highlightLine = currentLine;
+          currentLine = -1;
+          setModified(true);
+          repaint();
+        } else {
+          ActiveBox bx = abg[0].findActiveBox(pt);
+          if (bx != null) {
+            highlightLine = -1;
+            currentLine = bx.idOrder;
+            repaint();
+            bc.begin(pt);
+          }
+        }
+        consumed = true;
+        break;
       }
     }
     return consumed;
@@ -463,8 +459,10 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
       if (ncw > 0 && nch > 0) {
         int w = (int) (bg[cgrid].width / ncw);
         int h = (int) (bg[cgrid].height / nch);
-        if (dragCursorX) w = (int) ((p.x - bg[cgrid].x) / ncw);
-        if (dragCursorY) h = (int) ((p.y - bg[cgrid].y) / nch);
+        if (dragCursorX)
+          w = (int) ((p.x - bg[cgrid].x) / ncw);
+        if (dragCursorY)
+          h = (int) ((p.y - bg[cgrid].y) / nch);
         if (crossWord && cgrid == 1) {
           if (boxGridPos == Activity.AUB || boxGridPos == Activity.BUA) {
             w = (w - 2 * 40) / 2;
@@ -475,27 +473,21 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
         }
         if (w > 10 && h > 10) {
           doResize(cgrid, w, h, finish);
-          if (finish && crossWord) cursorPosChanged();
+          if (finish && crossWord)
+            cursorPosChanged();
         }
       }
     }
 
     /*
-    if(cgrid>=0 && bg[cgrid]!=null
-    && ((abc[cgrid]!=null && abc[cgrid].ncw>0 && abc[cgrid].nch>0)
-    || (tgc[cgrid]!=null && tgc[cgrid].ncw>0 && tgc[cgrid].nch>0))){
-        int ncw = tgc[cgrid]!=null ? tgc[cgrid].ncw : abc[cgrid].ncw;
-        int nch = tgc[cgrid]!=null ? tgc[cgrid].nch : abc[cgrid].nch;
-        int w=(int)(bg[cgrid].width/ncw);
-        int h=(int)(bg[cgrid].height/nch);
-        if(dragCursorX)
-            w=(int)((p.x-bg[cgrid].x)/ncw);
-        if(dragCursorY)
-            h=(int)((p.y-bg[cgrid].y)/nch);
-        if(w>10 && h>10){
-            doResize(cgrid, w, h, finish);
-        }
-    }
+     * if(cgrid>=0 && bg[cgrid]!=null && ((abc[cgrid]!=null && abc[cgrid].ncw>0 &&
+     * abc[cgrid].nch>0) || (tgc[cgrid]!=null && tgc[cgrid].ncw>0 &&
+     * tgc[cgrid].nch>0))){ int ncw = tgc[cgrid]!=null ? tgc[cgrid].ncw :
+     * abc[cgrid].ncw; int nch = tgc[cgrid]!=null ? tgc[cgrid].nch : abc[cgrid].nch;
+     * int w=(int)(bg[cgrid].width/ncw); int h=(int)(bg[cgrid].height/nch);
+     * if(dragCursorX) w=(int)((p.x-bg[cgrid].x)/ncw); if(dragCursorY)
+     * h=(int)((p.y-bg[cgrid].y)/nch); if(w>10 && h>10){ doResize(cgrid, w, h,
+     * finish); } }
      */
 
   }
@@ -519,23 +511,22 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
       } else {
         int ncw = tgc[index] != null ? tgc[index].ncw : abc[index].ncw;
         int nch = tgc[index] != null ? tgc[index].nch : abc[index].nch;
-        Rectangle r =
-            new Rectangle((int) bg[index].getX(), (int) bg[index].getY(), w * ncw, h * nch);
+        Rectangle r = new Rectangle((int) bg[index].getX(), (int) bg[index].getY(), w * ncw, h * nch);
         xbox.setBounds(r);
       }
       if (finish) {
         /*
-        setActiveBagContent(index, abc[index], altAbc[index], tgc[index]);
-        ActiveBoxBag xbg=(xbox==abg[0] ? abg[0] : (xbox==abg[1] ? abg[1] : null));
-        if(xbg!=null && xbg.isAlternative())
-            xbg.setAlternative(true);
+         * setActiveBagContent(index, abc[index], altAbc[index], tgc[index]);
+         * ActiveBoxBag xbg=(xbox==abg[0] ? abg[0] : (xbox==abg[1] ? abg[1] : null));
+         * if(xbg!=null && xbg.isAlternative()) xbg.setAlternative(true);
          */
 
         boolean xbgAlt;
         ActiveBoxBag xbg = (xbox == abg[0] ? abg[0] : (xbox == abg[1] ? abg[1] : null));
         xbgAlt = xbg != null && xbg.isAlternative();
         setActiveBagContent(index, abc[index], altAbc[index], tgc[index]);
-        if (xbgAlt && abg[index] != null) abg[index].setAlternative(true);
+        if (xbgAlt && abg[index] != null)
+          abg[index].setAlternative(true);
       }
       parent.resized(index);
     }
@@ -547,22 +538,22 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
     if (abg[0] != null) {
       ActiveBox bx = abg[0].findActiveBox(ev.getPoint());
       switch (ev.getID()) {
-        case MouseEvent.MOUSE_MOVED:
-          setCursor(bx != null ? Cursor.getPredefinedCursor(Cursor.HAND_CURSOR) : null);
-          consumed = true;
-          break;
+      case MouseEvent.MOUSE_MOVED:
+        setCursor(bx != null ? Cursor.getPredefinedCursor(Cursor.HAND_CURSOR) : null);
+        consumed = true;
+        break;
 
-        case MouseEvent.MOUSE_RELEASED:
-          if (bx != null) {
-            int v = bx.getContent().id;
-            v = v > 0 ? 0 : 1;
-            bx.getContent().id = v;
-            bx.setInverted(v > 0);
-            bx.setMarked(v > 0);
-            setModified(true);
-            consumed = true;
-          }
-          break;
+      case MouseEvent.MOUSE_RELEASED:
+        if (bx != null) {
+          int v = bx.getContent().id;
+          v = v > 0 ? 0 : 1;
+          bx.getContent().id = v;
+          bx.setInverted(v > 0);
+          bx.setMarked(v > 0);
+          setModified(true);
+          consumed = true;
+        }
+        break;
       }
     }
     return consumed;
@@ -651,7 +642,8 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
   }
 
   protected void setCursorAt(int x, int y) {
-    if (cgrid >= 0 && grid[cgrid] != null) grid[cgrid].setCursorAt(x, y, false);
+    if (cgrid >= 0 && grid[cgrid] != null)
+      grid[cgrid].setCursorAt(x, y, false);
     cursorPosChanged();
   }
 
@@ -688,48 +680,52 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
       char ch1 = 0;
 
       switch (e.getID()) {
-        case KeyEvent.KEY_PRESSED:
-          switch (e.getKeyCode()) {
-            case KeyEvent.VK_RIGHT:
-              dx = 1;
-              break;
-            case KeyEvent.VK_LEFT:
-              dx = -1;
-              break;
-            case KeyEvent.VK_DOWN:
-              dy = 1;
-              break;
-            case KeyEvent.VK_UP:
-              dy = -1;
-              break;
-            case KeyEvent.VK_BACK_SPACE:
-              dx = -1;
-              delete = true;
-              moveFirst = true;
-              break;
-            case KeyEvent.VK_DELETE:
-              delete = true;
-              break;
-          }
+      case KeyEvent.KEY_PRESSED:
+        switch (e.getKeyCode()) {
+        case KeyEvent.VK_RIGHT:
+          dx = 1;
           break;
+        case KeyEvent.VK_LEFT:
+          dx = -1;
+          break;
+        case KeyEvent.VK_DOWN:
+          dy = 1;
+          break;
+        case KeyEvent.VK_UP:
+          dy = -1;
+          break;
+        case KeyEvent.VK_BACK_SPACE:
+          dx = -1;
+          delete = true;
+          moveFirst = true;
+          break;
+        case KeyEvent.VK_DELETE:
+          delete = true;
+          break;
+        }
+        break;
 
-        case KeyEvent.KEY_TYPED:
-          char ch0 = e.getKeyChar();
-          int kk = e.getKeyCode();
-          if (cur != null) {
-            dx = 1;
-            if (Character.isLetterOrDigit(ch0)) ch1 = Character.toUpperCase(ch0);
-            else if (ch0 == tgc[cgrid].wild || Character.isSpaceChar(ch0)) delete = true;
-            else dx = 0;
-          }
-          break;
+      case KeyEvent.KEY_TYPED:
+        char ch0 = e.getKeyChar();
+        int kk = e.getKeyCode();
+        if (cur != null) {
+          dx = 1;
+          if (Character.isLetterOrDigit(ch0))
+            ch1 = Character.toUpperCase(ch0);
+          else if (ch0 == tgc[cgrid].wild || Character.isSpaceChar(ch0))
+            delete = true;
+          else
+            dx = 0;
+        }
+        break;
       }
       if (moveFirst && (dx != 0 || dy != 0)) {
         moveCursor(dx, dy);
         cur = grid[cgrid].getCursor();
         consumed = true;
       }
-      if (delete) ch1 = tgc[cgrid].wild;
+      if (delete)
+        ch1 = tgc[cgrid].wild;
       if (ch1 != 0 && cur != null) {
         if (crossWord) {
           checkWildChanges(cur, ch1);
@@ -748,7 +744,8 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
   }
 
   protected void checkWildChanges(Point pt, char ch) {
-    if (!crossWord) return;
+    if (!crossWord)
+      return;
 
     char oldCh = grid[cgrid].getCharAt(pt.x, pt.y);
     boolean deleteWild = (oldCh == tgc[cgrid].wild && ch != oldCh);
@@ -799,8 +796,10 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
   public void checkCursor(boolean forceLost) {
     for (int i = 0; i < 2; i++) {
       if (grid[i] != null) {
-        if (cgrid == i && !forceLost && hasFocus()) grid[i].startCursorBlink();
-        else grid[i].stopCursorBlink();
+        if (cgrid == i && !forceLost && hasFocus())
+          grid[i].startCursorBlink();
+        else
+          grid[i].stopCursorBlink();
       }
     }
   }
@@ -808,7 +807,9 @@ public class ActiveBagContentPreviewPanel extends ResizerPanel implements FocusL
   private void setPanelSelected(int index) {
     cgrid = index;
     parent.panelSelected(cgrid);
-    if (!hasFocus()) requestFocus();
-    else checkCursor(false);
+    if (!hasFocus())
+      requestFocus();
+    else
+      checkCursor(false);
   }
 }

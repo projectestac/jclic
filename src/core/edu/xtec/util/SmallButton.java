@@ -51,14 +51,18 @@ public class SmallButton extends JButton implements MouseListener {
     return 0.5f;
   }
 
-  public void mousePressed(MouseEvent e) {}
+  public void mousePressed(MouseEvent e) {
+  }
 
-  public void mouseReleased(MouseEvent e) {}
+  public void mouseReleased(MouseEvent e) {
+  }
 
-  public void mouseClicked(MouseEvent e) {}
+  public void mouseClicked(MouseEvent e) {
+  }
 
   public void mouseEntered(MouseEvent e) {
-    if (isEnabled()) smb.borderOn = true;
+    if (isEnabled())
+      smb.borderOn = true;
     setOpaque(true);
     repaint();
   }

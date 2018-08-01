@@ -44,7 +44,8 @@ public class ProjectLibraryEditor extends Editor {
   protected void createChildren() {
     ProjectLibrary pl = getProjectLibrary();
     Menu m = pl.getRootMenu();
-    if (m != null) m.getEditor(this);
+    if (m != null)
+      m.getEditor(this);
   }
 
   public Class getEditorPanelClass() {
@@ -60,7 +61,8 @@ public class ProjectLibraryEditor extends Editor {
   }
 
   public static Icon getIcon() {
-    if (icon == null) icon = edu.xtec.util.ResourceManager.getImageIcon("icons/database.gif");
+    if (icon == null)
+      icon = edu.xtec.util.ResourceManager.getImageIcon("icons/database.gif");
     return icon;
   }
 
@@ -78,7 +80,8 @@ public class ProjectLibraryEditor extends Editor {
     if (e instanceof MenuEditor)
       getProjectLibrary().activityBag.addActivity(((MenuEditor) e).getMenu());
     for (int i = 0; i < e.getChildCount(); i++)
-      if (e.getChildAt(i) instanceof MenuEditor) saveMenus(e.getChildAt(i));
+      if (e.getChildAt(i) instanceof MenuEditor)
+        saveMenus(e.getChildAt(i));
   }
 
   @Override

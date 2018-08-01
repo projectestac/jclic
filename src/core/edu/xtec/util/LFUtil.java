@@ -46,23 +46,21 @@ public abstract class LFUtil {
   /** Windows look &amp; feel name */
   public static final String WINDOWS = "windows";
 
-  public static final String[] VALUES = {DEFAULT, SYSTEM, METAL, MOTIF};
+  public static final String[] VALUES = { DEFAULT, SYSTEM, METAL, MOTIF };
 
   /**
    * Sets the app look &amp; feel
    *
-   * @param friendlyName Look &amp; feel name. If null, empty or not recognized this function does
-   *     nohing.
+   * @param friendlyName Look &amp; feel name. If null, empty or not recognized
+   *                     this function does nohing.
    */
   public static void setLookAndFeel(String friendlyName, Component rootComponent) {
     if (friendlyName != null) {
       try {
         if (friendlyName.equals(DEFAULT))
-          setLookAndFeel(
-              null, javax.swing.UIManager.getCrossPlatformLookAndFeelClassName(), rootComponent);
+          setLookAndFeel(null, javax.swing.UIManager.getCrossPlatformLookAndFeelClassName(), rootComponent);
         else if (friendlyName.equals(SYSTEM))
-          setLookAndFeel(
-              null, javax.swing.UIManager.getSystemLookAndFeelClassName(), rootComponent);
+          setLookAndFeel(null, javax.swing.UIManager.getSystemLookAndFeelClassName(), rootComponent);
         else if (friendlyName.equals(METAL))
           setLookAndFeel("javax.swing.plaf", "metal.MetalLookAndFeel", rootComponent);
         else if (friendlyName.equals(MOTIF))
@@ -75,11 +73,11 @@ public abstract class LFUtil {
     }
   }
 
-  private static void setLookAndFeel(String prefix, String className, Component rootComponent)
-      throws Exception {
+  private static void setLookAndFeel(String prefix, String className, Component rootComponent) throws Exception {
     String cl = (prefix != null && prefix.length() > 0) ? prefix + "." + className : className;
     javax.swing.UIManager.setLookAndFeel(cl);
-    if (rootComponent != null) SwingUtilities.updateComponentTreeUI(rootComponent);
+    if (rootComponent != null)
+      SwingUtilities.updateComponentTreeUI(rootComponent);
   }
 
   public static Color getSysColor(String key, Color defaultValue) {
@@ -90,14 +88,16 @@ public abstract class LFUtil {
   public static Color getColor(String key, Color defaultValue) {
     Color result = defaultValue;
     Object o = javax.swing.UIManager.get(key);
-    if (o != null && o instanceof Color) result = (Color) o;
+    if (o != null && o instanceof Color)
+      result = (Color) o;
     return result;
   }
 
   public static Font getFont(String key, Font defaultValue) {
     Font result = defaultValue;
     Object o = javax.swing.UIManager.get(key);
-    if (o != null && o instanceof Font) result = (Font) o;
+    if (o != null && o instanceof Font)
+      result = (Font) o;
     return result;
   }
 }

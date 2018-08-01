@@ -65,8 +65,7 @@ public class SoundButton extends NullableObject {
     super.setObject(value);
     boolean status = (object != null);
     if (preStatus != status)
-      button.setIcon(
-          ResourceManager.getImageIcon(status ? "icons/audio_on.gif" : "icons/audio_off.gif"));
+      button.setIcon(ResourceManager.getImageIcon(status ? "icons/audio_on.gif" : "icons/audio_off.gif"));
   }
 
   @Override
@@ -76,8 +75,8 @@ public class SoundButton extends NullableObject {
 
   @Override
   protected Object editObject(Object o) {
-    if (options == null || mbe == null) return null;
-    // return MediaBagEditorPanel.getMediaName((String)o, options, this, mbe, Utils.ALL_IMAGES_FF);
+    if (options == null || mbe == null)
+      return null;
     return MediaBagSelector.getMediaName((String) o, options, this, mbe, Utils.ALL_SOUNDS_FF);
   }
 }

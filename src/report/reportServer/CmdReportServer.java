@@ -1,3 +1,4 @@
+
 /*
  * File    : CmdReportServer.java
  * Created : 16-jul-2001 20:23
@@ -40,33 +41,16 @@ public class CmdReportServer implements ReportServerEventMaker.Listener, ReportS
   static String iTablePrefix;
   DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM);
 
-  public CmdReportServer(
-      String driver,
-      String url,
-      String user,
-      String pwd,
-      int httpPort,
-      int httpTimeOut,
-      boolean createTables,
-      String tablePrefix)
-      throws Exception {
+  public CmdReportServer(String driver, String url, String user, String pwd, int httpPort, int httpTimeOut,
+      boolean createTables, String tablePrefix) throws Exception {
     showValidCommands();
 
-    // ReportServerJDBCBridge bridge=new ReportServerJDBCBridge(driver, url, user, pwd);
-
-    // ConnectionBeanProvider cbp=new PooledConnectionBeanProvider(driver, url, user, pwd, 2, 5,
-    // "JClicConnectionPool.log", 1.0);
-    // ConnectionBeanProvider cbp=new SingleConnectionBeanProvider(driver, url, user, pwd, true);
-
-    ConnectionBeanProvider cbp =
-        ConnectionBeanProvider.getConnectionBeanProvider(true, driver, url, user, pwd, true);
+    ConnectionBeanProvider cbp = ConnectionBeanProvider.getConnectionBeanProvider(true, driver, url, user, pwd, true);
     ReportServerJDBCBridge bridge = new ReportServerJDBCBridge(cbp, createTables, tablePrefix);
-    reportEventPerformed(
-        new ReportServerEvent(ReportServerEvent.SYSTEM, url, null, ReportServerEvent.CONNECT));
+    reportEventPerformed(new ReportServerEvent(ReportServerEvent.SYSTEM, url, null, ReportServerEvent.CONNECT));
 
     HTTPReportServer httpServer = new HTTPReportServer(new Messages(ReportServer.MSG_BUNDLE));
     httpServer.addListener(this);
-    // httpServer.startServer(bridge, httpPort, timeOut);
     httpServer.startServer(httpPort, httpTimeOut);
 
     BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -85,7 +69,8 @@ public class CmdReportServer implements ReportServerEventMaker.Listener, ReportS
         } else if (s.equalsIgnoreCase("start")) {
           httpServer.startServer(httpPort, httpTimeOut);
         } else if (s.equalsIgnoreCase("exit")) {
-          if (httpServer.serverRunning()) httpServer.stopServer();
+          if (httpServer.serverRunning())
+            httpServer.stopServer();
           loop = false;
         } else {
           showValidCommands();
@@ -93,9 +78,7 @@ public class CmdReportServer implements ReportServerEventMaker.Listener, ReportS
       }
     }
     bridge.end();
-    // bridge=null;
-    reportEventPerformed(
-        new ReportServerEvent(ReportServerEvent.SYSTEM, url, null, ReportServerEvent.DISCONNECT));
+    reportEventPerformed(new ReportServerEvent(ReportServerEvent.SYSTEM, url, null, ReportServerEvent.DISCONNECT));
   }
 
   public static void main(String[] args) {
@@ -130,38 +113,39 @@ public class CmdReportServer implements ReportServerEventMaker.Listener, ReportS
       return;
     }
 
-    iDriver =
-        prop.getProperty(
-            ConnectionBeanProvider.DB_DRIVER,
-            edu.xtec.jclic.report.BasicJDBCBridge.DEFAULT_ODBC_BRIDGE);
-    iUrl =
-        prop.getProperty(
-            ConnectionBeanProvider.DB_SERVER, edu.xtec.jclic.report.BasicJDBCBridge.DEFAULT_DB);
+    iDriver = prop.getProperty(ConnectionBeanProvider.DB_DRIVER,
+        edu.xtec.jclic.report.BasicJDBCBridge.DEFAULT_ODBC_BRIDGE);
+    iUrl = prop.getProperty(ConnectionBeanProvider.DB_SERVER, edu.xtec.jclic.report.BasicJDBCBridge.DEFAULT_DB);
     iUser = prop.getProperty(ConnectionBeanProvider.DB_LOGIN, null);
     iPwd = prop.getProperty(ConnectionBeanProvider.DB_PASSWORD, null);
-    iHttpPort =
-        Integer.parseInt(
-            prop.getProperty(HTTP_PORT, Integer.toString(HTTPReportServer.DEFAULT_PORT)));
-    iHttpTimeout =
-        Integer.parseInt(
-            prop.getProperty(HTTP_TIMEOUT, Integer.toString(HTTPReportServer.DEFAULT_TIMEOUT)));
+    iHttpPort = Integer.parseInt(prop.getProperty(HTTP_PORT, Integer.toString(HTTPReportServer.DEFAULT_PORT)));
+    iHttpTimeout = Integer.parseInt(prop.getProperty(HTTP_TIMEOUT, Integer.toString(HTTPReportServer.DEFAULT_TIMEOUT)));
     iTablePrefix = prop.getProperty(BasicJDBCBridge.TABLE_PREFIX_KEY, null);
-    iCreateTables =
-        "true".equalsIgnoreCase((prop.getProperty(BasicJDBCBridge.CREATE_TABLES_KEY, "true")));
+    iCreateTables = "true".equalsIgnoreCase((prop.getProperty(BasicJDBCBridge.CREATE_TABLES_KEY, "true")));
 
     for (; i < args.length; i++) {
       boolean err = false;
       if (i < args.length - 1) {
-        if (args[i].equals("-driver")) iDriver = args[++i];
-        else if (args[i].equals("-url")) iUrl = args[++i];
-        else if (args[i].equals("-user")) iUser = args[++i];
-        else if (args[i].equals("-pwd")) iPwd = args[++i];
-        else if (args[i].equals("-port")) iHttpPort = Integer.parseInt(args[++i]);
-        else if (args[i].equals("-timeout")) iHttpTimeout = Integer.parseInt(args[++i]);
-        else if (args[i].equals("-prefix")) iTablePrefix = args[++i];
-        else if (args[i].equals("-create")) iCreateTables = "true".equalsIgnoreCase(args[++i]);
-        else err = true;
-      } else err = true;
+        if (args[i].equals("-driver"))
+          iDriver = args[++i];
+        else if (args[i].equals("-url"))
+          iUrl = args[++i];
+        else if (args[i].equals("-user"))
+          iUser = args[++i];
+        else if (args[i].equals("-pwd"))
+          iPwd = args[++i];
+        else if (args[i].equals("-port"))
+          iHttpPort = Integer.parseInt(args[++i]);
+        else if (args[i].equals("-timeout"))
+          iHttpTimeout = Integer.parseInt(args[++i]);
+        else if (args[i].equals("-prefix"))
+          iTablePrefix = args[++i];
+        else if (args[i].equals("-create"))
+          iCreateTables = "true".equalsIgnoreCase(args[++i]);
+        else
+          err = true;
+      } else
+        err = true;
       if (err) {
         System.err.println("Syntax error!");
         displayHelp();
@@ -170,8 +154,7 @@ public class CmdReportServer implements ReportServerEventMaker.Listener, ReportS
     }
 
     try {
-      new CmdReportServer(
-          iDriver, iUrl, iUser, iPwd, iHttpPort, iHttpTimeout, iCreateTables, iTablePrefix);
+      new CmdReportServer(iDriver, iUrl, iUser, iPwd, iHttpPort, iHttpTimeout, iCreateTables, iTablePrefix);
       System.err.println("Report Server closed");
     } catch (Exception ex) {
       System.err.println("Unable to start!\n" + ex);

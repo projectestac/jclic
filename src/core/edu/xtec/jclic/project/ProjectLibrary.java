@@ -50,12 +50,12 @@ public class ProjectLibrary extends JClicProject implements Editable {
     type = LIBRARY_TYPE;
   }
 
-  // public void load(org.jdom.Element e) throws Exception{
   @Override
   public void setProperties(org.jdom.Element e, Object aux) throws Exception {
     type = null;
     super.setProperties(e, aux);
-    if (!LIBRARY_TYPE.equals(type)) throw new Exception(bridge.getMsg("library_badFormat"));
+    if (!LIBRARY_TYPE.equals(type))
+      throw new Exception(bridge.getMsg("library_badFormat"));
   }
 
   public static ProjectLibrary createNewProjectLibrary(ResourceBridge rb, FileSystem fileSystem) {
@@ -65,12 +65,6 @@ public class ProjectLibrary extends JClicProject implements Editable {
     m.name = "main";
     String description = rb.getMsg("library_mainMenu");
     m.description = description;
-    /*
-    edu.xtec.jclic.boxes.ActiveBoxContent initMess=new edu.xtec.jclic.boxes.ActiveBoxContent();
-    initMess.setBoxBase(new edu.xtec.jclic.boxes.BoxBase());
-    initMess.setTextContent(description);
-    m.setMessage(Activity.MSG_TYPE[Activity.MAIN], initMess);
-     */
     ActiveBoxContent[] messages = m.getMessages();
     messages[Activity.MAIN] = new ActiveBoxContent();
     messages[Activity.MAIN].setBoxBase(new BoxBase());
@@ -80,27 +74,24 @@ public class ProjectLibrary extends JClicProject implements Editable {
     return pl;
   }
 
-  public static ProjectLibrary getProjectLibrary(
-      org.jdom.Element e, ResourceBridge rb, FileSystem fileSystem, String fullPath)
-      throws Exception {
+  public static ProjectLibrary getProjectLibrary(org.jdom.Element e, ResourceBridge rb, FileSystem fileSystem,
+      String fullPath) throws Exception {
     ProjectLibrary pl = new ProjectLibrary(rb, fileSystem, fullPath);
-    // pl.load(e);
     pl.setProperties(e, null);
     return pl;
   }
 
-  public static ProjectLibrary loadProjectLibrary(String fullPath, ResourceBridge rb)
-      throws Exception {
+  public static ProjectLibrary loadProjectLibrary(String fullPath, ResourceBridge rb) throws Exception {
     FileSystem fs = FileSystem.createFileSystem(fullPath, rb);
     org.jdom.Document doc = fs.getXMLDocument(FileSystem.getFileNameOf(fullPath));
     ProjectLibrary pl = new ProjectLibrary(rb, fs, fullPath);
-    // pl.load(doc.getRootElement());
     pl.setProperties(doc.getRootElement(), null);
     return pl;
   }
 
   public void save(String path) throws Exception {
-    if (path == null) path = fullPath;
+    if (path == null)
+      path = fullPath;
     FileOutputStream fos = fileSystem.createSecureFileOutputStream(path);
     saveDocument(fos);
     fos.close();
@@ -113,7 +104,6 @@ public class ProjectLibrary extends JClicProject implements Editable {
 
   @Override
   public String getPublicName() {
-    // System.out.println("public name is: "+settings.title);
     return settings.title;
   }
 
@@ -123,8 +113,7 @@ public class ProjectLibrary extends JClicProject implements Editable {
       try {
         ActivitySequenceElement ase = activitySequence.getElement(0, false);
         if (ase != null) {
-          Activity act =
-              Activity.getActivity(activityBag.getElement(ase.getActivityName()).getData(), this);
+          Activity act = Activity.getActivity(activityBag.getElement(ase.getActivityName()).getData(), this);
           if (act instanceof Menu) {
             result = (Menu) act;
           }
@@ -143,14 +132,17 @@ public class ProjectLibrary extends JClicProject implements Editable {
 
   public boolean editProjectLibrary(Object parent) {
     ProjectLibraryDialog pld;
-    if (parent instanceof JDialog) pld = new ProjectLibraryDialog(true, true, (JDialog) parent);
-    else pld = new ProjectLibraryDialog(true, true);
+    if (parent instanceof JDialog)
+      pld = new ProjectLibraryDialog(true, true, (JDialog) parent);
+    else
+      pld = new ProjectLibraryDialog(true, true);
     pld.setVisible(true);
     return pld.accept;
   }
 
   protected JComponent getRbComponent() {
-    if (bridge == null) return null;
+    if (bridge == null)
+      return null;
     return bridge.getComponent();
   }
 
@@ -167,7 +159,6 @@ public class ProjectLibrary extends JClicProject implements Editable {
     EditorTreePanel etp;
     Menu result = null;
     boolean accept = false;
-    // boolean modified=false;
     boolean allowEdit, allowNewMenu;
     Action selectAction, cancelAction;
 
@@ -179,7 +170,6 @@ public class ProjectLibrary extends JClicProject implements Editable {
     }
 
     ProjectLibraryDialog(boolean allowNewMenu, boolean allowEdit) {
-      // super(rb.getComponent(), rb.getMsg(MSG_ID+"caption"), true);
       super(getRbComponent(), getRbMessage(MSG_ID + "caption"), true);
       this.allowEdit = allowEdit;
       this.allowNewMenu = allowNewMenu;
@@ -189,23 +179,21 @@ public class ProjectLibrary extends JClicProject implements Editable {
     protected void init() {
       buildActions();
       pled = (ProjectLibraryEditor) getEditor(null);
-      etp =
-          new EditorTreePanel(
-              pled, bridge.getOptions(), !allowEdit, (allowEdit ? null : Menu.class)) {
-            @Override
-            protected void currentItemChanged() {
-              if (!allowEdit) selectAction.setEnabled(currentItem != null);
-              super.currentItemChanged();
-            }
-          };
+      etp = new EditorTreePanel(pled, bridge.getOptions(), !allowEdit, (allowEdit ? null : Menu.class)) {
+        @Override
+        protected void currentItemChanged() {
+          if (!allowEdit)
+            selectAction.setEnabled(currentItem != null);
+          super.currentItemChanged();
+        }
+      };
       getContentPane().add(etp, BorderLayout.CENTER);
       JPanel buttonsPanel = new JPanel();
       buttonsPanel.add(new JButton(selectAction));
       buttonsPanel.add(new JButton(cancelAction));
       /*
-      if(allowNewMenu  || allowEdit){
-          buttonsPanel.add(new JButton(newFolderAction));
-      }
+       * if(allowNewMenu || allowEdit){ buttonsPanel.add(new
+       * JButton(newFolderAction)); }
        */
       getContentPane().add(buttonsPanel, BorderLayout.SOUTH);
       pack();
@@ -214,54 +202,44 @@ public class ProjectLibrary extends JClicProject implements Editable {
 
     void buildActions() {
       String s = allowEdit ? "select_caption_ok" : "select_caption";
-      selectAction =
-          new AbstractAction(
-              bridge.getMsg(MSG_ID + s),
-              ResourceManager.getImageIcon(
-                  allowEdit ? "icons/commit_changes.gif" : "icons/file_open.gif")) {
-            public void actionPerformed(ActionEvent ev) {
-              if (allowEdit && etp.getCurrentPanel() != null) {
-                etp.getCurrentPanel().save();
-                if (pled.isModified()) {
-                  pled.saveMenus(pled);
-                  try {
-                    save(null);
-                  } catch (Exception ex) {
-                    bridge
-                        .getOptions()
-                        .getMessages()
-                        .showErrorWarning(getParent(), "FILE_ERR_SAVING", fullPath, ex, null);
-                  }
-                }
+      selectAction = new AbstractAction(bridge.getMsg(MSG_ID + s),
+          ResourceManager.getImageIcon(allowEdit ? "icons/commit_changes.gif" : "icons/file_open.gif")) {
+        public void actionPerformed(ActionEvent ev) {
+          if (allowEdit && etp.getCurrentPanel() != null) {
+            etp.getCurrentPanel().save();
+            if (pled.isModified()) {
+              pled.saveMenus(pled);
+              try {
+                save(null);
+              } catch (Exception ex) {
+                bridge.getOptions().getMessages().showErrorWarning(getParent(), "FILE_ERR_SAVING", fullPath, ex, null);
               }
-              if (etp.currentItem != null && etp.currentItem instanceof MenuEditor) {
-                result = ((MenuEditor) etp.currentItem).getMenu();
-              } else {
-                result = null;
-                if (!allowEdit) return;
-              }
-              // modified=etp.modified;
-              accept = true;
-              setVisible(false);
             }
-          };
-      selectAction.putValue(
-          AbstractAction.SHORT_DESCRIPTION, bridge.getMsg(MSG_ID + s + "_tooltip"));
-      if (!allowEdit) selectAction.setEnabled(false);
+          }
+          if (etp.currentItem != null && etp.currentItem instanceof MenuEditor) {
+            result = ((MenuEditor) etp.currentItem).getMenu();
+          } else {
+            result = null;
+            if (!allowEdit)
+              return;
+          }
+          accept = true;
+          setVisible(false);
+        }
+      };
+      selectAction.putValue(AbstractAction.SHORT_DESCRIPTION, bridge.getMsg(MSG_ID + s + "_tooltip"));
+      if (!allowEdit)
+        selectAction.setEnabled(false);
 
-      cancelAction =
-          new AbstractAction(
-              bridge.getMsg(MSG_ID + "cancel_caption"),
-              ResourceManager.getImageIcon("icons/cancel.gif")) {
-            public void actionPerformed(ActionEvent ev) {
-              result = null;
-              // modified=false;
-              accept = false;
-              setVisible(false);
-            }
-          };
-      cancelAction.putValue(
-          AbstractAction.SHORT_DESCRIPTION, bridge.getMsg(MSG_ID + "cancel_tooltip"));
+      cancelAction = new AbstractAction(bridge.getMsg(MSG_ID + "cancel_caption"),
+          ResourceManager.getImageIcon("icons/cancel.gif")) {
+        public void actionPerformed(ActionEvent ev) {
+          result = null;
+          accept = false;
+          setVisible(false);
+        }
+      };
+      cancelAction.putValue(AbstractAction.SHORT_DESCRIPTION, bridge.getMsg(MSG_ID + "cancel_tooltip"));
     }
   }
 }
