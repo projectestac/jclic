@@ -6,7 +6,7 @@
  *
  * JClic - Authoring and playing system for educational activities
  *
- * Copyright (C) 2000 - 2005 Francesc Busquets & Departament
+ * Copyright (C) 2000 - 2018 Francesc Busquets & Departament
  * d'Educacio de la Generalitat de Catalunya
  *
  * This program is free software; you can redistribute it and/or modify
