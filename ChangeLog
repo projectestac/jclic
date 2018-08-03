@@ -1,3 +1,15 @@
+2018-08-03  Francesc Busquets <fbusquets@xtec.cat>
+    *   src/author/edu/xtec/jclic/AppletHtmlCreator.java
+    *   src/author/edu/xtec/jclic/AuthorSettings.java
+    *   src/author/edu/xtec/jclic/bags/MediaBagEditor.java
+    *   src/author/edu/xtec/jclic/bags/MediaBagElementEditorPanel.java
+    *   src/author/edu/xtec/jclic/project/ProjectInstallerEditPanel.java
+    *   src/author/edu/xtec/util/JDomTreePanel.java
+    *   src/core/edu/xtec/jclic/PlayerSettings.java
+    *   src/core/edu/xtec/jclic/fileSystem/FileSystem.java
+    *   src/core/edu/xtec/jclic/project/JClicProject.java
+    *   src/core/edu/xtec/jclic/project/ProjectLibrary.java: Check ZIP file integrity when saving projects
+
 2018-06-11  Francesc Busquets <fbusquets@xtec.cat>
     *   i18n/fromLaunchpad/po/jclic-activities/listactivities_ca.po
     *   i18n/fromLaunchpad/po/jclic-author/AuthorMessages_ca.po

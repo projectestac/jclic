@@ -321,7 +321,7 @@ public class MediaBagEditor extends Editor {
                 }
               }
               try {
-                OutputStream os = zfs.createSecureFileOutputStream(fNameDest);
+                OutputStream os = zfs.createSecureFileOutputStream(fNameDest, false);
                 InputStream is = zfs.getInputStream(fName);
                 StreamIO.writeStreamTo(is, os);
               } catch (Exception ex) {

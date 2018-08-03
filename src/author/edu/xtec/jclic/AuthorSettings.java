@@ -186,7 +186,7 @@ public class AuthorSettings implements edu.xtec.jclic.Constants {
   public void save() {
     if (!readOnly) {
       try {
-        FileOutputStream fos = fileSystem.createSecureFileOutputStream(cfgFile);
+        FileOutputStream fos = fileSystem.createSecureFileOutputStream(cfgFile, false);
         JDomUtility.saveDocument(fos, getJDomElement());
         fos.close();
       } catch (Exception ex) {

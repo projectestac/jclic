@@ -432,7 +432,7 @@ public class ProjectInstallerEditPanel extends javax.swing.JPanel implements Lis
           String fileName = fs.chooseFile(panel.suggestedFileName, true, filters, options, null, parent, false);
           if (fileName != null) {
             try {
-              FileOutputStream fos = fs.createSecureFileOutputStream(fileName);
+              FileOutputStream fos = fs.createSecureFileOutputStream(fileName, false);
               JDomUtility.saveDocument(fos, new org.jdom.Document(result.getJDomElement(false)));
               fos.close();
               exit = true;

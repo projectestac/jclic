@@ -1,12 +1,14 @@
 ## Release notes for JClic (https://projectestac.github.io/jclic)
 =================================================================
 
-###Changes in 0.3.2.9 (Not yet released)
+###Changes in 0.3.2.9 (03-Aug-2018)
 ---------------------------------------------------------------------------------------
+- Check ZIP file integrity when saving projects
 - Write license tags to `project.json` in HTML5 export
 - Enable 'level' in URL media type (opens in _BLANK)
 - HTML5 export includes information about number of activities, media objects and size
 - Updated Catalan translation
+- Updated Java code formatting criteria
 
 ###Changes in 0.3.2.8 (12-Mar-2018)
 ---------------------------------------------------------------------------------------

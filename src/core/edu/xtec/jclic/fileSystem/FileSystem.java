@@ -27,7 +27,10 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.io.*;
 import java.net.*;
+import java.util.Enumeration;
 import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 import javax.swing.JFileChooser;
 
 /**
@@ -174,7 +177,7 @@ public class FileSystem extends Object {
 
   public static boolean isStrUrl(String s) {
     return s != null
-        && (s.startsWith("http:") || s.startsWith("https:") || s.startsWith("ftp:") || s.startsWith("mailto:"));
+            && (s.startsWith("http:") || s.startsWith("https:") || s.startsWith("ftp:") || s.startsWith("mailto:"));
   }
 
   public String getUrl(String fileName) {
@@ -396,7 +399,7 @@ public class FileSystem extends Object {
   }
 
   public String chooseFile(String defaultValue, boolean save, int[] filters, Options options, String titleKey,
-      Component dlgOwner, boolean proposeMove) {
+          Component dlgOwner, boolean proposeMove) {
     String result = null;
     String[] files = chooseFiles(defaultValue, save, filters, options, titleKey, dlgOwner, proposeMove, false);
     if (files != null && files.length > 0) {
@@ -406,7 +409,7 @@ public class FileSystem extends Object {
   }
 
   public String[] chooseFiles(String defaultValue, boolean save, int[] filters, Options options, String titleKey,
-      Component dlgOwner, boolean proposeMove, boolean multiSelection) {
+          Component dlgOwner, boolean proposeMove, boolean multiSelection) {
     String[] result = null;
     FileChooserForFiles chooser;
     if (save) {
@@ -419,9 +422,9 @@ public class FileSystem extends Object {
           msg.showErrorWarning(dlgOwner, "filesystem_saveURLerror", null);
         } else {
           String s = msg.showInputDlg(dlgOwner, "filesystem_enterURL", "URL", "http://",
-              titleKey != null ? titleKey : "filesystem_openURL", false);
+                  titleKey != null ? titleKey : "filesystem_openURL", false);
           if (s != null) {
-            result = new String[] { s };
+            result = new String[]{s};
           }
         }
       } else if ((chooser = getFileChooser(root)) != null) {
@@ -465,7 +468,7 @@ public class FileSystem extends Object {
           }
 
           if (retVal == JFileChooser.APPROVE_OPTION) {
-            File[] files = multiSelection ? chooser.getSelectedFiles() : new File[] { chooser.getSelectedFile() };
+            File[] files = multiSelection ? chooser.getSelectedFiles() : new File[]{chooser.getSelectedFile()};
             result = new String[files.length];
             for (int i = 0; i < files.length; i++) {
               File f = files[i].getAbsoluteFile();
@@ -480,19 +483,19 @@ public class FileSystem extends Object {
               } else {
                 done = msg.confirmReadableFile(dlgOwner, f);
                 if (done && proposeMove && root.length() > 0 && result[i].indexOf(FS) >= 0
-                    && msg.showQuestionDlgObj(dlgOwner,
-                        new String[] { msg.get("filesystem_copyToRoot_1") + " " + result[i],
-                            msg.get("filesystem_copyToRoot_2"), msg.get("filesystem_copyToRoot_3"),
-                            msg.get("filesystem_copyToRoot_4"), },
-                        "CONFIRM", "yn") == Messages.YES) {
+                        && msg.showQuestionDlgObj(dlgOwner,
+                                new String[]{msg.get("filesystem_copyToRoot_1") + " " + result[i],
+                                  msg.get("filesystem_copyToRoot_2"), msg.get("filesystem_copyToRoot_3"),
+                                  msg.get("filesystem_copyToRoot_4"),},
+                                "CONFIRM", "yn") == Messages.YES) {
                   String name = stdFn(f.getName());
                   File destFile = new File(sysFn(getFullFileNamePath(name)));
                   if (msg.confirmOverwriteFile(dlgOwner, destFile, "yn") == Messages.YES) {
                     try {
-                      OutputStream os = createSecureFileOutputStream(name);
+                      OutputStream os = createSecureFileOutputStream(name, false);
                       InputStream is = getInputStream(result[i]);
                       if (StreamIO.writeStreamDlg(is, os, (int) f.length(), msg.get("filesystem_copyFile"), dlgOwner,
-                          options)) {
+                              options)) {
                         result[i] = name;
                       } else if (destFile.exists()) {
                         destFile.delete();
@@ -520,14 +523,18 @@ public class FileSystem extends Object {
   class SecureFileOutputStream extends FileOutputStream {
 
     boolean closed;
+    boolean isZip;
     File tempFile;
     File destFile;
 
-    /** Creates new SecureFileOutputStream */
-    private SecureFileOutputStream(File tempFile, File destFile) throws FileNotFoundException {
+    /**
+     * Creates new SecureFileOutputStream
+     */
+    private SecureFileOutputStream(File tempFile, File destFile, boolean isZip) throws FileNotFoundException {
       super(tempFile);
       this.tempFile = tempFile;
       this.destFile = destFile;
+      this.isZip = isZip;
       closed = false;
     }
 
@@ -537,10 +544,30 @@ public class FileSystem extends Object {
       if (!closed) {
         closed = true;
         if (destFile != null) {
+
+          if (isZip) {
+            // Check ZIP file integrity before continue
+            try {
+              ZipFile zip = new ZipFile(tempFile.getAbsolutePath());
+              Enumeration entries = zip.entries();
+              while (entries.hasMoreElements()) {
+                ZipEntry en = (ZipEntry) entries.nextElement();
+                if (en.getName().length() < 1 || (!en.isDirectory() && en.getSize() < 1)) {
+                  throw new IOException("ZIP file has invalid entries!");
+                }
+              }
+              // Not needed because no input streams requested, but let's enforce security:
+              zip.close();
+            } catch (Exception ex) {
+              throw new IOException("Error writting ZIP file: " + ex.getMessage());
+            }
+          }
+
           boolean isCurrentFs = getFullRoot().equals(stdFn(destFile.getAbsolutePath()));
           if (isCurrentFs) {
             FileSystem.this.close();
           }
+
           if (destFile.exists()) {
             destFile.delete();
           }
@@ -564,7 +591,7 @@ public class FileSystem extends Object {
     }
   }
 
-  public FileOutputStream createSecureFileOutputStream(String fileName) throws IOException {
+  public FileOutputStream createSecureFileOutputStream(String fileName, boolean isZip) throws IOException {
     FileOutputStream result;
     File file = new File(sysFn(getFullFileNamePath(fileName)));
 
@@ -573,14 +600,14 @@ public class FileSystem extends Object {
     // ---------
 
     File tmp = File.createTempFile("tmp", ".tmp", file.getParentFile());
-    result = new SecureFileOutputStream(tmp, file);
+    result = new SecureFileOutputStream(tmp, file, isZip);
     return result;
   }
 
   // 16-Mar-2015: Added maxRecursion and maxFiles to prevent hangs in large file
   // systems
   public static void exploreFiles(String prefix, File f, List<String> v, char pathSep, FileFilter filter,
-      int maxRecursion, int maxFiles) {
+          int maxRecursion, int maxFiles) {
     File[] files = filter == null ? f.listFiles() : f.listFiles(filter);
     StringBuilder sb = new StringBuilder();
     for (File file : files) {
@@ -599,8 +626,9 @@ public class FileSystem extends Object {
         }
         v.add(sb.append(file.getName()).substring(0));
       }
-      if (maxFiles > 0 && v.size() >= maxFiles)
+      if (maxFiles > 0 && v.size() >= maxFiles) {
         break;
+      }
     }
   }
 

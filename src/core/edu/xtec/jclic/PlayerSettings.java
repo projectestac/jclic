@@ -176,7 +176,7 @@ public class PlayerSettings extends Object implements Cloneable, edu.xtec.jclic.
   public void save() {
     if (!readOnly) {
       try {
-        FileOutputStream fos = fileSystem.createSecureFileOutputStream(cfgFile);
+        FileOutputStream fos = fileSystem.createSecureFileOutputStream(cfgFile, false);
         JDomUtility.saveDocument(fos, getJDomElement());
         fos.close();
       } catch (Exception ex) {

@@ -315,7 +315,7 @@ public class AppletHtmlCreator extends javax.swing.JPanel implements ActionListe
       if (fileName != null) {
         try {
           File file = new File(prj.getFileSystem().getFullFileNamePath(fileName));
-          FileOutputStream fos = prj.getFileSystem().createSecureFileOutputStream(fileName);
+          FileOutputStream fos = prj.getFileSystem().createSecureFileOutputStream(fileName, false);
           OutputStreamWriter osw = new OutputStreamWriter(fos, "UTF-8");
           PrintWriter pw = new PrintWriter(osw);
           String s = StrUtils.replace(appletCode, "%ENCODING", /* osw.getEncoding() */ "UTF-8");

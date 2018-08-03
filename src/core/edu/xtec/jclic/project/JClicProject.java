@@ -251,7 +251,7 @@ public class JClicProject extends Object implements Editable, Domable {
     // -------------
 
     String fn = fileSystem.getFullFileNamePath(fileName);
-    FileOutputStream fos = fileSystem.createSecureFileOutputStream(fn);
+    FileOutputStream fos = fileSystem.createSecureFileOutputStream(fn, true);
     saveZipDocument(fos, true);
     fos.close();
     setFileSystem(FileSystem.createFileSystem(fn, bridge));

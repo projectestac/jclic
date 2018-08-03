@@ -309,7 +309,7 @@ public class JDomTreePanel extends javax.swing.JPanel {
     if (result != null) {
       String fullFileName = fs.getFullFileNamePath(result);
       try {
-        FileOutputStream fos = fs.createSecureFileOutputStream(fullFileName);
+        FileOutputStream fos = fs.createSecureFileOutputStream(fullFileName, false);
         JDomUtility.saveDocument(fos, new org.jdom.Document(element));
         fos.close();
         // addRecentFile(fileName);

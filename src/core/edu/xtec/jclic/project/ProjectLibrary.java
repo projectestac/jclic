@@ -92,7 +92,7 @@ public class ProjectLibrary extends JClicProject implements Editable {
   public void save(String path) throws Exception {
     if (path == null)
       path = fullPath;
-    FileOutputStream fos = fileSystem.createSecureFileOutputStream(path);
+    FileOutputStream fos = fileSystem.createSecureFileOutputStream(path, false);
     saveDocument(fos);
     fos.close();
   }

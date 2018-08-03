@@ -407,7 +407,7 @@ public class MediaBagElementEditorPanel extends EditorPanel {
       String fNameDest = zipFileSystem.chooseFile(fName, true, null, options, "FILE_SAVE", this, false);
       if (fNameDest != null) {
         try {
-          OutputStream os = zipFileSystem.createSecureFileOutputStream(fNameDest);
+          OutputStream os = zipFileSystem.createSecureFileOutputStream(fNameDest, false);
           int len = (int) zipFileSystem.getFileLength(fName);
           InputStream is = zipFileSystem.getInputStream(fName);
           StreamIO.writeStreamDlg(is, os, len, options.getMessages().get("filesystem_copyFile"), this, options);
