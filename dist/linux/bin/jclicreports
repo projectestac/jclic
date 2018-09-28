@@ -1,12 +1,11 @@
 #!/bin/sh
 
 # jclicreports wrapper script
-#
-# JClic Reports will use the system's default "java" command.
-# This command points to the JVM currently selected
-# in "update-alternatives". To change it, call before:
-# update-alternatives --config java
-#
 
+# Unset The "LANGUAGE" environment variable
+# to avoid conflicts with the JVM keyboard layout
+export LANGUAGE=""
+
+# Launch JClic Reports
 java -jar /usr/share/java/jclicreports.jar "$@"
 
