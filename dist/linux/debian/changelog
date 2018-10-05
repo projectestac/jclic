@@ -4,7 +4,7 @@ jclic (0.3.2.10-1ppa1) trusty; urgency=low
   * Check core components in delayed event handlers
   * Process HTTP redirects also when protocol changes (from HTTP to HTTPS)
 
- -- Francesc Busquets <francesc@gmail.com>  Mon, 12 Mar 2018 12:00:00 +0100
+ -- Francesc Busquets <francesc@gmail.com>  Fri, 05 Oct 2018 12:00:00 +0100
 
 jclic (0.3.2.9-1ppa1) trusty; urgency=low
 
