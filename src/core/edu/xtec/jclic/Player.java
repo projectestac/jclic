@@ -1018,19 +1018,22 @@ public class Player extends JPanel implements Constants, RunnableComponent, Play
 
     actions[ACTION_NEXT] = new AbstractAction() {
       public void actionPerformed(ActionEvent ev) {
-        history.processJump(project.activitySequence.getJump(false, reporter), false);
+        if(history != null && project != null && project.activitySequence != null)
+          history.processJump(project.activitySequence.getJump(false, reporter), false);
       }
     };
 
     actions[ACTION_PREV] = new AbstractAction() {
       public void actionPerformed(ActionEvent ev) {
-        history.processJump(project.activitySequence.getJump(true, reporter), false);
+        if(history != null && project != null && project.activitySequence != null)
+          history.processJump(project.activitySequence.getJump(true, reporter), false);
       }
     };
 
     actions[ACTION_RETURN] = new AbstractAction() {
       public void actionPerformed(ActionEvent ev) {
-        history.pop();
+        if(history != null)
+          history.pop();
       }
     };
 
