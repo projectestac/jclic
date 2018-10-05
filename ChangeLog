@@ -1,3 +1,12 @@
+2018-10-05  Francesc Busquets <fbusquets@xtec.cat>
+    *   src/core/edu/xtec/jclic/Player.java: Check core components in delayed event handlers
+    *   src/core/edu/xtec/jclic/fileSystem/FileSystem.java: Process HTTP redirects also when protocol changes (from HTTP to HTTPS)
+    *   dist/linux/bin/jclic
+    *   dist/linux/bin/jclicauthor
+    *   dist/linux/bin/jclic
+    *   dist/linux/bin/jclicreports: Avoid incorrect keyboard layout settings caused by the 'LANGUAGE' environment variable
+    *   dist/jclic/launchApplet.js: Updated launchApplet script
+
 2018-08-03  Francesc Busquets <fbusquets@xtec.cat>
     *   src/author/edu/xtec/jclic/AppletHtmlCreator.java
     *   src/author/edu/xtec/jclic/AuthorSettings.java

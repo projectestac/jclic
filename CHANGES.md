@@ -1,6 +1,13 @@
 ## Release notes for JClic (https://projectestac.github.io/jclic)
 =================================================================
 
+###Changes in 0.3.2.10 (05-Oct-2018)
+---------------------------------------------------------------------------------------
+- Check core components in delayed event handlers
+- Process HTTP redirects also when protocol changes (from HTTP to HTTPS)
+- Linux: Avoid incorrect keyboard layout settings caused by the 'LANGUAGE' environment variable
+- Updated "launchApplet" script
+
 ###Changes in 0.3.2.9 (03-Aug-2018)
 ---------------------------------------------------------------------------------------
 - Check ZIP file integrity when saving projects

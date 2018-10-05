@@ -1,6 +1,8 @@
 jclic (0.3.2.10-1ppa1) trusty; urgency=low
 
-  * Avoid incorrect keyboard layout settings caused by the 'LANGUAGE' environment variable
+  * Avoid incorrect keyboard layout settings
+  * Check core components in delayed event handlers
+  * Process HTTP redirects also when protocol changes (from HTTP to HTTPS)
 
  -- Francesc Busquets <francesc@gmail.com>  Mon, 12 Mar 2018 12:00:00 +0100
 
