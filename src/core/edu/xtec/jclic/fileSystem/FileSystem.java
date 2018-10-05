@@ -322,6 +322,23 @@ public class FileSystem extends Object {
       // https://github.com/projectestac/jclic/issues/5
       URL url = new URL(getFullFileNamePath(fName).replace(" ", "%20"));
       URLConnection c = url.openConnection();
+      if(c instanceof HttpURLConnection) {
+        HttpURLConnection hc = (HttpURLConnection)c;
+        int status = hc.getResponseCode();
+        if(status != HttpURLConnection.HTTP_OK) {
+          // Manually handle redirect from HTTP to HTTPS due to https://bugs.java.com/bugdatabase/view_bug.do?bug_id=4959149
+          if (status < 300 || status > 308)
+            throw new java.io.FileNotFoundException("HTTP error " + status + ": " + hc.getResponseMessage());
+          String redirectLocation = hc.getHeaderField("Location");
+          if(redirectLocation == null || redirectLocation.trim().length() == 0)
+            throw new java.net.UnknownServiceException("Redirect without 'Location'");
+          if(root.startsWith("http:") && redirectLocation.startsWith("https:"))
+            // HTTP to HTTPS redirection: Change root protocol for future requests
+            root = "https:" + root.substring(5);
+          url = new URL(redirectLocation);
+          c = url.openConnection();
+        }
+      }
       length = c.getContentLength();
       result = c.getInputStream();
     } else {
