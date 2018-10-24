@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+" codebase="https://clic.xtec.cat/dist/jclic/"> 
+  <information>
+    <title>$$title</title>
+    <vendor>XTEC</vendor>
+    <homepage href="https://clic.xtec.cat"/>
+    <description>JClic activities "$$title"</description> 
+    <icon height="32" href="jclic_32x32.png" width="32"/>
+    <icon href="splash_player.png" kind="splash"/>
+    <icon height="64" href="jclic_64x64.png" width="64"/>
+  </information>
+  <security>
+    <all-permissions/>
+  </security>
+  <resources>
+    <j2se version="1.7+"/>
+    <jar href="jclic.jar"/>
+  </resources>
+  <application-desc main-class="JClicPlayer">
+    <argument>$$project</argument>
+    <argument>-sequence=$$sequence</argument>
+    <argument>-language=$$lang</argument>
+    <argument>-country=$$country</argument>
+    <argument>-variant=$$variant</argument>
+    <argument>-skin=$$skin</argument>
+    <argument>-reporter=$$reporter</argument>
+    <argument>-reporterParams=$$rParams</argument>
+    <argument>-systemSounds=$$systemSounds</argument>
+  </application-desc> 
+</jnlp>

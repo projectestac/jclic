@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jnlp codebase="http://clic.xtec.cat/jnlp/jclic/" codebase-absolute="http://clic.xtec.cat/jnlp/jclic/" href="author.jnlp" spec="1.0+">
+<jnlp spec="1.0+" codebase="https://clic.xtec.cat/dist/jclic/" href="https://clic.xtec.cat/jnlp/jclic/author.jnlp" version="0.3.2.9">
   <information>
     <title>JClic author</title>
     <vendor>XTEC</vendor>
-    <homepage href="http://clic.xtec.cat"/>
+    <homepage href="https://clic.xtec.cat"/>
     <description>JClic author</description> 
-    <description kind="short">JClic authoring and editing tool</description>
-    <description kind="tooltip">JClic authoring and editing tool</description> 
-    <icon height="32" href="author_32x32.gif" width="32"/>
-    <icon href="splash_author.gif" kind="splash"/>
-    <icon height="64" href="author_64x64.gif" width="64"/>
+    <description kind="short">JClic authoring tool</description>
+    <description kind="tooltip">JClic authoring tool</description> 
+    <icon height="32" href="author_32x32.png" width="32"/>
+    <icon href="splash_author.png" kind="splash"/>
+    <icon height="64" href="author_64x64.png" width="64"/>
     <offline-allowed/>
-    <shortcut online="false">
+    <shortcut online="true">
       <desktop/>
       <menu submenu="JClic"/>
     </shortcut>    
@@ -21,8 +21,9 @@
   </security>
   <resources>
     <j2se version="1.7+" max-heap-size="128m"/>
-    <jar href="jclicauthor.jar" main="true" version="1.3.2.8"/>
-    <jar href="jclic.jar" version="1.3.2.8"/>
+    <jar href="jclicauthor.jar" main="true"/>
+    <jar href="jclic.jar"/>
   </resources>
   <application-desc/>
+  <update check="background" policy="prompt-update"/>  
 </jnlp>

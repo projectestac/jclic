@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jnlp codebase="http://clic.xtec.cat/jnlp/jclic/" codebase-absolute="http://clic.xtec.cat/jnlp/jclic/" href="player.jnlp" spec="1.0+">
+<jnlp spec="1.0+" codebase="https://clic.xtec.cat/dist/jclic/" href="https://clic.xtec.cat/jnlp/jclic/player.jnlp" version="0.3.2.9">
   <information>
     <title>JClic</title>
     <vendor>XTEC</vendor>
-    <homepage href="http://clic.xtec.cat"/>
+    <homepage href="https://clic.xtec.cat"/>
     <description>JClic player</description> 
-    <description kind="short">End-user application that runs JClic projects</description> 
+    <description kind="short">Application for playing JClic projects</description> 
     <description kind="tooltip">JClic player</description> 
-    <icon height="32" href="jclic_32x32.gif" width="32"/>
-    <icon href="splash_player.gif" kind="splash"/>
-    <icon height="64" href="jclic_64x64.gif" width="64"/>
+    <icon height="32" href="jclic_32x32.png" width="32"/>
+    <icon href="splash_player.png" kind="splash"/>
+    <icon height="64" href="jclic_64x64.png" width="64"/>
     <offline-allowed/>
-    <shortcut online="false">
+    <shortcut online="true">
       <desktop/>
       <menu submenu="JClic"/>
     </shortcut>    
@@ -21,7 +21,8 @@
   </security>
   <resources>
     <j2se version="1.7+"/>
-    <jar href="jclic.jar" main="true" version="1.3.2.8"/>
+    <jar href="jclic.jar" main="true"/>
   </resources>
   <application-desc/>
+  <update check="background" policy="prompt-update"/>
 </jnlp>
