@@ -11,7 +11,7 @@
     <icon href="splash_author.png" kind="splash"/>
     <icon height="64" href="author_64x64.png" width="64"/>
     <offline-allowed/>
-    <shortcut online="true">
+    <shortcut install="true">
       <desktop/>
       <menu submenu="JClic"/>
     </shortcut>    
