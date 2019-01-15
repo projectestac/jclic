@@ -1,21 +1,28 @@
-FROM mdelapenya/tomcat-mysql
+FROM tomcat:7-jre8-alpine
 
-COPY ./entrypoint.sh /root/entrypoint.sh
-COPY ./createDatabase.sql /root/createDatabase.sql
+LABEL maintainer="Francesc Busquets <francesc@gmail.com>"
+
+EXPOSE 8080 3306
+VOLUME ["/etc/mysql", "/var/lib/mysql"]
+
+ENV DEBIAN_FRONTEND noninteractive
+ENV MYSQL_DATABASE JClicReports
+ENV MYSQL_USER jclic_user
+ENV MYSQL_PASSWORD jclic_pwd
+ENV MYSQL_SAMPLE_DATA /root/testData.sql
+
+# Retrieve last version of WAR file from clic.xtec.cat
+ADD  https://clic.xtec.cat/dist/reports/jclicreports.war /usr/local/tomcat/webapps/reports.war
+
+# Retrieve mysql connector and store it in Tomcat/lib
+ADD https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.45/mysql-connector-java-5.1.45.jar /usr/local/tomcat/lib/mysql-connector-java.jar
+
+# Install mySQL
+RUN apk add --update mysql mysql-client ttf-dejavu && rm -f /var/cache/apk/*
+
+COPY ./my.cnf /etc/mysql/my.cnf
+COPY ./startMysql.sh /root/startMysql.sh
 COPY ./testData.sql /root/testData.sql
 COPY ./jclicReports.properties /root/jclicReports.properties
 
-# Retrieve last version of WAR file from clic.xtec.cat
-ADD  https://clic.xtec.cat/dist/reports/jclicreports.war /opt/apache-tomcat-7.0.77/webapps/reports.war
-
-
-# Install libmysql-java and create a symlink in Tomcat lib
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && \
-  apt-get -y install libmysql-java && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-  cd /opt/apache-tomcat-7.0.77/lib && \
-  ln -s /usr/share/java/mysql-connector-java.jar .
-
-ENTRYPOINT [ "/root/entrypoint.sh" ]
+CMD [ "/root/startMysql.sh" ]
