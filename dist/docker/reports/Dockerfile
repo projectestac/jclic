@@ -9,7 +9,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV MYSQL_DATABASE JClicReports
 ENV MYSQL_USER jclic_user
 ENV MYSQL_PASSWORD jclic_pwd
-ENV MYSQL_SAMPLE_DATA /root/testData.sql
+# ENV MYSQL_SAMPLE_DATA /root/testData.sql
 
 # Retrieve last version of WAR file from clic.xtec.cat
 ADD  https://clic.xtec.cat/dist/reports/jclicreports.war /usr/local/tomcat/webapps/reports.war
@@ -22,6 +22,8 @@ RUN apk add --update mysql mysql-client ttf-dejavu && rm -f /var/cache/apk/*
 
 COPY ./my.cnf /etc/mysql/my.cnf
 COPY ./startMysql.sh /root/startMysql.sh
+COPY ./loadSampleData.sh /root/loadSampleData.sh
+RUN ln -s /root/loadSampleData.sh /usr/bin/loadSampleData
 COPY ./testData.sql /root/testData.sql
 COPY ./jclicReports.properties /root/jclicReports.properties
 

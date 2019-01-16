@@ -2,8 +2,6 @@
 
 if [ -f /var/lib/mysql/.initialized ]; then
   echo "[i] MySQL already initialized, skipping creation"
-  echo "[i] Starting MySQL..."
-  exec /usr/bin/mysqld --user=root --console &
 else
   echo "[i] MySQL data directory not found or not initialized, creating initial DBs"
 
@@ -52,28 +50,10 @@ EOF
   /usr/bin/mysqld --user=root --bootstrap --verbose=0 < $tfile  
   rm -f $tfile
 
-  echo "[i] Starting MySQL..."
-  /usr/bin/mysqld --user=root --console &
-
-
-  if [ -f $MYSQL_SAMPLE_DATA ]; then  
-    # Returns true once mysql can connect.
-    mysql_ready() {
-        /usr/bin/mysqladmin ping > /dev/null 2>&1
-    }
-
-    while !(mysql_ready)
-    do
-       sleep 3
-       echo "[i] Waiting for mysql ..."
-    done  
-
-    echo "[i] Filling MySQL database with sample data"
-    /usr/bin/mysql -u root JClicReports < $MYSQL_SAMPLE_DATA
-    rm -f $MYSQL_SAMPLE_DATA
-  fi
-
 fi
+
+echo "[i] Starting MySQL..."
+exec /usr/bin/mysqld --user=root --console &
 
 echo "[i] Starting Tomcat"
 exec /usr/local/tomcat/bin/catalina.sh run
