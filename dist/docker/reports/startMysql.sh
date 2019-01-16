@@ -1,9 +1,9 @@
 #!/bin/sh
 
 if [ -f /var/lib/mysql/.initialized ]; then
-  echo "[i] MySQL already initialized, skipping creation"
+  echo "[info] MySQL already initialized, skipping creation"
 else
-  echo "[i] MySQL data directory not found or not initialized, creating initial DBs"
+  echo "[info] MySQL data directory not found or not initialized, creating initial DBs"
 
   mysql_install_db --user=root > /dev/null
 
@@ -11,7 +11,7 @@ else
 
   if [ "$MYSQL_ROOT_PASSWORD" = "" ]; then
     MYSQL_ROOT_PASSWORD=mysql_jclic_pwd
-    echo "[i] MySQL root Password: $MYSQL_ROOT_PASSWORD"
+    echo "[info] MySQL root Password: $MYSQL_ROOT_PASSWORD"
   fi
 
   MYSQL_DATABASE=${MYSQL_DATABASE:-""}
@@ -37,11 +37,11 @@ UPDATE user SET password=PASSWORD("") WHERE user='root' AND host='localhost';
 EOF
 
   if [ "$MYSQL_DATABASE" != "" ]; then
-    echo "[i] Creating database: $MYSQL_DATABASE"
+    echo "[info] Creating database: $MYSQL_DATABASE"
     echo "CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE\` CHARACTER SET utf8 COLLATE utf8_general_ci;" >> $tfile
 
     if [ "$MYSQL_USER" != "" ]; then
-      echo "[i] Creating user: $MYSQL_USER with password $MYSQL_PASSWORD"
+      echo "[info] Creating user: $MYSQL_USER with password $MYSQL_PASSWORD"
       echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* to '$MYSQL_USER'@'%' IDENTIFIED BY '$MYSQL_PASSWORD';" >> $tfile
       echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* to '$MYSQL_USER'@localhost IDENTIFIED BY '$MYSQL_PASSWORD';" >> $tfile
     fi
@@ -52,8 +52,8 @@ EOF
 
 fi
 
-echo "[i] Starting MySQL..."
+echo "[info] Starting MySQL..."
 exec /usr/bin/mysqld --user=root --console &
 
-echo "[i] Starting Tomcat"
+echo "[info] Starting Tomcat"
 exec /usr/local/tomcat/bin/catalina.sh run
