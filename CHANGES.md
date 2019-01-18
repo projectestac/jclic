@@ -1,6 +1,10 @@
 ## Release notes for JClic (https://projectestac.github.io/jclic)
 =================================================================
 
+###New feature: Docker image for JClic Reports (18-Jan-2019)
+---------------------------------------------------------------------------------------
+- A docker image has been created for easy deployment of JClic Reports. See [dist/docker/reports/README.md](https://github.com/projectestac/jclic/tree/master/dist/docker/reports) for more information.
+
 ###Changes in 0.3.2.10 (05-Oct-2018)
 ---------------------------------------------------------------------------------------
 - Check core components in delayed event handlers

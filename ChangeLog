@@ -1,3 +1,8 @@
+2019-01-18  Francesc Busquets <fbusquets@xtec.cat>
+    *   dist/docker/reports: Created docker image for JClic Reports, available in docker hub as: projectestac/jclic-reports
+    *   src/author/edu/xtec/jclic/AuthorSingleFrame.java: Log information about unknown activities when loading projects in JClic Author
+    *   dist/jnlp: Updated JNLP files
+
 2018-10-05  Francesc Busquets <fbusquets@xtec.cat>
     *   src/core/edu/xtec/jclic/Player.java: Check core components in delayed event handlers
     *   src/core/edu/xtec/jclic/fileSystem/FileSystem.java: Process HTTP redirects also when protocol changes (from HTTP to HTTPS)
