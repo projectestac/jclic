@@ -21,10 +21,10 @@ ADD https://repo1.maven.org/maven2/mysql/mysql-connector-java/5.1.45/mysql-conne
 RUN apk add --update mysql mysql-client ttf-dejavu && rm -f /var/cache/apk/*
 
 COPY ./my.cnf /etc/mysql/my.cnf
-COPY ./startMysql.sh /root/startMysql.sh
+COPY ./start.sh /root/start.sh
 COPY ./loadSampleData.sh /root/loadSampleData.sh
 RUN ln -s /root/loadSampleData.sh /usr/bin/loadSampleData
 COPY ./testData.sql /root/testData.sql
 COPY ./jclicReports.properties /root/jclicReports.properties
 
-CMD [ "/root/startMysql.sh" ]
+CMD [ "/root/start.sh" ]
