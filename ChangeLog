@@ -1,3 +1,8 @@
+2019-04-01  Francesc Busquets <fbusquets@xtec.cat>
+    *   src/author/edu/xtec/jclic/project/ProjectFileUtils.java
+    *   src/core/edu/xtec/jclic/bags/MediaBagElement.java: Don't reset the 'animated' flag when exporting to HTML5
+    *   dist/jnlp: Updated JNLP files
+
 2019-01-18  Francesc Busquets <fbusquets@xtec.cat>
     *   dist/docker/reports: Created docker image for JClic Reports, available in docker hub as: projectestac/jclic-reports
     *   src/author/edu/xtec/jclic/AuthorSingleFrame.java: Log information about unknown activities when loading projects in JClic Author
