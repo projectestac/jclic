@@ -175,7 +175,7 @@ public class ProjectFileUtils implements ResourceBridge {
       }
 
       if (renamed && ps != null) {
-        mbe.setFileName(fnv);
+        mbe.justSetFileName(fnv);
         ps.println("Renaming \"" + fn + "\" as \"" + fnv + "\"");
       }
 

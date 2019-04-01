@@ -133,6 +133,10 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
     isGif = fileName.toLowerCase().endsWith(".gif");
   }
 
+  public void justSetFileName(String sName) {
+    fileName = FileSystem.stdFn(sName);
+  }
+  
   public String getFileName() {
     return fileName;
   }
