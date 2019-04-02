@@ -1,3 +1,6 @@
+; Required for Java detection
+!include GetJavaVersion.nsh
+
 ; Product version
 !ifndef PRODUCT_VERSION
 !define PRODUCT_VERSION "0.1.1.8"
@@ -270,7 +273,7 @@ Section "JClic player" Section2
 	File "..\dist\jclic\icons\jclic.ico"
 	SetOutPath "$INSTDIR\"
 	
-    CreateShortCut "$DESKTOP\JClic.lnk" "javaw" "-jar jclic.jar" "$INSTDIR\icons\jclic.ico"
+  CreateShortCut "$DESKTOP\JClic.lnk" "javaw" "-jar jclic.jar" "$INSTDIR\icons\jclic.ico"
 	CreateDirectory "$SMPROGRAMS\JClic"
 	CreateShortCut "$SMPROGRAMS\JClic\JClic.lnk" "javaw" "-jar jclic.jar" "$INSTDIR\icons\jclic.ico"
 	
@@ -539,7 +542,7 @@ Section Uninstall
 	Delete "$INSTDIR\soundspi.jar"
 	Delete "$INSTDIR\utilities.jar"
 	Delete "$INSTDIR\COPYING.txt"
-        Delete "$INSTDIR\LICENSE"
+  Delete "$INSTDIR\LICENSE"
 	Delete "$INSTDIR\CREDITS.txt"
 	Delete "$INSTDIR\CHANGES.txt"
 	Delete "$INSTDIR\HACKING.txt"
@@ -593,30 +596,10 @@ Function .onInit
 FunctionEnd
 
 
-Function CheckJavaVersion
-	ClearErrors
-	ReadRegStr $JAVA_VERSION HKLM "SOFTWARE\JavaSoft\Java Runtime Environment" "CurrentVersion"
-	ReadRegStr $JAVA_HOME HKLM "SOFTWARE\JavaSoft\Java Runtime Environment\$JAVA_VERSION" "JavaHome"
-	
-	IfErrors Check32
-	Goto JavaFound
-
-Check32:
-	ClearErrors
-	ReadRegStr $JAVA_VERSION HKLM "SOFTWARE\WOW6432Node\JavaSoft\Java Runtime Environment" "CurrentVersion"
-	ReadRegStr $JAVA_HOME HKLM "SOFTWARE\WOW6432Node\JavaSoft\Java Runtime Environment\$JAVA_VERSION" "JavaHome"
-	
-	IfErrors CheckJDK
-	Goto JavaFound
-
-CheckJDK:
-	ClearErrors
-	ReadRegStr $JAVA_VERSION HKLM "SOFTWARE\JavaSoft\JDK" "CurrentVersion"
-	ReadRegStr $JAVA_HOME HKLM "SOFTWARE\JavaSoft\JDK\$JAVA_VERSION" "JavaHome"
-	
+Function checkJavaVersion
+  ${GetJavaVersion} $JAVA_VERSION
 	IfErrors NoJava
 	Goto JavaFound
-
 		
 NoJava:
 	MessageBox MB_OK|MB_ICONSTOP "$(noJavaMsg) $(javaNeeded)"
@@ -624,7 +607,6 @@ NoJava:
 GetJava:		
 	ExecShell "open" ${GET_JAVA_URL}
 	Quit
-
 
 JavaFound:
 	Push ${MIN_JAVA_VERSION}
@@ -637,10 +619,9 @@ JavaFound:
 	Goto GetJava
 
 JavaOk:
-	DetailPrint "Found JRE $JAVA_VERSION in path $JAVA_HOME"
-	
-FunctionEnd
+	DetailPrint "Found JRE $JAVA_VERSION"
 
+FunctionEnd
 
 ;-----------------------------------------------------------------------------
  ; CompareVersions
