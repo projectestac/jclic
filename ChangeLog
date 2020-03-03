@@ -11,6 +11,8 @@
     *   dist/linux/debian/jclic.install: Updated desktop icons
     *   src/core/edu/xtec/resources/about/credits.html
     *   src/core/edu/xtec/resources/about/gencat.png: Updated logos and references to the Catalan Ministry of Education
+    *   src/author/edu/xtec/resources/messages/AuthorMessages.properties
+    *   src/core/edu/xtec/resources/activities/listactivities.properties: Changed 'grid' to 'panel' in some contexts
 
 2019-04-01  Francesc Busquets <fbusquets@xtec.cat>
     *   src/author/edu/xtec/jclic/project/ProjectFileUtils.java
