@@ -31,4 +31,3 @@ Icon=/usr/share/pixmaps/jclicauthor.png
 Terminal=false
 Categories=Education;
 StartupNotify=true
-MimeType=application/jclic;
