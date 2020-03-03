@@ -1,7 +1,9 @@
 [Desktop Entry]
+Version=1.0
 Encoding=UTF-8
 Type=Application
 Name=JClic Author
+GenericName=JClic authoring tool
 Comment=Tool to create and modify JClic projects
 Comment[ca]=Eina per crear i modificar projectes JClic
 Comment[es]=Herramienta para crear y modificar proyectos JClic
@@ -22,9 +24,11 @@ Comment[cs]=Aplikace pro vytváření a úpravu JClic aktivit.
 Comment[ast]=Aplicación pa xugar a les xeres de JClic.
 Comment[bs]=Aplikacije za stvaranje i uređivanje JClic aktivnosti.
 Comment[vec]=Programa par prodùxer e modifegar atività de JClic
-Icon=jclicauthor
+Keywords=JClic;game;education;
 Exec=jclicauthor
+TryExec=jclicauthor %U
+Icon=/usr/share/pixmaps/jclicauthor.png
 Terminal=false
-Categories=Education;Java;
+Categories=Education;
 StartupNotify=true
-TryExec=java
+MimeType=application/jclic;

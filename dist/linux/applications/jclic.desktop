@@ -1,7 +1,9 @@
 [Desktop Entry]
+Version=1.0
 Encoding=UTF-8
 Type=Application
 Name=JClic
+GenericName=JClic Player
 Comment=Multimedia educational activities: puzzles, associations, text exercises, crosswords, scrambled letters, etc.
 Comment[ca]=Activitats educatives multimèdia: puzzles, associacions, exercicis de text, mots encreuats, sopes de lletres i altres.
 Comment[es]=Actividades educativas multimedia: puzzles, asociaciones, ejercicios de texto, crucigramas, sopas de letras, etc.
@@ -22,9 +24,11 @@ Comment[cs]=Aplikace pro přehrávání JClic aktivit.
 Comment[ast]=Aplicación pa xugar a les xeres de JClic.
 Comment[bs]=Aplikacije za reprodukciju JClic aktivnosti.
 Comment[vec]=Programa da inviar par mostrar atività de JClic
-Icon=jclic
+Keywords=JClic;game;education;
 Exec=jclic %U
+TryExec=jclic
+Icon=/usr/share/pixmaps/jclic.png
 Terminal=false
-Categories=Education;Java;
+Categories=Education;
 StartupNotify=false
-TryExec=java
+MimeType=application/jclic;

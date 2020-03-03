@@ -1,6 +1,11 @@
 ## Release notes for JClic (https://projectestac.github.io/jclic)
 =================================================================
 
+###Changes in 0.3.2.12 (03-Mar-2020)
+---------------------------------------------------------------------------------------
+- Changed logos and references of the Catalan Ministry of Education "Departament d'Ensenyament" to "Departament d'Educació" (main sponsor of the JClic project)
+- Updated desktop files in .deb package
+
 ###Changes in 0.3.2.11 (01-Apr-2019)
 ---------------------------------------------------------------------------------------
 - Fixed a bug that caused the "animated" attribute of some GIF files to be lost when exporting to HTML5

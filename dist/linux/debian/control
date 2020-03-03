@@ -5,7 +5,7 @@ Maintainer: Francesc Busquets <francesc@gmail.com>
 Build-Depends: debhelper (>= 9)
 Build-Depends-Indep: ant, default-jdk | openjdk-7-jdk | openjdk-8-jdk | openjdk-9-jdk | openjdk-10-jdk | openjdk-11-jdk
 Standards-Version: 3.9.7
-Homepage: http://clic.xtec.cat
+Homepage: https://clic.xtec.cat
 #Vcs-Git: git://git.debian.org/collab-maint/jclic.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/jclic.git;a=summary
 

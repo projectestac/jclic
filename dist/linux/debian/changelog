@@ -1,3 +1,9 @@
+jclic (0.3.2.12-1ppa1) xenial; urgency=low
+
+  * Changed logos and references to the Catalan Ministry of Education
+
+ -- Francesc Busquets <francesc@gmail.com>  Tue, 02 Mar 2020 19:00:00 +0100
+
 jclic (0.3.2.11-1ppa1) trusty; urgency=low
 
   * Fixed an error related to HTML5 exporting of projects with animated GIF files
