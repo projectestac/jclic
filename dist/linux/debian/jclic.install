@@ -5,7 +5,7 @@ dist/linux/applications/jclicauthor.desktop usr/share/applications
 dist/linux/bin/jclic usr/bin
 dist/linux/bin/jclicauthor usr/bin
 dist/linux/bin/jclic-libmanager usr/bin
-dist/linux/pixmaps/jclic.svg usr/share/icons/hicolor/scalable/apps
-dist/linux/pixmaps/jclicauthor.svg usr/share/icons/hicolor/scalable/apps
+dist/linux/pixmaps/jclic.svg usr/share/pixmaps
+dist/linux/pixmaps/jclicauthor.svg usr/share/pixmaps
 dist/linux/pixmaps/jclic.png usr/share/pixmaps
 dist/linux/pixmaps/jclicauthor.png usr/share/pixmaps
