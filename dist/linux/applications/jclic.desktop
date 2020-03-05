@@ -1,6 +1,5 @@
 [Desktop Entry]
 Version=1.0
-Encoding=UTF-8
 Type=Application
 Name=JClic
 GenericName=JClic Player
@@ -27,7 +26,7 @@ Comment[vec]=Programa da inviar par mostrar atività de JClic
 Keywords=JClic;game;education;
 Exec=jclic %U
 TryExec=jclic
-Icon=/usr/share/pixmaps/jclic.svg
+Icon=jclic
 Terminal=false
 Categories=Education;
 StartupNotify=false

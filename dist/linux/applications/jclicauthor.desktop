@@ -1,6 +1,5 @@
 [Desktop Entry]
 Version=1.0
-Encoding=UTF-8
 Type=Application
 Name=JClic Author
 GenericName=JClic authoring tool
@@ -27,7 +26,7 @@ Comment[vec]=Programa par prodùxer e modifegar atività de JClic
 Keywords=JClic;game;education;
 Exec=jclicauthor %U
 TryExec=jclicauthor
-Icon=/usr/share/pixmaps/jclicauthor.svg
+Icon=jclicauthor
 Terminal=false
 Categories=Education;
 StartupNotify=true

@@ -1,6 +1,5 @@
 [Desktop Entry]
 Version=1.0
-Encoding=UTF-8
 Type=Application
 Name=JClic reports
 Name[ca]=Informes JClic
@@ -35,7 +34,7 @@ Comment[vec]=Server par i reports
 Keywords=JClic;game;education;
 Exec=jclicreports %U
 TryExec=jclicreports
-Icon=/usr/share/pixmaps/jclicreports.svg
+Icon=jclicreports
 Terminal=false
 Categories=Education;
 StartupNotify=true

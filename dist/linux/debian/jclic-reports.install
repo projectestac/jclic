@@ -2,4 +2,6 @@ dist/jclic/jclicreports.jar usr/share/java
 dist/linux/applications/jclicreports.desktop usr/share/applications
 dist/linux/bin/jclicreports usr/bin
 dist/linux/pixmaps/jclicreports.svg usr/share/pixmaps
+dist/linux/pixmaps/jclicreports.svg usr/share/icons/hicolor/scalable/apps
 dist/linux/pixmaps/jclicreports.png usr/share/pixmaps
+dist/linux/pixmaps/jclicreports.png usr/share/icons/hicolor/48x48/apps
