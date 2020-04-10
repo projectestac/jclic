@@ -1,14 +1,17 @@
 {
   "id": "edu.xtec.JClic",
   "runtime": "org.freedesktop.Platform",
-  "runtime-version": "18.08",
+  "runtime-version": "19.08",
   "sdk": "org.freedesktop.Sdk",
   "sdk-extensions": [
     "org.freedesktop.Sdk.Extension.openjdk11"
   ],
   "finish-args": [
     "--filesystem=home",
-    "--socket=x11",
+    "--socket=fallback-x11",
+    "--socket=wayland",
+    "--device=dri",
+    "--socket=pulseaudio",
     "--share=ipc",
     "--share=network",
     "--env=JAVA_HOME=/app/jre"
@@ -19,10 +22,10 @@
   "cleanup-commands": [
     "sed -i 's,java -jar /usr/share/java/jclic.jar,/app/jre/bin/java -jar /app/bin/jclic.jar,g'              /app/bin/jclic",
     "sed -i 's,java -jar /usr/share/java/jclicauthor.jar,/app/jre/bin/java -jar /app/bin/jclicauthor.jar,g'  /app/bin/jclicauthor",
-    "sed -i 's,/usr,/app,g'                             /app/share/applications/edu.xtec.JClic.desktop",
-    "sed -i 's,/usr,/app,g'                             /app/share/applications/edu.xtec.JClic.Author.desktop",
-    "sed -i 's,Icon=jclic,Icon=edu.xtec.JClic,g'        /app/share/applications/edu.xtec.JClic.desktop",
-    "sed -i 's,Icon=jclicauthor,Icon=edu.xtec.JClic,g'  /app/share/applications/edu.xtec.JClic.Author.desktop"
+    "sed -i 's,/usr,/app,g'                                    /app/share/applications/edu.xtec.JClic.desktop",
+    "sed -i 's,/usr,/app,g'                                    /app/share/applications/edu.xtec.JClic.Author.desktop",
+    "sed -i 's,Icon=jclic,Icon=edu.xtec.JClic,g'               /app/share/applications/edu.xtec.JClic.desktop",
+    "sed -i 's,Icon=jclicauthor,Icon=edu.xtec.JClic.Author,g'  /app/share/applications/edu.xtec.JClic.Author.desktop"
   ],
   "modules": [
     {
@@ -44,8 +47,8 @@
         "install -Dp -m 644 src/dist/linux/applications/jclicauthor.desktop /app/share/applications/edu.xtec.JClic.Author.desktop",
         "install -Dp -m 644 src/dist/linux/pixmaps/jclic.png /app/share/icons/hicolor/128x128/apps/edu.xtec.JClic.png",
         "install -Dp -m 644 src/dist/linux/pixmaps/jclicauthor.png /app/share/icons/hicolor/128x128/apps/edu.xtec.JClic.Author.png",
-        "install -Dp -m 644 src/dist/linux/pixmaps/jclic.svg /app/share/icons/hicolor/scalable/apps/edu.xtec.JClic.png",
-        "install -Dp -m 644 src/dist/linux/pixmaps/jclicauthor.svg /app/share/icons/hicolor/scalable/apps/edu.xtec.JClic.Author.png"
+        "install -Dp -m 644 src/dist/linux/pixmaps/jclic.svg /app/share/icons/hicolor/scalable/apps/edu.xtec.JClic.svg",
+        "install -Dp -m 644 src/dist/linux/pixmaps/jclicauthor.svg /app/share/icons/hicolor/scalable/apps/edu.xtec.JClic.Author.svg"
       ],
       "sources": [
         {
