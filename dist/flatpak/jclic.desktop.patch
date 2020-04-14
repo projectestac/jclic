@@ -1,0 +1,42 @@
+--- taca/jclic.desktop	2020-04-09 19:33:09.621674635 +0200
++++ jclic.desktop	2020-04-09 19:55:59.196606995 +0200
+@@ -1,12 +1,16 @@
+ [Desktop Entry]
+ Version=1.0
+ Type=Application
+-Name=JClic
+-GenericName=JClic Player
+-Comment=Multimedia educational activities: puzzles, associations, text exercises, crosswords, scrambled letters, etc.
+-Comment[ca]=Activitats educatives multimèdia: puzzles, associacions, exercicis de text, mots encreuats, sopes de lletres i altres.
+-Comment[es]=Actividades educativas multimedia: puzzles, asociaciones, ejercicios de texto, crucigramas, sopas de letras, etc.
+-Comment[ca_ES@valencia]=Activitats educatives multimèdia: puzzles, associacions, exercicis de text, mots encreuats, sopes de lletres i altres.
++Name=JClic Player
++Name[es]=JClic Player
++Name[ca]=JClic Player
++GenericName=Educational activities and games
++GenericName[es]=Actividades y juegos educativos
++GenericName[ca]=Activitats i jocs educatius
++Comment=JClic Multimedia educational activities: puzzles, associations, text exercises, crosswords, scrambled letters, etc.
++Comment[ca]=Activitats educatives multimèdia JClic: puzzles, associacions, exercicis de text, mots encreuats, sopes de lletres i altres.
++Comment[es]=Actividades educativas multimedia JClic: puzzles, asociaciones, ejercicios de texto, crucigramas, sopas de letras, etc.
++Comment[ca_ES@valencia]=Activitats educatives multimèdia JClic: puzzles, associacions, exercicis de text, mots encreuats, sopes de lletres i altres.
+ Comment[ca@valencia]=Activitats educatives multimèdia: puzzles, associacions, exercicis de text, mots encreuats, sopes de lletres i altres.
+ Comment[valencia]=Activitats educatives multimèdia: puzzles, associacions, exercicis de text, mots encreuats, sopes de lletres i altres.
+ Comment[it]=Applicazione per avviare attività JClic.
+@@ -23,11 +26,13 @@
+ Comment[ast]=Aplicación pa xugar a les xeres de JClic.
+ Comment[bs]=Aplikacije za reprodukciju JClic aktivnosti.
+ Comment[vec]=Programa da inviar par mostrar atività de JClic
+-Keywords=JClic;game;education;
++Keywords=JClic;game;education;school;
+ Exec=jclic %U
+ TryExec=jclic
+-Icon=jclic
++Icon=edu.xtec.JClic.jclic
+ Terminal=false
+-Categories=Education;
++Categories=Education;Game;KidsGame;
+ StartupNotify=false
+ MimeType=application/jclic;
++X-Desktop-File-Install-Version=0.24
++X-Flatpak=edu.xtec.JClic

@@ -34,9 +34,3 @@ lib/bootstrap/*/rt.jar
 /nbeans/dist/
 /nbeans/build/
 
-# Flatpak build directories
-/dist/flatpak
-!/dist/flatpak/*.json
-!/dist/flatpak/*.sh
-
-
