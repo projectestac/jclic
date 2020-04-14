@@ -51,13 +51,6 @@ modules:
         # path: https://raw.githubusercontent.com/projectestac/jclic/master/dist/linux/applications/jclicauthor.desktop
         dest-filename: jclicauthor.desktop
 
-      # Ammend desktop files.
-      - type: patch
-        path: jclic.desktop.patch
-      - type: patch
-        path: jclicauthor.desktop.patch        
-
-
       # mime file.
       - type: file
         path: edu.xtec.JClic.mime.xml
