@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2020 Ismael Olea <ismael@olea.org> -->
+<component type="desktop-application">
+   <id>edu.xtec.JClic</id>
+   <metadata_license>CC0-1.0</metadata_license>
+   <project_license>GPL-2.0-or-later</project_license>
+   <name>JClic</name>
+   <name xml:lang="es">JClic</name>
+   <name xml:lang="ca">JClic</name>
+   <summary>Educational activities and games for school students and educators</summary>
+   <summary xml:lang="es">Actividades educativas y juegos para escolares y educadores</summary>
+   <summary xml:lang="ca">Activitats educatives i jocs per a escolars i educadors</summary>
+   <description>
+      <p>
+   	JClic is formed by a set of multimedia applications that are used for
+   	carrying out different types of multimedia and interactive educational activities: puzzles,
+   	associations, text exercises, crosswords, etc.
+      </p>
+      <p>
+      The activities are usually packed in projects. 
+      A project is formed by a set of activities and one or more
+      sequences, which indicate the order in which they have to be shown.
+      </p>
+      <p>
+   	Since 1995 teachers from different countries have contributed to
+   	a big repository of educational activities which work on
+   	procedures of diverse curricular areas, from kindergarten up to
+   	secondary education and shared under Creative Commons licenses.
+      </p>
+      <p>The JClic suite is composed by this applications:</p>
+      <ul>
+         <li>JClic Player: allows students to play with the activities and, optionally, track reports of their work in a local or remote database</li>
+         <li>JClic Author: a visual tool used by teachers and authors to create or modify activities and projects</li>
+         <li>JClic Reports: a reporting tool designed to collect and display the results (time, tries, guesses, success…) achieved by the students</li>
+      </ul>
+   </description>
+
+   <categories>
+      <category>Education</category>
+      <category>Game</category>
+      <category>KidsGame</category>
+      <category>Java</category>
+   </categories>
+
+   <mimetypes>
+      <mimetype>application/jclic</mimetype>
+   </mimetypes>
+
+   <url type="homepage">https://clic.xtec.cat</url>
+   <url type="bugtracker">https://github.com/projectestac/jclic/issues</url>
+   <url type="faq">https://clic.xtec.cat/en/jclic/faqjclic.htm</url>
+   <url type="help">https://clic.xtec.cat/en/com/index.html</url>
+   <url type="translate">https://translations.launchpad.net/jclic</url>
+   <url type="contact">https://clic.xtec.cat/en/com/bustia.htm</url>
+   <developer_name>Francesc Busquets</developer_name>
+   <update_contact>fbusquets@xtec.cat</update_contact>
+   <project_group>Projectes TAC, Catalonia Department of Education - ICT in Education Unit</project_group>
+
+   <launchable type="desktop-id">jclic.desktop</launchable>
+   <launchable type="desktop-id">jclicauthor.desktop</launchable>
+
+   <screenshots>
+      <screenshot type="default">
+         <image>https://projectestac.github.io/jclic/screenshots/screenshot-1.png</image>
+      </screenshot>
+      <screenshot type="default">
+         <image>https:///projectestac.github.io/jclic/screenshots/JClic01.png</image>
+      </screenshot>
+      <screenshot type="default">
+         <image>https://projectestac.github.io/jclic/screenshots/JClic02.png</image>
+      </screenshot>
+      <screenshot type="default">
+         <image>https://projectestac.github.io/jclic/screenshots/JClicAuthor01.png</image>
+      </screenshot>
+      <screenshot type="default">
+         <image>https://projectestac.github.io/jclic/screenshots/JClicAuthor02.png</image>
+      </screenshot>
+   </screenshots>
+
+   <content_rating type="oars-1.1" />
+   
+   <releases>
+      <release version="0.3.2.12" date="2020-03-05">
+         <artifacts>
+            <artifact type="binary" platform="x86_64-linux-gnu">
+               <location>https://clic.xtec.cat/dist/jclic/jclic-0.3.2.12.zip</location>
+               <checksum type="sha256">6653e0d9bc29de8d03247095a90346e7ae204121682d2a587e762ed317d09875</checksum>
+            </artifact>
+         </artifacts>
+      </release>
+   </releases>
+</component>

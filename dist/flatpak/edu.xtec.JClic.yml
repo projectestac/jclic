@@ -1,0 +1,79 @@
+app-id: edu.xtec.JClic
+runtime: org.freedesktop.Platform
+runtime-version: '19.08'
+sdk: org.freedesktop.Sdk
+sdk-extensions:
+  - org.freedesktop.Sdk.Extension.openjdk11
+command: jclic
+
+finish-args:
+  - --share=ipc
+  - --socket=fallback-x11
+  - --socket=wayland
+  - --socket=pulseaudio
+  - --share=network
+  - --device=dri
+  - --filesystem=home
+
+  - --env=PATH=/usr/bin:/app/bin:/app/jre/bin
+  - --env=JAVA_HOME=/app/jre
+  - --env=JAVA=/app/jre/bin/java
+
+build-options:
+    env:
+        JAVA_HOME: /usr/lib/sdk/openjdk11/
+modules:
+  - name: openjdk
+    buildsystem: simple
+    build-commands:
+      - /usr/lib/sdk/openjdk11/install.sh
+
+  - name: jclic
+    no-autogen: true
+    sources:
+      # Fetch project.
+      - type: archive
+        url: https://clic.xtec.cat/dist/jclic/jclic-0.3.2.12.zip
+        sha256: 6653e0d9bc29de8d03247095a90346e7ae204121682d2a587e762ed317d09875    
+      
+      # Install AppData.
+      - type: file
+        path: edu.xtec.JClic.metainfo.xml
+
+      # Install desktop files.
+      - type: file
+        path: desktopfiles/jclic.desktop
+        #path: https://raw.githubusercontent.com/projectestac/jclic/master/dist/linux/applications/jclic.desktop
+        dest-filename: jclic.desktop
+
+      - type: file
+        path: desktopfiles/jclicauthor.desktop
+        # path: https://raw.githubusercontent.com/projectestac/jclic/master/dist/linux/applications/jclicauthor.desktop
+        dest-filename: jclicauthor.desktop
+
+      # mime file.
+      - type: file
+        path: edu.xtec.JClic.mime.xml
+
+      # shell commands.
+      - type: file
+        path: jclic.sh
+      - type: file
+        path: jclicauthor.sh        
+
+    buildsystem: simple
+    build-commands: 
+      - mkdir -p /app/JClic /app/bin
+      - cp -ra *.jar /app/JClic
+      - install -Dm755 jclic.sh /app/bin/jclic
+      - install -Dm755 jclicauthor.sh /app/bin/jclicauthor
+      - install -Dm644 jclic.desktop /app/share/applications/edu.xtec.JClic.jclic.desktop   
+      - install -Dm644 jclicauthor.desktop /app/share/applications/edu.xtec.JClic.jclicautor.desktop
+      - install -Dm644 icons/author.svg /app/share/icons/hicolor/scalable/apps/edu.xtec.JClic.jclicauthor.svg
+      - install -Dm644 icons/jclic.svg /app/share/icons/hicolor/scalable/apps/edu.xtec.JClic.jclic.svg
+      - install -Dm644 -p -t /app/share/mime/packages edu.xtec.JClic.mime.xml
+      - install -Dm644 edu.xtec.JClic.metainfo.xml /app/share/metainfo/edu.xtec.JClic.metainfo.xml
+
+    post-install:
+      - update-mime-database /app/share/mime
+
