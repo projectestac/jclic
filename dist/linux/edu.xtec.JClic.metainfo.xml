@@ -53,7 +53,7 @@
    <url type="translate">https://translations.launchpad.net/jclic</url>
    <url type="contact">https://clic.xtec.cat/en/com/bustia.htm</url>
    <developer_name>Francesc Busquets</developer_name>
-   <update_contact>ismael@olea.org</update_contact>
+   <update_contact>fbusquets@xtec.cat</update_contact>
    <project_group>Projectes TAC, Catalonia Department of Education - ICT in Education Unit</project_group>
 
    <launchable type="desktop-id">jclic.desktop</launchable>
