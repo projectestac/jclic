@@ -1,3 +1,7 @@
+2021-10-29  Francesc Busquets <fbusquets@xtec.cat>
+    *   dist/linux/debian/changelog
+    *   dist/linux/debian/control
+
 2020-03-03  Francesc Busquets <fbusquets@xtec.cat>
     *   CREDITS.txt
     *   dist/jnlp: Updated JNLP files

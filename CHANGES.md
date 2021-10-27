@@ -4,6 +4,7 @@
 ###Changes in 0.3.2.13 (Not yet released)
 ---------------------------------------------------------------------------------------
 - Added support for Flatpak packaging, thanks to Ismael Olea (ismael@olea.org)
+- Recommend icedtea-netx in deb package
 
 ###Changes in 0.3.2.12 (03-Mar-2020)
 ---------------------------------------------------------------------------------------

@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Francesc Busquets <francesc@gmail.com>
 Build-Depends: debhelper (>= 9)
 Build-Depends-Indep: ant, default-jdk | openjdk-7-jdk | openjdk-8-jdk | openjdk-9-jdk | openjdk-10-jdk | openjdk-11-jdk
-Standards-Version: 3.9.7
+Standards-Version: 4.5.0
 Homepage: https://clic.xtec.cat
 #Vcs-Git: git://git.debian.org/collab-maint/jclic.git
 #Vcs-Browser: http://git.debian.org/?p=collab-maint/jclic.git;a=summary
@@ -13,6 +13,7 @@ Package: jclic
 Architecture: all
 Depends: ${misc:Depends}, default-jre | openjdk-7-jre | openjdk-8-jre | openjdk-9-jdk | openjdk-10-jdk | openjdk-11-jdk
 Suggests: ttf-mscorefonts-installer
+Recommends: icedtea-netx
 Description: Authoring tool and player for multimedia educational activities
  JClic is formed by a set of computer applications that are used for
  carrying out different types of educational activities: puzzles, associations,
