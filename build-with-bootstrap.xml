@@ -43,6 +43,15 @@
     <!-- JClic is currently targeted to JVM 1.7 -->
     <property name="javac.source" value="1.7"/>
     <property name="javac.target" value="1.7"/>
+
+    <!-- Check if "rt.jar" exists in lib/bootstrap/1.7  -->
+    <property name="bootstrap.file" value="${lib.dir}/bootstrap/${javac.target}/rt.jar"/>
+    <condition property="bootstrap.path"
+               value="${bootstrap.file}"
+               else="${java.home}/lib/rt.jar">
+       <available file="${bootstrap.file}"/>      
+    </condition>
+    <property name="bootstrap.arg" value="-Xbootclasspath:${bootstrap.path}"/>
     
     <!-- Other compiler options -->
     <property name="debug"          value="on" />    
@@ -58,9 +67,10 @@
                encoding="${encoding}"
                source="${javac.source}"
                target="${javac.target}"
+               bootclasspath="${bootstrap.path}"
                includeAntRuntime="false" >
                <compilerarg value="-Xlint:unchecked"/>
-               <compilerarg value="-Xlint:-options"/>
+               <compilerarg value="${bootstrap.arg}" />
         </javac>
     </presetdef>
     
@@ -72,8 +82,9 @@
                encoding="${encoding}"
                source="${javac.source}"
                target="${javac.target}"
+               bootclasspath="${bootstrap.path}"
                includeAntRuntime="false" >
-               <compilerarg value="-Xlint:-options"/>
+               <compilerarg value="${bootstrap.arg}" />
         </javac>
     </presetdef>
 
@@ -123,6 +134,7 @@
     <echo message="Using ${ant.version}, in ${ant.home}"/>
     <echo message="Using Java ${java.version} by ${java.vendor} in ${java.home}"/>
     <echo message="Generating code for Java ${javac.target}"/>
+    <echo message="Bootstrap: ${bootstrap.path}"/>
         
     <!-- Create dirs -->
     <mkdir dir="${dist.dir}"/>

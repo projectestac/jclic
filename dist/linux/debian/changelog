@@ -1,8 +1,8 @@
-jclic (0.3.2.13-1ppa1) bionic; urgency=low
+jclic (0.3.2.15-1ppa1) bionic; urgency=low
 
   * Recommend package icedtea-netx, needed to process JNLP installers
 
- -- Francesc Busquets <francesc@gmail.com>  Tue, 26 Oct 2021 13:00:00 +0100
+ -- Francesc Busquets <francesc@gmail.com>  Tue, 26 Oct 2021 14:00:00 +0100
 
 jclic (0.3.2.12-1ppa1) xenial; urgency=low
 
