@@ -43,7 +43,11 @@
       <include name="**/*.po"/>
     </patternset>
 
-    <taskdef name="po2prop" classname="edu.xtec.ant.Po2Prop"/>  
+    <path id="custom-tasks.path">
+      <pathelement location="../customAntTasks/transToolsAntTasks.jar"/>
+    </path>
+
+    <taskdef name="po2prop" classname="edu.xtec.ant.Po2Prop" classpathref="custom-tasks.path"/>  
 
     <echo message="-----------------------------------------------"/>
     <echo message="Conversion of imported .po files to .properties"/>
