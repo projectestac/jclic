@@ -48,6 +48,7 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
     abc = new ActiveBagContent[1];
     clues = null;
     clueItems = null;
+    invAss = false;
   }
 
   @Override
@@ -57,6 +58,8 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
     clueItems = new int[0];
     tgc = TextGridContent.initNew(3, 3, 'A');
   }
+
+  protected static final String INVERSE = "inverse";
 
   @Override
   public org.jdom.Element getJDomElement() {
@@ -91,6 +94,10 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
         e.addContent(ex);
       }
     }
+
+    if (invAss)
+      e.setAttribute(INVERSE, JDomUtility.boolString(invAss));
+
     return e;
   }
 
@@ -135,6 +142,8 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
 
     if ((child = e.getChild(LAYOUT)) != null)
       boxGridPos = JDomUtility.getStrIndexAttr(child, POSITION, LAYOUT_NAMES, boxGridPos);
+
+    invAss = JDomUtility.getBoolAttr(e, INVERSE, invAss);
   }
 
   @Override
@@ -279,7 +288,7 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
           bgAlt.setContent(abc[0]);
           if (scramble[0])
             shuffle(new ActiveBoxBag[] { bgAlt }, true, true);
-          bgAlt.setVisible(false);
+          bgAlt.setVisible(invAss);
         }
 
         playing = true;
@@ -346,7 +355,7 @@ public class WordSearch extends Activity implements ActiveBagContentKit.Compatib
                     if (k >= 0 && k < bgAlt.getNumCells()) {
                       ActiveBox bx = bgAlt.getActiveBox(clueItems[c]);
                       if (bx != null) {
-                        bx.setVisible(true);
+                        bx.setVisible(!invAss);
                         m = bx.playMedia(ps);
                       }
                     }

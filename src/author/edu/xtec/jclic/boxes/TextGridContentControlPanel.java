@@ -97,6 +97,8 @@ public class TextGridContentControlPanel extends edu.xtec.util.CtrlPanel {
     wordSearchPanel = new javax.swing.JPanel();
     wordListLb = new javax.swing.JLabel();
     wordListEditor = new TextListEditor(options);
+    inverseResolutionChk = new javax.swing.JCheckBox();
+    inverseResolutionChk.addActionListener(this);
 
     setLayout(new java.awt.GridBagLayout());
 
@@ -246,6 +248,16 @@ public class TextGridContentControlPanel extends edu.xtec.util.CtrlPanel {
     gridBagConstraints.insets = new java.awt.Insets(0, 3, 0, 3);
     wordSearchPanel.add(wordListEditor, gridBagConstraints);
 
+    // TODO: Use a specific tooltip text for WordSearch activities
+    inverseResolutionChk.setToolTipText(options.getMsg("edit_act_inverseResolutionWordSearch_tooltip"));
+    inverseResolutionChk.setText(options.getMsg("edit_act_inverseResolution"));
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
+    gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+    gridBagConstraints.insets = new java.awt.Insets(2, 2, 2, 2);
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+    wordSearchPanel.add(inverseResolutionChk, gridBagConstraints);
+
     gridBagConstraints = new java.awt.GridBagConstraints();
     gridBagConstraints.gridwidth = java.awt.GridBagConstraints.REMAINDER;
     gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
@@ -267,6 +279,7 @@ public class TextGridContentControlPanel extends edu.xtec.util.CtrlPanel {
       } else if (src == useGridBChk && isWordSearch) {
         parent.enableGridB(useGridBChk.isSelected());
         return result;
+      } else if (src == inverseResolutionChk) {
       }
 
       if (src == widthEdit || src == heightEdit) {
@@ -294,6 +307,10 @@ public class TextGridContentControlPanel extends edu.xtec.util.CtrlPanel {
     }
   }
 
+  public void clear() {
+    inverseResolutionChk.setSelected(false);
+  }
+
   public void fillData(Activity act) {
     tgc = (act != null ? act.tgc : null);
     boxBaseButton.setBoxBase(tgc != null ? tgc.bb : null);
@@ -313,9 +330,12 @@ public class TextGridContentControlPanel extends edu.xtec.util.CtrlPanel {
     if (isWordSearch && (act instanceof WordSearch)) {
       useGridBChk.setSelected(act.abc != null && act.abc[0] != null);
       wordListEditor.setTextList(((WordSearch) act).getClues());
+      inverseResolutionChk.setSelected(act.invAss);
+      inverseResolutionChk.setVisible(true);
     } else {
       wordListEditor.setTextList(null);
       wordListEditor.setEnabled(false);
+      inverseResolutionChk.setVisible(false);
     }
     if (!isWordSearch && (act instanceof CrossWord)) {
       wildTransparentChk.setSelected(((CrossWord) act).wildTransparent);
@@ -329,6 +349,7 @@ public class TextGridContentControlPanel extends edu.xtec.util.CtrlPanel {
       act.tgc = tgc;
       if (isWordSearch && (act instanceof WordSearch)) {
         ((WordSearch) act).setClues(wordListEditor.getTextList(), null);
+        act.invAss = inverseResolutionChk.isSelected();
       } else if (!isWordSearch && (act instanceof CrossWord)) {
         ((CrossWord) act).wildTransparent = wildTransparentChk.isSelected();
       }
@@ -358,6 +379,7 @@ public class TextGridContentControlPanel extends edu.xtec.util.CtrlPanel {
   private edu.xtec.jclic.beans.TextListEditor wordListEditor;
   private javax.swing.JLabel wordListLb;
   private javax.swing.JPanel wordSearchPanel;
+  private javax.swing.JCheckBox inverseResolutionChk;
   // End of variables declaration//GEN-END:variables
 
 }

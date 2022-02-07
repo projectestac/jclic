@@ -3,6 +3,15 @@
     *   i18n/fromLaunchpad/build.xml
     *   i18n/toLaunchpad/build.xml
     *   ./vscode/settings.json
+    *   project.properties
+    *   src/author/edu/xtec/jclic/boxes/TextGridContentControlPanel.form
+    *   src/author/edu/xtec/jclic/boxes/TextGridContentControlPanel.java
+    *   src/author/edu/xtec/resources/messages/AuthorMessages.properties
+    *   src/author/edu/xtec/resources/messages/AuthorMessages_ca.properties
+    *   src/author/edu/xtec/resources/messages/AuthorMessages_es.properties
+    *   src/core/edu/xtec/jclic/activities/textGrid/WordSearch.java
+    *   dist/flatpak/edu.xtec.JClic.yml
+    *   dist/linux/debian/changelog
 
 2021-10-29  Francesc Busquets <fbusquets@xtec.cat>
     *   dist/linux/debian/changelog
