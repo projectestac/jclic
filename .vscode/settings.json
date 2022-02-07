@@ -1,0 +1,19 @@
+{
+  "java.project.sourcePaths": [
+    "src/core",
+    "src/author",
+    "lib/jmf-api/src",
+    "lib/servlet-api/src",
+    "lib/qtjava-api/src"
+  ],
+  "java.project.referencedLibraries": {
+    "include": [
+      "lib/bootstrap/1.8/rt.jar",
+      "extensions/xml/build/jdom.jar",
+      "extensions/soundspi/build/soundspi.jar",
+      "extensions/json/build/json.jar",
+      "extensions/dbconn/build/dbconn.jar",
+      "extensions/img/image4j/dist/image4j.jar"
+    ]
+  }
+}

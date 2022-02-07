@@ -1,10 +1,12 @@
 ## Release notes for JClic (https://projectestac.github.io/jclic)
 =================================================================
 
-###Changes in 0.3.2.13 (Not yet released)
+###Changes in 0.3.2.13 (07-Feb-2022)
 ---------------------------------------------------------------------------------------
 - Added support for Flatpak packaging, thanks to Ismael Olea (ismael@olea.org)
 - Recommend icedtea-netx in deb package
+- Consolidate custom ant tasks in i18n
+- Include VSCode config
 
 ###Changes in 0.3.2.12 (03-Mar-2020)
 ---------------------------------------------------------------------------------------

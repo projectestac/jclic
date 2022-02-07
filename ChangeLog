@@ -1,3 +1,9 @@
+2022-02-07  Francesc Busquets <fbusquets@xtec.cat>
+    *   i18n/customAntTasks/build.xml
+    *   i18n/fromLaunchpad/build.xml
+    *   i18n/toLaunchpad/build.xml
+    *   ./vscode/settings.json
+
 2021-10-29  Francesc Busquets <fbusquets@xtec.cat>
     *   dist/linux/debian/changelog
     *   dist/linux/debian/control
