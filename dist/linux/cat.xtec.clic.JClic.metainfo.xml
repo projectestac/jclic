@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2020 Ismael Olea <ismael@olea.org> -->
 <component type="desktop-application">
-   <id>edu.xtec.JClic</id>
-   <!-- metadata_license>CC0-1.0</metadata_license -->
+   <id>cat.xtec.clic.JClic</id>
+   <metadata_license>CC0-1.0</metadata_license>
    <project_license>GPL-2.0-or-later</project_license>
    <name>JClic</name>
    <name xml:lang="es">JClic</name>
@@ -55,8 +55,8 @@
    <update_contact>fbusquets@xtec.cat</update_contact>
    <project_group>Projectes TAC, Catalonia Department of Education - ICT in Education Unit</project_group>
 
-   <launchable type="desktop-id">jclic.desktop</launchable>
-   <launchable type="desktop-id">jclicauthor.desktop</launchable>
+   <launchable type="desktop-id">cat.xtec.clic.JClic.jclic.desktop</launchable>
+   <launchable type="desktop-id">cat.xtec.clic.JClic.jclicauthor.desktop</launchable>
 
    <screenshots>
       <screenshot type="default">

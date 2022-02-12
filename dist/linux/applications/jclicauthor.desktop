@@ -36,4 +36,4 @@ Categories=Education;
 StartupNotify=true
 MimeType=application/jclic;
 X-Desktop-File-Install-Version=0.24
-X-Flatpak=edu.xtec.JClic
+X-Flatpak=cat.xtec.clic.JClic
