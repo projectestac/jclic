@@ -79,11 +79,11 @@
    <content_rating type="oars-1.1" />
    
    <releases>
-      <release version="0.3.2.16" date="2022-02-07">
+      <release version="0.3.2.17" date="2022-10-23">
          <artifacts>
             <artifact type="binary" platform="x86_64-linux-gnu">
-               <location>https://clic.xtec.cat/dist/jclic/jclic-0.3.2.16.zip</location>
-               <checksum type="sha256">f8a6cfd1e73fca10fe996da720a445aff578d44819a41e46ab4496ea5500b550</checksum>
+               <location>https://clic.xtec.cat/dist/jclic/jclic-0.3.2.17.zip</location>
+               <checksum type="sha256">a59b6fcd55a7b22c34015c8b2fe5eca9f101c74e457363acf3a11fc5f126c1bc</checksum>
             </artifact>
          </artifacts>
       </release>

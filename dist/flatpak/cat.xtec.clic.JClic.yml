@@ -1,6 +1,6 @@
 app-id: cat.xtec.clic.JClic
 runtime: org.freedesktop.Platform
-runtime-version: '21.08'
+runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.openjdk11
@@ -33,8 +33,8 @@ modules:
     sources:
       # Fetch project.
       - type: archive
-        url: https://clic.xtec.cat/dist/jclic/jclic-0.3.2.16.zip
-        sha256: f8a6cfd1e73fca10fe996da720a445aff578d44819a41e46ab4496ea5500b550
+        url: https://clic.xtec.cat/dist/jclic/jclic-0.3.2.17.zip
+        sha256: a59b6fcd55a7b22c34015c8b2fe5eca9f101c74e457363acf3a11fc5f126c1bc
       
       # Install AppData.
       - type: file

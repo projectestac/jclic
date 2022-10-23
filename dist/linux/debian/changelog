@@ -1,3 +1,9 @@
+jclic (0.3.2.17-1ppa1) bionic; urgency=low
+
+  * Always use normalized filenames when exporting projects
+
+ -- Francesc Busquets <francesc@gmail.com>  Sun, 23 Oct 2022 11:00:00 +0100
+
 jclic (0.3.2.16-1ppa1) bionic; urgency=low
 
   * Allow inverse resolution in word search activities

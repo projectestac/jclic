@@ -141,6 +141,10 @@ public class MediaBagElement extends Object implements Editable, Domable, Compar
     return fileName;
   }
 
+  public String getNormalizedFileName() {
+    return normalizedFileName == null ? fileName : normalizedFileName;
+  }
+
   public void setMetaData(String meta) {
     metadata = meta;
   }

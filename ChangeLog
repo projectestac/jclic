@@ -1,3 +1,12 @@
+2022-10-23  Francesc Busquets <fbusquets@xtec.cat> 
+    *   project.properties
+    *   src/author/edu/xtec/jclic/project/ExportTaskDlg.java
+    *   src/core/edu/xtec/jclic/bags/MediaBagElement.java
+    *   .vscode/launch.json
+    *   dist/linux/cat.xtec.clic.JClic.metainfo.xml
+    *   dist/linux/debian/changelog
+    *   dist/flatpak/cat.xtec.clic.JClic.yml        
+
 2022-02-07  Francesc Busquets <fbusquets@xtec.cat>
     *   i18n/customAntTasks/build.xml
     *   i18n/fromLaunchpad/build.xml
