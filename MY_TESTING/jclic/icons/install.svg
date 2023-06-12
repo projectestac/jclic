@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="64"
+   height="64"
+   id="svg3126"
+   xml:space="preserve"><title
+     id="title3146">JClic Installer</title><metadata
+     id="metadata3132"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><cc:license
+           rdf:resource="http://creativecommons.org/licenses/by/3.0/" /><dc:title>JClic Installer</dc:title><dc:creator><cc:Agent><dc:title>Francesc Busquets</dc:title></cc:Agent></dc:creator><dc:source>http://clic.xtec.cat</dc:source></cc:Work><cc:License
+         rdf:about="http://creativecommons.org/licenses/by/3.0/"><cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" /><cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" /><cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" /><cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" /><cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" /></cc:License></rdf:RDF></metadata><defs
+     id="defs3130" /><g
+     transform="matrix(1.25,0,0,-1.25,0,64)"
+     id="g3134"><g
+       transform="matrix(0.01807828,0,0,0.01807828,2.6238227,0.70914127)"
+       id="g3136"><path
+         d="m 630,990 540,0 0,1080 720,0 0,-1080 540,0 L 1530,90 630,990 z"
+         id="path3138"
+         style="fill:none;stroke:#9d6329;stroke-width:180;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3.8636899;stroke-opacity:1;stroke-dasharray:none" /><path
+         d="m 630,990 540,0 0,1080 720,0 0,-1080 540,0 L 1530,90 630,990"
+         id="path3140"
+         style="fill:#f89c0e;fill-opacity:1;fill-rule:nonzero;stroke:none" /><path
+         d="M 357.332,2650 1357.39,2382.2 1090.06,1389.88 90,1656.06 357.332,2650 z"
+         id="path3142"
+         style="fill:none;stroke:#86882b;stroke-width:180;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3.8636899;stroke-opacity:1;stroke-dasharray:none" /><path
+         d="M 357.332,2650 1357.39,2382.2 1090.06,1389.88 90,1656.06 357.332,2650"
+         id="path3144"
+         style="fill:#d9e70c;fill-opacity:1;fill-rule:nonzero;stroke:none" /></g></g></svg>

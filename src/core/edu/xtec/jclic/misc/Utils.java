@@ -48,7 +48,7 @@ public abstract class Utils implements Constants {
   public static final String EXT_GIF = ".gif", EXT_JPG = ".jpg", EXT_PNG = ".png", EXT_BMP = ".bmp", EXT_ICO = ".ico";
   public static final String EXT_WAV = ".wav", EXT_AU = ".au", EXT_MP3 = ".mp3", EXT_AIFF = ".aiff", EXT_MID = ".mid",
       EXT_OGG = ".ogg";
-  public static final String EXT_AVI = ".avi", EXT_MOV = ".mov", EXT_MPEG = ".mpeg";
+  public static final String EXT_AVI = ".avi", EXT_MOV = ".mov", EXT_MPEG = ".mpeg", EXT_MP4 = ".mp4";
   public static final String EXT_SWF = ".swf", EXT_XML = ".xml", EXT_TTF = ".ttf", EXT_HTM = ".htm", EXT_HTML = ".html",
       EXT_TXT = ".txt", EXT_ALL = ".*";
 
@@ -58,12 +58,12 @@ public abstract class Utils implements Constants {
   public static final String[] EXT_ALL_JCLIC_CLIC = new String[] { EXT_JCLIC, EXT_JCLIC_ZIP, EXT_PAC, EXT_PCC };
   public static final String[] EXT_ALL_IMAGES = new String[] { EXT_GIF, EXT_JPG, EXT_PNG, EXT_BMP, EXT_ICO };
   public static final String[] EXT_ALL_SOUNDS = new String[] { EXT_WAV, EXT_AU, EXT_MP3, EXT_OGG, EXT_AIFF };
-  public static final String[] EXT_ALL_VIDEO = new String[] { EXT_AVI, EXT_MOV, EXT_MPEG, EXT_SWF };
+  public static final String[] EXT_ALL_VIDEO = new String[] { EXT_AVI, EXT_MOV, EXT_MPEG, EXT_SWF, EXT_MP4 };
   public static final String[] EXT_ALL_ANIM = new String[] { EXT_SWF };
   public static final String[] EXT_ALL_MEDIA = new String[] { EXT_GIF, EXT_JPG, EXT_PNG, EXT_BMP, EXT_ICO, EXT_WAV,
       EXT_AU, EXT_MP3, EXT_OGG, EXT_AIFF, EXT_MID, EXT_AVI, EXT_MOV, EXT_MPEG, EXT_SWF, EXT_TTF, EXT_XML };
   public static final String[] EXT_ALL_MULTIMEDIA = new String[] { EXT_WAV, EXT_AU, EXT_MP3, EXT_OGG, EXT_AIFF, EXT_MID,
-      EXT_AVI, EXT_MOV, EXT_MPEG, EXT_SWF };
+      EXT_AVI, EXT_MOV, EXT_MPEG, EXT_SWF, EXT_MP4 };
   public static final String[] EXT_ALL_HTML = new String[] { EXT_HTM, EXT_HTML };
 
   public static final int TYPE_IMAGE = 0, TYPE_AUDIO = 1, TYPE_MIDI = 2, TYPE_VIDEO = 3, TYPE_ANIM = 4, TYPE_XML = 5,
@@ -91,7 +91,7 @@ public abstract class Utils implements Constants {
           result = TYPE_AUDIO;
         else if (fn.equals(EXT_MID))
           result = TYPE_MIDI;
-        else if (fn.equals(EXT_AVI) || fn.equals(EXT_MOV) || fn.equals(EXT_MPEG))
+        else if (fn.equals(EXT_AVI) || fn.equals(EXT_MOV) || fn.equals(EXT_MPEG) || fn.equals(EXT_MP4))
           result = TYPE_VIDEO;
         else if (fn.equals(EXT_SWF))
           result = TYPE_ANIM;

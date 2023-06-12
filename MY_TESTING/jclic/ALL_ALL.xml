@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+  <msg name="description">Embed JClic projects into Google Sites or iGoogle</msg> 
+  <msg name="jclic.project.url">URL pointing to the JClic project:</msg> 
+  <msg name="language">Language:</msg>
+    <msg name="language.ar">ar - Arabic</msg>
+    <msg name="language.ast">ast - Asturianu</msg>
+    <msg name="language.ca">ca - Catalan</msg>
+    <msg name="language.cn">cn - Chinese Traditional</msg>
+    <msg name="language.da">da - Danish</msg>
+    <msg name="language.de">de - German</msg>
+    <msg name="language.el">el - Greek</msg>
+    <msg name="language.en">en - English</msg>
+    <msg name="language.es">es - Spanish</msg>
+    <msg name="language.eu">eu - Basque</msg>
+    <msg name="language.fr">fr - French</msg>
+    <msg name="language.ga">gl - Galician</msg>
+    <msg name="language.he">he - Hebrew</msg>
+    <msg name="language.it">it - Italian</msg>
+    <msg name="language.nl">nl - Dutch</msg>
+    <msg name="language.oc">oc - Occitan</msg>
+    <msg name="language.pt">pt - Portuguese</msg>
+    <msg name="language.pt_BR">pt_BR - Brazilian Portuguese</msg>
+    <msg name="language.ru">ru - Russian</msg>
+    <msg name="language.tr">tr - Turkish</msg>
+    <msg name="language.vec">vec - Venetian</msg>
+    <msg name="language.wo">wo - Wolof</msg>
+  <msg name="default.language">en</msg>
+  <msg name="skin">Skin:</msg>
+    <msg name="skin.default">Default</msg>
+    <msg name="skin.orange">Orange</msg>
+    <msg name="skin.green">Green</msg>
+    <msg name="skin.blue">Blue</msg>
+    <msg name="skin.simple">Simple</msg>
+    <msg name="skin.mini">Minimal</msg>
+    <msg name="skin.empty">None (without buttons nor messages)</msg>
+  <msg name="exit.url">Exit URL:</msg>
+  <msg name="system.sounds">Play event sounds:</msg>
+</messagebundle>

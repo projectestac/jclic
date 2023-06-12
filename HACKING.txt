@@ -139,3 +139,62 @@ The main JClic classes are organized into the following Java packages:
                             graphics, sounds, etc.
 /edu/xtec/util              Utility classes not specific to JClic                            
 
+-----------------------------------------------------------------------------------------
+Editar instrucciones:
+
+JClic se hizo usando NetBeans, actualmente versión 8.2
+Puede descargar este IDE desde:
+
+https://netbeans.org/descargas/
+
+Cree las extensiones iniciando "ant" desde el directorio "extensiones".
+Esto también hará una copia de los archivos JAR generados en el directorio "lib":
+
+> extensiones de cd
+> hormiga
+
+Inicie NetBeans y abra el proyecto ubicado en la carpeta "nbeans".
+
+Las tres últimas carpetas de origen, marcadas con un asterisco, contienen esqueletos falsos (vacíos)
+de "Java Media Framework", "QuickTime para Java" y la API Servlet. Esto es porque
+JMF y QuickTime son software no libre, y la API de servlet está disponible solo con
+el paquete completo de J2EE (no es realmente necesario para JClic).
+
+Para probar el comportamiento real de JMF y QTJava debe obtener implementaciones válidas
+de los archivos "jmf.jar" y "QTJava61.zip" (consulte las URL indicadas anteriormente) y reemplace
+su carpeta de origen 'esqueleto' con una referencia a un archivo válido en la carpeta "Bibliotecas"
+del proyecto netBeans.
+
+Para probar la WebApp, debe reemplazar la carpeta 'servlet-api/src' con una referencia a un
+Biblioteca J2EE completamente implementada (disponible en el stock de bibliotecas Netbeans)
+
+Las clases principales de JClic se organizan en los siguientes paquetes Java:
+
+/ Clases principales (JClicApplet, JClicPlayer,
+                             JClicInstaller, JClicAuthor y ReportServer)
+/edu/xtec/jclic Clases principales e interfaces principales de JClic
+/edu/xtec/jclic/activities Las actividades de la JClic. Cada grupo de similares
+                             actividades tiene su propio paquete: asociaciones,
+                             memoria, paneles, rompecabezas, texto y textGrid
+/edu/xtec/jclic/automation Las clases que brindan contenidos automáticos a
+                             actividades. Aquí se incluye un paquete: "arith",
+                             para la aritmética mental automática.
+/edu/xtec/jclic/bags Clases que tratan con colecciones de objetos como
+                             actividades, medios y elementos de secuencia.
+/edu/xtec/jclic/boxes Elementos gráficos y multimedia: celdas, contadores,
+                             rejillas, botones...
+/edu/xtec/jclic/clic3 Clases utilizadas para importar actividades Clic 3.0
+/edu/xtec/jclic/edit Base para "editores", clases especiales utilizadas para
+                             modificar objetos complejos.
+/edu/xtec/jclic/fileSystem Los sistemas de archivos son objetos que se utilizan para leer y escribir en
+                             archivos bajo diferentes protocolos y formatos.
+/edu/xtec/jclic/media Clases que tratan de sonido, video...
+/edu/xtec/jclic/misc Utilidades misceláneas específicas de JClic
+/edu/xtec/jclic/project Componentes de la estructura del proyecto JClic
+/edu/xtec/jclic/report Sistema de reporte de resultados de actividades
+/edu/xtec/jclic/shapers Clases que tratan con formas de celdas y cuadrículas
+/edu/xtec/jclic/skins Soporte a aspectos visuales de JClic
+/edu/xtec/jclic/beans Controles visuales utilizados en JClic Author.
+/edu/xtec/resources Diferentes subpaquetes que contienen mensajes, íconos,
+                             gráficos, sonidos, etc.
+/edu/xtec/util Clases de utilidad no específicas de JClic

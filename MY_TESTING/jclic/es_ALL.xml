@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagebundle>
+  <msg name="description">Inserción de proyectos JClic en Google Sites o iGoogle</msg> 
+  <msg name="jclic.project.url">URL absoluto del proyecto JClic:</msg> 
+  <msg name="language">Idioma:</msg>
+    <msg name="language.ar">ar - árabe</msg>
+    <msg name="language.ast">ast - asturianu</msg>
+    <msg name="language.ca">ca - catalán</msg>
+    <msg name="language.cn">cn - chino tradicional</msg>
+    <msg name="language.da">da - danés</msg>
+    <msg name="language.de">de - alemán</msg>
+    <msg name="language.el">el - griego</msg>
+    <msg name="language.en">en - inglés</msg>
+    <msg name="language.es">es - español</msg>
+    <msg name="language.eu">eu - vasco</msg>
+    <msg name="language.fr">fr - francés</msg>
+    <msg name="language.ga">gl - gallego</msg>
+    <msg name="language.he">he - hebreo</msg>
+    <msg name="language.it">it - italiano</msg>
+    <msg name="language.nl">nl - holandés</msg>
+    <msg name="language.oc">oc - occitano (aranés)</msg>
+    <msg name="language.pt">pt - portugués</msg>
+    <msg name="language.pt_BR">pt_BR - portugués de Brasil</msg>
+    <msg name="language.ru">ru - ruso</msg>
+    <msg name="language.tr">tr - turco</msg>
+    <msg name="language.vec">vec - veneciano</msg>
+    <msg name="language.wo">wo - wolof</msg>
+  <msg name="default.language">es</msg>
+  <msg name="skin">Entorno visual:</msg>
+    <msg name="skin.default">Por defecto</msg>
+    <msg name="skin.orange">Naranja</msg>
+    <msg name="skin.green">Verde</msg>
+    <msg name="skin.blue">Azul</msg>
+    <msg name="skin.simple">Simple</msg>
+    <msg name="skin.mini">Minimalista</msg>
+    <msg name="skin.empty">Ninguno (sin botones ni mensajes)</msg>
+  <msg name="exit.url">URL de salida (opcional):</msg>
+  <msg name="system.sounds">Interpreta los sonidos de evento:</msg>
+</messagebundle>

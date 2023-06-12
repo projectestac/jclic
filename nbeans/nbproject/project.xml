@@ -5,14 +5,7 @@
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>JClic</name>
             <source-roots>
-                <root id="core.dir" name="JClic"/>
                 <root id="author.dir" name="JClicAuthor"/>
-                <root id="reportServer.dir" name="reportServer"/>
-                <root id="reportServlets.dir" name="reportServlets"/>
-                <root id="classes.dir" name="reportWebApp"/>
-                <root id="src2.dir" name="jmf-api"/>
-                <root id="src3.dir" name="qtjava-api"/>
-                <root id="src4.dir" name="servlet-api"/>
             </source-roots>
             <test-roots/>
         </data>

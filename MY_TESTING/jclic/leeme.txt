@@ -1,0 +1,16 @@
+
+Instrucciones para la instalación de JClic:
+
+- Descomprimir el contenido del zip en una carpeta
+- Crear un acceso directo o lanzador para cada aplicación, con los comandos:
+
+JClic:
+java -jar jclic.jar
+
+JClic author:
+java -Xmx256m -jar jclicauthor.jar
+
+JClic reports:
+java -jar jclicreports.jar
+
+En la carpeta "icons" hay algunos archivos PNG que pueden resultar útiles para crear los accesos directos.

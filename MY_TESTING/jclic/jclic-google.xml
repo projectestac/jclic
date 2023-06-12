@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+<ModulePrefs 
+  title="JClic applet" 
+  directory_title="Embed JClic applet"
+  title_url="https://clic.xtec.cat" 
+  width="700" height="500" 
+  author="Francesc Busquets" 
+  author_email="francesc+jclic.gadget@gmail.com" 
+  description="__MSG_description__" 
+  screenshot="https://clic.xtec.cat/dist/jclic/screenshot.png" 
+  thumbnail="https://clic.xtec.cat/dist/jclic/thumbnail.png">
+  <Locale messages="https://clic.xtec.cat/dist/jclic/ALL_ALL.xml"/>
+  <Locale lang="ca" messages="https://clic.xtec.cat/dist/jclic/ca_ALL.xml"/>
+  <Locale lang="es" messages="https://clic.xtec.cat/dist/jclic/es_ALL.xml"/>
+  <Icon>https://clic.xtec.cat/favicon.ico</Icon>
+</ModulePrefs>
+<UserPref name="url" display_name="__MSG_jclic.project.url__" datatype="string" required="true"/>
+<UserPref name="language" display_name="__MSG_language__" datatype="enum" default_value="__MSG_default.language__">
+  <EnumValue value="ar" display_value="__MSG_language.ar__"/>
+  <EnumValue value="ast" display_value="__MSG_language.ast__"/>
+  <EnumValue value="ca" display_value="__MSG_language.ca__"/>
+  <EnumValue value="cn" display_value="__MSG_language.cn__"/>
+  <EnumValue value="da" display_value="__MSG_language.da__"/>
+  <EnumValue value="de" display_value="__MSG_language.de__"/>
+  <EnumValue value="el" display_value="__MSG_language.el__"/>
+  <EnumValue value="en" display_value="__MSG_language.en__"/>
+  <EnumValue value="es" display_value="__MSG_language.es__"/>
+  <EnumValue value="eu" display_value="__MSG_language.eu__"/>
+  <EnumValue value="fr" display_value="__MSG_language.fr__"/>
+  <EnumValue value="ga" display_value="__MSG_language.ga__"/>
+  <EnumValue value="he" display_value="__MSG_language.he__"/>
+  <EnumValue value="it" display_value="__MSG_language.it__"/>
+  <EnumValue value="nl" display_value="__MSG_language.nl__"/>
+  <EnumValue value="oc" display_value="__MSG_language.oc__"/>
+  <EnumValue value="pt" display_value="__MSG_language.pt__"/>
+  <EnumValue value="pt_BR" display_value="__MSG_language.pt_BR__"/>
+  <EnumValue value="ru" display_value="__MSG_language.ru__"/>
+  <EnumValue value="tr" display_value="__MSG_language.tr__"/>
+  <EnumValue value="vec" display_value="__MSG_language.vec__"/>
+  <EnumValue value="wo" display_value="__MSG_language.wo__"/>
+</UserPref>
+<UserPref name="skin" display_name="__MSG_skin__" datatype="enum" default_value="@default.xml">
+  <EnumValue value="@default.xml" display_value="__MSG_skin.default__"/>
+  <EnumValue value="@orange.xml" display_value="__MSG_skin.orange__"/>
+  <EnumValue value="@green.xml" display_value="__MSG_skin.green__"/>
+  <EnumValue value="@blue.xml" display_value="__MSG_skin.blue__"/>
+  <EnumValue value="@simple.xml" display_value="__MSG_skin.simple__"/>
+  <EnumValue value="@empty.xml" display_value="__MSG_skin.empty__"/>
+  <EnumValue value="@mini.xml" display_value="__MSG_skin.mini__"/>
+</UserPref>
+<UserPref name="exitUrl" display_name="__MSG_exit.url__" datatype="string"/>
+<UserPref name="systemSounds" display_name="__MSG_system.sounds__" datatype="bool" default_value="true"/>
+<Content 
+  type="html"
+  preferred_width="700"
+  preferred_height="500"
+><![CDATA[
+<script language="JavaScript" src="https://clic.xtec.cat/dist/jclic/jclicpluginssl.js" type="text/javascript"></script>
+<script language="JavaScript">
+setLanguage('__UP_language__');
+setSkin('__UP_skin__');
+setExitUrl('__UP_exitUrl__');
+setSystemSounds('__UP_systemSounds__');
+writePlugin('__UP_url__', '100%', '100%');
+</script>
+]]></Content>
+</Module>
