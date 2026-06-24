@@ -1,4 +1,4 @@
-; Required for Java detection
+﻿; Required for Java detection
 !include GetJavaVersion.nsh
 
 ; Product version
