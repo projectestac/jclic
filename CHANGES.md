@@ -1,5 +1,8 @@
 ## Release notes for JClic (https://projectestac.github.io/jclic)
 
+### Changes in 0.3.2.18 (24-Jun-2026)
+- Added Romanian translation, thanks to Dumitru Mamularu
+
 ### Changes in 0.3.2.17 (23-Oct-2022)
 - Always use normalized file names when exporting cover and thumb images 
 

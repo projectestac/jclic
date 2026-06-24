@@ -44,6 +44,9 @@ Translations:
    
    Português (Brasil):
    Hugo Sunayama
+
+   Român:
+   Dumitru Mamularu
    
 JClic uses code from the following projects:
 

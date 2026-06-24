@@ -9,7 +9,7 @@
 
     <!-- Variables -->
     <property name="name"           value="JClic" />    
-    <property name="year"           value="2004-17" />
+    <property name="year"           value="2004-26" />
     
     <!-- Set the appropiate values for your certificate keys here,
          or write them on a text file called ".ant-global.properties",
